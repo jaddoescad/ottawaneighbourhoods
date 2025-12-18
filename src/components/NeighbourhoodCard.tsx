@@ -32,6 +32,7 @@ export default function NeighbourhoodCard({
     { label: "Internet", emoji: "📡", value: quickStats.internetMbps / 3, max: 100 },
     { label: "Walkability", emoji: "🚶", value: quickStats.walkScore, max: 100 },
     { label: "Safety", emoji: "👮", value: quickStats.safety, max: 100 },
+    { label: "Parks", emoji: "🌳", value: neighbourhood.details.parks, max: 150, showCount: true },
   ];
 
   return (
@@ -67,19 +68,22 @@ export default function NeighbourhoodCard({
         </div>
 
         {/* Stats Bars */}
-        <div className="flex-1 flex flex-col justify-center space-y-4">
+        <div className="flex-1 flex flex-col justify-center space-y-3">
           {stats.map((stat) => (
             <div key={stat.label} className="flex items-center gap-3">
               <div className="flex items-center gap-2 w-28">
                 <span className="text-lg">{stat.emoji}</span>
                 <span className="text-white text-sm font-medium">{stat.label}</span>
               </div>
-              <div className="flex-1 h-6 bg-transparent rounded-full overflow-hidden">
+              <div className="flex-1 h-5 bg-white/10 rounded-full overflow-hidden">
                 <div
                   className={`h-full rounded-full ${getBarColor(stat.value, stat.max)} transition-all duration-500`}
                   style={{ width: getBarWidth(stat.value, stat.max) }}
                 />
               </div>
+              {'showCount' in stat && stat.showCount && (
+                <span className="text-white text-sm font-semibold w-8 text-right">{stat.value}</span>
+              )}
             </div>
           ))}
         </div>
@@ -115,10 +119,14 @@ export default function NeighbourhoodCard({
         {/* Bottom Stats Bar */}
         <div className="p-4">
           <div className="flex items-center justify-between text-white">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <div className="flex items-center gap-1">
                 <span className="text-lg">🚶</span>
                 <span className="font-semibold">{quickStats.walkScore}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <span className="text-lg">🌳</span>
+                <span className="font-semibold">{neighbourhood.details.parks}</span>
               </div>
               <div
                 className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
