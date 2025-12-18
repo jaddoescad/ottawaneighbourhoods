@@ -12,6 +12,7 @@
  *   - src/data/csv/schools_raw.csv
  *   - src/data/csv/libraries_raw.csv
  *   - src/data/csv/crime_raw.csv
+ *   - src/data/csv/hospitals_raw.csv
  *   - src/data/csv/neighbourhoods.csv (neighbourhood info/config)
  *
  * Output files:
@@ -119,6 +120,38 @@ function parseCSVLine(line) {
   }
   result.push(current);
   return result;
+}
+
+// ============================================================================
+// Distance Calculation (Haversine formula)
+// ============================================================================
+
+function haversineDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371; // Earth's radius in km
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+// Calculate centroid of a polygon (first ring only)
+function calculateCentroid(rings) {
+  if (!rings || rings.length === 0 || rings[0].length === 0) return null;
+
+  const ring = rings[0]; // Use outer ring
+  let sumX = 0, sumY = 0;
+  for (const [x, y] of ring) {
+    sumX += x;
+    sumY += y;
+  }
+  return {
+    lng: sumX / ring.length,
+    lat: sumY / ring.length,
+  };
 }
 
 // ============================================================================
@@ -261,7 +294,48 @@ async function main() {
   const schoolsRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'schools_raw.csv'), 'utf8'));
   const librariesRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'libraries_raw.csv'), 'utf8'));
   const crimeRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'crime_raw.csv'), 'utf8'));
+  const hospitalsRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'hospitals_raw.csv'), 'utf8'));
   const neighbourhoodsInfo = parseCSV(fs.readFileSync(path.join(csvDir, 'neighbourhoods.csv'), 'utf8'));
+
+  // Load Walk Scores (optional - file may not exist)
+  let walkScoresData = [];
+  const walkScoresPath = path.join(csvDir, 'walkscores.csv');
+  if (fs.existsSync(walkScoresPath)) {
+    walkScoresData = parseCSV(fs.readFileSync(walkScoresPath, 'utf8'));
+    console.log(`  - ${walkScoresData.length} walk score entries`);
+  } else {
+    console.log('  - No walk scores file found');
+  }
+
+  // Build walk scores lookup by id
+  const walkScoresById = {};
+  for (const entry of walkScoresData) {
+    walkScoresById[entry.id] = {
+      walkScore: parseInt(entry.walkScore) || 0,
+      transitScore: parseInt(entry.transitScore) || 0,
+      bikeScore: parseInt(entry.bikeScore) || 0,
+    };
+  }
+
+  // Load Age Demographics (optional - file may not exist)
+  let ageDemographicsData = [];
+  const ageDemographicsPath = path.join(csvDir, 'age_demographics.csv');
+  if (fs.existsSync(ageDemographicsPath)) {
+    ageDemographicsData = parseCSV(fs.readFileSync(ageDemographicsPath, 'utf8'));
+    console.log(`  - ${ageDemographicsData.length} age demographics entries`);
+  } else {
+    console.log('  - No age demographics file found (run: node scripts/generate-age-demographics.js)');
+  }
+
+  // Build age demographics lookup by id
+  const ageDemographicsById = {};
+  for (const entry of ageDemographicsData) {
+    ageDemographicsById[entry.id] = {
+      pctChildren: parseFloat(entry.pctChildren) || 0,
+      pctYoungProfessionals: parseFloat(entry.pctYoungProfessionals) || 0,
+      pctSeniors: parseFloat(entry.pctSeniors) || 0,
+    };
+  }
 
   // Load EQAO scores (optional - file may not exist)
   let eqaoScores = [];
@@ -277,6 +351,7 @@ async function main() {
   console.log(`  - ${schoolsRaw.length} schools`);
   console.log(`  - ${librariesRaw.length} libraries`);
   console.log(`  - ${crimeRaw.length} crimes`);
+  console.log(`  - ${hospitalsRaw.length} hospitals`);
   console.log(`  - ${neighbourhoodsInfo.length} neighbourhoods\n`);
 
   // Fetch population data
@@ -424,6 +499,60 @@ async function main() {
   }
   console.log(`  Assigned ${assignedLibraries} libraries`);
 
+  // Process hospitals - calculate nearest hospital for each neighbourhood
+  console.log('\nCalculating hospital proximity for each neighbourhood...');
+  const hospitals = hospitalsRaw.map(h => ({
+    name: h.NAME,
+    address: h.ADDRESS,
+    phone: h.PHONE,
+    lat: parseFloat(h.LATITUDE),
+    lng: parseFloat(h.LONGITUDE),
+    link: h.LINK,
+  })).filter(h => !isNaN(h.lat) && !isNaN(h.lng));
+
+  // Calculate centroid for each neighbourhood (from combined boundaries)
+  const centroidsByNeighbourhood = {};
+  for (const [neighbourhoodId, boundaries] of Object.entries(boundariesByNeighbourhood)) {
+    // Combine all boundary points to get overall centroid
+    let totalLat = 0, totalLng = 0, totalPoints = 0;
+    for (const boundary of boundaries) {
+      const centroid = calculateCentroid(boundary.rings);
+      if (centroid) {
+        totalLat += centroid.lat;
+        totalLng += centroid.lng;
+        totalPoints++;
+      }
+    }
+    if (totalPoints > 0) {
+      centroidsByNeighbourhood[neighbourhoodId] = {
+        lat: totalLat / totalPoints,
+        lng: totalLng / totalPoints,
+      };
+    }
+  }
+
+  // For each neighbourhood, find nearest hospital and distance
+  const hospitalsByNeighbourhood = {};
+  for (const [neighbourhoodId, centroid] of Object.entries(centroidsByNeighbourhood)) {
+    let nearestHospital = null;
+    let nearestDistance = Infinity;
+
+    for (const hospital of hospitals) {
+      const distance = haversineDistance(centroid.lat, centroid.lng, hospital.lat, hospital.lng);
+      if (distance < nearestDistance) {
+        nearestDistance = distance;
+        nearestHospital = hospital;
+      }
+    }
+
+    hospitalsByNeighbourhood[neighbourhoodId] = {
+      nearestHospital: nearestHospital ? nearestHospital.name : null,
+      nearestHospitalAddress: nearestHospital ? nearestHospital.address : null,
+      distanceToNearestHospital: nearestDistance === Infinity ? null : Math.round(nearestDistance * 10) / 10, // km, 1 decimal
+    };
+  }
+  console.log(`  Calculated proximity for ${Object.keys(hospitalsByNeighbourhood).length} neighbourhoods`);
+
   // Process crime data
   console.log('\nProcessing crime data by neighbourhood...');
 
@@ -498,6 +627,11 @@ async function main() {
     const schools = schoolsByNeighbourhood[info.id] || [];
     const libraries = librariesByNeighbourhood[info.id] || [];
     const crime = crimeByNeighbourhood[info.id] || { total: 0, byCategory: {} };
+    const hospitalData = hospitalsByNeighbourhood[info.id] || {
+      nearestHospital: null,
+      nearestHospitalAddress: null,
+      distanceToNearestHospital: null,
+    };
 
     // Calculate population by summing all ONS areas for this neighbourhood
     const mapping = neighbourhoodMapping[info.id];
@@ -507,6 +641,12 @@ async function main() {
         population += populationByOnsId[onsId] || 0;
       }
     }
+
+    // Get walk scores for this neighbourhood
+    const walkScores = walkScoresById[info.id] || { walkScore: 0, transitScore: 0, bikeScore: 0 };
+
+    // Get age demographics for this neighbourhood
+    const ageDemographics = ageDemographicsById[info.id] || { pctChildren: 0, pctYoungProfessionals: 0, pctSeniors: 0 };
 
     // Calculate average EQAO score for the neighbourhood
     const schoolsWithScores = schools.filter(s => s.eqaoScore !== null);
@@ -531,6 +671,12 @@ async function main() {
       medianIncome: parseInt(info.medianIncome) || 0,
       avgRent: parseInt(info.avgRent) || 0,
       avgHomePrice: parseInt(info.avgHomePrice) || 0,
+      walkScore: walkScores.walkScore,
+      transitScore: walkScores.transitScore,
+      bikeScore: walkScores.bikeScore,
+      pctChildren: ageDemographics.pctChildren,
+      pctYoungProfessionals: ageDemographics.pctYoungProfessionals,
+      pctSeniors: ageDemographics.pctSeniors,
       details: {
         parks: parks.length,
         parksList: parks.map(p => p.name),
@@ -547,6 +693,9 @@ async function main() {
         librariesData: libraries,
         crimeTotal: crime.total,
         crimeByCategory: crime.byCategory,
+        nearestHospital: hospitalData.nearestHospital,
+        nearestHospitalAddress: hospitalData.nearestHospitalAddress,
+        distanceToNearestHospital: hospitalData.distanceToNearestHospital,
       },
       pros: info.pros ? info.pros.split('; ') : [],
       cons: info.cons ? info.cons.split('; ') : [],

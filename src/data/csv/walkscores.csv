@@ -1,0 +1,28 @@
+id,name,walkScore,transitScore,bikeScore,source,notes
+the-glebe,The Glebe,88,75,85,WalkScore.com,Historic walkable neighbourhood with Bank Street shops
+westboro,Westboro,82,72,90,WalkScore.com,Great bike paths along Ottawa River; LRT access
+byward-market,Byward Market,97,88,80,WalkScore.com,Walker's Paradise; downtown core with best transit
+centretown,Centretown,94,85,78,WalkScore.com,Downtown core; excellent transit hub
+old-ottawa-south,Old Ottawa South,78,65,85,WalkScore.com,Canal access; bike-friendly paths
+hintonburg,Hintonburg,87,75,82,WalkScore.com,LRT at Bayview; walkable Wellington West
+little-italy,Little Italy,88,72,80,WalkScore.com,Vibrant Preston St; near Dow's Lake and LRT
+kanata,Kanata,35,50,60,WalkScore.com estimate,Suburban tech hub; car-dependent
+stittsville,Stittsville,34,37,50,WalkScore.com,Suburban; limited transit
+alta-vista,Alta Vista,49,58,69,WalkScore.com,Established suburban; some bus routes
+sandy-hill,Sandy Hill,79,78,75,WalkScore.com,Near uOttawa; walkable to downtown
+orleans,Orleans,45,55,62,WalkScore.com estimate,LRT extension coming; suburban
+barrhaven,Barrhaven,41,44,67,WalkScore.com,Growing suburb; limited transit
+bayshore,Bayshore,65,78,70,WalkScore.com estimate,LRT station; Bayshore Shopping Centre
+bells-corners,Bells Corners,40,45,55,WalkScore.com estimate,Suburban west end
+carlington,Carlington,55,60,68,WalkScore.com estimate,Near Carleton; some bus routes
+hunt-club,Hunt Club,38,62,74,WalkScore.com,Family area; good bike infrastructure
+riverside-south,Riverside South,30,35,58,WalkScore.com estimate,New development; limited services
+manotick,Manotick,20,15,45,WalkScore.com,Rural village; car required outside core
+vars,Vars-Navan,10,5,30,WalkScore.com estimate,Very rural; no transit
+carp,Carp,15,10,35,WalkScore.com estimate,Rural village; minimal services
+constance-bay,Constance Bay,5,5,25,WalkScore.com estimate,Very rural; waterfront community
+richmond,Richmond,18,12,38,WalkScore.com estimate,Rural village; growing
+metcalfe,Metcalfe-Osgoode,12,8,32,WalkScore.com estimate,Very rural; farmland
+nepean,Nepean,48,55,65,WalkScore.com estimate,Established suburb; mixed walkability
+vanier,Vanier,80,75,72,WalkScore.com,Very walkable; diverse community
+new-edinburgh,New Edinburgh,85,70,78,WalkScore.com,Historic; near Rideau Hall and river

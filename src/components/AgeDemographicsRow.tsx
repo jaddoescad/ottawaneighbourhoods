@@ -1,0 +1,176 @@
+"use client";
+
+import { useState } from "react";
+
+interface AgeDemographicsRowProps {
+  pctChildren: number;
+  pctYoungProfessionals: number;
+  pctSeniors: number;
+}
+
+export default function AgeDemographicsRow({
+  pctChildren,
+  pctYoungProfessionals,
+  pctSeniors,
+}: AgeDemographicsRowProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Ottawa average percentages (2021 Census)
+  const ottawaAverages = {
+    children: 16.7,
+    youngProfessionals: 27.7,
+    seniors: 16.0,
+  };
+
+  // Determine the "character" of the neighbourhood based on demographics
+  const getDemographicType = (): { label: string; type: "great" | "good" | "okay" | "bad" } => {
+    const childrenRatio = pctChildren / ottawaAverages.children;
+    const youngProRatio = pctYoungProfessionals / ottawaAverages.youngProfessionals;
+    const seniorsRatio = pctSeniors / ottawaAverages.seniors;
+
+    // Find the dominant demographic
+    if (childrenRatio >= 1.1 && childrenRatio > youngProRatio && childrenRatio > seniorsRatio) {
+      return { label: "Family-Friendly", type: "great" };
+    }
+    if (youngProRatio >= 1.1 && youngProRatio > childrenRatio && youngProRatio > seniorsRatio) {
+      return { label: "Young & Urban", type: "good" };
+    }
+    if (seniorsRatio >= 1.15) {
+      return { label: "Mature Community", type: "okay" };
+    }
+    return { label: "Mixed Demographics", type: "good" };
+  };
+
+  const demographic = getDemographicType();
+
+  const colors = {
+    great: "bg-green-500",
+    good: "bg-blue-400",
+    okay: "bg-purple-400",
+    bad: "bg-gray-400",
+  };
+
+  // For the main bar, show a composite "diversity" score based on balance
+  const getBalancePercent = () => {
+    // Higher score = more balanced demographics
+    const total = pctChildren + pctYoungProfessionals + pctSeniors;
+    return Math.min(total, 100);
+  };
+
+  const barWidth = Math.max(5, Math.min(getBalancePercent(), 100));
+
+  // For individual bars in expanded view
+  const maxPercent = 50; // Scale for visibility
+
+  const demographics = [
+    {
+      label: "Families w/ Children",
+      sublabel: "Ages 0-14",
+      value: pctChildren,
+      average: ottawaAverages.children,
+      color: pctChildren >= ottawaAverages.children ? "bg-green-500" : "bg-gray-300",
+    },
+    {
+      label: "Young Professionals",
+      sublabel: "Ages 25-44",
+      value: pctYoungProfessionals,
+      average: ottawaAverages.youngProfessionals,
+      color: pctYoungProfessionals >= ottawaAverages.youngProfessionals ? "bg-blue-400" : "bg-gray-300",
+    },
+    {
+      label: "Seniors",
+      sublabel: "Ages 65+",
+      value: pctSeniors,
+      average: ottawaAverages.seniors,
+      color: "bg-purple-400",
+    },
+  ];
+
+  return (
+    <div className="border-b border-gray-100 last:border-b-0">
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="w-full flex items-center gap-3 px-5 py-4 hover:bg-gray-50 cursor-pointer transition-colors"
+      >
+        <div className="flex items-center gap-2 w-28 shrink-0">
+          <span className="text-xl">👨‍👩‍👧‍👦</span>
+          <span className="text-gray-900 font-medium">Age</span>
+        </div>
+        <div className="flex-1 relative h-9 bg-gray-100 rounded-lg overflow-hidden">
+          <div
+            className={`absolute inset-y-0 left-0 rounded-lg ${colors[demographic.type]} transition-all duration-300`}
+            style={{ width: `${barWidth}%` }}
+          />
+          <span className="absolute inset-0 flex items-center px-4 text-gray-800 font-semibold text-sm">
+            {demographic.label}
+          </span>
+        </div>
+        <span className="text-gray-900 font-bold w-28 text-right text-sm">2021 Census</span>
+        <div className="w-5 h-5">
+          <svg
+            className={`w-5 h-5 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </div>
+      </button>
+
+      {isExpanded && (
+        <div className="px-5 pb-4 bg-gray-50">
+          <div className="text-xs text-gray-500 mb-3 uppercase tracking-wide">
+            Age Distribution
+          </div>
+          <div className="space-y-3">
+            {demographics.map((demo) => (
+              <div key={demo.label}>
+                <div className="flex justify-between text-xs text-gray-600 mb-1">
+                  <span>{demo.label} <span className="text-gray-400">({demo.sublabel})</span></span>
+                  <span className="font-medium">{demo.value}%</span>
+                </div>
+                <div className="relative h-5 bg-gray-200 rounded overflow-hidden">
+                  <div
+                    className={`absolute inset-y-0 left-0 rounded ${demo.color} transition-all duration-300`}
+                    style={{ width: `${Math.min((demo.value / maxPercent) * 100, 100)}%` }}
+                  />
+                  {/* Ottawa average marker */}
+                  <div
+                    className="absolute inset-y-0 w-0.5 bg-gray-600"
+                    style={{ left: `${(demo.average / maxPercent) * 100}%` }}
+                    title={`Ottawa avg: ${demo.average}%`}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Legend */}
+          <div className="mt-3 pt-2 border-t border-gray-200 flex items-center gap-4 text-xs text-gray-500">
+            <div className="flex items-center gap-1">
+              <div className="w-0.5 h-3 bg-gray-600" />
+              <span>Ottawa avg</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-3 h-3 bg-green-500 rounded" />
+              <span>Families</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-3 h-3 bg-blue-400 rounded" />
+              <span>Young Pro</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-3 h-3 bg-purple-400 rounded" />
+              <span>Seniors</span>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

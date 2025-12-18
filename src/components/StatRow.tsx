@@ -4,7 +4,7 @@ interface StatRowProps {
   value: string | number;
   percent: number;
   type?: "great" | "good" | "okay" | "bad" | "neutral";
-  labelSet?: "income" | "rent" | "homePrice" | "population";
+  labelSet?: "income" | "rent" | "homePrice" | "population" | "healthcare";
 }
 
 export default function StatRow({
@@ -50,6 +50,13 @@ export default function StatRow({
       good: "Medium-Large",
       okay: "Medium",
       bad: "Small",
+      neutral: "N/A",
+    },
+    healthcare: {
+      great: "Very Close",
+      good: "Close",
+      okay: "Moderate",
+      bad: "Far",
       neutral: "N/A",
     },
   };

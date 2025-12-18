@@ -23,6 +23,9 @@ src/data/
 │   ├── libraries_raw.csv         # All 34 libraries from Ottawa Open Data
 │   ├── eqao_scores.csv           # EQAO school scores from Ontario Open Data
 │   ├── crime_raw.csv             # ~98K crimes (2023-2024) from Ottawa Police
+│   ├── hospitals_raw.csv         # All 10 hospitals from Ottawa Open Data
+│   ├── walkscores.csv            # Walk Score, Transit Score, Bike Score (from WalkScore.com)
+│   ├── age_demographics.csv      # Age demographics (% children, young professionals, seniors)
 │   ├── neighbourhoods.csv        # Neighbourhood info (scores, pros/cons, avgRent, avgHomePrice)
 │   ├── rent_data.csv             # Rent research data with sources
 │   ├── home_prices.csv           # Home price research data with sources
@@ -34,6 +37,8 @@ src/data/
 scripts/
 ├── process-data.js               # Main processing script
 ├── download-eqao-data.js         # Downloads EQAO scores from Ontario Open Data
+├── download-hospitals.js         # Downloads hospitals from Ottawa Open Data
+├── generate-age-demographics.js  # Generates age demographics CSV from 2021 Census
 └── config/
     └── neighbourhood-mapping.js  # Maps our neighbourhoods to ONS IDs
 ```
@@ -51,6 +56,9 @@ All data from **City of Ottawa Open Data** (ArcGIS REST APIs):
 | Transit Stations | https://maps.ottawa.ca/arcgis/rest/services/TransitServices/MapServer/0 | 40 |
 | O-Train Stations | https://maps.ottawa.ca/arcgis/rest/services/TransitServices/MapServer/1 | 5 |
 | Crime (2023-2024) | https://services7.arcgis.com/2vhcNzw0NfUwAD3d/ArcGIS/rest/services/Criminal_Offences_Open_Data/FeatureServer/0 | ~98K |
+| Hospitals | https://maps.ottawa.ca/arcgis/rest/services/Hospitals/MapServer/0 | 10 |
+| Walk Scores | https://www.walkscore.com/CA-ON/Ottawa | 27 |
+| Age Demographics | https://open.ottawa.ca/datasets/ottawa::2021-long-form-census-sub-area | 27 |
 | Boundaries | https://maps.ottawa.ca/arcgis/rest/services/Neighbourhoods/MapServer/0 | 111 |
 
 ## Raw Data Fields
@@ -121,6 +129,67 @@ node scripts/process-data.js
 | WARD | City ward |
 
 **Crime Categories:** Arson, Assaults, Break and Enter, Fraud, Mischief, Robbery, Sexual Violations, Theft $5000 and Under, Theft Over $5000, Theft - Motor Vehicle, and more.
+
+### hospitals_raw.csv
+| Field | Description |
+|-------|-------------|
+| NAME | Hospital name |
+| ADDRESS | Street address |
+| PHONE | Phone number |
+| LATITUDE / LONGITUDE | Coordinates |
+| LINK | Hospital website URL |
+
+**To refresh hospital data:**
+```bash
+node scripts/download-hospitals.js
+node scripts/process-data.js
+```
+
+### walkscores.csv
+Walk Score, Transit Score, and Bike Score for each neighbourhood (0-100 scale):
+| Field | Description |
+|-------|-------------|
+| id | Neighbourhood ID (matches neighbourhoods.csv) |
+| name | Neighbourhood name |
+| walkScore | Walk Score (0-100) - walkability to amenities |
+| transitScore | Transit Score (0-100) - access to public transit |
+| bikeScore | Bike Score (0-100) - bikeability |
+| source | Data source (WalkScore.com) |
+| notes | Additional context |
+
+**Score Interpretation:**
+- 90-100: Walker's/Biker's Paradise, Excellent Transit
+- 70-89: Very Walkable/Bikeable, Excellent Transit
+- 50-69: Somewhat Walkable/Bikeable, Good Transit
+- 25-49: Car-Dependent, Some Transit
+- 0-24: Almost All Errands Require Car, Minimal Transit
+
+**Data Source:** https://www.walkscore.com/CA-ON/Ottawa (researched December 2024)
+
+### age_demographics.csv
+Age demographics data from Statistics Canada 2021 Census:
+| Field | Description |
+|-------|-------------|
+| id | Neighbourhood ID (matches neighbourhoods.csv) |
+| name | Neighbourhood name |
+| pctChildren | % of population aged 0-14 (families with children indicator) |
+| pctYoungProfessionals | % of population aged 25-44 |
+| pctSeniors | % of population aged 65+ |
+| censusSubArea | Census sub-area used for data mapping |
+| source | Data source |
+
+**Data Source:** Statistics Canada 2021 Census via City of Ottawa Open Data (https://open.ottawa.ca/datasets/ottawa::2021-long-form-census-sub-area)
+
+**Ottawa Averages (2021 Census):**
+- Children (0-14): 16.7%
+- Young Professionals (25-44): 27.7%
+- Seniors (65+): 16.0%
+
+**To refresh age demographics data:**
+```bash
+node scripts/generate-age-demographics.js
+node scripts/process-data.js
+```
 
 ### neighbourhoods.csv
 Edit this file to change neighbourhood info displayed on the website:

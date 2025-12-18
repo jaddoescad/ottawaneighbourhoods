@@ -6,6 +6,8 @@ import ExpandableStatRow from "@/components/ExpandableStatRow";
 import StatRow from "@/components/StatRow";
 import CrimeStatRow from "@/components/CrimeStatRow";
 import EqaoStatRow from "@/components/EqaoStatRow";
+import WalkScoreRow from "@/components/WalkScoreRow";
+import AgeDemographicsRow from "@/components/AgeDemographicsRow";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -49,6 +51,23 @@ function getHomePriceScoreType(value: number): "great" | "good" | "okay" | "bad"
   return "bad";
 }
 
+// For hospital distance, lower is better (inverted scoring)
+function getHealthcareScoreType(distanceKm: number | null): "great" | "good" | "okay" | "bad" | "neutral" {
+  if (distanceKm === null) return "neutral";
+  if (distanceKm <= 3) return "great";
+  if (distanceKm <= 8) return "good";
+  if (distanceKm <= 15) return "okay";
+  return "bad";
+}
+
+// Hospital distance as percentage (inverse - closer = higher bar)
+function getHealthcarePercent(distanceKm: number | null): number {
+  if (distanceKm === null) return 0;
+  // Max distance ~30km, invert so closer = fuller bar
+  const maxDistance = 30;
+  return Math.max(5, 100 - (distanceKm / maxDistance) * 100);
+}
+
 // Calculate bar percentage based on threshold max
 function getPercent(value: number, category: keyof typeof THRESHOLDS): number {
   const max = THRESHOLDS[category].max;
@@ -63,7 +82,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
     notFound();
   }
 
-  const { name, area, image, population, medianIncome, avgRent, avgHomePrice, details } = neighbourhood;
+  const { name, area, image, population, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, details } = neighbourhood;
   const trails = details.parksData
     .filter((park) => park.category === "Linear Park")
     .map((park) => park.name);
@@ -115,6 +134,11 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
       {/* Stats Grid - Real Data Only */}
       <div className="max-w-5xl mx-auto px-6 py-8">
         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <WalkScoreRow
+            walkScore={walkScore}
+            transitScore={transitScore}
+            bikeScore={bikeScore}
+          />
           <StatRow
             icon="👥"
             label="Population"
@@ -122,6 +146,11 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             percent={getPercent(population, "population")}
             type={getScoreType(population, "population")}
             labelSet="population"
+          />
+          <AgeDemographicsRow
+            pctChildren={pctChildren}
+            pctYoungProfessionals={pctYoungProfessionals}
+            pctSeniors={pctSeniors}
           />
           <ExpandableStatRow
             icon="🌳"
@@ -167,6 +196,14 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             type={trails.length > 0 ? getScoreType(trails.length, "trails") : "neutral"}
             items={trails}
             itemLabel="trails"
+          />
+          <StatRow
+            icon="🏥"
+            label="Hospital"
+            value={details.distanceToNearestHospital !== null ? `${details.distanceToNearestHospital} km` : "N/A"}
+            percent={getHealthcarePercent(details.distanceToNearestHospital)}
+            type={getHealthcareScoreType(details.distanceToNearestHospital)}
+            labelSet="healthcare"
           />
           <CrimeStatRow
             total={details.crimeTotal}

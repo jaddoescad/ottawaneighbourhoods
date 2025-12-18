@@ -59,6 +59,12 @@ export interface Neighbourhood {
   medianIncome: number;
   avgRent: number;
   avgHomePrice: number;
+  walkScore: number;      // 0-100 walkability score
+  transitScore: number;   // 0-100 transit accessibility score
+  bikeScore: number;      // 0-100 bikeability score
+  pctChildren: number;    // % of population aged 0-14 (families with children indicator)
+  pctYoungProfessionals: number; // % of population aged 25-44
+  pctSeniors: number;     // % of population aged 65+
   details: {
     parks: number;
     parksList: string[];
@@ -75,6 +81,9 @@ export interface Neighbourhood {
     librariesData: LibraryData[];
     crimeTotal: number;
     crimeByCategory: CrimeByCategory;
+    nearestHospital: string | null;
+    nearestHospitalAddress: string | null;
+    distanceToNearestHospital: number | null; // km
   };
   pros: string[];
   cons: string[];

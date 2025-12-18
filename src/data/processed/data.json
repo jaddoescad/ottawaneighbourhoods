@@ -9,6 +9,12 @@
       "medianIncome": 119000,
       "avgRent": 2150,
       "avgHomePrice": 1198947,
+      "walkScore": 88,
+      "transitScore": 75,
+      "bikeScore": 85,
+      "pctChildren": 9.9,
+      "pctYoungProfessionals": 36,
+      "pctSeniors": 15.2,
       "details": {
         "parks": 24,
         "parksList": [
@@ -427,7 +433,10 @@
           "Violations Resulting In The Deprivation Of Freedom": 3,
           "Possession / Trafficking Stolen Goods": 5,
           "Arson": 1
-        }
+        },
+        "nearestHospital": "Ottawa Hospital - Riverside Campus",
+        "nearestHospitalAddress": "1967 Riverside Drive",
+        "distanceToNearestHospital": 1.5
       },
       "pros": [
         "Excellent walkability",
@@ -450,6 +459,12 @@
       "medianIncome": 78000,
       "avgRent": 2200,
       "avgHomePrice": 930315,
+      "walkScore": 82,
+      "transitScore": 72,
+      "bikeScore": 90,
+      "pctChildren": 14.1,
+      "pctYoungProfessionals": 30.8,
+      "pctSeniors": 18.9,
       "details": {
         "parks": 32,
         "parksList": [
@@ -1100,7 +1115,10 @@
           "Offensive Weapons": 8,
           "Violations Causing Death": 1,
           "Arson": 2
-        }
+        },
+        "nearestHospital": "Royal Ottawa Hospital",
+        "nearestHospitalAddress": "1145 Carling Avenue",
+        "distanceToNearestHospital": 4.1
       },
       "pros": [
         "Near Ottawa River paths",
@@ -1123,6 +1141,12 @@
       "medianIncome": 72500,
       "avgRent": 1950,
       "avgHomePrice": 500000,
+      "walkScore": 97,
+      "transitScore": 88,
+      "bikeScore": 80,
+      "pctChildren": 4.4,
+      "pctYoungProfessionals": 45.2,
+      "pctSeniors": 13.2,
       "details": {
         "parks": 20,
         "parksList": [
@@ -1486,7 +1510,10 @@
           "Violations Resulting In The Deprivation Of Freedom": 10,
           "Violations Causing Death": 3,
           "Attempting The Commission Of A Capital Crime": 1
-        }
+        },
+        "nearestHospital": "Elizabeth Bruyere Hospital",
+        "nearestHospitalAddress": "43 Bruyere Street",
+        "distanceToNearestHospital": 2.1
       },
       "pros": [
         "Best nightlife in Ottawa",
@@ -1509,6 +1536,12 @@
       "medianIncome": 72500,
       "avgRent": 1755,
       "avgHomePrice": 501560,
+      "walkScore": 94,
+      "transitScore": 85,
+      "bikeScore": 78,
+      "pctChildren": 4.4,
+      "pctYoungProfessionals": 45.2,
+      "pctSeniors": 13.2,
       "details": {
         "parks": 25,
         "parksList": [
@@ -2072,7 +2105,10 @@
           "Violations Causing Death": 3,
           "Attempting The Commission Of A Capital Crime": 2,
           "Commodification Of Sexual Activity": 3
-        }
+        },
+        "nearestHospital": "Saint Vincent Hospital",
+        "nearestHospitalAddress": "60 Cambridge Street North",
+        "distanceToNearestHospital": 1
       },
       "pros": [
         "Central location",
@@ -2095,6 +2131,12 @@
       "medianIncome": 119000,
       "avgRent": 2275,
       "avgHomePrice": 1100000,
+      "walkScore": 78,
+      "transitScore": 65,
+      "bikeScore": 85,
+      "pctChildren": 9.9,
+      "pctYoungProfessionals": 36,
+      "pctSeniors": 15.2,
       "details": {
         "parks": 16,
         "parksList": [
@@ -2361,7 +2403,10 @@
           "Mischief": 26,
           "Theft Over $5000": 2,
           "Offensive Weapons": 2
-        }
+        },
+        "nearestHospital": "Ottawa Hospital - Riverside Campus",
+        "nearestHospitalAddress": "1967 Riverside Drive",
+        "distanceToNearestHospital": 2.2
       },
       "pros": [
         "Canal access",
@@ -2384,6 +2429,12 @@
       "medianIncome": 86000,
       "avgRent": 2000,
       "avgHomePrice": 675600,
+      "walkScore": 87,
+      "transitScore": 75,
+      "bikeScore": 82,
+      "pctChildren": 14.1,
+      "pctYoungProfessionals": 30.8,
+      "pctSeniors": 18.9,
       "details": {
         "parks": 15,
         "parksList": [
@@ -2692,7 +2743,10 @@
           "Attempting The Commission Of A Capital Crime": 1,
           "Possession / Trafficking Stolen Goods": 2,
           "Violations Causing Death": 2
-        }
+        },
+        "nearestHospital": "Royal Ottawa Hospital",
+        "nearestHospitalAddress": "1145 Carling Avenue",
+        "distanceToNearestHospital": 1.7
       },
       "pros": [
         "Local art scene",
@@ -2715,6 +2769,12 @@
       "medianIncome": 79000,
       "avgRent": 1850,
       "avgHomePrice": 639273,
+      "walkScore": 88,
+      "transitScore": 72,
+      "bikeScore": 80,
+      "pctChildren": 9.9,
+      "pctYoungProfessionals": 36,
+      "pctSeniors": 15.2,
       "details": {
         "parks": 4,
         "parksList": [
@@ -2852,7 +2912,10 @@
           "Arson": 2,
           "Offensive Weapons": 1,
           "Possession / Trafficking Stolen Goods": 2
-        }
+        },
+        "nearestHospital": "Royal Ottawa Hospital",
+        "nearestHospitalAddress": "1145 Carling Avenue",
+        "distanceToNearestHospital": 1.9
       },
       "pros": [
         "Amazing restaurants",
@@ -2875,6 +2938,12 @@
       "medianIncome": 128000,
       "avgRent": 2400,
       "avgHomePrice": 850000,
+      "walkScore": 35,
+      "transitScore": 50,
+      "bikeScore": 60,
+      "pctChildren": 19.8,
+      "pctYoungProfessionals": 26.5,
+      "pctSeniors": 14.1,
       "details": {
         "parks": 101,
         "parksList": [
@@ -4403,7 +4472,10 @@
           "Possession / Trafficking Stolen Goods": 3,
           "Commodification Of Sexual Activity": 1,
           "Violations Causing Death": 1
-        }
+        },
+        "nearestHospital": "Queensway-Carleton Hospital",
+        "nearestHospitalAddress": "3045 Baseline Road",
+        "distanceToNearestHospital": 8
       },
       "pros": [
         "Tech job opportunities",
@@ -4426,6 +4498,12 @@
       "medianIncome": 128000,
       "avgRent": 2250,
       "avgHomePrice": 764223,
+      "walkScore": 34,
+      "transitScore": 37,
+      "bikeScore": 50,
+      "pctChildren": 19.8,
+      "pctYoungProfessionals": 26.5,
+      "pctSeniors": 14.1,
       "details": {
         "parks": 117,
         "parksList": [
@@ -6070,7 +6148,10 @@
           "Violations Resulting In The Deprivation Of Freedom": 6,
           "Offensive Weapons": 7,
           "Arson": 7
-        }
+        },
+        "nearestHospital": "Queensway-Carleton Hospital",
+        "nearestHospitalAddress": "3045 Baseline Road",
+        "distanceToNearestHospital": 9.8
       },
       "pros": [
         "Growing community",
@@ -6093,6 +6174,12 @@
       "medianIncome": 83000,
       "avgRent": 1850,
       "avgHomePrice": 733415,
+      "walkScore": 49,
+      "transitScore": 58,
+      "bikeScore": 69,
+      "pctChildren": 15.4,
+      "pctYoungProfessionals": 28.9,
+      "pctSeniors": 18.4,
       "details": {
         "parks": 44,
         "parksList": [
@@ -6872,7 +6959,10 @@
           "Arson": 26,
           "Violations Resulting In The Deprivation Of Freedom": 19,
           "Possession / Trafficking Stolen Goods": 13
-        }
+        },
+        "nearestHospital": "Ottawa Hospital - General Campus",
+        "nearestHospitalAddress": "501 Smyth Road",
+        "distanceToNearestHospital": 2.4
       },
       "pros": [
         "Established neighbourhood",
@@ -6895,6 +6985,12 @@
       "medianIncome": 64000,
       "avgRent": 1800,
       "avgHomePrice": 558092,
+      "walkScore": 79,
+      "transitScore": 78,
+      "bikeScore": 75,
+      "pctChildren": 9.9,
+      "pctYoungProfessionals": 36,
+      "pctSeniors": 15.2,
       "details": {
         "parks": 28,
         "parksList": [
@@ -7406,7 +7502,10 @@
           "Theft Over $5000": 47,
           "Attempting The Commission Of A Capital Crime": 1,
           "Violations Resulting In The Deprivation Of Freedom": 13
-        }
+        },
+        "nearestHospital": "Rehabilitation Centre",
+        "nearestHospitalAddress": "505 Smyth Road",
+        "distanceToNearestHospital": 2.4
       },
       "pros": [
         "Affordable rent",
@@ -7429,6 +7528,12 @@
       "medianIncome": 112000,
       "avgRent": 2200,
       "avgHomePrice": 700000,
+      "walkScore": 45,
+      "transitScore": 55,
+      "bikeScore": 62,
+      "pctChildren": 18.3,
+      "pctYoungProfessionals": 25.5,
+      "pctSeniors": 15.7,
       "details": {
         "parks": 201,
         "parksList": [
@@ -10480,7 +10585,10 @@
           "Sexual Violations": 81,
           "Violations Resulting In The Deprivation Of Freedom": 8,
           "Offensive Weapons": 9
-        }
+        },
+        "nearestHospital": "Montfort Hospital",
+        "nearestHospitalAddress": "713 Montreal Road",
+        "distanceToNearestHospital": 9.1
       },
       "pros": [
         "Affordable housing",
@@ -10503,6 +10611,12 @@
       "medianIncome": 115000,
       "avgRent": 2385,
       "avgHomePrice": 748553,
+      "walkScore": 41,
+      "transitScore": 44,
+      "bikeScore": 67,
+      "pctChildren": 20.6,
+      "pctYoungProfessionals": 27.1,
+      "pctSeniors": 10.4,
       "details": {
         "parks": 115,
         "parksList": [
@@ -12267,7 +12381,10 @@
           "Theft Over $5000": 3,
           "Other Criminal Code": 16,
           "Arson": 2
-        }
+        },
+        "nearestHospital": "Queensway-Carleton Hospital",
+        "nearestHospitalAddress": "3045 Baseline Road",
+        "distanceToNearestHospital": 9.5
       },
       "pros": [
         "New construction",
@@ -12290,6 +12407,12 @@
       "medianIncome": 95000,
       "avgRent": 2000,
       "avgHomePrice": 439190,
+      "walkScore": 65,
+      "transitScore": 78,
+      "bikeScore": 70,
+      "pctChildren": 14.9,
+      "pctYoungProfessionals": 28.5,
+      "pctSeniors": 20.6,
       "details": {
         "parks": 7,
         "parksList": [
@@ -12447,7 +12570,10 @@
           "Theft - Motor Vehicle": 59,
           "Possession / Trafficking Stolen Goods": 6,
           "Violations Resulting In The Deprivation Of Freedom": 2
-        }
+        },
+        "nearestHospital": "Queensway-Carleton Hospital",
+        "nearestHospitalAddress": "3045 Baseline Road",
+        "distanceToNearestHospital": 3
       },
       "pros": [
         "LRT access",
@@ -12468,6 +12594,12 @@
       "medianIncome": 111000,
       "avgRent": 1800,
       "avgHomePrice": 551607,
+      "walkScore": 40,
+      "transitScore": 45,
+      "bikeScore": 55,
+      "pctChildren": 14.1,
+      "pctYoungProfessionals": 30.8,
+      "pctSeniors": 18.9,
       "details": {
         "parks": 26,
         "parksList": [
@@ -12907,7 +13039,10 @@
           "Offensive Weapons": 8,
           "Possession / Trafficking Stolen Goods": 2,
           "Arson": 1
-        }
+        },
+        "nearestHospital": "Queensway-Carleton Hospital",
+        "nearestHospitalAddress": "3045 Baseline Road",
+        "distanceToNearestHospital": 1.4
       },
       "pros": [
         "Affordable",
@@ -12928,6 +13063,12 @@
       "medianIncome": 84000,
       "avgRent": 1700,
       "avgHomePrice": 600000,
+      "walkScore": 55,
+      "transitScore": 60,
+      "bikeScore": 68,
+      "pctChildren": 14.9,
+      "pctYoungProfessionals": 28.8,
+      "pctSeniors": 17.6,
       "details": {
         "parks": 28,
         "parksList": [
@@ -13488,7 +13629,10 @@
           "Violations Causing Death": 1,
           "Possession / Trafficking Stolen Goods": 7,
           "Commodification Of Sexual Activity": 2
-        }
+        },
+        "nearestHospital": "Royal Ottawa Hospital",
+        "nearestHospitalAddress": "1145 Carling Avenue",
+        "distanceToNearestHospital": 2.9
       },
       "pros": [
         "Central location",
@@ -13509,6 +13653,12 @@
       "medianIncome": 90000,
       "avgRent": 1750,
       "avgHomePrice": 714238,
+      "walkScore": 38,
+      "transitScore": 62,
+      "bikeScore": 74,
+      "pctChildren": 17.4,
+      "pctYoungProfessionals": 26,
+      "pctSeniors": 16.1,
       "details": {
         "parks": 65,
         "parksList": [
@@ -14485,7 +14635,10 @@
           "Commodification Of Sexual Activity": 1,
           "Arson": 4,
           "Possession / Trafficking Stolen Goods": 8
-        }
+        },
+        "nearestHospital": "Ottawa Hospital - Riverside Campus",
+        "nearestHospitalAddress": "1967 Riverside Drive",
+        "distanceToNearestHospital": 4.9
       },
       "pros": [
         "Good schools",
@@ -14506,6 +14659,12 @@
       "medianIncome": 110000,
       "avgRent": 2200,
       "avgHomePrice": 754416,
+      "walkScore": 30,
+      "transitScore": 35,
+      "bikeScore": 58,
+      "pctChildren": 22.3,
+      "pctYoungProfessionals": 29.1,
+      "pctSeniors": 9.5,
       "details": {
         "parks": 50,
         "parksList": [
@@ -15223,7 +15382,10 @@
           "Arson": 3,
           "Possession / Trafficking Stolen Goods": 2,
           "Offensive Weapons": 5
-        }
+        },
+        "nearestHospital": "Queensway-Carleton Hospital",
+        "nearestHospitalAddress": "3045 Baseline Road",
+        "distanceToNearestHospital": 10.4
       },
       "pros": [
         "New development",
@@ -15244,6 +15406,12 @@
       "medianIncome": 123000,
       "avgRent": 2500,
       "avgHomePrice": 1120987,
+      "walkScore": 20,
+      "transitScore": 15,
+      "bikeScore": 45,
+      "pctChildren": 17.4,
+      "pctYoungProfessionals": 21.7,
+      "pctSeniors": 16.2,
       "details": {
         "parks": 49,
         "parksList": [
@@ -15909,7 +16077,10 @@
           "Arson": 3,
           "Sexual Violations": 15,
           "Offensive Weapons": 1
-        }
+        },
+        "nearestHospital": "Queensway-Carleton Hospital",
+        "nearestHospitalAddress": "3045 Baseline Road",
+        "distanceToNearestHospital": 20.2
       },
       "pros": [
         "Village charm",
@@ -15930,6 +16101,12 @@
       "medianIncome": 123000,
       "avgRent": 1800,
       "avgHomePrice": 650000,
+      "walkScore": 10,
+      "transitScore": 5,
+      "bikeScore": 30,
+      "pctChildren": 15.1,
+      "pctYoungProfessionals": 19.9,
+      "pctSeniors": 19.5,
       "details": {
         "parks": 28,
         "parksList": [
@@ -16330,7 +16507,10 @@
           "Possession / Trafficking Stolen Goods": 3,
           "Sexual Violations": 11,
           "Theft Over $5000": 9
-        }
+        },
+        "nearestHospital": "Ottawa Hospital - General Campus",
+        "nearestHospitalAddress": "501 Smyth Road",
+        "distanceToNearestHospital": 19.6
       },
       "pros": [
         "Rural lifestyle",
@@ -16351,6 +16531,12 @@
       "medianIncome": 128000,
       "avgRent": 2000,
       "avgHomePrice": 787000,
+      "walkScore": 15,
+      "transitScore": 10,
+      "bikeScore": 35,
+      "pctChildren": 16.6,
+      "pctYoungProfessionals": 20.2,
+      "pctSeniors": 17.5,
       "details": {
         "parks": 20,
         "parksList": [
@@ -16651,7 +16837,10 @@
           "Theft Over $5000": 5,
           "Possession / Trafficking Stolen Goods": 1,
           "Violations Causing Death": 1
-        }
+        },
+        "nearestHospital": "Queensway-Carleton Hospital",
+        "nearestHospitalAddress": "3045 Baseline Road",
+        "distanceToNearestHospital": 22.9
       },
       "pros": [
         "Carp Fair",
@@ -16672,6 +16861,12 @@
       "medianIncome": 128000,
       "avgRent": 2200,
       "avgHomePrice": 720000,
+      "walkScore": 5,
+      "transitScore": 5,
+      "bikeScore": 25,
+      "pctChildren": 16.6,
+      "pctYoungProfessionals": 20.2,
+      "pctSeniors": 17.5,
       "details": {
         "parks": 25,
         "parksList": [
@@ -17060,7 +17255,10 @@
           "Theft Over $5000": 8,
           "Offensive Weapons": 1,
           "Violations Resulting In The Deprivation Of Freedom": 1
-        }
+        },
+        "nearestHospital": "Queensway-Carleton Hospital",
+        "nearestHospitalAddress": "3045 Baseline Road",
+        "distanceToNearestHospital": 27
       },
       "pros": [
         "Waterfront living",
@@ -17081,6 +17279,12 @@
       "medianIncome": 128000,
       "avgRent": 1900,
       "avgHomePrice": 737064,
+      "walkScore": 18,
+      "transitScore": 12,
+      "bikeScore": 38,
+      "pctChildren": 17.8,
+      "pctYoungProfessionals": 20.3,
+      "pctSeniors": 20.2,
       "details": {
         "parks": 36,
         "parksList": [
@@ -17614,7 +17818,10 @@
           "Other Criminal Code": 27,
           "Arson": 2,
           "Possession / Trafficking Stolen Goods": 1
-        }
+        },
+        "nearestHospital": "Queensway-Carleton Hospital",
+        "nearestHospitalAddress": "3045 Baseline Road",
+        "distanceToNearestHospital": 17.6
       },
       "pros": [
         "Historic village",
@@ -17635,6 +17842,12 @@
       "medianIncome": 123000,
       "avgRent": 1700,
       "avgHomePrice": 853000,
+      "walkScore": 12,
+      "transitScore": 8,
+      "bikeScore": 32,
+      "pctChildren": 17.4,
+      "pctYoungProfessionals": 21.7,
+      "pctSeniors": 16.2,
       "details": {
         "parks": 23,
         "parksList": [
@@ -18034,7 +18247,10 @@
           "Arson": 8,
           "Sexual Violations": 7,
           "Violations Causing Death": 1
-        }
+        },
+        "nearestHospital": "Ottawa Hospital - General Campus",
+        "nearestHospitalAddress": "501 Smyth Road",
+        "distanceToNearestHospital": 23.6
       },
       "pros": [
         "Farmland views",
@@ -18055,6 +18271,12 @@
       "medianIncome": 111000,
       "avgRent": 2000,
       "avgHomePrice": 680000,
+      "walkScore": 48,
+      "transitScore": 55,
+      "bikeScore": 65,
+      "pctChildren": 15.1,
+      "pctYoungProfessionals": 26.3,
+      "pctSeniors": 18.7,
       "details": {
         "parks": 140,
         "parksList": [
@@ -20302,7 +20524,10 @@
           "Theft Over $5000": 46,
           "Offensive Weapons": 18,
           "Violations Causing Death": 2
-        }
+        },
+        "nearestHospital": "Royal Ottawa Hospital",
+        "nearestHospitalAddress": "1145 Carling Avenue",
+        "distanceToNearestHospital": 5.1
       },
       "pros": [
         "Established area",
@@ -20323,6 +20548,12 @@
       "medianIncome": 62400,
       "avgRent": 2012,
       "avgHomePrice": 478375,
+      "walkScore": 80,
+      "transitScore": 75,
+      "bikeScore": 72,
+      "pctChildren": 14.2,
+      "pctYoungProfessionals": 29,
+      "pctSeniors": 19.5,
       "details": {
         "parks": 17,
         "parksList": [
@@ -20649,7 +20880,10 @@
           "Offensive Weapons": 21,
           "Violations Resulting In The Deprivation Of Freedom": 7,
           "Violations Causing Death": 1
-        }
+        },
+        "nearestHospital": "Montfort Hospital",
+        "nearestHospitalAddress": "713 Montreal Road",
+        "distanceToNearestHospital": 1.8
       },
       "pros": [
         "Very walkable",
@@ -20670,6 +20904,12 @@
       "medianIncome": 80000,
       "avgRent": 2400,
       "avgHomePrice": 895774,
+      "walkScore": 85,
+      "transitScore": 70,
+      "bikeScore": 78,
+      "pctChildren": 14.2,
+      "pctYoungProfessionals": 29,
+      "pctSeniors": 19.5,
       "details": {
         "parks": 9,
         "parksList": [
@@ -20908,7 +21148,10 @@
           "Theft Over $5000": 2,
           "Arson": 1,
           "Offensive Weapons": 2
-        }
+        },
+        "nearestHospital": "Montfort Hospital",
+        "nearestHospitalAddress": "713 Montreal Road",
+        "distanceToNearestHospital": 2.4
       },
       "pros": [
         "Historic charm",

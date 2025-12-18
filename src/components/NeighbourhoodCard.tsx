@@ -45,6 +45,21 @@ function getRentBarColor(value: number): string {
   return "bg-orange-400";
 }
 
+// For hospital distance: close < 3km, moderate < 10km, far >= 10km
+function getHospitalBarColor(distanceKm: number | null): string {
+  if (distanceKm === null) return "bg-gray-400";
+  if (distanceKm <= 3) return "bg-green-400";
+  if (distanceKm <= 10) return "bg-yellow-400";
+  return "bg-orange-400";
+}
+
+function getHospitalBarWidth(distanceKm: number | null): string {
+  if (distanceKm === null) return "0%";
+  // Invert: closer = fuller bar. Max distance ~30km
+  const percent = Math.max(5, 100 - (distanceKm / 30) * 100);
+  return `${percent}%`;
+}
+
 export default function NeighbourhoodCard({
   neighbourhood,
 }: NeighbourhoodCardProps) {
@@ -137,6 +152,29 @@ export default function NeighbourhoodCard({
               />
             </div>
             <span className="text-white text-sm font-semibold w-14 text-right">{formatRent(avgRent)}</span>
+          </div>
+
+          {/* Hospital Proximity */}
+          <div className="flex items-center gap-3 group/hospital relative">
+            <div className="flex items-center gap-2 w-28">
+              <span className="text-lg">🏥</span>
+              <span className="text-white text-sm font-medium">Hospital</span>
+            </div>
+            <div className="flex-1 h-4 bg-white/10 rounded-full overflow-hidden">
+              <div
+                className={`h-full rounded-full ${getHospitalBarColor(neighbourhood.details.distanceToNearestHospital)} transition-all duration-500`}
+                style={{ width: getHospitalBarWidth(neighbourhood.details.distanceToNearestHospital) }}
+              />
+            </div>
+            <span className="text-white text-sm font-semibold w-14 text-right">
+              {neighbourhood.details.distanceToNearestHospital !== null ? `${neighbourhood.details.distanceToNearestHospital}km` : "N/A"}
+            </span>
+            {/* Tooltip */}
+            {neighbourhood.details.nearestHospital && (
+              <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover/hospital:opacity-100 transition-opacity whitespace-nowrap z-20">
+                {neighbourhood.details.nearestHospital}
+              </div>
+            )}
           </div>
         </div>
 
