@@ -4,20 +4,11 @@
       "id": "the-glebe",
       "name": "The Glebe",
       "area": "Central Ottawa",
-      "image": "https://images.unsplash.com/photo-1584448141569-69f342da535c?w=800&q=80",
-      "score": 92,
-      "rank": 1,
-      "quickStats": {
-        "avgRent": 2100,
-        "walkScore": 87,
-        "transit": "A",
-        "safety": 94,
-        "internetMbps": 150
-      },
+      "image": "https://ottawatourism.ca/sites/default/files/images/2020/04/1500-Lansdowne-JOEY-and-Aberdeen-Pavilion-credit-Ottawa-Tourism.jpg",
+      "population": 18838,
+      "medianIncome": 119000,
+      "avgRent": 2150,
       "details": {
-        "population": "12,450",
-        "avgIncome": "$98,500",
-        "restaurants": 85,
         "parks": 24,
         "parksList": [
           "Lionel Britton Park",
@@ -405,18 +396,6 @@
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
-        "transitStations": 1,
-        "transitStationsList": [
-          "Lees"
-        ],
-        "transitStationsData": [
-          {
-            "name": "Lees",
-            "type": "Transitway",
-            "lat": 45.4162762376924,
-            "lng": -75.67022948876972
-          }
-        ],
         "crimeTotal": 2430,
         "crimeByCategory": {
           "Other Violations Involving Violence Or The Threat Of Violence": 86,
@@ -433,8 +412,7 @@
           "Violations Resulting In The Deprivation Of Freedom": 3,
           "Possession / Trafficking Stolen Goods": 5,
           "Arson": 1
-        },
-        "bikeScore": 91
+        }
       },
       "pros": [
         "Excellent walkability",
@@ -452,20 +430,11 @@
       "id": "westboro",
       "name": "Westboro",
       "area": "West End",
-      "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
-      "score": 89,
-      "rank": 2,
-      "quickStats": {
-        "avgRent": 1950,
-        "walkScore": 82,
-        "transit": "A-",
-        "safety": 92,
-        "internetMbps": 120
-      },
+      "image": "https://ottawatourism.ca/sites/default/files/images/2020/06/1500-Westboro-Night-TD-Canada-Trust-to-ClockTower-Brew-Pub-2014-6090-credit-Westboro-Village-BIA.jpg",
+      "population": 32800,
+      "medianIncome": 78000,
+      "avgRent": 2200,
       "details": {
-        "population": "9,800",
-        "avgIncome": "$105,200",
-        "restaurants": 62,
         "parks": 32,
         "parksList": [
           "Lion's Park",
@@ -1073,25 +1042,6 @@
             "acronym": "CA"
           }
         ],
-        "transitStations": 2,
-        "transitStationsList": [
-          "Westboro",
-          "Lincoln Fields"
-        ],
-        "transitStationsData": [
-          {
-            "name": "Westboro",
-            "type": "Transitway",
-            "lat": 45.396443161160875,
-            "lng": -75.75233935142599
-          },
-          {
-            "name": "Lincoln Fields",
-            "type": "Transitway",
-            "lat": 45.36564447124582,
-            "lng": -75.78285146728095
-          }
-        ],
         "crimeTotal": 4647,
         "crimeByCategory": {
           "Theft $5000 and Under": 3038,
@@ -1109,8 +1059,7 @@
           "Offensive Weapons": 8,
           "Violations Causing Death": 1,
           "Arson": 2
-        },
-        "bikeScore": 88
+        }
       },
       "pros": [
         "Near Ottawa River paths",
@@ -1128,20 +1077,11 @@
       "id": "byward-market",
       "name": "Byward Market",
       "area": "Downtown",
-      "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=800&q=80",
-      "score": 85,
-      "rank": 3,
-      "quickStats": {
-        "avgRent": 1850,
-        "walkScore": 97,
-        "transit": "A+",
-        "safety": 78,
-        "internetMbps": 200
-      },
+      "image": "https://ottawatourism.ca/sites/default/files/images/2020/02/1500-ByWard-Market-George-Street-Plaza-044A6193-credit-Ottawa-Tourism.jpg",
+      "population": 11912,
+      "medianIncome": 72500,
+      "avgRent": 1950,
       "details": {
-        "population": "4,200",
-        "avgIncome": "$72,300",
-        "restaurants": 150,
         "parks": 20,
         "parksList": [
           "London Terrace Park",
@@ -1474,9 +1414,6 @@
             "acronym": "RI"
           }
         ],
-        "transitStations": 0,
-        "transitStationsList": [],
-        "transitStationsData": [],
         "crimeTotal": 9730,
         "crimeByCategory": {
           "Break and Enter": 498,
@@ -1495,8 +1432,7 @@
           "Violations Resulting In The Deprivation Of Freedom": 10,
           "Violations Causing Death": 3,
           "Attempting The Commission Of A Capital Crime": 1
-        },
-        "bikeScore": 85
+        }
       },
       "pros": [
         "Best nightlife in Ottawa",
@@ -1514,20 +1450,11 @@
       "id": "centretown",
       "name": "Centretown",
       "area": "Downtown",
-      "image": "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80",
-      "score": 84,
-      "rank": 4,
-      "quickStats": {
-        "avgRent": 1750,
-        "walkScore": 94,
-        "transit": "A+",
-        "safety": 82,
-        "internetMbps": 175
-      },
+      "image": "https://source.unsplash.com/Gf3bWrqiIGQ/800x600",
+      "population": 46199,
+      "medianIncome": 72500,
+      "avgRent": 1755,
       "details": {
-        "population": "24,500",
-        "avgIncome": "$68,900",
-        "restaurants": 120,
         "parks": 25,
         "parksList": [
           "Princess Margriet Park",
@@ -2047,95 +1974,6 @@
             "acronym": "MA"
           }
         ],
-        "transitStations": 12,
-        "transitStationsList": [
-          "Lebreton",
-          "Metcalfe North",
-          "Metcalfe South",
-          "Bank North",
-          "Bank South",
-          "Kent South",
-          "Kent North",
-          "Bay North",
-          "Bay South",
-          "Bayview",
-          "Bayview",
-          "Carling"
-        ],
-        "transitStationsData": [
-          {
-            "name": "Lebreton",
-            "type": "Transitway",
-            "lat": 45.414046563516166,
-            "lng": -75.7130379724058
-          },
-          {
-            "name": "Metcalfe North",
-            "type": "Transitway",
-            "lat": 45.421791123962535,
-            "lng": -75.69617866873288
-          },
-          {
-            "name": "Metcalfe South",
-            "type": "Transitway",
-            "lat": 45.42128348803852,
-            "lng": -75.69507609541776
-          },
-          {
-            "name": "Bank North",
-            "type": "Transitway",
-            "lat": 45.420034873677466,
-            "lng": -75.70022949394583
-          },
-          {
-            "name": "Bank South",
-            "type": "Transitway",
-            "lat": 45.41995373750512,
-            "lng": -75.69816753787359
-          },
-          {
-            "name": "Kent South",
-            "type": "Transitway",
-            "lat": 45.41786530240759,
-            "lng": -75.7030209188597
-          },
-          {
-            "name": "Kent North",
-            "type": "Transitway",
-            "lat": 45.418640719370465,
-            "lng": -75.70346092716059
-          },
-          {
-            "name": "Bay North",
-            "type": "Transitway",
-            "lat": 45.41708647857837,
-            "lng": -75.70701629915504
-          },
-          {
-            "name": "Bay South",
-            "type": "Transitway",
-            "lat": 45.41619366345488,
-            "lng": -75.7069678503168
-          },
-          {
-            "name": "Bayview",
-            "type": "Transitway",
-            "lat": 45.40997049586635,
-            "lng": -75.72110267153084
-          },
-          {
-            "name": "Bayview",
-            "type": "O-Train Line 2",
-            "lat": 45.40927790631141,
-            "lng": -75.72193829339129
-          },
-          {
-            "name": "Carling",
-            "type": "O-Train Line 2",
-            "lat": 45.3974035458643,
-            "lng": -75.70947143884398
-          }
-        ],
         "crimeTotal": 14722,
         "crimeByCategory": {
           "Break and Enter": 760,
@@ -2155,8 +1993,7 @@
           "Violations Causing Death": 3,
           "Attempting The Commission Of A Capital Crime": 2,
           "Commodification Of Sexual Activity": 3
-        },
-        "bikeScore": 82
+        }
       },
       "pros": [
         "Central location",
@@ -2174,20 +2011,11 @@
       "id": "old-ottawa-south",
       "name": "Old Ottawa South",
       "area": "South End",
-      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
-      "score": 88,
-      "rank": 5,
-      "quickStats": {
-        "avgRent": 1900,
-        "walkScore": 75,
-        "transit": "B+",
-        "safety": 95,
-        "internetMbps": 100
-      },
+      "image": "https://source.unsplash.com/G971e4EFKtA/800x600",
+      "population": 11006,
+      "medianIncome": 119000,
+      "avgRent": 2275,
       "details": {
-        "population": "8,900",
-        "avgIncome": "$94,700",
-        "restaurants": 25,
         "parks": 16,
         "parksList": [
           "Windsor Park Ottawa",
@@ -2432,25 +2260,6 @@
             "acronym": "SU"
           }
         ],
-        "transitStations": 2,
-        "transitStationsList": [
-          "Walkley",
-          "Mooney's Bay"
-        ],
-        "transitStationsData": [
-          {
-            "name": "Walkley",
-            "type": "Transitway",
-            "lat": 45.368814475540866,
-            "lng": -75.66721287507875
-          },
-          {
-            "name": "Mooney's Bay",
-            "type": "O-Train Line 2",
-            "lat": 45.37683437487303,
-            "lng": -75.68492282403693
-          }
-        ],
         "crimeTotal": 275,
         "crimeByCategory": {
           "Theft - Motor Vehicle": 19,
@@ -2464,8 +2273,7 @@
           "Mischief": 26,
           "Theft Over $5000": 2,
           "Offensive Weapons": 2
-        },
-        "bikeScore": 86
+        }
       },
       "pros": [
         "Canal access",
@@ -2483,20 +2291,11 @@
       "id": "hintonburg",
       "name": "Hintonburg",
       "area": "West End",
-      "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&q=80",
-      "score": 86,
-      "rank": 6,
-      "quickStats": {
-        "avgRent": 1700,
-        "walkScore": 84,
-        "transit": "A-",
-        "safety": 85,
-        "internetMbps": 130
-      },
+      "image": "https://source.unsplash.com/NqOInJ-ttqM/800x600",
+      "population": 15192,
+      "medianIncome": 86000,
+      "avgRent": 2000,
       "details": {
-        "population": "7,200",
-        "avgIncome": "$76,500",
-        "restaurants": 48,
         "parks": 15,
         "parksList": [
           "Stirling-Carruthers Park",
@@ -2774,25 +2573,6 @@
             "acronym": "RO"
           }
         ],
-        "transitStations": 2,
-        "transitStationsList": [
-          "Iris",
-          "Queensway South"
-        ],
-        "transitStationsData": [
-          {
-            "name": "Iris",
-            "type": "Transitway",
-            "lat": 45.35599032958788,
-            "lng": -75.76992389197726
-          },
-          {
-            "name": "Queensway South",
-            "type": "Transitway",
-            "lat": 45.3591034138279,
-            "lng": -75.77171307641011
-          }
-        ],
         "crimeTotal": 2081,
         "crimeByCategory": {
           "Theft $5000 and Under": 882,
@@ -2811,8 +2591,7 @@
           "Attempting The Commission Of A Capital Crime": 1,
           "Possession / Trafficking Stolen Goods": 2,
           "Violations Causing Death": 2
-        },
-        "bikeScore": 83
+        }
       },
       "pros": [
         "Local art scene",
@@ -2830,20 +2609,11 @@
       "id": "little-italy",
       "name": "Little Italy",
       "area": "Central",
-      "image": "https://images.unsplash.com/photo-1555992336-fb0d29498b13?w=800&q=80",
-      "score": 87,
-      "rank": 7,
-      "quickStats": {
-        "avgRent": 1800,
-        "walkScore": 86,
-        "transit": "A-",
-        "safety": 88,
-        "internetMbps": 140
-      },
+      "image": "https://ottawatourism.ca/sites/default/files/images/2020/03/1500-Mural-Preston-Street-IMG_0028-credit-Ottawa-Tourism.jpg",
+      "population": 5339,
+      "medianIncome": 79000,
+      "avgRent": 1850,
       "details": {
-        "population": "6,800",
-        "avgIncome": "$81,200",
-        "restaurants": 65,
         "parks": 4,
         "parksList": [
           "Champlain Park",
@@ -2956,18 +2726,6 @@
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
-        "transitStations": 1,
-        "transitStationsList": [
-          "Tunney's Pasture"
-        ],
-        "transitStationsData": [
-          {
-            "name": "Tunney's Pasture",
-            "type": "Transitway",
-            "lat": 45.403830589737694,
-            "lng": -75.73492284254525
-          }
-        ],
         "crimeTotal": 410,
         "crimeByCategory": {
           "Theft $5000 and Under": 134,
@@ -2983,8 +2741,7 @@
           "Arson": 2,
           "Offensive Weapons": 1,
           "Possession / Trafficking Stolen Goods": 2
-        },
-        "bikeScore": 80
+        }
       },
       "pros": [
         "Amazing restaurants",
@@ -3002,20 +2759,11 @@
       "id": "kanata",
       "name": "Kanata",
       "area": "Suburban West",
-      "image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
-      "score": 81,
-      "rank": 8,
-      "quickStats": {
-        "avgRent": 1650,
-        "walkScore": 45,
-        "transit": "B-",
-        "safety": 96,
-        "internetMbps": 300
-      },
+      "image": "https://ottawatourism.ca/sites/default/files/images/2020/03/1500-Canadian-Tire-Centre---Canadian-Tire-Centre-outside-credit-Andre-Ringuette-Freestyle-Photograph.jpg",
+      "population": 40243,
+      "medianIncome": 128000,
+      "avgRent": 2400,
       "details": {
-        "population": "80,000",
-        "avgIncome": "$112,400",
-        "restaurants": 70,
         "parks": 101,
         "parksList": [
           "Elisha Scharf Park",
@@ -4490,9 +4238,6 @@
             "acronym": "HA"
           }
         ],
-        "transitStations": 0,
-        "transitStationsList": [],
-        "transitStationsData": [],
         "crimeTotal": 4043,
         "crimeByCategory": {
           "Assaults": 292,
@@ -4512,8 +4257,7 @@
           "Possession / Trafficking Stolen Goods": 3,
           "Commodification Of Sexual Activity": 1,
           "Violations Causing Death": 1
-        },
-        "bikeScore": 52
+        }
       },
       "pros": [
         "Tech job opportunities",
@@ -4532,19 +4276,10 @@
       "name": "Stittsville",
       "area": "Suburban West",
       "image": "https://images.unsplash.com/photo-1600585154526-ffa5f86f5e36?w=800&q=80",
-      "score": 80,
-      "rank": 9,
-      "quickStats": {
-        "avgRent": 1600,
-        "walkScore": 40,
-        "transit": "C+",
-        "safety": 96,
-        "internetMbps": 250
-      },
+      "population": 41614,
+      "medianIncome": 128000,
+      "avgRent": 2250,
       "details": {
-        "population": "42,000",
-        "avgIncome": "$108,000",
-        "restaurants": 45,
         "parks": 117,
         "parksList": [
           "Forest Creek Park",
@@ -6142,9 +5877,6 @@
             "acronym": "ST"
           }
         ],
-        "transitStations": 0,
-        "transitStationsList": [],
-        "transitStationsData": [],
         "crimeTotal": 1669,
         "crimeByCategory": {
           "Fraud": 400,
@@ -6161,8 +5893,7 @@
           "Violations Resulting In The Deprivation Of Freedom": 6,
           "Offensive Weapons": 7,
           "Arson": 7
-        },
-        "bikeScore": 45
+        }
       },
       "pros": [
         "Growing community",
@@ -6181,19 +5912,10 @@
       "name": "Alta Vista",
       "area": "South East",
       "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-      "score": 82,
-      "rank": 9,
-      "quickStats": {
-        "avgRent": 1700,
-        "walkScore": 58,
-        "transit": "B",
-        "safety": 94,
-        "internetMbps": 100
-      },
+      "population": 50079,
+      "medianIncome": 83000,
+      "avgRent": 1850,
       "details": {
-        "population": "48,000",
-        "avgIncome": "$88,900",
-        "restaurants": 40,
         "parks": 44,
         "parksList": [
           "Cunningham Woods",
@@ -6931,39 +6653,6 @@
             "acronym": "EA"
           }
         ],
-        "transitStations": 4,
-        "transitStationsList": [
-          "Riverside",
-          "Pleasant Park",
-          "Billings Bridge",
-          "Heron"
-        ],
-        "transitStationsData": [
-          {
-            "name": "Riverside",
-            "type": "Transitway",
-            "lat": 45.39670156996276,
-            "lng": -75.66931005948317
-          },
-          {
-            "name": "Pleasant Park",
-            "type": "Transitway",
-            "lat": 45.39262552745707,
-            "lng": -75.66960286085845
-          },
-          {
-            "name": "Billings Bridge",
-            "type": "Transitway",
-            "lat": 45.384587464348044,
-            "lng": -75.67670679651577
-          },
-          {
-            "name": "Heron",
-            "type": "Transitway",
-            "lat": 45.378912504155984,
-            "lng": -75.67962454432151
-          }
-        ],
         "crimeTotal": 5917,
         "crimeByCategory": {
           "Assaults": 610,
@@ -6981,8 +6670,7 @@
           "Arson": 26,
           "Violations Resulting In The Deprivation Of Freedom": 19,
           "Possession / Trafficking Stolen Goods": 13
-        },
-        "bikeScore": 55
+        }
       },
       "pros": [
         "Established neighbourhood",
@@ -7000,20 +6688,11 @@
       "id": "sandy-hill",
       "name": "Sandy Hill",
       "area": "Central",
-      "image": "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800&q=80",
-      "score": 79,
-      "rank": 10,
-      "quickStats": {
-        "avgRent": 1400,
-        "walkScore": 88,
-        "transit": "A",
-        "safety": 76,
-        "internetMbps": 150
-      },
+      "image": "https://source.unsplash.com/ZKtRM3LPW-U/800x600",
+      "population": 30964,
+      "medianIncome": 64000,
+      "avgRent": 1800,
       "details": {
-        "population": "11,500",
-        "avgIncome": "$52,300",
-        "restaurants": 35,
         "parks": 28,
         "parksList": [
           "St. Germain Park",
@@ -7489,53 +7168,6 @@
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
-        "transitStations": 6,
-        "transitStationsList": [
-          "Laurier South",
-          "Laurier North",
-          "MacKenzie King",
-          "Campus",
-          "St. Laurent",
-          "Cyrville"
-        ],
-        "transitStationsData": [
-          {
-            "name": "Laurier South",
-            "type": "Transitway",
-            "lat": 45.42383387871733,
-            "lng": -75.68673244154924
-          },
-          {
-            "name": "Laurier North",
-            "type": "Transitway",
-            "lat": 45.42419345851473,
-            "lng": -75.68675730871291
-          },
-          {
-            "name": "MacKenzie King",
-            "type": "Transitway",
-            "lat": 45.42408788060421,
-            "lng": -75.6897546679141
-          },
-          {
-            "name": "Campus",
-            "type": "Transitway",
-            "lat": 45.42054482539843,
-            "lng": -75.68222267514244
-          },
-          {
-            "name": "St. Laurent",
-            "type": "Transitway",
-            "lat": 45.42059503663785,
-            "lng": -75.63810485475895
-          },
-          {
-            "name": "Cyrville",
-            "type": "Transitway",
-            "lat": 45.42254692691886,
-            "lng": -75.6264510483073
-          }
-        ],
         "crimeTotal": 5399,
         "crimeByCategory": {
           "Assaults": 484,
@@ -7553,8 +7185,7 @@
           "Theft Over $5000": 47,
           "Attempting The Commission Of A Capital Crime": 1,
           "Violations Resulting In The Deprivation Of Freedom": 13
-        },
-        "bikeScore": 79
+        }
       },
       "pros": [
         "Affordable rent",
@@ -7572,20 +7203,11 @@
       "id": "orleans",
       "name": "Orleans",
       "area": "East End",
-      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-      "score": 78,
-      "rank": 11,
-      "quickStats": {
-        "avgRent": 1550,
-        "walkScore": 52,
-        "transit": "B",
-        "safety": 93,
-        "internetMbps": 175
-      },
+      "image": "https://ottawatourism.ca/sites/default/files/images/2021/05/1500-Heart-of-Orleans-BIA-credit-Orleans-Festivals.png",
+      "population": 142973,
+      "medianIncome": 112000,
+      "avgRent": 2200,
       "details": {
-        "population": "116,000",
-        "avgIncome": "$89,200",
-        "restaurants": 110,
         "parks": 201,
         "parksList": [
           "Whiterock Park",
@@ -10552,25 +10174,6 @@
             "acronym": "OR"
           }
         ],
-        "transitStations": 2,
-        "transitStationsList": [
-          "Blair",
-          "Place d'Orleans"
-        ],
-        "transitStationsData": [
-          {
-            "name": "Blair",
-            "type": "Transitway",
-            "lat": 45.43108310134786,
-            "lng": -75.60836061252064
-          },
-          {
-            "name": "Place d'Orleans",
-            "type": "Transitway",
-            "lat": 45.47870982053138,
-            "lng": -75.51875293709098
-          }
-        ],
         "crimeTotal": 2586,
         "crimeByCategory": {
           "Theft $5000 and Under": 494,
@@ -10587,8 +10190,7 @@
           "Sexual Violations": 81,
           "Violations Resulting In The Deprivation Of Freedom": 8,
           "Offensive Weapons": 9
-        },
-        "bikeScore": 48
+        }
       },
       "pros": [
         "Affordable housing",
@@ -10607,19 +10209,10 @@
       "name": "Barrhaven",
       "area": "South Suburban",
       "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
-      "score": 77,
-      "rank": 12,
-      "quickStats": {
-        "avgRent": 1600,
-        "walkScore": 38,
-        "transit": "C+",
-        "safety": 97,
-        "internetMbps": 250
-      },
+      "population": 61261,
+      "medianIncome": 115000,
+      "avgRent": 2385,
       "details": {
-        "population": "95,000",
-        "avgIncome": "$102,800",
-        "restaurants": 75,
         "parks": 115,
         "parksList": [
           "Moloughney Park",
@@ -12327,18 +11920,6 @@
             "acronym": "RD"
           }
         ],
-        "transitStations": 1,
-        "transitStationsList": [
-          "Fallowfield"
-        ],
-        "transitStationsData": [
-          {
-            "name": "Fallowfield",
-            "type": "Transitway",
-            "lat": 45.298285668008944,
-            "lng": -75.73515566071407
-          }
-        ],
         "crimeTotal": 490,
         "crimeByCategory": {
           "Fraud": 170,
@@ -12353,8 +11934,7 @@
           "Theft Over $5000": 3,
           "Other Criminal Code": 16,
           "Arson": 2
-        },
-        "bikeScore": 42
+        }
       },
       "pros": [
         "New construction",
@@ -12372,20 +11952,11 @@
       "id": "bayshore",
       "name": "Bayshore",
       "area": "West End",
-      "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
-      "score": 75,
-      "rank": 13,
-      "quickStats": {
-        "avgRent": 1500,
-        "walkScore": 65,
-        "transit": "B+",
-        "safety": 85,
-        "internetMbps": 150
-      },
+      "image": "https://source.unsplash.com/iVeICmo_N1o/800x600",
+      "population": 15856,
+      "medianIncome": 95000,
+      "avgRent": 2000,
       "details": {
-        "population": "15,000",
-        "avgIncome": "$72,000",
-        "restaurants": 30,
         "parks": 7,
         "parksList": [
           "Lincoln Heights Park",
@@ -12520,18 +12091,6 @@
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
-        "transitStations": 1,
-        "transitStationsList": [
-          "Bayshore"
-        ],
-        "transitStationsData": [
-          {
-            "name": "Bayshore",
-            "type": "Transitway",
-            "lat": 45.34575306661273,
-            "lng": -75.8100978755998
-          }
-        ],
         "crimeTotal": 939,
         "crimeByCategory": {
           "Assaults": 88,
@@ -12546,8 +12105,7 @@
           "Theft - Motor Vehicle": 59,
           "Possession / Trafficking Stolen Goods": 6,
           "Violations Resulting In The Deprivation Of Freedom": 2
-        },
-        "bikeScore": 60
+        }
       },
       "pros": [
         "LRT access",
@@ -12564,19 +12122,10 @@
       "name": "Bells Corners",
       "area": "West End",
       "image": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800&q=80",
-      "score": 76,
-      "rank": 14,
-      "quickStats": {
-        "avgRent": 1450,
-        "walkScore": 55,
-        "transit": "B",
-        "safety": 90,
-        "internetMbps": 120
-      },
+      "population": 14202,
+      "medianIncome": 111000,
+      "avgRent": 1800,
       "details": {
-        "population": "18,000",
-        "avgIncome": "$78,000",
-        "restaurants": 40,
         "parks": 26,
         "parksList": [
           "Leslie Park",
@@ -12986,9 +12535,6 @@
             "acronym": "CE"
           }
         ],
-        "transitStations": 0,
-        "transitStationsList": [],
-        "transitStationsData": [],
         "crimeTotal": 1073,
         "crimeByCategory": {
           "Other Violations Involving Violence Or The Threat Of Violence": 54,
@@ -13005,8 +12551,7 @@
           "Offensive Weapons": 8,
           "Possession / Trafficking Stolen Goods": 2,
           "Arson": 1
-        },
-        "bikeScore": 50
+        }
       },
       "pros": [
         "Affordable",
@@ -13023,19 +12568,10 @@
       "name": "Carlington",
       "area": "Central West",
       "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
-      "score": 74,
-      "rank": 15,
-      "quickStats": {
-        "avgRent": 1400,
-        "walkScore": 70,
-        "transit": "B+",
-        "safety": 82,
-        "internetMbps": 100
-      },
+      "population": 29869,
+      "medianIncome": 84000,
+      "avgRent": 1700,
       "details": {
-        "population": "20,000",
-        "avgIncome": "$65,000",
-        "restaurants": 25,
         "parks": 28,
         "parksList": [
           "Harrold Place Park",
@@ -13555,9 +13091,6 @@
             "acronym": "EP"
           }
         ],
-        "transitStations": 0,
-        "transitStationsList": [],
-        "transitStationsData": [],
         "crimeTotal": 2538,
         "crimeByCategory": {
           "Assaults": 297,
@@ -13577,8 +13110,7 @@
           "Violations Causing Death": 1,
           "Possession / Trafficking Stolen Goods": 7,
           "Commodification Of Sexual Activity": 2
-        },
-        "bikeScore": 65
+        }
       },
       "pros": [
         "Central location",
@@ -13595,19 +13127,10 @@
       "name": "Hunt Club",
       "area": "South End",
       "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80",
-      "score": 77,
-      "rank": 16,
-      "quickStats": {
-        "avgRent": 1550,
-        "walkScore": 50,
-        "transit": "B",
-        "safety": 88,
-        "internetMbps": 150
-      },
+      "population": 51319,
+      "medianIncome": 90000,
+      "avgRent": 1750,
       "details": {
-        "population": "45,000",
-        "avgIncome": "$82,000",
-        "restaurants": 50,
         "parks": 65,
         "parksList": [
           "Hunt Club Gate Park",
@@ -14543,32 +14066,6 @@
             "acronym": "KIOSK"
           }
         ],
-        "transitStations": 3,
-        "transitStationsList": [
-          "Greenboro",
-          "South Keys",
-          "Greenboro"
-        ],
-        "transitStationsData": [
-          {
-            "name": "Greenboro",
-            "type": "Transitway",
-            "lat": 45.35964833836575,
-            "lng": -75.65849461744854
-          },
-          {
-            "name": "South Keys",
-            "type": "Transitway",
-            "lat": 45.35343853926054,
-            "lng": -75.65510687917096
-          },
-          {
-            "name": "Greenboro",
-            "type": "O-Train Line 2",
-            "lat": 45.35972070788128,
-            "lng": -75.65915048372567
-          }
-        ],
         "crimeTotal": 3433,
         "crimeByCategory": {
           "Theft $5000 and Under": 1168,
@@ -14588,8 +14085,7 @@
           "Commodification Of Sexual Activity": 1,
           "Arson": 4,
           "Possession / Trafficking Stolen Goods": 8
-        },
-        "bikeScore": 45
+        }
       },
       "pros": [
         "Good schools",
@@ -14606,19 +14102,10 @@
       "name": "Riverside South",
       "area": "South Suburban",
       "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-      "score": 79,
-      "rank": 17,
-      "quickStats": {
-        "avgRent": 1700,
-        "walkScore": 35,
-        "transit": "C+",
-        "safety": 95,
-        "internetMbps": 200
-      },
+      "population": 25508,
+      "medianIncome": 110000,
+      "avgRent": 2200,
       "details": {
-        "population": "35,000",
-        "avgIncome": "$95,000",
-        "restaurants": 20,
         "parks": 50,
         "parksList": [
           "Spratt Park",
@@ -15303,9 +14790,6 @@
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
-        "transitStations": 0,
-        "transitStationsList": [],
-        "transitStationsData": [],
         "crimeTotal": 1453,
         "crimeByCategory": {
           "Theft - Motor Vehicle": 161,
@@ -15323,8 +14807,7 @@
           "Arson": 3,
           "Possession / Trafficking Stolen Goods": 2,
           "Offensive Weapons": 5
-        },
-        "bikeScore": 40
+        }
       },
       "pros": [
         "New development",
@@ -15341,19 +14824,10 @@
       "name": "Manotick",
       "area": "Rural South",
       "image": "https://images.unsplash.com/photo-1595877244574-e90ce41ce089?w=800&q=80",
-      "score": 80,
-      "rank": 18,
-      "quickStats": {
-        "avgRent": 1800,
-        "walkScore": 40,
-        "transit": "D",
-        "safety": 97,
-        "internetMbps": 75
-      },
+      "population": 23082,
+      "medianIncome": 123000,
+      "avgRent": 2500,
       "details": {
-        "population": "12,000",
-        "avgIncome": "$110,000",
-        "restaurants": 15,
         "parks": 49,
         "parksList": [
           "Craighurst Drive Park",
@@ -15992,9 +15466,6 @@
             "acronym": "GO"
           }
         ],
-        "transitStations": 0,
-        "transitStationsList": [],
-        "transitStationsData": [],
         "crimeTotal": 566,
         "crimeByCategory": {
           "Theft $5000 and Under": 131,
@@ -16011,8 +15482,7 @@
           "Arson": 3,
           "Sexual Violations": 15,
           "Offensive Weapons": 1
-        },
-        "bikeScore": 55
+        }
       },
       "pros": [
         "Village charm",
@@ -16029,19 +15499,10 @@
       "name": "Vars-Navan",
       "area": "Rural East",
       "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
-      "score": 72,
-      "rank": 19,
-      "quickStats": {
-        "avgRent": 1400,
-        "walkScore": 20,
-        "transit": "D",
-        "safety": 96,
-        "internetMbps": 50
-      },
+      "population": 10287,
+      "medianIncome": 123000,
+      "avgRent": 1800,
       "details": {
-        "population": "8,000",
-        "avgIncome": "$90,000",
-        "restaurants": 10,
         "parks": 28,
         "parksList": [
           "Stormwater Management Area",
@@ -16418,9 +15879,6 @@
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
-        "transitStations": 0,
-        "transitStationsList": [],
-        "transitStationsData": [],
         "crimeTotal": 247,
         "crimeByCategory": {
           "Fraud": 77,
@@ -16435,8 +15893,7 @@
           "Possession / Trafficking Stolen Goods": 3,
           "Sexual Violations": 11,
           "Theft Over $5000": 9
-        },
-        "bikeScore": 30
+        }
       },
       "pros": [
         "Rural lifestyle",
@@ -16453,19 +15910,10 @@
       "name": "Carp",
       "area": "Rural West",
       "image": "https://images.unsplash.com/photo-1500076656116-558758c991c1?w=800&q=80",
-      "score": 78,
-      "rank": 20,
-      "quickStats": {
-        "avgRent": 1500,
-        "walkScore": 25,
-        "transit": "D",
-        "safety": 97,
-        "internetMbps": 60
-      },
+      "population": 11690,
+      "medianIncome": 128000,
+      "avgRent": 2000,
       "details": {
-        "population": "5,000",
-        "avgIncome": "$105,000",
-        "restaurants": 10,
         "parks": 20,
         "parksList": [
           "Sheperds Grove Park",
@@ -16743,9 +16191,6 @@
             "acronym": "CP"
           }
         ],
-        "transitStations": 0,
-        "transitStationsList": [],
-        "transitStationsData": [],
         "crimeTotal": 319,
         "crimeByCategory": {
           "Other Violations Involving Violence Or The Threat Of Violence": 32,
@@ -16761,8 +16206,7 @@
           "Theft Over $5000": 5,
           "Possession / Trafficking Stolen Goods": 1,
           "Violations Causing Death": 1
-        },
-        "bikeScore": 35
+        }
       },
       "pros": [
         "Carp Fair",
@@ -16779,19 +16223,10 @@
       "name": "Constance Bay",
       "area": "Rural West",
       "image": "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=80",
-      "score": 73,
-      "rank": 21,
-      "quickStats": {
-        "avgRent": 1300,
-        "walkScore": 15,
-        "transit": "F",
-        "safety": 95,
-        "internetMbps": 40
-      },
+      "population": 11239,
+      "medianIncome": 128000,
+      "avgRent": 2200,
       "details": {
-        "population": "4,000",
-        "avgIncome": "$85,000",
-        "restaurants": 5,
         "parks": 25,
         "parksList": [
           "Woodlot",
@@ -17155,9 +16590,6 @@
             "acronym": "FH"
           }
         ],
-        "transitStations": 0,
-        "transitStationsList": [],
-        "transitStationsData": [],
         "crimeTotal": 287,
         "crimeByCategory": {
           "Assaults": 31,
@@ -17173,8 +16605,7 @@
           "Theft Over $5000": 8,
           "Offensive Weapons": 1,
           "Violations Resulting In The Deprivation Of Freedom": 1
-        },
-        "bikeScore": 25
+        }
       },
       "pros": [
         "Waterfront living",
@@ -17191,19 +16622,10 @@
       "name": "Richmond",
       "area": "Rural West",
       "image": "https://images.unsplash.com/photo-1516156008796-094e99a53b5a?w=800&q=80",
-      "score": 76,
-      "rank": 22,
-      "quickStats": {
-        "avgRent": 1450,
-        "walkScore": 30,
-        "transit": "D",
-        "safety": 96,
-        "internetMbps": 50
-      },
+      "population": 11374,
+      "medianIncome": 128000,
+      "avgRent": 1900,
       "details": {
-        "population": "6,000",
-        "avgIncome": "$95,000",
-        "restaurants": 12,
         "parks": 36,
         "parksList": [
           "Owlshead Park",
@@ -17710,9 +17132,6 @@
             "acronym": "RM"
           }
         ],
-        "transitStations": 0,
-        "transitStationsList": [],
-        "transitStationsData": [],
         "crimeTotal": 511,
         "crimeByCategory": {
           "Mischief": 48,
@@ -17728,8 +17147,7 @@
           "Other Criminal Code": 27,
           "Arson": 2,
           "Possession / Trafficking Stolen Goods": 1
-        },
-        "bikeScore": 40
+        }
       },
       "pros": [
         "Historic village",
@@ -17746,19 +17164,10 @@
       "name": "Metcalfe-Osgoode",
       "area": "Rural South",
       "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
-      "score": 74,
-      "rank": 23,
-      "quickStats": {
-        "avgRent": 1350,
-        "walkScore": 20,
-        "transit": "D",
-        "safety": 97,
-        "internetMbps": 45
-      },
+      "population": 10352,
+      "medianIncome": 123000,
+      "avgRent": 1700,
       "details": {
-        "population": "7,000",
-        "avgIncome": "$88,000",
-        "restaurants": 8,
         "parks": 23,
         "parksList": [
           "Ferdinand Park Walkway",
@@ -18131,9 +17540,6 @@
             "acronym": "VE"
           }
         ],
-        "transitStations": 0,
-        "transitStationsList": [],
-        "transitStationsData": [],
         "crimeTotal": 370,
         "crimeByCategory": {
           "Theft $5000 and Under": 47,
@@ -18149,8 +17555,7 @@
           "Arson": 8,
           "Sexual Violations": 7,
           "Violations Causing Death": 1
-        },
-        "bikeScore": 30
+        }
       },
       "pros": [
         "Farmland views",
@@ -18167,19 +17572,10 @@
       "name": "Nepean",
       "area": "South West",
       "image": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
-      "score": 80,
-      "rank": 24,
-      "quickStats": {
-        "avgRent": 1600,
-        "walkScore": 55,
-        "transit": "B",
-        "safety": 90,
-        "internetMbps": 150
-      },
+      "population": 108559,
+      "medianIncome": 111000,
+      "avgRent": 2000,
       "details": {
-        "population": "85,000",
-        "avgIncome": "$88,000",
-        "restaurants": 100,
         "parks": 140,
         "parksList": [
           "Meadowbrook Park (Gloucester)",
@@ -20349,39 +19745,6 @@
             "acronym": "NC"
           }
         ],
-        "transitStations": 4,
-        "transitStationsList": [
-          "Queensway North",
-          "Baseline",
-          "Smyth",
-          "Abbey"
-        ],
-        "transitStationsData": [
-          {
-            "name": "Queensway North",
-            "type": "Transitway",
-            "lat": 45.359425647495144,
-            "lng": -75.77229060420457
-          },
-          {
-            "name": "Baseline",
-            "type": "Transitway",
-            "lat": 45.347657913719985,
-            "lng": -75.76092734256022
-          },
-          {
-            "name": "Smyth",
-            "type": "Transitway",
-            "lat": 45.40108799794039,
-            "lng": -75.66671138158823
-          },
-          {
-            "name": "Abbey",
-            "type": "Transitway",
-            "lat": 45.406500542059476,
-            "lng": -75.66433106707089
-          }
-        ],
         "crimeTotal": 4493,
         "crimeByCategory": {
           "Fraud": 1081,
@@ -20400,8 +19763,7 @@
           "Theft Over $5000": 46,
           "Offensive Weapons": 18,
           "Violations Causing Death": 2
-        },
-        "bikeScore": 50
+        }
       },
       "pros": [
         "Established area",
@@ -20417,20 +19779,11 @@
       "id": "vanier",
       "name": "Vanier",
       "area": "Central East",
-      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
-      "score": 73,
-      "rank": 25,
-      "quickStats": {
-        "avgRent": 1350,
-        "walkScore": 80,
-        "transit": "A-",
-        "safety": 75,
-        "internetMbps": 120
-      },
+      "image": "https://source.unsplash.com/QaGdZ76EHkg/800x600",
+      "population": 16393,
+      "medianIncome": 62400,
+      "avgRent": 2012,
       "details": {
-        "population": "16,000",
-        "avgIncome": "$52,000",
-        "restaurants": 45,
         "parks": 17,
         "parksList": [
           "Optimiste Park",
@@ -20728,9 +20081,6 @@
             "acronym": "VA"
           }
         ],
-        "transitStations": 0,
-        "transitStationsList": [],
-        "transitStationsData": [],
         "crimeTotal": 2684,
         "crimeByCategory": {
           "Other Criminal Code": 274,
@@ -20748,8 +20098,7 @@
           "Offensive Weapons": 21,
           "Violations Resulting In The Deprivation Of Freedom": 7,
           "Violations Causing Death": 1
-        },
-        "bikeScore": 70
+        }
       },
       "pros": [
         "Very walkable",
@@ -20765,20 +20114,11 @@
       "id": "new-edinburgh",
       "name": "New Edinburgh",
       "area": "Central East",
-      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
-      "score": 90,
-      "rank": 26,
-      "quickStats": {
-        "avgRent": 2200,
-        "walkScore": 75,
-        "transit": "B+",
-        "safety": 96,
-        "internetMbps": 150
-      },
+      "image": "https://source.unsplash.com/x0rHqRbBHbM/800x600",
+      "population": 13857,
+      "medianIncome": 80000,
+      "avgRent": 2400,
       "details": {
-        "population": "8,000",
-        "avgIncome": "$125,000",
-        "restaurants": 20,
         "parks": 9,
         "parksList": [
           "Hemlock Park",
@@ -20990,9 +20330,6 @@
             "acronym": "RP"
           }
         ],
-        "transitStations": 0,
-        "transitStationsList": [],
-        "transitStationsData": [],
         "crimeTotal": 907,
         "crimeByCategory": {
           "Break and Enter": 60,
@@ -21007,8 +20344,7 @@
           "Theft Over $5000": 2,
           "Arson": 1,
           "Offensive Weapons": 2
-        },
-        "bikeScore": 80
+        }
       },
       "pros": [
         "Historic charm",

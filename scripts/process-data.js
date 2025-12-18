@@ -11,7 +11,6 @@
  *   - src/data/csv/parks_raw.csv
  *   - src/data/csv/schools_raw.csv
  *   - src/data/csv/libraries_raw.csv
- *   - src/data/csv/transit_stations_raw.csv
  *   - src/data/csv/crime_raw.csv
  *   - src/data/csv/neighbourhoods.csv (neighbourhood info/config)
  *
@@ -108,6 +107,31 @@ function pointInPolygonWithHoles(point, rings) {
 }
 
 // ============================================================================
+// Fetch Population Data
+// ============================================================================
+
+async function fetchPopulationData() {
+  const url = `${NEIGHBOURHOODS_API}?where=1%3D1&outFields=ONS_ID,NAME,POPEST&returnGeometry=false&f=json`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    const populationByOnsId = {};
+    if (data.features) {
+      for (const feature of data.features) {
+        const { ONS_ID, POPEST } = feature.attributes;
+        populationByOnsId[ONS_ID] = POPEST || 0;
+      }
+    }
+    return populationByOnsId;
+  } catch (e) {
+    console.error('Error fetching population data:', e.message);
+    return {};
+  }
+}
+
+// ============================================================================
 // Fetch Neighbourhood Boundaries
 // ============================================================================
 
@@ -185,16 +209,19 @@ async function main() {
   const parksRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'parks_raw.csv'), 'utf8'));
   const schoolsRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'schools_raw.csv'), 'utf8'));
   const librariesRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'libraries_raw.csv'), 'utf8'));
-  const transitRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'transit_stations_raw.csv'), 'utf8'));
   const crimeRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'crime_raw.csv'), 'utf8'));
   const neighbourhoodsInfo = parseCSV(fs.readFileSync(path.join(csvDir, 'neighbourhoods.csv'), 'utf8'));
 
   console.log(`  - ${parksRaw.length} parks`);
   console.log(`  - ${schoolsRaw.length} schools`);
   console.log(`  - ${librariesRaw.length} libraries`);
-  console.log(`  - ${transitRaw.length} transit stations`);
   console.log(`  - ${crimeRaw.length} crimes`);
   console.log(`  - ${neighbourhoodsInfo.length} neighbourhoods\n`);
+
+  // Fetch population data
+  console.log('Fetching population data from Ottawa Open Data...');
+  const populationByOnsId = await fetchPopulationData();
+  console.log(`  Fetched population for ${Object.keys(populationByOnsId).length} ONS areas\n`);
 
   // Fetch all neighbourhood boundaries
   console.log('Fetching neighbourhood boundaries from Ottawa Open Data...');
@@ -301,33 +328,6 @@ async function main() {
   }
   console.log(`  Assigned ${assignedLibraries} libraries`);
 
-  // Process transit stations
-  console.log('\nAssigning transit stations to neighbourhoods...');
-  const transitByNeighbourhood = {};
-  let assignedTransit = 0;
-
-  for (const station of transitRaw) {
-    const lat = parseFloat(station.LATITUDE);
-    const lng = parseFloat(station.LONGITUDE);
-
-    if (isNaN(lat) || isNaN(lng)) continue;
-
-    const neighbourhoodId = assignToNeighbourhood(lat, lng, boundariesByNeighbourhood);
-    if (neighbourhoodId) {
-      if (!transitByNeighbourhood[neighbourhoodId]) {
-        transitByNeighbourhood[neighbourhoodId] = [];
-      }
-      transitByNeighbourhood[neighbourhoodId].push({
-        name: station.NAME,
-        type: station.TYPE,
-        lat,
-        lng,
-      });
-      assignedTransit++;
-    }
-  }
-  console.log(`  Assigned ${assignedTransit} transit stations`);
-
   // Process crime data
   console.log('\nProcessing crime data by neighbourhood...');
 
@@ -401,27 +401,26 @@ async function main() {
     const parks = parksByNeighbourhood[info.id] || [];
     const schools = schoolsByNeighbourhood[info.id] || [];
     const libraries = librariesByNeighbourhood[info.id] || [];
-    const transit = transitByNeighbourhood[info.id] || [];
     const crime = crimeByNeighbourhood[info.id] || { total: 0, byCategory: {} };
+
+    // Calculate population by summing all ONS areas for this neighbourhood
+    const mapping = neighbourhoodMapping[info.id];
+    let population = 0;
+    if (mapping && mapping.onsIds) {
+      for (const onsId of mapping.onsIds) {
+        population += populationByOnsId[onsId] || 0;
+      }
+    }
 
     neighbourhoods.push({
       id: info.id,
       name: info.name,
       area: info.area,
       image: info.image,
-      score: parseInt(info.score) || 0,
-      rank: parseInt(info.rank) || 0,
-      quickStats: {
-        avgRent: parseInt(info.avgRent) || 0,
-        walkScore: parseInt(info.walkScore) || 0,
-        transit: info.transit,
-        safety: parseInt(info.safety) || 0,
-        internetMbps: parseInt(info.internetMbps) || 0,
-      },
+      population,
+      medianIncome: parseInt(info.medianIncome) || 0,
+      avgRent: parseInt(info.avgRent) || 0,
       details: {
-        population: info.population,
-        avgIncome: info.avgIncome,
-        restaurants: parseInt(info.restaurants) || 0,
         parks: parks.length,
         parksList: parks.map(p => p.name),
         parksData: parks,
@@ -431,12 +430,8 @@ async function main() {
         libraries: libraries.length,
         librariesList: libraries.map(l => l.name),
         librariesData: libraries,
-        transitStations: transit.length,
-        transitStationsList: transit.map(t => t.name),
-        transitStationsData: transit,
         crimeTotal: crime.total,
         crimeByCategory: crime.byCategory,
-        bikeScore: parseInt(info.bikeScore) || 0,
       },
       pros: info.pros ? info.pros.split('; ') : [],
       cons: info.cons ? info.cons.split('; ') : [],
@@ -454,12 +449,11 @@ async function main() {
   console.log(`Total parks assigned: ${assignedParks}`);
   console.log(`Total schools assigned: ${assignedSchools}`);
   console.log(`Total libraries assigned: ${assignedLibraries}`);
-  console.log(`Total transit stations assigned: ${assignedTransit}`);
   console.log(`Total crimes assigned: ${assignedCrimes}`);
 
-  console.log('\nCrime stats per neighbourhood (sorted by crime count):');
-  for (const n of neighbourhoods.sort((a, b) => b.details.crimeTotal - a.details.crimeTotal)) {
-    console.log(`  ${n.name}: ${n.details.crimeTotal} crimes (2023-2024)`);
+  console.log('\nPopulation per neighbourhood (sorted by population):');
+  for (const n of [...neighbourhoods].sort((a, b) => b.population - a.population)) {
+    console.log(`  ${n.name}: ${n.population.toLocaleString()} residents`);
   }
 }
 

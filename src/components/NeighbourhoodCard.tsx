@@ -15,10 +15,10 @@ function getBarColor(value: number, max: number): string {
   return "bg-orange-400";
 }
 
-// For crime totals: Low < 1500, Moderate < 5000, High >= 5000
-function getCrimeBarColor(value: number): string {
-  if (value < 1500) return "bg-green-400";
-  if (value < 5000) return "bg-yellow-400";
+// For crime per capita: Low < 50, Moderate < 150, High >= 150
+function getCrimeBarColor(perCapita: number): string {
+  if (perCapita < 50) return "bg-green-400";
+  if (perCapita < 150) return "bg-yellow-400";
   return "bg-red-400";
 }
 
@@ -27,16 +27,34 @@ function getBarWidth(value: number, max: number): string {
   return `${percent}%`;
 }
 
+function formatPopulation(pop: number): string {
+  if (pop >= 1000) {
+    return `${(pop / 1000).toFixed(pop >= 10000 ? 0 : 1)}k`;
+  }
+  return pop.toString();
+}
+
+function formatRent(rent: number): string {
+  return `$${rent.toLocaleString()}`;
+}
+
+// For rent: affordable < $1800, moderate < $2200, expensive >= $2200
+function getRentBarColor(value: number): string {
+  if (value < 1800) return "bg-green-400";
+  if (value < 2200) return "bg-yellow-400";
+  return "bg-orange-400";
+}
+
 export default function NeighbourhoodCard({
   neighbourhood,
 }: NeighbourhoodCardProps) {
-  const { id, name, area, image } = neighbourhood;
+  const { id, name, area, image, population, avgRent } = neighbourhood;
 
   // Regular stats
   const stats = [
+    { label: "Population", emoji: "👥", value: population, max: 150000, displayValue: formatPopulation(population) },
     { label: "Parks", emoji: "🌳", value: neighbourhood.details.parks, max: 50 },
     { label: "Schools", emoji: "🏫", value: neighbourhood.details.schools, max: 20 },
-    { label: "Libraries", emoji: "📚", value: neighbourhood.details.libraries, max: 5 },
   ];
 
   return (
@@ -59,7 +77,7 @@ export default function NeighbourhoodCard({
       {/* Hover Overlay - Dark with stats */}
       <div className="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-5 flex flex-col">
         {/* Header */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-4">
           <h3 className="text-white text-xl font-bold">{name}</h3>
           <p className="text-white/60 text-sm">{area}</p>
         </div>
@@ -68,7 +86,7 @@ export default function NeighbourhoodCard({
         <div className="flex-1 flex flex-col justify-center space-y-3">
           {stats.map((stat) => (
             <div key={stat.label} className="flex items-center gap-3">
-              <div className="flex items-center gap-2 w-24">
+              <div className="flex items-center gap-2 w-28">
                 <span className="text-lg">{stat.emoji}</span>
                 <span className="text-white text-sm font-medium">{stat.label}</span>
               </div>
@@ -78,23 +96,47 @@ export default function NeighbourhoodCard({
                   style={{ width: getBarWidth(stat.value, stat.max) }}
                 />
               </div>
-              <span className="text-white text-sm font-semibold w-8 text-right">{stat.value}</span>
+              <span className="text-white text-sm font-semibold w-10 text-right">{"displayValue" in stat ? stat.displayValue : stat.value}</span>
             </div>
           ))}
 
-          {/* Crime Total */}
+          {/* Crime Per Capita */}
+          {(() => {
+            const crimePerCapita = population > 0 ? (neighbourhood.details.crimeTotal / population) * 1000 : 0;
+            return (
+              <div className="flex items-center gap-3 group/crime relative">
+                <div className="flex items-center gap-2 w-28">
+                  <span className="text-lg">🚨</span>
+                  <span className="text-white text-sm font-medium">Crime</span>
+                </div>
+                <div className="flex-1 h-4 bg-white/10 rounded-full overflow-hidden">
+                  <div
+                    className={`h-full rounded-full ${getCrimeBarColor(crimePerCapita)} transition-all duration-500`}
+                    style={{ width: `${Math.min((crimePerCapita / 200) * 100, 100)}%` }}
+                  />
+                </div>
+                <span className="text-white text-sm font-semibold w-16 text-right">{crimePerCapita.toFixed(0)}/1K</span>
+                {/* Tooltip */}
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover/crime:opacity-100 transition-opacity whitespace-nowrap z-20">
+                  {neighbourhood.details.crimeTotal.toLocaleString()} total crimes
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* Average Rent */}
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 w-24">
-              <span className="text-lg">🚨</span>
-              <span className="text-white text-sm font-medium">Crime</span>
+            <div className="flex items-center gap-2 w-28">
+              <span className="text-lg">🏠</span>
+              <span className="text-white text-sm font-medium">Avg Rent</span>
             </div>
             <div className="flex-1 h-4 bg-white/10 rounded-full overflow-hidden">
               <div
-                className={`h-full rounded-full ${getCrimeBarColor(neighbourhood.details.crimeTotal)} transition-all duration-500`}
-                style={{ width: getBarWidth(neighbourhood.details.crimeTotal, 15000) }}
+                className={`h-full rounded-full ${getRentBarColor(avgRent)} transition-all duration-500`}
+                style={{ width: getBarWidth(avgRent, 3000) }}
               />
             </div>
-            <span className="text-white text-sm font-semibold w-8 text-right">{neighbourhood.details.crimeTotal}</span>
+            <span className="text-white text-sm font-semibold w-14 text-right">{formatRent(avgRent)}</span>
           </div>
         </div>
 
@@ -116,22 +158,18 @@ export default function NeighbourhoodCard({
 
         {/* Bottom Stats Bar - Real data only */}
         <div className="p-4">
-          <div className="flex items-center justify-center gap-4 text-white">
+          <div className="flex items-center justify-center gap-3 text-white text-sm">
             <div className="flex items-center gap-1">
-              <span className="text-base">🌳</span>
+              <span>👥</span>
+              <span className="font-semibold">{formatPopulation(population)}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <span>🌳</span>
               <span className="font-semibold">{neighbourhood.details.parks}</span>
             </div>
             <div className="flex items-center gap-1">
-              <span className="text-base">🏫</span>
+              <span>🏫</span>
               <span className="font-semibold">{neighbourhood.details.schools}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <span className="text-base">📚</span>
-              <span className="font-semibold">{neighbourhood.details.libraries}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <span className="text-base">🚨</span>
-              <span className="font-semibold">{neighbourhood.details.crimeTotal}</span>
             </div>
           </div>
         </div>

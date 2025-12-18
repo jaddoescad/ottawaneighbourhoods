@@ -6,23 +6,24 @@ import { CrimeByCategory } from "@/data/neighbourhoods";
 interface CrimeStatRowProps {
   total: number;
   byCategory: CrimeByCategory;
+  population: number;
   maxTotal?: number;
   maxCategory?: number;
 }
 
-// Thresholds based on actual Ottawa data distribution (2023-2024)
-// Low: < 1,500 (rural/quiet suburban areas)
-// Moderate: 1,500 - 5,000 (typical suburban/urban areas)
-// High: > 5,000 (downtown cores)
-function getCrimeColor(value: number): string {
-  if (value < 1500) return "bg-green-500";
-  if (value < 5000) return "bg-yellow-400";
+// Thresholds based on crime per 1,000 residents (2023-2024, 2 years of data)
+// Low: < 50 per 1,000 (safe suburban/rural areas like Barrhaven, Orleans)
+// Moderate: 50-150 per 1,000 (typical urban areas)
+// High: > 150 per 1,000 (high crime areas like downtown)
+function getCrimeColor(perCapita: number): string {
+  if (perCapita < 50) return "bg-green-500";
+  if (perCapita < 150) return "bg-yellow-400";
   return "bg-red-500";
 }
 
-function getCrimeLabel(value: number): string {
-  if (value < 1500) return "Low";
-  if (value < 5000) return "Moderate";
+function getCrimeLabel(perCapita: number): string {
+  if (perCapita < 50) return "Low";
+  if (perCapita < 150) return "Moderate";
   return "High";
 }
 
@@ -36,6 +37,7 @@ function getCategoryColor(value: number): string {
 export default function CrimeStatRow({
   total,
   byCategory,
+  population,
   maxTotal = 15000,
   maxCategory = 4000,
 }: CrimeStatRowProps) {
@@ -44,8 +46,11 @@ export default function CrimeStatRow({
   const sortedCategories = Object.entries(byCategory)
     .sort((a, b) => b[1] - a[1]);
 
-  // Bar width scales to max for visual representation
-  const barWidth = Math.max(5, Math.min((total / maxTotal) * 100, 100));
+  // Calculate crime per 1,000 residents
+  const perCapita = population > 0 ? (total / population) * 1000 : 0;
+
+  // Bar width based on per capita (max ~150 per 1,000 for scaling)
+  const barWidth = Math.max(5, Math.min((perCapita / 150) * 100, 100));
   const hasCategories = sortedCategories.length > 0;
 
   return (
@@ -62,14 +67,27 @@ export default function CrimeStatRow({
         </div>
         <div className="flex-1 relative h-9 bg-gray-100 rounded-lg overflow-hidden">
           <div
-            className={`absolute inset-y-0 left-0 rounded-lg ${getCrimeColor(total)} transition-all duration-300`}
+            className={`absolute inset-y-0 left-0 rounded-lg ${getCrimeColor(perCapita)} transition-all duration-300`}
             style={{ width: `${barWidth}%` }}
           />
           <span className="absolute inset-0 flex items-center px-4 text-gray-800 font-semibold text-sm">
-            {getCrimeLabel(total)}
+            {getCrimeLabel(perCapita)}
           </span>
         </div>
-        <span className="text-gray-900 font-bold w-28 text-right">{total.toLocaleString()} total</span>
+        <div className="relative group">
+          <span className="text-gray-900 font-bold w-36 text-right block cursor-help">
+            {perCapita.toFixed(1)} per 1K
+          </span>
+          <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
+            <div className="font-semibold mb-1">Crime Rate Breakdown</div>
+            <div>{total.toLocaleString()} total crimes (2023-2024)</div>
+            <div>{population.toLocaleString()} residents</div>
+            <div className="mt-1 pt-1 border-t border-gray-700">
+              = {perCapita.toFixed(1)} crimes per 1,000 people
+            </div>
+            <div className="absolute top-full right-4 -mt-1 border-4 border-transparent border-t-gray-900"></div>
+          </div>
+        </div>
         <div className="w-5 h-5">
           {hasCategories && (
             <svg

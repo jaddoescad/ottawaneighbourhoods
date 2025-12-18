@@ -21,9 +21,9 @@ src/data/
 │   ├── parks_raw.csv             # All 1,365 parks from Ottawa Open Data
 │   ├── schools_raw.csv           # All 451 schools from Ottawa Open Data
 │   ├── libraries_raw.csv         # All 34 libraries from Ottawa Open Data
-│   ├── transit_stations_raw.csv  # All 45 transit stations (Transitway + O-Train)
 │   ├── crime_raw.csv             # ~98K crimes (2023-2024) from Ottawa Police
-│   ├── neighbourhoods.csv        # Neighbourhood info (scores, pros/cons)
+│   ├── neighbourhoods.csv        # Neighbourhood info (scores, pros/cons, avgRent)
+│   ├── rent_data.csv             # Rent research data with sources
 │   └── ons_neighbourhoods.csv    # Reference: all 111 ONS area IDs
 ├── processed/
 │   └── data.json                 # Generated output (don't edit directly)
@@ -108,11 +108,20 @@ Edit this file to change neighbourhood info displayed on the website:
 | name | Display name |
 | area | Area description (Central, West End, etc.) |
 | image | Image URL |
-| score / rank | Overall score and rank |
-| avgRent, walkScore, transit, safety, internetMbps | Quick stats |
-| population, avgIncome, restaurants, bikeScore | Details |
+| medianIncome | Median household income |
+| avgRent | Average monthly rent (see rent_data.csv for sources) |
 | pros | Semicolon-separated list of pros |
 | cons | Semicolon-separated list of cons |
+
+### rent_data.csv
+Contains average rent research data with sources for each neighbourhood:
+| Field | Description |
+|-------|-------------|
+| id | Neighbourhood ID (matches neighbourhoods.csv) |
+| name | Neighbourhood name |
+| avgRent | Average monthly rent in CAD |
+| rentSource | Data source (Zumper, CMHC, RentCafe, etc.) |
+| notes | Additional context about the data |
 
 ## Neighbourhood Mapping
 
@@ -174,3 +183,31 @@ Note: Libraries data must be downloaded manually from:
 https://opendata.arcgis.com/datasets/ottawa::ottawa-public-library-locations-2024.geojson
 
 Then run `node scripts/process-data.js` to regenerate the website data.
+
+## Rent Data Research Methodology
+
+Average rent data was manually researched in December 2024 using the following sources:
+
+### Primary Sources
+| Source | URL | Coverage |
+|--------|-----|----------|
+| Zumper | https://www.zumper.com/rent-research/ottawa-on | Neighbourhood-level averages with YoY trends |
+| CMHC | https://www.cmhc-schl.gc.ca/hmiportal | Official rental market survey data |
+| RentCafe | https://www.rentcafe.com/apartments-for-rent/ca/on/ottawa/ | Price ranges by unit type |
+| Rentals.ca | https://rentals.ca/ottawa | Current asking rents |
+
+### Methodology
+1. **Urban neighbourhoods** (Glebe, Westboro, Centretown, etc.): Used Zumper/RentCafe average rent data
+2. **Suburban neighbourhoods** (Kanata, Barrhaven, Orleans, etc.): Combined Zumper data with recent rental examples
+3. **Rural areas** (Carp, Constance Bay, Manotick, etc.): Estimated based on limited rental inventory and comparable areas
+
+### Data Notes
+- Rent figures represent average asking rents for all unit types (studios through 3+ bedrooms)
+- Data reflects 2024 market conditions (researched December 2024)
+- Rural areas have limited rental inventory; estimates based on available listings
+- Some areas show significant YoY changes due to market fluctuations
+
+### To Update Rent Data
+1. Edit `src/data/csv/rent_data.csv` with new research (include sources)
+2. Copy avgRent values to `src/data/csv/neighbourhoods.csv`
+3. Run `node scripts/process-data.js` to regenerate data.json

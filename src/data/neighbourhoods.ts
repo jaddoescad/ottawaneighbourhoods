@@ -45,13 +45,6 @@ export interface LibraryData {
   acronym: string;
 }
 
-export interface TransitStationData {
-  name: string;
-  type: string;
-  lat: number;
-  lng: number;
-}
-
 export interface CrimeByCategory {
   [category: string]: number;
 }
@@ -61,19 +54,10 @@ export interface Neighbourhood {
   name: string;
   area: string;
   image: string;
-  score: number;
-  rank: number;
-  quickStats: {
-    avgRent: number;
-    walkScore: number;
-    transit: string;
-    safety: number;
-    internetMbps: number;
-  };
+  population: number;
+  medianIncome: number;
+  avgRent: number;
   details: {
-    population: string;
-    avgIncome: string;
-    restaurants: number;
     parks: number;
     parksList: string[];
     parksData: ParkData[];
@@ -83,12 +67,8 @@ export interface Neighbourhood {
     libraries: number;
     librariesList: string[];
     librariesData: LibraryData[];
-    transitStations: number;
-    transitStationsList: string[];
-    transitStationsData: TransitStationData[];
     crimeTotal: number;
     crimeByCategory: CrimeByCategory;
-    bikeScore: number;
   };
   pros: string[];
   cons: string[];

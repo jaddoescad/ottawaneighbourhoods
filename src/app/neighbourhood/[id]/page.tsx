@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { neighbourhoods } from "@/data/neighbourhoods";
 import ExpandableStatRow from "@/components/ExpandableStatRow";
+import StatRow from "@/components/StatRow";
 import CrimeStatRow from "@/components/CrimeStatRow";
 
 interface PageProps {
@@ -18,6 +19,9 @@ const THRESHOLDS = {
   parks: { max: 25, great: 20, okay: 10 },
   schools: { max: 15, great: 12, okay: 6 },
   libraries: { max: 2, great: 2, okay: 1 },
+  trails: { max: 20, great: 12, okay: 5 },
+  income: { max: 130000, great: 110000, okay: 80000 },
+  rent: { max: 2500, great: 1800, okay: 2000 }, // Lower is better for rent
 };
 
 // Determine bar color based on thresholds
@@ -25,6 +29,13 @@ function getScoreType(value: number, category: keyof typeof THRESHOLDS): "great"
   const t = THRESHOLDS[category];
   if (value >= t.great) return "great";
   if (value >= t.okay) return "okay";
+  return "bad";
+}
+
+// For rent, lower is better (inverted scoring)
+function getRentScoreType(value: number): "great" | "good" | "okay" | "bad" {
+  if (value <= 1800) return "great";
+  if (value <= 2000) return "okay";
   return "bad";
 }
 
@@ -42,7 +53,15 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
     notFound();
   }
 
-  const { name, area, image, details } = neighbourhood;
+  const { name, area, image, population, medianIncome, avgRent, details } = neighbourhood;
+  const trails = details.parksData
+    .filter((park) => park.category === "Linear Park")
+    .map((park) => park.name);
+
+  // Format numbers
+  const formattedPopulation = population.toLocaleString();
+  const formattedIncome = medianIncome.toLocaleString();
+  const formattedRent = avgRent.toLocaleString();
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -72,6 +91,12 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">{name}</h1>
             <p className="text-white/80 text-lg">{area}</p>
+            <div className="mt-3 flex flex-wrap justify-center gap-3">
+              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur px-4 py-2 rounded-full">
+                <span className="text-xl">👥</span>
+                <span className="text-white font-semibold">{formattedPopulation} residents</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -106,9 +131,34 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             items={details.librariesList}
             itemLabel="libraries"
           />
+          <ExpandableStatRow
+            icon="🚴"
+            label="Trails"
+            value={`${trails.length} trails`}
+            percent={getPercent(trails.length, "trails")}
+            type={trails.length > 0 ? getScoreType(trails.length, "trails") : "neutral"}
+            items={trails}
+            itemLabel="trails"
+          />
           <CrimeStatRow
             total={details.crimeTotal}
             byCategory={details.crimeByCategory}
+            population={population}
+          />
+          <StatRow
+            icon="💰"
+            label="Income"
+            value={`$${formattedIncome}`}
+            percent={getPercent(medianIncome, "income")}
+            type={getScoreType(medianIncome, "income")}
+          />
+          <StatRow
+            icon="🏠"
+            label="Rent"
+            value={`$${formattedRent}/mo`}
+            percent={getPercent(avgRent, "rent")}
+            type={getRentScoreType(avgRent)}
+            labelSet="rent"
           />
         </div>
       </div>
