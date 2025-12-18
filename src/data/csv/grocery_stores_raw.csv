@@ -1,0 +1,227 @@
+OSM_TYPE,OSM_ID,NAME,SHOP_TYPE,CATEGORY,BRAND,OPERATOR,ADDRESS,OPENING_HOURS,LATITUDE,LONGITUDE
+node,12398127873,Arum Korean Market,grocery,Grocery Store,,,,,45.4190296,-75.6974214
+node,13343848764,Asian Mart,grocery,Grocery Store,,Hong Kong Express,242 Rideau Street,11:00-21:00,45.4280527,-75.6869279
+way,576378471,The Indian Supermarket,grocery,Grocery Store,,10:00-21:00,1547 Merivale Road,,45.3545989,-75.7340904
+node,5952002193,Arya Food Market,greengrocer,Produce Store,,,508 Gladstone Avenue,,45.4100122,-75.6982537
+node,2804550723,Byward Fruit Market,greengrocer,Produce Store,,,36 ByWard Market Square,,45.4276179,-75.6929097
+way,465012278,Deguire & Fils,greengrocer,Produce Store,,,460 Avenue de Buckingham,,45.587593,-75.416554
+node,3671178015,Herb & Spice,greengrocer,Produce Store,,,380 Bank Street,,45.4138546,-75.6948691
+way,358272215,Hermas Fruits,greengrocer,Produce Store,,,35 Boulevard Gréber,,45.4600117,-75.6994968
+way,329505013,HiFresh Foods,greengrocer,Produce Store,,,1486 Merivale Road,,45.3599419,-75.7362128
+node,2078003979,Il Negozio Nicastro,greengrocer,Produce Store,,,792 Bank Street,,45.4028815,-75.6884322
+node,6077160009,Macartney Farms Cash&Carry,greengrocer,Produce Store,,,1481 Michael Street,,45.4147256,-75.6265783
+node,2965310539,Mangosteen,greengrocer,Produce Store,,,1742 Bank Street,,45.373855,-75.665552
+way,64881582,Parkdale Market,greengrocer,Produce Store,,,,May-Nov: Mo-Su 08:00-18:00,45.4015332,-75.7297605
+way,463227513,Potager Eardley,greengrocer,Produce Store,,,398 Chemin Eardley,,45.4226135,-75.8893645
+way,68609654,Produce Depot,greengrocer,Produce Store,,,1855 Carling Avenue,Mo-Fr 08:00-21:00; Sa 08:00-19:00; Su 08:00-18:00,45.376858,-75.756933
+way,483215218,Produce Depot,greengrocer,Produce Store,,,2446 Bank Street,Mo-Fr 08:00-20:00; Sa 08:00-19:00; Su 08:00-18:00,45.3525257,-75.6453444
+way,790626120,Rockland Nutrition,greengrocer,Produce Store,,,,,45.5542799,-75.2745222
+way,548035599,Upland AFRI & Caribbean Stote,greengrocer,Produce Store,,,1036 Merivale Road,Mo-Sa 09:00-20:00; Su 11:00-16:00,45.3788283,-75.7336185
+way,561087165,Wissam Fruits,greengrocer,Produce Store,,,888 Meadowlands Drive,,45.3673482,-75.7027688
+way,671009986,Adonis,supermarket,Supermarket,Marché Adonis,,920 Boulevard Maloney Ouest,Sa-We 08:00-20:00; Th-Fr 08:00-21:00,45.4782453,-75.6883445
+node,7302523711,Africa World Market,supermarket,Supermarket,,,1392 Cyrville Road,,45.4205082,-75.6216449
+way,69590206,B&H Your Community Grocer,supermarket,Supermarket,,,301 Rideau Street,,45.0182072,-75.6491309
+way,713140766,Bombay Spices,supermarket,Supermarket,,,565 West Hunt Club Road,,45.3355826,-75.7290901
+way,39452939,Bulk Barn,supermarket,Supermarket,Bulk Barn,,75 Boulevard du Plateau,Mo-Sa 09:00-21:00; Su 10:00-18:00,45.4355294,-75.7722046
+way,167907933,Bulk Barn,supermarket,Supermarket,Bulk Barn,,,,45.1346241,-76.123333
+way,233810087,Bulk Barn,supermarket,Supermarket,Bulk Barn,,457 Hazeldean Road,Mo-Sa 09:00-21:00; Su 10:00-18:00,45.3001589,-75.887682
+way,242966115,Bulk Barn,supermarket,Supermarket,Bulk Barn,,371 Ryan's Well Drive,,45.0285614,-75.6315934
+way,255988615,Bulk Barn,supermarket,Supermarket,Bulk Barn,,5375 Fernbank Road,Mo-Sa 09:00-21:00; Su 10:00-18:00,45.2734919,-75.8711775
+way,467487178,Bulk Barn,supermarket,Supermarket,Bulk Barn,,2020 Lanthier Drive,Mo-Sa 09:00-21:00; Su 10:00-18:00,45.4580071,-75.4937201
+way,478200431,Bulk Barn,supermarket,Supermarket,Bulk Barn,,3161 Greenbank Road,Mo-Sa 09:00-21:00; Su 10:00-18:00,45.2695433,-75.7451994
+way,485239225,Bulk Barn,supermarket,Supermarket,Bulk Barn,,2210 Bank Street,Mo-Sa 09:00-21:00; Su 10:00-18:00,45.3592904,-75.6577095
+way,522232447,Bulk Barn,supermarket,Supermarket,Bulk Barn,,41 Boulevard de la Gappe,Mo-Fr 09:30-20:00; Sa 09:30-18:00; Su 10:00-17:00,45.4640679,-75.7190465
+way,551943412,Bulk Barn,supermarket,Supermarket,Bulk Barn,,1465 Merivale Road,Mo-Sa 09:00-21:00; Su 10:00-18:00,45.3601388,-75.7333311
+way,551950055,Bulk Barn,supermarket,Supermarket,Bulk Barn,,2148 Carling Avenue,Mo-Sa 09:00-21:00; Su 10:00-18:00,45.369288,-75.7687912
+way,591047218,Bulk Barn,supermarket,Supermarket,Bulk Barn,,197 Trainyards Drive,Mo-Sa 09:00-21:00; Su 10:00-18:00,45.411317,-75.6384332
+way,605371373,Bulk Barn,supermarket,Supermarket,Bulk Barn,,2269 Riverside Drive,Mo-Fr 09:30-20:30; Sa 09:30-18:00; Su 10:00-17:00; PH off,45.38671,-75.6755151
+node,3984740046,Bulk Barn,supermarket,Supermarket,Bulk Barn,,1980 Ogilvie Road,Mo-Fr 09:30-20:30; Sa 09:30-20:00; Su 10:00-17:00,45.4325464,-75.6095436
+way,307235093,Cedars & Co. Food Market,supermarket,Supermarket,,,1255 Bank Street,Mo-Su 09:00-21:00,45.3909905,-75.6798639
+way,578268905,Connor & Kennedy's No Frills,supermarket,Supermarket,No Frills,,2681 Alta Vista Drive,Mo-Su 08:00-21:00,45.3722622,-75.6630259
+node,11431866427,Crusader Concrete,supermarket,Supermarket,,,1503 Gilles Street,Mo-Sa 07:00-21:00,45.3817769,-75.6712828
+way,68586262,Farm Boy,supermarket,Supermarket,Farm Boy,,585 Montréal Road,,45.443105,-75.6446959
+way,68587871,Farm Boy,supermarket,Supermarket,Farm Boy,,1493 Richmond Road,,45.3629376,-75.7915207
+way,223318552,Farm Boy,supermarket,Supermarket,Farm Boy,,3033 Woodroffe Avenue,Mo-Fr 08:00-21:00; Sa 08:00-20:00; Su 09:00-19:00,45.2886515,-75.7240635
+way,233809970,Farm Boy,supermarket,Supermarket,Farm Boy,,6315 Hazeldean Road,,45.2664307,-75.9416868
+way,233810089,Farm Boy,supermarket,Supermarket,Farm Boy,,457 Hazeldean Road,,45.2994745,-75.8880331
+way,299394467,Farm Boy,supermarket,Supermarket,Farm Boy,,3035 St. Joseph Boulevard,,45.4777234,-75.5132902
+way,471898477,Farm Boy,supermarket,Supermarket,Farm Boy,,2030 Tenth Line Road,,45.4583105,-75.4878965
+way,473049148,Farm Boy,supermarket,Supermarket,Farm Boy,,2950 Bank Street,,45.3456572,-75.6260166
+way,478374551,Farm Boy,supermarket,Supermarket,Farm Boy,,1581 Greenbank Road,,45.2741683,-75.7470091
+way,567230351,Farm Boy,supermarket,Supermarket,Farm Boy,,499 Terry Fox Drive,Mo-Fr 08:00-21:00; Sa 08:00-20:00; Su 09:00-19:00,45.3107635,-75.9216253
+way,573225445,Farm Boy,supermarket,Supermarket,Farm Boy,,1642 Merivale Road,,45.3464492,-75.7322677
+way,576873991,Farm Boy,supermarket,Supermarket,Farm Boy,,1500 Bank Street,Mo-Fr 08:00-21:00; Sa-Su 08:00-20:00,45.3814109,-75.6702662
+way,651371863,Farm Boy,supermarket,Supermarket,Farm Boy,,50 Rideau Street,,45.4254234,-75.6928367
+way,874937402,Farm Boy,supermarket,Supermarket,Farm Boy,,820 Belfast Road,,45.4125799,-75.6378757
+node,3666245425,Farm Boy,supermarket,Supermarket,Farm Boy,,193 Metcalfe Street,"""open 8-21 mon-fri, 8-20 sat & sun""",45.418746,-75.6933872
+node,4260754002,Farm Boy,supermarket,Supermarket,Farm Boy,,317 McRae Avenue,Mo-Su 08:00-21:00,45.3962011,-75.7499293
+node,510976473,Farmer's Pick,supermarket,Supermarket,,,1430 Prince Of Wales Drive,,45.3687326,-75.7032904
+way,68586373,Food Basics,supermarket,Supermarket,Food Basics,,1670 Heron Road,,45.3793581,-75.6432114
+way,112013387,Food Basics,supermarket,Supermarket,Food Basics,,667 Kirkwood Avenue,,45.3863876,-75.7388703
+way,143444559,Food Basics,supermarket,Supermarket,Food Basics,,1465 Merivale Road,"Mo-Fr 08:00-21:00; Sa,Su 08:00-20:00",45.3604318,-75.7329546
+way,229189725,Food Basics,supermarket,Supermarket,Food Basics,,2615 County Road 43,,45.019959,-75.6593502
+way,233061563,Food Basics,supermarket,Supermarket,Food Basics,,3090 County Road 17,Mo-Sa 08:00-22:00; Su 08:00-18:00,45.5481329,-75.3017957
+way,233577107,Food Basics,supermarket,Supermarket,Food Basics,,150 Katimavik Road,,45.3126507,-75.8956544
+way,244243181,Food Basics,supermarket,Supermarket,Food Basics,,1021 Cyrville Road,Mo-Sa 08:00-22:00; Su 08:00-20:00,45.4267059,-75.6365952
+way,471920113,Food Basics,supermarket,Supermarket,Food Basics,,5703 Hazeldean Road,,45.285178,-75.913553
+way,478977135,Food Basics,supermarket,Supermarket,Food Basics,,900 Greenbank Road,Mo-Sa 08:00-22:00; Su 08:00-20:00,45.2843508,-75.7562441
+way,484828775,Food Basics,supermarket,Supermarket,Food Basics,,3712 Innes Road,,45.4495936,-75.5172158
+way,1225498581,Food Basics,supermarket,Supermarket,Food Basics,,3831 Cambrian Road,"Mo-Fr 08:00-21:00, Sa-Su 08:00-20:00",45.2475082,-75.7460376
+node,13103811328,Food Basics,supermarket,Supermarket,Food Basics,,338 Queen Street,"Mo-Fr 08:00-21:00; Sa,Su 08:00-20:00",45.4185203,-75.7051364
+node,13289517207,Food Basics,supermarket,Supermarket,,,,,45.272032,-75.3101005
+way,533298640,Foodland,supermarket,Supermarket,Foodland,,5669 Osgoode Main Street,07:00-22:00,45.14967,-75.6019895
+way,605312783,Foodland,supermarket,Supermarket,Foodland,,148 Craig Street,24/7,45.2570369,-75.3738891
+way,762479340,Foodland,supermarket,Supermarket,Foodland,,6045 Bank Street,24/7,45.2633606,-75.5547459
+node,2608302415,Foodland,supermarket,Supermarket,Foodland,,12015 County Road 31,,45.0875471,-75.3723471
+node,2784116789,Fresh Mart,supermarket,Supermarket,,,528 Route 105,,45.508314,-75.7853326
+way,16386340,FreshCo,supermarket,Supermarket,FreshCo,,320 McArthur Avenue,Mo-Fr 08:00-22:00; Sa-Su 08:00-21:00,45.4302358,-75.6538537
+way,195440529,FreshCo,supermarket,Supermarket,FreshCo,,110 Lansdowne Avenue,,45.1340204,-76.1395732
+way,219306015,FreshCo,supermarket,Supermarket,FreshCo,,4750 Bank Street,Mo-Fr 08:00-22:00; Sa-Su 08:00-21:00,45.3190657,-75.5957916
+way,551780127,FreshCo,supermarket,Supermarket,FreshCo,,1595 Merivale Road,08:00-22:00,45.3527868,-75.7327051
+way,574589080,FreshCo,supermarket,Supermarket,FreshCo,,350 Cresthaven Drive,08:00-22:00,45.2738865,-75.7099384
+way,581659417,FreshCo,supermarket,Supermarket,FreshCo,,2150 Robertson Road,,45.3194328,-75.8354906
+way,1202540395,FreshCo,supermarket,Supermarket,FreshCo,,920 Watters Road,,45.4829575,-75.4748549
+way,483702522,Geeland International Grocery,supermarket,Supermarket,,,1620 Walkley Road,,45.377369,-75.645023
+node,9929327317,Green Fresh,supermarket,Supermarket,,,,Mo-Sa 09:00-21:00; Su 09:00-20:00,45.4319515,-75.66274
+way,10315735,Green Fresh Supermarket,supermarket,Supermarket,,,1695 Merivale Road,09:00-22:00,45.346877,-75.729133
+way,485229129,Green Fresh Supermarket Kanata,supermarket,Supermarket,,,5487 Hazeldean Road,,45.290399,-75.9040638
+way,68609556,IGA,supermarket,Supermarket,IGA,Sobeys,201 Chemin d'Aylmer,,45.3965618,-75.8338989
+way,88313290,IGA,supermarket,Supermarket,IGA,Sobeys,1205 Rue de Neuville,,45.5315897,-75.4952453
+way,117885572,IGA,supermarket,Supermarket,IGA,Sobeys,720 Montée Paiement,Mo-Su 08:00-22:00,45.5040264,-75.6752447
+way,163102551,IGA,supermarket,Supermarket,IGA,Sobeys,455 Boulevard Gréber,Mo-Su 08:00-22:00,45.4872908,-75.7011091
+way,234000786,IGA,supermarket,Supermarket,IGA,,,,45.5558707,-75.4337641
+way,278280963,IGA,supermarket,Supermarket,IGA,Sobeys,203 Boulevard des Grives,,45.4320524,-75.7791884
+way,624881290,IGA,supermarket,Supermarket,IGA,Famille Charles,455 Montée de la Source,Mo-Su 08:00-22:00,45.5407025,-75.7739908
+node,13336221738,IGA,supermarket,Supermarket,IGA,Famille Charles,,,45.5977879,-75.8990565
+way,192000674,IGA Extra,supermarket,Supermarket,IGA,Sobeys,1130 Boulevard Saint-Joseph,,45.4724217,-75.7379877
+way,445938311,IGA Extra,supermarket,Supermarket,IGA,,1248 Boulevard La Vérendrye Est,,45.5058967,-75.6119433
+node,9354054184,IGA Extra,supermarket,Supermarket,IGA,,585 Chemin Vanier,,45.420286,-75.8087095
+way,1019583761,Kowloon Supermarket,supermarket,Supermarket,,,,,45.3230798,-75.927027
+node,1461227931,Kowloon Supermarket,supermarket,Supermarket,,,712 Somerset Street West,09:00-20:00,45.4104822,-75.7076334
+way,61567448,La Boite à Grains,supermarket,Supermarket,,,186 Avenue de la Colline,Mo-Fr 09:00-21:00; Sa-Su 09:00-18:00,45.3963476,-75.8324362
+way,162779819,La Boite à Grains,supermarket,Supermarket,,,581 Boulevard Saint-Joseph,Mo-Fr 09:00-21:00; Sa-Su 09:00-18:00,45.4499895,-75.736715
+way,704650195,La Boite à Grains,supermarket,Supermarket,,,25 Boulevard du Plateau,Mo-Fr 09:00-21:00; Sa-Su 09:00-18:00,45.4358517,-75.768949
+way,671001682,La Boîte à Grains,supermarket,Supermarket,,,325(8) Boulevard Gréber,"Mo-Fr 09:00-21:00; Sa,Su 09:00-18:00",45.4786163,-75.6985173
+node,6621453839,La Maison Bisson,supermarket,Supermarket,,,2 Boulevard Louise-Campagna,,45.4303961,-75.7632945
+way,31814089,Loblaws,supermarket,Supermarket,Loblaws,,100 McArthur Avenue,,45.429428,-75.6646725
+way,68608768,Loblaws,supermarket,Supermarket,Loblaws,,1460 Merivale Road,07:00-21:00,45.3619146,-75.7354275
+way,68658115,Loblaws,supermarket,Supermarket,Loblaws,,2065 Robertson Road,,45.324439,-75.8324591
+way,68710011,Loblaws,supermarket,Supermarket,Loblaws,,20 Isabella Street,,45.4104822,-75.6858024
+way,133979838,Loblaws,supermarket,Supermarket,Loblaws,,2085 Carling Avenue,Mo-Su 08:00-22:00,45.372427,-75.7678137
+way,144453739,Loblaws,supermarket,Supermarket,Loblaws,,200 Earl Grey Drive,,45.3100474,-75.9164659
+way,152493242,Loblaws,supermarket,Supermarket,Loblaws,,363 Rideau Street,Mo-Su 07:00-22:00,45.4301695,-75.6838765
+way,157291437,Loblaws,supermarket,Supermarket,Loblaws,,1980 Baseline Road,7:00-22:00,45.351935,-75.7594965
+way,466704825,Loblaws,supermarket,Supermarket,Loblaws,,1980 Ogilvie Road,,45.4334476,-75.6104175
+way,470443608,Loblaws,supermarket,Supermarket,Loblaws,,3201 Greenbank Road,07:00-23:00,45.2680649,-75.7433642
+way,485239248,Loblaws,supermarket,Supermarket,Loblaws,,2210 Bank Street,Su-Sa 07:00-22:00,45.3574385,-75.6566945
+way,68661910,Marché Adonis,supermarket,Supermarket,Marché Adonis,,1021 St-Laurent Boulevard,,45.4273108,-75.6370034
+node,286257811,Marché Bonichoix,supermarket,Supermarket,,,,,45.2742092,-75.275411
+node,4699309936,Marché d'alimentation Axep,supermarket,Supermarket,,,73 Rue Papineau,,45.6075801,-75.1133672
+way,693956409,Marché Laflamme,supermarket,Supermarket,,,126 Rue Principale,Mo-Su 08:00-22:00,45.3943848,-75.8429569
+way,352322802,Marché Richelieu Perkins,supermarket,Supermarket,,,1732 Route du Carrefour,,45.5996586,-75.6194339
+way,692867692,Marché Wakim,supermarket,Supermarket,,,,,45.4421461,-75.7316494
+way,342865923,Margo Fresh,supermarket,Supermarket,,,564 Gladstone Avenue,,45.4092413,-75.7000992
+way,39871828,Maxi,supermarket,Supermarket,Maxi,,775 Boulevard Saint-Joseph,,45.4608115,-75.7416621
+way,95561044,Maxi,supermarket,Supermarket,Maxi,Loblaw Companies Limited,130 Avenue Lépine,,45.5737703,-75.4080601
+way,116884963,Maxi,supermarket,Supermarket,Maxi,Loblaw Companies Limited,300 Boulevard Saint-Joseph,,45.4390966,-75.7319336
+way,151678438,Maxi,supermarket,Supermarket,Maxi,Loblaw Companies Limited,800 Boulevard Maloney Ouest,Mo-Su 08:00-21:00,45.4800917,-75.682683
+way,162872427,Maxi,supermarket,Supermarket,Maxi,,381 Boulevard Maloney Est,Mo-Su 08:00-21:00,45.4850725,-75.6405152
+way,166369163,Maxi,supermarket,Supermarket,Maxi,Loblaw Companies Limited,25 Chemin de la Savane,08:00-22:00,45.4753384,-75.7037467
+way,416980102,Maxi,supermarket,Supermarket,Maxi,,545 Chemin Vanier,Mo-Su 08:00-22:00,45.417311,-75.8083685
+relation,19911951,Metro,supermarket,Supermarket,Metro,,255 Rideau Street,,45.4284871,-75.6871913
+way,39857232,Metro,supermarket,Supermarket,Metro,Metro,214 Boulevard de la Cité-des-Jeunes,,45.450219,-75.7544592
+way,68577542,Metro,supermarket,Supermarket,Metro,,6473 Jeanne-d'Arc Boulevard North,Mo-Su 08:00-22:00; Sa 07:00-22:00,45.4810175,-75.5362265
+way,68577837,Metro,supermarket,Supermarket,Metro,,1675 Tenth Line Road,Mo-Su 07:00-22:00,45.4700325,-75.4911832
+way,68586181,Metro,supermarket,Supermarket,Metro,,50 Beechwood Avenue,07:00-22:00,45.439427,-75.67561
+way,68607808,Metro,supermarket,Supermarket,Metro,,250 Greenbank Road,Mo-Fr 08:00-22:00; Sa-Su 08:00-21:00,45.3242366,-75.7802019
+way,68609392,Metro,supermarket,Supermarket,Metro,,4048 Carling Avenue,,45.3368786,-75.9072565
+way,68658594,Metro,supermarket,Supermarket,Metro,,2261 Walkley Road,,45.3894655,-75.6192779
+way,95561888,Metro,supermarket,Supermarket,Metro,Metro,180 Avenue Lépine,,45.5743775,-75.4002018
+way,152128866,Metro,supermarket,Supermarket,Metro,,345 Carleton Avenue,Mo-Su 07:00-23:00,45.3983934,-75.7405115
+way,163103920,Metro,supermarket,Supermarket,Metro,,499 Boulevard Gréber,Mo-Su 08:00-22:00,45.4890096,-75.7014011
+way,229623195,Metro,supermarket,Supermarket,Metro,,4510 Innes Road,07:00-22:00,45.4612417,-75.4840703
+way,231347341,Metro,supermarket,Supermarket,Metro,,1811 Robertson Road,,45.3302085,-75.8172635
+way,262403198,Metro,supermarket,Supermarket,Metro,,21 Richer Circle,,45.3040081,-75.0828174
+way,364377771,Metro,supermarket,Supermarket,Metro,,435 Montée Paiement,Mo-Su 08:00-22:00,45.4915647,-75.6767685
+way,470452626,Metro,supermarket,Supermarket,Metro,,3201 Strandherd Drive,07:00-23:00,45.2744993,-75.7213387
+way,480073623,Metro,supermarket,Supermarket,Metro,,3310 McCarthy Road,,45.3505465,-75.6721565
+way,483073634,Metro,supermarket,Supermarket,Metro,,2636 Innes Road,,45.4309082,-75.5632281
+way,484009059,Metro,supermarket,Supermarket,Metro,,1930 Montréal Road,,45.445388,-75.5952165
+way,573225447,Metro,supermarket,Supermarket,Metro,,1705 Merivale Road,,45.3450038,-75.7280665
+way,584484126,Metro,supermarket,Supermarket,Metro,,754 Bank Street,,45.4033693,-75.6889183
+way,652110303,Metro,supermarket,Supermarket,Metro,,2515 Bank Street,Mo-Su 08:00-22:00,45.3548687,-75.6442306
+way,768964058,Metro,supermarket,Supermarket,Metro,,10 Cope Drive,"Mo-Fr 08:00-22:00; Sa,Su 08:00-21:00",45.2818689,-75.8654935
+way,1014117763,Metro,supermarket,Supermarket,Metro,,2525 Carling Avenue,Mo 08:00-22:00; Tu 08:00-22:00; We 08:00-22:00; Th 08:00-22:00; Fr 08:00-22:00; Sa 08:00-21:00; Su 08:00-21:00,45.365306,-75.7857068
+node,1339121915,Metro,supermarket,Supermarket,Metro,,375 Daniel Street South,,45.4249666,-76.3684266
+node,4699096104,Metro,supermarket,Supermarket,Metro,,,,45.597393,-75.244342
+node,9070462966,Metro,supermarket,Supermarket,Metro,,,,45.6160426,-75.0265468
+way,167391758,Metro Plus,supermarket,Supermarket,Metro,Metro,799 Boulevard Wilfrid-Lavigne,,45.4109405,-75.8422164
+way,330077344,Metro Plus,supermarket,Supermarket,Metro,,910 Boulevard Maloney Est,,45.4884029,-75.5975936
+node,2045639867,Mid-East Foods,supermarket,Supermarket,,,1010 Belfast Road,Mo-Fr 08:00-20:00; Sa 08:00-19:00; Su 09:00-18:00,45.4100972,-75.6302422
+node,7048032335,Mike Dean's Super Food,supermarket,Supermarket,,,,,45.1029419,-75.2283661
+way,380404362,Mike Deans,supermarket,Supermarket,,,,,45.4346227,-75.158406
+way,664940361,Natural food pantry,supermarket,Supermarket,,,1777 Tenth Line Road,,45.4668124,-75.4897476
+way,68577501,No Frills,supermarket,Supermarket,No Frills,,1226 Place-d'Orléans Drive,"Mo-Fr 08:00-21:00; Sa,Su 08:00-19:00",45.4762657,-75.5226129
+way,68608910,No Frills,supermarket,Supermarket,No Frills,,200 Grant Carman Drive,08:00-21:00,45.3512702,-75.7307931
+way,264797709,No Frills,supermarket,Supermarket,No Frills,,39 Winners Circle,,45.4217692,-76.3694858
+way,699079990,No Frills,supermarket,Supermarket,No Frills,,,,45.3134244,-75.0864026
+way,839203628,No Frills,supermarket,Supermarket,No Frills,,30 Iber Road,,45.280744,-75.912705
+node,13034283208,Ottawa Street Markets,supermarket,Supermarket,,,,"Mo-Fr 15:00-18:00, Sa 09:00-13:00",45.455749,-75.6525286
+way,39336868,Provigo,supermarket,Supermarket,Provigo,Loblaw Companies Limited,1 Boulevard du Plateau,Mo-Su 08:00-22:00,45.4351329,-75.7660341
+way,63155897,Provigo,supermarket,Supermarket,Provigo,Loblaw Companies Limited,375 Chemin d'Aylmer,,45.3979463,-75.8231022
+way,163763103,Provigo,supermarket,Supermarket,Provigo,,22 Rue des Flandres,Mo-Su 07:00-23:00,45.470815,-75.7176343
+way,84160579,Real Canadian Superstore,supermarket,Supermarket,Real Canadian Superstore,Loblaws,190 Richmond Road,Mo-Su 07:00-23:00,45.394407,-75.7475155
+way,138665005,Real Canadian Superstore,supermarket,Supermarket,Real Canadian Superstore,Loblaws,760 Eagleson Road,Mo-Su 07:00-23:00,45.2827657,-75.8665439
+way,471898445,Real Canadian Superstore,supermarket,Supermarket,Real Canadian Superstore,Loblaws,4270 Innes Road,07:00-23:00,45.456645,-75.4943925
+way,68657914,Real Canadian Wholesale Club,supermarket,Supermarket,,,1435 Cyrville Road,,45.4207603,-75.6178925
+node,12199233432,Saveurs - Épicerie urbaine,supermarket,Supermarket,,,79 Rue Wellington,"Mo-Fr 07:00-21:00, Sa-Su 08:00-18:00",45.4263073,-75.7201604
+way,683005821,Silk Road Foods,supermarket,Supermarket,,,1620 Merivale Road,,45.3474385,-75.7327404
+way,172338766,Sobeys,supermarket,Supermarket,Sobeys,,5150 Innes Road,24/7,45.469447,-75.4560943
+way,239213041,Sobeys,supermarket,Supermarket,Sobeys,,840 March Road,,45.3578548,-75.9338422
+way,449069356,Sobeys,supermarket,Supermarket,Sobeys,,700 Terry Fox Drive,,45.2921803,-75.8961578
+way,576883869,Sobeys,supermarket,Supermarket,Sobeys,,2276 Tenth Line Road,,45.4521801,-75.4850915
+way,664536849,Spice World Supermarket,supermarket,Supermarket,,,62 Stonehaven Drive,,45.292263,-75.8579677
+way,303113274,Sultan Supermarket,supermarket,Supermarket,,,3054 Woodroffe Avenue,,45.2840987,-75.7244994
+way,39336983,Super C,supermarket,Supermarket,Super C,,65 Boulevard du Plateau,,45.4340277,-75.773217
+way,140253332,Super C,supermarket,Supermarket,Super C,,725 Boulevard de la Carrière,,45.4508994,-75.7301518
+way,151678497,Super C,supermarket,Supermarket,Super C,,760 Boulevard Maloney Ouest,Mo-Su 08:00-22:00,45.4803523,-75.6793285
+way,165740052,Super C,supermarket,Supermarket,Super C,,2505 Rue Saint-Louis,,45.4933235,-75.7555018
+way,693895602,Super C,supermarket,Supermarket,Super C,,171 Rue Principale,,45.3965705,-75.8375592
+node,13229917990,Terra Flowers & Flavours,supermarket,Supermarket,,,220 Kennevale Drive,"Mo-Fr 09:30-21:00, Sa 10:00-21:00, Su 10:00-19:00",45.265079,-75.7765761
+way,591034768,The Indian Supermarket,supermarket,Supermarket,,,474 Hazeldean Road,Mo-Su 10:00-21:00,45.2976831,-75.8881708
+way,167187650,Valu-mart,supermarket,Supermarket,Valu-mart,,,,45.6036695,-76.490414
+way,39336982,Walmart Supercentre,supermarket,Supermarket,Walmart,Walmart Canada,35 Boulevard du Plateau,,45.4359304,-75.7709051
+way,140703368,Walmart Supercentre,supermarket,Supermarket,Walmart,,425 Boulevard Saint-Joseph,,45.4448918,-75.7339374
+way,162163940,Walmart Supercentre,supermarket,Supermarket,Walmart,,640 Boulevard Maloney Ouest,Mo-Fr 08:00-21:00; Sa-Su 08:00-17:00,45.4808218,-75.6753374
+way,167907929,Walmart Supercentre,supermarket,Supermarket,Walmart,,,,45.1334718,-76.125391
+way,171268363,Walmart Supercentre,supermarket,Supermarket,Walmart,,1375 Baseline Road,Mo-Su 07:00-22:00; PH off,45.363828,-75.7386151
+way,209257254,Walmart Supercentre,supermarket,Supermarket,Walmart,,450 Industrial Avenue,,45.4131306,-75.6498866
+way,231655414,Walmart Supercentre,supermarket,Supermarket,Walmart,,3001 Richelieu Street,,45.5321129,-75.3058578
+way,242966107,Walmart Supercentre,supermarket,Supermarket,Walmart,,340 Colonnade Drive,,45.0289894,-75.6291102
+way,255988547,Walmart Supercentre,supermarket,Supermarket,Walmart,,5357 Fernbank Road,,45.2751767,-75.8723332
+way,437094876,Walmart Supercentre,supermarket,Supermarket,Walmart,,100 Bayshore Drive,,45.3479725,-75.805234
+way,450839128,Walmart Supercentre,supermarket,Supermarket,Walmart,,3651 Strandherd Drive,07:00-23:00,45.2717785,-75.7407528
+way,466704822,Walmart Supercentre,supermarket,Supermarket,Walmart,Walmart,1980 Ogilvie Road,,45.4313853,-75.610618
+way,472398054,Walmart Supercentre,supermarket,Supermarket,Walmart,,3900 Innes Road,,45.4513255,-75.5085825
+way,482653912,Walmart Supercentre,supermarket,Supermarket,Walmart,,2210 Bank Street,07:00-23:00,45.3547574,-75.6547948
+way,605365786,Walmart Supercentre,supermarket,Supermarket,Walmart,,2277 Riverside Drive,Mo-Su 7:00-22:00; PH off,45.3851845,-75.6794485
+node,13073252841,Wedance,supermarket,Supermarket,,https://wedance.ca/,122 Castlegreen Private,Mo-Su 07:30-21:00,45.3640168,-75.6298185
+node,3632278323,Whole Foods Market,supermarket,Supermarket,Whole Foods Market,,951 Bank Street,Mo-Su 08:00-21:00,45.3993951,-75.68548
+way,167907930,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,,455 McNeely Avenue,,45.134167,-76.121342
+way,176731001,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,,401 Ottawa Street,"Mo-Fr 08:00-21:00, Sa,Su 08:00-20:00",45.233884,-76.1821777
+way,228619179,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,,753 Notre Dame Street,"Mo-Fr 08:00-21:00; Sa,Su 08:00-19:00",45.2689469,-75.3040092
+way,447128719,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,,2737 Laurier Street,Mo-Sa 08:00-22:00; Su 08:00-18:00,45.5413882,-75.2985684
+way,470022440,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,Jamie Robinson,1160 Beaverwood Road,Mo-Fr 08:00-21:00; Sa 08:00-19:00; Su 09:00-18:00,45.2225869,-75.6830681
+way,470376943,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,,5911 Perth Street,,45.203103,-75.828962
+way,470835932,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,,685 River Road,,45.2705595,-75.6974182
+way,471797444,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,,1251 Stittsville Main Street,Mo-Su 08:00-21:00,45.268989,-75.928515
+way,478366946,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,,3777 Strandherd Drive,07:00-23:00,45.2680742,-75.746691
+way,485194417,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,,1910 St-Laurent Boulevard,,45.3981165,-75.6241505
+way,485685918,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,,1619 Orléans Boulevard,,45.459551,-75.5240985
+way,605371380,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,,2241 Riverside Drive,"Mo-Fr 08:00-21:00, Sa 08:00-19:00, Su 09:00-19:00",45.3858565,-75.6764458
+way,616359879,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,,2600 County Road 43,,45.0186789,-75.6552339
+way,620501508,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,,596 Montréal Road,Mo-Fr 08:00-21:00; Sa-Su 08:00-20:00,45.4411092,-75.64319
+node,2213666893,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,,296 Bank Street,Mo-Su 07:00-22:00,45.4150313,-75.6964903
+node,6516550381,Zero Waste grocery store,supermarket,Supermarket,,,250 City Centre Avenue,,45.4081038,-75.7187176
+way,447277025,大統華 T&T Supermarket,supermarket,Supermarket,T&T Supermarket,,224 Hunt Club Road,Mo-Su 09:00-22:00,45.334054,-75.690196
+way,605393493,大統華 T&T Supermarket,supermarket,Supermarket,T&T Supermarket,,300 Eagleson Road,,45.3011477,-75.877602

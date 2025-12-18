@@ -46,6 +46,40 @@ export interface LibraryData {
   acronym: string;
 }
 
+export interface GroceryStoreData {
+  name: string;
+  shopType: string;
+  category: string;
+  brand: string;
+  address: string;
+  lat: number;
+  lng: number;
+  osmId: string;
+  osmType: string;
+}
+
+export interface BusStopData {
+  stopId: string;
+  location: string;
+  lat: number;
+  lng: number;
+  hasShelter: boolean;
+  hasBench: boolean;
+}
+
+export interface GymData {
+  name: string;
+  leisureType: string;
+  category: string;
+  sport: string;
+  brand: string;
+  address: string;
+  lat: number;
+  lng: number;
+  osmId: string;
+  osmType: string;
+}
+
 export interface CrimeByCategory {
   [category: string]: number;
 }
@@ -64,6 +98,8 @@ export interface CategoryScores {
   healthcare: number | null;
   income: number | null;
   familyFriendly: number | null;
+  commuteTime: number | null;
+  lifestyle: number | null;
 }
 
 export interface ScoreWeights {
@@ -75,6 +111,8 @@ export interface ScoreWeights {
   healthcare: number;
   income: number;
   familyFriendly: number;
+  commuteTime: number;
+  lifestyle: number;
 }
 
 export interface Neighbourhood {
@@ -92,6 +130,7 @@ export interface Neighbourhood {
   pctChildren: number;    // % of population aged 0-14 (families with children indicator)
   pctYoungProfessionals: number; // % of population aged 25-44
   pctSeniors: number;     // % of population aged 65+
+  commuteToDowntown: number; // Average commute time to downtown in minutes
   details: {
     areaKm2: number;
     parks: number;
@@ -109,6 +148,19 @@ export interface Neighbourhood {
     librariesData: LibraryData[];
     restaurantsAndCafes: number | null;
     restaurantsAndCafesDensity: number | null; // per km²
+    groceryStores: number | null;
+    groceryStoreDensity: number | null; // per km²
+    groceryStoresList: string[];
+    groceryStoresData: GroceryStoreData[];
+    gyms: number | null;
+    gymDensity: number | null; // per km²
+    gymsList: string[];
+    gymsData: GymData[];
+    busStops: number | null;
+    busStopDensity: number | null; // per km²
+    stopsWithShelter: number;
+    stopsWithBench: number;
+    busStopsData: BusStopData[];
     crimeTotal: number;
     crimeByCategory: CrimeByCategory;
     nearestHospital: string | null;

@@ -1,0 +1,495 @@
+OSM_TYPE,OSM_ID,NAME,LEISURE_TYPE,CATEGORY,SPORT,BRAND,OPERATOR,ADDRESS,PHONE,WEBSITE,OPENING_HOURS,LATITUDE,LONGITUDE
+way,533298642,,fitness_centre,Fitness Center,,,,Osgoode Main Street,,,,45.1499035,-75.6012738
+node,12319507801,,fitness_centre,Fitness Center,,,,,,,,45.2475817,-75.639155
+node,5834617616,100% Martial Arts & Fitness,fitness_centre,Fitness Center,,,,1525 Bank Street,,,,45.3810383,-75.6682585
+node,5888903553,100% Martial Arts & Fitness,fitness_centre,Fitness Center,martial_arts,,,,,,,45.2739663,-75.2757588
+node,6117193694,180 Fitness,fitness_centre,Fitness Center,,,,5370 Canotek Road,,,,45.4549144,-75.5824131
+node,3986694215,3 Tonnes Gym,fitness_centre,Fitness Center,,,,268 Boulevard Saint-Joseph,,,,45.4376119,-75.7328074
+node,6041852450,6 Tigers Academy,fitness_centre,Fitness Center,,,,1142 Clapp Lane,,,,45.2261703,-75.6849365
+node,5570159851,613 Fit,fitness_centre,Fitness Center,,,,1547 Chatelain Avenue,,,,45.3748294,-75.7420179
+node,6210608700,613 Lift,fitness_centre,Fitness Center,,,,80 Jamie Avenue,,https://613lift.com/,24/7,45.3360566,-75.7162482
+node,6511630914,819 Crossfit,fitness_centre,Fitness Center,,,,30 Rue Ducharme,,,,45.4392159,-75.7304066
+way,510520363,9Round,fitness_centre,Fitness Center,kickboxing,9Round,,4235 Strandherd Drive,,,,45.2686918,-75.7815364
+way,671165713,9Round,fitness_centre,Fitness Center,kickboxing,9Round,,2010 Trim Road,+1-613-590-9996,https://www.9round.com/,,45.4685698,-75.4545159
+node,6129476508,9Round,fitness_centre,Fitness Center,kickboxing,9Round,,3681 Innes Road,,,,45.4504697,-75.5186102
+way,478366920,Academy of Martial Arts,fitness_centre,Fitness Center,,,,3777 Strandherd Drive,+1-613-823-3003,https://oama.ca/,,45.2681525,-75.7458628
+node,6483227509,Academy of Martial Arts Tankyushin,fitness_centre,Fitness Center,,,,2485 Lancaster Road,,,,45.4024162,-75.6169539
+way,668488632,Action Martial Arts,fitness_centre,Fitness Center,,,,2200 Montréal Road,,,,45.4494364,-75.587158
+node,5939980542,Aikido,fitness_centre,Fitness Center,,,,716 Industrial Avenue,,,,45.4094582,-75.6373742
+node,6754681495,Algonquin Fitness Zone,fitness_centre,Fitness Center,,,,,,,,45.3486137,-75.7589722
+node,6960840847,Almonte Fitness Centre,fitness_centre,Fitness Center,,,,,,,,45.2372922,-76.1803861
+node,6654004769,Alpha Mixed Martial Arts,fitness_centre,Fitness Center,martial_arts,,,,,,,45.1405331,-76.1457387
+way,154924828,Altea,fitness_centre,Fitness Center,,,,1660 Carling Avenue,,https://alteaactive.com/ottawa/,,45.378785,-75.7488965
+way,195440335,Anytime Fitness,fitness_centre,Fitness Center,fitness,Anytime Fitness,,,,,24/7,45.1347393,-76.1407782
+way,219306009,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,4744 Bank Street,,,,45.3197406,-75.5943993
+way,478217655,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,71 Marketplace Avenue,+1-613-825-9301,https://www.anytimefitness.com/,24/7,45.2697159,-75.7423065
+way,551780146,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,1651 Merivale Road,+1-613-695-9588,https://www.anytimefitness.com/gyms/4493/ottawa-on-k2g-3k2/,24/7,45.3504186,-75.7315264
+way,558621253,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,309 Colonnade Drive,,,,45.0294097,-75.6339194
+way,560871075,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,1160 Beaverwood Road,+1-613-491-1290,https://www.anytimefitness.com/gyms/2830/manotick-on-k4m-1a3/,24/7,45.2229388,-75.6821442
+way,576883853,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,2288 Tenth Line Road,,,24/7,45.4512569,-75.4844617
+way,592866901,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,457 Hazeldean Road,,,,45.2996907,-75.8879579
+way,688422970,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,213 Boulevard des Grives,+1-613-986-3096,,24/7,45.4328567,-75.7813465
+node,2443781328,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,1867 Carling Avenue,,https://www.anytimefitness.com/gyms/3045/ottawa-on-k2a-1e5,24/7,45.3760635,-75.7580494
+node,3243847524,Anytime Fitness,fitness_centre,Fitness Center,fitness,Anytime Fitness,,228 Hunt Club Road,,,,45.3334747,-75.6914183
+node,4003287745,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,901 Carling Avenue,,,24/7,45.3961647,-75.7118217
+node,4497496811,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,96 George Street,,https://www.anytimefitness.com/,24/7,45.4274184,-75.6907726
+node,4673204733,Anytime Fitness,fitness_centre,Fitness Center,fitness,Anytime Fitness,,1339 Wellington Street West,,,24/7,45.3985968,-75.7379051
+node,5039724482,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,2084 Montréal Road,,,,45.4472216,-75.5937527
+node,5931838131,Anytime Fitness,fitness_centre,Fitness Center,fitness,Anytime Fitness,,,,,,45.438737,-75.6779628
+node,6386265336,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,119 Rue Wellington,,,,45.4263603,-75.7197408
+node,6414931392,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,261 Laurier Avenue East,,,24/7,45.4265787,-75.6805636
+node,12016284982,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,1250 Stittsville Main Street,,,24/7,45.2688904,-75.931059
+node,13088503780,Anytime Fitness,fitness_centre,Fitness Center,,Anytime Fitness,,221 Lyon Street North,+1 613 230 8880,https://www.anytimefitness.ca/gyms/9900084/ottawa-on-k1r-7x5/,24/7,45.4168935,-75.7027231
+way,619344278,AP Fitness,fitness_centre,Fitness Center,fitness,,,204 St. Patrick Street,,,,45.430189,-75.6939925
+node,5838522836,AP Fitness,fitness_centre,Fitness Center,,,,195 A Bank Street,,,,45.4177588,-75.698141
+node,6006182244,Arcan Taekwondo,fitness_centre,Fitness Center,,,,1886 Merivale Road,,,,45.3314361,-75.7248042
+node,5912767329,Arts Martiaux Patenaude,fitness_centre,Fitness Center,martial_arts,,,117 Rue Front,,,,45.4041836,-75.8554955
+way,651855657,Aruma,fitness_centre,Fitness Center,yoga,,,,,,,45.0215759,-76.3586315
+node,5838522839,Astanga Yoga,fitness_centre,Fitness Center,yoga,,,200 Bank Street,,,,45.4175597,-75.6985259
+node,11196626606,Astanga Yoga Ottawa,fitness_centre,Fitness Center,yoga,,,,+1-613-722-6860,https://astangaottawa.com,,45.4175414,-75.698404
+node,11639382504,Athletisme Cirrus,fitness_centre,Fitness Center,,,,,,,,45.4649633,-75.7717092
+node,5799345490,Bad Axe Throwing,fitness_centre,Fitness Center,axe_throwing,,,1580 Liverpool Court,,,,45.411569,-75.6243347
+node,6404931135,Balance Massage Therapy & Yoga,fitness_centre,Fitness Center,yoga,,,305 Castor Street,,,,45.2607011,-75.3501606
+node,5951860119,Barres & Wheels,fitness_centre,Fitness Center,fitness,,,286 Elgin Street,,,,45.4168527,-75.6897008
+node,1415542336,Beaver Boxing Club,fitness_centre,Fitness Center,boxing,,,145 Spruce Street West,,,,45.4086465,-75.71646
+node,6114108746,Bergeron Karate Centre,fitness_centre,Fitness Center,,,,2544 Bank Street,,,,45.3536748,-75.6413412
+node,5976659117,Beyond Yoga,fitness_centre,Fitness Center,yoga,,,66 Hearst Way,,,,45.3174201,-75.8866587
+node,6765212166,Bigode Martial Arts & Fitness,fitness_centre,Fitness Center,,,,571 Lacolle Way,,,,45.4895249,-75.4862324
+node,5799591461,Black Widow,fitness_centre,Fitness Center,,,,1580 Michael Street,,,,45.4109608,-75.6263745
+node,7086907429,Bodhi Tree Yoga,fitness_centre,Fitness Center,yoga,,,28 Prescott Street,,,,45.0159376,-75.6458879
+node,5941699899,Bodies by Phil,fitness_centre,Fitness Center,fitness,,,255 Albert Street,,,,45.4197045,-75.70119
+node,5972540027,Boss Fitness Studio,fitness_centre,Fitness Center,fitness,,,,,,,45.4185523,-75.6891456
+node,5731335037,Boxing 4 Health,fitness_centre,Fitness Center,boxing,,,1796 Woodward Drive,,,,45.3697744,-75.7513763
+node,6319110203,Brown's Martial Arts,fitness_centre,Fitness Center,,,,105 Schneider Road,,,,45.3412081,-75.9028993
+node,6720169003,Buckingham Crossfit,fitness_centre,Fitness Center,,,,,,,,45.5757526,-75.409967
+node,6720062652,Buckingham Fitness,fitness_centre,Fitness Center,,,,,,,,45.5759428,-75.4078004
+node,5889507831,Canadian SMA Academy,fitness_centre,Fitness Center,,,,59 Iber Road,,,,45.2802359,-75.9071224
+way,233908900,Canadian Strength,fitness_centre,Fitness Center,,,,1460 Richmond Road,,,,45.3629721,-75.7895939
+node,12544936179,CanAm Strength,fitness_centre,Fitness Center,,,,,,https://canamsc.com/,,45.3432997,-75.7046318
+node,6071971199,Capital Strength Training Systems,fitness_centre,Fitness Center,,,,2190 Thurston Drive,,,,45.3796546,-75.6201062
+node,5854194504,Capital Taekwondo,fitness_centre,Fitness Center,,,,40 Colonnade Road,,,,45.3437737,-75.7174301
+way,262409064,Casselman Fit,fitness_centre,Fitness Center,,,,,,,,45.3051331,-75.0789318
+node,5809664415,Catherine Fit,fitness_centre,Fitness Center,,,,138 Prescott Street,,,,45.0154816,-75.645036
+way,670772454,Centre Evolution,fitness_centre,Fitness Center,martial_arts,,,74 Boulevard Gréber,,,,45.4636435,-75.7010794
+node,6266576584,Champs Athletics,fitness_centre,Fitness Center,,,,1439 Youville Drive,,,,45.4645322,-75.5497306
+node,5889505476,Cheer Sport Sharks,fitness_centre,Fitness Center,gymnastics,,,109 Iber Road,,,,45.2784475,-75.9043989
+node,11528597072,Cheer Sport Sharks,fitness_centre,Fitness Center,gymnastics,,,,+1 888-252-4337,https://cheersportsharks.com,,45.3025374,-75.8780099
+node,12236383607,Club Pilates,fitness_centre,Fitness Center,pilates,Club Pilates,,,,,,45.3965168,-75.7508677
+way,471810435,Cooligan Martial Arts & Fitness,fitness_centre,Fitness Center,,,,12 Cedarow Court,,,,45.2815885,-75.9173185
+node,10049027303,Core Intergrity,fitness_centre,Fitness Center,,,,,,,,45.3928065,-75.7528192
+way,471898452,CrossFit,fitness_centre,Fitness Center,fitness,CrossFit,,2035 Lanthier Drive,,,,45.4568045,-75.4904595
+node,5705708598,CrossFit,fitness_centre,Fitness Center,,CrossFit,,1523 Laperriere Avenue,,,,45.3778063,-75.743418
+node,6135802146,Crossfit 613,fitness_centre,Fitness Center,,,,220 Terence Matthews Crescent,,,,45.2861583,-75.8753961
+node,5799345494,Crossfit Actus,fitness_centre,Fitness Center,,,,1580 Liverpool Court,,,,45.4112997,-75.6241268
+way,606503324,Crossfit Closer,fitness_centre,Fitness Center,,,,103 Schneider Road,,,,45.3396703,-75.9008473
+node,6651660235,Crossfit DSF,fitness_centre,Fitness Center,,,,,,,,45.1413372,-76.1561778
+node,6515795266,Crossfit Hintonburg,fitness_centre,Fitness Center,,,,340 Parkdale Avenue,+1-613-252-5331,https://www.crossfithintonburg.com,,45.4023119,-75.7306624
+way,616787892,Crossfit Kemptville,fitness_centre,Fitness Center,,,,416 Rideau Street,,,,45.0188117,-75.6509334
+node,5849340763,Crossfit NCR,fitness_centre,Fitness Center,,,,2487 Kaladar Avenue,,,,45.3746872,-75.6698303
+node,6123853940,Crossfit Valeo,fitness_centre,Fitness Center,,,,74 Colonnade Road North,,,,45.3459773,-75.7120047
+node,6516674044,CrossFit Wolvish,fitness_centre,Fitness Center,,,,145 Loretta Avenue North,,,,45.4042279,-75.7155378
+node,6078081535,Crossfit YOW,fitness_centre,Fitness Center,,,,3500 Fallowfield Road,,,,45.2928562,-75.7422882
+node,5721516704,Cumberland Martial Arts Academy,fitness_centre,Fitness Center,,,,1970 Trim Road,,,,45.4713412,-75.4553582
+way,252466408,CustomStrength,fitness_centre,Fitness Center,,,,151 Holland Avenue,,,,45.3986947,-75.7309646
+node,6040708780,Denise Smith Dance Studio,fitness_centre,Fitness Center,dance,,,1140 Tighe Street,,,,45.2253693,-75.6836437
+way,593971605,Douvris,fitness_centre,Fitness Center,,,,665 Earl Armstrong Road,,,,45.2701639,-75.696103
+node,6135802143,Douvris,fitness_centre,Fitness Center,,,,220 Terence Matthews Crescent,,,,45.2862121,-75.8754873
+way,259456329,Douvris Martial Arts,fitness_centre,Fitness Center,,,,1270 Bank Street,,,,45.390477,-75.6800387
+node,5606115259,Douvris Martial Arts,fitness_centre,Fitness Center,,,,,,,,45.3809149,-75.7449858
+way,478978388,Douvris Martial Arts and Fitness,fitness_centre,Fitness Center,,,,3780 Fallowfield Road,+1-613-410-6325,https://barrhaven.douvris.com/,,45.2871327,-75.757632
+node,5893678233,Downsize Fitness Orleans,fitness_centre,Fitness Center,,,,1670 Vimont Court,,,,45.4907783,-75.4853292
+node,6427055757,Éconofitness,fitness_centre,Fitness Center,,Éconofitness,,85 Chemin de la Savane,+1-819-205-4493,https://econofitness.ca/fr/gym/outaouais/85-chemin-de-la-savane,"Mo-Fr 06:00-23:00; Sa,Su 08:00-20:00",45.4752393,-75.6953267
+node,6591713114,Éconofitness,fitness_centre,Fitness Center,,Éconofitness,,1 Boulevard du Plateau,+1-819-777-3232,https://econofitness.ca/fr/gym/outaouais/1-boul-du-plateau,"Mo-Fr 08:00-21:00; Sa,Su 08:00-17:00",45.4355158,-75.7661364
+node,11367867909,Éconofitness,fitness_centre,Fitness Center,,Éconofitness,,320 Boulevard Saint-Joseph,+1-819-525-1845,https://econofitness.ca/fr/gym/outaouais/320-boul-saint-joseph,"24/7 ""Membres Platine et Extra""; Mo-Fr 06:00-23:00 ""Membres Weekend et Écono""; Sa,Su 08:00-20:00 ""Membres Weekend et Écono""",45.4407667,-75.7316753
+node,6816047665,Elevate MMA,fitness_centre,Fitness Center,,,,1734 Montréal Road,,,,45.4456082,-75.6099361
+way,610253357,Elevate Spin,fitness_centre,Fitness Center,,,,34 Highbury Park Drive,,,,45.277282,-75.7484477
+node,5951860118,Elevate Yoga,fitness_centre,Fitness Center,yoga,,,,,,,45.416559,-75.6895425
+node,5941745346,Elgin Fitness,fitness_centre,Fitness Center,fitness,,,200 Cooper Street,,,,45.418454,-75.6905034
+node,6765212153,Elite Athletic Conditioning,fitness_centre,Fitness Center,,,,,,,,45.490596,-75.4796187
+node,6032500301,Elite Performance Athletic Complex,fitness_centre,Fitness Center,,,,93 Hines Road,,,,45.3454082,-75.9247582
+node,5887974207,Embrun Family Karate Club,fitness_centre,Fitness Center,martial_arts,,,767 Notre Dame Street,,,,45.2694323,-75.3020901
+node,5737565973,Empower Fitness,fitness_centre,Fitness Center,,,,2640 Lancaster Road,,,,45.3984792,-75.6109706
+node,5802745477,Empower Me Yoga,fitness_centre,Fitness Center,yoga,,,1712 Carling Avenue,,,,45.3782533,-75.7513399
+way,687228245,Endeavour Martial Arts,fitness_centre,Fitness Center,,,,2062 Robertson Road,,,,45.3226803,-75.8305275
+way,573385578,Evertrain,fitness_centre,Fitness Center,,,,524 Montréal Road,+1-613-295-8080,https://www.evertrainlifestyles.com/,Mo-Fr 05:30-19:00; Sa 08:00-12:00,45.4405902,-75.6460682
+way,591869367,Evo Studio,fitness_centre,Fitness Center,,,,200 Vanguard Drive,,https://evostudio.ca/,,45.4572894,-75.4874102
+node,10799577559,Experience MMA & Fitness,fitness_centre,Fitness Center,,,,,,,,45.483215,-75.6616224
+way,683614564,F45 Training,fitness_centre,Fitness Center,,F45 Training,,1440 Bank Street,,,,45.3820663,-75.6709609
+node,6287480491,Feng Shen Do Kung Fu,fitness_centre,Fitness Center,martial_arts,,,518 Boulevard Maloney Est,,,,45.4845072,-75.6332932
+node,5849340761,Final Round Boxing,fitness_centre,Fitness Center,boxing,,,1175 Brookfield Road East,,,,45.374739,-75.6691396
+node,5896600040,First Above Fitness,fitness_centre,Fitness Center,fitness,,,1290 Trim Road,,,,45.4895693,-75.4791722
+node,5854194489,Fit House,fitness_centre,Fitness Center,fitness,,,46 Colonnade Road,,,,45.3440782,-75.7166858
+way,255987938,Fit4Less,fitness_centre,Fitness Center,,Fit4Less,,100 Michael Cowpland Drive,,,,45.2857972,-75.869277
+way,482693103,Fit4Less,fitness_centre,Fitness Center,,Fit4Less,,1525 City Park Drive,,,24/7,45.4315505,-75.6170055
+way,576409148,Fit4Less,fitness_centre,Fitness Center,,Fit4Less,Goodlife,1460 Merivale Road,,,,45.3622932,-75.7355997
+way,584807281,Fit4Less,fitness_centre,Fitness Center,,Fit4Less,,1226 Place-d'Orléans Drive,,,,45.4767228,-75.5230569
+node,5539192082,Fit4Less,fitness_centre,Fitness Center,,Fit4Less,,2020 Walkley Road,,,,45.3836171,-75.6280675
+node,5665250923,Fit4Less,fitness_centre,Fitness Center,,Fit4Less,,671 Earl Armstrong Road,,,,45.2704526,-75.6970105
+node,6463206495,Fit4Less,fitness_centre,Fitness Center,,Fit4Less,,760 Eagleson Road,,,,45.2831174,-75.866173
+node,4514089726,Fitness Fusion Studio,fitness_centre,Fitness Center,,,,333 Cumberland Street,+1-613-680-7276,,,45.4303552,-75.6891543
+node,9129413694,Fitness Lab,fitness_centre,Fitness Center,,,,105 Schneider Road,,,,45.3412343,-75.9018583
+node,5912767328,Florida Fitness,fitness_centre,Fitness Center,fitness,,,117 Rue Front,,,,45.4039605,-75.8555679
+node,5893678240,Flyers Cheer Gym,fitness_centre,Fitness Center,gymnastics,,,1671 Vimont Court,,,,45.4914515,-75.4835308
+node,4248524201,Free Form Fitness,fitness_centre,Fitness Center,,,,1198 Wellington Street West,,,Mo-Fr 06:00-20:00,45.4002638,-75.7301241
+node,4491333832,Free Form Fitness,fitness_centre,Fitness Center,,,,281 Dalhousie Street,+1-613-695-4348,https://www.freeformfitness.ca/,,45.4299942,-75.6919121
+node,5800000111,Free Form Fitness,fitness_centre,Fitness Center,,,,787 Bank Street,,,,45.4032607,-75.6883493
+node,5941722841,Free Form Fitness,fitness_centre,Fitness Center,,,,85 Albert Street,,,,45.4220437,-75.6956955
+node,6319110213,Free Form Fitness,fitness_centre,Fitness Center,,,,105 Schneider Road,,,,45.341048,-75.9031647
+node,6396611585,FRST Fitness,fitness_centre,Fitness Center,,,,1408 Bank Street,,https://www.frstfitness.com,,45.3830772,-75.6715596
+node,3690693550,Gaman Karaté-Do,fitness_centre,Fitness Center,martial_arts,,,380 Boulevard Alexandre-Taché,,,,45.4222712,-75.7464975
+node,6117193720,GCGC Gymnastics,fitness_centre,Fitness Center,gymnastics,,,5510 Canotek Road,,,,45.457405,-75.5851918
+node,5832443340,Get Cronk'd,fitness_centre,Fitness Center,,,,9 Clothier Street East,,,,45.0167037,-75.6476082
+way,620180739,Gladiator Strength & Conditioning,fitness_centre,Fitness Center,fitness,,,2950 Bank Street,,,,45.3466524,-75.6265721
+node,5674009494,Glebe Pilates,fitness_centre,Fitness Center,,,,829 Bank Street,,,,45.4021366,-75.6877193
+way,68587554,GoodLife Fitness,fitness_centre,Fitness Center,,GoodLife Fitness,,2655 Queensview Drive,+1-613-820-9531,https://www.goodlifefitness.com/clubs/club.50.html,"Mo 06:00-24:00, Tu-Th 00:00-24:00, Fr 00:00-22:00; Sa-Su07:00-18:00",45.3534505,-75.7869095
+way,244442926,GoodLife Fitness,fitness_centre,Fitness Center,,GoodLife Fitness,,5 Roydon Place,+1 613-739-4070,https://www.goodlifefitness.com/clubs/club.84.html,24/7,45.3389438,-75.7243798
+way,470453273,GoodLife Fitness,fitness_centre,Fitness Center,,GoodLife Fitness,,3181 Strandherd Drive,+1-613-843-9327,,24/7,45.273509,-75.7206891
+way,477731055,GoodLife Fitness,fitness_centre,Fitness Center,,GoodLife Fitness,,1200 St-Laurent Boulevard,+1 613-741-2566,https://www.goodlifefitness.com/clubs/club.233.html,"Mo 06:00-24:00, Tu-Th 00:00-24:00, Fr 00:00-22:00; Sa-Su08:00-18:00",45.4225762,-75.6392553
+way,528200987,GoodLife Fitness,fitness_centre,Fitness Center,,GoodLife Fitness,,,,,,45.4774634,-75.5152389
+way,591059841,GoodLife Fitness,fitness_centre,Fitness Center,,GoodLife Fitness,,1600 Heron Road,+1 613-526-0917,https://www.goodlifefitness.com/clubs/club.109.html,24/7,45.3790658,-75.6461293
+way,605401293,GoodLife Fitness,fitness_centre,Fitness Center,,GoodLife Fitness,,,,,,45.302899,-75.8779337
+way,651371828,GoodLife Fitness,fitness_centre,Fitness Center,,GoodLife Fitness,,,+1 613-567-0037,https://www.goodlifefitness.com/clubs/club.11.html,Mo-Th 06:00-23:59; Fr 06:00-22:00; Sa 08:30-19:30; Su 08:30-18:30,45.4257216,-75.6912175
+way,664940354,GoodLife Fitness,fitness_centre,Fitness Center,,GoodLife Fitness,,1777 Tenth Line Road,,,,45.4660898,-75.4891644
+way,666462081,GoodLife Fitness,fitness_centre,Fitness Center,,GoodLife Fitness,,1100 Carp Road,,,,45.2690293,-75.9419846
+node,3632278322,GoodLife Fitness,fitness_centre,Fitness Center,,GoodLife Fitness,,900 Exhibition Way,+1-613-238-9668,https://www.goodlifefitness.com/clubs/club.276.html,"Mo 05:00-24:00; Tu-Th 00:00-24:00; Fr 00:00-22:00; Sa, Su 07:00-19:00",45.3991187,-75.68467
+node,4393659967,GoodLife Fitness,fitness_centre,Fitness Center,,GoodLife Fitness,,199 Queen Street,+1-613-232-7648,https://www.goodlifefitness.com/clubs/club.149.html,24/7,45.4211182,-75.7004394
+node,4571287082,GoodLife Fitness,fitness_centre,Fitness Center,,GoodLife Fitness,,,,,,45.4295688,-75.6653305
+way,606809604,Gracie Barra,fitness_centre,Fitness Center,,,,1977 St. Joseph Boulevard,,,,45.4649196,-75.5398017
+way,248421462,Greco Fitness,fitness_centre,Fitness Center,,,,1224 Place-d'Orléans Drive,,,,45.4767105,-75.5213154
+way,258271692,Greco Fitness,fitness_centre,Fitness Center,,,,34 Beech Street,,,,45.4009189,-75.7076883
+way,471171504,Greco Fitness,fitness_centre,Fitness Center,fitness,,,1615 Stittsville Main Street,,,,45.2551505,-75.9160575
+way,479191242,Greco Fitness,fitness_centre,Fitness Center,,,,3023 Cedarview Road,+1-613-825-0498,http://grecofitness.com/,,45.2659189,-75.7713639
+node,5750320346,Greco Fitness,fitness_centre,Fitness Center,,,,100 Schneider Road,,,,45.339085,-75.9033957
+node,6041934022,Greco Fitness,fitness_centre,Fitness Center,,,,5700 Longshadow Street,,,,45.2446172,-75.6466386
+node,6191487629,Gym Express,fitness_centre,Fitness Center,,,,,,,,45.2960876,-75.2311731
+node,11638192111,Gym LaVictoire,fitness_centre,Fitness Center,,,,,,,,45.4737361,-75.7433799
+way,182249123,Gym Max,fitness_centre,Fitness Center,,,,105 Rue Bellehumeur,+1-819-246-0496,https://gym-max.com/gym-gatineau,24/7,45.4764333,-75.6915314
+node,7039242295,Gyn Maxi-Forme,fitness_centre,Fitness Center,,,,,,,,45.4906647,-75.6853199
+node,1658075579,Heritage Community Fitness Center,fitness_centre,Fitness Center,,,,,,,,45.1430735,-76.1279955
+node,6144224015,Hiscoe School of Jiu-Jitsu,fitness_centre,Fitness Center,,,,15 Capella Court,,,,45.332156,-75.7060582
+node,9278591974,Hollywood Fit,fitness_centre,Fitness Center,,,,,,,,45.1501851,-76.1495381
+node,5891250601,Hydrathletics,fitness_centre,Fitness Center,swimming,,,154 Iber Road,,,,45.2742522,-75.9022906
+node,6281653438,Hyperforme,fitness_centre,Fitness Center,,,,178 Boulevard Gréber,,,,45.4716901,-75.7018666
+node,5750478748,Inner Revolution Yoga Studio,fitness_centre,Fitness Center,yoga,,,700 March Road,,,,45.350462,-75.9241077
+node,6052003970,Inner Soul,fitness_centre,Fitness Center,yoga,,,190 Colonnade Road South,,,,45.3420544,-75.7155418
+node,5825900102,Iron X Fitness,fitness_centre,Fitness Center,,,,85 Plymouth Street,,,,45.4038136,-75.7020832
+node,5887974204,JR Fitness,fitness_centre,Fitness Center,fitness,,,767 Notre Dame Street,,,,45.2692095,-75.301905
+node,5804141745,JustFit,fitness_centre,Fitness Center,,,,895 Churchill Avenue South,,,,45.3774662,-75.7450703
+way,674473718,K2 Martial Arts,fitness_centre,Fitness Center,,,,1615 Orléans Boulevard,,,,45.4603306,-75.523556
+node,5648457038,Kanata Gymnosphere,fitness_centre,Fitness Center,gymnastics,,,430 Hazeldean Road,,https://www.kanatagymnastics.ca/,,45.3008165,-75.8817449
+node,6716014950,Karate Cama,fitness_centre,Fitness Center,martial_arts,,,,,,,45.5534061,-75.4351947
+node,5809664412,Kemptville Academy of Martial Arts,fitness_centre,Fitness Center,martial_arts,,,125 Prescott Street,,,,45.0157514,-75.6450467
+node,6861966366,Krav Maga Ottawa,fitness_centre,Fitness Center,,,,858 Bank Street,,,,45.4011946,-75.687599
+node,6764241711,KTK Arts Martiaux,fitness_centre,Fitness Center,martial_arts,,,,,,,45.4474007,-75.7379809
+node,6463073843,La Sangha Yoga,fitness_centre,Fitness Center,yoga,,,400 Boulevard Alexandre-Taché,,,,45.4217698,-75.7465696
+node,5891250602,Landmark Crossfit,fitness_centre,Fitness Center,fitness,,,154 Iber Road,,,,45.2741145,-75.9024704
+node,7131405921,LBR Training,fitness_centre,Fitness Center,,,,66 Main Street,,https://www.lbrtraining.com/,,45.4124384,-75.6801548
+node,5893678268,Les Sittelles,fitness_centre,Fitness Center,gymnastics,,,785 Taylor Creek Drive,,,,45.4908432,-75.4873422
+way,638613479,LiquidGym,fitness_centre,Fitness Center,,,,34 Stafford Road,,,,45.3297637,-75.822236
+node,5866608710,Live By Pilates,fitness_centre,Fitness Center,pilates,,,270 Catherine Street,,,,45.4083528,-75.6939715
+node,5834617585,Love To Train Fitness Centre,fitness_centre,Fitness Center,,,,1376 Bank Street,,,,45.3846724,-75.6730751
+node,7935191585,Love Your Body Fitness,fitness_centre,Fitness Center,,,,332 Richmond Road,,,"Mo-Th 06:00-21:00; Fr 06:00-20:00; Sa,Su 08:00-16:00",45.3921532,-75.7534256
+node,12923855466,Ludens Fitness Studio,fitness_centre,Fitness Center,fitness;yoga,,,393 Codd's Road,,https://www.ludens.fitness/,,45.452486,-75.6337163
+way,584505153,M Fitness,fitness_centre,Fitness Center,,,,181 Rue Principale,,,,45.3967888,-75.8368179
+node,10095797158,Marshall's integrated fitness,fitness_centre,Fitness Center,,,,,,,,45.4031577,-75.7247919
+way,693956407,MassOterra Aylmer,fitness_centre,Fitness Center,yoga,,,140 Rue Principale,,,,45.3944738,-75.8423403
+node,6515795264,Metta Movement & Meditation Studio,fitness_centre,Fitness Center,,,,5 Hamilton Avenue North,,,,45.4021394,-75.7308237
+node,6769381775,Minto Sports Complex,fitness_centre,Fitness Center,fitness;soccer;basketball;tennis;american_football;volleyball,,,40 Templeton Street,,,Mo-Su 06:00-23:00,45.4205169,-75.6782323
+node,6816042891,Mixed Martial Arts,fitness_centre,Fitness Center,,,,,,,,45.368567,-75.948627
+node,5689366236,Moda Yoga,fitness_centre,Fitness Center,yoga,,,2442 St. Joseph Boulevard,,,,45.469133,-75.5276169
+way,606809596,Monkeybar Fitness,fitness_centre,Fitness Center,,,,2034 St. Joseph Boulevard,,,,45.4649695,-75.5370965
+node,6747817894,Motion by Design,fitness_centre,Fitness Center,,,,1125 Wellington Street West,,,"""by appointment""",45.4022561,-75.7265184
+way,478968909,Mountaingoat Yoga,fitness_centre,Fitness Center,yoga,,,3350 Fallowfield Road,+1-613-823-3949,https://mountaingoatyoga.com/,,45.2968821,-75.7335962
+node,6015802200,Moussignac Studio,fitness_centre,Fitness Center,yoga,,,369 Lacasse Avenue,,,,45.4318658,-75.656066
+way,209259333,Movati,fitness_centre,Fitness Center,,,,195 Trainyards Drive,,,,45.4121444,-75.6398902
+way,444154155,Movati,fitness_centre,Fitness Center,,,,15 Crestway Drive,,,,45.2769432,-75.7139631
+way,471885469,Movati,fitness_centre,Fitness Center,,,,19 Frank Nighbor Place,,,,45.3005297,-75.9163947
+way,483033146,Movati,fitness_centre,Fitness Center,,,,3772 Innes Road,,,,45.4487345,-75.514287
+way,551780121,Movati,fitness_centre,Fitness Center,,,,1395 Meadowlands Drive East,+1-613-515-2665,https://movatiathletic.com/fitness-clubs/nepean/,,45.3537769,-75.7317728
+node,5756693753,N1 Thai Boxing Academy,fitness_centre,Fitness Center,boxing,,,401 Preston Street,,https://www.n1thai.com/,,45.4001916,-75.7090462
+node,12319507803,Nakkertok Ski Club,fitness_centre,Fitness Center,,,,,,http://Nakkertok.ca,,45.5337206,-75.7201714
+way,671009991,Nautilus Plus,fitness_centre,Fitness Center,,,,920 Boulevard Maloney Ouest,+1-819-561-6555,https://www.nautilusplus.com/gym/gatineau/,Mo-Fr 06:00-22:00; Sa-Su 08:00-18:00,45.4779218,-75.6901602
+way,693953705,Nautilus Plus,fitness_centre,Fitness Center,,,,203 Chemin d'Aylmer,,,,45.3967885,-75.8327584
+node,6505007894,Nautilus Plus,fitness_centre,Fitness Center,,,,,,,,45.4456436,-75.7338654
+node,6396610484,Neak Ta,fitness_centre,Fitness Center,,,,1181 Rockingham Avenue,,https://www.neakta.com/,,45.3829383,-75.6716126
+node,6147857504,Nepean Active Health Centre,fitness_centre,Fitness Center,yoga,,,35 Auriga Drive,,,,45.3309812,-75.7046145
+node,5973552994,Nepean-Corona School of Gymnastics,fitness_centre,Fitness Center,gymnastics,,,155 Colonnade Road South,,,,45.3432327,-75.7050169
+node,4348616506,Neuron Upgrade Training Station,fitness_centre,Fitness Center,,,,2253 Gladwin Crescent,,,,45.405081,-75.6241725
+node,4354434307,New Body Dimensions Gym,fitness_centre,Fitness Center,,,,St-Laurent Boulevard,,,,45.403996,-75.6264306
+node,6171412946,New Era Combat Sports,fitness_centre,Fitness Center,,,,329 March Road,,,,45.3353453,-75.9082626
+node,5878796875,Nova Uniao Ottawa,fitness_centre,Fitness Center,,,,1306 Wellington Street West,,,,45.3986393,-75.7362572
+node,6300350760,OCR Academy,fitness_centre,Fitness Center,,,,1140 Morrison Drive,,,,45.3455043,-75.7974431
+node,5883191210,Olympia Gymnastics,fitness_centre,Fitness Center,gymnastics,,,44 Iber Road,,,,45.2802315,-75.908976
+node,3690129026,Optimum Performance Athlétique,fitness_centre,Fitness Center,,,,1055 Boulevard de la Carrière,,,,45.45836,-75.734081
+way,483215203,Orangetheory Fitness,fitness_centre,Fitness Center,,Orangetheory Fitness,,1001 Daze Street,,,,45.354496,-75.651761
+way,566237518,Orangetheory Fitness,fitness_centre,Fitness Center,,Orangetheory Fitness,,5703 Hazeldean Road,,,,45.2854167,-75.9127974
+way,610253352,Orangetheory Fitness,fitness_centre,Fitness Center,,Orangetheory Fitness,,34 Highbury Park Drive,,,,45.2771242,-75.7483573
+node,5670784521,Orangetheory Fitness,fitness_centre,Fitness Center,,Orangetheory Fitness,,1445 Merivale Road,,,,45.362718,-75.7329152
+node,6765212167,Orleans Crossfit,fitness_centre,Fitness Center,,,,571 Lacolle Way,,,,45.4895386,-75.4860714
+node,6266617116,Orleans Taekwondo,fitness_centre,Fitness Center,,,,1455 Youville Drive,,,,45.4635489,-75.5515751
+way,682494796,Ottawa Academy of Martial Arts,fitness_centre,Fitness Center,,,,1810 Carling Avenue,+1-613-728-0880,,,45.37679,-75.754852
+node,5731473466,Ottawa Academy of Martial Arts,fitness_centre,Fitness Center,,,,444 Hazeldean Road,,,,45.2990605,-75.8859191
+node,5741697430,Ottawa Chito-Kai Karate,fitness_centre,Fitness Center,,,,1796 Courtwood Crescent,,,,45.369863,-75.7501748
+node,5799110353,Ottawa Circus School,fitness_centre,Fitness Center,,,,2275 Gladwin Crescent,,,,45.4042608,-75.6237231
+node,5835515524,Ottawa Cossfit Bytown,fitness_centre,Fitness Center,,,,225 Preston Street,,,,45.4056275,-75.7123058
+node,4750919395,Ottawa Fight & Fitness,fitness_centre,Fitness Center,fitness,,,464 Bank Street,,,,45.4110756,-75.6931515
+node,6266683767,Ottawa Jeet Kune Do,fitness_centre,Fitness Center,,,,1803 St. Joseph Boulevard,,,,45.4621436,-75.5479682
+node,5838632393,Ottawa jiu-jitsu,fitness_centre,Fitness Center,,,,1484 Scott Street,+1 902-817-3000,,,45.4051751,-75.7302182
+node,5825900105,Ottawa JKA Karate,fitness_centre,Fitness Center,,,,475 Cambridge Street South,,,,45.4027463,-75.701764
+node,4543665076,Ottawa Pole Fitness Studio,fitness_centre,Fitness Center,,,,1066 Somerset Street West,,,,45.406479,-75.7201423
+node,5893484101,Oxygen Yoga & Fitness,fitness_centre,Fitness Center,yoga,,,250 Centrum Boulevard,,,,45.4802527,-75.5105002
+node,11112834536,Oxygen Yoga & Fitness,fitness_centre,Fitness Center,yoga,,,1050 Bank Street,,,,45.3951569,-75.6841694
+node,11143748356,Oxygen Yoga & Fitness,fitness_centre,Fitness Center,yoga,,,,,,,45.3234017,-75.9263913
+node,5961954881,Patenaude Martial Arts,fitness_centre,Fitness Center,,,,2035 Lanthier Drive,,,,45.4565447,-75.4910383
+node,6287185497,Patenaude Martial Arts,fitness_centre,Fitness Center,martial_arts,,,306 Rue Notre-Dame,,,,45.4812689,-75.6442434
+node,5889507801,Pathway Jiu Jitsu,fitness_centre,Fitness Center,,,,67 Iber Road,,,,45.2791388,-75.9062201
+node,5720669274,Pathway Yoga,fitness_centre,Fitness Center,yoga,,,346 Richmond Road,,,,45.3916383,-75.7542884
+node,11386712350,Perseverance Taekwon-Do,fitness_centre,Fitness Center,,,,1 Cleopatra Drive,,,,45.3274547,-75.7204961
+node,5799646295,Phoenix Taekwondo,fitness_centre,Fitness Center,,,,800 Industrial Avenue,,,,45.4080063,-75.6338082
+node,5931725088,Phoenixx Fitness,fitness_centre,Fitness Center,fitness,,,6000 Voyageur Drive,,,,45.4758487,-75.5484228
+node,6440963549,Physics Crossfit,fitness_centre,Fitness Center,,,,5300 Canotek Road,,,,45.4518353,-75.588086
+node,11609241717,Pilates on Beechwood,fitness_centre,Fitness Center,pilates,,,140 Beechwood Avenue,,,,45.441298,-75.6729643
+node,5825966450,Pilates Space,fitness_centre,Fitness Center,pilates,,,340 MacLaren Street,,,,45.4149459,-75.6944436
+node,6427128829,Pilates Vitalite,fitness_centre,Fitness Center,,,,,,,,45.4756766,-75.7083052
+way,484963110,Planet Fitness,fitness_centre,Fitness Center,,Planet Fitness,,2006 Mer Bleue Road,,,24/7,45.4542813,-75.5053242
+way,570367958,Planet Fitness,fitness_centre,Fitness Center,,Planet Fitness,,1821 Robertson Road,,,,45.3291041,-75.8190748
+way,573225415,Planet Fitness,fitness_centre,Fitness Center,,Planet Fitness,,1642 Merivale Road,,,,45.3449105,-75.7315648
+node,5550267499,Planet Fitness,fitness_centre,Fitness Center,weights;cardio;exercise;fitness,Planet Fitness,,99 Bank Street,+1 343-655-2810,https://www.planetfitness.ca/gyms/ottawa-downtown,24/7,45.4206567,-75.699913
+way,68708651,Power Muscle Fitness,fitness_centre,Fitness Center,,,,555 March Road,,,,45.3468368,-75.9232248
+node,5874665737,Powerhaus,fitness_centre,Fitness Center,,,,411 Roosevelt Avenue,,,,45.3904573,-75.7564891
+node,12610274001,Prana Shanti Yoga Studio,fitness_centre,Fitness Center,,,,,+1 613-761-9642,https://pranashanti.com/,,45.4032814,-75.715296
+node,6078081536,Precision Gymnastics,fitness_centre,Fitness Center,gymnastics,,,3500 Fallowfield Road,,,,45.2929534,-75.7423619
+node,6591851040,Precision Gymnastics,fitness_centre,Fitness Center,gymnastics,,,3226 Limebank Road,,,,45.3177677,-75.6881453
+node,6747817905,Premium Performance,fitness_centre,Fitness Center,,,,1065 Wellington Street West,,,Mo-Fr 06:00-20:00; Sa 09:00-15:00,45.4038492,-75.7250206
+node,4911333479,Prime,fitness_centre,Fitness Center,,,,429 St-Laurent Boulevard,,,,45.4475534,-75.6498804
+node,6287480126,Proflex Gym,fitness_centre,Fitness Center,,,,630 Boulevard Maloney Est,,,,45.4832125,-75.6274474
+node,3671180074,Pure Yoga,fitness_centre,Fitness Center,yoga,,,,,,,45.4142865,-75.6952656
+node,5720726901,Pure Yoga,fitness_centre,Fitness Center,yoga,,,279 Richmond Road,,,,45.3933119,-75.7514741
+node,5838610354,Pure Yoga,fitness_centre,Fitness Center,yoga,,,71 Bank Street,,,,45.4208803,-75.7008601
+node,5720740863,REFORM Health & Fitness,fitness_centre,Fitness Center,,,,317 McRae Avenue,,,,45.3959413,-75.7497387
+node,6475954934,Richmond Martial Arts,fitness_centre,Fitness Center,,,,6179 Perth Street,,,,45.1940086,-75.8424921
+node,5976659124,Rideau Gymnastics,fitness_centre,Fitness Center,gymnastics,,,150 Katimavik Road,,,,45.3122218,-75.8959351
+way,533298638,Rideau Osgoode Karate Club,fitness_centre,Fitness Center,,,,,,https://www.facebook.com/rideauosgoode/,,45.149894,-75.6018444
+way,591866067,Saroughi International Taekwon-do,fitness_centre,Fitness Center,,,,2016 Tenth Line Road,,,,45.4595834,-75.4887498
+node,5833495290,Saroughi Martial Arts,fitness_centre,Fitness Center,,,,1950 Bank Street,,,,45.3672631,-75.6622437
+node,11382662122,Shaolin Kung Fu Centre,fitness_centre,Fitness Center,,,,1884 Merivale Road,,https://www.shaolincentre.com/,,45.331461,-75.7241194
+way,614485959,Silver 7 Martial Arts,fitness_centre,Fitness Center,,,,737 Silver Seven Road,,,,45.3014912,-75.9134133
+way,479399954,Silver7 Martial Arts,fitness_centre,Fitness Center,,,,3500 Fallowfield Road,+1-613-843-7878,https://silver7martialarts.com,,45.2940173,-75.7413251
+node,5947441345,Smash's Strength Lab,fitness_centre,Fitness Center,,,,1427 Ogilvie Road,,,,45.4312168,-75.6204857
+way,632594644,Snap Fitness,fitness_centre,Fitness Center,,Snap Fitness,,,,https://www.snapfitness.com/ca/gyms/rockland-on,,45.5391301,-75.3027704
+node,11112834535,Soulspeak Studio,fitness_centre,Fitness Center,yoga,,,,,,,45.3925143,-75.6816387
+node,5415554934,Spartan Health,fitness_centre,Fitness Center,,,,1657 Montréal Road,,,,45.4467381,-75.6143304
+node,6034633384,Spinco,fitness_centre,Fitness Center,fitness,,,123 Slater Street,,,,45.4207424,-75.6968254
+node,10966040782,Spinco,fitness_centre,Fitness Center,cycling,,,5734 Hazeldean Road,,,,45.2818985,-75.9124128
+node,6096434301,Spring Action Trampoline Centre,fitness_centre,Fitness Center,trampoline,,,5515 Canotek Road,,,,45.45627,-75.5829401
+way,472249178,Starr Gymnastics & Fitness,fitness_centre,Fitness Center,gymnastics,,,520 Lacolle Way,,,,45.490488,-75.481569
+way,690972673,Starr Gymnastics Centre,fitness_centre,Fitness Center,gymnastics,,,2766 Lancaster Road,,,,45.3958022,-75.606381
+node,6275423475,Strong Pilates,fitness_centre,Fitness Center,yoga,,,1306 Wellington Street West,,,,45.3986155,-75.7362617
+way,638285843,Studio Elite,fitness_centre,Fitness Center,,,,28 McArthur Avenue,,,,45.4306575,-75.6673715
+node,9070462970,Studio Énergie 148,fitness_centre,Fitness Center,,,,371 Rue Papineau,+1-819-427-6195,http://studioenergie.ca/,,45.6162087,-75.0257027
+node,5982077758,Studio One,fitness_centre,Fitness Center,fitness,,,1 Springfield Road,,,,45.440065,-75.6762612
+node,6704010016,Studio Vie Active,fitness_centre,Fitness Center,yoga,,,260 Boulevard Saint-Raymond,,,,45.4271589,-75.7623095
+node,6572858056,Sunny Tang Ving Tsun Kung Fu,fitness_centre,Fitness Center,,,,2591 Carp Road,,,,45.2967563,-75.9767166
+node,4721424887,Suyin Lifts,fitness_centre,Fitness Center,,,,933 Carling Avenue,,,,45.3956097,-75.7131699
+node,5648501095,Sweat Equity,fitness_centre,Fitness Center,,,,95 Abbeyhill Drive,,,,45.3006824,-75.8760036
+node,5726053113,Tae E. Lee Taekwondo,fitness_centre,Fitness Center,,,,1300 Carling Avenue,,,,45.3857141,-75.7340759
+node,5868668219,Tae E. Lee Taekwondo,fitness_centre,Fitness Center,,,,288 Bank Street,,,,45.4154797,-75.6967697
+way,236481866,Takahashi Dojo,fitness_centre,Fitness Center,,,,5 Melrose Avenue,,,,45.4031842,-75.724671
+node,5521191047,Team Bushido MMA Fitness Centre,fitness_centre,Fitness Center,,,,1511 Merivale Road,,,,45.3573657,-75.7366086
+node,5832443727,Thai Boxing Boss & Fitness,fitness_centre,Fitness Center,,,,104 Maley Street,,,,45.0186703,-75.6479381
+node,9611926166,The Fitness Lab,fitness_centre,Fitness Center,,,,5536 Ann Street,,,,45.2248265,-75.6854407
+node,6074639207,The Gym,fitness_centre,Fitness Center,,,,2880 Sheffield Road,,,,45.3964385,-75.6020308
+node,11461025166,The Proving Grounds,fitness_centre,Fitness Center,,,,48 Northside Road,,,,45.3282307,-75.8169278
+node,5838632396,The Rig,fitness_centre,Fitness Center,,,,1480 Scott Street,,https://www.therigboxing.com/,,45.4052933,-75.7298072
+node,6200093770,The Rig,fitness_centre,Fitness Center,boxing,,,22 Caesar Avenue,,,,45.32669,-75.7238011
+node,6135397686,Therapeutic Effects,fitness_centre,Fitness Center,yoga,,,130 Terence Matthews Crescent,,,,45.2877567,-75.8730485
+node,6287226423,Therien Jiu-Jitsu & Kickboxing,fitness_centre,Fitness Center,martial_arts,,,340 Boulevard Maloney Est,,,,45.4841556,-75.642968
+way,606789212,Therien Martial Arts,fitness_centre,Fitness Center,,,,2297 St. Joseph Boulevard,,,,45.4680947,-75.5325621
+node,5724475378,Tina Takashi,fitness_centre,Fitness Center,,,,1061 Merivale Road,,,,45.3778591,-75.7329071
+node,5867011000,True Form Health & Fitness,fitness_centre,Fitness Center,fitness,,,384 Bank Street,,,,45.4135088,-75.6950793
+node,5837983727,TRYumph Gymnastics Academy,fitness_centre,Fitness Center,gymnastics,,,1373 Ogilvie Road,+1-613-742-5066,https://tryumphgymnastics.ca/,Mo-Fr 09:00-18:00,45.430764,-75.6215927
+node,3696024535,Tumblers Gymnastics Centre,fitness_centre,Fitness Center,gymnastics,,,330 Vantage Drive,,,,45.4578436,-75.4915193
+node,6760321445,Ultime Sport,fitness_centre,Fitness Center,martial_arts,,,,,,,45.4529861,-75.7390805
+node,6762812849,Ultime Sport,fitness_centre,Fitness Center,martial_arts,,,,,,,45.453182,-75.7391487
+node,4473511808,Underground,fitness_centre,Fitness Center,,,,957 Gladstone Avenue,,,,45.4037534,-75.7154909
+node,3690507139,UniGym,fitness_centre,Fitness Center,,,,183 Chemin Freeman,,,,45.4723302,-75.7451544
+node,3690853143,Unigym Gatineau,fitness_centre,Fitness Center,gymnastics,,,75 Chemin de Montréal Est,,,,45.5457151,-75.4122386
+node,5752163028,Uplift Ottawa,fitness_centre,Fitness Center,,,,2288 St. Joseph Boulevard,,,,45.4679139,-75.5310824
+node,4419607090,Uprise Fit,fitness_centre,Fitness Center,,,,175 B Lisgar Street,+1-613-860-2348,,,45.4190347,-75.692503
+node,4751128161,Upward Dog Yoga,fitness_centre,Fitness Center,yoga,,,253 Dalhousie Street,,,,45.4310473,-75.6927175
+way,294778074,Upward Dog Yoga Centre,fitness_centre,Fitness Center,yoga,,,251 Dalhousie Street,+1-613-241-9642,https://upwarddogyoga.ca/,,45.4310624,-75.6927069
+node,6177527124,Wandering Path Yoga,fitness_centre,Fitness Center,yoga,,,125 Prescott Street,,,,45.0157992,-75.6449904
+node,6144224038,Warriors of the Light,fitness_centre,Fitness Center,,,,9 Capella Court,,,,45.3330837,-75.706594
+node,5941654227,WeFit.ca,fitness_centre,Fitness Center,fitness,,,198 Preston Street,,,,45.4057791,-75.7129032
+node,5878796874,Westside Muay Thai,fitness_centre,Fitness Center,,,,1306 Wellington Street West,,,,45.3986487,-75.7361835
+node,5867011014,Wheelhouse,fitness_centre,Fitness Center,cycling,,,455 Bank Street,,,,45.4117836,-75.6931769
+node,2037688851,World Karate Centre,fitness_centre,Fitness Center,,,,4 Lorry Greenberg Drive,,,,45.3689988,-75.6212192
+way,709287217,Yoga Tribe,fitness_centre,Fitness Center,yoga,,,425 Boulevard La Vérendrye Est,,,,45.5019767,-75.6419907
+way,640897176,yogatown,fitness_centre,Fitness Center,yoga,,,1300 Stittsville Main Street,,,,45.2654244,-75.9302474
+node,5835515530,Yogatown,fitness_centre,Fitness Center,yoga,,,300 Preston Street,,,,45.4034897,-75.7115105
+node,7974960273,Yogatown,fitness_centre,Fitness Center,,,,34 Highbury Park Drive,,,,45.2775487,-75.7485209
+node,5868722855,Zen For You,fitness_centre,Fitness Center,yoga,,,309 Cooper Street,,,,45.4174062,-75.6939299
+way,87362548,,sports_centre,Sports Center,,,,165 Rue des Sables,,,,45.497376,-75.5929245
+way,234585997,,sports_centre,Sports Center,,,,265 Centrum Boulevard,,https://www.ymcaywca.ca/locations/Orleans+Y/,,45.4813886,-75.5092239
+way,483775286,,sports_centre,Sports Center,,,,2935 Conroy Road,,,,45.3823925,-75.628227
+way,555806209,,sports_centre,Sports Center,ice_skating,,,,,,,45.5984565,-75.6157625
+way,1204574798,,sports_centre,Sports Center,baseball,,,5 Rue Sanscartier,,,,45.4775395,-75.6406856
+way,1204703567,,sports_centre,Sports Center,baseball,,,82 Rue Sabourin,,,,45.4796193,-75.6324604
+way,1204971354,,sports_centre,Sports Center,baseball,,,5 Rue Sanscartier,,,,45.4786462,-75.6408392
+way,1204971361,,sports_centre,Sports Center,baseball,,,5 Rue Sanscartier,,,,45.4795913,-75.6411463
+way,1307071698,,sports_centre,Sports Center,baseball,,,20 Rue Court,,,,45.3916543,-75.8441162
+way,1307084440,,sports_centre,Sports Center,baseball,,,5 Rue Sanscartier,,,,45.4771525,-75.6415114
+way,1307084443,,sports_centre,Sports Center,baseball,,,5 Rue Sanscartier,,,,45.477733,-75.6421487
+way,1308621806,,sports_centre,Sports Center,baseball,,,13 Rue du Curé-Labelle,,,,45.4920187,-75.6050737
+way,1308635154,,sports_centre,Sports Center,baseball,,,22 Rue d'Auvergne,,,,45.4740409,-75.7250281
+way,1308734233,,sports_centre,Sports Center,baseball,,,23A Rue Saint-Alexandre,,,,45.4941187,-75.7559045
+way,1308739719,,sports_centre,Sports Center,baseball,,,36 Rue de Savoie,,,,45.4761979,-75.7166208
+way,1308852426,,sports_centre,Sports Center,baseball,,,40 Rue Pilon,,,,45.4279523,-75.7221761
+way,1308884336,,sports_centre,Sports Center,baseball,,,70 Boulevard Saint-Joseph,,,,45.4281198,-75.7320475
+way,1308940494,,sports_centre,Sports Center,baseball,,,80 Rue Moreau,,,,45.4643526,-75.7083226
+way,1308940496,,sports_centre,Sports Center,baseball,,,80 Rue Moreau,,,,45.4632062,-75.7083024
+way,1309197200,,sports_centre,Sports Center,baseball,,,40 Rue du Bassin,,,,45.5426348,-75.4126885
+way,1309412131,,sports_centre,Sports Center,baseball,,,Hillcrest Avenue,,,,45.6115004,-76.4908991
+way,1312365331,,sports_centre,Sports Center,baseball,,,17 Chemin du Manoir,,,,45.5992565,-75.6150241
+way,1385360570,,sports_centre,Sports Center,baseball,,,68 Rue Guindon,,,,45.6075235,-75.1089761
+way,1411647706,,sports_centre,Sports Center,baseball,,,26 Rue Belmont,,,,45.3925583,-75.8291521
+way,1412237756,,sports_centre,Sports Center,baseball,,,2 Avenue White,,,,45.5198999,-76.4148671
+way,1414094918,,sports_centre,Sports Center,,,,,,,,45.3481271,-75.2615338
+node,4567873631,,sports_centre,Sports Center,swimming,,,,,,,45.4672391,-75.7054627
+way,69587945,Alfred Taylor Recreation Centre,sports_centre,Sports Center,,,Ottawa,,,,,45.1301721,-75.7108535
+way,258171382,Algonquin College Dome,sports_centre,Sports Center,,,,570 Wàbisheshì Private,,,,45.3523445,-75.75013
+node,5838396285,Altitude Gym,sports_centre,Sports Center,climbing,,,501 Palladium Drive,,https://altitudegym.ca/en/kanata/,Mo-Fr 10:00-22:00; Sa-Su 10:00-10:00,45.2979843,-75.9116631
+node,6373100184,Altitude Gym,sports_centre,Sports Center,climbing,,,,,,,45.4469588,-75.7369926
+node,13285595815,Altitude Gym Orléans,sports_centre,Sports Center,climbing,,Altitude Gym,265 Centrum Blvd,,,,45.481224,-75.509286
+way,655777408,AMPED Sports Lab & Ice Complex,sports_centre,Sports Center,ice_hockey,,,2600 Leitrim Road,,,,45.3180955,-75.6269129
+way,567226664,Aqua-Tots Swim Schools,sports_centre,Sports Center,swimming,Aqua-Tots Swim Schools,,145 Roland Michener Drive,,,,45.3080252,-75.9108566
+node,5833495161,Archery Games Ottawa,sports_centre,Sports Center,archery,,,1860 Bank Street,,,,45.3690721,-75.6638825
+way,87362809,Aréna Baribeau,sports_centre,Sports Center,aréna,,,231 Rue Magnus Est,,,,45.4939919,-75.6469236
+way,87362850,Arena Beaudry,sports_centre,Sports Center,ice_hockey,,,23 Rue Saint-Alexandre,,,,45.4944038,-75.7569701
+way,498301514,Aréna Guy Lafleur,sports_centre,Sports Center,ice_hockey;ice_skating,,,,,,,45.6010124,-75.2433021
+way,476168562,Aréna Joseph-Lucien-Malo,sports_centre,Sports Center,ice_hockey,,,,,,,45.6185422,-75.0273574
+node,5930606237,Arnprior Bowling Centre,sports_centre,Sports Center,10pin,,,120 John Street North,,,,45.434043,-76.354035
+way,130299326,Athletics Building,sports_centre,Sports Center,,,Carleton University,1125 Colonel By Drive,,,,45.3862895,-75.694216
+node,5737565970,Backyard Axe Throwing League,sports_centre,Sports Center,axe_throwing,,,2615 Lancaster Road,,,,45.3990753,-75.6108445
+way,157604564,Beckwith Arena,sports_centre,Sports Center,ice_hockey,,,,,,,45.115821,-76.0844126
+node,1649529097,Beckwith Recreation Complex,sports_centre,Sports Center,,,,,,,,45.1155179,-76.0843941
+way,22597648,Bell Centennial Arena,sports_centre,Sports Center,ice_hockey,,Ottawa,50 Cassidy Road,,,,45.3246615,-75.8110175
+way,470386795,Bell Sensplex,sports_centre,Sports Center,ice_hockey,,,1565 Maple Grove Road,,http://www.bellsensplex.ca/,,45.2973366,-75.9092249
+way,233905575,Belltown Dome,sports_centre,Sports Center,ice_hockey,,Ottawa,2915 Haughton Avenue,,,,45.3601076,-75.8039946
+way,68661978,Bernard Grandmaitre Arena,sports_centre,Sports Center,,,Ottawa,307 McArthur Avenue,,,,45.4328478,-75.6554553
+way,483073689,Blackburn Hamlet Community Centre & Arena,sports_centre,Sports Center,,,Ottawa,190 Glen Park Drive,,https://blackburnhamlet.ca/community-hall-schedule/,,45.4303793,-75.5631065
+node,13289343600,Bloc 9.81,sports_centre,Sports Center,climbing,,,79 Boulevard de la Gappe,+1 819-246-0981,https://bloc981.com,Mo-Fr 08:00-22:00; Sa-Su 09:00-23:00,45.4669687,-75.7187471
+way,87374421,Bloc sportif,sports_centre,Sports Center,,,Cégep de l'Outaouais,,,,,45.4592045,-75.7707197
+way,484351692,Bob MacQuarrie Recreation Complex,sports_centre,Sports Center,swimming;ice_skating;skateboard;ice_hockey,,City of Ottawa,1490 Youville Drive,+1 613 580-9600,https://ottawa.ca/en/recreation-and-parks/facilities/place-listing/bob-macquarrie-recreation-complex-orleans,,45.4663696,-75.5447923
+node,5857487911,Bowling Centre,sports_centre,Sports Center,10pin,,,49 Bridge Street,,,,45.1379964,-76.1434856
+way,68999426,Brewer Arena,sports_centre,Sports Center,,,Ottawa,151 Brewer Way,,,,45.389242,-75.6905205
+way,68586155,Brian Kilrea Arena,sports_centre,Sports Center,,,Ottawa,2185 Arch Street,+1-613-247-4863,https://ottawa.ca/2/en/residents/facilities/canterbury-recreation-complex,,45.3903335,-75.628831
+way,254644700,Canadian International Hockey Academy,sports_centre,Sports Center,ice_hockey,,,10 Canadian Lane,,,,45.5581957,-75.2709702
+way,221214027,Canterbury Recreation Complex,sports_centre,Sports Center,,,Ottawa,2185 Arch Street,,,,45.390467,-75.6294775
+node,5893678241,Capital Courts,sports_centre,Sports Center,basketball,,,1671 Vimont Court,,,,45.4915041,-75.4833913
+way,482740221,Carlington Recreation Centre,sports_centre,Sports Center,,,Ottawa,1520 Caldwell Avenue,,,,45.3724695,-75.739118
+way,808089787,Centre aquatique Lucien-Houle,sports_centre,Sports Center,swimming,,Ville de Gatineau,580-A Rue Maclaren Est,,,,45.5878718,-75.4009097
+way,88236437,Centre aquatique Paul-Pelletier,sports_centre,Sports Center,swimming,,Ville de Gatineau,325 Chemin d'Aylmer,,https://ville.gatineau.qc.ca/page.asp?p=quoi_faire/activites_recreatives_sportives/baignade/piscines_interieures,,45.3970317,-75.8252295
+way,273569877,Centre Meredith,sports_centre,Sports Center,,,,23 Cecil Road,,,,45.5072166,-75.7930207
+node,485406118,Centre Plein Air Lac-Leamy,sports_centre,Sports Center,,,,,,,,45.4527143,-75.7269277
+way,1014110594,Centre Slush Puppie,sports_centre,Sports Center,ice_hockey,,,500 Boulevard de la Cité,+1 819-317-1122,https://centreslushpuppie.com,,45.4832087,-75.6792851
+way,95540415,Centre sportif de Buckingham,sports_centre,Sports Center,,,,455 Rue James,,,,45.5890695,-75.4109204
+way,168226498,Centre sportif de Gatineau,sports_centre,Sports Center,,,,850 Boulevard de la Gappe,,,,45.4829849,-75.6820439
+way,453774829,Champagne Bath Pool,sports_centre,Sports Center,swimming,,Ottawa,321 King Edward Avenue,+1-613-244-4402,https://ottawa.ca/2/en/residents/facilities/champagne-fitness-centre,Mo-Fr 06:30-21:30; Th 09:00-21:30; Sa-Su 09:00-16:30,45.4306598,-75.686739
+way,91659670,Chesterville and District Arena,sports_centre,Sports Center,,,,,,,,45.1027375,-75.2380091
+node,11764360693,Club Cascades,sports_centre,Sports Center,,,,,,,,45.5823369,-75.8733644
+way,471920165,Complete Hockey Development Centre,sports_centre,Sports Center,ice_hockey,,,145 Iber Road,,,,45.275883,-75.902143
+way,477553812,Complexe Branchaud-Briere,sports_centre,Sports Center,,,,499 Boulevard Labrosse,,,,45.4971693,-75.6444245
+way,162282264,Complexe sportif du Mont-Bleu,sports_centre,Sports Center,,,,395 Boulevard de la Cité-des-Jeunes,,,,45.4620384,-75.7737056
+way,342382726,Crysler Community Center Rink,sports_centre,Sports Center,,,,,,,,45.2158797,-75.1541252
+node,5812491694,Dave Stathos Goalie Performance Center,sports_centre,Sports Center,ice_hockey,,,50 Frank Nighbor Place,,,,45.2991166,-75.9168899
+way,378927344,Don Gamble Arena,sports_centre,Sports Center,ice_hockey,,Ottawa,515 Côté Street,,,,45.4362955,-75.6464675
+way,473220688,Earl Armstrong Arena,sports_centre,Sports Center,ice_hockey;ice_skating,,Ottawa,2020 Ogilvie Road,,,,45.437545,-75.601336
+way,91047578,Ebo Arts Martiaux,sports_centre,Sports Center,martial_arts,,,10 Rue Belmont,,,,45.3941481,-75.8302781
+way,130299327,Fieldhouse,sports_centre,Sports Center,,,Carleton University,1125 Colonel By Drive,,,,45.3869277,-75.6945193
+way,91827287,Finch Community Arena,sports_centre,Sports Center,ice_hockey,,,4 John Street,,,,45.1441489,-75.0883353
+way,664747500,Flying Squirrel,sports_centre,Sports Center,gymnastics,,,1901 Cyrville Road,,,,45.41562,-75.5999515
+way,68656482,Fred G. Barrett Arena,sports_centre,Sports Center,,,Ottawa,3280 Leitrim Road,,,,45.3311372,-75.597803
+way,484003844,Gloucester Superdome Sport Centre,sports_centre,Sports Center,soccer,,Ottawa,1660 Bearbrook Road,,,,45.4423062,-75.5771259
+way,672782978,Golf O Max,sports_centre,Sports Center,,,,1050 Baxter Road,,,,45.3536862,-75.7788585
+way,548052591,Goulbourn Lawn Bowling Club,sports_centre,Sports Center,bowls,,City of Ottawa,2135 Huntley Road,,https://www.goulbournlawnbowlingclub.com/,,45.2325358,-75.9022965
+way,471520447,Goulbourn Recreation Complex,sports_centre,Sports Center,,,Ottawa,1500 Shea Road,,,,45.26313,-75.9076905
+way,191992035,Greely Indoor Swimming Pool,sports_centre,Sports Center,swimming,,,,,,,45.2596277,-75.5511975
+node,6597793773,Hippo in the Bathtub,sports_centre,Sports Center,swimming,,,41 Grenfell Crescent,,,,45.3219326,-75.72261
+node,3978511046,In the Air Legacy,sports_centre,Sports Center,knife_throwing,,,1940 Bank Street,,,,45.3674947,-75.6625233
+way,87362507,J. A. Dulude Arena,sports_centre,Sports Center,ice_hockey,,Ottawa,941 Clyde Avenue North,,,,45.3745509,-75.7465135
+way,1040062552,Jack Doyle Athletics and Recreation Centre,sports_centre,Sports Center,,,,525 Wàbisheshì Private,,,,45.350956,-75.7547428
+way,633530685,Jean-Marc Lalonde Arena,sports_centre,Sports Center,ice_hockey,,,,,,,45.5516709,-75.2859963
+way,677657327,Jim Durrell Recreation Centre,sports_centre,Sports Center,ice_hockey,,Ottawa,1265 Walkley Road,,,,45.3731005,-75.65882
+way,91845108,Joel Steeele Community Centre & Arena,sports_centre,Sports Center,,,,577 Main Street,+1-613-774-2006,,,45.0890459,-75.3611157
+way,471490876,Johnny Leroux Stittsville Community Arena,sports_centre,Sports Center,ice_hockey,,Ottawa,10 Warner Colpitts Lane,,,,45.2606655,-75.9266746
+way,69658536,JR Brisson Complex,sports_centre,Sports Center,,,,764 Brebeuf Street,,,,45.3157272,-75.0860541
+way,471616700,K9 Sports Centre,sports_centre,Sports Center,,,,1441 Stittsville Main Street,,,,45.2613185,-75.9222115
+node,5750351607,Kanata Cubhouse,sports_centre,Sports Center,baseball,,,302 Legget Drive,,,,45.3414483,-75.9010957
+way,68609516,Kanata Leisure Centre and Wave Pool,sports_centre,Sports Center,,,Ottawa,70 Aird Place,,,,45.3114437,-75.8990274
+way,450841798,Kanata Recreation Centre,sports_centre,Sports Center,,,Ottawa,100 Charlie Rogers Place,,,,45.2942436,-75.9016461
+node,5811024113,Kemptville Training Centre,sports_centre,Sports Center,ice_hockey,,,639 Van Buren Street,,,,45.0210099,-75.6325436
+node,6682292593,Kids Can Swim Canada,sports_centre,Sports Center,,,,280 Didsbury Road,,,,45.3059648,-75.9178153
+way,39451292,La Fonderie,sports_centre,Sports Center,,,,211 Rue Montcalm,,,,45.4299717,-75.7311663
+way,87362344,La Sporthèque de Hull,sports_centre,Sports Center,,,,72 Rue Jean-Proulx,,https://www.sportheque.com/,,45.4693697,-75.7410771
+node,6287480489,Les Gants Dores,sports_centre,Sports Center,boxing,,,,,,,45.4844386,-75.6332812
+way,548251140,Long Island Aquatic Club,sports_centre,Sports Center,,,,,,,,45.230925,-75.6793092
+way,483033197,Louis Riel Dome,sports_centre,Sports Center,soccer,,,1655 Bearbrook Road,,,,45.4421025,-75.572071
+way,169253655,Luskville Dragway,sports_centre,Sports Center,drag_racing,,,,,http://www.luskvilledragway.com/,,45.5153949,-76.0322489
+way,470022723,Manotick Arena,sports_centre,Sports Center,ice_hockey,,Ottawa,5572 Doctor Leach Drive,,https://ottawa.ca/2/en/residents/facilities/manotick-arena,,45.2219904,-75.6865254
+way,68588596,McNabb Recreation Centre,sports_centre,Sports Center,,,Ottawa,180 Percy Street,+1-613-564-1070,https://ottawa.ca/2/en/residents/facilities/mcnabb-recreation-centre,Mo-Fr 08:00-22:00; Sa 08:00-20:00; Su 09:00-20:00,45.4092075,-75.7021675
+way,363768724,Minto Recreation Complex,sports_centre,Sports Center,swimming;ice_hockey;multi,,City of Ottawa,3500 Cambrian Road,,,,45.253001,-75.734482
+way,172333296,Minto Sports Complex,sports_centre,Sports Center,ice_hockey;american_football;soccer;fitness;e;rugby,,University of Ottawa,801 King Edward Avenue,,,,45.420015,-75.677395
+way,69099636,Mlacak Centre,sports_centre,Sports Center,,,Ottawa,2500 Campeau Drive,,,,45.3214124,-75.8957673
+node,6579717755,Morrison's Quarry,sports_centre,Sports Center,swimming;scuba_diving,,,,,https://sharkyscuba.com/local-ottawa-diving/morrisons-quarry/,,45.6138804,-75.9092554
+way,102512847,Neelin Street Arena,sports_centre,Sports Center,ice_skating,,,75 Neelin Street,,,,45.1426667,-76.1385803
+way,471675837,Nepean Sportsplex,sports_centre,Sports Center,multi;ice_hockey;curling;squash;fitness;swimming,,Ottawa,1701 Woodroffe Avenue,+1-613-580-2828,https://ottawa.ca/en/residents/facilities/nepean-sportsplex,,45.3271182,-75.7452558
+way,84546907,Nick Smith Centre,sports_centre,Sports Center,,,,,,,,45.4253178,-76.3563888
+way,68999459,Norm Fenn Gym,sports_centre,Sports Center,,,Carleton University,1125 Colonel By Drive,,,,45.3857064,-75.6933605
+way,1265224080,Oakfield Rugby Park,sports_centre,Sports Center,american_football;rugby_union;soccer,,,2585 Drummond Concession 2,,,,44.9580678,-76.1544843
+node,6032500302,Olympia Training Centre,sports_centre,Sports Center,gymnastics,,,93 Hines Road,,,,45.3454883,-75.9246321
+way,68609101,Ottawa Gymnastics Centre,sports_centre,Sports Center,gymnastics,,,294 Elmgrove Avenue,,https://www.ottawagymnasticscentre.ca/,,45.3939625,-75.752236
+way,68665133,Ottawa Lowertown Community Centre and Pool,sports_centre,Sports Center,,,Ottawa,40 Cobourg Street,,https://ottawa.ca/en/rec_culture/park_facility/facilities/rec_centres/lowertown/index.html,,45.4344945,-75.681338
+way,551944529,Ottawa River Runners,sports_centre,Sports Center,canoe,,,,,https://www.ottawariverrunners.com/,,45.4178489,-75.7118904
+way,374510699,Ottawa Tennis Club,sports_centre,Sports Center,tennis,,,176 Cameron Avenue,+1-613-730-7207,https://www.otlbc.com/,,45.3882425,-75.6864053
+way,208933662,Oz Dome,sports_centre,Sports Center,soccer,,,221 Westbrook Road,,,,45.273149,-75.9585675
+way,191019497,Palais des sports,sports_centre,Sports Center,,,,,,,,45.2759197,-75.280986
+way,738979224,Paul-Desmarais Sports Dome,sports_centre,Sports Center,soccer,,,,,,,45.2752242,-75.8993402
+way,251701687,Pinecrest Recreation Complex,sports_centre,Sports Center,,,Ottawa,2250 Torquay Avenue,,,,45.3478155,-75.7734945
+way,167219303,Pontiac Squash,sports_centre,Sports Center,squash,,,,,,,45.6049759,-76.4924691
+way,68586959,RA Centre,sports_centre,Sports Center,,,,2451 Riverside Drive,,https://www.racentre.com/,,45.3821265,-75.683436
+way,640151491,Ray Friel Recreation Complex,sports_centre,Sports Center,,,Ottawa,,,https://ottawa.ca/residents/parks_recreation/facilities/rec_centres/rayfriel/index_en.html,,45.472022,-75.492554
+way,162281937,Relais Plein Air,sports_centre,Sports Center,,,,397 Boulevard de la Cité-des-Jeunes,,https://relaispleinair.ca/,,45.4623837,-75.7744454
+way,293247659,Richcraft Recreation Complex,sports_centre,Sports Center,,,Ottawa,4101 Innovation Drive,,https://ottawa.ca/en/recreation-and-parks/recreation-facilities/facility-listing/richcraft-recreation-complex-kanata,,45.3404553,-75.9305267
+way,325907947,Rideau Sports Centre,sports_centre,Sports Center,tennis,,,1 Donald Street,+1-613-749-6126,https://www.rideausportscentre.com/,Mo-Fr 07:30-22:30; Sa-Su 07:30-21:00,45.4274789,-75.6687793
+node,5812491695,Rink Eye Development Centre,sports_centre,Sports Center,ice_hockey,,,50 Frank Nighbor Place,,,,45.2988525,-75.9165573
+way,191019505,Russell Arena,sports_centre,Sports Center,,,,1084 Concession Street,,,,45.2601765,-75.3611236
+way,371741299,Salle de Quilles Paris,sports_centre,Sports Center,10pin,,,125 Chemin de la Savane,+1-819-568-7045,https://www.facebook.com/Salle-de-Quilles-Paris-et-Ligue-Jeunesse-Paris-165697437340382/,,45.4748937,-75.6920163
+way,313343390,Salle de Quilles St-Joseph,sports_centre,Sports Center,,,,122 Rue Berri,,,,45.4354415,-75.734733
+way,68710373,Sandy Hill Arena,sports_centre,Sports Center,,,Ottawa,60 Mann Avenue,,,,45.419528,-75.674049
+way,482837106,Sawmill Creek Pool and Community Centre,sports_centre,Sports Center,,,Ottawa,3380 D'Aoust Avenue,,,,45.34972,-75.6363407
+way,167188315,Shawville Arena,sports_centre,Sports Center,,,,,,,,45.6038892,-76.4850795
+way,466704821,Splash Wave Pool,sports_centre,Sports Center,swimming,,Ottawa,2040 Ogilvie Road,,,,45.4375854,-75.6003734
+way,68851525,Stade Pierre-Lafontaine,sports_centre,Sports Center,,,,255 Rue Saint-Antoine,,,,45.4718936,-75.6990989
+node,2466864800,Starr Gymnastics,sports_centre,Sports Center,gymnastics,,,1140 Morrison Drive,,https://www.starrgymnastics.com/,,45.3451612,-75.7976711
+node,2641040778,Station Mont Cascades,sports_centre,Sports Center,,,,,,,,45.5931115,-75.8487983
+way,70196413,Stewart Community Centre,sports_centre,Sports Center,,,,112 MacFarlane Street,,,,45.331406,-76.2890192
+way,165740365,Superdome,sports_centre,Sports Center,soccer,,Ottawa,191 Knoxdale Road,,,,45.3233266,-75.77585
+way,361022607,Tactik Paintball,sports_centre,Sports Center,shooting,,,,,,,45.5037457,-75.547715
+way,24763099,Tennis Centre,sports_centre,Sports Center,tennis,,Carleton University,1125 Colonel By Drive,+1-613-526-9777,https://www.carletontenniscentre.com/,,45.388069,-75.6949791
+way,68587603,Tennis Centre West Ottawa,sports_centre,Sports Center,tennis,,,120 Greenview Avenue,,https://tcwo.ca,,45.3629028,-75.7993395
+way,1311579561,Terrain Russell Martin,sports_centre,Sports Center,baseball,,,7 Chemin de l'Hôtel de Ville,,,,45.5043383,-75.7948155
+way,493245422,Terry Fox Stadium,sports_centre,Sports Center,soccer;track;athletics,,Ottawa,2960 Riverside Drive,,,,45.3703261,-75.6922875
+way,68588555,The Yard,sports_centre,Sports Center,cycling,,,265 City Centre Avenue,,,,45.408621,-75.717318
+node,6505184293,Therien,sports_centre,Sports Center,martial_arts,,,569 Boulevard Saint-Joseph,,,,45.4495303,-75.735822
+way,68588371,Tom Brown Arena,sports_centre,Sports Center,ice_hockey,,Ottawa,141 Bayview Station Road,+1-613-798-8885,,,45.4080675,-75.7226491
+way,84830929,Twin Elm Rugby Park,sports_centre,Sports Center,rugby_union,,,4075 Twin Elm Road,,,,45.2036019,-75.7956363
+way,642572456,TWP of Russell Sports Dome,sports_centre,Sports Center,soccer;multi;athletics;tennis;running;pickleball;weightlifting,,,150 Sportsplex Street,,,"Mo-Fr 05:00-22:00, Sa-Su 07:00-18:00",45.2681515,-75.3138718
+node,13239953001,Vanguard martial arts academy,sports_centre,Sports Center,,,,5 Main Street South,,,,45.1025658,-75.2286008
+way,84546985,W. Erskine Johnston Arena & Community Centre,sports_centre,Sports Center,,,Ottawa,3832 Carp Road,,,,45.3491343,-76.0387741
+way,68657466,Walter Baker Sports Centre,sports_centre,Sports Center,,,Ottawa,100 Malvern Drive,,,,45.2802605,-75.761781
+node,5808943983,Winchester Bowling,sports_centre,Sports Center,10pin,,,500 Main Street,,,,45.0932232,-75.3538741
+node,3936439461,Xtreme Trampoline Park,sports_centre,Sports Center,trampoline,,,50 Frank Nighbor Place,,,,45.2990079,-75.9166527
+way,207624797,YMCA,sports_centre,Sports Center,,YMCA,National Capital Region YMCA-YWCA,180 Argyle Avenue,+1 613-237-1320,https://www.ymcaottawa.ca/locations/taggart-family-ymca,Mo-Th 06:30-21:00; Fr 06:30-20:00; Sa-Su 08:00-16:00,45.4112243,-75.6893527
+node,6366564789,YMCA,sports_centre,Sports Center,,YMCA,,2121 Carling Avenue,,,,45.3735958,-75.7693858
+node,11368579188,YMCA,sports_centre,Sports Center,,YMCA,,,,,,45.5495109,-75.2852852

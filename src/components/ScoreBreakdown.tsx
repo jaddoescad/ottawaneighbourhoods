@@ -50,6 +50,16 @@ const CATEGORY_INFO: Record<keyof CategoryScores, { label: string; emoji: string
     emoji: "👨‍👩‍👧‍👦",
     description: "Percentage of children in population",
   },
+  commuteTime: {
+    label: "Commute",
+    emoji: "🚗",
+    description: "Average commute time to downtown (shorter is better)",
+  },
+  lifestyle: {
+    label: "Lifestyle",
+    emoji: "🍽️",
+    description: "Restaurants & cafes density",
+  },
 };
 
 function getScoreColor(score: number | null): string {

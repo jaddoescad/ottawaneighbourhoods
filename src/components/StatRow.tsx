@@ -1,10 +1,15 @@
+"use client";
+
+import { useState } from "react";
+
 interface StatRowProps {
   icon: string;
   label: string;
   value: string | number;
   percent: number;
   type?: "great" | "good" | "okay" | "bad" | "neutral";
-  labelSet?: "income" | "rent" | "homePrice" | "population" | "healthcare";
+  labelSet?: "income" | "rent" | "homePrice" | "population" | "healthcare" | "commute";
+  tooltip?: string;
 }
 
 export default function StatRow({
@@ -14,7 +19,10 @@ export default function StatRow({
   percent,
   type = "good",
   labelSet = "income",
+  tooltip,
 }: StatRowProps) {
+  const [showTooltip, setShowTooltip] = useState(false);
+
   const colors = {
     great: "bg-green-500",
     good: "bg-green-400",
@@ -59,6 +67,13 @@ export default function StatRow({
       bad: "Far",
       neutral: "N/A",
     },
+    commute: {
+      great: "Quick",
+      good: "Short",
+      okay: "Moderate",
+      bad: "Long",
+      neutral: "N/A",
+    },
   };
 
   const qualityLabels = qualityLabelsMap[labelSet];
@@ -74,7 +89,21 @@ export default function StatRow({
           <div className="flex items-center justify-between sm:justify-start gap-2 sm:w-28 sm:shrink-0">
             <div className="flex items-center gap-2">
               <span className="text-lg sm:text-xl">{icon}</span>
-              <span className="text-gray-900 font-medium text-sm sm:text-base">{label}</span>
+              <div className="relative">
+                <span
+                  className={`text-gray-900 font-medium text-sm sm:text-base ${tooltip ? 'border-b border-dotted border-gray-400 cursor-help' : ''}`}
+                  onMouseEnter={() => tooltip && setShowTooltip(true)}
+                  onMouseLeave={() => setShowTooltip(false)}
+                  onClick={() => tooltip && setShowTooltip(!showTooltip)}
+                >
+                  {label}
+                </span>
+                {tooltip && showTooltip && (
+                  <div className="absolute left-0 top-full mt-1 z-50 px-2 py-1 text-xs text-white bg-gray-800 rounded shadow-lg whitespace-nowrap">
+                    {tooltip}
+                  </div>
+                )}
+              </div>
             </div>
             {/* Value shown inline on mobile */}
             <span className="text-gray-900 font-bold text-sm sm:hidden">{value}</span>

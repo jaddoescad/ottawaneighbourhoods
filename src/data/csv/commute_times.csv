@@ -1,0 +1,37 @@
+id,name,commuteToDowntown,commuteMethod,source,notes
+the-glebe,The Glebe,12,mixed,Google Maps estimate,Central location; walking/cycling viable; excellent transit
+westboro,Westboro,15,mixed,Google Maps estimate,LRT Line 1 access; quick transit to downtown
+byward-market,Byward Market,5,mixed,Google Maps estimate,Already downtown; walking distance to Parliament
+centretown,Centretown,8,mixed,Google Maps estimate,Downtown core; very walkable to offices
+old-ottawa-south,Old Ottawa South,15,mixed,Google Maps estimate,Canal-adjacent; good cycling and transit options
+hintonburg,Hintonburg,12,mixed,Google Maps estimate,Tunney's Pasture LRT station; quick connection
+little-italy,Little Italy,10,mixed,Google Maps estimate,Central location; multiple bus routes
+kanata,Kanata,40,mixed,Google Maps estimate,Highway 417 commute; limited LRT until extension
+stittsville,Stittsville,50,mixed,Google Maps estimate,Further west than Kanata; highway dependent
+alta-vista,Alta Vista,18,mixed,Google Maps estimate,Bus routes to downtown; moderate distance
+sandy-hill,Sandy Hill,10,mixed,Google Maps estimate,Near uOttawa; walking/transit easy
+orleans,Orleans,35,mixed,Google Maps estimate,East end; LRT Line 1 extension helps
+barrhaven,Barrhaven,35,mixed,Google Maps estimate,South suburb; future LRT expansion planned
+bayshore,Bayshore,25,mixed,Google Maps estimate,LRT Line 1 access at Lincoln Fields
+bells-corners,Bells Corners,30,mixed,Google Maps estimate,West end; limited rapid transit
+carlington,Carlington,15,mixed,Google Maps estimate,Relatively central; bus routes available
+hunt-club,Hunt Club,22,mixed,Google Maps estimate,South end; bus routes to downtown
+riverside-south,Riverside South,40,mixed,Google Maps estimate,Far south; future Trillium Line extension
+manotick,Manotick,45,mixed,Google Maps estimate,Rural south; car required
+vars,Vars-Navan,55,mixed,Google Maps estimate,Rural east; long highway commute
+carp,Carp,45,mixed,Google Maps estimate,Rural west; Carp Road to downtown
+constance-bay,Constance Bay,55,mixed,Google Maps estimate,Far west; March Road route
+richmond,Richmond,45,mixed,Google Maps estimate,Rural west; Highway 416 access
+metcalfe,Metcalfe-Osgoode,50,mixed,Google Maps estimate,Rural south; long commute via Bank St
+nepean,Nepean,25,mixed,Google Maps estimate,Established suburb; Queensway access
+merivale,Merivale,22,mixed,Google Maps estimate,Near Carling/Merivale intersection; bus routes
+vanier,Vanier,12,mixed,Google Maps estimate,East downtown adjacent; good walkability
+new-edinburgh,New Edinburgh,10,mixed,Google Maps estimate,Near Rideau Hall; walking distance to downtown
+cedarhill,Cedar Hill,55,mixed,Google Maps estimate,Rural west; car essential; long commute
+pineview,Pineview,20,mixed,Google Maps estimate,Near Trillium Line; good transit access
+cyrville,Cyrville,18,mixed,Google Maps estimate,Near Blair LRT station; excellent transit
+findlay-creek,Findlay Creek,35,mixed,Google Maps estimate,South suburb; limited bus service
+greely,Greely,45,mixed,Google Maps estimate,Rural south; car required; Bank St route
+north-gower,North Gower,50,mixed,Google Maps estimate,Rural south; long commute
+dunrobin,Dunrobin,50,mixed,Google Maps estimate,Rural west; car essential
+belair-heights,Bel Air Heights,20,mixed,Google Maps estimate,Near Algonquin; bus routes to downtown

@@ -9,6 +9,7 @@ import EqaoStatRow from "@/components/EqaoStatRow";
 import WalkScoreRow from "@/components/WalkScoreRow";
 import AgeDemographicsRow from "@/components/AgeDemographicsRow";
 import ScoreBreakdown from "@/components/ScoreBreakdown";
+import BusStopsRow from "@/components/BusStopsRow";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -24,11 +25,14 @@ const THRESHOLDS = {
   schools: { max: 15, great: 12, okay: 6 },
   libraries: { max: 2, great: 2, okay: 1 },
   trails: { max: 20, great: 12, okay: 5 },
-  restaurantsCafesDensity: { max: 25, great: 8, okay: 3 }, // places per km²
+  restaurantsCafesDensity: { max: 12, great: 8, okay: 3 }, // places per km²
+  groceryStoreDensity: { max: 1, great: 0.5, okay: 0.2 }, // stores per km²
+  gymDensity: { max: 1, great: 0.5, okay: 0.2 }, // gyms per km²
   income: { max: 130000, great: 110000, okay: 80000 },
   rent: { max: 2500, great: 1800, okay: 2000 }, // Lower is better for rent
   homePrice: { max: 1200000, great: 600000, okay: 800000 }, // Lower is better for home price
   population: { max: 150000, great: 50000, okay: 20000 },
+  commuteTime: { max: 60, great: 15, okay: 30 }, // Lower is better for commute
 };
 
 // Determine bar color based on thresholds
@@ -51,6 +55,19 @@ function getHomePriceScoreType(value: number): "great" | "good" | "okay" | "bad"
   if (value <= 600000) return "great";
   if (value <= 800000) return "okay";
   return "bad";
+}
+
+// For commute time, lower is better (inverted scoring)
+function getCommuteScoreType(minutes: number): "great" | "good" | "okay" | "bad" {
+  if (minutes <= 15) return "great";
+  if (minutes <= 30) return "okay";
+  return "bad";
+}
+
+// Commute time as percentage (inverse - shorter = higher bar)
+function getCommutePercent(minutes: number): number {
+  const maxMinutes = 60;
+  return Math.max(5, 100 - (minutes / maxMinutes) * 100);
 }
 
 // For hospital distance, lower is better (inverted scoring)
@@ -84,7 +101,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
     notFound();
   }
 
-  const { name, area, image, population, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, details, overallScore, categoryScores, scoreWeights } = neighbourhood;
+  const { name, area, image, population, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, details, overallScore, categoryScores, scoreWeights } = neighbourhood;
   const trails = details.parksData
     .filter((park) => park.category === "Linear Park")
     .map((park) => park.name);
@@ -224,6 +241,63 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             }
             items={[]}
             itemLabel="places"
+          />
+          <ExpandableStatRow
+            icon="🛒"
+            label="Grocery Stores"
+            value={
+              details.groceryStores !== null && details.groceryStoreDensity !== null
+                ? `${details.groceryStores} (${details.groceryStoreDensity}/km²)`
+                : "N/A"
+            }
+            percent={
+              details.groceryStoreDensity !== null
+                ? getPercent(details.groceryStoreDensity, "groceryStoreDensity")
+                : 0
+            }
+            type={
+              details.groceryStoreDensity !== null
+                ? getScoreType(details.groceryStoreDensity, "groceryStoreDensity")
+                : "neutral"
+            }
+            items={details.groceryStoresList || []}
+            itemLabel="stores"
+          />
+          <ExpandableStatRow
+            icon="🏋️"
+            label="Gyms & Fitness"
+            value={
+              details.gyms !== null && details.gymDensity !== null
+                ? `${details.gyms} (${details.gymDensity}/km²)`
+                : "N/A"
+            }
+            percent={
+              details.gymDensity !== null
+                ? getPercent(details.gymDensity, "gymDensity")
+                : 0
+            }
+            type={
+              details.gymDensity !== null
+                ? getScoreType(details.gymDensity, "gymDensity")
+                : "neutral"
+            }
+            items={details.gymsList || []}
+            itemLabel="gyms"
+          />
+          <BusStopsRow
+            totalStops={details.busStops}
+            stopsWithShelter={details.stopsWithShelter}
+            stopsWithBench={details.stopsWithBench}
+            density={details.busStopDensity}
+          />
+          <StatRow
+            icon="🚗"
+            label="Commute"
+            value={`${commuteToDowntown} min`}
+            percent={getCommutePercent(commuteToDowntown)}
+            type={getCommuteScoreType(commuteToDowntown)}
+            labelSet="commute"
+            tooltip="Average commute time to downtown Ottawa"
           />
           <StatRow
             icon="🏥"

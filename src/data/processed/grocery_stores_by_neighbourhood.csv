@@ -1,0 +1,146 @@
+neighbourhood_id,neighbourhood_name,name,shop_type,category,brand,address,latitude,longitude,osm_id,osm_type
+the-glebe,The Glebe,Il Negozio Nicastro,greengrocer,Produce Store,,792 Bank Street,45.4028815,-75.6884322,2078003979,node
+the-glebe,The Glebe,Loblaws,supermarket,Supermarket,Loblaws,20 Isabella Street,45.4104822,-75.6858024,68710011,way
+the-glebe,The Glebe,Metro,supermarket,Supermarket,Metro,754 Bank Street,45.4033693,-75.6889183,584484126,way
+the-glebe,The Glebe,Whole Foods Market,supermarket,Supermarket,Whole Foods Market,951 Bank Street,45.3993951,-75.68548,3632278323,node
+westboro,Westboro,Produce Depot,greengrocer,Produce Store,,1855 Carling Avenue,45.376858,-75.756933,68609654,way
+westboro,Westboro,Bulk Barn,supermarket,Supermarket,Bulk Barn,2148 Carling Avenue,45.369288,-75.7687912,551950055,way
+westboro,Westboro,Farm Boy,supermarket,Supermarket,Farm Boy,317 McRae Avenue,45.3962011,-75.7499293,4260754002,node
+westboro,Westboro,Food Basics,supermarket,Supermarket,Food Basics,667 Kirkwood Avenue,45.3863876,-75.7388703,112013387,way
+westboro,Westboro,Loblaws,supermarket,Supermarket,Loblaws,2085 Carling Avenue,45.372427,-75.7678137,133979838,way
+westboro,Westboro,Real Canadian Superstore,supermarket,Supermarket,Real Canadian Superstore,190 Richmond Road,45.394407,-75.7475155,84160579,way
+byward-market,Byward Market,Byward Fruit Market,greengrocer,Produce Store,,36 ByWard Market Square,45.4276179,-75.6929097,2804550723,node
+byward-market,Byward Market,Loblaws,supermarket,Supermarket,Loblaws,363 Rideau Street,45.4301695,-75.6838765,152493242,way
+byward-market,Byward Market,Metro,supermarket,Supermarket,Metro,255 Rideau Street,45.4284871,-75.6871913,19911951,relation
+centretown,Centretown,Arum Korean Market,grocery,Grocery Store,,,45.4190296,-75.6974214,12398127873,node
+centretown,Centretown,Arya Food Market,greengrocer,Produce Store,,508 Gladstone Avenue,45.4100122,-75.6982537,5952002193,node
+centretown,Centretown,Herb & Spice,greengrocer,Produce Store,,380 Bank Street,45.4138546,-75.6948691,3671178015,node
+centretown,Centretown,Farm Boy,supermarket,Supermarket,Farm Boy,193 Metcalfe Street,45.418746,-75.6933872,3666245425,node
+centretown,Centretown,Food Basics,supermarket,Supermarket,Food Basics,338 Queen Street,45.4185203,-75.7051364,13103811328,node
+centretown,Centretown,Kowloon Supermarket,supermarket,Supermarket,,712 Somerset Street West,45.4104822,-75.7076334,1461227931,node
+centretown,Centretown,Margo Fresh,supermarket,Supermarket,,564 Gladstone Avenue,45.4092413,-75.7000992,342865923,way
+centretown,Centretown,Walmart Supercentre,supermarket,Supermarket,Walmart,1375 Baseline Road,45.363828,-75.7386151,171268363,way
+centretown,Centretown,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,296 Bank Street,45.4150313,-75.6964903,2213666893,node
+centretown,Centretown,Zero Waste grocery store,supermarket,Supermarket,,250 City Centre Avenue,45.4081038,-75.7187176,6516550381,node
+old-ottawa-south,Old Ottawa South,Cedars & Co. Food Market,supermarket,Supermarket,,1255 Bank Street,45.3909905,-75.6798639,307235093,way
+hintonburg,Hintonburg,Parkdale Market,greengrocer,Produce Store,,,45.4015332,-75.7297605,64881582,way
+little-italy,Little Italy,Metro,supermarket,Supermarket,Metro,345 Carleton Avenue,45.3983934,-75.7405115,152128866,way
+kanata,Kanata,Bulk Barn,supermarket,Supermarket,Bulk Barn,457 Hazeldean Road,45.3001589,-75.887682,233810087,way
+kanata,Kanata,Farm Boy,supermarket,Supermarket,Farm Boy,457 Hazeldean Road,45.2994745,-75.8880331,233810089,way
+kanata,Kanata,Farm Boy,supermarket,Supermarket,Farm Boy,499 Terry Fox Drive,45.3107635,-75.9216253,567230351,way
+kanata,Kanata,Food Basics,supermarket,Supermarket,Food Basics,150 Katimavik Road,45.3126507,-75.8956544,233577107,way
+kanata,Kanata,Kowloon Supermarket,supermarket,Supermarket,,,45.3230798,-75.927027,1019583761,way
+kanata,Kanata,Loblaws,supermarket,Supermarket,Loblaws,200 Earl Grey Drive,45.3100474,-75.9164659,144453739,way
+kanata,Kanata,Metro,supermarket,Supermarket,Metro,4048 Carling Avenue,45.3368786,-75.9072565,68609392,way
+kanata,Kanata,Metro,supermarket,Supermarket,Metro,10 Cope Drive,45.2818689,-75.8654935,768964058,way
+kanata,Kanata,Real Canadian Superstore,supermarket,Supermarket,Real Canadian Superstore,760 Eagleson Road,45.2827657,-75.8665439,138665005,way
+kanata,Kanata,Sobeys,supermarket,Supermarket,Sobeys,840 March Road,45.3578548,-75.9338422,239213041,way
+kanata,Kanata,Spice World Supermarket,supermarket,Supermarket,,62 Stonehaven Drive,45.292263,-75.8579677,664536849,way
+kanata,Kanata,The Indian Supermarket,supermarket,Supermarket,,474 Hazeldean Road,45.2976831,-75.8881708,591034768,way
+kanata,Kanata,大統華 T&T Supermarket,supermarket,Supermarket,T&T Supermarket,300 Eagleson Road,45.3011477,-75.877602,605393493,way
+stittsville,Stittsville,Bulk Barn,supermarket,Supermarket,Bulk Barn,5375 Fernbank Road,45.2734919,-75.8711775,255988615,way
+stittsville,Stittsville,Farm Boy,supermarket,Supermarket,Farm Boy,6315 Hazeldean Road,45.2664307,-75.9416868,233809970,way
+stittsville,Stittsville,Food Basics,supermarket,Supermarket,Food Basics,5703 Hazeldean Road,45.285178,-75.913553,471920113,way
+stittsville,Stittsville,Green Fresh Supermarket Kanata,supermarket,Supermarket,,5487 Hazeldean Road,45.290399,-75.9040638,485229129,way
+stittsville,Stittsville,No Frills,supermarket,Supermarket,No Frills,30 Iber Road,45.280744,-75.912705,839203628,way
+stittsville,Stittsville,Sobeys,supermarket,Supermarket,Sobeys,700 Terry Fox Drive,45.2921803,-75.8961578,449069356,way
+stittsville,Stittsville,Walmart Supercentre,supermarket,Supermarket,Walmart,5357 Fernbank Road,45.2751767,-75.8723332,255988547,way
+stittsville,Stittsville,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,1251 Stittsville Main Street,45.268989,-75.928515,471797444,way
+alta-vista,Alta Vista,Mangosteen,greengrocer,Produce Store,,1742 Bank Street,45.373855,-75.665552,2965310539,node
+alta-vista,Alta Vista,Produce Depot,greengrocer,Produce Store,,2446 Bank Street,45.3525257,-75.6453444,483215218,way
+alta-vista,Alta Vista,Bulk Barn,supermarket,Supermarket,Bulk Barn,2269 Riverside Drive,45.38671,-75.6755151,605371373,way
+alta-vista,Alta Vista,Connor & Kennedy's No Frills,supermarket,Supermarket,No Frills,2681 Alta Vista Drive,45.3722622,-75.6630259,578268905,way
+alta-vista,Alta Vista,Crusader Concrete,supermarket,Supermarket,,1503 Gilles Street,45.3817769,-75.6712828,11431866427,node
+alta-vista,Alta Vista,Farm Boy,supermarket,Supermarket,Farm Boy,1500 Bank Street,45.3814109,-75.6702662,576873991,way
+alta-vista,Alta Vista,Food Basics,supermarket,Supermarket,Food Basics,1670 Heron Road,45.3793581,-75.6432114,68586373,way
+alta-vista,Alta Vista,Geeland International Grocery,supermarket,Supermarket,,1620 Walkley Road,45.377369,-75.645023,483702522,way
+alta-vista,Alta Vista,Metro,supermarket,Supermarket,Metro,2261 Walkley Road,45.3894655,-75.6192779,68658594,way
+alta-vista,Alta Vista,Walmart Supercentre,supermarket,Supermarket,Walmart,2277 Riverside Drive,45.3851845,-75.6794485,605365786,way
+alta-vista,Alta Vista,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,1910 St-Laurent Boulevard,45.3981165,-75.6241505,485194417,way
+alta-vista,Alta Vista,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,2241 Riverside Drive,45.3858565,-75.6764458,605371380,way
+sandy-hill,Sandy Hill,Asian Mart,grocery,Grocery Store,,242 Rideau Street,45.4280527,-75.6869279,13343848764,node
+sandy-hill,Sandy Hill,Farm Boy,supermarket,Supermarket,Farm Boy,50 Rideau Street,45.4254234,-75.6928367,651371863,way
+sandy-hill,Sandy Hill,Food Basics,supermarket,Supermarket,Food Basics,1021 Cyrville Road,45.4267059,-75.6365952,244243181,way
+sandy-hill,Sandy Hill,FreshCo,supermarket,Supermarket,FreshCo,320 McArthur Avenue,45.4302358,-75.6538537,16386340,way
+sandy-hill,Sandy Hill,Loblaws,supermarket,Supermarket,Loblaws,100 McArthur Avenue,45.429428,-75.6646725,31814089,way
+sandy-hill,Sandy Hill,Marché Adonis,supermarket,Supermarket,Marché Adonis,1021 St-Laurent Boulevard,45.4273108,-75.6370034,68661910,way
+sandy-hill,Sandy Hill,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,596 Montréal Road,45.4411092,-75.64319,620501508,way
+orleans,Orleans,Bulk Barn,supermarket,Supermarket,Bulk Barn,2020 Lanthier Drive,45.4580071,-75.4937201,467487178,way
+orleans,Orleans,Bulk Barn,supermarket,Supermarket,Bulk Barn,1980 Ogilvie Road,45.4325464,-75.6095436,3984740046,node
+orleans,Orleans,Farm Boy,supermarket,Supermarket,Farm Boy,3035 St. Joseph Boulevard,45.4777234,-75.5132902,299394467,way
+orleans,Orleans,Farm Boy,supermarket,Supermarket,Farm Boy,2030 Tenth Line Road,45.4583105,-75.4878965,471898477,way
+orleans,Orleans,Food Basics,supermarket,Supermarket,Food Basics,3712 Innes Road,45.4495936,-75.5172158,484828775,way
+orleans,Orleans,FreshCo,supermarket,Supermarket,FreshCo,920 Watters Road,45.4829575,-75.4748549,1202540395,way
+orleans,Orleans,Loblaws,supermarket,Supermarket,Loblaws,1980 Ogilvie Road,45.4334476,-75.6104175,466704825,way
+orleans,Orleans,Metro,supermarket,Supermarket,Metro,6473 Jeanne-d'Arc Boulevard North,45.4810175,-75.5362265,68577542,way
+orleans,Orleans,Metro,supermarket,Supermarket,Metro,1675 Tenth Line Road,45.4700325,-75.4911832,68577837,way
+orleans,Orleans,Metro,supermarket,Supermarket,Metro,4510 Innes Road,45.4612417,-75.4840703,229623195,way
+orleans,Orleans,Metro,supermarket,Supermarket,Metro,2636 Innes Road,45.4309082,-75.5632281,483073634,way
+orleans,Orleans,Metro,supermarket,Supermarket,Metro,1930 Montréal Road,45.445388,-75.5952165,484009059,way
+orleans,Orleans,Natural food pantry,supermarket,Supermarket,,1777 Tenth Line Road,45.4668124,-75.4897476,664940361,way
+orleans,Orleans,No Frills,supermarket,Supermarket,No Frills,1226 Place-d'Orléans Drive,45.4762657,-75.5226129,68577501,way
+orleans,Orleans,Real Canadian Superstore,supermarket,Supermarket,Real Canadian Superstore,4270 Innes Road,45.456645,-75.4943925,471898445,way
+orleans,Orleans,Sobeys,supermarket,Supermarket,Sobeys,5150 Innes Road,45.469447,-75.4560943,172338766,way
+orleans,Orleans,Sobeys,supermarket,Supermarket,Sobeys,2276 Tenth Line Road,45.4521801,-75.4850915,576883869,way
+orleans,Orleans,Walmart Supercentre,supermarket,Supermarket,Walmart,1980 Ogilvie Road,45.4313853,-75.610618,466704822,way
+orleans,Orleans,Walmart Supercentre,supermarket,Supermarket,Walmart,3900 Innes Road,45.4513255,-75.5085825,472398054,way
+orleans,Orleans,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,1619 Orléans Boulevard,45.459551,-75.5240985,485685918,way
+barrhaven,Barrhaven,Bulk Barn,supermarket,Supermarket,Bulk Barn,3161 Greenbank Road,45.2695433,-75.7451994,478200431,way
+barrhaven,Barrhaven,Farm Boy,supermarket,Supermarket,Farm Boy,1581 Greenbank Road,45.2741683,-75.7470091,478374551,way
+barrhaven,Barrhaven,Food Basics,supermarket,Supermarket,Food Basics,900 Greenbank Road,45.2843508,-75.7562441,478977135,way
+barrhaven,Barrhaven,Food Basics,supermarket,Supermarket,Food Basics,3831 Cambrian Road,45.2475082,-75.7460376,1225498581,way
+barrhaven,Barrhaven,Loblaws,supermarket,Supermarket,Loblaws,3201 Greenbank Road,45.2680649,-75.7433642,470443608,way
+barrhaven,Barrhaven,Metro,supermarket,Supermarket,Metro,3201 Strandherd Drive,45.2744993,-75.7213387,470452626,way
+barrhaven,Barrhaven,Sultan Supermarket,supermarket,Supermarket,,3054 Woodroffe Avenue,45.2840987,-75.7244994,303113274,way
+barrhaven,Barrhaven,Terra Flowers & Flavours,supermarket,Supermarket,,220 Kennevale Drive,45.265079,-75.7765761,13229917990,node
+barrhaven,Barrhaven,Walmart Supercentre,supermarket,Supermarket,Walmart,3651 Strandherd Drive,45.2717785,-75.7407528,450839128,way
+barrhaven,Barrhaven,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,3777 Strandherd Drive,45.2680742,-75.746691,478366946,way
+bayshore,Bayshore,Farm Boy,supermarket,Supermarket,Farm Boy,1493 Richmond Road,45.3629376,-75.7915207,68587871,way
+bayshore,Bayshore,Metro,supermarket,Supermarket,Metro,2525 Carling Avenue,45.365306,-75.7857068,1014117763,way
+bayshore,Bayshore,Walmart Supercentre,supermarket,Supermarket,Walmart,100 Bayshore Drive,45.3479725,-75.805234,437094876,way
+bells-corners,Bells Corners,FreshCo,supermarket,Supermarket,FreshCo,2150 Robertson Road,45.3194328,-75.8354906,581659417,way
+bells-corners,Bells Corners,Loblaws,supermarket,Supermarket,Loblaws,2065 Robertson Road,45.324439,-75.8324591,68658115,way
+bells-corners,Bells Corners,Metro,supermarket,Supermarket,Metro,1811 Robertson Road,45.3302085,-75.8172635,231347341,way
+carlington,Carlington,The Indian Supermarket,grocery,Grocery Store,,1547 Merivale Road,45.3545989,-75.7340904,576378471,way
+carlington,Carlington,HiFresh Foods,greengrocer,Produce Store,,1486 Merivale Road,45.3599419,-75.7362128,329505013,way
+carlington,Carlington,Upland AFRI & Caribbean Stote,greengrocer,Produce Store,,1036 Merivale Road,45.3788283,-75.7336185,548035599,way
+carlington,Carlington,Wissam Fruits,greengrocer,Produce Store,,888 Meadowlands Drive,45.3673482,-75.7027688,561087165,way
+carlington,Carlington,Bulk Barn,supermarket,Supermarket,Bulk Barn,1465 Merivale Road,45.3601388,-75.7333311,551943412,way
+carlington,Carlington,Farm Boy,supermarket,Supermarket,Farm Boy,1642 Merivale Road,45.3464492,-75.7322677,573225445,way
+carlington,Carlington,Farmer's Pick,supermarket,Supermarket,,1430 Prince Of Wales Drive,45.3687326,-75.7032904,510976473,node
+carlington,Carlington,Food Basics,supermarket,Supermarket,Food Basics,1465 Merivale Road,45.3604318,-75.7329546,143444559,way
+carlington,Carlington,FreshCo,supermarket,Supermarket,FreshCo,1595 Merivale Road,45.3527868,-75.7327051,551780127,way
+carlington,Carlington,Loblaws,supermarket,Supermarket,Loblaws,1460 Merivale Road,45.3619146,-75.7354275,68608768,way
+carlington,Carlington,Loblaws,supermarket,Supermarket,Loblaws,1980 Baseline Road,45.351935,-75.7594965,157291437,way
+carlington,Carlington,Silk Road Foods,supermarket,Supermarket,,1620 Merivale Road,45.3474385,-75.7327404,683005821,way
+hunt-club,Hunt Club,Bulk Barn,supermarket,Supermarket,Bulk Barn,2210 Bank Street,45.3592904,-75.6577095,485239225,way
+hunt-club,Hunt Club,Farm Boy,supermarket,Supermarket,Farm Boy,2950 Bank Street,45.3456572,-75.6260166,473049148,way
+hunt-club,Hunt Club,Loblaws,supermarket,Supermarket,Loblaws,2210 Bank Street,45.3574385,-75.6566945,485239248,way
+hunt-club,Hunt Club,Metro,supermarket,Supermarket,Metro,3310 McCarthy Road,45.3505465,-75.6721565,480073623,way
+hunt-club,Hunt Club,Metro,supermarket,Supermarket,Metro,2515 Bank Street,45.3548687,-75.6442306,652110303,way
+hunt-club,Hunt Club,Walmart Supercentre,supermarket,Supermarket,Walmart,2210 Bank Street,45.3547574,-75.6547948,482653912,way
+hunt-club,Hunt Club,Wedance,supermarket,Supermarket,,122 Castlegreen Private,45.3640168,-75.6298185,13073252841,node
+hunt-club,Hunt Club,大統華 T&T Supermarket,supermarket,Supermarket,T&T Supermarket,224 Hunt Club Road,45.334054,-75.690196,447277025,way
+riverside-south,Riverside South,Farm Boy,supermarket,Supermarket,Farm Boy,3033 Woodroffe Avenue,45.2886515,-75.7240635,223318552,way
+riverside-south,Riverside South,FreshCo,supermarket,Supermarket,FreshCo,350 Cresthaven Drive,45.2738865,-75.7099384,574589080,way
+riverside-south,Riverside South,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,685 River Road,45.2705595,-75.6974182,470835932,way
+richmond,Richmond,Your Independent Grocer,supermarket,Supermarket,Your Independent Grocer,5911 Perth Street,45.203103,-75.828962,470376943,way
+metcalfe,Metcalfe-Osgoode,Foodland,supermarket,Supermarket,Foodland,5669 Osgoode Main Street,45.14967,-75.6019895,533298640,way
+nepean,Nepean,Metro,supermarket,Supermarket,Metro,250 Greenbank Road,45.3242366,-75.7802019,68607808,way
+merivale,Merivale,Bombay Spices,supermarket,Supermarket,,565 West Hunt Club Road,45.3355826,-75.7290901,713140766,way
+merivale,Merivale,Green Fresh Supermarket,supermarket,Supermarket,,1695 Merivale Road,45.346877,-75.729133,10315735,way
+merivale,Merivale,Metro,supermarket,Supermarket,Metro,1705 Merivale Road,45.3450038,-75.7280665,573225447,way
+merivale,Merivale,No Frills,supermarket,Supermarket,No Frills,200 Grant Carman Drive,45.3512702,-75.7307931,68608910,way
+vanier,Vanier,Green Fresh,supermarket,Supermarket,,,45.4319515,-75.66274,9929327317,node
+vanier,Vanier,Metro,supermarket,Supermarket,Metro,50 Beechwood Avenue,45.439427,-75.67561,68586181,way
+new-edinburgh,New Edinburgh,Farm Boy,supermarket,Supermarket,Farm Boy,585 Montréal Road,45.443105,-75.6446959,68586262,way
+new-edinburgh,New Edinburgh,Ottawa Street Markets,supermarket,Supermarket,,,45.455749,-75.6525286,13034283208,node
+cyrville,Cyrville,Macartney Farms Cash&Carry,greengrocer,Produce Store,,1481 Michael Street,45.4147256,-75.6265783,6077160009,node
+cyrville,Cyrville,Africa World Market,supermarket,Supermarket,,1392 Cyrville Road,45.4205082,-75.6216449,7302523711,node
+cyrville,Cyrville,Bulk Barn,supermarket,Supermarket,Bulk Barn,197 Trainyards Drive,45.411317,-75.6384332,591047218,way
+cyrville,Cyrville,Farm Boy,supermarket,Supermarket,Farm Boy,820 Belfast Road,45.4125799,-75.6378757,874937402,way
+cyrville,Cyrville,Mid-East Foods,supermarket,Supermarket,,1010 Belfast Road,45.4100972,-75.6302422,2045639867,node
+cyrville,Cyrville,Real Canadian Wholesale Club,supermarket,Supermarket,,1435 Cyrville Road,45.4207603,-75.6178925,68657914,way
+cyrville,Cyrville,Walmart Supercentre,supermarket,Supermarket,Walmart,450 Industrial Avenue,45.4131306,-75.6498866,209257254,way
+findlay-creek,Findlay Creek,FreshCo,supermarket,Supermarket,FreshCo,4750 Bank Street,45.3190657,-75.5957916,219306015,way
+greely,Greely,Foodland,supermarket,Supermarket,Foodland,6045 Bank Street,45.2633606,-75.5547459,762479340,way

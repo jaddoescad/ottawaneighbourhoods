@@ -25,8 +25,10 @@ src/data/
 │   ├── crime_raw.csv             # ~98K crimes (2023-2024) from Ottawa Police
 │   ├── hospitals_raw.csv         # All 10 hospitals from Ottawa Open Data
 │   ├── restaurants_cafes_raw.csv # Restaurants & cafés (OpenStreetMap / Overpass)
+│   ├── grocery_stores_raw.csv    # Grocery stores (OpenStreetMap / Overpass)
 │   ├── walkscores.csv            # Walk Score, Transit Score, Bike Score (from WalkScore.com)
 │   ├── age_demographics.csv      # Age demographics (% children, young professionals, seniors)
+│   ├── commute_times.csv         # Average commute time to downtown (Google Maps estimates)
 │   ├── neighbourhoods.csv        # Neighbourhood info (scores, pros/cons, avgRent, avgHomePrice)
 │   ├── rent_data.csv             # Rent research data with sources
 │   ├── home_prices.csv           # Home price research data with sources
@@ -40,6 +42,7 @@ scripts/
 ├── download-eqao-data.js         # Downloads EQAO scores from Ontario Open Data
 ├── download-hospitals.js         # Downloads hospitals from Ottawa Open Data
 ├── download-restaurants-cafes.js # Downloads restaurants & cafés from OpenStreetMap (Overpass)
+├── download-grocery-stores.js    # Downloads grocery stores from OpenStreetMap (Overpass)
 ├── generate-age-demographics.js  # Generates age demographics CSV from 2021 Census
 └── config/
     └── neighbourhood-mapping.js  # Maps our neighbourhoods to ONS IDs
@@ -60,8 +63,10 @@ Most data from **City of Ottawa Open Data** (ArcGIS REST APIs). Restaurants & ca
 | Crime (2023-2024) | https://services7.arcgis.com/2vhcNzw0NfUwAD3d/ArcGIS/rest/services/Criminal_Offences_Open_Data/FeatureServer/0 | ~98K |
 | Hospitals | https://maps.ottawa.ca/arcgis/rest/services/Hospitals/MapServer/0 | 10 |
 | Restaurants & Cafés | https://overpass-api.de/api/interpreter (OSM Overpass) | ~1-3K |
+| Grocery Stores | https://overpass-api.de/api/interpreter (OSM Overpass) | ~226 |
 | Walk Scores | https://www.walkscore.com/CA-ON/Ottawa | 27 |
 | Age Demographics | https://open.ottawa.ca/datasets/ottawa::2021-long-form-census-sub-area | 27 |
+| Commute Times | Google Maps estimates (manual research) | 37 |
 | Boundaries | https://maps.ottawa.ca/arcgis/rest/services/Neighbourhoods/MapServer/0 | 111 |
 
 ## Raw Data Fields
@@ -148,6 +153,33 @@ node scripts/download-hospitals.js
 node scripts/process-data.js
 ```
 
+### grocery_stores_raw.csv
+Grocery stores from OpenStreetMap (supermarkets, grocery stores, greengrocers).
+
+| Field | Description |
+|-------|-------------|
+| OSM_TYPE | OpenStreetMap element type (node, way, relation) |
+| OSM_ID | OpenStreetMap element ID |
+| NAME | Store name |
+| SHOP_TYPE | Shop type (supermarket, grocery, greengrocer) |
+| CATEGORY | Store category (Supermarket, Grocery Store, Produce Store) |
+| BRAND | Brand name (Loblaws, Metro, Sobeys, etc.) |
+| OPERATOR | Operator name |
+| ADDRESS | Street address |
+| OPENING_HOURS | Opening hours (if available) |
+| LATITUDE / LONGITUDE | Coordinates |
+
+**Store Categories:**
+- **Supermarket**: Large grocery stores (Loblaws, Metro, Sobeys, Farm Boy, etc.)
+- **Grocery Store**: Smaller grocery/convenience stores
+- **Produce Store**: Fruit/vegetable specialty stores (greengrocers)
+
+**To refresh grocery store data:**
+```bash
+node scripts/download-grocery-stores.js
+node scripts/process-data.js
+```
+
 ### walkscores.csv
 Walk Score, Transit Score, and Bike Score for each neighbourhood (0-100 scale):
 | Field | Description |
@@ -193,6 +225,26 @@ Age demographics data from Statistics Canada 2021 Census:
 node scripts/generate-age-demographics.js
 node scripts/process-data.js
 ```
+
+### commute_times.csv
+Average commute time to downtown Ottawa (Parliament Hill area) for each neighbourhood:
+| Field | Description |
+|-------|-------------|
+| id | Neighbourhood ID (matches neighbourhoods.csv) |
+| name | Neighbourhood name |
+| commuteToDowntown | Average commute time in minutes |
+| commuteMethod | Method of commute (mixed = car/transit average) |
+| source | Data source |
+| notes | Additional context |
+
+**Commute Time Ranges:**
+- Downtown (0-10 min): Byward Market, Centretown, Sandy Hill
+- Central (10-20 min): Glebe, Westboro, Hintonburg, Little Italy, Vanier, New Edinburgh
+- Inner Suburbs (20-30 min): Alta Vista, Bayshore, Nepean, Hunt Club
+- Outer Suburbs (30-45 min): Orleans, Barrhaven, Kanata, Manotick
+- Rural (45+ min): Stittsville, Carp, Constance Bay, Vars, Metcalfe, Greely
+
+**Data Source:** Google Maps estimates (December 2024) - represents typical peak-hour commute times via mixed transportation methods.
 
 ### neighbourhoods.csv
 Edit this file to change neighbourhood info displayed on the website:

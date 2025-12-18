@@ -14,6 +14,7 @@
  *   - src/data/csv/crime_raw.csv
  *   - src/data/csv/hospitals_raw.csv
  *   - src/data/csv/restaurants_cafes_raw.csv (optional)
+ *   - src/data/csv/grocery_stores_raw.csv (optional)
  *   - src/data/csv/neighbourhoods.csv (neighbourhood info/config)
  *
  * Output files:
@@ -360,6 +361,43 @@ async function main() {
     console.log('  - No restaurants/cafes file found (run: node scripts/download-restaurants-cafes.js)');
   }
 
+  // Load Grocery Stores (optional - file may not exist)
+  const groceryStoresPath = path.join(csvDir, 'grocery_stores_raw.csv');
+  const hasGroceryStoresData = fs.existsSync(groceryStoresPath);
+  const groceryStoresRaw = hasGroceryStoresData
+    ? parseCSV(fs.readFileSync(groceryStoresPath, 'utf8'))
+    : [];
+  if (hasGroceryStoresData) {
+    console.log(`  - ${groceryStoresRaw.length} grocery stores`);
+  } else {
+    console.log('  - No grocery stores file found (run: node scripts/download-grocery-stores.js)');
+  }
+
+
+  // Load Gyms & Fitness Centers (optional - file may not exist)
+  const gymsPath = path.join(csvDir, 'gyms_raw.csv');
+  const hasGymsData = fs.existsSync(gymsPath);
+  const gymsRaw = hasGymsData
+    ? parseCSV(fs.readFileSync(gymsPath, 'utf8'))
+    : [];
+  if (hasGymsData) {
+    console.log(`  - ${gymsRaw.length} gyms & fitness centers`);
+  } else {
+    console.log('  - No gyms file found (run: node scripts/download-gyms.js)');
+  }
+
+  // Load OC Transpo Bus Stops (optional - file may not exist)
+  const busStopsPath = path.join(csvDir, 'OC_Transpo_Stops.csv');
+  const hasBusStopsData = fs.existsSync(busStopsPath);
+  const busStopsRaw = hasBusStopsData
+    ? parseCSV(fs.readFileSync(busStopsPath, 'utf8'))
+    : [];
+  if (hasBusStopsData) {
+    console.log(`  - ${busStopsRaw.length} bus stops`);
+  } else {
+    console.log('  - No OC Transpo stops file found');
+  }
+
   // Load Walk Scores (optional - file may not exist)
   let walkScoresData = [];
   const walkScoresPath = path.join(csvDir, 'walkscores.csv');
@@ -397,6 +435,24 @@ async function main() {
       pctChildren: parseFloat(entry.pctChildren) || 0,
       pctYoungProfessionals: parseFloat(entry.pctYoungProfessionals) || 0,
       pctSeniors: parseFloat(entry.pctSeniors) || 0,
+    };
+  }
+
+  // Load Commute Times (optional - file may not exist)
+  let commuteTimesData = [];
+  const commuteTimesPath = path.join(csvDir, 'commute_times.csv');
+  if (fs.existsSync(commuteTimesPath)) {
+    commuteTimesData = parseCSV(fs.readFileSync(commuteTimesPath, 'utf8'));
+    console.log(`  - ${commuteTimesData.length} commute time entries`);
+  } else {
+    console.log('  - No commute times file found');
+  }
+
+  // Build commute times lookup by id
+  const commuteTimesById = {};
+  for (const entry of commuteTimesData) {
+    commuteTimesById[entry.id] = {
+      commuteToDowntown: parseInt(entry.commuteToDowntown) || 0,
     };
   }
 
@@ -617,6 +673,107 @@ async function main() {
   }
   console.log(`  Assigned ${assignedRestaurantsCafes} restaurants & cafes`);
 
+  // Process grocery stores (optional)
+  console.log('\nAssigning grocery stores to neighbourhoods...');
+  const groceryStoresByNeighbourhood = {};
+  let assignedGroceryStores = 0;
+
+  if (hasGroceryStoresData) {
+    for (const store of groceryStoresRaw) {
+      const lat = parseFloat(store.LATITUDE);
+      const lng = parseFloat(store.LONGITUDE);
+
+      if (isNaN(lat) || isNaN(lng)) continue;
+
+      const neighbourhoodId = assignToNeighbourhood(lat, lng, boundariesByNeighbourhood);
+      if (neighbourhoodId) {
+        if (!groceryStoresByNeighbourhood[neighbourhoodId]) {
+          groceryStoresByNeighbourhood[neighbourhoodId] = [];
+        }
+        groceryStoresByNeighbourhood[neighbourhoodId].push({
+          name: store.NAME || 'Unnamed',
+          shopType: store.SHOP_TYPE || 'grocery',
+          category: store.CATEGORY || 'Grocery Store',
+          brand: store.BRAND || '',
+          address: store.ADDRESS || '',
+          lat,
+          lng,
+          osmId: store.OSM_ID,
+          osmType: store.OSM_TYPE,
+        });
+        assignedGroceryStores++;
+      }
+    }
+  }
+  console.log(`  Assigned ${assignedGroceryStores} grocery stores`);
+
+  // Process gyms & fitness centers (optional)
+  console.log('\nAssigning gyms & fitness centers to neighbourhoods...');
+  const gymsByNeighbourhood = {};
+  let assignedGyms = 0;
+
+  if (hasGymsData) {
+    for (const gym of gymsRaw) {
+      const lat = parseFloat(gym.LATITUDE);
+      const lng = parseFloat(gym.LONGITUDE);
+
+      if (isNaN(lat) || isNaN(lng)) continue;
+
+      const neighbourhoodId = assignToNeighbourhood(lat, lng, boundariesByNeighbourhood);
+      if (neighbourhoodId) {
+        if (!gymsByNeighbourhood[neighbourhoodId]) {
+          gymsByNeighbourhood[neighbourhoodId] = [];
+        }
+        gymsByNeighbourhood[neighbourhoodId].push({
+          name: gym.NAME || 'Unnamed',
+          leisureType: gym.LEISURE_TYPE || 'fitness_centre',
+          category: gym.CATEGORY || 'Fitness Center',
+          sport: gym.SPORT || '',
+          brand: gym.BRAND || '',
+          address: gym.ADDRESS || '',
+          lat,
+          lng,
+          osmId: gym.OSM_ID,
+          osmType: gym.OSM_TYPE,
+        });
+        assignedGyms++;
+      }
+    }
+  }
+  console.log(`  Assigned ${assignedGyms} gyms & fitness centers`);
+
+
+  // Process bus stops (optional)
+  console.log('\nAssigning bus stops to neighbourhoods...');
+  const busStopsByNeighbourhood = {};
+  let assignedBusStops = 0;
+
+  if (hasBusStopsData) {
+    for (const stop of busStopsRaw) {
+      const lat = parseFloat(stop.Latitude);
+      const lng = parseFloat(stop.Longitude);
+
+      if (isNaN(lat) || isNaN(lng)) continue;
+
+      const neighbourhoodId = assignToNeighbourhood(lat, lng, boundariesByNeighbourhood);
+      if (neighbourhoodId) {
+        if (!busStopsByNeighbourhood[neighbourhoodId]) {
+          busStopsByNeighbourhood[neighbourhoodId] = [];
+        }
+        busStopsByNeighbourhood[neighbourhoodId].push({
+          stopId: stop.F560 || stop.FID,
+          location: stop.Location || '',
+          lat,
+          lng,
+          hasShelter: stop.Shelter === 'Y',
+          hasBench: stop.Bench === 'Y',
+        });
+        assignedBusStops++;
+      }
+    }
+  }
+  console.log(`  Assigned ${assignedBusStops} bus stops`);
+
   // Process hospitals - calculate nearest hospital for each neighbourhood
   console.log('\nCalculating hospital proximity for each neighbourhood...');
   const hospitals = hospitalsRaw.map(h => ({
@@ -729,6 +886,23 @@ async function main() {
     const restaurantsAndCafesDensity = restaurantsAndCafes !== null && areaKm2 > 0
       ? roundTo(restaurantsAndCafes / areaKm2, 1) // per km²
       : null;
+    const groceryStores = groceryStoresByNeighbourhood[info.id] || [];
+    const groceryStoreCount = hasGroceryStoresData ? groceryStores.length : null;
+    const groceryStoreDensity = groceryStoreCount !== null && areaKm2 > 0
+      ? roundTo(groceryStoreCount / areaKm2, 2) // per km²
+      : null;
+    const gyms = gymsByNeighbourhood[info.id] || [];
+    const gymCount = hasGymsData ? gyms.length : null;
+    const gymDensity = gymCount !== null && areaKm2 > 0
+      ? roundTo(gymCount / areaKm2, 2) // per km²
+      : null;
+    const busStops = busStopsByNeighbourhood[info.id] || [];
+    const busStopCount = hasBusStopsData ? busStops.length : null;
+    const busStopDensity = busStopCount !== null && areaKm2 > 0
+      ? roundTo(busStopCount / areaKm2, 1) // per km²
+      : null;
+    const stopsWithShelter = busStops.filter(s => s.hasShelter).length;
+    const stopsWithBench = busStops.filter(s => s.hasBench).length;
 
     // Calculate population by summing all ONS areas for this neighbourhood
     const mapping = neighbourhoodMapping[info.id];
@@ -744,6 +918,9 @@ async function main() {
 
     // Get age demographics for this neighbourhood
     const ageDemographics = ageDemographicsById[info.id] || { pctChildren: 0, pctYoungProfessionals: 0, pctSeniors: 0 };
+
+    // Get commute time for this neighbourhood
+    const commuteData = commuteTimesById[info.id] || { commuteToDowntown: 0 };
 
     // Calculate average EQAO score for the neighbourhood
     const schoolsWithScores = schools.filter(s => s.eqaoScore !== null);
@@ -774,6 +951,7 @@ async function main() {
       pctChildren: ageDemographics.pctChildren,
       pctYoungProfessionals: ageDemographics.pctYoungProfessionals,
       pctSeniors: ageDemographics.pctSeniors,
+      commuteToDowntown: commuteData.commuteToDowntown,
       details: {
         areaKm2: roundTo(areaKm2, 2),
         parks: parks.length,
@@ -793,6 +971,18 @@ async function main() {
         restaurantsAndCafesDensity,
         restaurantsList: restaurants.map(r => r.name),
         restaurantsData: restaurants,
+        groceryStores: groceryStoreCount,
+        groceryStoreDensity,
+        groceryStoresList: groceryStores.map(g => g.name),
+        groceryStoresData: groceryStores,
+        gyms: gymCount,
+        gymDensity,
+        gymsList: gyms.map(g => g.name),
+        gymsData: gyms,
+        busStops: busStopCount,
+        busStopDensity,
+        stopsWithShelter,
+        stopsWithBench,
         crimeTotal: crime.total,
         crimeByCategory: crime.byCategory,
         nearestHospital: hospitalData.nearestHospital,
@@ -816,14 +1006,16 @@ async function main() {
 
   // Define category weights (must sum to 1.0)
   const SCORE_WEIGHTS = {
-    walkability: 0.10,     // walkScore, transitScore, bikeScore
-    safety: 0.25,          // crime per capita (lower is better) - highest priority
-    affordability: 0.20,   // avgRent, avgHomePrice (lower is better)
-    amenities: 0.10,       // parks, schools, libraries, restaurants density
-    education: 0.10,       // avgEqaoScore
-    healthcare: 0.10,      // distance to hospital (lower is better)
-    income: 0.10,          // medianIncome (higher is better)
-    familyFriendly: 0.05,  // pctChildren (higher is better for families)
+    safety: 0.22,          // crime per capita (lower is better) - highest priority
+    amenities: 0.16,       // parks, schools, libraries, grocery stores
+    education: 0.14,       // avgEqaoScore
+    walkability: 0.14,     // walkScore, transitScore, bikeScore, busStopDensity
+    commuteTime: 0.10,     // commute time to downtown (lower is better)
+    lifestyle: 0.08,       // restaurants & cafes density, gym density
+    familyFriendly: 0.06,  // pctChildren (higher is better for families)
+    healthcare: 0.04,      // distance to hospital (lower is better)
+    affordability: 0.04,   // avgRent, avgHomePrice (lower is better)
+    income: 0.02,          // medianIncome (higher is better)
   };
 
   // Helper to calculate percentile rank (0-100) for a value in a sorted array
@@ -846,6 +1038,7 @@ async function main() {
     walkScore: neighbourhoods.map(n => n.walkScore),
     transitScore: neighbourhoods.map(n => n.transitScore),
     bikeScore: neighbourhoods.map(n => n.bikeScore),
+    busStopDensity: neighbourhoods.map(n => n.details.busStopDensity),
     crimePerCapita: neighbourhoods.map(n => n.population > 0 ? (n.details.crimeTotal / n.population) * 1000 : null),
     avgRent: neighbourhoods.map(n => n.avgRent || null),
     avgHomePrice: neighbourhoods.map(n => n.avgHomePrice || null),
@@ -853,10 +1046,13 @@ async function main() {
     schools: neighbourhoods.map(n => n.details.schools),
     libraries: neighbourhoods.map(n => n.details.libraries),
     restaurantsDensity: neighbourhoods.map(n => n.details.restaurantsAndCafesDensity),
+    groceryStoreDensity: neighbourhoods.map(n => n.details.groceryStoreDensity),
+    gymDensity: neighbourhoods.map(n => n.details.gymDensity),
     avgEqaoScore: neighbourhoods.map(n => n.details.avgEqaoScore),
     hospitalDistance: neighbourhoods.map(n => n.details.distanceToNearestHospital),
     medianIncome: neighbourhoods.map(n => n.medianIncome || null),
     pctChildren: neighbourhoods.map(n => n.pctChildren || null),
+    commuteToDowntown: neighbourhoods.map(n => n.commuteToDowntown || null),
   };
 
   // Calculate scores for each neighbourhood
@@ -866,10 +1062,11 @@ async function main() {
 
     // Calculate individual metric scores (0-100)
     const scores = {
-      // Walkability (average of 3 scores)
+      // Walkability (average of walk, transit, bike, bus stop density)
       walkScore: calculatePercentileScore(neighbourhood.walkScore, allMetrics.walkScore, true),
       transitScore: calculatePercentileScore(neighbourhood.transitScore, allMetrics.transitScore, true),
       bikeScore: calculatePercentileScore(neighbourhood.bikeScore, allMetrics.bikeScore, true),
+      busStopDensity: calculatePercentileScore(neighbourhood.details.busStopDensity, allMetrics.busStopDensity, true),
 
       // Safety (lower crime is better)
       crimePerCapita: calculatePercentileScore(crimePerCapita, allMetrics.crimePerCapita, false),
@@ -883,6 +1080,10 @@ async function main() {
       schools: calculatePercentileScore(neighbourhood.details.schools, allMetrics.schools, true),
       libraries: calculatePercentileScore(neighbourhood.details.libraries, allMetrics.libraries, true),
       restaurantsDensity: calculatePercentileScore(neighbourhood.details.restaurantsAndCafesDensity, allMetrics.restaurantsDensity, true),
+      groceryStoreDensity: calculatePercentileScore(neighbourhood.details.groceryStoreDensity, allMetrics.groceryStoreDensity, true),
+
+      // Lifestyle (restaurants & gyms)
+      gymDensity: calculatePercentileScore(neighbourhood.details.gymDensity, allMetrics.gymDensity, true),
 
       // Education (higher is better)
       avgEqaoScore: calculatePercentileScore(neighbourhood.details.avgEqaoScore, allMetrics.avgEqaoScore, true),
@@ -895,18 +1096,23 @@ async function main() {
 
       // Family Friendly (higher children % is better)
       pctChildren: calculatePercentileScore(neighbourhood.pctChildren, allMetrics.pctChildren, true),
+
+      // Commute Time (lower is better)
+      commuteToDowntown: calculatePercentileScore(neighbourhood.commuteToDowntown, allMetrics.commuteToDowntown, false),
     };
 
     // Calculate category scores (average of metrics in each category)
     const categoryScores = {
-      walkability: average([scores.walkScore, scores.transitScore, scores.bikeScore]),
       safety: scores.crimePerCapita,
-      affordability: average([scores.avgRent, scores.avgHomePrice]),
-      amenities: average([scores.parks, scores.schools, scores.libraries, scores.restaurantsDensity]),
+      amenities: average([scores.parks, scores.schools, scores.libraries, scores.groceryStoreDensity]),
       education: scores.avgEqaoScore,
-      healthcare: scores.hospitalDistance,
-      income: scores.medianIncome,
+      walkability: average([scores.walkScore, scores.transitScore, scores.bikeScore, scores.busStopDensity]),
+      commuteTime: scores.commuteToDowntown,
+      lifestyle: average([scores.restaurantsDensity, scores.gymDensity]),
       familyFriendly: scores.pctChildren,
+      healthcare: scores.hospitalDistance,
+      affordability: average([scores.avgRent, scores.avgHomePrice]),
+      income: scores.medianIncome,
     };
 
     // Calculate weighted total score
@@ -927,14 +1133,16 @@ async function main() {
     // Add scores to neighbourhood object
     neighbourhood.overallScore = finalScore;
     neighbourhood.categoryScores = {
-      walkability: categoryScores.walkability !== null ? Math.round(categoryScores.walkability) : null,
       safety: categoryScores.safety !== null ? Math.round(categoryScores.safety) : null,
-      affordability: categoryScores.affordability !== null ? Math.round(categoryScores.affordability) : null,
       amenities: categoryScores.amenities !== null ? Math.round(categoryScores.amenities) : null,
       education: categoryScores.education !== null ? Math.round(categoryScores.education) : null,
-      healthcare: categoryScores.healthcare !== null ? Math.round(categoryScores.healthcare) : null,
-      income: categoryScores.income !== null ? Math.round(categoryScores.income) : null,
+      walkability: categoryScores.walkability !== null ? Math.round(categoryScores.walkability) : null,
+      commuteTime: categoryScores.commuteTime !== null ? Math.round(categoryScores.commuteTime) : null,
+      lifestyle: categoryScores.lifestyle !== null ? Math.round(categoryScores.lifestyle) : null,
       familyFriendly: categoryScores.familyFriendly !== null ? Math.round(categoryScores.familyFriendly) : null,
+      healthcare: categoryScores.healthcare !== null ? Math.round(categoryScores.healthcare) : null,
+      affordability: categoryScores.affordability !== null ? Math.round(categoryScores.affordability) : null,
+      income: categoryScores.income !== null ? Math.round(categoryScores.income) : null,
     };
     neighbourhood.scoreWeights = SCORE_WEIGHTS;
   }
@@ -953,10 +1161,11 @@ async function main() {
     console.log(`    ${n.overallScore}/100 - ${n.name}`);
   }
 
-  // Write output
+  // Write output (minified for faster loading)
   const outputFile = path.join(outputDir, 'data.json');
-  fs.writeFileSync(outputFile, JSON.stringify({ neighbourhoods }, null, 2));
-  console.log(`\nWritten to: ${outputFile}`);
+  fs.writeFileSync(outputFile, JSON.stringify({ neighbourhoods }));
+  const fileSizeMB = (fs.statSync(outputFile).size / 1024 / 1024).toFixed(2);
+  console.log(`\nWritten to: ${outputFile} (${fileSizeMB} MB)`);
 
   // Export assigned restaurants to CSV
   if (hasRestaurantsCafesData) {
@@ -999,6 +1208,49 @@ async function main() {
     console.log(`Written ${restaurantsCsvRows.length} restaurants to: ${restaurantsCsvPath}`);
   }
 
+  // Export assigned grocery stores to CSV
+  if (hasGroceryStoresData) {
+    const groceryCsvRows = [];
+    for (const n of neighbourhoods) {
+      const stores = n.details.groceryStoresData || [];
+      for (const g of stores) {
+        groceryCsvRows.push({
+          neighbourhood_id: n.id,
+          neighbourhood_name: n.name,
+          name: g.name,
+          shop_type: g.shopType,
+          category: g.category,
+          brand: g.brand,
+          address: g.address,
+          latitude: g.lat,
+          longitude: g.lng,
+          osm_id: g.osmId,
+          osm_type: g.osmType,
+        });
+      }
+    }
+
+    // Write CSV
+    const groceryCsvHeaders = ['neighbourhood_id', 'neighbourhood_name', 'name', 'shop_type', 'category', 'brand', 'address', 'latitude', 'longitude', 'osm_id', 'osm_type'];
+    let groceryCsvContent = groceryCsvHeaders.join(',') + '\n';
+    for (const row of groceryCsvRows) {
+      const values = groceryCsvHeaders.map(h => {
+        const val = row[h];
+        if (val === null || val === undefined) return '';
+        const str = String(val);
+        if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+          return '"' + str.replace(/"/g, '""') + '"';
+        }
+        return str;
+      });
+      groceryCsvContent += values.join(',') + '\n';
+    }
+
+    const groceryCsvPath = path.join(outputDir, 'grocery_stores_by_neighbourhood.csv');
+    fs.writeFileSync(groceryCsvPath, groceryCsvContent);
+    console.log(`Written ${groceryCsvRows.length} grocery stores to: ${groceryCsvPath}`);
+  }
+
   // Summary
   console.log('\n=== Summary ===');
   console.log(`Neighbourhoods: ${neighbourhoods.length}`);
@@ -1007,6 +1259,9 @@ async function main() {
   console.log(`Total schools with EQAO scores: ${matchedEqaoScores}`);
   console.log(`Total libraries assigned: ${assignedLibraries}`);
   console.log(`Total restaurants & cafes assigned: ${assignedRestaurantsCafes}`);
+  console.log(`Total grocery stores assigned: ${assignedGroceryStores}`);
+  console.log(`Total gyms & fitness centers assigned: ${assignedGyms}`);
+  console.log(`Total bus stops assigned: ${assignedBusStops}`);
   console.log(`Total crimes assigned: ${assignedCrimes}`);
 
   console.log('\nPopulation per neighbourhood (sorted by population):');
