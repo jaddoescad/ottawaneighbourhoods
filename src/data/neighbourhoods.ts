@@ -1,12 +1,60 @@
 /**
- * Neighbourhood Data - Combines real and mockup data
+ * Neighbourhood Data - Loaded from processed JSON
  *
- * Real data:   ./real/   - Verified from official sources (Ottawa Open Data, etc.)
- * Mockup data: ./mockup/ - Placeholders that need real data
+ * Data pipeline:
+ *   1. Raw data in src/data/csv/ (parks_raw.csv, schools_raw.csv)
+ *   2. Run: node scripts/process-data.js
+ *   3. Output: src/data/processed/data.json
+ *
+ * To update data:
+ *   - Edit src/data/csv/neighbourhoods.csv for neighbourhood info
+ *   - Edit scripts/config/neighbourhood-mapping.js to change ONS area groupings
+ *   - Run: node scripts/process-data.js
  */
 
-import { mockupNeighbourhoods } from './mockup';
-import { parksByNeighbourhood } from './real';
+import data from './processed/data.json';
+
+export interface ParkData {
+  name: string;
+  type: string;
+  category: string;
+  lat: number;
+  lng: number;
+  ward: string;
+  dogPolicy: string;
+  address: string;
+}
+
+export interface SchoolData {
+  name: string;
+  board: string;
+  fullBoard: string;
+  category: string;
+  lat: number;
+  lng: number;
+  address: string;
+  phone: string;
+}
+
+export interface LibraryData {
+  name: string;
+  lat: number;
+  lng: number;
+  address: string;
+  postalCode: string;
+  acronym: string;
+}
+
+export interface TransitStationData {
+  name: string;
+  type: string;
+  lat: number;
+  lng: number;
+}
+
+export interface CrimeByCategory {
+  [category: string]: number;
+}
 
 export interface Neighbourhood {
   id: string;
@@ -27,19 +75,23 @@ export interface Neighbourhood {
     avgIncome: string;
     restaurants: number;
     parks: number;
+    parksList: string[];
+    parksData: ParkData[];
     schools: number;
+    schoolsList: string[];
+    schoolsData: SchoolData[];
+    libraries: number;
+    librariesList: string[];
+    librariesData: LibraryData[];
+    transitStations: number;
+    transitStationsList: string[];
+    transitStationsData: TransitStationData[];
+    crimeTotal: number;
+    crimeByCategory: CrimeByCategory;
     bikeScore: number;
   };
   pros: string[];
   cons: string[];
 }
 
-// Merge mockup with real data
-export const neighbourhoods: Neighbourhood[] = mockupNeighbourhoods.map((mockup) => ({
-  ...mockup,
-  details: {
-    ...mockup.details,
-    // Real data fields
-    parks: parksByNeighbourhood[mockup.id]?.count ?? 0,
-  },
-}));
+export const neighbourhoods: Neighbourhood[] = data.neighbourhoods as Neighbourhood[];
