@@ -65,11 +65,11 @@ module.exports = {
   },
   'kanata': {
     name: 'Kanata',
-    onsIds: [928, 929, 924, 902], // Kanata Lakes, Katimavik, Glen Cairn, Beaverbrook
+    onsIds: [928, 929, 924, 902, 907], // Kanata Lakes, Katimavik, Glen Cairn, Beaverbrook, Morgan's Grant
   },
   'stittsville': {
     name: 'Stittsville',
-    onsIds: [951, 907], // Stittsville, Brookside-Briarbrook-Morgan's Grant
+    onsIds: [951], // Stittsville
   },
 
   // South End
