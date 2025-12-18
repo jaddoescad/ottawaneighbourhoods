@@ -23,6 +23,7 @@ const THRESHOLDS = {
   schools: { max: 15, great: 12, okay: 6 },
   libraries: { max: 2, great: 2, okay: 1 },
   trails: { max: 20, great: 12, okay: 5 },
+  restaurantsCafesDensity: { max: 25, great: 8, okay: 3 }, // places per km²
   income: { max: 130000, great: 110000, okay: 80000 },
   rent: { max: 2500, great: 1800, okay: 2000 }, // Lower is better for rent
   homePrice: { max: 1200000, great: 600000, okay: 800000 }, // Lower is better for home price
@@ -196,6 +197,27 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             type={trails.length > 0 ? getScoreType(trails.length, "trails") : "neutral"}
             items={trails}
             itemLabel="trails"
+          />
+          <ExpandableStatRow
+            icon="🍽️"
+            label="Restaurants & Cafés"
+            value={
+              details.restaurantsAndCafes !== null && details.restaurantsAndCafesDensity !== null
+                ? `${details.restaurantsAndCafes} (${details.restaurantsAndCafesDensity}/km²)`
+                : "N/A"
+            }
+            percent={
+              details.restaurantsAndCafesDensity !== null
+                ? getPercent(details.restaurantsAndCafesDensity, "restaurantsCafesDensity")
+                : 0
+            }
+            type={
+              details.restaurantsAndCafesDensity !== null
+                ? getScoreType(details.restaurantsAndCafesDensity, "restaurantsCafesDensity")
+                : "neutral"
+            }
+            items={[]}
+            itemLabel="places"
           />
           <StatRow
             icon="🏥"

@@ -13,6 +13,7 @@
  *   - src/data/csv/libraries_raw.csv
  *   - src/data/csv/crime_raw.csv
  *   - src/data/csv/hospitals_raw.csv
+ *   - src/data/csv/restaurants_cafes_raw.csv (optional)
  *   - src/data/csv/neighbourhoods.csv (neighbourhood info/config)
  *
  * Output files:
@@ -136,6 +137,56 @@ function haversineDistance(lat1, lon1, lat2, lon2) {
     Math.sin(dLon / 2) * Math.sin(dLon / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   return R * c;
+}
+
+// ============================================================================
+// Polygon Area Calculation (approx. sq km from WGS84 rings)
+// ============================================================================
+
+const EARTH_RADIUS_M = 6371000;
+
+function degreesToRadians(degrees) {
+  return degrees * Math.PI / 180;
+}
+
+function ringAreaMetersSquared(ring) {
+  if (!ring || ring.length < 3) return 0;
+
+  // Equirectangular projection around the ring's average latitude (good local approximation)
+  const avgLat = ring.reduce((sum, [, lat]) => sum + lat, 0) / ring.length;
+  const lat0Rad = degreesToRadians(avgLat);
+  const cosLat0 = Math.cos(lat0Rad);
+
+  let area = 0;
+  for (let i = 0; i < ring.length; i++) {
+    const [lng1, lat1] = ring[i];
+    const [lng2, lat2] = ring[(i + 1) % ring.length];
+
+    const x1 = EARTH_RADIUS_M * degreesToRadians(lng1) * cosLat0;
+    const y1 = EARTH_RADIUS_M * degreesToRadians(lat1);
+    const x2 = EARTH_RADIUS_M * degreesToRadians(lng2) * cosLat0;
+    const y2 = EARTH_RADIUS_M * degreesToRadians(lat2);
+
+    area += (x1 * y2 - x2 * y1);
+  }
+
+  return area / 2; // signed
+}
+
+function polygonAreaMetersSquared(rings) {
+  if (!rings || rings.length === 0) return 0;
+
+  let area = Math.abs(ringAreaMetersSquared(rings[0])); // outer ring
+  for (let i = 1; i < rings.length; i++) {
+    area -= Math.abs(ringAreaMetersSquared(rings[i])); // holes
+  }
+
+  return Math.max(0, area);
+}
+
+function roundTo(value, decimals) {
+  const factor = 10 ** decimals;
+  return Math.round(value * factor) / factor;
 }
 
 // Calculate centroid of a polygon (first ring only)
@@ -297,6 +348,18 @@ async function main() {
   const hospitalsRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'hospitals_raw.csv'), 'utf8'));
   const neighbourhoodsInfo = parseCSV(fs.readFileSync(path.join(csvDir, 'neighbourhoods.csv'), 'utf8'));
 
+  // Load Restaurants & Cafes (optional - file may not exist)
+  const restaurantsCafesPath = path.join(csvDir, 'restaurants_cafes_raw.csv');
+  const hasRestaurantsCafesData = fs.existsSync(restaurantsCafesPath);
+  const restaurantsCafesRaw = hasRestaurantsCafesData
+    ? parseCSV(fs.readFileSync(restaurantsCafesPath, 'utf8'))
+    : [];
+  if (hasRestaurantsCafesData) {
+    console.log(`  - ${restaurantsCafesRaw.length} restaurants & cafes`);
+  } else {
+    console.log('  - No restaurants/cafes file found (run: node scripts/download-restaurants-cafes.js)');
+  }
+
   // Load Walk Scores (optional - file may not exist)
   let walkScoresData = [];
   const walkScoresPath = path.join(csvDir, 'walkscores.csv');
@@ -372,6 +435,18 @@ async function main() {
     boundariesByNeighbourhood[neighbourhoodId] = await fetchAllBoundaries(config.onsIds);
     console.log(` ${boundariesByNeighbourhood[neighbourhoodId].length} areas`);
   }
+
+  // Calculate neighbourhood areas (km²)
+  console.log('\nCalculating neighbourhood land area (km²)...');
+  const areaKm2ByNeighbourhood = {};
+  for (const [neighbourhoodId, boundaries] of Object.entries(boundariesByNeighbourhood)) {
+    let areaMeters2 = 0;
+    for (const boundary of boundaries) {
+      areaMeters2 += polygonAreaMetersSquared(boundary.rings);
+    }
+    areaKm2ByNeighbourhood[neighbourhoodId] = areaMeters2 > 0 ? areaMeters2 / 1e6 : 0;
+  }
+  console.log(`  Calculated area for ${Object.keys(areaKm2ByNeighbourhood).length} neighbourhoods`);
 
   // Process parks
   console.log('\nAssigning parks to neighbourhoods...');
@@ -498,6 +573,28 @@ async function main() {
     }
   }
   console.log(`  Assigned ${assignedLibraries} libraries`);
+
+  // Process restaurants & cafes (optional)
+  console.log('\nAssigning restaurants & cafes to neighbourhoods...');
+  const restaurantsCafesCountByNeighbourhood = {};
+  let assignedRestaurantsCafes = 0;
+
+  if (hasRestaurantsCafesData) {
+    for (const place of restaurantsCafesRaw) {
+      const lat = parseFloat(place.LATITUDE);
+      const lng = parseFloat(place.LONGITUDE);
+
+      if (isNaN(lat) || isNaN(lng)) continue;
+
+      const neighbourhoodId = assignToNeighbourhood(lat, lng, boundariesByNeighbourhood);
+      if (neighbourhoodId) {
+        restaurantsCafesCountByNeighbourhood[neighbourhoodId] =
+          (restaurantsCafesCountByNeighbourhood[neighbourhoodId] || 0) + 1;
+        assignedRestaurantsCafes++;
+      }
+    }
+  }
+  console.log(`  Assigned ${assignedRestaurantsCafes} restaurants & cafes`);
 
   // Process hospitals - calculate nearest hospital for each neighbourhood
   console.log('\nCalculating hospital proximity for each neighbourhood...');
@@ -632,6 +729,13 @@ async function main() {
       nearestHospitalAddress: null,
       distanceToNearestHospital: null,
     };
+    const areaKm2 = areaKm2ByNeighbourhood[info.id] || 0;
+    const restaurantsAndCafes = hasRestaurantsCafesData
+      ? (restaurantsCafesCountByNeighbourhood[info.id] || 0)
+      : null;
+    const restaurantsAndCafesDensity = restaurantsAndCafes !== null && areaKm2 > 0
+      ? roundTo(restaurantsAndCafes / areaKm2, 1) // per km²
+      : null;
 
     // Calculate population by summing all ONS areas for this neighbourhood
     const mapping = neighbourhoodMapping[info.id];
@@ -678,6 +782,7 @@ async function main() {
       pctYoungProfessionals: ageDemographics.pctYoungProfessionals,
       pctSeniors: ageDemographics.pctSeniors,
       details: {
+        areaKm2: roundTo(areaKm2, 2),
         parks: parks.length,
         parksList: parks.map(p => p.name),
         parksData: parks,
@@ -691,6 +796,8 @@ async function main() {
         libraries: libraries.length,
         librariesList: libraries.map(l => l.name),
         librariesData: libraries,
+        restaurantsAndCafes,
+        restaurantsAndCafesDensity,
         crimeTotal: crime.total,
         crimeByCategory: crime.byCategory,
         nearestHospital: hospitalData.nearestHospital,
@@ -714,6 +821,7 @@ async function main() {
   console.log(`Total schools assigned: ${assignedSchools}`);
   console.log(`Total schools with EQAO scores: ${matchedEqaoScores}`);
   console.log(`Total libraries assigned: ${assignedLibraries}`);
+  console.log(`Total restaurants & cafes assigned: ${assignedRestaurantsCafes}`);
   console.log(`Total crimes assigned: ${assignedCrimes}`);
 
   console.log('\nPopulation per neighbourhood (sorted by population):');

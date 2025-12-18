@@ -16,6 +16,7 @@
       "pctYoungProfessionals": 36,
       "pctSeniors": 15.2,
       "details": {
+        "areaKm2": 4.43,
         "parks": 24,
         "parksList": [
           "Lionel Britton Park",
@@ -417,6 +418,8 @@
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
+        "restaurantsAndCafes": 62,
+        "restaurantsAndCafesDensity": 14,
         "crimeTotal": 2430,
         "crimeByCategory": {
           "Other Violations Involving Violence Or The Threat Of Violence": 86,
@@ -466,6 +469,7 @@
       "pctYoungProfessionals": 30.8,
       "pctSeniors": 18.9,
       "details": {
+        "areaKm2": 14.32,
         "parks": 32,
         "parksList": [
           "Lion's Park",
@@ -1098,6 +1102,8 @@
             "acronym": "CA"
           }
         ],
+        "restaurantsAndCafes": 53,
+        "restaurantsAndCafesDensity": 3.7,
         "crimeTotal": 4647,
         "crimeByCategory": {
           "Theft $5000 and Under": 3038,
@@ -1148,6 +1154,7 @@
       "pctYoungProfessionals": 45.2,
       "pctSeniors": 13.2,
       "details": {
+        "areaKm2": 6.46,
         "parks": 20,
         "parksList": [
           "London Terrace Park",
@@ -1492,6 +1499,8 @@
             "acronym": "RI"
           }
         ],
+        "restaurantsAndCafes": 112,
+        "restaurantsAndCafesDensity": 17.3,
         "crimeTotal": 9730,
         "crimeByCategory": {
           "Break and Enter": 498,
@@ -1543,6 +1552,7 @@
       "pctYoungProfessionals": 45.2,
       "pctSeniors": 13.2,
       "details": {
+        "areaKm2": 13.14,
         "parks": 25,
         "parksList": [
           "Princess Margriet Park",
@@ -2086,6 +2096,8 @@
             "acronym": "MA"
           }
         ],
+        "restaurantsAndCafes": 289,
+        "restaurantsAndCafesDensity": 22,
         "crimeTotal": 14722,
         "crimeByCategory": {
           "Break and Enter": 760,
@@ -2138,6 +2150,7 @@
       "pctYoungProfessionals": 36,
       "pctSeniors": 15.2,
       "details": {
+        "areaKm2": 4.65,
         "parks": 16,
         "parksList": [
           "Windsor Park Ottawa",
@@ -2390,6 +2403,8 @@
             "acronym": "SU"
           }
         ],
+        "restaurantsAndCafes": 14,
+        "restaurantsAndCafesDensity": 3,
         "crimeTotal": 275,
         "crimeByCategory": {
           "Theft - Motor Vehicle": 19,
@@ -2436,6 +2451,7 @@
       "pctYoungProfessionals": 30.8,
       "pctSeniors": 18.9,
       "details": {
+        "areaKm2": 3.76,
         "parks": 15,
         "parksList": [
           "Stirling-Carruthers Park",
@@ -2725,6 +2741,8 @@
             "acronym": "RO"
           }
         ],
+        "restaurantsAndCafes": 34,
+        "restaurantsAndCafesDensity": 9.1,
         "crimeTotal": 2081,
         "crimeByCategory": {
           "Theft $5000 and Under": 882,
@@ -2776,6 +2794,7 @@
       "pctYoungProfessionals": 36,
       "pctSeniors": 15.2,
       "details": {
+        "areaKm2": 2.39,
         "parks": 4,
         "parksList": [
           "Champlain Park",
@@ -2897,6 +2916,8 @@
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
+        "restaurantsAndCafes": 28,
+        "restaurantsAndCafesDensity": 11.7,
         "crimeTotal": 410,
         "crimeByCategory": {
           "Theft $5000 and Under": 134,
@@ -2945,6 +2966,7 @@
       "pctYoungProfessionals": 26.5,
       "pctSeniors": 14.1,
       "details": {
+        "areaKm2": 24.82,
         "parks": 101,
         "parksList": [
           "Elisha Scharf Park",
@@ -4453,6 +4475,8 @@
             "acronym": "HA"
           }
         ],
+        "restaurantsAndCafes": 72,
+        "restaurantsAndCafesDensity": 2.9,
         "crimeTotal": 4043,
         "crimeByCategory": {
           "Assaults": 292,
@@ -4505,6 +4529,7 @@
       "pctYoungProfessionals": 26.5,
       "pctSeniors": 14.1,
       "details": {
+        "areaKm2": 39.36,
         "parks": 117,
         "parksList": [
           "Forest Creek Park",
@@ -6132,6 +6157,8 @@
             "acronym": "ST"
           }
         ],
+        "restaurantsAndCafes": 67,
+        "restaurantsAndCafesDensity": 1.7,
         "crimeTotal": 1669,
         "crimeByCategory": {
           "Fraud": 400,
@@ -6181,6 +6208,7 @@
       "pctYoungProfessionals": 28.9,
       "pctSeniors": 18.4,
       "details": {
+        "areaKm2": 15.77,
         "parks": 44,
         "parksList": [
           "Cunningham Woods",
@@ -6942,6 +6970,8 @@
             "acronym": "EA"
           }
         ],
+        "restaurantsAndCafes": 44,
+        "restaurantsAndCafesDensity": 2.8,
         "crimeTotal": 5917,
         "crimeByCategory": {
           "Assaults": 610,
@@ -6992,6 +7022,7 @@
       "pctYoungProfessionals": 36,
       "pctSeniors": 15.2,
       "details": {
+        "areaKm2": 8.25,
         "parks": 28,
         "parksList": [
           "St. Germain Park",
@@ -7485,6 +7516,8 @@
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
+        "restaurantsAndCafes": 87,
+        "restaurantsAndCafesDensity": 10.5,
         "crimeTotal": 5399,
         "crimeByCategory": {
           "Assaults": 484,
@@ -7535,6 +7568,7 @@
       "pctYoungProfessionals": 25.5,
       "pctSeniors": 15.7,
       "details": {
+        "areaKm2": 119.64,
         "parks": 201,
         "parksList": [
           "Whiterock Park",
@@ -10569,6 +10603,8 @@
             "acronym": "OR"
           }
         ],
+        "restaurantsAndCafes": 115,
+        "restaurantsAndCafesDensity": 1,
         "crimeTotal": 2586,
         "crimeByCategory": {
           "Theft $5000 and Under": 494,
@@ -10618,6 +10654,7 @@
       "pctYoungProfessionals": 27.1,
       "pctSeniors": 10.4,
       "details": {
+        "areaKm2": 39.06,
         "parks": 115,
         "parksList": [
           "Moloughney Park",
@@ -12367,6 +12404,8 @@
             "acronym": "RD"
           }
         ],
+        "restaurantsAndCafes": 63,
+        "restaurantsAndCafesDensity": 1.6,
         "crimeTotal": 490,
         "crimeByCategory": {
           "Fraud": 170,
@@ -12414,6 +12453,7 @@
       "pctYoungProfessionals": 28.5,
       "pctSeniors": 20.6,
       "details": {
+        "areaKm2": 3.71,
         "parks": 7,
         "parksList": [
           "Lincoln Heights Park",
@@ -12556,6 +12596,8 @@
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
+        "restaurantsAndCafes": 17,
+        "restaurantsAndCafesDensity": 4.6,
         "crimeTotal": 939,
         "crimeByCategory": {
           "Assaults": 88,
@@ -12601,6 +12643,7 @@
       "pctYoungProfessionals": 30.8,
       "pctSeniors": 18.9,
       "details": {
+        "areaKm2": 6.61,
         "parks": 26,
         "parksList": [
           "Leslie Park",
@@ -13023,6 +13066,8 @@
             "acronym": "CE"
           }
         ],
+        "restaurantsAndCafes": 24,
+        "restaurantsAndCafesDensity": 3.6,
         "crimeTotal": 1073,
         "crimeByCategory": {
           "Other Violations Involving Violence Or The Threat Of Violence": 54,
@@ -13070,6 +13115,7 @@
       "pctYoungProfessionals": 28.8,
       "pctSeniors": 17.6,
       "details": {
+        "areaKm2": 10.69,
         "parks": 28,
         "parksList": [
           "Harrold Place Park",
@@ -13610,6 +13656,8 @@
             "acronym": "EP"
           }
         ],
+        "restaurantsAndCafes": 73,
+        "restaurantsAndCafesDensity": 6.8,
         "crimeTotal": 2538,
         "crimeByCategory": {
           "Assaults": 297,
@@ -13660,6 +13708,7 @@
       "pctYoungProfessionals": 26,
       "pctSeniors": 16.1,
       "details": {
+        "areaKm2": 35.32,
         "parks": 65,
         "parksList": [
           "Hunt Club Gate Park",
@@ -14616,6 +14665,8 @@
             "acronym": "KIOSK"
           }
         ],
+        "restaurantsAndCafes": 53,
+        "restaurantsAndCafesDensity": 1.5,
         "crimeTotal": 3433,
         "crimeByCategory": {
           "Theft $5000 and Under": 1168,
@@ -14666,6 +14717,7 @@
       "pctYoungProfessionals": 29.1,
       "pctSeniors": 9.5,
       "details": {
+        "areaKm2": 29.19,
         "parks": 50,
         "parksList": [
           "Spratt Park",
@@ -15365,6 +15417,8 @@
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
+        "restaurantsAndCafes": 8,
+        "restaurantsAndCafesDensity": 0.3,
         "crimeTotal": 1453,
         "crimeByCategory": {
           "Theft - Motor Vehicle": 161,
@@ -15413,6 +15467,7 @@
       "pctYoungProfessionals": 21.7,
       "pctSeniors": 16.2,
       "details": {
+        "areaKm2": 218.71,
         "parks": 49,
         "parksList": [
           "Craighurst Drive Park",
@@ -16061,6 +16116,8 @@
             "acronym": "GO"
           }
         ],
+        "restaurantsAndCafes": 10,
+        "restaurantsAndCafesDensity": 0,
         "crimeTotal": 566,
         "crimeByCategory": {
           "Theft $5000 and Under": 131,
@@ -16108,6 +16165,7 @@
       "pctYoungProfessionals": 19.9,
       "pctSeniors": 19.5,
       "details": {
+        "areaKm2": 354.29,
         "parks": 28,
         "parksList": [
           "Stormwater Management Area",
@@ -16493,6 +16551,8 @@
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
+        "restaurantsAndCafes": 11,
+        "restaurantsAndCafesDensity": 0,
         "crimeTotal": 247,
         "crimeByCategory": {
           "Fraud": 77,
@@ -16538,6 +16598,7 @@
       "pctYoungProfessionals": 20.2,
       "pctSeniors": 17.5,
       "details": {
+        "areaKm2": 452.81,
         "parks": 20,
         "parksList": [
           "Sheperds Grove Park",
@@ -16822,6 +16883,8 @@
             "acronym": "CP"
           }
         ],
+        "restaurantsAndCafes": 3,
+        "restaurantsAndCafesDensity": 0,
         "crimeTotal": 319,
         "crimeByCategory": {
           "Other Violations Involving Violence Or The Threat Of Violence": 32,
@@ -16868,6 +16931,7 @@
       "pctYoungProfessionals": 20.2,
       "pctSeniors": 17.5,
       "details": {
+        "areaKm2": 180.82,
         "parks": 25,
         "parksList": [
           "Woodlot",
@@ -17240,6 +17304,8 @@
             "acronym": "FH"
           }
         ],
+        "restaurantsAndCafes": 4,
+        "restaurantsAndCafesDensity": 0,
         "crimeTotal": 287,
         "crimeByCategory": {
           "Assaults": 31,
@@ -17286,6 +17352,7 @@
       "pctYoungProfessionals": 20.3,
       "pctSeniors": 20.2,
       "details": {
+        "areaKm2": 304.41,
         "parks": 36,
         "parksList": [
           "Owlshead Park",
@@ -17803,6 +17870,8 @@
             "acronym": "RM"
           }
         ],
+        "restaurantsAndCafes": 8,
+        "restaurantsAndCafesDensity": 0,
         "crimeTotal": 511,
         "crimeByCategory": {
           "Mischief": 48,
@@ -17849,6 +17918,7 @@
       "pctYoungProfessionals": 21.7,
       "pctSeniors": 16.2,
       "details": {
+        "areaKm2": 275.08,
         "parks": 23,
         "parksList": [
           "Ferdinand Park Walkway",
@@ -18232,6 +18302,8 @@
             "acronym": "VE"
           }
         ],
+        "restaurantsAndCafes": 6,
+        "restaurantsAndCafesDensity": 0,
         "crimeTotal": 370,
         "crimeByCategory": {
           "Theft $5000 and Under": 47,
@@ -18278,6 +18350,7 @@
       "pctYoungProfessionals": 26.3,
       "pctSeniors": 18.7,
       "details": {
+        "areaKm2": 285.06,
         "parks": 140,
         "parksList": [
           "Meadowbrook Park (Gloucester)",
@@ -20506,6 +20579,8 @@
             "acronym": "NC"
           }
         ],
+        "restaurantsAndCafes": 54,
+        "restaurantsAndCafesDensity": 0.2,
         "crimeTotal": 4493,
         "crimeByCategory": {
           "Fraud": 1081,
@@ -20555,6 +20630,7 @@
       "pctYoungProfessionals": 29,
       "pctSeniors": 19.5,
       "details": {
+        "areaKm2": 3.03,
         "parks": 17,
         "parksList": [
           "Optimiste Park",
@@ -20863,6 +20939,8 @@
             "acronym": "VA"
           }
         ],
+        "restaurantsAndCafes": 28,
+        "restaurantsAndCafesDensity": 9.2,
         "crimeTotal": 2684,
         "crimeByCategory": {
           "Other Criminal Code": 274,
@@ -20911,6 +20989,7 @@
       "pctYoungProfessionals": 29,
       "pctSeniors": 19.5,
       "details": {
+        "areaKm2": 5.15,
         "parks": 9,
         "parksList": [
           "Hemlock Park",
@@ -21134,6 +21213,8 @@
             "acronym": "RP"
           }
         ],
+        "restaurantsAndCafes": 18,
+        "restaurantsAndCafesDensity": 3.5,
         "crimeTotal": 907,
         "crimeByCategory": {
           "Break and Enter": 60,

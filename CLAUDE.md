@@ -24,6 +24,7 @@ src/data/
 │   ├── eqao_scores.csv           # EQAO school scores from Ontario Open Data
 │   ├── crime_raw.csv             # ~98K crimes (2023-2024) from Ottawa Police
 │   ├── hospitals_raw.csv         # All 10 hospitals from Ottawa Open Data
+│   ├── restaurants_cafes_raw.csv # Restaurants & cafés (OpenStreetMap / Overpass)
 │   ├── walkscores.csv            # Walk Score, Transit Score, Bike Score (from WalkScore.com)
 │   ├── age_demographics.csv      # Age demographics (% children, young professionals, seniors)
 │   ├── neighbourhoods.csv        # Neighbourhood info (scores, pros/cons, avgRent, avgHomePrice)
@@ -38,6 +39,7 @@ scripts/
 ├── process-data.js               # Main processing script
 ├── download-eqao-data.js         # Downloads EQAO scores from Ontario Open Data
 ├── download-hospitals.js         # Downloads hospitals from Ottawa Open Data
+├── download-restaurants-cafes.js # Downloads restaurants & cafés from OpenStreetMap (Overpass)
 ├── generate-age-demographics.js  # Generates age demographics CSV from 2021 Census
 └── config/
     └── neighbourhood-mapping.js  # Maps our neighbourhoods to ONS IDs
@@ -45,7 +47,7 @@ scripts/
 
 ## Data Sources
 
-All data from **City of Ottawa Open Data** (ArcGIS REST APIs):
+Most data from **City of Ottawa Open Data** (ArcGIS REST APIs). Restaurants & cafés via **OpenStreetMap** (Overpass):
 
 | Data | API | Records |
 |------|-----|---------|
@@ -57,6 +59,7 @@ All data from **City of Ottawa Open Data** (ArcGIS REST APIs):
 | O-Train Stations | https://maps.ottawa.ca/arcgis/rest/services/TransitServices/MapServer/1 | 5 |
 | Crime (2023-2024) | https://services7.arcgis.com/2vhcNzw0NfUwAD3d/ArcGIS/rest/services/Criminal_Offences_Open_Data/FeatureServer/0 | ~98K |
 | Hospitals | https://maps.ottawa.ca/arcgis/rest/services/Hospitals/MapServer/0 | 10 |
+| Restaurants & Cafés | https://overpass-api.de/api/interpreter (OSM Overpass) | ~1-3K |
 | Walk Scores | https://www.walkscore.com/CA-ON/Ottawa | 27 |
 | Age Demographics | https://open.ottawa.ca/datasets/ottawa::2021-long-form-census-sub-area | 27 |
 | Boundaries | https://maps.ottawa.ca/arcgis/rest/services/Neighbourhoods/MapServer/0 | 111 |

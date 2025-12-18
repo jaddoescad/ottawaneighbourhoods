@@ -66,6 +66,7 @@ export interface Neighbourhood {
   pctYoungProfessionals: number; // % of population aged 25-44
   pctSeniors: number;     // % of population aged 65+
   details: {
+    areaKm2: number;
     parks: number;
     parksList: string[];
     parksData: ParkData[];
@@ -79,6 +80,8 @@ export interface Neighbourhood {
     libraries: number;
     librariesList: string[];
     librariesData: LibraryData[];
+    restaurantsAndCafes: number | null;
+    restaurantsAndCafesDensity: number | null; // per km²
     crimeTotal: number;
     crimeByCategory: CrimeByCategory;
     nearestHospital: string | null;
