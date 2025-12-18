@@ -65,11 +65,15 @@ module.exports = {
   },
   'kanata': {
     name: 'Kanata',
-    onsIds: [928, 929, 924, 902, 907], // Kanata Lakes, Katimavik, Glen Cairn, Beaverbrook, Morgan's Grant
+    onsIds: [928, 929, 924, 902, 907], // Kanata Lakes, Katimavik-Hazeldean, Glen Cairn, Beaverbrook, Morgan's Grant (covers both Kanata North & South wards)
   },
   'stittsville': {
     name: 'Stittsville',
     onsIds: [951], // Stittsville
+  },
+  'merivale': {
+    name: 'Merivale',
+    onsIds: [65, 941, 905], // Merivale Gardens-Grenfell Glen-Pineglen, Parkwood Hills-Stewart Farm, Borden Farm-Fisher Glen
   },
 
   // South End
@@ -83,11 +87,11 @@ module.exports = {
   },
   'barrhaven': {
     name: 'Barrhaven',
-    onsIds: [937, 938, 914, 952, 921], // Old Barrhaven East/West, Chapman Mills, Stonebridge, Findlay Creek
+    onsIds: [937, 938, 914, 952], // Old Barrhaven East/West, Chapman Mills, Stonebridge (matches Barrhaven East/West wards)
   },
   'riverside-south': {
     name: 'Riverside South',
-    onsIds: [946, 945], // Riverside South-Leitrim, Rideau Crest
+    onsIds: [946, 945, 921], // Riverside South-Leitrim, Rideau Crest, Findlay Creek (matches Riverside South-Findlay Creek ward)
   },
   'manotick': {
     name: 'Manotick',
@@ -124,9 +128,9 @@ module.exports = {
     onsIds: [66, 81], // Metcalfe, Osgoode-Vernon
   },
 
-  // Nepean / South Keys area
+  // Nepean / Centrepointe area (Knoxdale-Merivale ward core)
   'nepean': {
     name: 'Nepean',
-    onsIds: [23, 65, 941, 905, 100, 99, 108, 106, 11, 86, 87, 88, 76, 13, 85, 947], // Centrepointe, Merivale, Parkwood Hills, etc.
+    onsIds: [23, 100, 99, 108, 106, 11, 86, 87, 88, 76, 13, 85, 947], // Centrepointe, Trend-Arlington, Tanglewood, Craig Henry, Whitehaven, Braemar, etc.
   },
 };
