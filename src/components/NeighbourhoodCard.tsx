@@ -60,10 +60,24 @@ function getHospitalBarWidth(distanceKm: number | null): string {
   return `${percent}%`;
 }
 
+function getScoreColor(score: number): string {
+  if (score >= 70) return "bg-green-500";
+  if (score >= 50) return "bg-yellow-500";
+  if (score >= 30) return "bg-orange-500";
+  return "bg-red-500";
+}
+
+function getScoreRingColor(score: number): string {
+  if (score >= 70) return "ring-green-400";
+  if (score >= 50) return "ring-yellow-400";
+  if (score >= 30) return "ring-orange-400";
+  return "ring-red-400";
+}
+
 export default function NeighbourhoodCard({
   neighbourhood,
 }: NeighbourhoodCardProps) {
-  const { id, name, area, image, population, avgRent } = neighbourhood;
+  const { id, name, area, image, population, avgRent, overallScore } = neighbourhood;
 
   // Regular stats
   const stats = [
@@ -88,6 +102,13 @@ export default function NeighbourhoodCard({
 
       {/* Default Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 transition-opacity duration-300 group-hover:opacity-0" />
+
+      {/* Score Badge - Top Right */}
+      <div className="absolute top-3 right-3 z-10">
+        <div className={`w-12 h-12 rounded-full ${getScoreColor(overallScore)} ring-2 ${getScoreRingColor(overallScore)} ring-offset-2 ring-offset-black/50 flex items-center justify-center shadow-lg`}>
+          <span className="text-white font-bold text-sm">{overallScore}</span>
+        </div>
+      </div>
 
       {/* Hover Overlay - Dark with stats */}
       <div className="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-5 flex flex-col">

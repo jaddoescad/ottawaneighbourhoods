@@ -1,9 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { neighbourhoods } from "@/data/neighbourhoods";
 import NeighbourhoodCard from "@/components/NeighbourhoodCard";
+import CoverageMap from "@/components/CoverageMap";
 
 export default function Home() {
+  const [showCoverageMap, setShowCoverageMap] = useState(false);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -61,7 +65,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* View Toggle */}
+          {/* View Toggle + Coverage */}
           <div className="hidden md:flex items-center gap-2">
             <button className="px-4 py-2 bg-gray-100 text-gray-800 rounded-full text-sm font-medium">
               Grid view
@@ -69,9 +73,34 @@ export default function Home() {
             <button className="px-4 py-2 text-gray-500 rounded-full text-sm font-medium hover:bg-gray-100 transition">
               Sort by
             </button>
+            <button
+              onClick={() => setShowCoverageMap(true)}
+              className="px-4 py-2 bg-rose-500 text-white rounded-full text-sm font-medium hover:bg-rose-600 transition flex items-center gap-1.5"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                />
+              </svg>
+              Coverage
+            </button>
           </div>
         </div>
       </header>
+
+      {/* Coverage Map Modal */}
+      <CoverageMap
+        isOpen={showCoverageMap}
+        onClose={() => setShowCoverageMap(false)}
+      />
 
       {/* Popular Tag */}
       <div className="max-w-7xl mx-auto px-4 pt-4">
@@ -83,12 +112,14 @@ export default function Home() {
       {/* Grid */}
       <main className="max-w-7xl mx-auto px-4 py-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {neighbourhoods.map((neighbourhood) => (
-            <NeighbourhoodCard
-              key={neighbourhood.id}
-              neighbourhood={neighbourhood}
-            />
-          ))}
+          {[...neighbourhoods]
+            .sort((a, b) => b.overallScore - a.overallScore)
+            .map((neighbourhood) => (
+              <NeighbourhoodCard
+                key={neighbourhood.id}
+                neighbourhood={neighbourhood}
+              />
+            ))}
         </div>
       </main>
     </div>

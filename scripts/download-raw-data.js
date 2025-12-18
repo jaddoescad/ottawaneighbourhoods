@@ -147,7 +147,7 @@ async function downloadOTrainStations() {
 }
 
 async function downloadCrimeData() {
-  console.log('Downloading crime data (2023-2024)...');
+  console.log('Downloading crime data (2023-2024) with coordinates...');
   const allCrimes = [];
   let offset = 0;
   const batchSize = 2000;
@@ -156,14 +156,19 @@ async function downloadCrimeData() {
   const startYear = 2023;
 
   while (true) {
-    const url = `${CRIME_API}?where=YEAR>=${startYear}&outFields=YEAR,OFF_CATEG,NB_NAME_EN,WARD&returnGeometry=false&f=json&resultOffset=${offset}&resultRecordCount=${batchSize}`;
+    const url = `${CRIME_API}?where=YEAR>=${startYear}&outFields=YEAR,OFF_CATEG,NB_NAME_EN,WARD&returnGeometry=true&outSR=4326&f=json&resultOffset=${offset}&resultRecordCount=${batchSize}`;
     const response = await fetch(url);
     const data = await response.json();
 
     if (!data.features || data.features.length === 0) break;
 
     for (const feature of data.features) {
-      allCrimes.push(feature.attributes);
+      const attrs = { ...feature.attributes };
+      if (feature.geometry) {
+        attrs.LONGITUDE = feature.geometry.x;
+        attrs.LATITUDE = feature.geometry.y;
+      }
+      allCrimes.push(attrs);
     }
 
     console.log(`  Fetched ${allCrimes.length} crimes...`);
@@ -213,7 +218,7 @@ async function main() {
   const crimes = await downloadCrimeData();
   fs.writeFileSync(
     path.join(csvDir, 'crime_raw.csv'),
-    toCSV(crimes, ['YEAR', 'OFF_CATEG', 'NB_NAME_EN', 'WARD'])
+    toCSV(crimes, ['YEAR', 'OFF_CATEG', 'NB_NAME_EN', 'WARD', 'LATITUDE', 'LONGITUDE'])
   );
   console.log(`Saved ${crimes.length} crimes to crime_raw.csv\n`);
 

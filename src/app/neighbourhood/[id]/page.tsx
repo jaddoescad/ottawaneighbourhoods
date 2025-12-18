@@ -8,6 +8,7 @@ import CrimeStatRow from "@/components/CrimeStatRow";
 import EqaoStatRow from "@/components/EqaoStatRow";
 import WalkScoreRow from "@/components/WalkScoreRow";
 import AgeDemographicsRow from "@/components/AgeDemographicsRow";
+import ScoreBreakdown from "@/components/ScoreBreakdown";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -83,7 +84,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
     notFound();
   }
 
-  const { name, area, image, population, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, details } = neighbourhood;
+  const { name, area, image, population, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, details, overallScore, categoryScores, scoreWeights } = neighbourhood;
   const trails = details.parksData
     .filter((park) => park.category === "Linear Park")
     .map((park) => park.name);
@@ -123,6 +124,11 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">{name}</h1>
             <p className="text-white/80 text-lg">{area}</p>
             <div className="mt-3 flex flex-wrap justify-center gap-3">
+              <ScoreBreakdown
+                overallScore={overallScore}
+                categoryScores={categoryScores}
+                scoreWeights={scoreWeights}
+              />
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur px-4 py-2 rounded-full">
                 <span className="text-xl">👥</span>
                 <span className="text-white font-semibold">{formattedPopulation} residents</span>

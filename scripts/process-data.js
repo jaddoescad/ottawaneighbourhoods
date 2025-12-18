@@ -650,52 +650,22 @@ async function main() {
   }
   console.log(`  Calculated proximity for ${Object.keys(hospitalsByNeighbourhood).length} neighbourhoods`);
 
-  // Process crime data
-  console.log('\nProcessing crime data by neighbourhood...');
-
-  // Build mapping from ONS neighbourhood names to our neighbourhood IDs
-  // Crime data uses slightly different names, so we need flexible matching
-  const onsNameToNeighbourhoodId = {};
-  const boundaryNames = []; // Store all boundary names for fuzzy matching
-
-  for (const [neighbourhoodId, boundaries] of Object.entries(boundariesByNeighbourhood)) {
-    for (const boundary of boundaries) {
-      if (boundary.name) {
-        onsNameToNeighbourhoodId[boundary.name] = neighbourhoodId;
-        boundaryNames.push({ name: boundary.name, id: neighbourhoodId });
-      }
-    }
-  }
-
-  // Helper to find neighbourhood by partial name match
-  function findNeighbourhoodByName(crimeName) {
-    // Exact match first
-    if (onsNameToNeighbourhoodId[crimeName]) {
-      return onsNameToNeighbourhoodId[crimeName];
-    }
-
-    // Try partial matching - crime name starts with or contains boundary name
-    for (const { name, id } of boundaryNames) {
-      // Check if crime name starts with boundary name (before " - ")
-      const boundaryBase = name.split(' - ')[0];
-      const crimeBase = crimeName.split(' - ')[0];
-
-      if (boundaryBase === crimeBase) {
-        return id;
-      }
-    }
-
-    return null;
-  }
-
-  // Aggregate crime by neighbourhood
+  // Process crime data using point-in-polygon matching
+  console.log('\nAssigning crimes to neighbourhoods...');
   const crimeByNeighbourhood = {};
   let assignedCrimes = 0;
+  let crimesWithoutCoords = 0;
 
   for (const crime of crimeRaw) {
-    const onsName = crime.NB_NAME_EN;
-    const neighbourhoodId = findNeighbourhoodByName(onsName);
+    const lat = parseFloat(crime.LATITUDE);
+    const lng = parseFloat(crime.LONGITUDE);
 
+    if (isNaN(lat) || isNaN(lng)) {
+      crimesWithoutCoords++;
+      continue;
+    }
+
+    const neighbourhoodId = assignToNeighbourhood(lat, lng, boundariesByNeighbourhood);
     if (neighbourhoodId) {
       if (!crimeByNeighbourhood[neighbourhoodId]) {
         crimeByNeighbourhood[neighbourhoodId] = {
@@ -714,6 +684,9 @@ async function main() {
     }
   }
   console.log(`  Assigned ${assignedCrimes} crimes to neighbourhoods`);
+  if (crimesWithoutCoords > 0) {
+    console.log(`  Skipped ${crimesWithoutCoords} crimes without coordinates`);
+  }
 
   // Build final data structure
   console.log('\nBuilding output data...');
@@ -806,7 +779,156 @@ async function main() {
       },
       pros: info.pros ? info.pros.split('; ') : [],
       cons: info.cons ? info.cons.split('; ') : [],
+      // Boundaries for map display (array of polygons with rings)
+      boundaries: (boundariesByNeighbourhood[info.id] || []).map(b => ({
+        name: b.name,
+        rings: b.rings,
+      })),
     });
+  }
+
+  // ============================================================================
+  // Calculate Neighbourhood Scores
+  // ============================================================================
+  console.log('\nCalculating neighbourhood scores...');
+
+  // Define category weights (must sum to 1.0)
+  const SCORE_WEIGHTS = {
+    walkability: 0.10,     // walkScore, transitScore, bikeScore
+    safety: 0.25,          // crime per capita (lower is better) - highest priority
+    affordability: 0.20,   // avgRent, avgHomePrice (lower is better)
+    amenities: 0.10,       // parks, schools, libraries, restaurants density
+    education: 0.10,       // avgEqaoScore
+    healthcare: 0.10,      // distance to hospital (lower is better)
+    income: 0.10,          // medianIncome (higher is better)
+    familyFriendly: 0.05,  // pctChildren (higher is better for families)
+  };
+
+  // Helper to calculate percentile rank (0-100) for a value in a sorted array
+  // higherIsBetter: true means high values get high scores
+  function calculatePercentileScore(value, allValues, higherIsBetter = true) {
+    if (value === null || value === undefined || allValues.length === 0) return null;
+
+    const validValues = allValues.filter(v => v !== null && v !== undefined);
+    if (validValues.length === 0) return null;
+
+    const sorted = [...validValues].sort((a, b) => a - b);
+    const rank = sorted.filter(v => v <= value).length;
+    const percentile = (rank / sorted.length) * 100;
+
+    return higherIsBetter ? percentile : (100 - percentile);
+  }
+
+  // Extract all values for each metric across neighbourhoods
+  const allMetrics = {
+    walkScore: neighbourhoods.map(n => n.walkScore),
+    transitScore: neighbourhoods.map(n => n.transitScore),
+    bikeScore: neighbourhoods.map(n => n.bikeScore),
+    crimePerCapita: neighbourhoods.map(n => n.population > 0 ? (n.details.crimeTotal / n.population) * 1000 : null),
+    avgRent: neighbourhoods.map(n => n.avgRent || null),
+    avgHomePrice: neighbourhoods.map(n => n.avgHomePrice || null),
+    parks: neighbourhoods.map(n => n.details.parks),
+    schools: neighbourhoods.map(n => n.details.schools),
+    libraries: neighbourhoods.map(n => n.details.libraries),
+    restaurantsDensity: neighbourhoods.map(n => n.details.restaurantsAndCafesDensity),
+    avgEqaoScore: neighbourhoods.map(n => n.details.avgEqaoScore),
+    hospitalDistance: neighbourhoods.map(n => n.details.distanceToNearestHospital),
+    medianIncome: neighbourhoods.map(n => n.medianIncome || null),
+    pctChildren: neighbourhoods.map(n => n.pctChildren || null),
+  };
+
+  // Calculate scores for each neighbourhood
+  for (const neighbourhood of neighbourhoods) {
+    const pop = neighbourhood.population;
+    const crimePerCapita = pop > 0 ? (neighbourhood.details.crimeTotal / pop) * 1000 : null;
+
+    // Calculate individual metric scores (0-100)
+    const scores = {
+      // Walkability (average of 3 scores)
+      walkScore: calculatePercentileScore(neighbourhood.walkScore, allMetrics.walkScore, true),
+      transitScore: calculatePercentileScore(neighbourhood.transitScore, allMetrics.transitScore, true),
+      bikeScore: calculatePercentileScore(neighbourhood.bikeScore, allMetrics.bikeScore, true),
+
+      // Safety (lower crime is better)
+      crimePerCapita: calculatePercentileScore(crimePerCapita, allMetrics.crimePerCapita, false),
+
+      // Affordability (lower is better)
+      avgRent: calculatePercentileScore(neighbourhood.avgRent, allMetrics.avgRent, false),
+      avgHomePrice: calculatePercentileScore(neighbourhood.avgHomePrice, allMetrics.avgHomePrice, false),
+
+      // Amenities (higher is better)
+      parks: calculatePercentileScore(neighbourhood.details.parks, allMetrics.parks, true),
+      schools: calculatePercentileScore(neighbourhood.details.schools, allMetrics.schools, true),
+      libraries: calculatePercentileScore(neighbourhood.details.libraries, allMetrics.libraries, true),
+      restaurantsDensity: calculatePercentileScore(neighbourhood.details.restaurantsAndCafesDensity, allMetrics.restaurantsDensity, true),
+
+      // Education (higher is better)
+      avgEqaoScore: calculatePercentileScore(neighbourhood.details.avgEqaoScore, allMetrics.avgEqaoScore, true),
+
+      // Healthcare (lower distance is better)
+      hospitalDistance: calculatePercentileScore(neighbourhood.details.distanceToNearestHospital, allMetrics.hospitalDistance, false),
+
+      // Income (higher is better)
+      medianIncome: calculatePercentileScore(neighbourhood.medianIncome, allMetrics.medianIncome, true),
+
+      // Family Friendly (higher children % is better)
+      pctChildren: calculatePercentileScore(neighbourhood.pctChildren, allMetrics.pctChildren, true),
+    };
+
+    // Calculate category scores (average of metrics in each category)
+    const categoryScores = {
+      walkability: average([scores.walkScore, scores.transitScore, scores.bikeScore]),
+      safety: scores.crimePerCapita,
+      affordability: average([scores.avgRent, scores.avgHomePrice]),
+      amenities: average([scores.parks, scores.schools, scores.libraries, scores.restaurantsDensity]),
+      education: scores.avgEqaoScore,
+      healthcare: scores.hospitalDistance,
+      income: scores.medianIncome,
+      familyFriendly: scores.pctChildren,
+    };
+
+    // Calculate weighted total score
+    let totalScore = 0;
+    let totalWeight = 0;
+
+    for (const [category, weight] of Object.entries(SCORE_WEIGHTS)) {
+      const categoryScore = categoryScores[category];
+      if (categoryScore !== null) {
+        totalScore += categoryScore * weight;
+        totalWeight += weight;
+      }
+    }
+
+    // Normalize if not all categories have data
+    const finalScore = totalWeight > 0 ? Math.round(totalScore / totalWeight) : 0;
+
+    // Add scores to neighbourhood object
+    neighbourhood.overallScore = finalScore;
+    neighbourhood.categoryScores = {
+      walkability: categoryScores.walkability !== null ? Math.round(categoryScores.walkability) : null,
+      safety: categoryScores.safety !== null ? Math.round(categoryScores.safety) : null,
+      affordability: categoryScores.affordability !== null ? Math.round(categoryScores.affordability) : null,
+      amenities: categoryScores.amenities !== null ? Math.round(categoryScores.amenities) : null,
+      education: categoryScores.education !== null ? Math.round(categoryScores.education) : null,
+      healthcare: categoryScores.healthcare !== null ? Math.round(categoryScores.healthcare) : null,
+      income: categoryScores.income !== null ? Math.round(categoryScores.income) : null,
+      familyFriendly: categoryScores.familyFriendly !== null ? Math.round(categoryScores.familyFriendly) : null,
+    };
+    neighbourhood.scoreWeights = SCORE_WEIGHTS;
+  }
+
+  // Helper to calculate average, ignoring nulls
+  function average(values) {
+    const valid = values.filter(v => v !== null && v !== undefined);
+    if (valid.length === 0) return null;
+    return valid.reduce((a, b) => a + b, 0) / valid.length;
+  }
+
+  // Sort neighbourhoods by overall score for summary
+  const sortedByScore = [...neighbourhoods].sort((a, b) => b.overallScore - a.overallScore);
+  console.log('  Top 5 neighbourhoods by overall score:');
+  for (const n of sortedByScore.slice(0, 5)) {
+    console.log(`    ${n.overallScore}/100 - ${n.name}`);
   }
 
   // Write output

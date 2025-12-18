@@ -50,6 +50,33 @@ export interface CrimeByCategory {
   [category: string]: number;
 }
 
+export interface NeighbourhoodBoundary {
+  name: string;
+  rings: number[][][]; // Array of rings, each ring is array of [lng, lat] coords
+}
+
+export interface CategoryScores {
+  walkability: number | null;
+  safety: number | null;
+  affordability: number | null;
+  amenities: number | null;
+  education: number | null;
+  healthcare: number | null;
+  income: number | null;
+  familyFriendly: number | null;
+}
+
+export interface ScoreWeights {
+  walkability: number;
+  safety: number;
+  affordability: number;
+  amenities: number;
+  education: number;
+  healthcare: number;
+  income: number;
+  familyFriendly: number;
+}
+
 export interface Neighbourhood {
   id: string;
   name: string;
@@ -90,6 +117,10 @@ export interface Neighbourhood {
   };
   pros: string[];
   cons: string[];
+  boundaries: NeighbourhoodBoundary[];
+  overallScore: number;
+  categoryScores: CategoryScores;
+  scoreWeights: ScoreWeights;
 }
 
 export const neighbourhoods: Neighbourhood[] = data.neighbourhoods as Neighbourhood[];
