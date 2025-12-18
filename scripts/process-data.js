@@ -587,7 +587,7 @@ async function main() {
 
   // Process restaurants & cafes (optional)
   console.log('\nAssigning restaurants & cafes to neighbourhoods...');
-  const restaurantsCafesCountByNeighbourhood = {};
+  const restaurantsByNeighbourhood = {};
   let assignedRestaurantsCafes = 0;
 
   if (hasRestaurantsCafesData) {
@@ -599,8 +599,18 @@ async function main() {
 
       const neighbourhoodId = assignToNeighbourhood(lat, lng, boundariesByNeighbourhood);
       if (neighbourhoodId) {
-        restaurantsCafesCountByNeighbourhood[neighbourhoodId] =
-          (restaurantsCafesCountByNeighbourhood[neighbourhoodId] || 0) + 1;
+        if (!restaurantsByNeighbourhood[neighbourhoodId]) {
+          restaurantsByNeighbourhood[neighbourhoodId] = [];
+        }
+        restaurantsByNeighbourhood[neighbourhoodId].push({
+          name: place.NAME || 'Unnamed',
+          type: place.TYPE || 'unknown',
+          cuisine: place.CUISINE || '',
+          lat,
+          lng,
+          osmId: place.OSM_ID,
+          osmType: place.OSM_TYPE,
+        });
         assignedRestaurantsCafes++;
       }
     }
@@ -714,9 +724,8 @@ async function main() {
       distanceToNearestHospital: null,
     };
     const areaKm2 = areaKm2ByNeighbourhood[info.id] || 0;
-    const restaurantsAndCafes = hasRestaurantsCafesData
-      ? (restaurantsCafesCountByNeighbourhood[info.id] || 0)
-      : null;
+    const restaurants = restaurantsByNeighbourhood[info.id] || [];
+    const restaurantsAndCafes = hasRestaurantsCafesData ? restaurants.length : null;
     const restaurantsAndCafesDensity = restaurantsAndCafes !== null && areaKm2 > 0
       ? roundTo(restaurantsAndCafes / areaKm2, 1) // per km²
       : null;
@@ -782,6 +791,8 @@ async function main() {
         librariesData: libraries,
         restaurantsAndCafes,
         restaurantsAndCafesDensity,
+        restaurantsList: restaurants.map(r => r.name),
+        restaurantsData: restaurants,
         crimeTotal: crime.total,
         crimeByCategory: crime.byCategory,
         nearestHospital: hospitalData.nearestHospital,
@@ -946,6 +957,47 @@ async function main() {
   const outputFile = path.join(outputDir, 'data.json');
   fs.writeFileSync(outputFile, JSON.stringify({ neighbourhoods }, null, 2));
   console.log(`\nWritten to: ${outputFile}`);
+
+  // Export assigned restaurants to CSV
+  if (hasRestaurantsCafesData) {
+    const restaurantsCsvRows = [];
+    for (const n of neighbourhoods) {
+      const restaurants = n.details.restaurantsData || [];
+      for (const r of restaurants) {
+        restaurantsCsvRows.push({
+          neighbourhood_id: n.id,
+          neighbourhood_name: n.name,
+          name: r.name,
+          type: r.type,
+          cuisine: r.cuisine,
+          latitude: r.lat,
+          longitude: r.lng,
+          osm_id: r.osmId,
+          osm_type: r.osmType,
+        });
+      }
+    }
+
+    // Write CSV
+    const csvHeaders = ['neighbourhood_id', 'neighbourhood_name', 'name', 'type', 'cuisine', 'latitude', 'longitude', 'osm_id', 'osm_type'];
+    let csvContent = csvHeaders.join(',') + '\n';
+    for (const row of restaurantsCsvRows) {
+      const values = csvHeaders.map(h => {
+        const val = row[h];
+        if (val === null || val === undefined) return '';
+        const str = String(val);
+        if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+          return '"' + str.replace(/"/g, '""') + '"';
+        }
+        return str;
+      });
+      csvContent += values.join(',') + '\n';
+    }
+
+    const restaurantsCsvPath = path.join(outputDir, 'restaurants_by_neighbourhood.csv');
+    fs.writeFileSync(restaurantsCsvPath, csvContent);
+    console.log(`Written ${restaurantsCsvRows.length} restaurants to: ${restaurantsCsvPath}`);
+  }
 
   // Summary
   console.log('\n=== Summary ===');
