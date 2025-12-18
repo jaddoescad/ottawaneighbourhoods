@@ -90,41 +90,56 @@ export default function AgeDemographicsRow({
     <div className="border-b border-gray-100 last:border-b-0">
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center gap-3 px-5 py-4 hover:bg-gray-50 cursor-pointer transition-colors"
+        className="w-full px-4 sm:px-5 py-3 sm:py-4 hover:bg-gray-50 cursor-pointer transition-colors"
       >
-        <div className="flex items-center gap-2 w-28 shrink-0">
-          <span className="text-xl">👨‍👩‍👧‍👦</span>
-          <span className="text-gray-900 font-medium">Age</span>
-        </div>
-        <div className="flex-1 relative h-9 bg-gray-100 rounded-lg overflow-hidden">
-          <div
-            className={`absolute inset-y-0 left-0 rounded-lg ${colors[demographic.type]} transition-all duration-300`}
-            style={{ width: `${barWidth}%` }}
-          />
-          <span className="absolute inset-0 flex items-center px-4 text-gray-800 font-semibold text-sm">
-            {demographic.label}
-          </span>
-        </div>
-        <span className="text-gray-900 font-bold w-28 text-right text-sm">2021 Census</span>
-        <div className="w-5 h-5">
-          <svg
-            className={`w-5 h-5 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
+        {/* Mobile: stacked layout, Desktop: horizontal */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+          {/* Label row with source on mobile */}
+          <div className="flex items-center justify-between sm:justify-start gap-2 sm:w-28 sm:shrink-0">
+            <div className="flex items-center gap-2">
+              <span className="text-lg sm:text-xl">👨‍👩‍👧‍👦</span>
+              <span className="text-gray-900 font-medium text-sm sm:text-base">Age</span>
+            </div>
+            {/* Source and chevron shown inline on mobile */}
+            <div className="flex items-center gap-2 sm:hidden">
+              <span className="text-gray-500 text-xs">2021 Census</span>
+              <svg
+                className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          {/* Bar */}
+          <div className="flex-1 relative h-7 sm:h-9 bg-gray-100 rounded-lg overflow-hidden">
+            <div
+              className={`absolute inset-y-0 left-0 rounded-lg ${colors[demographic.type]} transition-all duration-300`}
+              style={{ width: `${barWidth}%` }}
             />
-          </svg>
+            <span className="absolute inset-0 flex items-center px-3 sm:px-4 text-gray-800 font-semibold text-xs sm:text-sm">
+              {demographic.label}
+            </span>
+          </div>
+          {/* Source - hidden on mobile, shown on desktop */}
+          <span className="hidden sm:block text-gray-900 font-bold w-28 text-right text-sm">2021 Census</span>
+          <div className="hidden sm:block w-5 h-5">
+            <svg
+              className={`w-5 h-5 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
         </div>
       </button>
 
       {isExpanded && (
-        <div className="px-5 pb-4 bg-gray-50">
+        <div className="px-4 sm:px-5 pb-4 bg-gray-50">
           <div className="text-xs text-gray-500 mb-3 uppercase tracking-wide">
             Age Distribution
           </div>
@@ -132,8 +147,8 @@ export default function AgeDemographicsRow({
             {demographics.map((demo) => (
               <div key={demo.label}>
                 <div className="flex justify-between text-xs text-gray-600 mb-1">
-                  <span>{demo.label} <span className="text-gray-400">({demo.sublabel})</span></span>
-                  <span className="font-medium">{demo.value}%</span>
+                  <span className="truncate mr-2">{demo.label} <span className="text-gray-400 hidden sm:inline">({demo.sublabel})</span></span>
+                  <span className="font-medium shrink-0">{demo.value}%</span>
                 </div>
                 <div className="relative h-5 bg-gray-200 rounded overflow-hidden">
                   <div
@@ -151,7 +166,7 @@ export default function AgeDemographicsRow({
             ))}
           </div>
           {/* Legend */}
-          <div className="mt-3 pt-2 border-t border-gray-200 flex items-center gap-4 text-xs text-gray-500">
+          <div className="mt-3 pt-2 border-t border-gray-200 flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-gray-500">
             <div className="flex items-center gap-1">
               <div className="w-0.5 h-3 bg-gray-600" />
               <span>Ottawa avg</span>

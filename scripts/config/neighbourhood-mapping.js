@@ -8,6 +8,29 @@
  */
 
 module.exports = {
+  // Custom boundary neighbourhoods (processed first to avoid ONS overlap)
+  'cedarhill': {
+    name: 'Cedar Hill',
+    onsIds: [], // No matching ONS area - uses custom boundary
+    customBoundary: {
+      rings: [[
+        [-75.79659555406911, 45.27265500443548],
+        [-75.80529566706008, 45.28351031064963],
+        [-75.80350663354668, 45.28911089638632],
+        [-75.79782979008677, 45.29310502496213],
+        [-75.79258478748233, 45.29744749870977],
+        [-75.79122708498127, 45.29766478822714],
+        [-75.78005736107475, 45.27860391888342],
+        [-75.78554957561406, 45.27612867831195],
+        [-75.78709229776874, 45.27252405480829],
+        [-75.79048649641952, 45.27200291829425],
+        [-75.79425078114875, 45.27148219907633],
+        [-75.79665725654986, 45.272698437155896],
+        [-75.79659555406911, 45.27265500443548], // close polygon
+      ]],
+    },
+  },
+
   // Central Ottawa
   'the-glebe': {
     name: 'The Glebe',
@@ -65,7 +88,7 @@ module.exports = {
   },
   'kanata': {
     name: 'Kanata',
-    onsIds: [928, 929, 924, 902, 907], // Kanata Lakes, Katimavik-Hazeldean, Glen Cairn, Beaverbrook, Morgan's Grant (covers both Kanata North & South wards)
+    onsIds: [928, 929, 924, 902, 907, 13], // Kanata Lakes, Katimavik-Hazeldean, Glen Cairn, Beaverbrook, Morgan's Grant, Bridlewood-Emerald Meadows
   },
   'stittsville': {
     name: 'Stittsville',
@@ -131,6 +154,6 @@ module.exports = {
   // Nepean / Centrepointe area (Knoxdale-Merivale ward core)
   'nepean': {
     name: 'Nepean',
-    onsIds: [23, 100, 99, 108, 106, 11, 86, 87, 88, 76, 13, 85, 947], // Centrepointe, Trend-Arlington, Tanglewood, Craig Henry, Whitehaven, Braemar, etc.
+    onsIds: [23, 100, 99, 108, 106, 11, 86, 87, 88, 76, 85, 947], // Centrepointe, Trend-Arlington, Tanglewood, Craig Henry, Whitehaven, Braemar, etc.
   },
 };

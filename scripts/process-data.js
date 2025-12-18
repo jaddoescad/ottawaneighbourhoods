@@ -432,8 +432,19 @@ async function main() {
   const boundariesByNeighbourhood = {};
   for (const [neighbourhoodId, config] of Object.entries(neighbourhoodMapping)) {
     process.stdout.write(`  Fetching ${neighbourhoodId}...`);
-    boundariesByNeighbourhood[neighbourhoodId] = await fetchAllBoundaries(config.onsIds);
-    console.log(` ${boundariesByNeighbourhood[neighbourhoodId].length} areas`);
+
+    // Check for custom boundary first
+    if (config.customBoundary) {
+      boundariesByNeighbourhood[neighbourhoodId] = [{
+        onsId: 'custom',
+        name: config.name,
+        rings: config.customBoundary.rings,
+      }];
+      console.log(` 1 areas (custom boundary)`);
+    } else {
+      boundariesByNeighbourhood[neighbourhoodId] = await fetchAllBoundaries(config.onsIds);
+      console.log(` ${boundariesByNeighbourhood[neighbourhoodId].length} areas`);
+    }
   }
 
   // Calculate neighbourhood areas (km²)

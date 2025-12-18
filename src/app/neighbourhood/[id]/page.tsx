@@ -119,19 +119,19 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
         </Link>
 
         {/* Hero Content */}
-        <div className="absolute bottom-0 left-0 right-0 p-8">
+        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-8">
           <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">{name}</h1>
-            <p className="text-white/80 text-lg">{area}</p>
-            <div className="mt-3 flex flex-wrap justify-center gap-3">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-2">{name}</h1>
+            <p className="text-white/80 text-sm sm:text-lg">{area}</p>
+            <div className="mt-2 sm:mt-3 flex flex-wrap justify-center gap-2 sm:gap-3">
               <ScoreBreakdown
                 overallScore={overallScore}
                 categoryScores={categoryScores}
                 scoreWeights={scoreWeights}
               />
-              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur px-4 py-2 rounded-full">
-                <span className="text-xl">👥</span>
-                <span className="text-white font-semibold">{formattedPopulation} residents</span>
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white/20 backdrop-blur px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                <span className="text-base sm:text-xl">👥</span>
+                <span className="text-white font-semibold text-sm sm:text-base">{formattedPopulation} residents</span>
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
       </div>
 
       {/* Stats Grid - Real Data Only */}
-      <div className="max-w-5xl mx-auto px-6 py-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
           <WalkScoreRow
             walkScore={walkScore}

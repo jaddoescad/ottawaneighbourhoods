@@ -67,22 +67,32 @@ export default function StatRow({
 
   return (
     <div className="border-b border-gray-100 last:border-b-0">
-      <div className="w-full flex items-center gap-3 px-5 py-4">
-        <div className="flex items-center gap-2 w-28 shrink-0">
-          <span className="text-xl">{icon}</span>
-          <span className="text-gray-900 font-medium">{label}</span>
+      <div className="w-full px-4 sm:px-5 py-3 sm:py-4">
+        {/* Mobile: stacked layout, Desktop: horizontal */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+          {/* Label row with value on mobile */}
+          <div className="flex items-center justify-between sm:justify-start gap-2 sm:w-28 sm:shrink-0">
+            <div className="flex items-center gap-2">
+              <span className="text-lg sm:text-xl">{icon}</span>
+              <span className="text-gray-900 font-medium text-sm sm:text-base">{label}</span>
+            </div>
+            {/* Value shown inline on mobile */}
+            <span className="text-gray-900 font-bold text-sm sm:hidden">{value}</span>
+          </div>
+          {/* Bar */}
+          <div className="flex-1 relative h-7 sm:h-9 bg-gray-100 rounded-lg overflow-hidden">
+            <div
+              className={`absolute inset-y-0 left-0 rounded-lg ${colors[type]} transition-all duration-300`}
+              style={{ width: `${barWidth}%` }}
+            />
+            <span className="absolute inset-0 flex items-center px-3 sm:px-4 text-gray-800 font-semibold text-xs sm:text-sm">
+              {qualityLabels[type]}
+            </span>
+          </div>
+          {/* Value - hidden on mobile, shown on desktop */}
+          <span className="hidden sm:block text-gray-900 font-bold w-28 text-right">{value}</span>
+          <div className="hidden sm:block w-5 h-5" />
         </div>
-        <div className="flex-1 relative h-9 bg-gray-100 rounded-lg overflow-hidden">
-          <div
-            className={`absolute inset-y-0 left-0 rounded-lg ${colors[type]} transition-all duration-300`}
-            style={{ width: `${barWidth}%` }}
-          />
-          <span className="absolute inset-0 flex items-center px-4 text-gray-800 font-semibold text-sm">
-            {qualityLabels[type]}
-          </span>
-        </div>
-        <span className="text-gray-900 font-bold w-28 text-right">{value}</span>
-        <div className="w-5 h-5" />
       </div>
     </div>
   );

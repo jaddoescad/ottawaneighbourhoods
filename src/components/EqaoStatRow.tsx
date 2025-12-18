@@ -61,46 +61,65 @@ export default function EqaoStatRow({
     <div className="border-b border-gray-100 last:border-b-0">
       <button
         onClick={() => hasData && setIsExpanded(!isExpanded)}
-        className={`w-full flex items-center gap-3 px-5 py-4 ${hasData ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`}
+        className={`w-full px-4 sm:px-5 py-3 sm:py-4 ${hasData ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`}
         disabled={!hasData}
       >
-        <div className="flex items-center gap-2 w-28 shrink-0">
-          <span className="text-xl">🎓</span>
-          <span className="text-gray-900 font-medium text-sm">Test Scores</span>
-        </div>
-        <div className="flex-1 relative h-9 bg-gray-100 rounded-lg overflow-hidden">
-          <div
-            className={`absolute inset-y-0 left-0 rounded-lg ${colors[type]} transition-all duration-300`}
-            style={{ width: `${barWidth}%` }}
-          />
-          <span className="absolute inset-0 flex items-center px-4 text-gray-800 font-semibold text-sm">
-            {qualityLabels[type]}
+        {/* Mobile: stacked layout, Desktop: horizontal */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+          {/* Label row with value on mobile */}
+          <div className="flex items-center justify-between sm:justify-start gap-2 sm:w-28 sm:shrink-0">
+            <div className="flex items-center gap-2">
+              <span className="text-lg sm:text-xl">🎓</span>
+              <span className="text-gray-900 font-medium text-sm">Test Scores</span>
+            </div>
+            {/* Value and chevron on mobile */}
+            <div className="flex items-center gap-2 sm:hidden">
+              <span className="text-gray-900 font-bold text-sm">
+                {avgScore !== null ? `${avgScore}%` : "N/A"}
+              </span>
+              {hasData && (
+                <svg
+                  className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              )}
+            </div>
+          </div>
+          {/* Bar */}
+          <div className="flex-1 relative h-7 sm:h-9 bg-gray-100 rounded-lg overflow-hidden">
+            <div
+              className={`absolute inset-y-0 left-0 rounded-lg ${colors[type]} transition-all duration-300`}
+              style={{ width: `${barWidth}%` }}
+            />
+            <span className="absolute inset-0 flex items-center px-3 sm:px-4 text-gray-800 font-semibold text-xs sm:text-sm">
+              {qualityLabels[type]}
+            </span>
+          </div>
+          {/* Value - hidden on mobile */}
+          <span className="hidden sm:block text-gray-900 font-bold w-28 text-right">
+            {avgScore !== null ? `${avgScore}%` : "N/A"}
           </span>
-        </div>
-        <span className="text-gray-900 font-bold w-28 text-right">
-          {avgScore !== null ? `${avgScore}%` : "N/A"}
-        </span>
-        <div className="w-5 h-5">
-          {hasData && (
-            <svg
-              className={`w-5 h-5 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          )}
+          <div className="hidden sm:block w-5 h-5">
+            {hasData && (
+              <svg
+                className={`w-5 h-5 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            )}
+          </div>
         </div>
       </button>
 
       {isExpanded && hasData && (
-        <div className="px-5 pb-4 bg-gray-50">
+        <div className="px-4 sm:px-5 pb-4 bg-gray-50">
           <div className="text-xs text-gray-500 mb-3 uppercase tracking-wide">
             Provincial Test Results ({schoolsWithScores} of {schools.length} schools)
           </div>
@@ -110,12 +129,12 @@ export default function EqaoStatRow({
               const schoolBarWidth = school.eqaoScore !== null ? Math.max(5, school.eqaoScore) : 0;
 
               return (
-                <div key={index} className="flex items-center gap-3">
+                <div key={index} className="flex items-center gap-2 sm:gap-3">
                   <div className="flex-1 min-w-0">
-                    <div className="text-sm text-gray-700 truncate" title={school.name}>
+                    <div className="text-xs sm:text-sm text-gray-700 truncate" title={school.name}>
                       {school.name}
                     </div>
-                    <div className="relative h-5 bg-gray-200 rounded overflow-hidden mt-1">
+                    <div className="relative h-4 sm:h-5 bg-gray-200 rounded overflow-hidden mt-1">
                       {school.eqaoScore !== null ? (
                         <>
                           <div

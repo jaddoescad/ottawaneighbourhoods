@@ -95,14 +95,14 @@ export default function ScoreBreakdown({
       {/* Clickable Score Badge */}
       <button
         onClick={() => setIsOpen(true)}
-        className="group inline-flex items-center gap-2 bg-white/20 backdrop-blur px-4 py-2 rounded-full hover:bg-white/30 transition cursor-pointer"
+        className="group inline-flex items-center gap-1.5 sm:gap-2 bg-white/20 backdrop-blur px-3 sm:px-4 py-1.5 sm:py-2 rounded-full hover:bg-white/30 transition cursor-pointer"
       >
-        <div className={`w-10 h-10 rounded-full ${getScoreColor(overallScore)} flex items-center justify-center`}>
-          <span className="text-white font-bold text-sm">{overallScore}</span>
+        <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full ${getScoreColor(overallScore)} flex items-center justify-center`}>
+          <span className="text-white font-bold text-xs sm:text-sm">{overallScore}</span>
         </div>
         <div className="text-left">
-          <span className="text-white font-semibold block text-sm">Overall Score</span>
-          <span className="text-white/60 text-xs group-hover:text-white/80">Click to see breakdown</span>
+          <span className="text-white font-semibold block text-xs sm:text-sm">Overall Score</span>
+          <span className="text-white/60 text-[10px] sm:text-xs group-hover:text-white/80">Click to see breakdown</span>
         </div>
       </button>
 

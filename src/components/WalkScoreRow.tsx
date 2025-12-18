@@ -72,32 +72,32 @@ export default function WalkScoreRow({ walkScore, transitScore, bikeScore }: Wal
 
   return (
     <div className="border-b border-gray-100 last:border-b-0">
-      <div className="px-5 py-4">
-        <div className="flex items-center gap-2 mb-4">
-          <span className="text-xl">
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <div className="px-4 sm:px-5 py-3 sm:py-4">
+        <div className="flex items-center gap-2 mb-3 sm:mb-4">
+          <span className="text-lg sm:text-xl">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
           </span>
-          <span className="text-gray-900 font-medium">Getting Around</span>
+          <span className="text-gray-900 font-medium text-sm sm:text-base">Getting Around</span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-2 sm:gap-4">
           {scores.map((item) => (
-            <div key={item.label} className="bg-gray-50 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-gray-600">{item.icon}</span>
-                <span className="text-sm font-medium text-gray-700">{item.label}</span>
+            <div key={item.label} className="bg-gray-50 rounded-lg p-2 sm:p-4">
+              <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
+                <span className="text-gray-600 [&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-5 sm:[&>svg]:h-5">{item.icon}</span>
+                <span className="text-[10px] sm:text-sm font-medium text-gray-700 truncate">{item.label}</span>
               </div>
 
               {/* Score display */}
-              <div className="flex items-baseline gap-1 mb-2">
-                <span className="text-3xl font-bold text-gray-900">{item.score}</span>
-                <span className="text-sm text-gray-500">/100</span>
+              <div className="flex items-baseline gap-0.5 sm:gap-1 mb-1 sm:mb-2">
+                <span className="text-xl sm:text-3xl font-bold text-gray-900">{item.score}</span>
+                <span className="text-[10px] sm:text-sm text-gray-500">/100</span>
               </div>
 
               {/* Progress bar */}
-              <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
+              <div className="h-1.5 sm:h-2 bg-gray-200 rounded-full overflow-hidden mb-1 sm:mb-2">
                 <div
                   className={`h-full rounded-full ${getScoreColor(item.score)} transition-all duration-500`}
                   style={{ width: `${item.score}%` }}
@@ -105,7 +105,7 @@ export default function WalkScoreRow({ walkScore, transitScore, bikeScore }: Wal
               </div>
 
               {/* Description */}
-              <p className="text-xs text-gray-500">{item.description}</p>
+              <p className="text-[9px] sm:text-xs text-gray-500 leading-tight">{item.description}</p>
             </div>
           ))}
         </div>

@@ -58,58 +58,75 @@ export default function CrimeStatRow({
       {/* Main Total Bar */}
       <button
         onClick={() => hasCategories && setIsExpanded(!isExpanded)}
-        className={`w-full flex items-center gap-3 px-5 py-4 ${hasCategories ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`}
+        className={`w-full px-4 sm:px-5 py-3 sm:py-4 ${hasCategories ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`}
         disabled={!hasCategories}
       >
-        <div className="flex items-center gap-2 w-28 shrink-0">
-          <span className="text-xl">🚨</span>
-          <span className="text-gray-900 font-medium">Crime</span>
-        </div>
-        <div className="flex-1 relative h-9 bg-gray-100 rounded-lg overflow-hidden">
-          <div
-            className={`absolute inset-y-0 left-0 rounded-lg ${getCrimeColor(perCapita)} transition-all duration-300`}
-            style={{ width: `${barWidth}%` }}
-          />
-          <span className="absolute inset-0 flex items-center px-4 text-gray-800 font-semibold text-sm">
-            {getCrimeLabel(perCapita)}
-          </span>
-        </div>
-        <div className="relative group">
-          <span className="text-gray-900 font-bold w-36 text-right block cursor-help">
-            {perCapita.toFixed(1)} per 1K
-          </span>
-          <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
-            <div className="font-semibold mb-1">Crime Rate Breakdown</div>
-            <div>{total.toLocaleString()} total crimes (2023-2024)</div>
-            <div>{population.toLocaleString()} residents</div>
-            <div className="mt-1 pt-1 border-t border-gray-700">
-              = {perCapita.toFixed(1)} crimes per 1,000 people
+        {/* Mobile: stacked layout, Desktop: horizontal */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+          {/* Label row with value on mobile */}
+          <div className="flex items-center justify-between sm:justify-start gap-2 sm:w-28 sm:shrink-0">
+            <div className="flex items-center gap-2">
+              <span className="text-lg sm:text-xl">🚨</span>
+              <span className="text-gray-900 font-medium text-sm sm:text-base">Crime</span>
             </div>
-            <div className="absolute top-full right-4 -mt-1 border-4 border-transparent border-t-gray-900"></div>
+            {/* Value and chevron on mobile */}
+            <div className="flex items-center gap-2 sm:hidden">
+              <span className="text-gray-900 font-bold text-sm">{perCapita.toFixed(1)} per 1K</span>
+              {hasCategories && (
+                <svg
+                  className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="w-5 h-5">
-          {hasCategories && (
-            <svg
-              className={`w-5 h-5 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          )}
+          {/* Bar */}
+          <div className="flex-1 relative h-7 sm:h-9 bg-gray-100 rounded-lg overflow-hidden">
+            <div
+              className={`absolute inset-y-0 left-0 rounded-lg ${getCrimeColor(perCapita)} transition-all duration-300`}
+              style={{ width: `${barWidth}%` }}
+            />
+            <span className="absolute inset-0 flex items-center px-3 sm:px-4 text-gray-800 font-semibold text-xs sm:text-sm">
+              {getCrimeLabel(perCapita)}
+            </span>
+          </div>
+          {/* Value with tooltip - hidden on mobile */}
+          <div className="hidden sm:block relative group">
+            <span className="text-gray-900 font-bold w-28 text-right block cursor-help">
+              {perCapita.toFixed(1)} per 1K
+            </span>
+            <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
+              <div className="font-semibold mb-1">Crime Rate Breakdown</div>
+              <div>{total.toLocaleString()} total crimes (2023-2024)</div>
+              <div>{population.toLocaleString()} residents</div>
+              <div className="mt-1 pt-1 border-t border-gray-700">
+                = {perCapita.toFixed(1)} crimes per 1,000 people
+              </div>
+              <div className="absolute top-full right-4 -mt-1 border-4 border-transparent border-t-gray-900"></div>
+            </div>
+          </div>
+          <div className="hidden sm:block w-5 h-5">
+            {hasCategories && (
+              <svg
+                className={`w-5 h-5 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            )}
+          </div>
         </div>
       </button>
 
       {/* Expanded Category Bars */}
       {isExpanded && hasCategories && (
-        <div className="px-5 pb-4 bg-gray-50">
+        <div className="px-4 sm:px-5 pb-4 bg-gray-50">
           <div className="text-xs text-gray-500 mb-3 uppercase tracking-wide">
             Crime by Category (2023-2024)
           </div>
@@ -117,17 +134,22 @@ export default function CrimeStatRow({
             {sortedCategories.map(([category, count]) => {
               const catBarWidth = Math.max(5, Math.min((count / maxCategory) * 100, 100));
               return (
-                <div key={category} className="flex items-center gap-3">
-                  <span className="text-gray-700 text-sm w-40 truncate" title={category}>
-                    {category}
-                  </span>
-                  <div className="flex-1 relative h-6 bg-gray-200 rounded overflow-hidden">
+                <div key={category} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                  <div className="flex items-center justify-between sm:justify-start gap-2">
+                    <span className="text-gray-700 text-xs sm:text-sm sm:w-40 truncate" title={category}>
+                      {category}
+                    </span>
+                    <span className="text-gray-600 text-xs sm:text-sm font-medium sm:hidden">
+                      {count.toLocaleString()}
+                    </span>
+                  </div>
+                  <div className="flex-1 relative h-5 sm:h-6 bg-gray-200 rounded overflow-hidden">
                     <div
                       className={`absolute inset-y-0 left-0 rounded ${getCategoryColor(count)} transition-all duration-300`}
                       style={{ width: `${catBarWidth}%` }}
                     />
                   </div>
-                  <span className="text-gray-600 text-sm font-medium w-16 text-right">
+                  <span className="hidden sm:block text-gray-600 text-sm font-medium w-16 text-right">
                     {count.toLocaleString()}
                   </span>
                 </div>
