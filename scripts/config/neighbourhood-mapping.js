@@ -38,7 +38,7 @@ module.exports = {
   },
   'westboro': {
     name: 'Westboro',
-    onsIds: [958, 931, 910, 32], // Westboro, Laurentian, McKellar Heights, Crystal Bay
+    onsIds: [958, 931, 910], // Westboro, Laurentian, McKellar Heights
   },
   'byward-market': {
     name: 'Byward Market',
@@ -76,7 +76,7 @@ module.exports = {
   // West End
   'bayshore': {
     name: 'Bayshore',
-    onsIds: [901, 906], // Bayshore-Belltown, Britannia
+    onsIds: [901, 906, 106, 88, 32], // Bayshore-Belltown, Britannia, Whitehaven-Queensway Terrace North, Qualicum-Redwood Park, Crystal Bay
   },
   'bells-corners': {
     name: 'Bells Corners',
@@ -96,13 +96,17 @@ module.exports = {
   },
   'merivale': {
     name: 'Merivale',
-    onsIds: [65, 941, 905], // Merivale Gardens-Grenfell Glen-Pineglen, Parkwood Hills-Stewart Farm, Borden Farm-Fisher Glen
+    onsIds: [65, 941, 905, 99, 51], // Merivale Gardens-Grenfell Glen-Pineglen, Parkwood Hills-Stewart Farm, Borden Farm-Fisher Glen, Tanglewood, Hunt Club South Industrial
   },
 
   // South End
   'alta-vista': {
     name: 'Alta Vista',
-    onsIds: [903, 919, 932, 38, 46], // Billings Bridge-Alta Vista, Elmvale, Heron Gate, Emerald Woods, Hawthorne
+    onsIds: [903, 919, 932, 38, 46, 947], // Billings Bridge-Alta Vista, Elmvale, Heron Gate, Emerald Woods, Hawthorne, Riverview
+  },
+  'cyrville': {
+    name: 'Cyrville',
+    onsIds: [917], // East Industrial (Cyrville area)
   },
   'hunt-club': {
     name: 'Hunt Club',
@@ -114,17 +118,29 @@ module.exports = {
   },
   'riverside-south': {
     name: 'Riverside South',
-    onsIds: [946, 945, 921], // Riverside South-Leitrim, Rideau Crest, Findlay Creek (matches Riverside South-Findlay Creek ward)
+    onsIds: [946, 945], // Riverside South-Leitrim, Rideau Crest
+  },
+  'findlay-creek': {
+    name: 'Findlay Creek',
+    onsIds: [921], // Findlay Creek
   },
   'manotick': {
     name: 'Manotick',
-    onsIds: [64, 70, 925], // Manotick, North Gower-Kars, Greely
+    onsIds: [64], // Manotick
+  },
+  'north-gower': {
+    name: 'North Gower',
+    onsIds: [70], // North Gower-Kars
+  },
+  'greely': {
+    name: 'Greely',
+    onsIds: [925], // Greely
   },
 
   // East End
   'orleans': {
     name: 'Orleans',
-    onsIds: [920, 915, 939, 909, 913, 75, 942, 943, 916, 904, 912, 93, 3], // Orleans sub-areas, Cumberland, Blackburn, Carson Grove, Beacon Hill
+    onsIds: [920, 915, 939, 909, 913, 75, 942, 943, 916, 904, 912, 93, 3, 76], // Orleans sub-areas, Cumberland, Blackburn, Carson Grove, Beacon Hill, Chatelaine Village
   },
   'vars': {
     name: 'Vars-Navan',
@@ -138,7 +154,11 @@ module.exports = {
   },
   'constance-bay': {
     name: 'Constance Bay',
-    onsIds: [29, 35, 922], // Constance Bay, Dunrobin, Fitzroy
+    onsIds: [29, 922], // Constance Bay, Fitzroy
+  },
+  'dunrobin': {
+    name: 'Dunrobin',
+    onsIds: [35], // Dunrobin
   },
   'richmond': {
     name: 'Richmond',
@@ -151,9 +171,19 @@ module.exports = {
     onsIds: [66, 81], // Metcalfe, Osgoode-Vernon
   },
 
+  // Pineview / South End
+  'pineview': {
+    name: 'Pineview',
+    onsIds: [86, 87, 88], // Pineview, Playfair Park-Lynda Park-Guildwood Estates, Qualicum-Redwood Park
+  },
+
   // Nepean / Centrepointe area (Knoxdale-Merivale ward core)
   'nepean': {
     name: 'Nepean',
-    onsIds: [23, 100, 99, 108, 106, 11, 86, 87, 88, 76, 85, 947], // Centrepointe, Trend-Arlington, Tanglewood, Craig Henry, Whitehaven, Braemar, etc.
+    onsIds: [23, 100, 108, 76], // Centrepointe, Trend-Arlington, Craig Henry
+  },
+  'belair-heights': {
+    name: 'Bel Air Heights',
+    onsIds: [11], // Braemar Park - Bel Air Heights - Copeland Park
   },
 };
