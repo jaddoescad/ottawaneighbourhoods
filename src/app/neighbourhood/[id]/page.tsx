@@ -5,6 +5,7 @@ import { neighbourhoods } from "@/data/neighbourhoods";
 import ExpandableStatRow from "@/components/ExpandableStatRow";
 import StatRow from "@/components/StatRow";
 import CrimeStatRow from "@/components/CrimeStatRow";
+import EqaoStatRow from "@/components/EqaoStatRow";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -22,6 +23,8 @@ const THRESHOLDS = {
   trails: { max: 20, great: 12, okay: 5 },
   income: { max: 130000, great: 110000, okay: 80000 },
   rent: { max: 2500, great: 1800, okay: 2000 }, // Lower is better for rent
+  homePrice: { max: 1200000, great: 600000, okay: 800000 }, // Lower is better for home price
+  population: { max: 150000, great: 50000, okay: 20000 },
 };
 
 // Determine bar color based on thresholds
@@ -39,6 +42,13 @@ function getRentScoreType(value: number): "great" | "good" | "okay" | "bad" {
   return "bad";
 }
 
+// For home price, lower is better (inverted scoring)
+function getHomePriceScoreType(value: number): "great" | "good" | "okay" | "bad" {
+  if (value <= 600000) return "great";
+  if (value <= 800000) return "okay";
+  return "bad";
+}
+
 // Calculate bar percentage based on threshold max
 function getPercent(value: number, category: keyof typeof THRESHOLDS): number {
   const max = THRESHOLDS[category].max;
@@ -53,7 +63,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
     notFound();
   }
 
-  const { name, area, image, population, medianIncome, avgRent, details } = neighbourhood;
+  const { name, area, image, population, medianIncome, avgRent, avgHomePrice, details } = neighbourhood;
   const trails = details.parksData
     .filter((park) => park.category === "Linear Park")
     .map((park) => park.name);
@@ -62,6 +72,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
   const formattedPopulation = population.toLocaleString();
   const formattedIncome = medianIncome.toLocaleString();
   const formattedRent = avgRent.toLocaleString();
+  const formattedHomePrice = avgHomePrice.toLocaleString();
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -104,6 +115,14 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
       {/* Stats Grid - Real Data Only */}
       <div className="max-w-5xl mx-auto px-6 py-8">
         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <StatRow
+            icon="👥"
+            label="Population"
+            value={`${formattedPopulation} residents`}
+            percent={getPercent(population, "population")}
+            type={getScoreType(population, "population")}
+            labelSet="population"
+          />
           <ExpandableStatRow
             icon="🌳"
             label="Parks"
@@ -121,6 +140,15 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             type={getScoreType(details.schools, "schools")}
             items={details.schoolsList}
             itemLabel="schools"
+          />
+          <EqaoStatRow
+            avgScore={details.avgEqaoScore}
+            schoolsWithScores={details.schoolsWithEqaoScores}
+            schools={details.schoolsData.map(s => ({
+              name: s.name,
+              eqaoScore: s.eqaoScore,
+              category: s.category,
+            }))}
           />
           <ExpandableStatRow
             icon="📚"
@@ -159,6 +187,14 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             percent={getPercent(avgRent, "rent")}
             type={getRentScoreType(avgRent)}
             labelSet="rent"
+          />
+          <StatRow
+            icon="🏡"
+            label="Home Price"
+            value={`$${formattedHomePrice}`}
+            percent={getPercent(avgHomePrice, "homePrice")}
+            type={getHomePriceScoreType(avgHomePrice)}
+            labelSet="homePrice"
           />
         </div>
       </div>

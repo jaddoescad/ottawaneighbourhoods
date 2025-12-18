@@ -25,6 +25,57 @@ const neighbourhoodMapping = require('./config/neighbourhood-mapping.js');
 const NEIGHBOURHOODS_API = 'https://maps.ottawa.ca/arcgis/rest/services/Neighbourhoods/MapServer/0/query';
 
 // ============================================================================
+// School Name Normalization (for EQAO matching)
+// ============================================================================
+
+function normalizeSchoolName(name) {
+  return name
+    .toLowerCase()
+    .replace(/['']/g, "'")
+    .replace(/école élémentaire catholique/gi, '')
+    .replace(/école élémentaire publique/gi, '')
+    .replace(/école secondaire catholique/gi, '')
+    .replace(/école secondaire publique/gi, '')
+    .replace(/catholic elementary school/gi, '')
+    .replace(/catholic secondary school/gi, '')
+    .replace(/catholic high school/gi, '')
+    .replace(/elementary school/gi, '')
+    .replace(/secondary school/gi, '')
+    .replace(/public school/gi, '')
+    .replace(/high school/gi, '')
+    .replace(/intermediate school/gi, '')
+    .replace(/\(.*?\)/g, '') // Remove parenthetical info
+    .replace(/st\./g, 'st')
+    .replace(/sainte?-?/g, 'st ')
+    .replace(/-/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function matchSchoolNames(name1, name2) {
+  const n1 = normalizeSchoolName(name1);
+  const n2 = normalizeSchoolName(name2);
+
+  // Exact match after normalization
+  if (n1 === n2) return true;
+
+  // One contains the other
+  if (n1.includes(n2) || n2.includes(n1)) return true;
+
+  // Check if the main words match (first 2-3 significant words)
+  const words1 = n1.split(' ').filter(w => w.length > 2);
+  const words2 = n2.split(' ').filter(w => w.length > 2);
+
+  if (words1.length >= 2 && words2.length >= 2) {
+    const match1 = words1.slice(0, 2).join(' ');
+    const match2 = words2.slice(0, 2).join(' ');
+    if (match1 === match2) return true;
+  }
+
+  return false;
+}
+
+// ============================================================================
 // CSV Parsing
 // ============================================================================
 
@@ -212,6 +263,16 @@ async function main() {
   const crimeRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'crime_raw.csv'), 'utf8'));
   const neighbourhoodsInfo = parseCSV(fs.readFileSync(path.join(csvDir, 'neighbourhoods.csv'), 'utf8'));
 
+  // Load EQAO scores (optional - file may not exist)
+  let eqaoScores = [];
+  const eqaoPath = path.join(csvDir, 'eqao_scores.csv');
+  if (fs.existsSync(eqaoPath)) {
+    eqaoScores = parseCSV(fs.readFileSync(eqaoPath, 'utf8'));
+    console.log(`  - ${eqaoScores.length} EQAO school scores`);
+  } else {
+    console.log('  - No EQAO scores file (run: node scripts/download-eqao-data.js)');
+  }
+
   console.log(`  - ${parksRaw.length} parks`);
   console.log(`  - ${schoolsRaw.length} schools`);
   console.log(`  - ${librariesRaw.length} libraries`);
@@ -272,6 +333,32 @@ async function main() {
   console.log('\nAssigning schools to neighbourhoods...');
   const schoolsByNeighbourhood = {};
   let assignedSchools = 0;
+  let matchedEqaoScores = 0;
+
+  // Build EQAO lookup map
+  const eqaoByName = new Map();
+  for (const eqao of eqaoScores) {
+    const normalized = normalizeSchoolName(eqao.schoolName);
+    eqaoByName.set(normalized, parseInt(eqao.avgScore, 10));
+  }
+
+  // Helper to find EQAO score for a school
+  function findEqaoScore(schoolName) {
+    // Try direct normalized match first
+    const normalized = normalizeSchoolName(schoolName);
+    if (eqaoByName.has(normalized)) {
+      return eqaoByName.get(normalized);
+    }
+
+    // Try fuzzy matching
+    for (const eqao of eqaoScores) {
+      if (matchSchoolNames(schoolName, eqao.schoolName)) {
+        return parseInt(eqao.avgScore, 10);
+      }
+    }
+
+    return null;
+  }
 
   for (const school of schoolsRaw) {
     const lat = parseFloat(school.LATITUDE);
@@ -284,6 +371,13 @@ async function main() {
       if (!schoolsByNeighbourhood[neighbourhoodId]) {
         schoolsByNeighbourhood[neighbourhoodId] = [];
       }
+
+      // Find EQAO score for this school
+      const eqaoScore = findEqaoScore(school.NAME);
+      if (eqaoScore !== null) {
+        matchedEqaoScores++;
+      }
+
       schoolsByNeighbourhood[neighbourhoodId].push({
         name: school.NAME,
         board: school.BOARD,
@@ -293,11 +387,13 @@ async function main() {
         lng,
         address: school.NUM ? `${school.NUM} ${school.STREET}` : school.STREET,
         phone: school.PHONE,
+        eqaoScore, // EQAO score (percentage achieving provincial standard), null if not available
       });
       assignedSchools++;
     }
   }
   console.log(`  Assigned ${assignedSchools} schools`);
+  console.log(`  Matched ${matchedEqaoScores} schools with EQAO scores`);
 
   // Process libraries
   console.log('\nAssigning libraries to neighbourhoods...');
@@ -412,6 +508,20 @@ async function main() {
       }
     }
 
+    // Calculate average EQAO score for the neighbourhood
+    const schoolsWithScores = schools.filter(s => s.eqaoScore !== null);
+    const avgEqaoScore = schoolsWithScores.length > 0
+      ? Math.round(schoolsWithScores.reduce((sum, s) => sum + s.eqaoScore, 0) / schoolsWithScores.length)
+      : null;
+
+    // Count schools by level
+    const elementarySchools = schools.filter(s =>
+      s.category === 'Elementary' || s.category === 'Elementary/Secondary'
+    ).length;
+    const secondarySchools = schools.filter(s =>
+      s.category === 'Secondary' || s.category === 'Elementary/Secondary' || s.category === 'Intermediate'
+    ).length;
+
     neighbourhoods.push({
       id: info.id,
       name: info.name,
@@ -420,13 +530,18 @@ async function main() {
       population,
       medianIncome: parseInt(info.medianIncome) || 0,
       avgRent: parseInt(info.avgRent) || 0,
+      avgHomePrice: parseInt(info.avgHomePrice) || 0,
       details: {
         parks: parks.length,
         parksList: parks.map(p => p.name),
         parksData: parks,
         schools: schools.length,
+        elementarySchools,
+        secondarySchools,
         schoolsList: schools.map(s => s.name),
         schoolsData: schools,
+        avgEqaoScore, // Average EQAO score for schools in this neighbourhood (% achieving provincial standard)
+        schoolsWithEqaoScores: schoolsWithScores.length,
         libraries: libraries.length,
         librariesList: libraries.map(l => l.name),
         librariesData: libraries,
@@ -448,12 +563,22 @@ async function main() {
   console.log(`Neighbourhoods: ${neighbourhoods.length}`);
   console.log(`Total parks assigned: ${assignedParks}`);
   console.log(`Total schools assigned: ${assignedSchools}`);
+  console.log(`Total schools with EQAO scores: ${matchedEqaoScores}`);
   console.log(`Total libraries assigned: ${assignedLibraries}`);
   console.log(`Total crimes assigned: ${assignedCrimes}`);
 
   console.log('\nPopulation per neighbourhood (sorted by population):');
   for (const n of [...neighbourhoods].sort((a, b) => b.population - a.population)) {
     console.log(`  ${n.name}: ${n.population.toLocaleString()} residents`);
+  }
+
+  // EQAO Score summary
+  const neighbourhoodsWithEqao = neighbourhoods.filter(n => n.details.avgEqaoScore !== null);
+  if (neighbourhoodsWithEqao.length > 0) {
+    console.log('\nAverage EQAO scores by neighbourhood (sorted by score):');
+    for (const n of [...neighbourhoodsWithEqao].sort((a, b) => b.details.avgEqaoScore - a.details.avgEqaoScore)) {
+      console.log(`  ${n.name}: ${n.details.avgEqaoScore}% (${n.details.schoolsWithEqaoScores} schools)`);
+    }
   }
 }
 

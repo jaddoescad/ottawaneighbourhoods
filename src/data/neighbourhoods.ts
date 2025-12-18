@@ -34,6 +34,7 @@ export interface SchoolData {
   lng: number;
   address: string;
   phone: string;
+  eqaoScore: number | null; // % of students achieving provincial standard
 }
 
 export interface LibraryData {
@@ -57,13 +58,18 @@ export interface Neighbourhood {
   population: number;
   medianIncome: number;
   avgRent: number;
+  avgHomePrice: number;
   details: {
     parks: number;
     parksList: string[];
     parksData: ParkData[];
     schools: number;
+    elementarySchools: number;
+    secondarySchools: number;
     schoolsList: string[];
     schoolsData: SchoolData[];
+    avgEqaoScore: number | null; // Neighbourhood average EQAO score
+    schoolsWithEqaoScores: number;
     libraries: number;
     librariesList: string[];
     librariesData: LibraryData[];

@@ -21,9 +21,11 @@ src/data/
 │   ├── parks_raw.csv             # All 1,365 parks from Ottawa Open Data
 │   ├── schools_raw.csv           # All 451 schools from Ottawa Open Data
 │   ├── libraries_raw.csv         # All 34 libraries from Ottawa Open Data
+│   ├── eqao_scores.csv           # EQAO school scores from Ontario Open Data
 │   ├── crime_raw.csv             # ~98K crimes (2023-2024) from Ottawa Police
-│   ├── neighbourhoods.csv        # Neighbourhood info (scores, pros/cons, avgRent)
+│   ├── neighbourhoods.csv        # Neighbourhood info (scores, pros/cons, avgRent, avgHomePrice)
 │   ├── rent_data.csv             # Rent research data with sources
+│   ├── home_prices.csv           # Home price research data with sources
 │   └── ons_neighbourhoods.csv    # Reference: all 111 ONS area IDs
 ├── processed/
 │   └── data.json                 # Generated output (don't edit directly)
@@ -31,6 +33,7 @@ src/data/
 
 scripts/
 ├── process-data.js               # Main processing script
+├── download-eqao-data.js         # Downloads EQAO scores from Ontario Open Data
 └── config/
     └── neighbourhood-mapping.js  # Maps our neighbourhoods to ONS IDs
 ```
@@ -43,6 +46,7 @@ All data from **City of Ottawa Open Data** (ArcGIS REST APIs):
 |------|-----|---------|
 | Parks | https://maps.ottawa.ca/arcgis/rest/services/Parks_Inventory/MapServer/24 | 1,365 |
 | Schools | https://maps.ottawa.ca/arcgis/rest/services/Schools/MapServer/0 | 451 |
+| EQAO Scores | https://data.ontario.ca/dataset/school-information-and-student-demographics | 244 |
 | Libraries | https://opendata.arcgis.com/datasets/ottawa::ottawa-public-library-locations-2024.geojson | 34 |
 | Transit Stations | https://maps.ottawa.ca/arcgis/rest/services/TransitServices/MapServer/0 | 40 |
 | O-Train Stations | https://maps.ottawa.ca/arcgis/rest/services/TransitServices/MapServer/1 | 5 |
@@ -73,6 +77,24 @@ All data from **City of Ottawa Open Data** (ArcGIS REST APIs):
 | CATEGORY | Elementary, Secondary, etc. |
 | NUM / STREET | Address |
 | PHONE | Phone number |
+
+### eqao_scores.csv
+EQAO (Education Quality and Accountability Office) standardized test scores for Ottawa schools.
+
+| Field | Description |
+|-------|-------------|
+| schoolName | School name |
+| boardName | School board name |
+| schoolLevel | Elementary or Secondary |
+| avgScore | Average % of students achieving provincial standard |
+
+**Score Interpretation:** The avgScore represents the average percentage of students achieving the provincial standard across all EQAO tests (Grade 3/6 Reading, Writing, Math; Grade 9 Math; Grade 10 Literacy).
+
+**To refresh EQAO data:**
+```bash
+node scripts/download-eqao-data.js
+node scripts/process-data.js
+```
 
 ### libraries_raw.csv
 | Field | Description |
@@ -110,6 +132,7 @@ Edit this file to change neighbourhood info displayed on the website:
 | image | Image URL |
 | medianIncome | Median household income |
 | avgRent | Average monthly rent (see rent_data.csv for sources) |
+| avgHomePrice | Average home price (see home_prices.csv for sources) |
 | pros | Semicolon-separated list of pros |
 | cons | Semicolon-separated list of cons |
 
@@ -122,6 +145,16 @@ Contains average rent research data with sources for each neighbourhood:
 | avgRent | Average monthly rent in CAD |
 | rentSource | Data source (Zumper, CMHC, RentCafe, etc.) |
 | notes | Additional context about the data |
+
+### home_prices.csv
+Contains average home price research data with sources for each neighbourhood:
+| Field | Description |
+|-------|-------------|
+| id | Neighbourhood ID (matches neighbourhoods.csv) |
+| name | Neighbourhood name |
+| avgHomePrice | Average home price in CAD |
+| priceSource | Data source (AgentInOttawa, Zolo, OREB, etc.) |
+| notes | Additional context about the data (YoY changes, sample size) |
 
 ## Neighbourhood Mapping
 
@@ -210,4 +243,41 @@ Average rent data was manually researched in December 2024 using the following s
 ### To Update Rent Data
 1. Edit `src/data/csv/rent_data.csv` with new research (include sources)
 2. Copy avgRent values to `src/data/csv/neighbourhoods.csv`
+3. Run `node scripts/process-data.js` to regenerate data.json
+
+## Home Price Data Research Methodology
+
+Average home price data was manually researched in December 2024 using the following sources:
+
+### Primary Sources
+| Source | URL | Coverage |
+|--------|-----|----------|
+| AgentInOttawa | https://agentinottawa.com/stats | Sold home prices by neighbourhood with YoY trends |
+| Zolo | https://www.zolo.ca/ottawa-real-estate/trends | MLS listing prices and market stats |
+| OREB | https://creastats.crea.ca/board/otta/ | Ottawa Real Estate Board official statistics |
+| MyOttawaProperty | https://www.myottawaproperty.com/market/ | Monthly market reports by neighbourhood |
+
+### Methodology
+1. **Urban neighbourhoods** (Glebe, Westboro, Centretown, etc.): Used AgentInOttawa sold price data from Oct 2024
+2. **Suburban neighbourhoods** (Kanata, Barrhaven, Orleans, etc.): Combined AgentInOttawa and Zolo MLS statistics
+3. **Rural areas** (Carp, Constance Bay, Manotick, etc.): Used Zolo listing averages where sold data was limited
+
+### Data Notes
+- Home prices represent average sold prices where available, or listing averages for areas with limited sales
+- Data reflects 2024 market conditions (researched December 2024)
+- Prices include all property types (detached, semi-detached, townhouses) unless noted
+- Rural areas have lower sales volume; some estimates based on listing prices
+- YoY (Year-over-Year) changes noted where significant
+
+### Price Ranges by Area Type (2024)
+| Area Type | Price Range | Examples |
+|-----------|-------------|----------|
+| Premium Central | $900K - $1.2M | Glebe, Westboro, Old Ottawa South, New Edinburgh |
+| Central Urban | $475K - $700K | Centretown, Sandy Hill, Hintonburg, Vanier |
+| Suburban | $700K - $850K | Kanata, Stittsville, Barrhaven, Orleans |
+| Rural/Village | $650K - $1.1M | Manotick, Carp, Richmond, Constance Bay |
+
+### To Update Home Price Data
+1. Edit `src/data/csv/home_prices.csv` with new research (include sources)
+2. Copy avgHomePrice values to `src/data/csv/neighbourhoods.csv`
 3. Run `node scripts/process-data.js` to regenerate data.json

@@ -8,6 +8,7 @@
       "population": 18838,
       "medianIncome": 119000,
       "avgRent": 2150,
+      "avgHomePrice": 1198947,
       "details": {
         "parks": 24,
         "parksList": [
@@ -279,6 +280,8 @@
           }
         ],
         "schools": 10,
+        "elementarySchools": 6,
+        "secondarySchools": 4,
         "schoolsList": [
           "Immaculata High School",
           "Corpus Christi School",
@@ -300,7 +303,8 @@
             "lat": 45.41033925399169,
             "lng": -75.6805832892748,
             "address": "140 rue Main St",
-            "phone": "613-237-2001"
+            "phone": "613-237-2001",
+            "eqaoScore": 68
           },
           {
             "name": "Corpus Christi School",
@@ -310,7 +314,8 @@
             "lat": 45.401470585597586,
             "lng": -75.69092992930875,
             "address": "798 rue Lyon St South",
-            "phone": "613-232-9743"
+            "phone": "613-232-9743",
+            "eqaoScore": 75
           },
           {
             "name": "Glebe Collegiate Institute",
@@ -320,7 +325,8 @@
             "lat": 45.40161831253784,
             "lng": -75.69703212843991,
             "address": "212 av. Glebe Ave",
-            "phone": "613-239-2424"
+            "phone": "613-239-2424",
+            "eqaoScore": 78
           },
           {
             "name": "First Avenue Public School",
@@ -330,7 +336,8 @@
             "lat": 45.40638650513402,
             "lng": -75.68545458356598,
             "address": "73 av. First Ave",
-            "phone": "613-239-2261"
+            "phone": "613-239-2261",
+            "eqaoScore": 89
           },
           {
             "name": "Mutchmor Public School",
@@ -340,7 +347,8 @@
             "lat": 45.40090026779442,
             "lng": -75.69069826996665,
             "address": "185 av. Fifth Ave",
-            "phone": "613-239-2267"
+            "phone": "613-239-2267",
+            "eqaoScore": 83
           },
           {
             "name": "Blyth Academy The Glebe",
@@ -350,7 +358,8 @@
             "lat": 45.39844272739477,
             "lng": -75.68516264816664,
             "address": "983 rue Bank Street",
-            "phone": "613-680-3388"
+            "phone": "613-680-3388",
+            "eqaoScore": null
           },
           {
             "name": "Glebe Montessori School",
@@ -360,7 +369,8 @@
             "lat": 45.403626914788056,
             "lng": -75.69260906383109,
             "address": "650 rue Lyon St",
-            "phone": "613-237-3824"
+            "phone": "613-237-3824",
+            "eqaoScore": null
           },
           {
             "name": "Lady Evelyn Alternative School",
@@ -370,7 +380,8 @@
             "lat": 45.411879619508056,
             "lng": -75.6784246097993,
             "address": "63 av. Evelyn Ave",
-            "phone": "613-239-2404"
+            "phone": "613-239-2404",
+            "eqaoScore": 72
           },
           {
             "name": "Catholic Elementary School in The Heart of Ottawa",
@@ -380,7 +391,8 @@
             "lat": 45.41165035508536,
             "lng": -75.68009146165674,
             "address": "88 rue Main St",
-            "phone": "613-216-0017"
+            "phone": "613-216-0017",
+            "eqaoScore": null
           },
           {
             "name": "The Element",
@@ -390,9 +402,12 @@
             "lat": 45.4008237344338,
             "lng": -75.68280344316015,
             "address": "201-425 Marché Way",
-            "phone": "613-862-8578"
+            "phone": "613-862-8578",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 78,
+        "schoolsWithEqaoScores": 6,
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
@@ -434,6 +449,7 @@
       "population": 32800,
       "medianIncome": 78000,
       "avgRent": 2200,
+      "avgHomePrice": 930315,
       "details": {
         "parks": 32,
         "parksList": [
@@ -793,6 +809,8 @@
           }
         ],
         "schools": 21,
+        "elementarySchools": 14,
+        "secondarySchools": 2,
         "schoolsList": [
           "Notre Dame High School",
           "Crystal Bay Centre for Special Education",
@@ -825,7 +843,8 @@
             "lat": 45.378703830267874,
             "lng": -75.75623216028553,
             "address": "710 av. Broadview Ave",
-            "phone": "613-722-6565"
+            "phone": "613-722-6565",
+            "eqaoScore": 60
           },
           {
             "name": "Crystal Bay Centre for Special Education",
@@ -835,7 +854,8 @@
             "lat": 45.349238747152086,
             "lng": -75.84409538468856,
             "address": "31 prom. Moodie Dr",
-            "phone": "613-828-5376"
+            "phone": "613-828-5376",
+            "eqaoScore": null
           },
           {
             "name": "Nepean High School",
@@ -845,7 +865,8 @@
             "lat": 45.38377965327053,
             "lng": -75.7591283736773,
             "address": "574 av. Broadview Ave",
-            "phone": "613-722-6551"
+            "phone": "613-722-6551",
+            "eqaoScore": 82
           },
           {
             "name": "D. Roy Kennedy Public School",
@@ -855,7 +876,8 @@
             "lat": 45.36517557461769,
             "lng": -75.76964706803761,
             "address": "919 av. Woodroffe Ave",
-            "phone": "613-728-1993"
+            "phone": "613-728-1993",
+            "eqaoScore": 59
           },
           {
             "name": "Hilson Avenue Public School",
@@ -865,7 +887,8 @@
             "lat": 45.39527898696421,
             "lng": -75.74447857076876,
             "address": "407 av. Hillson Ave",
-            "phone": "613-728-4607"
+            "phone": "613-728-4607",
+            "eqaoScore": 75
           },
           {
             "name": "Lakeview Public School",
@@ -875,7 +898,8 @@
             "lat": 45.347726448039154,
             "lng": -75.82367413964151,
             "address": "35 ch. Corkstown Rd",
-            "phone": "613-828-8077"
+            "phone": "613-828-8077",
+            "eqaoScore": 83
           },
           {
             "name": "Edelweiss Private Academy",
@@ -885,7 +909,8 @@
             "lat": 45.37536096026292,
             "lng": -75.75261529591496,
             "address": "31 privé Nadolny Sachs Priv",
-            "phone": "613-225-9273"
+            "phone": "613-225-9273",
+            "eqaoScore": null
           },
           {
             "name": "Centre Jules-Léger",
@@ -895,7 +920,8 @@
             "lat": 45.39883660541685,
             "lng": -75.75413004502852,
             "address": "281 av. Lanark Ave",
-            "phone": "613-761-9300"
+            "phone": "613-761-9300",
+            "eqaoScore": null
           },
           {
             "name": "Ottawa Jewish Community School",
@@ -905,7 +931,8 @@
             "lat": 45.37510562798352,
             "lng": -75.75244579010906,
             "address": "31 Priv. Nadolny Sachs Priv",
-            "phone": "613-722-0020"
+            "phone": "613-722-0020",
+            "eqaoScore": null
           },
           {
             "name": "Soloway Jewish Community Centre",
@@ -915,7 +942,8 @@
             "lat": 45.37601908961497,
             "lng": -75.7518783378188,
             "address": "21 privé Nadolny Sachs Priv",
-            "phone": "613-798-9818"
+            "phone": "613-798-9818",
+            "eqaoScore": null
           },
           {
             "name": "Maryvale Academy",
@@ -925,7 +953,8 @@
             "lat": 45.36355824068484,
             "lng": -75.7681024229914,
             "address": "2191 av. Benjamin Ave",
-            "phone": "613-321-2186"
+            "phone": "613-321-2186",
+            "eqaoScore": null
           },
           {
             "name": "Ottawa Adventist School",
@@ -935,7 +964,8 @@
             "lat": 45.36355824068484,
             "lng": -75.7681024229914,
             "address": "2191 av. Benjamin Ave",
-            "phone": "613-722-3770"
+            "phone": "613-722-3770",
+            "eqaoScore": null
           },
           {
             "name": "Westboro Jewish Montessori Preschool",
@@ -945,7 +975,8 @@
             "lat": 45.38527418557207,
             "lng": -75.74176794212818,
             "address": "192 av. Switzer Ave",
-            "phone": "613-729-7712"
+            "phone": "613-729-7712",
+            "eqaoScore": null
           },
           {
             "name": "Westboro Montessori School Campus 1",
@@ -955,7 +986,8 @@
             "lat": 45.39287317906613,
             "lng": -75.75253903074397,
             "address": "307 ch. Richmond Road",
-            "phone": "613-321-0788"
+            "phone": "613-321-0788",
+            "eqaoScore": null
           },
           {
             "name": "Westboro Montessori School Campus 2",
@@ -965,7 +997,8 @@
             "lat": 45.39060550037076,
             "lng": -75.75580858037456,
             "address": "387 av. Danforth Ave",
-            "phone": "613-680-0712"
+            "phone": "613-680-0712",
+            "eqaoScore": null
           },
           {
             "name": "Our Lady Of Fatima School",
@@ -975,7 +1008,8 @@
             "lat": 45.37762477165838,
             "lng": -75.77338998670378,
             "address": "2135 ch. Knightsbridge Rd",
-            "phone": "613-722-4075"
+            "phone": "613-722-4075",
+            "eqaoScore": 71
           },
           {
             "name": "Broadview Avenue Public School",
@@ -985,7 +1019,8 @@
             "lat": 45.38172398266583,
             "lng": -75.75766440992003,
             "address": "535 av. Dovercourt Ave",
-            "phone": "613-728-1721"
+            "phone": "613-728-1721",
+            "eqaoScore": 83
           },
           {
             "name": "Churchill Alternative School",
@@ -995,7 +1030,8 @@
             "lat": 45.3904321739295,
             "lng": -75.7533489733637,
             "address": "345 av. Ravenhill Ave",
-            "phone": "613-722-4474"
+            "phone": "613-722-4474",
+            "eqaoScore": 71
           },
           {
             "name": "Woodroffe Avenue Public School",
@@ -1005,7 +1041,8 @@
             "lat": 45.3744163114601,
             "lng": -75.77251186285231,
             "address": "235 av. Woodroffe Ave",
-            "phone": "613-722-6585"
+            "phone": "613-722-6585",
+            "eqaoScore": 80
           },
           {
             "name": "Out to Play Environmental Education Centre",
@@ -1015,7 +1052,8 @@
             "lat": 45.354724699524716,
             "lng": -75.86345629969671,
             "address": "Davidson's Side Rd",
-            "phone": "+16138081381"
+            "phone": "+16138081381",
+            "eqaoScore": null
           },
           {
             "name": "Kollel of Ottawa",
@@ -1025,9 +1063,12 @@
             "lat": 45.37741189177392,
             "lng": -75.75319828905961,
             "address": "1762 Carling Avenue",
-            "phone": "+16137294368"
+            "phone": "+16137294368",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 74,
+        "schoolsWithEqaoScores": 9,
         "libraries": 1,
         "librariesList": [
           "Carlingwood"
@@ -1081,6 +1122,7 @@
       "population": 11912,
       "medianIncome": 72500,
       "avgRent": 1950,
+      "avgHomePrice": 500000,
       "details": {
         "parks": 20,
         "parksList": [
@@ -1308,6 +1350,8 @@
           }
         ],
         "schools": 8,
+        "elementarySchools": 2,
+        "secondarySchools": 1,
         "schoolsList": [
           "York Street Public School",
           "De la Salle Public High School",
@@ -1327,7 +1371,8 @@
             "lat": 45.432006254681006,
             "lng": -75.68294878428492,
             "address": "310 rue York St",
-            "phone": "613-239-2214"
+            "phone": "613-239-2214",
+            "eqaoScore": 60
           },
           {
             "name": "De la Salle Public High School",
@@ -1337,7 +1382,8 @@
             "lat": 45.434862497972695,
             "lng": -75.68507050796796,
             "address": "501 rue Old St-Patrick St",
-            "phone": "613-789-0053"
+            "phone": "613-789-0053",
+            "eqaoScore": 78
           },
           {
             "name": "Sainte-Anne Catholic Elementary School",
@@ -1347,7 +1393,8 @@
             "lat": 45.432227971951704,
             "lng": -75.68172697129395,
             "address": "235 prom. Beausoleil Dr",
-            "phone": "613-789-3933"
+            "phone": "613-789-3933",
+            "eqaoScore": 63
           },
           {
             "name": "Gina's College Of Advanced Aesthetics",
@@ -1357,7 +1404,8 @@
             "lat": 45.431771691509645,
             "lng": -75.69339349519507,
             "address": "215 Dalhousie Street",
-            "phone": "+1-613-789-7875"
+            "phone": "+1-613-789-7875",
+            "eqaoScore": null
           },
           {
             "name": "C'est Bon Cooking",
@@ -1367,7 +1415,8 @@
             "lat": 45.43193072671586,
             "lng": -75.69401729071824,
             "address": "200 Dalhousie Street",
-            "phone": "+16137228687"
+            "phone": "+16137228687",
+            "eqaoScore": null
           },
           {
             "name": "Canadian National Institute of Health",
@@ -1377,7 +1426,8 @@
             "lat": 45.42947029927768,
             "lng": -75.69136430068123,
             "address": "303 Dalhousie Street",
-            "phone": "+16137262644"
+            "phone": "+16137262644",
+            "eqaoScore": null
           },
           {
             "name": "Richard Robinson Fashion Design Academy",
@@ -1387,7 +1437,8 @@
             "lat": 45.42911307496519,
             "lng": -75.69612958388743,
             "address": "419 Sussex Drive",
-            "phone": "+16132415233"
+            "phone": "+16132415233",
+            "eqaoScore": null
           },
           {
             "name": "Ottawa School of Art",
@@ -1397,9 +1448,12 @@
             "lat": 45.426940888785985,
             "lng": -75.69302255566141,
             "address": "35 George Street",
-            "phone": "+1-613-241-7471"
+            "phone": "+1-613-241-7471",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 67,
+        "schoolsWithEqaoScores": 3,
         "libraries": 1,
         "librariesList": [
           "Rideau"
@@ -1454,6 +1508,7 @@
       "population": 46199,
       "medianIncome": 72500,
       "avgRent": 1755,
+      "avgHomePrice": 501560,
       "details": {
         "parks": 25,
         "parksList": [
@@ -1736,6 +1791,8 @@
           }
         ],
         "schools": 20,
+        "elementarySchools": 10,
+        "secondarySchools": 5,
         "schoolsList": [
           "St. Augustine School",
           "St. Anthony School",
@@ -1767,7 +1824,8 @@
             "lat": 45.368294274619885,
             "lng": -75.71178714742442,
             "address": "1009 rue Arnot St",
-            "phone": "613-225-8020"
+            "phone": "613-225-8020",
+            "eqaoScore": 63
           },
           {
             "name": "St. Anthony School",
@@ -1777,7 +1835,8 @@
             "lat": 45.40631384593108,
             "lng": -75.70841204125637,
             "address": "391 rue Booth St",
-            "phone": "613-235-0340"
+            "phone": "613-235-0340",
+            "eqaoScore": 59
           },
           {
             "name": "Elgin Street Public School",
@@ -1787,7 +1846,8 @@
             "lat": 45.41613625785902,
             "lng": -75.68969693408911,
             "address": "310 rue Elgin St",
-            "phone": "613-239-2231"
+            "phone": "613-239-2231",
+            "eqaoScore": 75
           },
           {
             "name": "Cambridge Street Community Public School",
@@ -1797,7 +1857,8 @@
             "lat": 45.408230121907394,
             "lng": -75.70552317069374,
             "address": "250 rue Cambridge St  N",
-            "phone": "613-239-2216"
+            "phone": "613-239-2216",
+            "eqaoScore": 50
           },
           {
             "name": "Adult High School",
@@ -1807,7 +1868,8 @@
             "lat": 45.4047218286674,
             "lng": -75.71029203188971,
             "address": "300 rue Rochester St",
-            "phone": "613-239-2707"
+            "phone": "613-239-2707",
+            "eqaoScore": 10
           },
           {
             "name": "Lisgar Collegiate Institute",
@@ -1817,7 +1879,8 @@
             "lat": 45.42089024130263,
             "lng": -75.68798784254867,
             "address": "29 rue Lisgar St",
-            "phone": "613-239-2696"
+            "phone": "613-239-2696",
+            "eqaoScore": 80
           },
           {
             "name": "Centennial Public School",
@@ -1827,7 +1890,8 @@
             "lat": 45.414988570054064,
             "lng": -75.70456028720194,
             "address": "376 rue Gloucester St",
-            "phone": "613-239-2277"
+            "phone": "613-239-2277",
+            "eqaoScore": 55
           },
           {
             "name": "Glashan Public School",
@@ -1837,7 +1901,8 @@
             "lat": 45.409528223845626,
             "lng": -75.69325371104864,
             "address": "28 av. Arlington Ave",
-            "phone": "613-239-2264"
+            "phone": "613-239-2264",
+            "eqaoScore": null
           },
           {
             "name": "Heritage Academy",
@@ -1847,7 +1912,8 @@
             "lat": 45.399350191892516,
             "lng": -75.71582621369032,
             "address": "207 av. Bayswater Ave",
-            "phone": "613-722-0133"
+            "phone": "613-722-0133",
+            "eqaoScore": 71
           },
           {
             "name": "Parkdale Montessori School",
@@ -1857,7 +1923,8 @@
             "lat": 45.396629351212496,
             "lng": -75.72605342989374,
             "address": "555B av. Parkdale Ave",
-            "phone": "613-216-7275"
+            "phone": "613-216-7275",
+            "eqaoScore": null
           },
           {
             "name": "Turnbull School",
@@ -1867,7 +1934,8 @@
             "lat": 45.37845000791051,
             "lng": -75.72150178672335,
             "address": "1132 av. Fisher Ave",
-            "phone": "613-729-9940"
+            "phone": "613-729-9940",
+            "eqaoScore": null
           },
           {
             "name": "St. Patrick's Adult School",
@@ -1877,7 +1945,8 @@
             "lat": 45.415872727483695,
             "lng": -75.70097915242347,
             "address": "290 rue Nepean St",
-            "phone": "+16135945773"
+            "phone": "+16135945773",
+            "eqaoScore": 75
           },
           {
             "name": "Louise-Arbour Public Elementary School",
@@ -1887,7 +1956,8 @@
             "lat": 45.3992215421443,
             "lng": -75.71520596112262,
             "address": "175 rue Beech Street",
-            "phone": "613-729-7134"
+            "phone": "613-729-7134",
+            "eqaoScore": 85
           },
           {
             "name": "Continuing Education",
@@ -1897,7 +1967,8 @@
             "lat": 45.41697066717529,
             "lng": -75.70649413992139,
             "address": "440 rue Albert St",
-            "phone": "613-239-2325"
+            "phone": "613-239-2325",
+            "eqaoScore": null
           },
           {
             "name": "International Student Program Office",
@@ -1907,7 +1978,8 @@
             "lat": 45.41670024101542,
             "lng": -75.70695659532461,
             "address": "440 rue Albert St",
-            "phone": "613-239-0258"
+            "phone": "613-239-0258",
+            "eqaoScore": null
           },
           {
             "name": "Richard Pfaff Secondary Alternate Program",
@@ -1917,7 +1989,8 @@
             "lat": 45.40958141397148,
             "lng": -75.70269656685502,
             "address": "160 rue Percy St",
-            "phone": "613-594-8020"
+            "phone": "613-594-8020",
+            "eqaoScore": null
           },
           {
             "name": "Urban Aboriginal Alternate Program",
@@ -1927,7 +2000,8 @@
             "lat": 45.41672661011688,
             "lng": -75.70628405811242,
             "address": "440 rue Albert St",
-            "phone": "613-746-6328"
+            "phone": "613-746-6328",
+            "eqaoScore": null
           },
           {
             "name": "Family Reception Centre",
@@ -1937,7 +2011,8 @@
             "lat": 45.404317591951774,
             "lng": -75.71024736945041,
             "address": "300 rue Rochester St",
-            "phone": "613-239-2416"
+            "phone": "613-239-2416",
+            "eqaoScore": null
           },
           {
             "name": "Graybridge Malkam",
@@ -1947,7 +2022,8 @@
             "lat": 45.387570600238014,
             "lng": -75.73429720008585,
             "address": "5-1309 Carling Avenue",
-            "phone": "+16137617440"
+            "phone": "+16137617440",
+            "eqaoScore": null
           },
           {
             "name": "First Aid 4U Training Ottawa Central",
@@ -1957,9 +2033,12 @@
             "lat": 45.41388765070712,
             "lng": -75.69209272118893,
             "address": "311 O'Connor St",
-            "phone": "6133144299"
+            "phone": "6133144299",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 62,
+        "schoolsWithEqaoScores": 10,
         "libraries": 1,
         "librariesList": [
           "Main"
@@ -2015,6 +2094,7 @@
       "population": 11006,
       "medianIncome": 119000,
       "avgRent": 2275,
+      "avgHomePrice": 1100000,
       "details": {
         "parks": 16,
         "parksList": [
@@ -2198,6 +2278,8 @@
           }
         ],
         "schools": 4,
+        "elementarySchools": 3,
+        "secondarySchools": 1,
         "schoolsList": [
           "Holy Cross School",
           "General Vanier Public School",
@@ -2213,7 +2295,8 @@
             "lat": 45.363298889513956,
             "lng": -75.68501237618929,
             "address": "2820 prom. Springland Dr",
-            "phone": "613-733-5887"
+            "phone": "613-733-5887",
+            "eqaoScore": 73
           },
           {
             "name": "General Vanier Public School",
@@ -2223,7 +2306,8 @@
             "lat": 45.36768903564203,
             "lng": -75.67480957889022,
             "address": "1025 av. Harkness Ave",
-            "phone": "613-731-3631"
+            "phone": "613-731-3631",
+            "eqaoScore": 57
           },
           {
             "name": "Brookfield High School",
@@ -2233,7 +2317,8 @@
             "lat": 45.372534860462046,
             "lng": -75.68465222003232,
             "address": "824 ch. Brookfield Rd",
-            "phone": "613-733-0610"
+            "phone": "613-733-0610",
+            "eqaoScore": 50
           },
           {
             "name": "Hopewell Avenue Public School",
@@ -2243,9 +2328,12 @@
             "lat": 45.39359303535768,
             "lng": -75.68374048212122,
             "address": "17 av. Hopewell Ave",
-            "phone": "613-239-2348"
+            "phone": "613-239-2348",
+            "eqaoScore": 88
           }
         ],
+        "avgEqaoScore": 67,
+        "schoolsWithEqaoScores": 4,
         "libraries": 1,
         "librariesList": [
           "Sunnyside"
@@ -2295,6 +2383,7 @@
       "population": 15192,
       "medianIncome": 86000,
       "avgRent": 2000,
+      "avgHomePrice": 675600,
       "details": {
         "parks": 15,
         "parksList": [
@@ -2467,6 +2556,8 @@
           }
         ],
         "schools": 8,
+        "elementarySchools": 8,
+        "secondarySchools": 0,
         "schoolsList": [
           "Connaught Public School",
           "Devonshire Community Public School",
@@ -2486,7 +2577,8 @@
             "lat": 45.40041027979558,
             "lng": -75.7259138191222,
             "address": "1149 av. Gladstone Ave",
-            "phone": "613-728-4671"
+            "phone": "613-728-4671",
+            "eqaoScore": 80
           },
           {
             "name": "Devonshire Community Public School",
@@ -2496,7 +2588,8 @@
             "lat": 45.4054699669651,
             "lng": -75.71889564832,
             "address": "100 av. Breezehill Ave",
-            "phone": "613-729-3169"
+            "phone": "613-729-3169",
+            "eqaoScore": 76
           },
           {
             "name": "Hamilton Montessori School",
@@ -2506,7 +2599,8 @@
             "lat": 45.34925480922499,
             "lng": -75.77230166695729,
             "address": "2199 terr. Regency Terr",
-            "phone": "613-596-4013"
+            "phone": "613-596-4013",
+            "eqaoScore": null
           },
           {
             "name": "Joan of Arc Academy",
@@ -2516,7 +2610,8 @@
             "lat": 45.35445637233329,
             "lng": -75.77760575877261,
             "address": "2221 ch. Elmira Rd",
-            "phone": "613-728-6364"
+            "phone": "613-728-6364",
+            "eqaoScore": null
           },
           {
             "name": "Our Lady Of Victory School",
@@ -2526,7 +2621,8 @@
             "lat": 45.34989133448129,
             "lng": -75.77992025193245,
             "address": "1175 rue Soderlind St",
-            "phone": "613-828-5594"
+            "phone": "613-828-5594",
+            "eqaoScore": 71
           },
           {
             "name": "Pinecrest  Public School",
@@ -2536,7 +2632,8 @@
             "lat": 45.34375661450416,
             "lng": -75.78505105423787,
             "address": "1281 ch. McWatters Rd",
-            "phone": "613-828-5115"
+            "phone": "613-828-5115",
+            "eqaoScore": 42
           },
           {
             "name": "Terre-des-Jeunes Catholic Elementary School",
@@ -2546,7 +2643,8 @@
             "lat": 45.35208462064943,
             "lng": -75.76782683154033,
             "address": "1303 rue Fellows Road",
-            "phone": "613-820-2121"
+            "phone": "613-820-2121",
+            "eqaoScore": 80
           },
           {
             "name": "Saint Francis of Assisi Catholic Elementary School",
@@ -2556,9 +2654,12 @@
             "lat": 45.40258560466455,
             "lng": -75.7239770846073,
             "address": "35 av. Melrose Ave",
-            "phone": "613-729-1463"
+            "phone": "613-729-1463",
+            "eqaoScore": 77
           }
         ],
+        "avgEqaoScore": 71,
+        "schoolsWithEqaoScores": 6,
         "libraries": 1,
         "librariesList": [
           "Rosemount"
@@ -2613,6 +2714,7 @@
       "population": 5339,
       "medianIncome": 79000,
       "avgRent": 1850,
+      "avgHomePrice": 639273,
       "details": {
         "parks": 4,
         "parksList": [
@@ -2664,6 +2766,8 @@
           }
         ],
         "schools": 5,
+        "elementarySchools": 2,
+        "secondarySchools": 1,
         "schoolsList": [
           "St. George School",
           "Elmdale Public School",
@@ -2680,7 +2784,8 @@
             "lat": 45.404609487266086,
             "lng": -75.74785927433933,
             "address": "130 av. Keyworth Ave",
-            "phone": "613-728-8291"
+            "phone": "613-728-8291",
+            "eqaoScore": 78
           },
           {
             "name": "Elmdale Public School",
@@ -2690,7 +2795,8 @@
             "lat": 45.39430818540678,
             "lng": -75.73592453864721,
             "address": "49 rue Iona St",
-            "phone": "613-728-4653"
+            "phone": "613-728-4653",
+            "eqaoScore": 88
           },
           {
             "name": "Fisher Park Public School / Summit Alternate School",
@@ -2700,7 +2806,8 @@
             "lat": 45.39525364552804,
             "lng": -75.73075894998074,
             "address": "250 av. Holland Ave",
-            "phone": "613-729-5054"
+            "phone": "613-729-5054",
+            "eqaoScore": null
           },
           {
             "name": "Hair Fellas School of Barbers",
@@ -2710,7 +2817,8 @@
             "lat": 45.398773690077704,
             "lng": -75.73557290031576,
             "address": "1292 Wellington Street West",
-            "phone": "+16136959299"
+            "phone": "+16136959299",
+            "eqaoScore": null
           },
           {
             "name": "Chesterton Academy",
@@ -2720,9 +2828,12 @@
             "lat": 45.396336844428426,
             "lng": -75.739393922106,
             "address": "415 Piccadilly Avenue North",
-            "phone": "+1-613-729-2247"
+            "phone": "+1-613-729-2247",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 83,
+        "schoolsWithEqaoScores": 2,
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
@@ -2763,6 +2874,7 @@
       "population": 40243,
       "medianIncome": 128000,
       "avgRent": 2400,
+      "avgHomePrice": 850000,
       "details": {
         "parks": 101,
         "parksList": [
@@ -3881,6 +3993,8 @@
           }
         ],
         "schools": 30,
+        "elementarySchools": 19,
+        "secondarySchools": 7,
         "schoolsList": [
           "Holy Trinity Catholic High School",
           "All Saints High School",
@@ -3922,7 +4036,8 @@
             "lat": 45.30807427025535,
             "lng": -75.90165941192525,
             "address": "180 ch. Katimavik Rd",
-            "phone": "613-591-9955"
+            "phone": "613-591-9955",
+            "eqaoScore": 75
           },
           {
             "name": "All Saints High School",
@@ -3932,7 +4047,8 @@
             "lat": 45.32178782739146,
             "lng": -75.92494938910289,
             "address": "5115 av. Kanata Ave",
-            "phone": "613-271-4254"
+            "phone": "613-271-4254",
+            "eqaoScore": 80
           },
           {
             "name": "St. Gabriel School",
@@ -3942,7 +4058,8 @@
             "lat": 45.324661528863544,
             "lng": -75.93051253797813,
             "address": "400 prom. Keyrock Dr",
-            "phone": "613-271-6181"
+            "phone": "613-271-6181",
+            "eqaoScore": 95
           },
           {
             "name": "St. Isabel School",
@@ -3952,7 +4069,8 @@
             "lat": 45.33688582338989,
             "lng": -75.94108213357738,
             "address": "785 ch. Goulbourn Forced Road",
-            "phone": "613-271-9542"
+            "phone": "613-271-9542",
+            "eqaoScore": 93
           },
           {
             "name": "Georges Vanier Catholic School",
@@ -3962,7 +4080,8 @@
             "lat": 45.3322171944677,
             "lng": -75.9072713959143,
             "address": "40 prom. Varley Dr",
-            "phone": "613-592-4371"
+            "phone": "613-592-4371",
+            "eqaoScore": 68
           },
           {
             "name": "Holy Redeemer School",
@@ -3972,7 +4091,8 @@
             "lat": 45.302963364932104,
             "lng": -75.90003041327725,
             "address": "75 prom. McCurdy Dr",
-            "phone": "613-591-3256"
+            "phone": "613-591-3256",
+            "eqaoScore": 72
           },
           {
             "name": "St. Martin de Porres School",
@@ -3982,7 +4102,8 @@
             "lat": 45.29258377137534,
             "lng": -75.8843775829635,
             "address": "20 prom. Mckitrick Dr",
-            "phone": "613-836-4754"
+            "phone": "613-836-4754",
+            "eqaoScore": 71
           },
           {
             "name": "Castlefrank Elementary School",
@@ -3992,7 +4113,8 @@
             "lat": 45.30517975970113,
             "lng": -75.89784497568436,
             "address": "55 prom. McCurdy Dr",
-            "phone": "613-592-8071"
+            "phone": "613-592-8071",
+            "eqaoScore": 68
           },
           {
             "name": "Stephen Leacock Public School",
@@ -4002,7 +4124,8 @@
             "lat": 45.32507857603287,
             "lng": -75.90258783963603,
             "address": "25 prom. Leacock Dr",
-            "phone": "613-592-2261"
+            "phone": "613-592-2261",
+            "eqaoScore": 95
           },
           {
             "name": "W. Erskine Johnston Public School",
@@ -4012,7 +4135,8 @@
             "lat": 45.33286727202538,
             "lng": -75.9091329989321,
             "address": "50 prom. Varley Dr",
-            "phone": "613-592-4492"
+            "phone": "613-592-4492",
+            "eqaoScore": 91
           },
           {
             "name": "Glen Cairn Public School",
@@ -4022,7 +4146,8 @@
             "lat": 45.29650118829002,
             "lng": -75.88418610706069,
             "address": "182 ch. Morrena Rd",
-            "phone": "613-836-2342"
+            "phone": "613-836-2342",
+            "eqaoScore": null
           },
           {
             "name": "Roland Michener Public School",
@@ -4032,7 +4157,8 @@
             "lat": 45.32839107181262,
             "lng": -75.89317597391032,
             "address": "100 prom. Penfield Dr",
-            "phone": "613-592-2126"
+            "phone": "613-592-2126",
+            "eqaoScore": 82
           },
           {
             "name": "John Young Elementary School",
@@ -4042,7 +4168,8 @@
             "lat": 45.28975717298553,
             "lng": -75.88417871751915,
             "address": "5 prom. Morton Dr",
-            "phone": "613-836-5987"
+            "phone": "613-836-5987",
+            "eqaoScore": 64
           },
           {
             "name": "Kanata Highlands Public School",
@@ -4052,7 +4179,8 @@
             "lat": 45.3384623247515,
             "lng": -75.9382204550184,
             "address": "425 prom. Terry Fox Dr",
-            "phone": "613-591-6098"
+            "phone": "613-591-6098",
+            "eqaoScore": 86
           },
           {
             "name": "Katimavik Elementary School",
@@ -4062,7 +4190,8 @@
             "lat": 45.30974514890199,
             "lng": -75.88962524351096,
             "address": "64 prom. Chimo Dr",
-            "phone": "613-592-5462"
+            "phone": "613-592-5462",
+            "eqaoScore": 63
           },
           {
             "name": "Blue Sky School",
@@ -4072,7 +4201,8 @@
             "lat": 45.2893395776763,
             "lng": -75.87145046310565,
             "address": "95  cour Denzil Doyle Crt.",
-            "phone": "613-884-5437"
+            "phone": "613-884-5437",
+            "eqaoScore": null
           },
           {
             "name": "Cedar Ridge High School",
@@ -4082,7 +4212,8 @@
             "lat": 45.2848915278649,
             "lng": -75.87455505150733,
             "address": "275 prom. Michael Cowpland Dr.",
-            "phone": "613-592-9019"
+            "phone": "613-592-9019",
+            "eqaoScore": null
           },
           {
             "name": "Kanata Montessori",
@@ -4092,7 +4223,8 @@
             "lat": 45.28467153946381,
             "lng": -75.87699402421612,
             "address": "355 prom. Micheal Cowpland Dr",
-            "phone": "613-592-2189"
+            "phone": "613-592-2189",
+            "eqaoScore": null
           },
           {
             "name": "OSA Private School",
@@ -4102,7 +4234,8 @@
             "lat": 45.297440857925054,
             "lng": -75.90878523233953,
             "address": "1565 ch. Maple Grove Rd",
-            "phone": "+16135913580"
+            "phone": "+16135913580",
+            "eqaoScore": null
           },
           {
             "name": "A.Y. Jackson Secondary School",
@@ -4112,7 +4245,8 @@
             "lat": 45.29512403920361,
             "lng": -75.87987506596106,
             "address": "150 prom. Abbeyhill Dr",
-            "phone": "613-836-2527"
+            "phone": "613-836-2527",
+            "eqaoScore": 77
           },
           {
             "name": "Earl Of March Secondary School",
@@ -4122,7 +4256,8 @@
             "lat": 45.32268094459175,
             "lng": -75.89425879057738,
             "address": "4 The Parkway",
-            "phone": "613-592-3361"
+            "phone": "613-592-3361",
+            "eqaoScore": 85
           },
           {
             "name": "Saint-Rémi Catholic Elementary School",
@@ -4132,7 +4267,8 @@
             "lat": 45.32734853562565,
             "lng": -75.92288918744039,
             "address": "100 prom. Walden Dr",
-            "phone": "613-741-2360"
+            "phone": "613-741-2360",
+            "eqaoScore": null
           },
           {
             "name": "Roger-Saint-Denis Catholic Elementary School",
@@ -4142,7 +4278,8 @@
             "lat": 45.31139815366275,
             "lng": -75.88240172502135,
             "address": "186 crois. Barrow Cres",
-            "phone": "613-521-3815"
+            "phone": "613-521-3815",
+            "eqaoScore": null
           },
           {
             "name": "Beaverbrook Math Academy",
@@ -4152,7 +4289,8 @@
             "lat": 45.32891460028336,
             "lng": -75.90089050075444,
             "address": "1002 Beaverbrook Road",
-            "phone": "+1-613-435-6284"
+            "phone": "+1-613-435-6284",
+            "eqaoScore": null
           },
           {
             "name": "Kumon Math and Reading Centre of Kanata - North",
@@ -4162,7 +4300,8 @@
             "lat": 45.33044284537396,
             "lng": -75.90023239587562,
             "address": "1023 Teron Road",
-            "phone": "+16132700440"
+            "phone": "+16132700440",
+            "eqaoScore": null
           },
           {
             "name": "Universe DanceArt",
@@ -4172,7 +4311,8 @@
             "lat": 45.295898800581206,
             "lng": -75.89009692551045,
             "address": "484 Hazeldean Rd",
-            "phone": "+16137000743"
+            "phone": "+16137000743",
+            "eqaoScore": null
           },
           {
             "name": "Fast Forward French",
@@ -4182,7 +4322,8 @@
             "lat": 45.28749990621778,
             "lng": -75.8734567146471,
             "address": "150 Terence Matthews Crescent",
-            "phone": "+16135994226"
+            "phone": "+16135994226",
+            "eqaoScore": null
           },
           {
             "name": "The Loft School Of Art & Dance",
@@ -4192,7 +4333,8 @@
             "lat": 45.285906135354374,
             "lng": -75.87390318542818,
             "address": "215 Terence Matthews Crescent",
-            "phone": "+16132712757"
+            "phone": "+16132712757",
+            "eqaoScore": null
           },
           {
             "name": "Kumon Math and Reading Centre of Kanata - South",
@@ -4202,7 +4344,8 @@
             "lat": 45.3010828169433,
             "lng": -75.88220959155174,
             "address": "430 Hazeldean Road",
-            "phone": "+16139630362"
+            "phone": "+16139630362",
+            "eqaoScore": null
           },
           {
             "name": "School Of Modern Dance Kanata",
@@ -4212,9 +4355,12 @@
             "lat": 45.288683200210315,
             "lng": -75.87135139959106,
             "address": "65 Denzil Doyle Court",
-            "phone": "+16134122063"
+            "phone": "+16134122063",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 79,
+        "schoolsWithEqaoScores": 16,
         "libraries": 2,
         "librariesList": [
           "Beaverbrook",
@@ -4279,6 +4425,7 @@
       "population": 41614,
       "medianIncome": 128000,
       "avgRent": 2250,
+      "avgHomePrice": 764223,
       "details": {
         "parks": 117,
         "parksList": [
@@ -5573,6 +5720,8 @@
           }
         ],
         "schools": 26,
+        "elementarySchools": 16,
+        "secondarySchools": 5,
         "schoolsList": [
           "St. Stephen School",
           "Guardian Angels School",
@@ -5610,7 +5759,8 @@
             "lat": 45.274682292864675,
             "lng": -75.93129014573921,
             "address": "1145 rue Stittsville Main St",
-            "phone": "613-831-8844"
+            "phone": "613-831-8844",
+            "eqaoScore": 86
           },
           {
             "name": "Guardian Angels School",
@@ -5620,7 +5770,8 @@
             "lat": 45.24889718583784,
             "lng": -75.90621462500059,
             "address": "4 prom. Baywood Dr",
-            "phone": "613-836-7423"
+            "phone": "613-836-7423",
+            "eqaoScore": 80
           },
           {
             "name": "Holy Spirit School",
@@ -5630,7 +5781,8 @@
             "lat": 45.26387185670019,
             "lng": -75.92592868481492,
             "address": "1383 rue Stittsville Main St",
-            "phone": "613-831-1853"
+            "phone": "613-831-1853",
+            "eqaoScore": 79
           },
           {
             "name": "Sacred Heart High School",
@@ -5640,7 +5792,8 @@
             "lat": 45.26368197161011,
             "lng": -75.91011755068685,
             "address": "5870 rue Abbott St",
-            "phone": "613-831-6643"
+            "phone": "613-831-6643",
+            "eqaoScore": 83
           },
           {
             "name": "Jack Donohue Public School",
@@ -5650,7 +5803,8 @@
             "lat": 45.35375299447341,
             "lng": -75.94197233078629,
             "address": "101 rue Penrith St",
-            "phone": "613-271-9776"
+            "phone": "613-271-9776",
+            "eqaoScore": 76
           },
           {
             "name": "South March Public School",
@@ -5660,7 +5814,8 @@
             "lat": 45.3573010719769,
             "lng": -75.92759076033,
             "address": "1032 ch. Klondike Rd",
-            "phone": "613-595-0543"
+            "phone": "613-595-0543",
+            "eqaoScore": 73
           },
           {
             "name": "Westwind Public School",
@@ -5670,7 +5825,8 @@
             "lat": 45.24661117030955,
             "lng": -75.90698713841569,
             "address": "111 prom. Hartsmere Dr",
-            "phone": "613-831-7840"
+            "phone": "613-831-7840",
+            "eqaoScore": 75
           },
           {
             "name": "A. Lorne Cassidy Elementary School",
@@ -5680,7 +5836,8 @@
             "lat": 45.26258226432462,
             "lng": -75.93317828678713,
             "address": "27 rue Hobin St",
-            "phone": "613-831-3434"
+            "phone": "613-831-3434",
+            "eqaoScore": 75
           },
           {
             "name": "Stittsville Public School",
@@ -5690,7 +5847,8 @@
             "lat": 45.271015266885264,
             "lng": -75.90852066501361,
             "address": "40 prom. Granite Ridge Dr",
-            "phone": "613-836-2818"
+            "phone": "613-836-2818",
+            "eqaoScore": 64
           },
           {
             "name": "Frederick Banting Secondary Alternate Program",
@@ -5700,7 +5858,8 @@
             "lat": 45.26067448496764,
             "lng": -75.92241344236086,
             "address": "1453 rue Stittsville Main St",
-            "phone": "613-591-7678"
+            "phone": "613-591-7678",
+            "eqaoScore": null
           },
           {
             "name": "Shingwàkons Public School",
@@ -5710,7 +5869,8 @@
             "lat": 45.27224414159661,
             "lng": -75.88018699875695,
             "address": "480 Prom. Cope Dr",
-            "phone": "613-828-4736"
+            "phone": "613-828-4736",
+            "eqaoScore": 60
           },
           {
             "name": "March Academy",
@@ -5720,7 +5880,8 @@
             "lat": 45.354770027766094,
             "lng": -75.92708708303503,
             "address": "325 ch. Sandhill Rd",
-            "phone": "613-592-3398"
+            "phone": "613-592-3398",
+            "eqaoScore": null
           },
           {
             "name": "Kanata Academy",
@@ -5730,7 +5891,8 @@
             "lat": 45.292497669629235,
             "lng": -75.9240972786654,
             "address": "180 prom. Huntmar Drive",
-            "phone": "613-599-5399"
+            "phone": "613-599-5399",
+            "eqaoScore": null
           },
           {
             "name": "St. Bernadette School",
@@ -5740,7 +5902,8 @@
             "lat": 45.270384483817615,
             "lng": -75.88506525858485,
             "address": "60 rue Defence St",
-            "phone": "+16139074122"
+            "phone": "+16139074122",
+            "eqaoScore": 79
           },
           {
             "name": "Grande-Ourse Public Elementary School",
@@ -5750,7 +5913,8 @@
             "lat": 45.34867254638503,
             "lng": -75.93632808649875,
             "address": "1385 terr. Halton Terrasse",
-            "phone": "+16132701043"
+            "phone": "+16132701043",
+            "eqaoScore": null
           },
           {
             "name": "Maplewood Secondary School",
@@ -5760,7 +5924,8 @@
             "lat": 45.267316103324255,
             "lng": -75.8909177718811,
             "address": "700 Cope Drive",
-            "phone": "613-270-1688"
+            "phone": "613-270-1688",
+            "eqaoScore": null
           },
           {
             "name": "Catholic High School Paul Desmarais",
@@ -5770,7 +5935,8 @@
             "lat": 45.27401986102939,
             "lng": -75.89700993413561,
             "address": "5315 rue. Abbott St E",
-            "phone": "613-744-2618"
+            "phone": "613-744-2618",
+            "eqaoScore": 86
           },
           {
             "name": "Saint-Jean-Paul II Catholic Elementary School",
@@ -5780,7 +5946,8 @@
             "lat": 45.27054344021316,
             "lng": -75.90288165161598,
             "address": "5473 rue Abbott St Est / East",
-            "phone": "613-521-7858"
+            "phone": "613-521-7858",
+            "eqaoScore": null
           },
           {
             "name": "Kumon Math and Reading Centre of Stittsville",
@@ -5790,7 +5957,8 @@
             "lat": 45.265535427182,
             "lng": -75.93041049834501,
             "address": "108-1300 1300 Stittsville Main St Unit 108, ",
-            "phone": "+16138312577"
+            "phone": "+16138312577",
+            "eqaoScore": 64
           },
           {
             "name": "Kanata Music Centre",
@@ -5800,7 +5968,8 @@
             "lat": 45.34105143811271,
             "lng": -75.90300422853315,
             "address": "121-105 Schneider Road",
-            "phone": "+16135192552"
+            "phone": "+16135192552",
+            "eqaoScore": null
           },
           {
             "name": "Franco Langues",
@@ -5810,7 +5979,8 @@
             "lat": 45.34068794599467,
             "lng": -75.90324431676754,
             "address": "105 Schneider Road",
-            "phone": "+16132621822"
+            "phone": "+16132621822",
+            "eqaoScore": null
           },
           {
             "name": "Music for Young Children",
@@ -5820,7 +5990,8 @@
             "lat": 45.33667986318595,
             "lng": -75.90437001002313,
             "address": "1240 Teron Road",
-            "phone": "+18005611692"
+            "phone": "+18005611692",
+            "eqaoScore": null
           },
           {
             "name": "Peak Centre Academy",
@@ -5830,7 +6001,8 @@
             "lat": 45.35297534292904,
             "lng": -75.91487580727089,
             "address": "340 prom. Terry Fox Dr Unit 100, ",
-            "phone": "613-737-7325"
+            "phone": "613-737-7325",
+            "eqaoScore": null
           },
           {
             "name": "Oxford Learning Kanata",
@@ -5840,7 +6012,8 @@
             "lat": 45.33479388732758,
             "lng": -75.90766689179455,
             "address": "226-329 March Road",
-            "phone": "+16138018132"
+            "phone": "+16138018132",
+            "eqaoScore": null
           },
           {
             "name": "The Portia Learning Centre - ABA Therapy",
@@ -5850,7 +6023,8 @@
             "lat": 45.33575711514615,
             "lng": -75.91096063485237,
             "address": "50 Steacie Drive",
-            "phone": "+16135919966"
+            "phone": "+16135919966",
+            "eqaoScore": null
           },
           {
             "name": "Zida Academy",
@@ -5860,9 +6034,12 @@
             "lat": 45.256766918419935,
             "lng": -75.92191192731079,
             "address": "1 Henry Goulburn Way",
-            "phone": "+16138363636"
+            "phone": "+16138363636",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 75,
+        "schoolsWithEqaoScores": 13,
         "libraries": 1,
         "librariesList": [
           "Stittsville"
@@ -5915,6 +6092,7 @@
       "population": 50079,
       "medianIncome": 83000,
       "avgRent": 1850,
+      "avgHomePrice": 733415,
       "details": {
         "parks": 44,
         "parksList": [
@@ -6406,6 +6584,8 @@
           }
         ],
         "schools": 20,
+        "elementarySchools": 12,
+        "secondarySchools": 5,
         "schoolsList": [
           "St. Patrick's High School",
           "Ridgemont High School",
@@ -6437,7 +6617,8 @@
             "lat": 45.37823990626085,
             "lng": -75.66005903890571,
             "address": "2525 prom. Alta Vista Dr",
-            "phone": "613-733-0501"
+            "phone": "613-733-0501",
+            "eqaoScore": 57
           },
           {
             "name": "Ridgemont High School",
@@ -6447,7 +6628,8 @@
             "lat": 45.376132291147684,
             "lng": -75.65913904907043,
             "address": "2597 prom. Alta Vista Dr",
-            "phone": "613-733-4860"
+            "phone": "613-733-4860",
+            "eqaoScore": 41
           },
           {
             "name": "Vincent Massey Public School",
@@ -6457,7 +6639,8 @@
             "lat": 45.40056635872666,
             "lng": -75.63665354467076,
             "address": "745 ch. Smyth Rd",
-            "phone": "613-733-5955"
+            "phone": "613-733-5955",
+            "eqaoScore": 67
           },
           {
             "name": "Canterbury High School",
@@ -6467,7 +6650,8 @@
             "lat": 45.388031685654404,
             "lng": -75.62601428202628,
             "address": "900 av. Canterbury Ave",
-            "phone": "613-731-1191"
+            "phone": "613-731-1191",
+            "eqaoScore": 80
           },
           {
             "name": "Arch Street Public School",
@@ -6477,7 +6661,8 @@
             "lat": 45.39184284555296,
             "lng": -75.63018305962932,
             "address": "2129 rue Arch St",
-            "phone": "613-733-0205"
+            "phone": "613-733-0205",
+            "eqaoScore": 31
           },
           {
             "name": "Hillcrest High School",
@@ -6487,7 +6672,8 @@
             "lat": 45.39834452553892,
             "lng": -75.63913973552583,
             "address": "1900 ch. Dauphin Rd",
-            "phone": "613-733-1755"
+            "phone": "613-733-1755",
+            "eqaoScore": 60
           },
           {
             "name": "Alta Vista Public School",
@@ -6497,7 +6683,8 @@
             "lat": 45.383855033021504,
             "lng": -75.66523181229783,
             "address": "1349 av. Randall  Ave",
-            "phone": "613-733-7124"
+            "phone": "613-733-7124",
+            "eqaoScore": 67
           },
           {
             "name": "Clifford Bowey Public School",
@@ -6507,7 +6694,8 @@
             "lat": 45.36769305395377,
             "lng": -75.65687657285709,
             "address": "1300 av. Kitchener Ave",
-            "phone": "613-737-4401"
+            "phone": "613-737-4401",
+            "eqaoScore": null
           },
           {
             "name": "Charles H. Hulse Public School",
@@ -6517,7 +6705,8 @@
             "lat": 45.37468147147397,
             "lng": -75.66007970644546,
             "address": "2605 prom. Alta Vista Dr",
-            "phone": "613-521-8535"
+            "phone": "613-521-8535",
+            "eqaoScore": 39
           },
           {
             "name": "Hawthorne Public School",
@@ -6527,7 +6716,8 @@
             "lat": 45.392297853926124,
             "lng": -75.6202652232097,
             "address": "2158 boul. St. Laurent Blvd",
-            "phone": "613-733-6221"
+            "phone": "613-733-6221",
+            "eqaoScore": 26
           },
           {
             "name": "Ahlul-Bayt Islamic School",
@@ -6537,7 +6727,8 @@
             "lat": 45.3704423605022,
             "lng": -75.65050146464431,
             "address": "3025 ch. Albion Rd N",
-            "phone": "(613) 526-0774"
+            "phone": "(613) 526-0774",
+            "eqaoScore": null
           },
           {
             "name": "Westboro Academy",
@@ -6547,7 +6738,8 @@
             "lat": 45.37392414579593,
             "lng": -75.6746958791247,
             "address": "1000  ch. Brookfield Rd E",
-            "phone": "613-737-9543"
+            "phone": "613-737-9543",
+            "eqaoScore": null
           },
           {
             "name": "Prince Of Peace School",
@@ -6557,7 +6749,8 @@
             "lat": 45.373823433312346,
             "lng": -75.6454538651988,
             "address": "1620 ch. Heatherington Rd",
-            "phone": "613-731-4733"
+            "phone": "613-731-4733",
+            "eqaoScore": 50
           },
           {
             "name": "St. Luke School",
@@ -6567,7 +6760,8 @@
             "lat": 45.39481747052758,
             "lng": -75.61505045806965,
             "address": "2485 crois. Dwight Cr",
-            "phone": "613-731-3541"
+            "phone": "613-731-3541",
+            "eqaoScore": 88
           },
           {
             "name": "Marius-Barbeau Catholic Elementary School",
@@ -6577,7 +6771,8 @@
             "lat": 45.37153814012271,
             "lng": -75.65672934616853,
             "address": "1345 av. Nottinghill Ave",
-            "phone": "613-737-4404"
+            "phone": "613-737-4404",
+            "eqaoScore": 67
           },
           {
             "name": "Sainte-Geneviève Catholic Elementary School",
@@ -6587,7 +6782,8 @@
             "lat": 45.39012013440039,
             "lng": -75.63140296370032,
             "address": "2198 rue Arch St",
-            "phone": "613-733-9729"
+            "phone": "613-733-9729",
+            "eqaoScore": 73
           },
           {
             "name": "Lamoureux Catholic Elementary School - Individualized Instruction",
@@ -6597,7 +6793,8 @@
             "lat": 45.37387783963229,
             "lng": -75.67167210855585,
             "address": "2540 av. Kaladar Ave",
-            "phone": "613-731-3713"
+            "phone": "613-731-3713",
+            "eqaoScore": null
           },
           {
             "name": "Franco-Cité Catholic Secondary School",
@@ -6607,7 +6804,8 @@
             "lat": 45.40042489806127,
             "lng": -75.64174179917107,
             "address": "623 ch. Smyth Rd",
-            "phone": "613-521-4999"
+            "phone": "613-521-4999",
+            "eqaoScore": 77
           },
           {
             "name": "École Alanwar School",
@@ -6617,7 +6815,8 @@
             "lat": 45.37562728829542,
             "lng": -75.6675145787585,
             "address": "1644 Bank Street",
-            "phone": "+16137332222"
+            "phone": "+16137332222",
+            "eqaoScore": null
           },
           {
             "name": "Kumon Math and Reading Centre of Ottawa - Alta Vista",
@@ -6627,9 +6826,12 @@
             "lat": 45.38073210355761,
             "lng": -75.67036174862731,
             "address": "1500 Bank Street",
-            "phone": "+16136274891"
+            "phone": "+16136274891",
+            "eqaoScore": 67
           }
         ],
+        "avgEqaoScore": 59,
+        "schoolsWithEqaoScores": 15,
         "libraries": 2,
         "librariesList": [
           "Alta Vista",
@@ -6692,6 +6894,7 @@
       "population": 30964,
       "medianIncome": 64000,
       "avgRent": 1800,
+      "avgHomePrice": 558092,
       "details": {
         "parks": 28,
         "parksList": [
@@ -7007,6 +7210,8 @@
           }
         ],
         "schools": 14,
+        "elementarySchools": 9,
+        "secondarySchools": 3,
         "schoolsList": [
           "M.F. McHugh Education Centre",
           "Viscount Alexander Public School",
@@ -7032,7 +7237,8 @@
             "lat": 45.42915938127089,
             "lng": -75.64855361886765,
             "address": "437 rue Donald St",
-            "phone": "613-747-6885"
+            "phone": "613-747-6885",
+            "eqaoScore": null
           },
           {
             "name": "Viscount Alexander Public School",
@@ -7042,7 +7248,8 @@
             "lat": 45.420256684001515,
             "lng": -75.67503052312762,
             "address": "55 av. Mann Ave",
-            "phone": "613-239-2213"
+            "phone": "613-239-2213",
+            "eqaoScore": 66
           },
           {
             "name": "Ottawa Technical Secondary School",
@@ -7052,7 +7259,8 @@
             "lat": 45.4295419496396,
             "lng": -75.64634735383491,
             "address": "485 rue Donald St",
-            "phone": "613-745-0347"
+            "phone": "613-745-0347",
+            "eqaoScore": 17
           },
           {
             "name": "Queen Mary Street Public School",
@@ -7062,7 +7270,8 @@
             "lat": 45.42628210401959,
             "lng": -75.64240925910526,
             "address": "557 rue Queen Mary St",
-            "phone": "613-749-1692"
+            "phone": "613-749-1692",
+            "eqaoScore": 30
           },
           {
             "name": "Queen Elizabeth Public School",
@@ -7072,7 +7281,8 @@
             "lat": 45.43821974815197,
             "lng": -75.64438888727665,
             "address": "689 boul. St. Laurent Blvd",
-            "phone": "613-746-3246"
+            "phone": "613-746-3246",
+            "eqaoScore": 48
           },
           {
             "name": "Providence Academy Antonine Sisters",
@@ -7082,7 +7292,8 @@
             "lat": 45.42731080267203,
             "lng": -75.64847280552638,
             "address": "998 rue Frances Street",
-            "phone": "613-744-8489"
+            "phone": "613-744-8489",
+            "eqaoScore": null
           },
           {
             "name": "St-Laurent Academy ",
@@ -7092,7 +7303,8 @@
             "lat": 45.440365223519414,
             "lng": -75.64326434386466,
             "address": "641 641 av. Sladen Ave",
-            "phone": "613-842-8047"
+            "phone": "613-842-8047",
+            "eqaoScore": null
           },
           {
             "name": "VINCI School",
@@ -7102,7 +7314,8 @@
             "lat": 45.42574549500756,
             "lng": -75.65803482644846,
             "address": "149 rue King George Street",
-            "phone": "613-842-7557"
+            "phone": "613-842-7557",
+            "eqaoScore": null
           },
           {
             "name": "Our Lady Of Mount Carmel School",
@@ -7112,7 +7325,8 @@
             "lat": 45.43479991588016,
             "lng": -75.63581946521766,
             "address": "675 ch. Gardenvale Rd",
-            "phone": "613-745-4884"
+            "phone": "613-745-4884",
+            "eqaoScore": 71
           },
           {
             "name": "St. Michael, Ottawa School",
@@ -7122,7 +7336,8 @@
             "lat": 45.429159681985645,
             "lng": -75.64861790230938,
             "address": "437 rue Donald St",
-            "phone": "613-749-1642"
+            "phone": "613-749-1642",
+            "eqaoScore": 74
           },
           {
             "name": "Francojeunesse Public Elementary School",
@@ -7132,7 +7347,8 @@
             "lat": 45.424755987382305,
             "lng": -75.6806264533242,
             "address": "119 rue Osgoode St",
-            "phone": "613-232-0020"
+            "phone": "613-232-0020",
+            "eqaoScore": 86
           },
           {
             "name": "Continuing Education",
@@ -7142,7 +7358,8 @@
             "lat": 45.427890109990685,
             "lng": -75.66123142928471,
             "address": "181 rue Donald St",
-            "phone": "613-741-2304"
+            "phone": "613-741-2304",
+            "eqaoScore": null
           },
           {
             "name": "Storefront School",
@@ -7152,7 +7369,8 @@
             "lat": 45.4205252809984,
             "lng": -75.64140369755263,
             "address": "1400 St-Laurent Boulevard",
-            "phone": "+1-613-749-9550"
+            "phone": "+1-613-749-9550",
+            "eqaoScore": null
           },
           {
             "name": "Our Lady of Mount Carmel School",
@@ -7162,9 +7380,12 @@
             "lat": 45.428228950861886,
             "lng": -75.65890599374639,
             "address": "225 Donald St",
-            "phone": "+1-819-328-7265"
+            "phone": "+1-819-328-7265",
+            "eqaoScore": 71
           }
         ],
+        "avgEqaoScore": 58,
+        "schoolsWithEqaoScores": 8,
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
@@ -7207,6 +7428,7 @@
       "population": 142973,
       "medianIncome": 112000,
       "avgRent": 2200,
+      "avgHomePrice": 700000,
       "details": {
         "parks": 201,
         "parksList": [
@@ -9425,6 +9647,8 @@
           }
         ],
         "schools": 64,
+        "elementarySchools": 49,
+        "secondarySchools": 15,
         "schoolsList": [
           "St. Peter High School",
           "St. Kateri Tekakwitha School",
@@ -9500,7 +9724,8 @@
             "lat": 45.47515567411176,
             "lng": -75.47696382929996,
             "address": "750 boul. Charlemagne Blvd",
-            "phone": "613-837-9377"
+            "phone": "613-837-9377",
+            "eqaoScore": 70
           },
           {
             "name": "St. Kateri Tekakwitha School",
@@ -9510,7 +9735,8 @@
             "lat": 45.4585245604862,
             "lng": -75.5234928662466,
             "address": "6400 prom. Beausejour Dr",
-            "phone": "613-830-2454"
+            "phone": "613-830-2454",
+            "eqaoScore": 79
           },
           {
             "name": "Chapel Hill Catholic School",
@@ -9520,7 +9746,8 @@
             "lat": 45.451926866171284,
             "lng": -75.54046878651477,
             "address": "1534 prom. Forest Valley Dr",
-            "phone": "613-837-3773"
+            "phone": "613-837-3773",
+            "eqaoScore": 86
           },
           {
             "name": "Convent Glen Catholic School",
@@ -9530,7 +9757,8 @@
             "lat": 45.473293943887626,
             "lng": -75.54752514469968,
             "address": "6212 boul. Jeanne D'arc Blvd",
-            "phone": "613-824-8541"
+            "phone": "613-824-8541",
+            "eqaoScore": 85
           },
           {
             "name": "St. Francis of Assisi School",
@@ -9540,7 +9768,8 @@
             "lat": 45.478913247289306,
             "lng": -75.47973872790755,
             "address": "795 ch. Watters Rd",
-            "phone": "613-830-3215"
+            "phone": "613-830-3215",
+            "eqaoScore": 77
           },
           {
             "name": "Lester B. Pearson Catholic High School",
@@ -9550,7 +9779,8 @@
             "lat": 45.44348211382835,
             "lng": -75.59593556287172,
             "address": "2072 crois. Jasmine  Cr",
-            "phone": "613-741-4525"
+            "phone": "613-741-4525",
+            "eqaoScore": 59
           },
           {
             "name": "St. Matthew High School",
@@ -9560,7 +9790,8 @@
             "lat": 45.4803468905286,
             "lng": -75.53254150806865,
             "address": "6550 prom. Bilberry Dr",
-            "phone": "613-837-3161"
+            "phone": "613-837-3161",
+            "eqaoScore": 71
           },
           {
             "name": "St. Theresa School",
@@ -9570,7 +9801,8 @@
             "lat": 45.463659347950674,
             "lng": -75.46731948407032,
             "address": "2000 boul. Portobello Blvd",
-            "phone": "613-837-4114"
+            "phone": "613-837-4114",
+            "eqaoScore": 73
           },
           {
             "name": "St. Clare School",
@@ -9580,7 +9812,8 @@
             "lat": 45.46931971655021,
             "lng": -75.47444611835822,
             "address": "2133 prom. Gardenway Dr",
-            "phone": "613-834-6334"
+            "phone": "613-834-6334",
+            "eqaoScore": 66
           },
           {
             "name": "St. Dominic School",
@@ -9590,7 +9823,8 @@
             "lat": 45.45092224693615,
             "lng": -75.46988177929794,
             "address": "2300 prom. Esprit Dr",
-            "phone": "613-424-3760"
+            "phone": "613-424-3760",
+            "eqaoScore": 76
           },
           {
             "name": "Thomas D'Arcy McGee Catholic School",
@@ -9600,7 +9834,8 @@
             "lat": 45.45414598584632,
             "lng": -75.60434690300028,
             "address": "635 prom. La Verendrye Dr",
-            "phone": "613-749-2251"
+            "phone": "613-749-2251",
+            "eqaoScore": 66
           },
           {
             "name": "Henry Munro Middle School",
@@ -9610,7 +9845,8 @@
             "lat": 45.45793895592978,
             "lng": -75.5963235443446,
             "address": "2105 av. Kender Ave",
-            "phone": "613-748-0060"
+            "phone": "613-748-0060",
+            "eqaoScore": 60
           },
           {
             "name": "Glen Ogilvie Public School",
@@ -9620,7 +9856,8 @@
             "lat": 45.43471267312888,
             "lng": -75.57065952378862,
             "address": "46 prom. Centre Park Dr",
-            "phone": "613-824-4014"
+            "phone": "613-824-4014",
+            "eqaoScore": 69
           },
           {
             "name": "Maple Ridge Elementary School",
@@ -9630,7 +9867,8 @@
             "lat": 45.47093010829749,
             "lng": -75.46154245890233,
             "address": "1000 rue Valin St",
-            "phone": "613-834-1927"
+            "phone": "613-834-1927",
+            "eqaoScore": 82
           },
           {
             "name": "Norman Johnston Secondary Alternate Program",
@@ -9640,7 +9878,8 @@
             "lat": 45.43682507976549,
             "lng": -75.54905336135597,
             "address": "2401 crois. Cleroux Cr",
-            "phone": "613-841-7510"
+            "phone": "613-841-7510",
+            "eqaoScore": null
           },
           {
             "name": "Avalon Public School",
@@ -9650,7 +9889,8 @@
             "lat": 45.45821655864218,
             "lng": -75.46653827226832,
             "address": "2080 boul. Portobello Blvd",
-            "phone": "613-834-7313"
+            "phone": "613-834-7313",
+            "eqaoScore": 58
           },
           {
             "name": "Trillium Elementary School",
@@ -9660,7 +9900,8 @@
             "lat": 45.47947768586696,
             "lng": -75.47264030970273,
             "address": "1515 boul. Varennes Blvd",
-            "phone": "613-841-7393"
+            "phone": "613-841-7393",
+            "eqaoScore": 63
           },
           {
             "name": "Terry Fox Elementary School",
@@ -9670,7 +9911,8 @@
             "lat": 45.477854586663916,
             "lng": -75.5398122959085,
             "address": "6400 boul. Jeanne D'Arc Blvd",
-            "phone": "613-837-3251"
+            "phone": "613-837-3251",
+            "eqaoScore": 73
           },
           {
             "name": "Cairine Wilson Secondary School",
@@ -9680,7 +9922,8 @@
             "lat": 45.482354713672976,
             "lng": -75.53994064719629,
             "address": "975 boul. Orléans Blvd",
-            "phone": "613-824-4411"
+            "phone": "613-824-4411",
+            "eqaoScore": 66
           },
           {
             "name": "Colonel By Secondary School",
@@ -9690,7 +9933,8 @@
             "lat": 45.45506765976251,
             "lng": -75.6002535129142,
             "address": "2381 ch. Ogilvie Rd",
-            "phone": "613-745-9411"
+            "phone": "613-745-9411",
+            "eqaoScore": 87
           },
           {
             "name": "Sir Wilfrid Laurier Secondary School",
@@ -9700,7 +9944,8 @@
             "lat": 45.47319867542351,
             "lng": -75.4938820247263,
             "address": "1515 ch. Tenth Line Rd",
-            "phone": "613-834-4500"
+            "phone": "613-834-4500",
+            "eqaoScore": 67
           },
           {
             "name": "Carson Grove Elementary School",
@@ -9710,7 +9955,8 @@
             "lat": 45.43693088977177,
             "lng": -75.62274324478558,
             "address": "1401 ch. Matheson Rd",
-            "phone": "613-745-0195"
+            "phone": "613-745-0195",
+            "eqaoScore": 19
           },
           {
             "name": "Gloucester High School",
@@ -9720,7 +9966,8 @@
             "lat": 45.43875176202551,
             "lng": -75.59886353081045,
             "address": "2060 ch. Ogilvie Rd",
-            "phone": "613-745-7176"
+            "phone": "613-745-7176",
+            "eqaoScore": 43
           },
           {
             "name": "Robert Hopkins Public School",
@@ -9730,7 +9977,8 @@
             "lat": 45.45706297152065,
             "lng": -75.60454371130261,
             "address": "2011 av. Glenfern Ave",
-            "phone": "613-745-2119"
+            "phone": "613-745-2119",
+            "eqaoScore": 63
           },
           {
             "name": "Convent Glen Elementary School",
@@ -9740,7 +9988,8 @@
             "lat": 45.46986363216339,
             "lng": -75.53654578887178,
             "address": "1708 prom. Grey Nuns Dr",
-            "phone": "613-824-8177"
+            "phone": "613-824-8177",
+            "eqaoScore": 33
           },
           {
             "name": "Dunning-Foubert Elementary School",
@@ -9750,7 +9999,8 @@
             "lat": 45.466949942150364,
             "lng": -75.4986220697646,
             "address": "1610 prom. Prestwick Dr",
-            "phone": "613-824-5800"
+            "phone": "613-824-5800",
+            "eqaoScore": 55
           },
           {
             "name": "Emily Carr Middle School",
@@ -9760,7 +10010,8 @@
             "lat": 45.4344560399776,
             "lng": -75.56262035029238,
             "address": "2681 ch. Innes Rd",
-            "phone": "613-824-5455"
+            "phone": "613-824-5455",
+            "eqaoScore": 65
           },
           {
             "name": "Summerside Public School",
@@ -9770,7 +10021,8 @@
             "lat": 45.45065407627647,
             "lng": -75.46318590695168,
             "address": "2350 boul. Portobello Blvd",
-            "phone": "613-424-3208"
+            "phone": "613-424-3208",
+            "eqaoScore": 68
           },
           {
             "name": "Forest Valley Elementary School",
@@ -9780,7 +10032,8 @@
             "lat": 45.44930532630047,
             "lng": -75.53816666315639,
             "address": "1570 prom. Forest Valley Dr",
-            "phone": "613-824-0733"
+            "phone": "613-824-0733",
+            "eqaoScore": 67
           },
           {
             "name": "Henry Larsen Elementary School",
@@ -9790,7 +10043,8 @@
             "lat": 45.460210899547576,
             "lng": -75.51259358175155,
             "address": "1750 prom. Sunview Dr",
-            "phone": "613-830-4634"
+            "phone": "613-830-4634",
+            "eqaoScore": 63
           },
           {
             "name": "Le Phare Elementary School",
@@ -9800,7 +10054,8 @@
             "lat": 45.449661137188635,
             "lng": -75.60273015467779,
             "address": "1965 prom. Naskapi Dr",
-            "phone": "613-744-2597"
+            "phone": "613-744-2597",
+            "eqaoScore": 62
           },
           {
             "name": "Orleans Wood Elementary School",
@@ -9810,7 +10065,8 @@
             "lat": 45.48338193337153,
             "lng": -75.52839742335613,
             "address": "7859 prom. Decarie Dr",
-            "phone": "613-837-4622"
+            "phone": "613-837-4622",
+            "eqaoScore": 83
           },
           {
             "name": "Le Prélude Public Elementary School",
@@ -9820,7 +10076,8 @@
             "lat": 45.437578099583426,
             "lng": -75.53022640764765,
             "address": "6025 prom. Longleaf Dr",
-            "phone": "613-834-8411"
+            "phone": "613-834-8411",
+            "eqaoScore": null
           },
           {
             "name": "Des Sentiers Public Elementary School",
@@ -9830,7 +10087,8 @@
             "lat": 45.45931999708634,
             "lng": -75.4611022951929,
             "address": "2159 rue Nantes St",
-            "phone": "613-837-9726"
+            "phone": "613-837-9726",
+            "eqaoScore": null
           },
           {
             "name": "Séraphin-Marion Public Elementary School",
@@ -9840,7 +10098,8 @@
             "lat": 45.45250592962857,
             "lng": -75.59265623867252,
             "address": "2147 av. Loyola Ave",
-            "phone": "613-748-7636"
+            "phone": "613-748-7636",
+            "eqaoScore": 89
           },
           {
             "name": "Jeanne-Sauvé Public Elementary School",
@@ -9850,7 +10109,8 @@
             "lat": 45.46561087725828,
             "lng": -75.485026588064,
             "address": "1917 prom. Gardenway Dr",
-            "phone": "613-824-8160"
+            "phone": "613-824-8160",
+            "eqaoScore": null
           },
           {
             "name": "Louis-Riel Public High School",
@@ -9860,7 +10120,8 @@
             "lat": 45.44154744343464,
             "lng": -75.57152777605344,
             "address": "1655 ch. Bearbrook Rd",
-            "phone": "613-590-2233"
+            "phone": "613-590-2233",
+            "eqaoScore": null
           },
           {
             "name": "Orléans Montessori",
@@ -9870,7 +10131,8 @@
             "lat": 45.43331416602413,
             "lng": -75.53045590474484,
             "address": "2820 ch. Navan Rd",
-            "phone": "+16132162507"
+            "phone": "+16132162507",
+            "eqaoScore": null
           },
           {
             "name": "Ottawa Victory Christian Academy",
@@ -9880,7 +10142,8 @@
             "lat": 45.47507457309189,
             "lng": -75.52372191418615,
             "address": "1080 rue St. Pierre St",
-            "phone": "343-880-4004"
+            "phone": "343-880-4004",
+            "eqaoScore": null
           },
           {
             "name": "Good Shepherd Catholic School",
@@ -9890,7 +10153,8 @@
             "lat": 45.43309269193663,
             "lng": -75.56433959099891,
             "address": "101 ch. Bearbrook Rd",
-            "phone": "613-824-4531"
+            "phone": "613-824-4531",
+            "eqaoScore": 54
           },
           {
             "name": "Our Lady Of Wisdom School",
@@ -9900,7 +10164,8 @@
             "lat": 45.46741617185537,
             "lng": -75.50083503622936,
             "address": "1565 rue St. George St",
-            "phone": "613-824-9700"
+            "phone": "613-824-9700",
+            "eqaoScore": 71
           },
           {
             "name": "St. Brother André Catholic School",
@@ -9910,7 +10175,8 @@
             "lat": 45.443733837752376,
             "lng": -75.59962814803421,
             "address": "1923 prom. Elmridge Dr",
-            "phone": "613-741-0100"
+            "phone": "613-741-0100",
+            "eqaoScore": null
           },
           {
             "name": "L'Odyssée Public Elementary School",
@@ -9920,7 +10186,8 @@
             "lat": 45.46860435780855,
             "lng": -75.53545184746824,
             "address": "1770 prom. Grey Nuns Dr",
-            "phone": "613-834-2097"
+            "phone": "613-834-2097",
+            "eqaoScore": null
           },
           {
             "name": "MacSkimming Outdoor Ed. Centre",
@@ -9930,7 +10197,8 @@
             "lat": 45.52295869196568,
             "lng": -75.34854646053435,
             "address": "3635 Hwy 174",
-            "phone": "613-833-2080"
+            "phone": "613-833-2080",
+            "eqaoScore": null
           },
           {
             "name": "Alain-Fortin Catholic Elementary School",
@@ -9940,7 +10208,8 @@
             "lat": 45.44746494950038,
             "lng": -75.4740331736019,
             "address": "676 prom. Lakeridge Dr",
-            "phone": "613-749-7454"
+            "phone": "613-749-7454",
+            "eqaoScore": null
           },
           {
             "name": "Béatrice-Desloges Catholic High School",
@@ -9950,7 +10219,8 @@
             "lat": 45.468429531318826,
             "lng": -75.45784651404067,
             "address": "1999 av. Provence Ave",
-            "phone": "613-820-3391"
+            "phone": "613-820-3391",
+            "eqaoScore": null
           },
           {
             "name": "Catholic Elementary School Rainbow Sky",
@@ -9960,7 +10230,8 @@
             "lat": 45.47143516083394,
             "lng": -75.47067938984543,
             "address": "1830 boul. Portobello Blvd",
-            "phone": "613-744-0486"
+            "phone": "613-744-0486",
+            "eqaoScore": null
           },
           {
             "name": "La Source Individualized Instruction Catholic Elementary School",
@@ -9970,7 +10241,8 @@
             "lat": 45.47254601392309,
             "lng": -75.50821409351884,
             "address": "1445 prom. Duford Dr",
-            "phone": "613-744-8346"
+            "phone": "613-744-8346",
+            "eqaoScore": null
           },
           {
             "name": "Catholic Elementary School Reine des Bois",
@@ -9980,7 +10252,8 @@
             "lat": 45.472082201559374,
             "lng": -75.50962767167015,
             "address": "1450 rue Duford St",
-            "phone": "613-744-8647"
+            "phone": "613-744-8647",
+            "eqaoScore": null
           },
           {
             "name": "Sainte-Marie Catholic Elementary School",
@@ -9990,7 +10263,8 @@
             "lat": 45.431835640514024,
             "lng": -75.56605322531972,
             "address": "2599 ch. Innes Rd",
-            "phone": "613-745-2722"
+            "phone": "613-745-2722",
+            "eqaoScore": null
           },
           {
             "name": "Montfort Catholic Elementary School",
@@ -10000,7 +10274,8 @@
             "lat": 45.44063097924817,
             "lng": -75.63031082431722,
             "address": "350 rue Den Haag Rd",
-            "phone": "613-745-3310"
+            "phone": "613-745-3310",
+            "eqaoScore": 80
           },
           {
             "name": "Catholic Elementary School Voyageurs",
@@ -10010,7 +10285,8 @@
             "lat": 45.47362068448755,
             "lng": -75.55244725938145,
             "address": "6030 prom. Voyageur Dr",
-            "phone": "613-744-8345"
+            "phone": "613-744-8345",
+            "eqaoScore": null
           },
           {
             "name": "Catholic Elementary School La Verendrye",
@@ -10020,7 +10296,8 @@
             "lat": 45.46049085324146,
             "lng": -75.59764226399517,
             "address": "614 prom. Eastvale Dr",
-            "phone": "613-749-2349"
+            "phone": "613-749-2349",
+            "eqaoScore": null
           },
           {
             "name": "Catholic elementary school -Star Eastern Townships ",
@@ -10030,7 +10307,8 @@
             "lat": 45.45688344887395,
             "lng": -75.53246824955889,
             "address": "6220 prom. Beauséjour Dr",
-            "phone": "613-744-5713"
+            "phone": "613-744-5713",
+            "eqaoScore": null
           },
           {
             "name": "Notre-Dame-des-Champs Elementary Public School",
@@ -10040,7 +10318,8 @@
             "lat": 45.432656421399145,
             "lng": -75.50913515414595,
             "address": "6280 chemin Renaud Rd",
-            "phone": "613-741-5813"
+            "phone": "613-741-5813",
+            "eqaoScore": 78
           },
           {
             "name": "Garneau Catholic High School",
@@ -10050,7 +10329,8 @@
             "lat": 45.4650780922633,
             "lng": -75.5250667748115,
             "address": "6588 rue Carrière St",
-            "phone": "613-820-1750"
+            "phone": "613-820-1750",
+            "eqaoScore": null
           },
           {
             "name": "Saint-Joseph d'Orléans Catholic Elementary School",
@@ -10060,7 +10340,8 @@
             "lat": 45.46575052838212,
             "lng": -75.52161503695983,
             "address": "6664 rue Carrière St",
-            "phone": "613-745-7968"
+            "phone": "613-745-7968",
+            "eqaoScore": 77
           },
           {
             "name": "Samuel-Genest Catholic College Secondary School",
@@ -10070,7 +10351,8 @@
             "lat": 45.44273866604375,
             "lng": -75.63031054224622,
             "address": "704 ch. Carson's Rd",
-            "phone": "613-744-8344"
+            "phone": "613-744-8344",
+            "eqaoScore": 80
           },
           {
             "name": "Catholic Elementary School Pioneer",
@@ -10080,7 +10362,8 @@
             "lat": 45.47372099231886,
             "lng": -75.48161095979181,
             "address": "720 prom. Merkley Dr",
-            "phone": "613-744-2448"
+            "phone": "613-744-2448",
+            "eqaoScore": null
           },
           {
             "name": "Catholic High School of Innovation",
@@ -10090,7 +10373,8 @@
             "lat": 45.4400151509371,
             "lng": -75.62542586575225,
             "address": "801 prom Aviation Parkway, Building J",
-            "phone": "613-842-5319"
+            "phone": "613-842-5319",
+            "eqaoScore": null
           },
           {
             "name": "Catholic Elementary School Discovery",
@@ -10100,7 +10384,8 @@
             "lat": 45.46514132308896,
             "lng": -75.46141368450803,
             "address": "866 av. Scala Ave",
-            "phone": "613-744-5894"
+            "phone": "613-744-5894",
+            "eqaoScore": null
           },
           {
             "name": "Catholic Elementary School Our Place",
@@ -10110,7 +10395,8 @@
             "lat": 45.44703724145699,
             "lng": -75.48521636974418,
             "address": "665 prom. des Aubépine Dr ",
-            "phone": "613-744-1486"
+            "phone": "613-744-1486",
+            "eqaoScore": null
           },
           {
             "name": "School Of Rock",
@@ -10120,7 +10406,8 @@
             "lat": 45.46520560724802,
             "lng": -75.53885833089085,
             "address": "2003 St. Joseph Boulevard",
-            "phone": "+16138418118"
+            "phone": "+16138418118",
+            "eqaoScore": null
           },
           {
             "name": "Beva Learning Institute",
@@ -10130,9 +10417,12 @@
             "lat": 45.461711799257024,
             "lng": -75.48602819074117,
             "address": "4473 Innes Rd",
-            "phone": "+16136931250"
+            "phone": "+16136931250",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 68,
+        "schoolsWithEqaoScores": 38,
         "libraries": 4,
         "librariesList": [
           "Blackburn Hamlet",
@@ -10212,6 +10502,7 @@
       "population": 61261,
       "medianIncome": 115000,
       "avgRent": 2385,
+      "avgHomePrice": 748553,
       "details": {
         "parks": 115,
         "parksList": [
@@ -11484,6 +11775,8 @@
           }
         ],
         "schools": 38,
+        "elementarySchools": 23,
+        "secondarySchools": 7,
         "schoolsList": [
           "St. Emily School",
           "St. Elizabeth Ann Seton School",
@@ -11533,7 +11826,8 @@
             "lat": 45.271498955800446,
             "lng": -75.72465522910348,
             "address": "500 prom. Chapman Mills Dr",
-            "phone": "613-825-4300"
+            "phone": "613-825-4300",
+            "eqaoScore": null
           },
           {
             "name": "St. Elizabeth Ann Seton School",
@@ -11543,7 +11837,8 @@
             "lat": 45.27111617367244,
             "lng": -75.769471989982,
             "address": "41 prom. Weybridge Dr",
-            "phone": "613-825-3596"
+            "phone": "613-825-3596",
+            "eqaoScore": 81
           },
           {
             "name": "St. Joseph High School",
@@ -11553,7 +11848,8 @@
             "lat": 45.26262918000597,
             "lng": -75.74091597542113,
             "address": "3333 ch. Greenbank Road",
-            "phone": "613-823-4797"
+            "phone": "613-823-4797",
+            "eqaoScore": 77
           },
           {
             "name": "St. Mother Teresa High School",
@@ -11563,7 +11859,8 @@
             "lat": 45.28498724749651,
             "lng": -75.7394172899815,
             "address": "440 prom. Longfields Dr",
-            "phone": "613-823-1663"
+            "phone": "613-823-1663",
+            "eqaoScore": 77
           },
           {
             "name": "St. Patrick School",
@@ -11573,7 +11870,8 @@
             "lat": 45.283537020186245,
             "lng": -75.76083313982963,
             "address": "68 prom. Larkin Dr",
-            "phone": "613-825-4012"
+            "phone": "613-825-4012",
+            "eqaoScore": 75
           },
           {
             "name": "Monsignor Paul Baxter School",
@@ -11583,7 +11881,8 @@
             "lat": 45.28087610481096,
             "lng": -75.72850803778005,
             "address": "333 prom. Beatrice Dr.",
-            "phone": "613-825-7544"
+            "phone": "613-825-7544",
+            "eqaoScore": 70
           },
           {
             "name": "St. Cecilia School",
@@ -11593,7 +11892,8 @@
             "lat": 45.25410030716505,
             "lng": -75.73212777316627,
             "address": "3490 ch. Cambrian Rd",
-            "phone": "613-692-6164"
+            "phone": "613-692-6164",
+            "eqaoScore": null
           },
           {
             "name": "St. Benedict School",
@@ -11603,7 +11903,8 @@
             "lat": 45.241649268851816,
             "lng": -75.73513454581331,
             "address": "2525 ch. River Mist Rd",
-            "phone": "613-692-1005"
+            "phone": "613-692-1005",
+            "eqaoScore": 84
           },
           {
             "name": "Chapman Mills Public School",
@@ -11613,7 +11914,8 @@
             "lat": 45.26863504139052,
             "lng": -75.73092134831612,
             "address": "260 man Leamington Way",
-            "phone": "613-823-3336"
+            "phone": "613-823-3336",
+            "eqaoScore": 76
           },
           {
             "name": "Berrigan Elementary School",
@@ -11623,7 +11925,8 @@
             "lat": 45.28045430836844,
             "lng": -75.73813522788272,
             "address": "199 prom. Berrigan Dr",
-            "phone": "613-825-0092"
+            "phone": "613-825-0092",
+            "eqaoScore": 73
           },
           {
             "name": "John McCrae Secondary School",
@@ -11633,7 +11936,8 @@
             "lat": 45.27927172576785,
             "lng": -75.762284407697,
             "address": "103 prom. Malvern Dr",
-            "phone": "613-823-0367"
+            "phone": "613-823-0367",
+            "eqaoScore": 73
           },
           {
             "name": "Mary Honeywell Elementary School",
@@ -11643,7 +11947,8 @@
             "lat": 45.26890198034034,
             "lng": -75.76714209340996,
             "address": "54 prom. Kennevale Dr",
-            "phone": "613-825-4834"
+            "phone": "613-825-4834",
+            "eqaoScore": 75
           },
           {
             "name": "Barrhaven Public School",
@@ -11653,7 +11958,8 @@
             "lat": 45.281000563772444,
             "lng": -75.76403355421765,
             "address": "80 prom. Larkin  Dr",
-            "phone": "613-825-2691"
+            "phone": "613-825-2691",
+            "eqaoScore": 75
           },
           {
             "name": "Jockvale Elementary School",
@@ -11663,7 +11969,8 @@
             "lat": 45.27938571372215,
             "lng": -75.7601600591367,
             "address": "101 prom. Malvern Dr",
-            "phone": "613-825-1224"
+            "phone": "613-825-1224",
+            "eqaoScore": 60
           },
           {
             "name": "Vimy Ridge Public School",
@@ -11673,7 +11980,8 @@
             "lat": 45.31680502284282,
             "lng": -75.60153327712247,
             "address": "4180 prom. Kelly Farm Dr",
-            "phone": "613-425-4400"
+            "phone": "613-425-4400",
+            "eqaoScore": 61
           },
           {
             "name": "Longfields-Davidson Heights Secondary School",
@@ -11683,7 +11991,8 @@
             "lat": 45.27973175386278,
             "lng": -75.74039891233012,
             "address": "149 prom. Berrigan Dr",
-            "phone": "613-843-7722"
+            "phone": "613-843-7722",
+            "eqaoScore": 74
           },
           {
             "name": "Cedarview Middle School",
@@ -11693,7 +12002,8 @@
             "lat": 45.277287591865196,
             "lng": -75.78021933792147,
             "address": "2760 ch. Cedarview Rd",
-            "phone": "613-825-2185"
+            "phone": "613-825-2185",
+            "eqaoScore": null
           },
           {
             "name": "Half Moon Bay Public School",
@@ -11703,7 +12013,8 @@
             "lat": 45.25292263739117,
             "lng": -75.746267884559,
             "address": "3525 av. River Run Ave",
-            "phone": "613-692-5454"
+            "phone": "613-692-5454",
+            "eqaoScore": 70
           },
           {
             "name": "Michaëlle-Jean Public Elementary School",
@@ -11713,7 +12024,8 @@
             "lat": 45.28803187749747,
             "lng": -75.72630273753792,
             "address": "11 prom. Claridge Dr",
-            "phone": "613-823-2288"
+            "phone": "613-823-2288",
+            "eqaoScore": null
           },
           {
             "name": "École Secondaire Publique Pierre-de-Blois",
@@ -11723,7 +12035,8 @@
             "lat": 45.262329716924974,
             "lng": -75.75898503759224,
             "address": "1310 prom. Chapman Mills Drive",
-            "phone": "613-825-4232"
+            "phone": "613-825-4232",
+            "eqaoScore": null
           },
           {
             "name": "Educara Montessori Child Care",
@@ -11733,7 +12046,8 @@
             "lat": 45.26102630844641,
             "lng": -75.76691873989098,
             "address": "275 prom. Tartan Dr",
-            "phone": "613-702-1116"
+            "phone": "613-702-1116",
+            "eqaoScore": null
           },
           {
             "name": "Ottawa Christian School",
@@ -11743,7 +12057,8 @@
             "lat": 45.26145363459244,
             "lng": -75.7653029680372,
             "address": "255 prom. Tartan Dr",
-            "phone": "613-825-3000"
+            "phone": "613-825-3000",
+            "eqaoScore": null
           },
           {
             "name": "St. Luke School",
@@ -11753,7 +12068,8 @@
             "lat": 45.29115023898367,
             "lng": -75.73513721830128,
             "address": "60 prom. Mountshannon Dr",
-            "phone": "613-825-2520"
+            "phone": "613-825-2520",
+            "eqaoScore": 88
           },
           {
             "name": "St. Juan Diego School",
@@ -11763,7 +12079,8 @@
             "lat": 45.249037479711454,
             "lng": -75.7595275760064,
             "address": "135 voie Main Halyard Ln",
-            "phone": "+16136916318"
+            "phone": "+16136916318",
+            "eqaoScore": 75
           },
           {
             "name": "St. Veronica School",
@@ -11773,7 +12090,8 @@
             "lat": 45.31769942571586,
             "lng": -75.60374326836701,
             "address": "4140 prom. Kelly Farm Dr",
-            "phone": "+13432925484"
+            "phone": "+13432925484",
+            "eqaoScore": null
           },
           {
             "name": "Mino Mikan Elementary School",
@@ -11783,7 +12101,8 @@
             "lat": 45.310799086132484,
             "lng": -75.59554643874178,
             "address": "820 Miikana Road",
-            "phone": "613-783-8607"
+            "phone": "613-783-8607",
+            "eqaoScore": null
           },
           {
             "name": "Pierre-Savard Catholic Secondary School",
@@ -11793,7 +12112,8 @@
             "lat": 45.27275899190164,
             "lng": -75.73678290585065,
             "address": "1110 prom Longfields Dr",
-            "phone": "613-820-7293"
+            "phone": "613-820-7293",
+            "eqaoScore": null
           },
           {
             "name": "Catholic Elementary School St. Kateri",
@@ -11803,7 +12123,8 @@
             "lat": 45.24533097352075,
             "lng": -75.73601814309983,
             "address": "2450 ch. River Mist Road",
-            "phone": "613-741-6754"
+            "phone": "613-741-6754",
+            "eqaoScore": 79
           },
           {
             "name": "Pierre-Elliott-Trudeau Catholic Elementary School",
@@ -11813,7 +12134,8 @@
             "lat": 45.28561926883239,
             "lng": -75.74380826497173,
             "address": "601 prom. Longfields Drive",
-            "phone": "613-521-1560"
+            "phone": "613-521-1560",
+            "eqaoScore": null
           },
           {
             "name": "Jean-Robert-Gauthier Catholic Elementary School",
@@ -11823,7 +12145,8 @@
             "lat": 45.270327652154656,
             "lng": -75.73136935880954,
             "address": "651 prom Chapman Mills Dr",
-            "phone": "613-820-0757"
+            "phone": "613-820-0757",
+            "eqaoScore": 92
           },
           {
             "name": "UCMAS Abacus & Mental Math School",
@@ -11833,7 +12156,8 @@
             "lat": 45.284854725511494,
             "lng": -75.7450555317263,
             "address": "1303-605 Longfields Dr",
-            "phone": ""
+            "phone": "",
+            "eqaoScore": null
           },
           {
             "name": "Nepean School of Music",
@@ -11843,7 +12167,8 @@
             "lat": 45.28527447937023,
             "lng": -75.75664916722357,
             "address": "900 Greenbank Road",
-            "phone": "+16138250557"
+            "phone": "+16138250557",
+            "eqaoScore": 82
           },
           {
             "name": "Barrhaven Music Acadamy",
@@ -11853,7 +12178,8 @@
             "lat": 45.29265972952991,
             "lng": -75.72914745949761,
             "address": "2900 Woodroffe Avenue",
-            "phone": "+1-613-459-6027"
+            "phone": "+1-613-459-6027",
+            "eqaoScore": 75
           },
           {
             "name": "Canadian School of Dance",
@@ -11863,7 +12189,8 @@
             "lat": 45.285839424205854,
             "lng": -75.75734900333893,
             "address": "35 Larkin Drive",
-            "phone": "+1-613-825-0907"
+            "phone": "+1-613-825-0907",
+            "eqaoScore": null
           },
           {
             "name": "Barrhaven STEM Learning Centre",
@@ -11873,7 +12200,8 @@
             "lat": 45.26972031066086,
             "lng": -75.75409849529741,
             "address": "1 Tartan Drive",
-            "phone": "+1-613-825-2100"
+            "phone": "+1-613-825-2100",
+            "eqaoScore": 75
           },
           {
             "name": "HiMark Occupational Skills Training Centre",
@@ -11883,7 +12211,8 @@
             "lat": 45.31101771348707,
             "lng": -75.62666040876911,
             "address": "2508 Del Zotto Avenue",
-            "phone": "+16138220188"
+            "phone": "+16138220188",
+            "eqaoScore": null
           },
           {
             "name": "Kumon Math and Reading Centre of Ottawa - Barrhaven",
@@ -11893,7 +12222,8 @@
             "lat": 45.2857123226001,
             "lng": -75.75617442286728,
             "address": "896 Greenbank Road",
-            "phone": "+1-613-825-4040"
+            "phone": "+1-613-825-4040",
+            "eqaoScore": 75
           },
           {
             "name": "MasterZ Studio",
@@ -11903,9 +12233,12 @@
             "lat": 45.31548646987647,
             "lng": -75.61422634272967,
             "address": "256 Gracewood Crescent",
-            "phone": "+16135210708"
+            "phone": "+16135210708",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 76,
+        "schoolsWithEqaoScores": 23,
         "libraries": 1,
         "librariesList": [
           "Ruth E. Dickinson"
@@ -11956,6 +12289,7 @@
       "population": 15856,
       "medianIncome": 95000,
       "avgRent": 2000,
+      "avgHomePrice": 439190,
       "details": {
         "parks": 7,
         "parksList": [
@@ -12040,6 +12374,8 @@
           }
         ],
         "schools": 4,
+        "elementarySchools": 4,
+        "secondarySchools": 0,
         "schoolsList": [
           "St. Rose of Lima School",
           "Bayshore Public School",
@@ -12055,7 +12391,8 @@
             "lat": 45.350685290823726,
             "lng": -75.80685656361184,
             "address": "50 prom. Bayshore Dr",
-            "phone": "613-828-5158"
+            "phone": "613-828-5158",
+            "eqaoScore": 67
           },
           {
             "name": "Bayshore Public School",
@@ -12065,7 +12402,8 @@
             "lat": 45.349732558795544,
             "lng": -75.81044597007745,
             "address": "145 crois. Woodridge  Cr",
-            "phone": "613-828-8698"
+            "phone": "613-828-8698",
+            "eqaoScore": 43
           },
           {
             "name": "Dr. F. J. McDonald Catholic School",
@@ -12075,7 +12413,8 @@
             "lat": 45.36012510894653,
             "lng": -75.80099753483485,
             "address": "2860 av. Ahearn Ave",
-            "phone": "613-829-3878"
+            "phone": "613-829-3878",
+            "eqaoScore": null
           },
           {
             "name": "Regina Street Alternative School",
@@ -12085,9 +12424,12 @@
             "lat": 45.3667271274058,
             "lng": -75.79029508828653,
             "address": "2599 rue Regina St",
-            "phone": "613-829-8777"
+            "phone": "613-829-8777",
+            "eqaoScore": 42
           }
         ],
+        "avgEqaoScore": 51,
+        "schoolsWithEqaoScores": 3,
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
@@ -12125,6 +12467,7 @@
       "population": 14202,
       "medianIncome": 111000,
       "avgRent": 1800,
+      "avgHomePrice": 551607,
       "details": {
         "parks": 26,
         "parksList": [
@@ -12418,6 +12761,8 @@
           }
         ],
         "schools": 9,
+        "elementarySchools": 6,
+        "secondarySchools": 3,
         "schoolsList": [
           "St. John the Apostle School",
           "Bell High School",
@@ -12438,7 +12783,8 @@
             "lat": 45.33390290167492,
             "lng": -75.7935622492968,
             "address": "30 av. Costello Ave",
-            "phone": "613-828-0644"
+            "phone": "613-828-0644",
+            "eqaoScore": 78
           },
           {
             "name": "Bell High School",
@@ -12448,7 +12794,8 @@
             "lat": 45.32641442696761,
             "lng": -75.8095120240159,
             "address": "40 ch. Cassidy Rd",
-            "phone": "613-828-9101"
+            "phone": "613-828-9101",
+            "eqaoScore": 60
           },
           {
             "name": "Bells Corners Public School",
@@ -12458,7 +12805,8 @@
             "lat": 45.32471747175961,
             "lng": -75.82524859797539,
             "address": "3770 ch. Old Richmond Rd",
-            "phone": "613-828-3100"
+            "phone": "613-828-3100",
+            "eqaoScore": 56
           },
           {
             "name": "Briargreen Public School",
@@ -12468,7 +12816,8 @@
             "lat": 45.33778904947714,
             "lng": -75.77751377488076,
             "address": "19 crois. Parkfield Cr",
-            "phone": "613-828-5027"
+            "phone": "613-828-5027",
+            "eqaoScore": 65
           },
           {
             "name": "Tarbiyah Learning Academy",
@@ -12478,7 +12827,8 @@
             "lat": 45.311613122822756,
             "lng": -75.82843260553302,
             "address": "3990 ch. Old Richmond Rd",
-            "phone": "613-421-1700"
+            "phone": "613-421-1700",
+            "eqaoScore": null
           },
           {
             "name": "Our Lady Of Peace School",
@@ -12488,7 +12838,8 @@
             "lat": 45.32131708430487,
             "lng": -75.82695983738765,
             "address": "3877 ch. Old Richmond Rd",
-            "phone": "613-828-4037"
+            "phone": "613-828-4037",
+            "eqaoScore": 71
           },
           {
             "name": "Mamawi Public Elementary School",
@@ -12498,7 +12849,8 @@
             "lat": 45.33681943301316,
             "lng": -75.78811850179414,
             "address": "20 rue Harrison St",
-            "phone": "613-596-2130"
+            "phone": "613-596-2130",
+            "eqaoScore": null
           },
           {
             "name": "Catholic College Franco-Ouest",
@@ -12508,7 +12860,8 @@
             "lat": 45.31490754891434,
             "lng": -75.83444005575791,
             "address": "411 prom. Seyton Dr",
-            "phone": "613-820-2920"
+            "phone": "613-820-2920",
+            "eqaoScore": null
           },
           {
             "name": "First Aid 4U Training Ottawa West",
@@ -12518,9 +12871,12 @@
             "lat": 45.32494162237841,
             "lng": -75.8237067745375,
             "address": "205-1956 Robertson Road",
-            "phone": "+16137025385"
+            "phone": "+16137025385",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 66,
+        "schoolsWithEqaoScores": 5,
         "libraries": 1,
         "librariesList": [
           "Centennial"
@@ -12571,6 +12927,7 @@
       "population": 29869,
       "medianIncome": 84000,
       "avgRent": 1700,
+      "avgHomePrice": 600000,
       "details": {
         "parks": 28,
         "parksList": [
@@ -12886,6 +13243,8 @@
           }
         ],
         "schools": 17,
+        "elementarySchools": 9,
+        "secondarySchools": 3,
         "schoolsList": [
           "St. Gregory School",
           "St. Elizabeth School",
@@ -12914,7 +13273,8 @@
             "lat": 45.343687230587975,
             "lng": -75.75105305017739,
             "address": "148 rue Meadowlands Dr W",
-            "phone": "613-224-3011"
+            "phone": "613-224-3011",
+            "eqaoScore": 75
           },
           {
             "name": "St. Elizabeth School",
@@ -12924,7 +13284,8 @@
             "lat": 45.38195332941933,
             "lng": -75.7365198935085,
             "address": "1366 av. Coldrey Ave",
-            "phone": "613-728-4744"
+            "phone": "613-728-4744",
+            "eqaoScore": 62
           },
           {
             "name": "W.E. Gowling Public School",
@@ -12934,7 +13295,8 @@
             "lat": 45.382457099052004,
             "lng": -75.73186991266228,
             "address": "250 av. Anna Ave",
-            "phone": "613-728-3537"
+            "phone": "613-728-3537",
+            "eqaoScore": 59
           },
           {
             "name": "Carleton Heights Public School",
@@ -12944,7 +13306,8 @@
             "lat": 45.36092844449885,
             "lng": -75.70104045256015,
             "address": "1660 prom. Prince Of Wales Dr",
-            "phone": "613-224-7922"
+            "phone": "613-224-7922",
+            "eqaoScore": 32
           },
           {
             "name": "Meadowlands Public School",
@@ -12954,7 +13317,8 @@
             "lat": 45.34490422497252,
             "lng": -75.73676955598721,
             "address": "10 rue Fieldrow St",
-            "phone": "613-224-1733"
+            "phone": "613-224-1733",
+            "eqaoScore": 45
           },
           {
             "name": "Abraar School",
@@ -12964,7 +13328,8 @@
             "lat": 45.34402587319821,
             "lng": -75.73988675404055,
             "address": "70 rue Fieldrow St",
-            "phone": "613-226-1396"
+            "phone": "613-226-1396",
+            "eqaoScore": null
           },
           {
             "name": "Revel Academy",
@@ -12974,7 +13339,8 @@
             "lat": 45.37679762842798,
             "lng": -75.74389993175826,
             "address": "100-1550 ave. Laperriere Ave",
-            "phone": "+16137002132"
+            "phone": "+16137002132",
+            "eqaoScore": null
           },
           {
             "name": "Ottawa Islamic School",
@@ -12984,7 +13350,8 @@
             "lat": 45.3652264075208,
             "lng": -75.72202130580835,
             "address": "10 rue Coral St",
-            "phone": "613-727-5066"
+            "phone": "613-727-5066",
+            "eqaoScore": null
           },
           {
             "name": "St. Pius X Catholic Elementary School & High School",
@@ -12994,7 +13361,8 @@
             "lat": 45.36551408172301,
             "lng": -75.71252371655005,
             "address": "1481 av. Fisher Ave",
-            "phone": "613-225-8105"
+            "phone": "613-225-8105",
+            "eqaoScore": 69
           },
           {
             "name": "St. Nicholas Adult High School",
@@ -13004,7 +13372,8 @@
             "lat": 45.384291021957054,
             "lng": -75.72904257669661,
             "address": "893 av. Admiral Ave",
-            "phone": "613-228-8888"
+            "phone": "613-228-8888",
+            "eqaoScore": 10
           },
           {
             "name": "Elizabeth Wyn Wood Alternate Program (Nepean)",
@@ -13014,7 +13383,8 @@
             "lat": 45.35321105654758,
             "lng": -75.73708930412607,
             "address": "20 av. Rossland Ave",
-            "phone": "613-225-8826"
+            "phone": "613-225-8826",
+            "eqaoScore": null
           },
           {
             "name": "Ottawa Torah Institute",
@@ -13024,7 +13394,8 @@
             "lat": 45.38046090006363,
             "lng": -75.73901520046707,
             "address": "1400 Coldrey Avenue",
-            "phone": "+1-613-244-9119"
+            "phone": "+1-613-244-9119",
+            "eqaoScore": null
           },
           {
             "name": "Academie De Formation Linguistique",
@@ -13034,7 +13405,8 @@
             "lat": 45.37801399980134,
             "lng": -75.74276020052976,
             "address": "1505 Laperriere Avenue",
-            "phone": "+16137226539"
+            "phone": "+16137226539",
+            "eqaoScore": null
           },
           {
             "name": "TheFirstAidGuy.ca",
@@ -13044,7 +13416,8 @@
             "lat": 45.351180995109026,
             "lng": -75.734479069405,
             "address": "1580 Merivale Road",
-            "phone": "+16132252727"
+            "phone": "+16132252727",
+            "eqaoScore": null
           },
           {
             "name": "Ottawa Chito-Kai Karate School Inc",
@@ -13054,7 +13427,8 @@
             "lat": 45.36982935052936,
             "lng": -75.7500588397367,
             "address": "1794 Courtwood Crescent",
-            "phone": "+16132336333"
+            "phone": "+16132336333",
+            "eqaoScore": null
           },
           {
             "name": "Kumon Math and Reading Centre of Ottawa - Merivale",
@@ -13064,7 +13438,8 @@
             "lat": 45.356382720170565,
             "lng": -75.73758963070502,
             "address": "1508 Merivale Road",
-            "phone": "+16135196966"
+            "phone": "+16135196966",
+            "eqaoScore": 82
           },
           {
             "name": "West End Academy",
@@ -13074,9 +13449,12 @@
             "lat": 45.34559031752268,
             "lng": -75.73153962279356,
             "address": "150-1642 Merivale Road",
-            "phone": "+16138281818"
+            "phone": "+16138281818",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 54,
+        "schoolsWithEqaoScores": 8,
         "libraries": 1,
         "librariesList": [
           "Emerald Plaza"
@@ -13130,6 +13508,7 @@
       "population": 51319,
       "medianIncome": 90000,
       "avgRent": 1750,
+      "avgHomePrice": 714238,
       "details": {
         "parks": 65,
         "parksList": [
@@ -13852,6 +14231,8 @@
           }
         ],
         "schools": 17,
+        "elementarySchools": 14,
+        "secondarySchools": 0,
         "schoolsList": [
           "St. Thomas More School",
           "St. Marguerite d'Youville School",
@@ -13880,7 +14261,8 @@
             "lat": 45.374728614365544,
             "lng": -75.60619510944224,
             "address": "1620 prom. Blohm Dr",
-            "phone": "613-739-7131"
+            "phone": "613-739-7131",
+            "eqaoScore": 67
           },
           {
             "name": "St. Marguerite d'Youville School",
@@ -13890,7 +14272,8 @@
             "lat": 45.367628281914236,
             "lng": -75.62541191222094,
             "address": "89 prom. Lorry Greenberg Dr",
-            "phone": "613-737-1141"
+            "phone": "613-737-1141",
+            "eqaoScore": 73
           },
           {
             "name": "Holy Family School",
@@ -13900,7 +14283,8 @@
             "lat": 45.35353119195994,
             "lng": -75.66323814525519,
             "address": "245 prom. Owl Dr",
-            "phone": "613-521-0475"
+            "phone": "613-521-0475",
+            "eqaoScore": 60
           },
           {
             "name": "St. Bernard School",
@@ -13910,7 +14294,8 @@
             "lat": 45.351298152195746,
             "lng": -75.62492063886341,
             "address": "1722 rue St. Bernard St",
-            "phone": "613-521-5894"
+            "phone": "613-521-5894",
+            "eqaoScore": 67
           },
           {
             "name": "Blossom Park Public School",
@@ -13920,7 +14305,8 @@
             "lat": 45.35076182578469,
             "lng": -75.62357418911834,
             "address": "3810 rue Sixth St",
-            "phone": "613-521-4299"
+            "phone": "613-521-4299",
+            "eqaoScore": 29
           },
           {
             "name": "Robert Bateman Public School",
@@ -13930,7 +14316,8 @@
             "lat": 45.368614038177434,
             "lng": -75.62034087123813,
             "address": "1250 prom. Blohm Dr",
-            "phone": "613-737-3169"
+            "phone": "613-737-3169",
+            "eqaoScore": 45
           },
           {
             "name": "Roberta Bondar Public School",
@@ -13940,7 +14327,8 @@
             "lat": 45.366178897644865,
             "lng": -75.62745289083466,
             "address": "159 prom. Lorry Greenberg Dr",
-            "phone": "613-736-7334"
+            "phone": "613-736-7334",
+            "eqaoScore": 61
           },
           {
             "name": "Bayview Public School",
@@ -13950,7 +14338,8 @@
             "lat": 45.35527649576761,
             "lng": -75.66561166491573,
             "address": "185 prom. Owl Dr",
-            "phone": "613-733-4726"
+            "phone": "613-733-4726",
+            "eqaoScore": 75
           },
           {
             "name": "Sawmill Creek Elementary School",
@@ -13960,7 +14349,8 @@
             "lat": 45.3495291952164,
             "lng": -75.63352495597962,
             "address": "3400 av. D’Aoust Ave",
-            "phone": "613-521-5922"
+            "phone": "613-521-5922",
+            "eqaoScore": 52
           },
           {
             "name": "Dunlop Public School",
@@ -13970,7 +14360,8 @@
             "lat": 45.36094710060373,
             "lng": -75.64996875559598,
             "address": "1310 ch. Pebble Rd",
-            "phone": "613-521-4611"
+            "phone": "613-521-4611",
+            "eqaoScore": 49
           },
           {
             "name": "Fielding Drive Public School",
@@ -13980,7 +14371,8 @@
             "lat": 45.36204212119035,
             "lng": -75.67789476008853,
             "address": "777 prom. Fielding Dr",
-            "phone": "613-731-4928"
+            "phone": "613-731-4928",
+            "eqaoScore": 65
           },
           {
             "name": "Gabrielle-Roy Public Elementary School",
@@ -13990,7 +14382,8 @@
             "lat": 45.34860172590874,
             "lng": -75.63453710397991,
             "address": "3395 ave. D'Aoust Ave",
-            "phone": "613-523-8429"
+            "phone": "613-523-8429",
+            "eqaoScore": null
           },
           {
             "name": "Sainte-Bernadette Catholic Elementary School",
@@ -14000,7 +14393,8 @@
             "lat": 45.35196419952324,
             "lng": -75.62342902945328,
             "address": "3781 rue Sixth St",
-            "phone": "613-521-0875"
+            "phone": "613-521-0875",
+            "eqaoScore": 79
           },
           {
             "name": "George-Étienne-Cartier Catholic Elementary School",
@@ -14010,7 +14404,8 @@
             "lat": 45.36383246581113,
             "lng": -75.67298538621242,
             "address": "880 prom. Thorndale Dr",
-            "phone": "613-731-6007"
+            "phone": "613-731-6007",
+            "eqaoScore": 92
           },
           {
             "name": "Kumon Math and Reading Centre of Ottawa - Hunt Club",
@@ -14020,7 +14415,8 @@
             "lat": 45.36910816228409,
             "lng": -75.62086361437667,
             "address": "4 Lorry Greenberg Drive",
-            "phone": "+16138002020"
+            "phone": "+16138002020",
+            "eqaoScore": null
           },
           {
             "name": "Versailles Academy Of Make-Up Arts-Esthetics-Hair",
@@ -14030,7 +14426,8 @@
             "lat": 45.36728934946316,
             "lng": -75.66306861519476,
             "address": "1930 Bank Street",
-            "phone": "+16135214155"
+            "phone": "+16135214155",
+            "eqaoScore": null
           },
           {
             "name": "Ottawa Flying Club",
@@ -14040,9 +14437,12 @@
             "lat": 45.33494040303952,
             "lng": -75.68718285862933,
             "address": "20 Lindbergh Private",
-            "phone": "+1-613-523-2142"
+            "phone": "+1-613-523-2142",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 63,
+        "schoolsWithEqaoScores": 13,
         "libraries": 2,
         "librariesList": [
           "Greenboro",
@@ -14105,6 +14505,7 @@
       "population": 25508,
       "medianIncome": 110000,
       "avgRent": 2200,
+      "avgHomePrice": 754416,
       "details": {
         "parks": 50,
         "parksList": [
@@ -14662,6 +15063,8 @@
           }
         ],
         "schools": 11,
+        "elementarySchools": 9,
+        "secondarySchools": 2,
         "schoolsList": [
           "St. Andrew School",
           "St. Jerome School",
@@ -14684,7 +15087,8 @@
             "lat": 45.284770197188166,
             "lng": -75.7090038073481,
             "address": "201 prom. Crestway Dr",
-            "phone": "613-843-0050"
+            "phone": "613-843-0050",
+            "eqaoScore": 76
           },
           {
             "name": "St. Jerome School",
@@ -14694,7 +15098,8 @@
             "lat": 45.27672586853806,
             "lng": -75.68968371358308,
             "address": "4330 ch. Spratt Rd",
-            "phone": "613-822-1116"
+            "phone": "613-822-1116",
+            "eqaoScore": 82
           },
           {
             "name": "St. Francis Xavier High School",
@@ -14704,7 +15109,8 @@
             "lat": 45.290578659479586,
             "lng": -75.66894927809876,
             "address": "3740 ch.Spratt Rd",
-            "phone": "613-822-7900"
+            "phone": "613-822-7900",
+            "eqaoScore": 74
           },
           {
             "name": "Farley Mowat Public School",
@@ -14714,7 +15120,8 @@
             "lat": 45.2820017726888,
             "lng": -75.70861716705991,
             "address": "75 prom. Waterbridge Dr",
-            "phone": "613-825-3006"
+            "phone": "613-825-3006",
+            "eqaoScore": 67
           },
           {
             "name": "Steve MacLean Public School",
@@ -14724,7 +15131,8 @@
             "lat": 45.28150601909654,
             "lng": -75.6854249490431,
             "address": "4175 ch. Spratt Rd",
-            "phone": "613-822- 0341"
+            "phone": "613-822- 0341",
+            "eqaoScore": 73
           },
           {
             "name": "Michel-Dupuis Public Elementary School",
@@ -14734,7 +15142,8 @@
             "lat": 45.26716043120824,
             "lng": -75.6931089816766,
             "address": "715 av. Brian Good Ave",
-            "phone": "613-822-2201"
+            "phone": "613-822-2201",
+            "eqaoScore": 83
           },
           {
             "name": "St. Gianna School",
@@ -14744,7 +15153,8 @@
             "lat": 45.25894644666125,
             "lng": -75.69183370275653,
             "address": "836 ave. Solarium Ave",
-            "phone": "+13432921192"
+            "phone": "+13432921192",
+            "eqaoScore": null
           },
           {
             "name": "Adrienne Clarkson Public School",
@@ -14754,7 +15164,8 @@
             "lat": 45.28856501171975,
             "lng": -75.71660511951697,
             "address": "170 prom. Stoneway Dr.",
-            "phone": "613-825-8600"
+            "phone": "613-825-8600",
+            "eqaoScore": 70
           },
           {
             "name": "Bernard-Grandmaître Catholic Elementary School",
@@ -14764,7 +15175,8 @@
             "lat": 45.28497275424281,
             "lng": -75.6822709838435,
             "address": "4170 ch. Spratt Rd",
-            "phone": "613-820-3814"
+            "phone": "613-820-3814",
+            "eqaoScore": 83
           },
           {
             "name": "Jonathan-Pitre Catholic Elementary School",
@@ -14774,7 +15186,8 @@
             "lat": 45.27127261569468,
             "lng": -75.67970693240949,
             "address": "925 av. Ralph Hennessy Ave",
-            "phone": ""
+            "phone": "",
+            "eqaoScore": null
           },
           {
             "name": "Riverside South Secondary School",
@@ -14784,9 +15197,12 @@
             "lat": 45.27193834924714,
             "lng": -75.68864978233546,
             "address": "4601 Spratt Road",
-            "phone": "+16137876121"
+            "phone": "+16137876121",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 76,
+        "schoolsWithEqaoScores": 8,
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
@@ -14827,6 +15243,7 @@
       "population": 23082,
       "medianIncome": 123000,
       "avgRent": 2500,
+      "avgHomePrice": 1120987,
       "details": {
         "parks": 49,
         "parksList": [
@@ -15373,6 +15790,8 @@
           }
         ],
         "schools": 6,
+        "elementarySchools": 5,
+        "secondarySchools": 1,
         "schoolsList": [
           "St. Mark High School",
           "St. Mary School",
@@ -15390,7 +15809,8 @@
             "lat": 45.24401221636838,
             "lng": -75.64857939602473,
             "address": "1040 ch. Dozois Rd",
-            "phone": "613-692-2551"
+            "phone": "613-692-2551",
+            "eqaoScore": 75
           },
           {
             "name": "St. Mary School",
@@ -15400,7 +15820,8 @@
             "lat": 45.279917970949334,
             "lng": -75.57115209431343,
             "address": "5536 rue Bank St",
-            "phone": "613-822-2985"
+            "phone": "613-822-2985",
+            "eqaoScore": 71
           },
           {
             "name": "Greely Elementary School",
@@ -15410,7 +15831,8 @@
             "lat": 45.26095531516083,
             "lng": -75.5636011255297,
             "address": "7066 ch. Parkway Rd",
-            "phone": "613-821-2291"
+            "phone": "613-821-2291",
+            "eqaoScore": 60
           },
           {
             "name": "Kars on the Rideau Public School",
@@ -15420,7 +15842,8 @@
             "lat": 45.1524441894993,
             "lng": -75.65049833671047,
             "address": "6680 prom. Dorack Dr, Box10",
-            "phone": "613-489-2024"
+            "phone": "613-489-2024",
+            "eqaoScore": 71
           },
           {
             "name": "Montessori by BrightPath",
@@ -15430,7 +15853,8 @@
             "lat": 45.24489245061562,
             "lng": -75.64606311789586,
             "address": "5710 rue Longshadow St",
-            "phone": "613-692-1969"
+            "phone": "613-692-1969",
+            "eqaoScore": null
           },
           {
             "name": "North Gower/Marlborough Public School",
@@ -15440,9 +15864,12 @@
             "lat": 45.12628487469211,
             "lng": -75.71918990316941,
             "address": "2403 rue Church St, Box 130",
-            "phone": "613-489-3375"
+            "phone": "613-489-3375",
+            "eqaoScore": 76
           }
         ],
+        "avgEqaoScore": 71,
+        "schoolsWithEqaoScores": 5,
         "libraries": 2,
         "librariesList": [
           "Greely",
@@ -15502,6 +15929,7 @@
       "population": 10287,
       "medianIncome": 123000,
       "avgRent": 1800,
+      "avgHomePrice": 650000,
       "details": {
         "parks": 28,
         "parksList": [
@@ -15817,6 +16245,8 @@
           }
         ],
         "schools": 5,
+        "elementarySchools": 4,
+        "secondarySchools": 2,
         "schoolsList": [
           "Heritage Public School",
           "Gisèle-Lalonde Public High School ",
@@ -15833,7 +16263,8 @@
             "lat": 45.42150389938928,
             "lng": -75.41654534685748,
             "address": "1375 ch. Colonial Rd",
-            "phone": "613-835-1700"
+            "phone": "613-835-1700",
+            "eqaoScore": 71
           },
           {
             "name": "Gisèle-Lalonde Public High School ",
@@ -15843,7 +16274,8 @@
             "lat": 45.46885890282709,
             "lng": -75.4449475994861,
             "address": "500 boul. Millenium Blvd",
-            "phone": "613-833-0018"
+            "phone": "613-833-0018",
+            "eqaoScore": null
           },
           {
             "name": "IBN Batouta Private School",
@@ -15853,7 +16285,8 @@
             "lat": 45.370202470813894,
             "lng": -75.45704738803526,
             "address": "6479 ch. Russell Rd",
-            "phone": "613-730-6396"
+            "phone": "613-730-6396",
+            "eqaoScore": null
           },
           {
             "name": "Saint-Guillaume Catholic Elementary School",
@@ -15863,7 +16296,8 @@
             "lat": 45.35559256686885,
             "lng": -75.35390743367346,
             "address": "5750 ch. Buckland Rd",
-            "phone": "613-745-5981"
+            "phone": "613-745-5981",
+            "eqaoScore": null
           },
           {
             "name": "Canada Knowledge Academy",
@@ -15873,9 +16307,12 @@
             "lat": 45.370059796923414,
             "lng": -75.45697298597017,
             "address": "6479 Russell Rd",
-            "phone": "+16137105005"
+            "phone": "+16137105005",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 71,
+        "schoolsWithEqaoScores": 1,
         "libraries": 0,
         "librariesList": [],
         "librariesData": [],
@@ -15913,6 +16350,7 @@
       "population": 11690,
       "medianIncome": 128000,
       "avgRent": 2000,
+      "avgHomePrice": 787000,
       "details": {
         "parks": 20,
         "parksList": [
@@ -16140,6 +16578,8 @@
           }
         ],
         "schools": 3,
+        "elementarySchools": 3,
+        "secondarySchools": 0,
         "schoolsList": [
           "Stonecrest Elementary School",
           "Huntley Centennial Public School",
@@ -16154,7 +16594,8 @@
             "lat": 45.435918314400105,
             "lng": -76.11510885847478,
             "address": "3791 ch. Stonecrest Rd",
-            "phone": "613-832-5527"
+            "phone": "613-832-5527",
+            "eqaoScore": 66
           },
           {
             "name": "Huntley Centennial Public School",
@@ -16164,7 +16605,8 @@
             "lat": 45.346070060279196,
             "lng": -76.03047741493455,
             "address": "118 prom. Langstaff Dr, Box 100",
-            "phone": "613-839-2020"
+            "phone": "613-839-2020",
+            "eqaoScore": 66
           },
           {
             "name": "St. Michael, Corkery School",
@@ -16174,9 +16616,12 @@
             "lat": 45.2841343431404,
             "lng": -76.10078874446204,
             "address": "1572 ch. Corkery Rd",
-            "phone": "613-256-3672"
+            "phone": "613-256-3672",
+            "eqaoScore": 74
           }
         ],
+        "avgEqaoScore": 69,
+        "schoolsWithEqaoScores": 3,
         "libraries": 1,
         "librariesList": [
           "Carp"
@@ -16226,6 +16671,7 @@
       "population": 11239,
       "medianIncome": 128000,
       "avgRent": 2200,
+      "avgHomePrice": 720000,
       "details": {
         "parks": 25,
         "parksList": [
@@ -16508,6 +16954,8 @@
           }
         ],
         "schools": 5,
+        "elementarySchools": 2,
+        "secondarySchools": 1,
         "schoolsList": [
           "St. Isidore School",
           "St. Michael, Fitzroy School",
@@ -16524,7 +16972,8 @@
             "lat": 45.36709827507132,
             "lng": -75.94915305533239,
             "address": "1105 ch. March Rd",
-            "phone": "613-592-1798"
+            "phone": "613-592-1798",
+            "eqaoScore": 79
           },
           {
             "name": "St. Michael, Fitzroy School",
@@ -16534,7 +16983,8 @@
             "lat": 45.471577549173126,
             "lng": -76.2161186207354,
             "address": "159 rue Kedey St",
-            "phone": "613-623-3114"
+            "phone": "613-623-3114",
+            "eqaoScore": 74
           },
           {
             "name": "West Carleton Secondary School",
@@ -16544,7 +16994,8 @@
             "lat": 45.434433931004385,
             "lng": -76.03464217527161,
             "address": "3088 ch. Dunrobin Rd, RR2",
-            "phone": "613-832-2773"
+            "phone": "613-832-2773",
+            "eqaoScore": 81
           },
           {
             "name": "Bill Mason Outdoor Education Centre",
@@ -16554,7 +17005,8 @@
             "lat": 45.43752124584301,
             "lng": -76.02818038322717,
             "address": "3088 ch. Dunrobin Rd",
-            "phone": "613-833-2080"
+            "phone": "613-833-2080",
+            "eqaoScore": null
           },
           {
             "name": "March Montessori School",
@@ -16564,9 +17016,12 @@
             "lat": 45.37693859420854,
             "lng": -75.9553502009992,
             "address": "1030 Cameron Harvey Drive",
-            "phone": "+16135929244"
+            "phone": "+16135929244",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 78,
+        "schoolsWithEqaoScores": 3,
         "libraries": 2,
         "librariesList": [
           "Constance Bay",
@@ -16625,6 +17080,7 @@
       "population": 11374,
       "medianIncome": 128000,
       "avgRent": 1900,
+      "avgHomePrice": 737064,
       "details": {
         "parks": 36,
         "parksList": [
@@ -17028,6 +17484,8 @@
           }
         ],
         "schools": 7,
+        "elementarySchools": 3,
+        "secondarySchools": 3,
         "schoolsList": [
           "St. Philip School",
           "Richmond Public School",
@@ -17046,7 +17504,8 @@
             "lat": 45.18524249753278,
             "lng": -75.8358708887492,
             "address": "79 rue Maitland St. S",
-            "phone": "613-838-2466"
+            "phone": "613-838-2466",
+            "eqaoScore": 72
           },
           {
             "name": "Richmond Public School",
@@ -17056,7 +17515,8 @@
             "lat": 45.1920207893207,
             "lng": -75.83544491662461,
             "address": "3499 rue McBean St",
-            "phone": "613-838-2371"
+            "phone": "613-838-2371",
+            "eqaoScore": 72
           },
           {
             "name": "South Carleton High School",
@@ -17066,7 +17526,8 @@
             "lat": 45.186577925518236,
             "lng": -75.82807512276234,
             "address": "3673 rue McBean St",
-            "phone": "613-838-2212"
+            "phone": "613-838-2212",
+            "eqaoScore": 68
           },
           {
             "name": "Goulbourn Middle School",
@@ -17076,7 +17537,8 @@
             "lat": 45.23018871944898,
             "lng": -75.9016569873723,
             "address": "2176 prom. Huntley Dr, RR#3",
-            "phone": "613-836-1312"
+            "phone": "613-836-1312",
+            "eqaoScore": 66
           },
           {
             "name": "Ambassadors Christian School",
@@ -17086,7 +17548,8 @@
             "lat": 45.23637359387462,
             "lng": -75.90708181006686,
             "address": "2031 rue Stittsville Main St",
-            "phone": "613-400-4022"
+            "phone": "613-400-4022",
+            "eqaoScore": null
           },
           {
             "name": "Bibleway Ministires Christian Learning Centre",
@@ -17096,7 +17559,8 @@
             "lat": 45.26961262158559,
             "lng": -75.80027920510274,
             "address": "500 Bride Private",
-            "phone": "613 838-4238"
+            "phone": "613 838-4238",
+            "eqaoScore": null
           },
           {
             "name": "Zichan International Arts School",
@@ -17106,9 +17570,12 @@
             "lat": 45.25693952364983,
             "lng": -75.79819979566284,
             "address": "3010 Moodie Dr",
-            "phone": "+16132867728"
+            "phone": "+16132867728",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 70,
+        "schoolsWithEqaoScores": 4,
         "libraries": 2,
         "librariesList": [
           "Munster",
@@ -17167,6 +17634,7 @@
       "population": 10352,
       "medianIncome": 123000,
       "avgRent": 1700,
+      "avgHomePrice": 853000,
       "details": {
         "parks": 23,
         "parksList": [
@@ -17427,6 +17895,8 @@
           }
         ],
         "schools": 7,
+        "elementarySchools": 6,
+        "secondarySchools": 1,
         "schoolsList": [
           "St. Catherine School",
           "Osgoode Public School",
@@ -17445,7 +17915,8 @@
             "lat": 45.232850693930196,
             "lng": -75.47039685082395,
             "address": "2717 ch. 8th Line Rd",
-            "phone": "613-821-1002"
+            "phone": "613-821-1002",
+            "eqaoScore": 63
           },
           {
             "name": "Osgoode Public School",
@@ -17455,7 +17926,8 @@
             "lat": 45.145951325510836,
             "lng": -75.60508472437742,
             "address": "5590 rue Osgoode Main St, Box 70",
-            "phone": "613-826-2550"
+            "phone": "613-826-2550",
+            "eqaoScore": 66
           },
           {
             "name": "Castor Valley Elementary School",
@@ -17465,7 +17937,8 @@
             "lat": 45.21584018447591,
             "lng": -75.5177888444668,
             "address": "2630 ch. Grey’s Creek Rd",
-            "phone": "613-821-1272"
+            "phone": "613-821-1272",
+            "eqaoScore": 82
           },
           {
             "name": "Osgoode Township High School",
@@ -17475,7 +17948,8 @@
             "lat": 45.22882594001923,
             "lng": -75.4700668942302,
             "address": "2800 ch. 8th Line Rd",
-            "phone": "613-821-2241"
+            "phone": "613-821-2241",
+            "eqaoScore": 65
           },
           {
             "name": "Metcalfe Public School",
@@ -17485,7 +17959,8 @@
             "lat": 45.23347658006851,
             "lng": -75.47084839439142,
             "address": "2701 rue 8th Line Rd",
-            "phone": "613-821-2261"
+            "phone": "613-821-2261",
+            "eqaoScore": 36
           },
           {
             "name": "Community Christian School",
@@ -17495,7 +17970,8 @@
             "lat": 45.23206674246661,
             "lng": -75.47617180268026,
             "address": "2681 rue Glen St, RR3",
-            "phone": "613-821-3669"
+            "phone": "613-821-3669",
+            "eqaoScore": null
           },
           {
             "name": "Sainte-Thérèse-d'Avila Catholic Elementary School",
@@ -17505,9 +17981,12 @@
             "lat": 45.181762810116595,
             "lng": -75.35491939033258,
             "address": "9575 ch. Marionville Rd",
-            "phone": "613-745-0282"
+            "phone": "613-745-0282",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 62,
+        "schoolsWithEqaoScores": 5,
         "libraries": 3,
         "librariesList": [
           "Metcalfe Village",
@@ -17575,6 +18054,7 @@
       "population": 108559,
       "medianIncome": 111000,
       "avgRent": 2000,
+      "avgHomePrice": 680000,
       "details": {
         "parks": 140,
         "parksList": [
@@ -19122,6 +19602,8 @@
           }
         ],
         "schools": 55,
+        "elementarySchools": 37,
+        "secondarySchools": 15,
         "schoolsList": [
           "St. Rita School",
           "Blessed Carlo Virtual School",
@@ -19188,7 +19670,8 @@
             "lat": 45.359930402405666,
             "lng": -75.7112775780795,
             "address": "1 av. Inverness Ave",
-            "phone": "613-224-6341"
+            "phone": "613-224-6341",
+            "eqaoScore": 66
           },
           {
             "name": "Blessed Carlo Virtual School",
@@ -19198,7 +19681,8 @@
             "lat": 45.33271351894881,
             "lng": -75.72740329772847,
             "address": "570 ch. West Hunt Club Road",
-            "phone": "613-695-0562"
+            "phone": "613-695-0562",
+            "eqaoScore": null
           },
           {
             "name": "St. Josephine Virtual High School",
@@ -19208,7 +19692,8 @@
             "lat": 45.33273022037334,
             "lng": -75.72748762348253,
             "address": "570 ch. West Hunt Club Road",
-            "phone": "613-695-3127"
+            "phone": "613-695-3127",
+            "eqaoScore": 77
           },
           {
             "name": "St. Anne School",
@@ -19218,7 +19703,8 @@
             "lat": 45.28215060998762,
             "lng": -75.84411139805681,
             "address": "500 prom. Stonehaven Dr",
-            "phone": "613-271-0308"
+            "phone": "613-271-0308",
+            "eqaoScore": 87
           },
           {
             "name": "St. Gemma School",
@@ -19228,7 +19714,8 @@
             "lat": 45.38673925180015,
             "lng": -75.64669684878608,
             "address": "1760 av. McMaster Ave",
-            "phone": "613-731-8841"
+            "phone": "613-731-8841",
+            "eqaoScore": 85
           },
           {
             "name": "St. James School",
@@ -19238,7 +19725,8 @@
             "lat": 45.29124726886686,
             "lng": -75.86087315007977,
             "address": "50 prom. Stonehaven Dr",
-            "phone": "613-599-6600"
+            "phone": "613-599-6600",
+            "eqaoScore": 86
           },
           {
             "name": "St. John XXIII School",
@@ -19248,7 +19736,8 @@
             "lat": 45.32787042409866,
             "lng": -75.76864583726295,
             "address": "165 ch. Knoxdale Rd",
-            "phone": "613-226-6223"
+            "phone": "613-226-6223",
+            "eqaoScore": 67
           },
           {
             "name": "Divine Infant School",
@@ -19258,7 +19747,8 @@
             "lat": 45.486680267485255,
             "lng": -75.51359049522293,
             "address": "8100 boul. Jeanne D'arc Blvd",
-            "phone": "613-824-1060"
+            "phone": "613-824-1060",
+            "eqaoScore": 65
           },
           {
             "name": "Frank Ryan Catholic Intermediate School",
@@ -19268,7 +19758,8 @@
             "lat": 45.35172582044085,
             "lng": -75.72226418959994,
             "address": "128 prom. Chesterton Dr",
-            "phone": "613-224-8833"
+            "phone": "613-224-8833",
+            "eqaoScore": null
           },
           {
             "name": "St. Monica School",
@@ -19278,7 +19769,8 @@
             "lat": 45.322622941873085,
             "lng": -75.71810986858478,
             "address": "2000 ch. Merivale Rd",
-            "phone": "613-226-5174"
+            "phone": "613-226-5174",
+            "eqaoScore": 71
           },
           {
             "name": "St. Paul High School",
@@ -19288,7 +19780,8 @@
             "lat": 45.34173335767676,
             "lng": -75.79266646995671,
             "address": "2675 av. Draper Av",
-            "phone": "613-820-9705"
+            "phone": "613-820-9705",
+            "eqaoScore": 66
           },
           {
             "name": "St. Daniel School",
@@ -19298,7 +19791,8 @@
             "lat": 45.35448351790038,
             "lng": -75.76299895462346,
             "address": "1313 rue Field St",
-            "phone": "613-225-4603"
+            "phone": "613-225-4603",
+            "eqaoScore": 52
           },
           {
             "name": "St. John Paul II School",
@@ -19308,7 +19802,8 @@
             "lat": 45.422558438642696,
             "lng": -75.60162529874354,
             "address": "1500 prom. Beaverpond Dr",
-            "phone": "613-744-3591"
+            "phone": "613-744-3591",
+            "eqaoScore": 63
           },
           {
             "name": "Featherston Drive Public School",
@@ -19318,7 +19813,8 @@
             "lat": 45.383710202330974,
             "lng": -75.64574845152657,
             "address": "1801 prom. Featherston Dr",
-            "phone": "613-731-3357"
+            "phone": "613-731-3357",
+            "eqaoScore": 40
           },
           {
             "name": "Knoxdale Public School",
@@ -19328,7 +19824,8 @@
             "lat": 45.32808633747362,
             "lng": -75.78168899070943,
             "address": "170 ch. Greenbank Rd",
-            "phone": "613-828-0010"
+            "phone": "613-828-0010",
+            "eqaoScore": 88
           },
           {
             "name": "W.O. Mitchell Elementary School",
@@ -19338,7 +19835,8 @@
             "lat": 45.29937759635691,
             "lng": -75.85709124363196,
             "address": "80 prom. Steeple Chase Dr",
-            "phone": "613-271-1806"
+            "phone": "613-271-1806",
+            "eqaoScore": 84
           },
           {
             "name": "Roch Carrier Elementary School",
@@ -19348,7 +19846,8 @@
             "lat": 45.28382028759754,
             "lng": -75.84668757315389,
             "address": "401 prom. Stonehaven Dr",
-            "phone": "613-254-8400"
+            "phone": "613-254-8400",
+            "eqaoScore": 81
           },
           {
             "name": "Sir Winston Churchill Public School",
@@ -19358,7 +19857,8 @@
             "lat": 45.35424134289887,
             "lng": -75.72837094678285,
             "address": "49 av. Mulvagh Ave",
-            "phone": "613-224-2336"
+            "phone": "613-224-2336",
+            "eqaoScore": 80
           },
           {
             "name": "Bridlewood Community Elementary School",
@@ -19368,7 +19868,8 @@
             "lat": 45.28514384405088,
             "lng": -75.86090123680545,
             "address": "63 prom. Bluegrass Dr",
-            "phone": "613-591-3683"
+            "phone": "613-591-3683",
+            "eqaoScore": 69
           },
           {
             "name": "Woodroffe High School",
@@ -19378,7 +19879,8 @@
             "lat": 45.36238130851639,
             "lng": -75.78026502174524,
             "address": "2410 prom. Georgina Dr",
-            "phone": "613-820-7186"
+            "phone": "613-820-7186",
+            "eqaoScore": 60
           },
           {
             "name": "Merivale High School",
@@ -19388,7 +19890,8 @@
             "lat": 45.34351025992419,
             "lng": -75.7276359865399,
             "address": "1755 ch. Merivale Rd",
-            "phone": "613-224-1807"
+            "phone": "613-224-1807",
+            "eqaoScore": 82
           },
           {
             "name": "Sir Guy Carleton Secondary School",
@@ -19398,7 +19901,8 @@
             "lat": 45.346928904547234,
             "lng": -75.7657848477118,
             "address": "55 prom. Centrepointe Dr",
-            "phone": "613-723-5136"
+            "phone": "613-723-5136",
+            "eqaoScore": 35
           },
           {
             "name": "Riverview Alternative",
@@ -19408,7 +19912,8 @@
             "lat": 45.40575909831549,
             "lng": -75.65480410290276,
             "address": "260 crois. Knox Cr",
-            "phone": "613-733-6898"
+            "phone": "613-733-6898",
+            "eqaoScore": 42
           },
           {
             "name": "Severn Avenue Public School",
@@ -19418,7 +19923,8 @@
             "lat": 45.35718195408367,
             "lng": -75.78341960498577,
             "address": "2553 av. Severn Ave",
-            "phone": "613-829-8082"
+            "phone": "613-829-8082",
+            "eqaoScore": 67
           },
           {
             "name": "Agincourt Road Public School",
@@ -19428,7 +19934,8 @@
             "lat": 45.36077845252487,
             "lng": -75.75210775496595,
             "address": "1250 ch. Agincourt Rd",
-            "phone": "613-225-2750"
+            "phone": "613-225-2750",
+            "eqaoScore": 83
           },
           {
             "name": "Sir Robert Borden High School",
@@ -19438,7 +19945,8 @@
             "lat": 45.33232157683693,
             "lng": -75.78120411335674,
             "address": "131 ch. Greenbank Rd",
-            "phone": "613-829-5320"
+            "phone": "613-829-5320",
+            "eqaoScore": 66
           },
           {
             "name": "Manordale Public School",
@@ -19448,7 +19956,8 @@
             "lat": 45.328667438421604,
             "lng": -75.7599851760155,
             "address": "16 rue Carola St",
-            "phone": "613-226-6393"
+            "phone": "613-226-6393",
+            "eqaoScore": 47
           },
           {
             "name": "Pleasant Park Public School",
@@ -19458,7 +19967,8 @@
             "lat": 45.39263005434423,
             "lng": -75.64627625757008,
             "address": "564 ch. Pleasant Park Rd",
-            "phone": "613-733-5253"
+            "phone": "613-733-5253",
+            "eqaoScore": 72
           },
           {
             "name": "Charlotte-Lemieux Public Elementary School",
@@ -19468,7 +19978,8 @@
             "lat": 45.362830187410474,
             "lng": -75.76312868572352,
             "address": "2093 prom. Bel-Air Dr",
-            "phone": "613-228-2613"
+            "phone": "613-228-2613",
+            "eqaoScore": 88
           },
           {
             "name": "Omer-Deslauriers Public High School",
@@ -19478,7 +19989,8 @@
             "lat": 45.35004278460569,
             "lng": -75.71658245232742,
             "address": "159 prom. Chesterton Dr",
-            "phone": "613-820-0992"
+            "phone": "613-820-0992",
+            "eqaoScore": 66
           },
           {
             "name": "Marie-Curie Public Elementary School",
@@ -19488,7 +20000,8 @@
             "lat": 45.38057404033355,
             "lng": -75.65500502728574,
             "address": "1485 ch. Heron Rd",
-            "phone": "613-523-4975"
+            "phone": "613-523-4975",
+            "eqaoScore": 68
           },
           {
             "name": "Abraar Secondary School",
@@ -19498,7 +20011,8 @@
             "lat": 45.35176508435814,
             "lng": -75.79505217975566,
             "address": "1085 ave. Grenon Ave",
-            "phone": "613-820-0044"
+            "phone": "613-820-0044",
+            "eqaoScore": null
           },
           {
             "name": "Académie de la Capitale",
@@ -19508,7 +20022,8 @@
             "lat": 45.33750650252298,
             "lng": -75.8101005319181,
             "address": "3448 ch. Richmond Rd",
-            "phone": "613-721-3872"
+            "phone": "613-721-3872",
+            "eqaoScore": null
           },
           {
             "name": "Al-Furqan Islamic School",
@@ -19518,7 +20033,8 @@
             "lat": 45.351135266273914,
             "lng": -75.79451893620976,
             "address": "2825 av. Dumaurier Ave",
-            "phone": "613-680-7261"
+            "phone": "613-680-7261",
+            "eqaoScore": null
           },
           {
             "name": "Lycée Claudel",
@@ -19528,7 +20044,8 @@
             "lat": 45.40601691076894,
             "lng": -75.66359446560588,
             "address": "1635 Place Lycée Pl",
-            "phone": "613-733-8522"
+            "phone": "613-733-8522",
+            "eqaoScore": null
           },
           {
             "name": "MindWare Academy",
@@ -19538,7 +20055,8 @@
             "lat": 45.35402818625032,
             "lng": -75.79153101111567,
             "address": "985 av. Pinecrest Ave",
-            "phone": "613-829-2694"
+            "phone": "613-829-2694",
+            "eqaoScore": null
           },
           {
             "name": "OMS Montessori",
@@ -19548,7 +20066,8 @@
             "lat": 45.407391403980064,
             "lng": -75.65262510263722,
             "address": "335 rue Lindsay St",
-            "phone": "613-521-5185"
+            "phone": "613-521-5185",
+            "eqaoScore": null
           },
           {
             "name": "St. Timothy's Classical Academy",
@@ -19558,7 +20077,8 @@
             "lat": 45.35146633990747,
             "lng": -75.78978717453668,
             "address": "1061 ch. Pinecrest Road",
-            "phone": "613-794-1750"
+            "phone": "613-794-1750",
+            "eqaoScore": null
           },
           {
             "name": "Torah Day School of Ottawa",
@@ -19568,7 +20088,8 @@
             "lat": 45.359909866876606,
             "lng": -75.76356070350995,
             "address": "1119 rue Lazard St",
-            "phone": "613-274-0110"
+            "phone": "613-274-0110",
+            "eqaoScore": null
           },
           {
             "name": "Queen of Angels Adult High School",
@@ -19578,7 +20099,8 @@
             "lat": 45.3798055627555,
             "lng": -75.65507450658306,
             "address": "1461 ch. Heron Rd",
-            "phone": "+16137313237"
+            "phone": "+16137313237",
+            "eqaoScore": 10
           },
           {
             "name": "L'Alternative Public High School",
@@ -19588,7 +20110,8 @@
             "lat": 45.3586028914232,
             "lng": -75.7926742161294,
             "address": "2720 chem. Richmond Rd",
-            "phone": "613-745-0369"
+            "phone": "613-745-0369",
+            "eqaoScore": 77
           },
           {
             "name": "Maurice-Lapointe Public Elementary School",
@@ -19598,7 +20121,8 @@
             "lat": 45.278465657040854,
             "lng": -75.85894479504984,
             "address": "17 rue Bridgestone St",
-            "phone": "613-591-8585"
+            "phone": "613-591-8585",
+            "eqaoScore": null
           },
           {
             "name": "Ottawa-Carleton Virtual School",
@@ -19608,7 +20132,8 @@
             "lat": 45.32831987355745,
             "lng": -75.74723932360558,
             "address": "1645 Woodroffe Avenue",
-            "phone": "(613)-596-8753"
+            "phone": "(613)-596-8753",
+            "eqaoScore": null
           },
           {
             "name": "Élisabeth-Bruyère Catholic Elementary School",
@@ -19618,7 +20143,8 @@
             "lat": 45.28730276883931,
             "lng": -75.8464832863768,
             "address": "100 prom. Stonehaven Dr",
-            "phone": "613-521-0176"
+            "phone": "613-521-0176",
+            "eqaoScore": null
           },
           {
             "name": "Laurier-Carrière Catholic Elementary School",
@@ -19628,7 +20154,8 @@
             "lat": 45.35233360510117,
             "lng": -75.71251999842309,
             "address": "14 prom. Four Seasons Dr",
-            "phone": "613-224-3211"
+            "phone": "613-224-3211",
+            "eqaoScore": null
           },
           {
             "name": "Des Pins Catholic Elementary School",
@@ -19638,7 +20165,8 @@
             "lat": 45.42162028598059,
             "lng": -75.60477082786431,
             "address": "1487 prom. Ridgebrook Dr",
-            "phone": "613-741-2354"
+            "phone": "613-741-2354",
+            "eqaoScore": null
           },
           {
             "name": "Édouard-Bond Individualized Instruction Catholic Elementary School",
@@ -19648,7 +20176,8 @@
             "lat": 45.363170010645106,
             "lng": -75.7768931665802,
             "address": "920 av. Parkhaven Ave",
-            "phone": "613-820-4045"
+            "phone": "613-820-4045",
+            "eqaoScore": null
           },
           {
             "name": "Step by Step School of Dance",
@@ -19658,7 +20187,8 @@
             "lat": 45.34570219979874,
             "lng": -75.79599199990085,
             "address": "1120 Morrison Drive",
-            "phone": "+16135962922"
+            "phone": "+16135962922",
+            "eqaoScore": null
           },
           {
             "name": "Advanced Consulting and Training",
@@ -19668,7 +20198,8 @@
             "lat": 45.322906858526224,
             "lng": -75.72015798072017,
             "address": "28 Capital Drive",
-            "phone": "+16132255169"
+            "phone": "+16132255169",
+            "eqaoScore": null
           },
           {
             "name": "BEDMAS Academy",
@@ -19678,7 +20209,8 @@
             "lat": 45.29933778745071,
             "lng": -75.85181081613618,
             "address": "18 Bon Echo Crescent",
-            "phone": "+16135012728"
+            "phone": "+16135012728",
+            "eqaoScore": null
           },
           {
             "name": "Torah High Ottawa",
@@ -19688,7 +20220,8 @@
             "lat": 45.33911185199406,
             "lng": -75.77172940508702,
             "address": "261 Centrepointe Drive",
-            "phone": "+1-613-889-3283"
+            "phone": "+1-613-889-3283",
+            "eqaoScore": null
           },
           {
             "name": "J. H. Putman Public School",
@@ -19698,7 +20231,8 @@
             "lat": 45.36421379847025,
             "lng": -75.76073218446307,
             "address": "2051 Bel-Air Drive",
-            "phone": "+1-613-225-4646"
+            "phone": "+1-613-225-4646",
+            "eqaoScore": null
           },
           {
             "name": "Kanata Music Acadamy",
@@ -19708,7 +20242,8 @@
             "lat": 45.287487553590736,
             "lng": -75.86679057563846,
             "address": "5-701 Eagleson Road",
-            "phone": "+16135918638"
+            "phone": "+16135918638",
+            "eqaoScore": null
           },
           {
             "name": "Kumon Math and Reading Centre of Ottawa - Centrepointe",
@@ -19718,7 +20253,8 @@
             "lat": 45.33867487259069,
             "lng": -75.7712815374257,
             "address": "261 Centrepointe Drive",
-            "phone": "+1-613-864-9384"
+            "phone": "+1-613-864-9384",
+            "eqaoScore": null
           },
           {
             "name": "Centre des métiers Minto – Campus Alphonse-Desjardins de La Cité",
@@ -19728,9 +20264,12 @@
             "lat": 45.49451634019503,
             "lng": -75.48595844015261,
             "address": "8700 Jeanne-d'Arc Boulevard North",
-            "phone": "+16137422483"
+            "phone": "+16137422483",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 67,
+        "schoolsWithEqaoScores": 31,
         "libraries": 1,
         "librariesList": [
           "Nepean Centrepointe"
@@ -19783,6 +20322,7 @@
       "population": 16393,
       "medianIncome": 62400,
       "avgRent": 2012,
+      "avgHomePrice": 478375,
       "details": {
         "parks": 17,
         "parksList": [
@@ -19977,6 +20517,8 @@
           }
         ],
         "schools": 7,
+        "elementarySchools": 5,
+        "secondarySchools": 0,
         "schoolsList": [
           "Assumption School",
           "Robert E. Wilson Public School",
@@ -19995,7 +20537,8 @@
             "lat": 45.43506256491582,
             "lng": -75.66004221166382,
             "address": "236 rue Lévis St",
-            "phone": "613-746-4822"
+            "phone": "613-746-4822",
+            "eqaoScore": 75
           },
           {
             "name": "Robert E. Wilson Public School",
@@ -20005,7 +20548,8 @@
             "lat": 45.43270023286756,
             "lng": -75.65115649818317,
             "address": "373 av. McArthur Ave",
-            "phone": "613-745-9489"
+            "phone": "613-745-9489",
+            "eqaoScore": 32
           },
           {
             "name": "St. Joseph's Adult School",
@@ -20015,7 +20559,8 @@
             "lat": 45.434213362114,
             "lng": -75.65878866029553,
             "address": "330 rue Lajoie St",
-            "phone": "+16137416808"
+            "phone": "+16137416808",
+            "eqaoScore": 77
           },
           {
             "name": "St. Mary's Home - Immaculata Achievement Centre",
@@ -20025,7 +20570,8 @@
             "lat": 45.43368952937107,
             "lng": -75.64878246827953,
             "address": "780 rue Église St",
-            "phone": ""
+            "phone": "",
+            "eqaoScore": 71
           },
           {
             "name": "Public Elementary School Mauril Bélanger",
@@ -20035,7 +20581,8 @@
             "lat": 45.432721289139266,
             "lng": -75.66725421105654,
             "address": "307 rue Montgomery St",
-            "phone": "613-744-8523"
+            "phone": "613-744-8523",
+            "eqaoScore": null
           },
           {
             "name": "Trille-des-Bois Public Elementary School",
@@ -20045,7 +20592,8 @@
             "lat": 45.44059289140194,
             "lng": -75.66981002224445,
             "address": "140 rue Genest St",
-            "phone": "613-746-6911"
+            "phone": "613-746-6911",
+            "eqaoScore": null
           },
           {
             "name": "Catholic Elementary School Horizon-Jeunesse",
@@ -20055,9 +20603,12 @@
             "lat": 45.431916579316315,
             "lng": -75.65993228033092,
             "address": "349 rue Olmstead St",
-            "phone": "613-741-8515"
+            "phone": "613-741-8515",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 64,
+        "schoolsWithEqaoScores": 4,
         "libraries": 2,
         "librariesList": [
           "Saint Laurent",
@@ -20118,6 +20669,7 @@
       "population": 13857,
       "medianIncome": 80000,
       "avgRent": 2400,
+      "avgHomePrice": 895774,
       "details": {
         "parks": 9,
         "parksList": [
@@ -20224,6 +20776,8 @@
           }
         ],
         "schools": 8,
+        "elementarySchools": 6,
+        "secondarySchools": 2,
         "schoolsList": [
           "St. Brigid School",
           "Manor Park Public School",
@@ -20243,7 +20797,8 @@
             "lat": 45.445784863843635,
             "lng": -75.67839463122162,
             "address": "200 ch. Springfield Rd",
-            "phone": "613-746-4888"
+            "phone": "613-746-4888",
+            "eqaoScore": 47
           },
           {
             "name": "Manor Park Public School",
@@ -20253,7 +20808,8 @@
             "lat": 45.44993704067703,
             "lng": -75.65587932072084,
             "address": "100 rue Braemar St",
-            "phone": "613-746-8131"
+            "phone": "613-746-8131",
+            "eqaoScore": 57
           },
           {
             "name": "Rockcliffe Park Public School",
@@ -20263,7 +20819,8 @@
             "lat": 45.45002149521849,
             "lng": -75.67817989883443,
             "address": "350 ch. Buena Vista Rd",
-            "phone": "613-749-5387"
+            "phone": "613-749-5387",
+            "eqaoScore": 82
           },
           {
             "name": "Ashbury College",
@@ -20273,7 +20830,8 @@
             "lat": 45.4478707970082,
             "lng": -75.67565414168267,
             "address": "362 av. Mariposa Ave",
-            "phone": "613-749-5954"
+            "phone": "613-749-5954",
+            "eqaoScore": null
           },
           {
             "name": "Elmwood  School",
@@ -20283,7 +20841,8 @@
             "lat": 45.45129350409899,
             "lng": -75.6798873832888,
             "address": "261 ch. Buena Vista Rd",
-            "phone": "613-744-7783"
+            "phone": "613-744-7783",
+            "eqaoScore": null
           },
           {
             "name": "Fern Hill School",
@@ -20293,7 +20852,8 @@
             "lat": 45.44030853268458,
             "lng": -75.67789557575878,
             "address": "50 rue Vaughan St",
-            "phone": "613-746-0255"
+            "phone": "613-746-0255",
+            "eqaoScore": null
           },
           {
             "name": "MacDonald-Cartier Academy",
@@ -20303,7 +20863,8 @@
             "lat": 45.43976135497745,
             "lng": -75.68192196679603,
             "address": "270 rue Crichton St",
-            "phone": "613-744-8898"
+            "phone": "613-744-8898",
+            "eqaoScore": null
           },
           {
             "name": "Polaris School and Centre",
@@ -20313,9 +20874,12 @@
             "lat": 45.45551359972828,
             "lng": -75.65308130037614,
             "address": "1805 de Gaspé",
-            "phone": "+1-613-296-7989"
+            "phone": "+1-613-296-7989",
+            "eqaoScore": null
           }
         ],
+        "avgEqaoScore": 62,
+        "schoolsWithEqaoScores": 3,
         "libraries": 1,
         "librariesList": [
           "Rockcliffe Park"
