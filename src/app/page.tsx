@@ -56,7 +56,7 @@ export default function Home() {
 
       {/* Grid */}
       <main className="max-w-7xl mx-auto px-4 py-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
           {[...neighbourhoods]
             .sort((a, b) => b.overallScore - a.overallScore)
             .map((neighbourhood) => (
