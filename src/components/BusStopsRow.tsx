@@ -2,11 +2,17 @@
 
 import { useState } from "react";
 
+interface DataSource {
+  name: string;
+  url: string;
+}
+
 interface BusStopsRowProps {
   totalStops: number | null;
   stopsWithShelter: number;
   stopsWithBench: number;
   density: number | null; // stops per km²
+  source?: DataSource;
 }
 
 // Thresholds for transit coverage (based on Ottawa data)
@@ -42,6 +48,7 @@ export default function BusStopsRow({
   stopsWithShelter,
   stopsWithBench,
   density,
+  source,
 }: BusStopsRowProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -224,9 +231,22 @@ export default function BusStopsRow({
             })()}
           </div>
 
-          {/* Density info */}
-          <div className="mt-3 pt-3 border-t border-gray-200 text-xs text-gray-500">
-            Density: {effectiveDensity.toFixed(1)} stops per km²
+          {/* Density info and source */}
+          <div className="mt-3 pt-3 border-t border-gray-200 flex items-center justify-between text-xs text-gray-500">
+            <span>Density: {effectiveDensity.toFixed(1)} stops per km²</span>
+            {source && (
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors"
+              >
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                <span>{source.name}</span>
+              </a>
+            )}
           </div>
         </div>
       )}

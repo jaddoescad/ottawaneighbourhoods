@@ -144,7 +144,17 @@ export interface Neighbourhood {
   pctChildren: number;    // % of population aged 0-14 (families with children indicator)
   pctYoungProfessionals: number; // % of population aged 25-44
   pctSeniors: number;     // % of population aged 65+
-  commuteToDowntown: number; // Average commute time to downtown in minutes
+  commuteToDowntown: number; // Average commute time to downtown in minutes (by car)
+  commuteByTransit: number; // Average commute time to downtown in minutes (by transit)
+  // Transit station proximity
+  nearestOTrainStation: string | null;
+  nearestOTrainLine: string | null;
+  distanceToOTrain: number | null; // km
+  nearestTransitwayStation: string | null;
+  distanceToTransitway: number | null; // km
+  nearestRapidTransit: string | null;
+  nearestRapidTransitType: string | null;
+  distanceToRapidTransit: number | null; // km
   details: {
     areaKm2: number;
     parks: number;

@@ -157,11 +157,20 @@ export default function EqaoStatRow({
             })}
           </div>
           <div className="mt-3 pt-3 border-t border-gray-200">
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-500 mb-2">
               Shows % of students meeting provincial standards in Reading, Writing & Math.
-              <br />
-              <span className="text-gray-400">Source: Ontario EQAO Tests (2023-2024)</span>
             </p>
+            <a
+              href="https://data.ontario.ca/dataset/school-information-and-student-demographics"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-blue-600 hover:text-blue-800 transition-colors"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              <span>Source: Ontario Open Data (EQAO)</span>
+            </a>
           </div>
         </div>
       )}

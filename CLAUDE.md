@@ -28,7 +28,8 @@ src/data/
 │   ├── grocery_stores_raw.csv    # Grocery stores (OpenStreetMap / Overpass)
 │   ├── walkscores.csv            # Walk Score, Transit Score, Bike Score (from WalkScore.com)
 │   ├── age_demographics.csv      # Age demographics (% children, young professionals, seniors)
-│   ├── commute_times.csv         # Average commute time to downtown (Google Maps estimates)
+│   ├── commute_times.csv         # Commute times to downtown (by car and transit)
+│   ├── transit_stations.csv      # O-Train and Transitway stations (43 stations)
 │   ├── neighbourhoods.csv        # Neighbourhood info (scores, pros/cons, avgRent, avgHomePrice)
 │   ├── rent_data.csv             # Rent research data with sources
 │   ├── home_prices.csv           # Home price research data with sources
@@ -46,6 +47,7 @@ scripts/
 ├── download-grocery-stores.js    # Downloads grocery stores from OpenStreetMap (Overpass)
 ├── generate-age-demographics.js  # Generates age demographics CSV from 2021 Census
 ├── download-ncc-greenbelt.js     # Downloads NCC Greenbelt trails data
+├── download-transit-stations.js  # Downloads O-Train and Transitway stations
 └── config/
     └── neighbourhood-mapping.js  # Maps our neighbourhoods to ONS IDs
 ```
@@ -269,19 +271,48 @@ Average commute time to downtown Ottawa (Parliament Hill area) for each neighbou
 |-------|-------------|
 | id | Neighbourhood ID (matches neighbourhoods.csv) |
 | name | Neighbourhood name |
-| commuteToDowntown | Average commute time in minutes |
+| commuteToDowntown | Average commute time in minutes (by car) |
+| commuteByTransit | Average commute time in minutes (by public transit) |
 | commuteMethod | Method of commute (mixed = car/transit average) |
 | source | Data source |
 | notes | Additional context |
 
-**Commute Time Ranges:**
+**Commute Time Ranges (by Car):**
 - Downtown (0-10 min): Byward Market, Centretown, Sandy Hill
 - Central (10-20 min): Glebe, Westboro, Hintonburg, Little Italy, Vanier, New Edinburgh
 - Inner Suburbs (20-30 min): Alta Vista, Bayshore, Nepean, Hunt Club
 - Outer Suburbs (30-45 min): Orleans, Barrhaven, Kanata, Manotick
 - Rural (45+ min): Stittsville, Carp, Constance Bay, Vars, Metcalfe, Greely
 
-**Data Source:** Google Maps estimates (December 2024) - represents typical peak-hour commute times via mixed transportation methods.
+**Transit vs Car Comparison (examples):**
+| Neighbourhood | By Car | By Transit | Ratio |
+|---------------|--------|------------|-------|
+| Centretown | 8 min | 8 min | 1.0x |
+| Westboro | 15 min | 18 min | 1.2x |
+| Kanata | 40 min | 80 min | 2.0x |
+| Barrhaven | 35 min | 65 min | 1.9x |
+| Stittsville | 50 min | 95 min | 1.9x |
+
+**Data Source:** Google Maps estimates (December 2024) - represents typical peak-hour commute times.
+
+### transit_stations.csv
+O-Train and Transitway rapid transit stations from Ottawa Open Data:
+| Field | Description |
+|-------|-------------|
+| NAME | Station name |
+| TYPE | Station type (O-Train or Transitway) |
+| LINE | O-Train line (Line 1 Confederation, Line 2 Trillium) or Transitway |
+| LATITUDE / LONGITUDE | Coordinates |
+
+**Station Counts:**
+- O-Train stations: 13 (Line 1 Confederation + Line 2 Trillium)
+- Transitway stations: 30 (Bus Rapid Transit)
+
+**To refresh transit station data:**
+```bash
+node scripts/download-transit-stations.js
+node scripts/process-data.js
+```
 
 ### neighbourhoods.csv
 Edit this file to change neighbourhood info displayed on the website:

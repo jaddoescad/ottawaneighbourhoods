@@ -398,6 +398,20 @@ async function main() {
     console.log('  - No OC Transpo stops file found');
   }
 
+  // Load Transit Stations (O-Train and Transitway)
+  const transitStationsPath = path.join(csvDir, 'transit_stations.csv');
+  const hasTransitStationsData = fs.existsSync(transitStationsPath);
+  const transitStationsRaw = hasTransitStationsData
+    ? parseCSV(fs.readFileSync(transitStationsPath, 'utf8'))
+    : [];
+  if (hasTransitStationsData) {
+    const otrainCount = transitStationsRaw.filter(s => s.TYPE === 'O-Train').length;
+    const transitwayCount = transitStationsRaw.filter(s => s.TYPE === 'Transitway').length;
+    console.log(`  - ${transitStationsRaw.length} transit stations (${otrainCount} O-Train, ${transitwayCount} Transitway)`);
+  } else {
+    console.log('  - No transit stations file found (run: node scripts/download-transit-stations.js)');
+  }
+
   // Load Walk Scores (optional - file may not exist)
   let walkScoresData = [];
   const walkScoresPath = path.join(csvDir, 'walkscores.csv');
@@ -453,6 +467,7 @@ async function main() {
   for (const entry of commuteTimesData) {
     commuteTimesById[entry.id] = {
       commuteToDowntown: parseInt(entry.commuteToDowntown) || 0,
+      commuteByTransit: parseInt(entry.commuteByTransit) || 0,
     };
   }
 
@@ -861,6 +876,67 @@ async function main() {
   }
   console.log(`  Calculated proximity for ${Object.keys(hospitalsByNeighbourhood).length} neighbourhoods`);
 
+  // Process transit stations - calculate nearest O-Train and Transitway station for each neighbourhood
+  console.log('\nCalculating transit station proximity for each neighbourhood...');
+  const transitStations = transitStationsRaw.map(s => ({
+    name: s.NAME,
+    type: s.TYPE,
+    line: s.LINE,
+    lat: parseFloat(s.LATITUDE),
+    lng: parseFloat(s.LONGITUDE),
+  })).filter(s => !isNaN(s.lat) && !isNaN(s.lng));
+
+  const otrainStations = transitStations.filter(s => s.type === 'O-Train');
+  const transitwayStations = transitStations.filter(s => s.type === 'Transitway');
+
+  // For each neighbourhood, find nearest O-Train and Transitway station
+  const transitByNeighbourhood = {};
+  for (const [neighbourhoodId, centroid] of Object.entries(centroidsByNeighbourhood)) {
+    // Find nearest O-Train station
+    let nearestOTrain = null;
+    let nearestOTrainDistance = Infinity;
+    for (const station of otrainStations) {
+      const distance = haversineDistance(centroid.lat, centroid.lng, station.lat, station.lng);
+      if (distance < nearestOTrainDistance) {
+        nearestOTrainDistance = distance;
+        nearestOTrain = station;
+      }
+    }
+
+    // Find nearest Transitway station
+    let nearestTransitway = null;
+    let nearestTransitwayDistance = Infinity;
+    for (const station of transitwayStations) {
+      const distance = haversineDistance(centroid.lat, centroid.lng, station.lat, station.lng);
+      if (distance < nearestTransitwayDistance) {
+        nearestTransitwayDistance = distance;
+        nearestTransitway = station;
+      }
+    }
+
+    // Find nearest rapid transit (either O-Train or Transitway)
+    const nearestRapidTransit = nearestOTrainDistance <= nearestTransitwayDistance ? nearestOTrain : nearestTransitway;
+    const nearestRapidTransitDistance = Math.min(nearestOTrainDistance, nearestTransitwayDistance);
+
+    transitByNeighbourhood[neighbourhoodId] = {
+      nearestOTrainStation: nearestOTrain ? nearestOTrain.name : null,
+      nearestOTrainLine: nearestOTrain ? nearestOTrain.line : null,
+      distanceToOTrain: nearestOTrainDistance === Infinity ? null : roundTo(nearestOTrainDistance, 1),
+      nearestTransitwayStation: nearestTransitway ? nearestTransitway.name : null,
+      distanceToTransitway: nearestTransitwayDistance === Infinity ? null : roundTo(nearestTransitwayDistance, 1),
+      nearestRapidTransit: nearestRapidTransit ? nearestRapidTransit.name : null,
+      nearestRapidTransitType: nearestRapidTransit ? nearestRapidTransit.type : null,
+      distanceToRapidTransit: nearestRapidTransitDistance === Infinity ? null : roundTo(nearestRapidTransitDistance, 1),
+    };
+  }
+  console.log(`  Calculated transit proximity for ${Object.keys(transitByNeighbourhood).length} neighbourhoods`);
+  if (otrainStations.length > 0) {
+    console.log(`  O-Train stations: ${otrainStations.length}`);
+  }
+  if (transitwayStations.length > 0) {
+    console.log(`  Transitway stations: ${transitwayStations.length}`);
+  }
+
   // Process crime data using point-in-polygon matching
   console.log('\nAssigning crimes to neighbourhoods...');
   const crimeByNeighbourhood = {};
@@ -961,7 +1037,19 @@ async function main() {
     const ageDemographics = ageDemographicsById[info.id] || { pctChildren: 0, pctYoungProfessionals: 0, pctSeniors: 0 };
 
     // Get commute time for this neighbourhood
-    const commuteData = commuteTimesById[info.id] || { commuteToDowntown: 0 };
+    const commuteData = commuteTimesById[info.id] || { commuteToDowntown: 0, commuteByTransit: 0 };
+
+    // Get transit station data for this neighbourhood
+    const transitData = transitByNeighbourhood[info.id] || {
+      nearestOTrainStation: null,
+      nearestOTrainLine: null,
+      distanceToOTrain: null,
+      nearestTransitwayStation: null,
+      distanceToTransitway: null,
+      nearestRapidTransit: null,
+      nearestRapidTransitType: null,
+      distanceToRapidTransit: null,
+    };
 
     // Calculate average EQAO score for the neighbourhood
     const schoolsWithScores = schools.filter(s => s.eqaoScore !== null);
@@ -994,6 +1082,16 @@ async function main() {
       pctYoungProfessionals: ageDemographics.pctYoungProfessionals,
       pctSeniors: ageDemographics.pctSeniors,
       commuteToDowntown: commuteData.commuteToDowntown,
+      commuteByTransit: commuteData.commuteByTransit,
+      // Transit station proximity
+      nearestOTrainStation: transitData.nearestOTrainStation,
+      nearestOTrainLine: transitData.nearestOTrainLine,
+      distanceToOTrain: transitData.distanceToOTrain,
+      nearestTransitwayStation: transitData.nearestTransitwayStation,
+      distanceToTransitway: transitData.distanceToTransitway,
+      nearestRapidTransit: transitData.nearestRapidTransit,
+      nearestRapidTransitType: transitData.nearestRapidTransitType,
+      distanceToRapidTransit: transitData.distanceToRapidTransit,
       details: {
         areaKm2: roundTo(areaKm2, 2),
         parks: parks.length,

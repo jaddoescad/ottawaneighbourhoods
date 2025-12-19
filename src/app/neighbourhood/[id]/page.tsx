@@ -12,8 +12,65 @@ import WalkScoreRow from "@/components/WalkScoreRow";
 import AgeDemographicsRow from "@/components/AgeDemographicsRow";
 import ScoreBreakdown from "@/components/ScoreBreakdown";
 import BusStopsRow from "@/components/BusStopsRow";
+import TransitInfoRow from "@/components/TransitInfoRow";
 
 const BASE_URL = "https://ottawahoods.com";
+
+// Data sources for attribution
+const DATA_SOURCES = {
+  parks: {
+    name: "City of Ottawa Open Data",
+    url: "https://open.ottawa.ca/datasets/parks-and-greenspace",
+  },
+  schools: {
+    name: "City of Ottawa Open Data",
+    url: "https://open.ottawa.ca/search?tags=school",
+  },
+  libraries: {
+    name: "City of Ottawa Open Data",
+    url: "https://open.ottawa.ca/datasets/ottawa-public-library-locations-2024",
+  },
+  trails: {
+    name: "NCC Greenbelt & City of Ottawa",
+    url: "https://ncc-ccn.gc.ca/places/greenbelt",
+  },
+  restaurants: {
+    name: "OpenStreetMap",
+    url: "https://www.openstreetmap.org/",
+  },
+  groceryStores: {
+    name: "OpenStreetMap",
+    url: "https://www.openstreetmap.org/",
+  },
+  gyms: {
+    name: "OpenStreetMap",
+    url: "https://www.openstreetmap.org/",
+  },
+  crime: {
+    name: "Ottawa Police Open Data",
+    url: "https://data.ottawapolice.ca/",
+  },
+  eqao: {
+    name: "Ontario Open Data (EQAO)",
+    url: "https://data.ontario.ca/dataset/school-information-and-student-demographics",
+  },
+  census: {
+    name: "Statistics Canada 2021 Census",
+    url: "https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/index.cfm",
+  },
+  walkScore: {
+    name: "WalkScore.com",
+    url: "https://www.walkscore.com/CA-ON/Ottawa",
+  },
+  busStops: {
+    name: "OC Transpo / City of Ottawa",
+    url: "https://open.ottawa.ca/datasets/ottawa::oc-transpo-schedules",
+  },
+  transitStations: {
+    name: "City of Ottawa Open Data",
+    url: "https://open.ottawa.ca/search?tags=o-train",
+  },
+};
 
 // Pre-compute rankings (sorted by score descending)
 const rankedNeighbourhoods = [...neighbourhoods]
@@ -158,7 +215,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
     notFound();
   }
 
-  const { name, area, image, population, populationDensity, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, details, overallScore, categoryScores, scoreWeights } = neighbourhood;
+  const { name, area, image, population, populationDensity, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, commuteByTransit, nearestOTrainStation, nearestOTrainLine, distanceToOTrain, nearestTransitwayStation, distanceToTransitway, details, overallScore, categoryScores, scoreWeights } = neighbourhood;
 
   // Combine Linear Parks and NCC Greenbelt trails
   const linearParks = details.parksData
@@ -250,6 +307,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             type={getScoreType(details.parks, "parks")}
             items={details.parksList}
             itemLabel="parks"
+            source={DATA_SOURCES.parks}
           />
           <ExpandableStatRow
             icon="🏫"
@@ -259,6 +317,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             type={getScoreType(details.schools, "schools")}
             items={details.schoolsList}
             itemLabel="schools"
+            source={DATA_SOURCES.schools}
           />
           <EqaoStatRow
             avgScore={details.avgEqaoScore}
@@ -277,6 +336,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             type={getScoreType(details.libraries, "libraries")}
             items={details.librariesList}
             itemLabel="libraries"
+            source={DATA_SOURCES.libraries}
           />
           <ExpandableStatRow
             icon="🚴"
@@ -290,6 +350,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             type={allTrails.length > 0 ? getScoreType(allTrails.length, "trails") : "neutral"}
             items={allTrails}
             itemLabel="trails"
+            source={DATA_SOURCES.trails}
           />
           <ExpandableStatRow
             icon="🍽️"
@@ -311,6 +372,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             }
             items={[]}
             itemLabel="places"
+            source={DATA_SOURCES.restaurants}
           />
           <ExpandableStatRow
             icon="🛒"
@@ -332,6 +394,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             }
             items={details.groceryStoresList || []}
             itemLabel="stores"
+            source={DATA_SOURCES.groceryStores}
           />
           <ExpandableStatRow
             icon="🏋️"
@@ -353,21 +416,24 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             }
             items={details.gymsList || []}
             itemLabel="gyms"
+            source={DATA_SOURCES.gyms}
           />
           <BusStopsRow
             totalStops={details.busStops}
             stopsWithShelter={details.stopsWithShelter}
             stopsWithBench={details.stopsWithBench}
             density={details.busStopDensity}
+            source={DATA_SOURCES.busStops}
           />
-          <StatRow
-            icon="🚗"
-            label="Commute"
-            value={`${commuteToDowntown} min`}
-            percent={getCommutePercent(commuteToDowntown)}
-            type={getCommuteScoreType(commuteToDowntown)}
-            labelSet="commute"
-            tooltip="Average commute time to downtown Ottawa"
+          <TransitInfoRow
+            nearestOTrainStation={nearestOTrainStation}
+            nearestOTrainLine={nearestOTrainLine}
+            distanceToOTrain={distanceToOTrain}
+            nearestTransitwayStation={nearestTransitwayStation}
+            distanceToTransitway={distanceToTransitway}
+            commuteToDowntown={commuteToDowntown}
+            commuteByTransit={commuteByTransit}
+            transitScore={transitScore}
           />
           <StatRow
             icon="🏥"
@@ -381,6 +447,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             total={details.crimeTotal}
             byCategory={details.crimeByCategory}
             population={population}
+            source={DATA_SOURCES.crime}
           />
           <StatRow
             icon="💰"
