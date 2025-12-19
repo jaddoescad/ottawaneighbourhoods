@@ -21,7 +21,7 @@ const CATEGORY_INFO: Record<keyof CategoryScores, { label: string; emoji: string
     description: "Crime rate per capita (lower is better)",
   },
   affordability: {
-    label: "Affordability",
+    label: "House Affordability",
     emoji: "💰",
     description: "Average rent & home prices (lower is better)",
   },
