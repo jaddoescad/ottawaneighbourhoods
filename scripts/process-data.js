@@ -466,6 +466,39 @@ async function main() {
     console.log('  - No EQAO scores file (run: node scripts/download-eqao-data.js)');
   }
 
+  // Load NCC Greenbelt trails (optional - file may not exist)
+  let greenbeltTrails = [];
+  const greenbeltPath = path.join(csvDir, 'ncc_greenbelt_trails.csv');
+  if (fs.existsSync(greenbeltPath)) {
+    greenbeltTrails = parseCSV(fs.readFileSync(greenbeltPath, 'utf8'));
+    console.log(`  - ${greenbeltTrails.length} NCC Greenbelt trails`);
+  } else {
+    console.log('  - No NCC Greenbelt trails file (run: node scripts/download-ncc-greenbelt.js)');
+  }
+
+  // Build greenbelt trails lookup by neighbourhood ID
+  const greenbeltByNeighbourhood = {};
+  for (const trail of greenbeltTrails) {
+    const neighbourhoods = trail.NEIGHBOURHOODS ? trail.NEIGHBOURHOODS.split(';') : [];
+    for (const neighbourhoodId of neighbourhoods) {
+      if (!greenbeltByNeighbourhood[neighbourhoodId]) {
+        greenbeltByNeighbourhood[neighbourhoodId] = [];
+      }
+      greenbeltByNeighbourhood[neighbourhoodId].push({
+        name: trail.NAME,
+        sector: trail.SECTOR,
+        lengthKm: parseFloat(trail.LENGTH_KM) || 0,
+        difficulty: trail.DIFFICULTY || 'Easy',
+        type: trail.TYPE || 'Trail',
+        parking: trail.PARKING || '',
+        lat: parseFloat(trail.LATITUDE) || null,
+        lng: parseFloat(trail.LONGITUDE) || null,
+        notes: trail.NOTES || '',
+        source: 'NCC',
+      });
+    }
+  }
+
   console.log(`  - ${parksRaw.length} parks`);
   console.log(`  - ${schoolsRaw.length} schools`);
   console.log(`  - ${librariesRaw.length} libraries`);
@@ -904,6 +937,11 @@ async function main() {
     const stopsWithShelter = busStops.filter(s => s.hasShelter).length;
     const stopsWithBench = busStops.filter(s => s.hasBench).length;
 
+    // Get NCC Greenbelt trails for this neighbourhood
+    const greenbeltTrailsForNeighbourhood = greenbeltByNeighbourhood[info.id] || [];
+    const greenbeltTrailCount = greenbeltTrailsForNeighbourhood.length;
+    const greenbeltTotalLengthKm = greenbeltTrailsForNeighbourhood.reduce((sum, t) => sum + t.lengthKm, 0);
+
     // Calculate population by summing all ONS areas for this neighbourhood
     const mapping = neighbourhoodMapping[info.id];
     let population = 0;
@@ -993,6 +1031,11 @@ async function main() {
         nearestHospital: hospitalData.nearestHospital,
         nearestHospitalAddress: hospitalData.nearestHospitalAddress,
         distanceToNearestHospital: hospitalData.distanceToNearestHospital,
+        // NCC Greenbelt trails
+        greenbeltTrails: greenbeltTrailCount,
+        greenbeltTrailsLengthKm: roundTo(greenbeltTotalLengthKm, 1),
+        greenbeltTrailsList: greenbeltTrailsForNeighbourhood.map(t => t.name),
+        greenbeltTrailsData: greenbeltTrailsForNeighbourhood,
       },
       pros: info.pros ? info.pros.split('; ') : [],
       cons: info.cons ? info.cons.split('; ') : [],

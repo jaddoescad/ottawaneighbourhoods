@@ -1,0 +1,38 @@
+NAME,SECTOR,LENGTH_KM,DIFFICULTY,TYPE,PARKING,LATITUDE,LONGITUDE,NEIGHBOURHOODS,NOTES,SOURCE
+Shoreline Trail,Shirleys Bay,0.1,Easy,Trail,P1,45.36,-75.87,bayshore;bells-corners,,NCC
+Trail 10,Shirleys Bay,4.2,Easy,Trail,P1/P2,45.36,-75.87,bayshore;bells-corners,,NCC
+Trail 12,Shirleys Bay,2.7,Easy,Trail,P3,45.36,-75.87,bayshore;bells-corners,,NCC
+Shirley's Bay Loop,Shirleys Bay,4.2,Easy,Loop,P1-P3,45.35292,-75.87292,bayshore;bells-corners,,NCC
+Trail 20,Stony Swamp,3.2,Easy,Trail,P3,45.3,-75.83,bells-corners;nepean;bayshore,,NCC
+Trail 21,Stony Swamp,4.5,Easy,Trail,P4,45.3,-75.83,bells-corners;nepean;bayshore,,NCC
+Old Quarry Trail,Stony Swamp,3.1,Moderate,Trail,P5,45.3,-75.83,bells-corners;nepean;bayshore,,NCC
+Trail 23,Stony Swamp,5.7,Easy,Trail,P4/P6,45.3,-75.83,bells-corners;nepean;bayshore,,NCC
+Trail 24,Stony Swamp,5.1,Easy,Trail,P6,45.3,-75.83,bells-corners;nepean;bayshore,,NCC
+Sarsaparilla Trail,Stony Swamp,0.9,Easy,Trail,P7,45.30324,-75.83547,bells-corners;nepean;bayshore,,NCC
+Beaver Trail,Stony Swamp,1.2,Easy,Trail,P8,45.3,-75.83,bells-corners;nepean;bayshore,,NCC
+Chipmunk Trail,Stony Swamp,0.7,Easy,Trail,P8,45.3,-75.83,bells-corners;nepean;bayshore,,NCC
+Lime Kiln Trail,Stony Swamp,2.1,Easy,Trail,P10,45.28421,-75.82066,bells-corners;nepean;bayshore,,NCC
+Trail 25,Stony Swamp,3.9,Easy,Trail,P10,45.3,-75.83,bells-corners;nepean;bayshore,,NCC
+Jack Pine Trail,Stony Swamp,3.1,Easy,Trail,P9,45.3,-75.83,bells-corners;nepean;bayshore,"Short (0.7km), Medium (1.7km), Long (2.3km) loops",NCC
+Trail 26,Stony Swamp,3.8,Easy,Trail,P9/P11,45.3,-75.83,bells-corners;nepean;bayshore,,NCC
+Trail 27,Stony Swamp,5.3,Easy,Trail,P13,45.3,-75.83,bells-corners;nepean;bayshore,Access from Bell Centennial Arena (Bells Corners),NCC
+Trail 29,Stony Swamp,3.4,Easy,Trail,P12,45.3,-75.83,bells-corners;nepean;bayshore,,NCC
+Bruce Pit,Stony Swamp,2,Easy,Off-leash Dog Area,P12,45.3,-75.83,bells-corners;nepean;bayshore,Popular off-leash dog park with trails,NCC
+Trail 31,Southern Farm,3.6,Easy,Trail,P14,45.3,-75.75,nepean;barrhaven,,NCC
+Trail 32,Southern Farm,2.8,Easy,Trail,P15,45.3,-75.75,nepean;barrhaven,,NCC
+Pinhey Forest Loops Trail 31,Pinhey Forest,2.6,Easy,Loop,P14,45.32778,-75.73008,nepean;carlington,,NCC
+Trail 43,Pine Grove,4.4,Easy,Trail,P18,45.35,-75.59,hunt-club;alta-vista,,NCC
+Trail 44,Pine Grove,3.1,Easy,Trail,P18,45.35,-75.59,hunt-club;alta-vista,,NCC
+Trail 45,Pine Grove,6.4,Easy,Trail,P19,45.35,-75.59,hunt-club;alta-vista,,NCC
+Pine Grove Forestry Trail,Pine Grove,1.46,Easy,Trail,P18,45.35,-75.59,hunt-club;alta-vista,,NCC
+Trail 43/44 Loop,Pine Grove,5.6,Easy,Loop,P18,45.34846,-75.59277,hunt-club;alta-vista,,NCC
+Conroy Pit,Conroy Pit,1.5,Easy,Off-leash Dog Area,P17,45.32,-75.63,hunt-club;riverside-south,Off-leash dog park,NCC
+Trail 50,Mer Bleue,6.3,Easy,Trail,P20/P23,45.4,-75.5,orleans;vars,,NCC
+Trail 51,Mer Bleue,7.5,Easy,Trail,P20,45.4,-75.5,orleans;vars,,NCC
+Trail 53,Mer Bleue,6.7,Moderate,Trail,P21/P22,45.4,-75.5,orleans;vars,,NCC
+Dewberry Trail,Mer Bleue,1,Easy,Trail,P23,45.4,-75.5,orleans;vars,,NCC
+Mer Bleue Bog Trail,Mer Bleue,1.2,Easy,Boardwalk Trail,P22,45.39343,-75.50927,orleans;vars,Iconic boardwalk over peat bog - Ramsar Wetland,NCC
+Trail 61,Greens Creek,1.1,Easy,Trail,P26,45.45,-75.58,orleans,,NCC
+Trail 63,Greens Creek,1.8,Easy,Trail,P26,45.45,-75.58,orleans,,NCC
+Greenbelt Pathway West,Stony Swamp,21,Easy,Paved Pathway,Multiple,45.3,-75.83,bells-corners;nepean;bayshore,Connects Shirleys Bay to Stony Swamp - accessible,NCC
+Greenbelt Southwest Loop,Stony Swamp,4.5,Easy,Loop,P12,45.31094,-75.87129,bells-corners;nepean;bayshore,,NCC

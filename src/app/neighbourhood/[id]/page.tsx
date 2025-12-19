@@ -159,9 +159,14 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
   }
 
   const { name, area, image, population, populationDensity, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, details, overallScore, categoryScores, scoreWeights } = neighbourhood;
-  const trails = details.parksData
+
+  // Combine Linear Parks and NCC Greenbelt trails
+  const linearParks = details.parksData
     .filter((park) => park.category === "Linear Park")
     .map((park) => park.name);
+  const greenbeltTrails = details.greenbeltTrailsList || [];
+  const allTrails = [...linearParks, ...greenbeltTrails];
+  const greenbeltLengthKm = details.greenbeltTrailsLengthKm || 0;
 
   // Format numbers
   const formattedPopulation = population.toLocaleString();
@@ -276,10 +281,14 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
           <ExpandableStatRow
             icon="🚴"
             label="Trails"
-            value={`${trails.length} trails`}
-            percent={getPercent(trails.length, "trails")}
-            type={trails.length > 0 ? getScoreType(trails.length, "trails") : "neutral"}
-            items={trails}
+            value={
+              greenbeltLengthKm > 0
+                ? `${allTrails.length} trails (${greenbeltLengthKm} km Greenbelt)`
+                : `${allTrails.length} trails`
+            }
+            percent={getPercent(allTrails.length, "trails")}
+            type={allTrails.length > 0 ? getScoreType(allTrails.length, "trails") : "neutral"}
+            items={allTrails}
             itemLabel="trails"
           />
           <ExpandableStatRow

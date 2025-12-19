@@ -32,6 +32,7 @@ src/data/
 │   ├── neighbourhoods.csv        # Neighbourhood info (scores, pros/cons, avgRent, avgHomePrice)
 │   ├── rent_data.csv             # Rent research data with sources
 │   ├── home_prices.csv           # Home price research data with sources
+│   ├── ncc_greenbelt_trails.csv  # NCC Greenbelt trails (37 trails, 141+ km)
 │   └── ons_neighbourhoods.csv    # Reference: all 111 ONS area IDs
 ├── processed/
 │   └── data.json                 # Generated output (don't edit directly)
@@ -44,6 +45,7 @@ scripts/
 ├── download-restaurants-cafes.js # Downloads restaurants & cafés from OpenStreetMap (Overpass)
 ├── download-grocery-stores.js    # Downloads grocery stores from OpenStreetMap (Overpass)
 ├── generate-age-demographics.js  # Generates age demographics CSV from 2021 Census
+├── download-ncc-greenbelt.js     # Downloads NCC Greenbelt trails data
 └── config/
     └── neighbourhood-mapping.js  # Maps our neighbourhoods to ONS IDs
 ```
@@ -67,6 +69,7 @@ Most data from **City of Ottawa Open Data** (ArcGIS REST APIs). Restaurants & ca
 | Walk Scores | https://www.walkscore.com/CA-ON/Ottawa | 27 |
 | Age Demographics | https://open.ottawa.ca/datasets/ottawa::2021-long-form-census-sub-area | 27 |
 | Commute Times | Google Maps estimates (manual research) | 37 |
+| NCC Greenbelt Trails | https://services2.arcgis.com/WLyMuW006nKOfa5Z/ArcGIS/rest/services/Walking_Hiking/FeatureServer + manual research | 37 |
 | Boundaries | https://maps.ottawa.ca/arcgis/rest/services/Neighbourhoods/MapServer/0 | 111 |
 
 ## Raw Data Fields
@@ -177,6 +180,40 @@ Grocery stores from OpenStreetMap (supermarkets, grocery stores, greengrocers).
 **To refresh grocery store data:**
 ```bash
 node scripts/download-grocery-stores.js
+node scripts/process-data.js
+```
+
+### ncc_greenbelt_trails.csv
+NCC (National Capital Commission) Greenbelt trails data. The Greenbelt is a 20,000-hectare green space surrounding Ottawa with 150+ km of trails.
+
+| Field | Description |
+|-------|-------------|
+| NAME | Trail name |
+| SECTOR | Greenbelt sector (Stony Swamp, Shirleys Bay, Mer Bleue, etc.) |
+| LENGTH_KM | Trail length in kilometers |
+| DIFFICULTY | Trail difficulty (Easy, Moderate) |
+| TYPE | Trail type (Trail, Loop, Paved Pathway, Off-leash Dog Area, Boardwalk Trail) |
+| PARKING | Parking lot(s) for trail access (P1-P26) |
+| LATITUDE / LONGITUDE | Approximate trail coordinates |
+| NEIGHBOURHOODS | Semicolon-separated list of neighbourhood IDs this trail is assigned to |
+| NOTES | Additional context |
+| SOURCE | Data source (NCC) |
+
+**Greenbelt Sectors:**
+- **Shirleys Bay**: 4 trails (11 km) - near Bayshore, Bells Corners
+- **Stony Swamp**: 17 trails (73 km) - largest network, near Bells Corners, Nepean
+- **Southern Farm / Pinhey Forest**: 3 trails (9 km) - near Nepean, Barrhaven
+- **Pine Grove**: 5 trails (21 km) - near Hunt Club, Alta Vista
+- **Mer Bleue**: 5 trails (23 km) - near Orleans, Vars (includes famous bog boardwalk)
+- **Green's Creek**: 2 trails (3 km) - near Orleans
+
+**Data Sources:**
+- NCC ArcGIS API: https://services2.arcgis.com/WLyMuW006nKOfa5Z/ArcGIS/rest/services/Walking_Hiking/FeatureServer
+- NCC Website: https://ncc-ccn.gc.ca/places/hiking-and-walking-greenbelt
+
+**To refresh NCC Greenbelt data:**
+```bash
+node scripts/download-ncc-greenbelt.js
 node scripts/process-data.js
 ```
 

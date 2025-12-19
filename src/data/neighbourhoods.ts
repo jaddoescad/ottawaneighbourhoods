@@ -84,6 +84,19 @@ export interface CrimeByCategory {
   [category: string]: number;
 }
 
+export interface GreenbeltTrailData {
+  name: string;
+  sector: string;
+  lengthKm: number;
+  difficulty: string;
+  type: string;
+  parking: string;
+  lat: number | null;
+  lng: number | null;
+  notes: string;
+  source: string;
+}
+
 export interface NeighbourhoodBoundary {
   name: string;
   rings: number[][][]; // Array of rings, each ring is array of [lng, lat] coords
@@ -167,6 +180,11 @@ export interface Neighbourhood {
     nearestHospital: string | null;
     nearestHospitalAddress: string | null;
     distanceToNearestHospital: number | null; // km
+    // NCC Greenbelt trails
+    greenbeltTrails: number;
+    greenbeltTrailsLengthKm: number;
+    greenbeltTrailsList: string[];
+    greenbeltTrailsData: GreenbeltTrailData[];
   };
   pros: string[];
   cons: string[];
