@@ -983,6 +983,7 @@ async function main() {
         busStopDensity,
         stopsWithShelter,
         stopsWithBench,
+        busStopsData: busStops,
         crimeTotal: crime.total,
         crimeByCategory: crime.byCategory,
         nearestHospital: hospitalData.nearestHospital,
