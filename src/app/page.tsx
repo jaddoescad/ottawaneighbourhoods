@@ -14,11 +14,8 @@ export default function Home() {
       <header className="sticky top-0 z-40 bg-white border-b border-gray-200 px-4 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-rose-500 to-rose-600 rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-lg">O</span>
-            </div>
-            <span className="font-semibold text-gray-800 hidden sm:block">Ottawa</span>
+          <div className="px-4 py-2 bg-gradient-to-br from-rose-500 to-rose-600 rounded-xl">
+            <span className="text-white font-bold text-lg">OttawaHoods</span>
           </div>
 
           {/* Coverage Button */}
