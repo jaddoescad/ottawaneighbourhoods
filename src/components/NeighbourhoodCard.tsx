@@ -97,7 +97,7 @@ export default function NeighbourhoodCard({
         alt={name}
         fill
         className="object-cover transition-transform duration-500 group-hover:scale-110"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 25vw"
       />
 
       {/* Default Gradient Overlay */}
@@ -208,26 +208,26 @@ export default function NeighbourhoodCard({
       {/* Default View Content */}
       <div className="absolute inset-0 flex flex-col group-hover:opacity-0 transition-opacity duration-300">
         {/* Center - Name & Area */}
-        <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
-          <h2 className="text-white text-2xl md:text-3xl font-bold drop-shadow-lg">
+        <div className="flex-1 flex flex-col items-center justify-center text-center px-2 sm:px-4">
+          <h2 className="text-white text-lg sm:text-2xl md:text-3xl font-bold drop-shadow-lg">
             {name}
           </h2>
-          <p className="text-white/80 text-sm mt-1">{area}</p>
+          <p className="text-white/80 text-xs sm:text-sm mt-1">{area}</p>
         </div>
 
         {/* Bottom Stats Bar - Real data only */}
-        <div className="p-4">
-          <div className="flex items-center justify-center gap-3 text-white text-sm">
-            <div className="flex items-center gap-1">
-              <span>👥</span>
+        <div className="p-2 sm:p-4">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 text-white text-xs sm:text-sm">
+            <div className="flex items-center gap-0.5 sm:gap-1">
+              <span className="text-sm sm:text-base">👥</span>
               <span className="font-semibold">{formatPopulation(population)}</span>
             </div>
-            <div className="flex items-center gap-1">
-              <span>🌳</span>
+            <div className="flex items-center gap-0.5 sm:gap-1">
+              <span className="text-sm sm:text-base">🌳</span>
               <span className="font-semibold">{neighbourhood.details.parks}</span>
             </div>
-            <div className="flex items-center gap-1">
-              <span>🏫</span>
+            <div className="flex items-center gap-0.5 sm:gap-1">
+              <span className="text-sm sm:text-base">🏫</span>
               <span className="font-semibold">{neighbourhood.details.schools}</span>
             </div>
           </div>
