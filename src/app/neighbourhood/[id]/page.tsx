@@ -174,7 +174,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
           />
           <StatRow
             icon="📊"
-            label="Density"
+            label="Pop. Density"
             value={`${populationDensity.toLocaleString()}/km²`}
             percent={getPercent(populationDensity, "populationDensity")}
             type={getScoreType(populationDensity, "populationDensity")}
