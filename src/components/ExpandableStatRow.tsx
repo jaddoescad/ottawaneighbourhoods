@@ -46,7 +46,7 @@ export default function ExpandableStatRow({
     <div className="border-b border-gray-100 last:border-b-0">
       <button
         onClick={() => hasItems && setIsExpanded(!isExpanded)}
-        className={`w-full px-4 sm:px-5 py-3 sm:py-4 ${hasItems ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`}
+        className={`w-full px-3 sm:px-5 py-3 sm:py-4 ${hasItems ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`}
         disabled={!hasItems}
       >
         {/* Mobile: stacked layout, Desktop: horizontal */}
@@ -100,7 +100,7 @@ export default function ExpandableStatRow({
       </button>
 
       {isExpanded && hasItems && (
-        <div className="px-4 sm:px-5 pb-4 bg-gray-50">
+        <div className="px-3 sm:px-5 pb-4 bg-gray-50">
           <div className="text-xs text-gray-500 mb-2 uppercase tracking-wide">
             All {itemLabel} ({items.length})
           </div>

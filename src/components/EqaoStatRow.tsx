@@ -61,7 +61,7 @@ export default function EqaoStatRow({
     <div className="border-b border-gray-100 last:border-b-0">
       <button
         onClick={() => hasData && setIsExpanded(!isExpanded)}
-        className={`w-full px-4 sm:px-5 py-3 sm:py-4 ${hasData ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`}
+        className={`w-full px-3 sm:px-5 py-3 sm:py-4 ${hasData ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`}
         disabled={!hasData}
       >
         {/* Mobile: stacked layout, Desktop: horizontal */}
@@ -119,7 +119,7 @@ export default function EqaoStatRow({
       </button>
 
       {isExpanded && hasData && (
-        <div className="px-4 sm:px-5 pb-4 bg-gray-50">
+        <div className="px-3 sm:px-5 pb-4 bg-gray-50">
           <div className="text-xs text-gray-500 mb-3 uppercase tracking-wide">
             Provincial Test Results ({schoolsWithScores} of {schools.length} schools)
           </div>

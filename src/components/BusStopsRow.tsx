@@ -62,7 +62,7 @@ export default function BusStopsRow({
       {/* Main Row */}
       <button
         onClick={() => hasData && setIsExpanded(!isExpanded)}
-        className={`w-full px-4 sm:px-5 py-3 sm:py-4 ${hasData ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`}
+        className={`w-full px-3 sm:px-5 py-3 sm:py-4 ${hasData ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`}
         disabled={!hasData}
       >
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
@@ -136,7 +136,7 @@ export default function BusStopsRow({
 
       {/* Expanded View with Bar Chart */}
       {isExpanded && hasData && (
-        <div className="px-4 sm:px-5 pb-4 bg-gray-50">
+        <div className="px-3 sm:px-5 pb-4 bg-gray-50">
           <div className="text-xs text-gray-500 mb-3 uppercase tracking-wide">
             Bus Stop Amenities
           </div>

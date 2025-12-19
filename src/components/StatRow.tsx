@@ -82,7 +82,7 @@ export default function StatRow({
 
   return (
     <div className="border-b border-gray-100 last:border-b-0">
-      <div className="w-full px-4 sm:px-5 py-3 sm:py-4">
+      <div className="w-full px-3 sm:px-5 py-3 sm:py-4">
         {/* Mobile: stacked layout, Desktop: horizontal */}
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
           {/* Label row with value on mobile */}

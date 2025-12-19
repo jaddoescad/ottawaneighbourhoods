@@ -72,7 +72,7 @@ export default function WalkScoreRow({ walkScore, transitScore, bikeScore }: Wal
 
   return (
     <div className="border-b border-gray-100 last:border-b-0">
-      <div className="px-4 sm:px-5 py-3 sm:py-4">
+      <div className="px-3 sm:px-5 py-3 sm:py-4">
         <div className="flex items-center gap-2 mb-3 sm:mb-4">
           <span className="text-lg sm:text-xl">
             <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">

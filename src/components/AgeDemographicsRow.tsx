@@ -90,7 +90,7 @@ export default function AgeDemographicsRow({
     <div className="border-b border-gray-100 last:border-b-0">
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full px-4 sm:px-5 py-3 sm:py-4 hover:bg-gray-50 cursor-pointer transition-colors"
+        className="w-full px-3 sm:px-5 py-3 sm:py-4 hover:bg-gray-50 cursor-pointer transition-colors"
       >
         {/* Mobile: stacked layout, Desktop: horizontal */}
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
@@ -139,7 +139,7 @@ export default function AgeDemographicsRow({
       </button>
 
       {isExpanded && (
-        <div className="px-4 sm:px-5 pb-4 bg-gray-50">
+        <div className="px-3 sm:px-5 pb-4 bg-gray-50">
           <div className="text-xs text-gray-500 mb-3 uppercase tracking-wide">
             Age Distribution
           </div>

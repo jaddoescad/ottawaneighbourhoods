@@ -156,7 +156,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
       </div>
 
       {/* Stats Grid - Real Data Only */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
+      <div className="max-w-5xl mx-auto px-2 sm:px-6 py-4 sm:py-8">
         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
           <WalkScoreRow
             walkScore={walkScore}

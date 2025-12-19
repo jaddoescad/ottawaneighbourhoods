@@ -58,7 +58,7 @@ export default function CrimeStatRow({
       {/* Main Total Bar */}
       <button
         onClick={() => hasCategories && setIsExpanded(!isExpanded)}
-        className={`w-full px-4 sm:px-5 py-3 sm:py-4 ${hasCategories ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`}
+        className={`w-full px-3 sm:px-5 py-3 sm:py-4 ${hasCategories ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`}
         disabled={!hasCategories}
       >
         {/* Mobile: stacked layout, Desktop: horizontal */}
@@ -126,7 +126,7 @@ export default function CrimeStatRow({
 
       {/* Expanded Category Bars */}
       {isExpanded && hasCategories && (
-        <div className="px-4 sm:px-5 pb-4 bg-gray-50">
+        <div className="px-3 sm:px-5 pb-4 bg-gray-50">
           <div className="text-xs text-gray-500 mb-3 uppercase tracking-wide">
             Crime by Category (2023-2024)
           </div>
