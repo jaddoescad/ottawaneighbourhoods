@@ -121,6 +121,7 @@ export interface Neighbourhood {
   area: string;
   image: string;
   population: number;
+  populationDensity: number; // people per km²
   medianIncome: number;
   avgRent: number;
   avgHomePrice: number;

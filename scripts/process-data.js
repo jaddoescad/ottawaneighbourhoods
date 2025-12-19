@@ -913,6 +913,9 @@ async function main() {
       }
     }
 
+    // Calculate population density (people per km²)
+    const populationDensity = areaKm2 > 0 ? roundTo(population / areaKm2, 0) : 0;
+
     // Get walk scores for this neighbourhood
     const walkScores = walkScoresById[info.id] || { walkScore: 0, transitScore: 0, bikeScore: 0 };
 
@@ -942,6 +945,7 @@ async function main() {
       area: info.area,
       image: info.image,
       population,
+      populationDensity,
       medianIncome: parseInt(info.medianIncome) || 0,
       avgRent: parseInt(info.avgRent) || 0,
       avgHomePrice: parseInt(info.avgHomePrice) || 0,
