@@ -16,9 +16,9 @@ function getScoreLabel(score: number): string {
 
 function getTransitLabel(score: number): string {
   if (score >= 90) return "Excellent Transit";
-  if (score >= 70) return "Excellent Transit";
-  if (score >= 50) return "Good Transit";
-  if (score >= 25) return "Some Transit";
+  if (score >= 70) return "Great Transit";
+  if (score >= 50) return "Moderate Transit";
+  if (score >= 25) return "Limited Transit";
   return "Minimal Transit";
 }
 
