@@ -28,11 +28,13 @@ function getTransitLabel(density: number): string {
   return "Limited";
 }
 
-// Scale bar width so differences are more visible
-// Max around 60 stops/km² (highest in Ottawa is ~55)
+// Scale bar width to match labels visually
+// Limited: 15-35%, Moderate: 40-55%, Good: 60-75%, Excellent: 80-100%
 function getBarWidth(density: number): number {
-  const maxDensity = 60;
-  return Math.max(8, Math.min((density / maxDensity) * 100, 100));
+  if (density >= 40) return 80 + Math.min((density - 40) / 20 * 20, 20); // 80-100%
+  if (density >= 20) return 60 + (density - 20) / 20 * 15; // 60-75%
+  if (density >= 8) return 40 + (density - 8) / 12 * 15; // 40-55%
+  return Math.max(15, density / 8 * 25 + 10); // 15-35%
 }
 
 export default function BusStopsRow({
