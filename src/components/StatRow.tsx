@@ -8,7 +8,7 @@ interface StatRowProps {
   value: string | number;
   percent: number;
   type?: "great" | "good" | "okay" | "bad" | "neutral";
-  labelSet?: "income" | "rent" | "homePrice" | "population" | "healthcare" | "commute";
+  labelSet?: "income" | "rent" | "homePrice" | "population" | "density" | "healthcare" | "commute";
   tooltip?: string;
 }
 
@@ -60,6 +60,13 @@ export default function StatRow({
       bad: "Small",
       neutral: "N/A",
     },
+    density: {
+      great: "Urban",
+      good: "Dense",
+      okay: "Suburban",
+      bad: "Rural",
+      neutral: "N/A",
+    },
     healthcare: {
       great: "Very Close",
       good: "Close",
@@ -109,7 +116,7 @@ export default function StatRow({
             <span className="text-gray-900 font-bold text-sm sm:hidden">{value}</span>
           </div>
           {/* Bar */}
-          <div className="flex-1 relative h-7 sm:h-9 bg-gray-100 rounded-lg overflow-hidden">
+          <div className="w-full sm:flex-1 relative h-7 sm:h-9 bg-gray-100 rounded-lg overflow-hidden">
             <div
               className={`absolute inset-y-0 left-0 rounded-lg ${colors[type]} transition-all duration-300`}
               style={{ width: `${barWidth}%` }}

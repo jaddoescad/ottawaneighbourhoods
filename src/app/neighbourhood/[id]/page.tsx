@@ -32,6 +32,7 @@ const THRESHOLDS = {
   rent: { max: 2500, great: 1800, okay: 2000 }, // Lower is better for rent
   homePrice: { max: 1200000, great: 600000, okay: 800000 }, // Lower is better for home price
   population: { max: 150000, great: 50000, okay: 20000 },
+  populationDensity: { max: 6000, great: 3000, okay: 1000 }, // people per km²
   commuteTime: { max: 60, great: 15, okay: 30 }, // Lower is better for commute
 };
 
@@ -101,7 +102,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
     notFound();
   }
 
-  const { name, area, image, population, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, details, overallScore, categoryScores, scoreWeights } = neighbourhood;
+  const { name, area, image, population, populationDensity, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, details, overallScore, categoryScores, scoreWeights } = neighbourhood;
   const trails = details.parksData
     .filter((park) => park.category === "Linear Park")
     .map((park) => park.name);
@@ -170,6 +171,14 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             percent={getPercent(population, "population")}
             type={getScoreType(population, "population")}
             labelSet="population"
+          />
+          <StatRow
+            icon="📊"
+            label="Density"
+            value={`${populationDensity.toLocaleString()}/km²`}
+            percent={getPercent(populationDensity, "populationDensity")}
+            type={getScoreType(populationDensity, "populationDensity")}
+            labelSet="density"
           />
           <AgeDemographicsRow
             pctChildren={pctChildren}

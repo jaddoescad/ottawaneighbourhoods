@@ -85,7 +85,7 @@ export default function CrimeStatRow({
             </div>
           </div>
           {/* Bar */}
-          <div className="flex-1 relative h-7 sm:h-9 bg-gray-100 rounded-lg overflow-hidden">
+          <div className="w-full sm:flex-1 relative h-7 sm:h-9 bg-gray-100 rounded-lg overflow-hidden">
             <div
               className={`absolute inset-y-0 left-0 rounded-lg ${getCrimeColor(perCapita)} transition-all duration-300`}
               style={{ width: `${barWidth}%` }}
