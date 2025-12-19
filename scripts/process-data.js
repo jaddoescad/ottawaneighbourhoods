@@ -1048,9 +1048,9 @@ async function main() {
     bikeScore: { min: 0, max: 100, higherIsBetter: true },
     busStopDensity: { min: 0, max: 15, higherIsBetter: true }, // 15+ stops/km² = excellent
 
-    // Safety: crimes per 1000 residents
-    // Ottawa typical: 30-80, excellent: <30, concerning: >100
-    crimePerCapita: { min: 20, max: 120, higherIsBetter: false },
+    // Safety: crimes per 1000 residents (ANNUAL - we divide 2-year total by 2)
+    // Ottawa typical: 20-50, excellent: <20, concerning: >70
+    crimePerCapita: { min: 10, max: 70, higherIsBetter: false },
 
     // Affordability - calibrated to Ottawa market (Dec 2024)
     avgRent: { min: 1500, max: 2800, higherIsBetter: false }, // $1500=100, $2800=0
@@ -1089,7 +1089,8 @@ async function main() {
   // Calculate scores for each neighbourhood
   for (const neighbourhood of neighbourhoods) {
     const pop = neighbourhood.population;
-    const crimePerCapita = pop > 0 ? (neighbourhood.details.crimeTotal / pop) * 1000 : null;
+    // Divide by 2 because crime data spans 2 years (2023-2024) - get annual rate
+    const crimePerCapita = pop > 0 ? (neighbourhood.details.crimeTotal / 2 / pop) * 1000 : null;
 
     // Calculate individual metric scores (0-100) using absolute benchmarks
     const scores = {
