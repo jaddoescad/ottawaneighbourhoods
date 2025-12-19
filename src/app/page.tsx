@@ -21,7 +21,7 @@ export default function Home() {
           {/* Coverage Button */}
           <button
             onClick={() => setShowCoverageMap(true)}
-            className="hidden md:flex px-4 py-2 bg-rose-500 text-white rounded-full text-sm font-medium hover:bg-rose-600 transition items-center gap-1.5"
+            className="flex px-3 py-1.5 sm:px-4 sm:py-2 bg-rose-500 text-white rounded-full text-xs sm:text-sm font-medium hover:bg-rose-600 transition items-center gap-1 sm:gap-1.5"
           >
             <svg
               className="w-4 h-4"
