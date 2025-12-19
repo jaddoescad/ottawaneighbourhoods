@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OttawaHoods",
-  description: "Explore and compare neighbourhoods across Canada's capital",
+  title: "Top Ottawa Neighborhoods to Live In 2025 | OttawaHoods",
+  description: "Compare the top Ottawa neighborhoods using real data. Crime stats, school scores, walk scores, rent prices, and more for 35+ areas. Find your perfect neighbourhood.",
 };
 
 export default function RootLayout({

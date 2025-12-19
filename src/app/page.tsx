@@ -47,11 +47,11 @@ export default function Home() {
         onClose={() => setShowCoverageMap(false)}
       />
 
-      {/* Popular Tag */}
-      <div className="max-w-7xl mx-auto px-4 pt-4">
-        <span className="inline-block px-3 py-1 bg-white border border-gray-200 rounded-md text-sm text-gray-700 shadow-sm">
-          Popular
-        </span>
+      {/* H1 */}
+      <div className="max-w-7xl mx-auto px-4 pt-4 text-center">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+          Top Ottawa Neighborhoods
+        </h1>
       </div>
 
       {/* Grid */}
