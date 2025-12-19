@@ -214,24 +214,6 @@ export default function NeighbourhoodCard({
           </h2>
           <p className="text-white/80 text-xs sm:text-sm mt-1">{area}</p>
         </div>
-
-        {/* Bottom Stats Bar - Real data only */}
-        <div className="p-2 sm:p-4">
-          <div className="flex items-center justify-center gap-2 sm:gap-3 text-white text-xs sm:text-sm">
-            <div className="flex items-center gap-0.5 sm:gap-1">
-              <span className="text-sm sm:text-base">👥</span>
-              <span className="font-semibold">{formatPopulation(population)}</span>
-            </div>
-            <div className="flex items-center gap-0.5 sm:gap-1">
-              <span className="text-sm sm:text-base">🌳</span>
-              <span className="font-semibold">{neighbourhood.details.parks}</span>
-            </div>
-            <div className="flex items-center gap-0.5 sm:gap-1">
-              <span className="text-sm sm:text-base">🏫</span>
-              <span className="font-semibold">{neighbourhood.details.schools}</span>
-            </div>
-          </div>
-        </div>
       </div>
     </Link>
   );
