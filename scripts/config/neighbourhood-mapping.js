@@ -157,7 +157,7 @@ module.exports = {
   // Nepean / Centrepointe area (Knoxdale-Merivale ward core)
   'nepean': {
     name: 'Nepean',
-    onsIds: [23, 100, 108, 76], // Centrepointe, Trend-Arlington, Craig Henry
+    onsIds: [23, 100, 108], // Centrepointe, Trend-Arlington, Craig Henry
   },
   'belair-heights': {
     name: 'Bel Air Heights',
