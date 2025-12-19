@@ -13,9 +13,34 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const BASE_URL = "https://ottawahoods.com";
+
 export const metadata: Metadata = {
   title: "Top Ottawa Neighborhoods to Live In 2025 | OttawaHoods",
   description: "Compare the top Ottawa neighborhoods using real data. Crime stats, school scores, walk scores, rent prices, and more for 35+ areas. Find your perfect neighbourhood.",
+  metadataBase: new URL(BASE_URL),
+  openGraph: {
+    title: "Top Ottawa Neighbourhoods Ranked | OttawaHoods",
+    description: "Compare 37+ Ottawa neighbourhoods with real data: crime stats, school scores, walk scores, rent prices & more. Find your perfect area to live.",
+    url: BASE_URL,
+    siteName: "OttawaHoods",
+    images: [
+      {
+        url: "/og-home.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ottawa Neighbourhoods Rankings - Compare the best areas to live",
+      },
+    ],
+    locale: "en_CA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Top Ottawa Neighbourhoods Ranked | OttawaHoods",
+    description: "Compare 37+ Ottawa neighbourhoods with real data: crime, schools, walkability, rent & more.",
+    images: ["/og-home.jpg"],
+  },
 };
 
 export default function RootLayout({

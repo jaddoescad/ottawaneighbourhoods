@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 import { neighbourhoods } from "@/data/neighbourhoods";
+import { neighbourhoodMeta, defaultMeta } from "@/data/neighbourhood-meta";
 import ExpandableStatRow from "@/components/ExpandableStatRow";
 import StatRow from "@/components/StatRow";
 import CrimeStatRow from "@/components/CrimeStatRow";
@@ -11,12 +13,66 @@ import AgeDemographicsRow from "@/components/AgeDemographicsRow";
 import ScoreBreakdown from "@/components/ScoreBreakdown";
 import BusStopsRow from "@/components/BusStopsRow";
 
+const BASE_URL = "https://ottawahoods.com";
+
+// Pre-compute rankings (sorted by score descending)
+const rankedNeighbourhoods = [...neighbourhoods]
+  .sort((a, b) => b.overallScore - a.overallScore)
+  .map((n, index) => ({ ...n, rank: index + 1 }));
+
 interface PageProps {
   params: Promise<{ id: string }>;
 }
 
 export function generateStaticParams() {
   return neighbourhoods.map((n) => ({ id: n.id }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const neighbourhood = rankedNeighbourhoods.find((n) => n.id === id);
+
+  if (!neighbourhood) {
+    return {
+      title: "Neighbourhood Not Found | OttawaHoods",
+    };
+  }
+
+  const { name, image, rank } = neighbourhood;
+  const meta = neighbourhoodMeta[id] || defaultMeta;
+  const ogImage = image.startsWith("http") ? image : `${BASE_URL}${image}`;
+
+  // Dynamic title with rank
+  const ogTitle = `${name} Ranked #${rank} Neighbourhood in Ottawa`;
+  const title = `${name} Ranked #${rank} Neighbourhood in Ottawa | OttawaHoods`;
+  const description = meta.metaDescription.replace("{rank}", String(rank));
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title: ogTitle,
+      description: meta.ogDescription,
+      url: `${BASE_URL}/neighbourhood/${id}`,
+      siteName: "OttawaHoods",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${name} neighbourhood in Ottawa`,
+        },
+      ],
+      locale: "en_CA",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description: meta.ogDescription,
+      images: [ogImage],
+    },
+  };
 }
 
 // Thresholds for each category
