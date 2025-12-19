@@ -147,10 +147,6 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
                 categoryScores={categoryScores}
                 scoreWeights={scoreWeights}
               />
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white/20 backdrop-blur px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
-                <span className="text-base sm:text-xl">👥</span>
-                <span className="text-white font-semibold text-sm sm:text-base">{formattedPopulation} residents</span>
-              </div>
             </div>
           </div>
         </div>
