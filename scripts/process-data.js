@@ -1007,10 +1007,10 @@ async function main() {
   // Define category weights (must sum to 1.0)
   const SCORE_WEIGHTS = {
     safety: 0.22,          // crime per capita (lower is better) - highest priority
-    amenities: 0.16,       // parks, schools, libraries, grocery stores
+    amenities: 0.21,       // parks, schools, libraries, grocery stores (self-sufficiency)
     education: 0.14,       // avgEqaoScore
     walkability: 0.14,     // walkScore, transitScore, bikeScore, busStopDensity
-    commuteTime: 0.10,     // commute time to downtown (lower is better)
+    commuteTime: 0.05,     // commute time to downtown (less important for self-contained suburbs)
     lifestyle: 0.08,       // restaurants & cafes density, gym density
     familyFriendly: 0.06,  // pctChildren (higher is better for families)
     healthcare: 0.04,      // distance to hospital (lower is better)
@@ -1018,41 +1018,72 @@ async function main() {
     income: 0.02,          // medianIncome (higher is better)
   };
 
-  // Helper to calculate percentile rank (0-100) for a value in a sorted array
-  // higherIsBetter: true means high values get high scores
-  function calculatePercentileScore(value, allValues, higherIsBetter = true) {
-    if (value === null || value === undefined || allValues.length === 0) return null;
+  // Absolute benchmark scoring: maps raw values to 0-100 scores
+  // Uses linear interpolation between defined thresholds
+  function absoluteScore(value, minVal, maxVal, higherIsBetter = true) {
+    if (value === null || value === undefined) return null;
 
-    const validValues = allValues.filter(v => v !== null && v !== undefined);
-    if (validValues.length === 0) return null;
+    // Clamp value to range
+    const clamped = Math.max(minVal, Math.min(maxVal, value));
 
-    const sorted = [...validValues].sort((a, b) => a - b);
-    const rank = sorted.filter(v => v <= value).length;
-    const percentile = (rank / sorted.length) * 100;
+    // Linear interpolation to 0-100
+    let score = ((clamped - minVal) / (maxVal - minVal)) * 100;
 
-    return higherIsBetter ? percentile : (100 - percentile);
+    // Invert if lower is better
+    if (!higherIsBetter) {
+      score = 100 - score;
+    }
+
+    return Math.round(score);
   }
 
-  // Extract all values for each metric across neighbourhoods
-  const allMetrics = {
-    walkScore: neighbourhoods.map(n => n.walkScore),
-    transitScore: neighbourhoods.map(n => n.transitScore),
-    bikeScore: neighbourhoods.map(n => n.bikeScore),
-    busStopDensity: neighbourhoods.map(n => n.details.busStopDensity),
-    crimePerCapita: neighbourhoods.map(n => n.population > 0 ? (n.details.crimeTotal / n.population) * 1000 : null),
-    avgRent: neighbourhoods.map(n => n.avgRent || null),
-    avgHomePrice: neighbourhoods.map(n => n.avgHomePrice || null),
-    parks: neighbourhoods.map(n => n.details.parks),
-    schools: neighbourhoods.map(n => n.details.schools),
-    libraries: neighbourhoods.map(n => n.details.libraries),
-    restaurantsDensity: neighbourhoods.map(n => n.details.restaurantsAndCafesDensity),
-    groceryStoreDensity: neighbourhoods.map(n => n.details.groceryStoreDensity),
-    gymDensity: neighbourhoods.map(n => n.details.gymDensity),
-    avgEqaoScore: neighbourhoods.map(n => n.details.avgEqaoScore),
-    hospitalDistance: neighbourhoods.map(n => n.details.distanceToNearestHospital),
-    medianIncome: neighbourhoods.map(n => n.medianIncome || null),
-    pctChildren: neighbourhoods.map(n => n.pctChildren || null),
-    commuteToDowntown: neighbourhoods.map(n => n.commuteToDowntown || null),
+  // Define absolute benchmarks for each metric
+  // Format: { min: worst value, max: best value, higherIsBetter }
+  // Benchmarks are calibrated so "good" neighbourhoods score 70-85 on their strengths
+  const BENCHMARKS = {
+    // Walkability scores (already 0-100 scale from WalkScore.com)
+    // Scale 0-100 as-is, already meaningful
+    walkScore: { min: 0, max: 100, higherIsBetter: true },
+    transitScore: { min: 0, max: 100, higherIsBetter: true },
+    bikeScore: { min: 0, max: 100, higherIsBetter: true },
+    busStopDensity: { min: 0, max: 15, higherIsBetter: true }, // 15+ stops/km² = excellent
+
+    // Safety: crimes per 1000 residents
+    // Ottawa typical: 30-80, excellent: <30, concerning: >100
+    crimePerCapita: { min: 20, max: 120, higherIsBetter: false },
+
+    // Affordability - calibrated to Ottawa market (Dec 2024)
+    avgRent: { min: 1500, max: 2800, higherIsBetter: false }, // $1500=100, $2800=0
+    avgHomePrice: { min: 450000, max: 1100000, higherIsBetter: false },
+
+    // Amenities - use counts that reward having "enough"
+    parks: { min: 0, max: 60, higherIsBetter: true }, // 60+ parks = 100
+    schools: { min: 0, max: 25, higherIsBetter: true }, // 25+ schools = 100
+    libraries: { min: 0, max: 2, higherIsBetter: true }, // 2+ = 100
+    groceryStoreDensity: { min: 0, max: 0.5, higherIsBetter: true }, // 0.5/km² = excellent
+
+    // Lifestyle - calibrated for Ottawa (not downtown Toronto)
+    restaurantsDensity: { min: 0, max: 8, higherIsBetter: true }, // 8/km² = excellent for Ottawa
+    gymDensity: { min: 0, max: 1.2, higherIsBetter: true }, // 1.2/km² = excellent
+
+    // Education (EQAO % achieving provincial standard)
+    // Provincial average ~60-65%, good schools 70+, excellent 80+
+    avgEqaoScore: { min: 55, max: 82, higherIsBetter: true },
+
+    // Healthcare (distance to nearest hospital in km)
+    // <3km excellent, >15km poor
+    hospitalDistance: { min: 1, max: 15, higherIsBetter: false },
+
+    // Income - Ottawa context
+    medianIncome: { min: 60000, max: 130000, higherIsBetter: true },
+
+    // Family Friendly (% children in population)
+    // Ottawa avg ~16%, family suburbs 18-22%
+    pctChildren: { min: 8, max: 20, higherIsBetter: true },
+
+    // Commute (minutes to downtown)
+    // <10 excellent, 20-30 typical, >40 long
+    commuteToDowntown: { min: 5, max: 45, higherIsBetter: false },
   };
 
   // Calculate scores for each neighbourhood
@@ -1060,45 +1091,45 @@ async function main() {
     const pop = neighbourhood.population;
     const crimePerCapita = pop > 0 ? (neighbourhood.details.crimeTotal / pop) * 1000 : null;
 
-    // Calculate individual metric scores (0-100)
+    // Calculate individual metric scores (0-100) using absolute benchmarks
     const scores = {
-      // Walkability (average of walk, transit, bike, bus stop density)
-      walkScore: calculatePercentileScore(neighbourhood.walkScore, allMetrics.walkScore, true),
-      transitScore: calculatePercentileScore(neighbourhood.transitScore, allMetrics.transitScore, true),
-      bikeScore: calculatePercentileScore(neighbourhood.bikeScore, allMetrics.bikeScore, true),
-      busStopDensity: calculatePercentileScore(neighbourhood.details.busStopDensity, allMetrics.busStopDensity, true),
+      // Walkability
+      walkScore: absoluteScore(neighbourhood.walkScore, BENCHMARKS.walkScore.min, BENCHMARKS.walkScore.max, BENCHMARKS.walkScore.higherIsBetter),
+      transitScore: absoluteScore(neighbourhood.transitScore, BENCHMARKS.transitScore.min, BENCHMARKS.transitScore.max, BENCHMARKS.transitScore.higherIsBetter),
+      bikeScore: absoluteScore(neighbourhood.bikeScore, BENCHMARKS.bikeScore.min, BENCHMARKS.bikeScore.max, BENCHMARKS.bikeScore.higherIsBetter),
+      busStopDensity: absoluteScore(neighbourhood.details.busStopDensity, BENCHMARKS.busStopDensity.min, BENCHMARKS.busStopDensity.max, BENCHMARKS.busStopDensity.higherIsBetter),
 
-      // Safety (lower crime is better)
-      crimePerCapita: calculatePercentileScore(crimePerCapita, allMetrics.crimePerCapita, false),
+      // Safety
+      crimePerCapita: absoluteScore(crimePerCapita, BENCHMARKS.crimePerCapita.min, BENCHMARKS.crimePerCapita.max, BENCHMARKS.crimePerCapita.higherIsBetter),
 
-      // Affordability (lower is better)
-      avgRent: calculatePercentileScore(neighbourhood.avgRent, allMetrics.avgRent, false),
-      avgHomePrice: calculatePercentileScore(neighbourhood.avgHomePrice, allMetrics.avgHomePrice, false),
+      // Affordability
+      avgRent: absoluteScore(neighbourhood.avgRent, BENCHMARKS.avgRent.min, BENCHMARKS.avgRent.max, BENCHMARKS.avgRent.higherIsBetter),
+      avgHomePrice: absoluteScore(neighbourhood.avgHomePrice, BENCHMARKS.avgHomePrice.min, BENCHMARKS.avgHomePrice.max, BENCHMARKS.avgHomePrice.higherIsBetter),
 
-      // Amenities (higher is better)
-      parks: calculatePercentileScore(neighbourhood.details.parks, allMetrics.parks, true),
-      schools: calculatePercentileScore(neighbourhood.details.schools, allMetrics.schools, true),
-      libraries: calculatePercentileScore(neighbourhood.details.libraries, allMetrics.libraries, true),
-      restaurantsDensity: calculatePercentileScore(neighbourhood.details.restaurantsAndCafesDensity, allMetrics.restaurantsDensity, true),
-      groceryStoreDensity: calculatePercentileScore(neighbourhood.details.groceryStoreDensity, allMetrics.groceryStoreDensity, true),
+      // Amenities
+      parks: absoluteScore(neighbourhood.details.parks, BENCHMARKS.parks.min, BENCHMARKS.parks.max, BENCHMARKS.parks.higherIsBetter),
+      schools: absoluteScore(neighbourhood.details.schools, BENCHMARKS.schools.min, BENCHMARKS.schools.max, BENCHMARKS.schools.higherIsBetter),
+      libraries: absoluteScore(neighbourhood.details.libraries, BENCHMARKS.libraries.min, BENCHMARKS.libraries.max, BENCHMARKS.libraries.higherIsBetter),
+      groceryStoreDensity: absoluteScore(neighbourhood.details.groceryStoreDensity, BENCHMARKS.groceryStoreDensity.min, BENCHMARKS.groceryStoreDensity.max, BENCHMARKS.groceryStoreDensity.higherIsBetter),
 
-      // Lifestyle (restaurants & gyms)
-      gymDensity: calculatePercentileScore(neighbourhood.details.gymDensity, allMetrics.gymDensity, true),
+      // Lifestyle
+      restaurantsDensity: absoluteScore(neighbourhood.details.restaurantsAndCafesDensity, BENCHMARKS.restaurantsDensity.min, BENCHMARKS.restaurantsDensity.max, BENCHMARKS.restaurantsDensity.higherIsBetter),
+      gymDensity: absoluteScore(neighbourhood.details.gymDensity, BENCHMARKS.gymDensity.min, BENCHMARKS.gymDensity.max, BENCHMARKS.gymDensity.higherIsBetter),
 
-      // Education (higher is better)
-      avgEqaoScore: calculatePercentileScore(neighbourhood.details.avgEqaoScore, allMetrics.avgEqaoScore, true),
+      // Education
+      avgEqaoScore: absoluteScore(neighbourhood.details.avgEqaoScore, BENCHMARKS.avgEqaoScore.min, BENCHMARKS.avgEqaoScore.max, BENCHMARKS.avgEqaoScore.higherIsBetter),
 
-      // Healthcare (lower distance is better)
-      hospitalDistance: calculatePercentileScore(neighbourhood.details.distanceToNearestHospital, allMetrics.hospitalDistance, false),
+      // Healthcare
+      hospitalDistance: absoluteScore(neighbourhood.details.distanceToNearestHospital, BENCHMARKS.hospitalDistance.min, BENCHMARKS.hospitalDistance.max, BENCHMARKS.hospitalDistance.higherIsBetter),
 
-      // Income (higher is better)
-      medianIncome: calculatePercentileScore(neighbourhood.medianIncome, allMetrics.medianIncome, true),
+      // Income
+      medianIncome: absoluteScore(neighbourhood.medianIncome, BENCHMARKS.medianIncome.min, BENCHMARKS.medianIncome.max, BENCHMARKS.medianIncome.higherIsBetter),
 
-      // Family Friendly (higher children % is better)
-      pctChildren: calculatePercentileScore(neighbourhood.pctChildren, allMetrics.pctChildren, true),
+      // Family Friendly
+      pctChildren: absoluteScore(neighbourhood.pctChildren, BENCHMARKS.pctChildren.min, BENCHMARKS.pctChildren.max, BENCHMARKS.pctChildren.higherIsBetter),
 
-      // Commute Time (lower is better)
-      commuteToDowntown: calculatePercentileScore(neighbourhood.commuteToDowntown, allMetrics.commuteToDowntown, false),
+      // Commute Time
+      commuteToDowntown: absoluteScore(neighbourhood.commuteToDowntown, BENCHMARKS.commuteToDowntown.min, BENCHMARKS.commuteToDowntown.max, BENCHMARKS.commuteToDowntown.higherIsBetter),
     };
 
     // Calculate category scores (average of metrics in each category)
