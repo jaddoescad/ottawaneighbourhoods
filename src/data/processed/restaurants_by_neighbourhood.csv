@@ -528,32 +528,26 @@ old-ottawa-south,Old Ottawa South,Ten Fish,restaurant,seafood,45.3931319,-75.682
 old-ottawa-south,Old Ottawa South,Thai Kitchen Catering Service,restaurant,thai,45.3901009,-75.6794768,483056480,way
 old-ottawa-south,Old Ottawa South,Vietnamese Kitchen,restaurant,vietnamese,45.3939888,-75.6834119,5585459044,node
 hintonburg,Hintonburg,Bridgehead,cafe,coffee_shop,45.4045652,-75.7236776,1800921194,node
-hintonburg,Hintonburg,Bridgehead,cafe,coffee_shop,45.3481767,-75.7880337,4733084883,node
 hintonburg,Hintonburg,Drip House,cafe,coffee_shop,45.4084346,-75.733457,9250980417,node
 hintonburg,Hintonburg,Drip House Cafe,cafe,juice;coffee_shop,45.4022546,-75.7308982,5838632390,node
 hintonburg,Hintonburg,Happy Goat Coffee,cafe,coffee_shop,45.4052794,-75.7172558,3703012717,node
 hintonburg,Hintonburg,Hi T Bubble tea | dessert,cafe,bubble_tea,45.4034263,-75.7247949,4829025522,node
 hintonburg,Hintonburg,Moo Shu Ice Cream,cafe,ice_cream,45.4017088,-75.7267862,4846309224,node
 hintonburg,Hintonburg,Morning Owl,cafe,,45.4019941,-75.7302475,4260939189,node
-hintonburg,Hintonburg,Starbucks,cafe,coffee_shop,45.3495289,-75.7879882,671852037,node
-hintonburg,Hintonburg,Tim Hortons,cafe,coffee_shop,45.3421621,-75.7863524,876639105,node
 hintonburg,Hintonburg,Tim Hortons,cafe,coffee_shop,45.4018221,-75.726586,5228192846,node
 hintonburg,Hintonburg,U-Rock,cafe,,45.4056353,-75.7226857,11117083378,node
 hintonburg,Hintonburg,Absinthe,restaurant,,45.400129,-75.7305348,6747283266,node
 hintonburg,Hintonburg,African Kitchen,restaurant,lebanese,45.4009815,-75.7324205,163762363,way
 hintonburg,Hintonburg,Anthony's,restaurant,pizza,45.4000491,-75.7307725,6747283265,node
 hintonburg,Hintonburg,BiBi's,restaurant,,45.4031149,-75.7255385,6747817900,node
-hintonburg,Hintonburg,Chuck's Roadhouse,restaurant,burger;steak_house,45.3515611,-75.7832363,9035882819,node
 hintonburg,Hintonburg,Dosa King,restaurant,indian,45.400591,-75.732179,12157506927,node
 hintonburg,Hintonburg,Fil's diner,restaurant,burger,45.4003813,-75.7305636,808846249,node
 hintonburg,Hintonburg,La Bonita,restaurant,mexican,45.4034415,-75.7251721,4241773994,node
 hintonburg,Hintonburg,La Cabana,restaurant,,45.4009145,-75.732364,237315146,way
 hintonburg,Hintonburg,Masakali,restaurant,indian,45.4025655,-75.7261568,2517485885,node
-hintonburg,Hintonburg,Milestones,restaurant,bar_and_grill,45.352023,-75.783816,95171338,way
 hintonburg,Hintonburg,Pho Van Van,restaurant,vietnamese,45.3994497,-75.7315476,6515775625,node
 hintonburg,Hintonburg,Sanduk Philippe Cuisine,restaurant,thai,45.400675,-75.7321852,237315148,way
 hintonburg,Hintonburg,Sharpfle Waffle,restaurant,korean;waffle,45.4072095,-75.7305065,385064079,way
-hintonburg,Hintonburg,Shifa Restaurant,restaurant,,45.352795,-75.777875,319963370,way
 hintonburg,Hintonburg,Springroll House Café,restaurant,vietnamese,45.4029777,-75.7256843,5697750380,node
 hintonburg,Hintonburg,Sushi Ro,restaurant,sushi,45.4022851,-75.726478,1800926194,node
 hintonburg,Hintonburg,Suya Palace African Grill & BBQ,restaurant,,45.4064061,-75.7202958,10038131647,node
@@ -1264,18 +1258,24 @@ metcalfe,Metcalfe-Osgoode,Metcalfe Fare,restaurant,,45.2288355,-75.4912855,46995
 metcalfe,Metcalfe-Osgoode,Metcalfe Pizza,restaurant,pizza,45.235216,-75.473843,469951628,way
 metcalfe,Metcalfe-Osgoode,Red Dot Cafe,restaurant,,45.1500241,-75.6015091,533298637,way
 nepean,Nepean,Unnamed,cafe,coffee_shop,45.3446362,-75.7626991,7039632323,node
+nepean,Nepean,Bridgehead,cafe,coffee_shop,45.3481767,-75.7880337,4733084883,node
 nepean,Nepean,Happy Goat Coffee Co.,cafe,,45.3496969,-75.7662012,13109526919,node
 nepean,Nepean,Keepin it Vegan,cafe,,45.332444,-75.7705425,472233981,way
+nepean,Nepean,Starbucks,cafe,coffee_shop,45.3495289,-75.7879882,671852037,node
 nepean,Nepean,Tim Hortons,cafe,coffee_shop,45.3254967,-75.7795168,545573642,way
+nepean,Nepean,Tim Hortons,cafe,coffee_shop,45.3421621,-75.7863524,876639105,node
 nepean,Nepean,Tim Hortons,cafe,coffee_shop,45.3457322,-75.7637548,2873407138,node
 nepean,Nepean,Authentic Vietnamese Pho House,restaurant,vietnamese,45.325437,-75.7797156,545573640,way
 nepean,Nepean,BAAN Thai Restaurant,restaurant,thai,45.3390955,-75.7717431,570300175,way
 nepean,Nepean,Bella's Boys Italian Kitchen,restaurant,italian,45.3250644,-75.7805336,545573661,way
+nepean,Nepean,Chuck's Roadhouse,restaurant,burger;steak_house,45.3515611,-75.7832363,9035882819,node
 nepean,Nepean,Fitz's Classic Grill,restaurant,barbecue,45.3252735,-75.7800364,545573657,way
 nepean,Nepean,Lil Negril,restaurant,caribbean,45.3387795,-75.7715889,570300170,way
+nepean,Nepean,Milestones,restaurant,bar_and_grill,45.352023,-75.783816,95171338,way
 nepean,Nepean,New Hong Shing,restaurant,chinese,45.3241962,-75.7776024,545542947,way
 nepean,Nepean,Ottawa Shawarma,restaurant,kebab,45.3243341,-75.7793632,545573732,way
 nepean,Nepean,Parti Pizza,restaurant,pizza,45.3244494,-75.7777449,545542950,way
+nepean,Nepean,Shifa Restaurant,restaurant,,45.352795,-75.777875,319963370,way
 merivale,Merivale,Cappuccino Bar,cafe,,45.3295681,-75.7275186,6200081788,node
 merivale,Merivale,Second Cup,cafe,coffee_shop,45.3448666,-75.7296078,473224062,way
 merivale,Merivale,Simply Biscotti,cafe,,45.3464158,-75.703256,5973552974,node

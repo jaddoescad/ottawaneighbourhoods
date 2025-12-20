@@ -31,7 +31,7 @@ module.exports = {
   },
   'hintonburg': {
     name: 'Hintonburg',
-    onsIds: [47, 54], // Hintonburg-Mechanicsville, Iris-Queensway Terrace South
+    onsIds: [47], // Hintonburg-Mechanicsville
   },
   'little-italy': {
     name: 'Little Italy',
@@ -157,7 +157,7 @@ module.exports = {
   // Nepean / Centrepointe area (Knoxdale-Merivale ward core)
   'nepean': {
     name: 'Nepean',
-    onsIds: [23, 100, 108], // Centrepointe, Trend-Arlington, Craig Henry
+    onsIds: [23, 100, 108, 54], // Centrepointe, Trend-Arlington, Craig Henry, Iris-Queensway Terrace South
   },
   'belair-heights': {
     name: 'Bel Air Heights',
