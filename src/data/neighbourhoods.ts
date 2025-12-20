@@ -98,6 +98,7 @@ export interface GreenbeltTrailData {
 }
 
 export interface NeighbourhoodBoundary {
+  onsId: number | string; // ONS area ID (or 'custom' for custom boundaries)
   name: string;
   rings: number[][][]; // Array of rings, each ring is array of [lng, lat] coords
 }

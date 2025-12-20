@@ -1139,6 +1139,7 @@ async function main() {
       cons: info.cons ? info.cons.split('; ') : [],
       // Boundaries for map display (array of polygons with rings)
       boundaries: (boundariesByNeighbourhood[info.id] || []).map(b => ({
+        onsId: b.onsId,
         name: b.name,
         rings: b.rings,
       })),

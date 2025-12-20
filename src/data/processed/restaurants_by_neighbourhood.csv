@@ -1050,9 +1050,7 @@ bayshore,Bayshore,Britannia Coffeehouse,cafe,,45.3655596,-75.7960236,635759371,w
 bayshore,Bayshore,Real Fruit Bubble Tea,cafe,bubble_tea,45.3473878,-75.8066738,437086811,way
 bayshore,Bayshore,Second Cup,cafe,coffee_shop,45.3467654,-75.8071088,436986881,way
 bayshore,Bayshore,Starbucks,cafe,coffee_shop,45.3473522,-75.8073022,9695158495,node
-bayshore,Bayshore,The Owl Cafe,cafe,,45.3449972,-75.7975718,6300350761,node
 bayshore,Bayshore,Tim Hortons,cafe,coffee_shop,45.3555465,-75.8028065,218815745,way
-bayshore,Bayshore,Tim Hortons,cafe,coffee_shop,45.334939,-75.8070011,5640038599,node
 bayshore,Bayshore,Tim Hortons,cafe,coffee_shop,45.3474428,-75.8071268,9695158494,node
 bayshore,Bayshore,African BBQ House,restaurant,african,45.3554796,-75.8049947,10926955199,node
 bayshore,Bayshore,Baja Burger,restaurant,burger,45.364216,-75.8018148,3778731922,node
@@ -1072,9 +1070,11 @@ bayshore,Bayshore,Taj Indian Cuisine,restaurant,,45.3553071,-75.8053856,40181817
 bayshore,Bayshore,The Gallery,restaurant,,45.3512358,-75.8264861,6117519716,node
 bayshore,Bayshore,Willys Pizza,restaurant,,45.3682008,-75.7857844,545360475,way
 bells-corners,Bells Corners,Starbucks,cafe,coffee_shop,45.3282491,-75.8189932,570367946,way
+bells-corners,Bells Corners,The Owl Cafe,cafe,,45.3449972,-75.7975718,6300350761,node
 bells-corners,Bells Corners,Tim Hortons,cafe,coffee_shop,45.3209678,-75.8366985,68658476,way
 bells-corners,Bells Corners,Tim Hortons,cafe,coffee_shop,45.327453,-75.821187,233898512,way
 bells-corners,Bells Corners,Tim Hortons,cafe,coffee_shop,45.3271228,-75.8197708,3064006797,node
+bells-corners,Bells Corners,Tim Hortons,cafe,coffee_shop,45.334939,-75.8070011,5640038599,node
 bells-corners,Bells Corners,Athens Grill,restaurant,,45.3192198,-75.8366941,581659407,way
 bells-corners,Bells Corners,Bombay Chaat & Paan,restaurant,indian,45.3350915,-75.7994947,6018494628,node
 bells-corners,Bells Corners,Cyranos,restaurant,mediterranean,45.3237947,-75.8300769,5731368056,node

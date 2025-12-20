@@ -53,11 +53,11 @@ module.exports = {
   // West End
   'bayshore': {
     name: 'Bayshore',
-    onsIds: [901, 906, 106, 88, 32], // Bayshore-Belltown, Britannia, Whitehaven-Queensway Terrace North, Qualicum-Redwood Park, Crystal Bay
+    onsIds: [901, 906, 106, 32], // Bayshore-Belltown, Britannia, Whitehaven-Queensway Terrace North, Crystal Bay
   },
   'bells-corners': {
     name: 'Bells Corners',
-    onsIds: [6, 7, 12], // Bells Corners East, West, Briar Green-Leslie Park
+    onsIds: [6, 7, 12, 88], // Bells Corners East, West, Briar Green-Leslie Park, Qualicum-Redwood Park
   },
   'carlington': {
     name: 'Carlington',
@@ -79,7 +79,7 @@ module.exports = {
   // South End
   'alta-vista': {
     name: 'Alta Vista',
-    onsIds: [903, 919, 932, 38, 46, 947], // Billings Bridge-Alta Vista, Elmvale, Heron Gate, Emerald Woods, Hawthorne, Riverview
+    onsIds: [903, 919, 932, 38, 46, 947, 87], // Billings Bridge-Alta Vista, Elmvale, Heron Gate, Emerald Woods, Hawthorne, Riverview, Playfair Park-Lynda Park-Guildwood Estates
   },
   'cyrville': {
     name: 'Cyrville',
@@ -151,7 +151,7 @@ module.exports = {
   // Pineview / South End
   'pineview': {
     name: 'Pineview',
-    onsIds: [86, 87, 88], // Pineview, Playfair Park-Lynda Park-Guildwood Estates, Qualicum-Redwood Park
+    onsIds: [86], // Pineview
   },
 
   // Nepean / Centrepointe area (Knoxdale-Merivale ward core)

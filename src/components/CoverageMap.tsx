@@ -131,6 +131,9 @@ export default function CoverageMap({ isOpen, onClose }: CoverageMapProps) {
                         <div className="text-xs text-gray-500">
                           {boundary.name}
                         </div>
+                        <div className="text-xs font-mono text-blue-600 mt-0.5">
+                          ONS ID: {boundary.onsId}
+                        </div>
                       </Tooltip>
                     </Polygon>
                   );
