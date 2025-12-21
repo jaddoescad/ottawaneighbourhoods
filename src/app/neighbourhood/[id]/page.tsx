@@ -14,6 +14,8 @@ import AgeDemographicsRow from "@/components/AgeDemographicsRow";
 import ScoreBreakdown from "@/components/ScoreBreakdown";
 import BusStopsRow from "@/components/BusStopsRow";
 import TransitInfoRow from "@/components/TransitInfoRow";
+import ParksStatRow from "@/components/ParksStatRow";
+import SchoolsStatRow from "@/components/SchoolsStatRow";
 
 const BASE_URL = "https://ottawahoods.com";
 
@@ -298,25 +300,28 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             boundaries={boundaries}
             neighbourhoodName={name}
           />
-          <ExpandableStatRow
-            icon="🌳"
-            label="Parks"
-            value={`${details.parks} parks`}
+          <ParksStatRow
+            parksCount={details.parks}
+            parksList={details.parksList}
+            parksData={details.parksData}
             percent={getPercent(details.parks, "parks")}
             type={getScoreType(details.parks, "parks")}
-            items={details.parksList}
-            itemLabel="parks"
             source={DATA_SOURCES.parks}
+            boundaries={boundaries}
+            neighbourhoodName={name}
           />
-          <ExpandableStatRow
-            icon="🏫"
-            label="Schools"
-            value={`${details.schools} schools`}
+          <SchoolsStatRow
+            schoolsCount={details.schools}
+            elementaryCount={details.elementarySchools}
+            secondaryCount={details.secondarySchools}
+            schoolsList={details.schoolsList}
+            schoolsData={details.schoolsData}
+            avgEqaoScore={details.avgEqaoScore}
             percent={getPercent(details.schools, "schools")}
             type={getScoreType(details.schools, "schools")}
-            items={details.schoolsList}
-            itemLabel="schools"
             source={DATA_SOURCES.schools}
+            boundaries={boundaries}
+            neighbourhoodName={name}
           />
           <EqaoStatRow
             avgScore={details.avgEqaoScore}
