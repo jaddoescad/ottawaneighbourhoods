@@ -102,6 +102,12 @@ export interface NeighbourhoodBoundary {
   name: string;
   rings: number[][][]; // Array of rings, each ring is array of [lng, lat] coords
   population: number; // Population of this ONS zone
+  // Age demographics (2021 Census)
+  pctChildren: number; // % aged 0-14
+  pctYouth: number; // % aged 15-24
+  pctAdults: number; // % aged 25-64
+  pctSeniors: number; // % aged 65+
+  avgAge: number; // Average age
   dataYear: string; // Year of population data (e.g., '2021', '2011')
   source: string; // Data source name
   sourceUrl: string; // URL for citation

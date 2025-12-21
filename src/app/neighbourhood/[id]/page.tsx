@@ -295,6 +295,8 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             pctChildren={pctChildren}
             pctYoungProfessionals={pctYoungProfessionals}
             pctSeniors={pctSeniors}
+            boundaries={boundaries}
+            neighbourhoodName={name}
           />
           <ExpandableStatRow
             icon="🌳"

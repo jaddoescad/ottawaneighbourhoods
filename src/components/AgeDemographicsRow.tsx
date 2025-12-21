@@ -1,19 +1,36 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
+import { NeighbourhoodBoundary } from "@/data/neighbourhoods";
+
+const AgeOnsMap = dynamic(
+  () => import("./AgeOnsMap"),
+  { ssr: false, loading: () => <div className="h-64 bg-gray-100 rounded-lg animate-pulse" /> }
+);
 
 interface AgeDemographicsRowProps {
   pctChildren: number;
   pctYoungProfessionals: number;
   pctSeniors: number;
+  boundaries?: NeighbourhoodBoundary[];
+  neighbourhoodName?: string;
 }
 
 export default function AgeDemographicsRow({
   pctChildren,
   pctYoungProfessionals,
   pctSeniors,
+  boundaries = [],
+  neighbourhoodName = "",
 }: AgeDemographicsRowProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  // Calculate weighted average age from boundaries
+  const avgAge = boundaries.length > 0
+    ? boundaries.reduce((sum, b) => sum + (b.avgAge || 0) * (b.population || 1), 0) /
+      boundaries.reduce((sum, b) => sum + (b.population || 1), 0)
+    : null;
 
   // Ottawa average percentages (2021 Census)
   const ottawaAverages = {
@@ -100,9 +117,9 @@ export default function AgeDemographicsRow({
               <span className="text-lg sm:text-xl">👨‍👩‍👧‍👦</span>
               <span className="text-gray-900 font-medium text-sm sm:text-base">Age</span>
             </div>
-            {/* Source and chevron shown inline on mobile */}
+            {/* Value and chevron shown inline on mobile */}
             <div className="flex items-center gap-2 sm:hidden">
-              <span className="text-gray-500 text-xs">2021 Census</span>
+              <span className="text-gray-900 font-bold text-sm">{avgAge ? `${avgAge.toFixed(1)} avg` : ""}</span>
               <svg
                 className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
                 fill="none"
@@ -123,8 +140,8 @@ export default function AgeDemographicsRow({
               {demographic.label}
             </span>
           </div>
-          {/* Source - hidden on mobile, shown on desktop */}
-          <span className="hidden sm:block text-gray-900 font-bold w-28 text-right text-sm">2021 Census</span>
+          {/* Value - hidden on mobile, shown on desktop */}
+          <span className="hidden sm:block text-gray-900 font-bold w-28 text-right">{avgAge ? `${avgAge.toFixed(1)} avg` : ""}</span>
           <div className="hidden sm:block w-5 h-5">
             <svg
               className={`w-5 h-5 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
@@ -184,6 +201,19 @@ export default function AgeDemographicsRow({
               <span>Seniors</span>
             </div>
           </div>
+
+          {/* ONS Zone Map - only show if boundaries exist */}
+          {boundaries.length > 0 && (
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <div className="text-xs text-gray-500 mb-3 uppercase tracking-wide">
+                Age Demographics by ONS Zone
+              </div>
+              <AgeOnsMap
+                boundaries={boundaries}
+                neighbourhoodName={neighbourhoodName}
+              />
+            </div>
+          )}
         </div>
       )}
     </div>

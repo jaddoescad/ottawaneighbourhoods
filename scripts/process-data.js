@@ -1277,7 +1277,7 @@ async function main() {
       },
       pros: info.pros ? info.pros.split('; ') : [],
       cons: info.cons ? info.cons.split('; ') : [],
-      // Boundaries for map display (array of polygons with rings and population)
+      // Boundaries for map display (array of polygons with rings, population, and age demographics)
       // Gen 3 boundaries use ONS-SQO IDs which match census data directly
       boundaries: (boundariesByNeighbourhood[info.id] || []).map(b => {
         const censusData = onsCensusBySqoId[b.onsId] || {};
@@ -1286,6 +1286,12 @@ async function main() {
           name: b.name,
           rings: b.rings,
           population: censusData.population || 0,
+          // Age demographics from 2021 Census
+          pctChildren: censusData.pctChildren || 0,
+          pctYouth: censusData.pctYouth || 0,
+          pctAdults: censusData.pctAdults || 0,
+          pctSeniors: censusData.pctSeniors || 0,
+          avgAge: censusData.avgAge || 0,
           dataYear: '2021',
           source: 'Statistics Canada 2021 Census',
           sourceUrl: 'https://ons-sqo.ca',
