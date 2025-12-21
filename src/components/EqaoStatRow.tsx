@@ -6,7 +6,11 @@ interface School {
   name: string;
   eqaoScore: number | null;
   category: string;
+  board: string;
 }
+
+// Only these 4 publicly-funded boards have EQAO testing
+const EQAO_BOARDS = ["OCDSB", "OCSB", "CECCE", "CEPEO"];
 
 interface EqaoStatRowProps {
   avgScore: number | null;
@@ -45,12 +49,13 @@ export default function EqaoStatRow({
     neutral: "N/A",
   };
 
-  // Sort schools by EQAO score (highest first), nulls at end
-  const sortedSchools = [...schools].sort((a, b) => {
-    if (a.eqaoScore === null && b.eqaoScore === null) return 0;
-    if (a.eqaoScore === null) return 1;
-    if (b.eqaoScore === null) return -1;
-    return b.eqaoScore - a.eqaoScore;
+  // Filter to only publicly-funded schools, then only those with EQAO scores
+  const publicSchools = schools.filter(s => EQAO_BOARDS.includes(s.board));
+  const schoolsWithEqao = publicSchools.filter(s => s.eqaoScore !== null);
+
+  // Sort by EQAO score (highest first)
+  const sortedSchools = [...schoolsWithEqao].sort((a, b) => {
+    return (b.eqaoScore || 0) - (a.eqaoScore || 0);
   });
 
   const type = avgScore !== null ? getScoreType(avgScore) : "neutral";
@@ -121,12 +126,12 @@ export default function EqaoStatRow({
       {isExpanded && hasData && (
         <div className="px-3 sm:px-5 pb-4 bg-gray-50">
           <div className="text-xs text-gray-500 mb-3 uppercase tracking-wide">
-            Provincial Test Results ({schoolsWithScores} of {schools.length} schools)
+            Provincial Test Results ({sortedSchools.length} public schools with scores)
           </div>
           <div className="space-y-2 max-h-80 overflow-y-auto">
             {sortedSchools.map((school, index) => {
-              const schoolType = school.eqaoScore !== null ? getScoreType(school.eqaoScore) : "neutral";
-              const schoolBarWidth = school.eqaoScore !== null ? Math.max(5, school.eqaoScore) : 0;
+              const schoolType = getScoreType(school.eqaoScore!);
+              const schoolBarWidth = Math.max(5, school.eqaoScore!);
 
               return (
                 <div key={index} className="flex items-center gap-2 sm:gap-3">
@@ -135,21 +140,13 @@ export default function EqaoStatRow({
                       {school.name}
                     </div>
                     <div className="relative h-4 sm:h-5 bg-gray-200 rounded overflow-hidden mt-1">
-                      {school.eqaoScore !== null ? (
-                        <>
-                          <div
-                            className={`absolute inset-y-0 left-0 rounded ${colors[schoolType]}`}
-                            style={{ width: `${schoolBarWidth}%` }}
-                          />
-                          <span className="absolute inset-0 flex items-center px-2 text-xs font-medium text-gray-700">
-                            {school.eqaoScore}%
-                          </span>
-                        </>
-                      ) : (
-                        <span className="absolute inset-0 flex items-center px-2 text-xs text-gray-400">
-                          No data
-                        </span>
-                      )}
+                      <div
+                        className={`absolute inset-y-0 left-0 rounded ${colors[schoolType]}`}
+                        style={{ width: `${schoolBarWidth}%` }}
+                      />
+                      <span className="absolute inset-0 flex items-center px-2 text-xs font-medium text-gray-700">
+                        {school.eqaoScore}%
+                      </span>
                     </div>
                   </div>
                 </div>

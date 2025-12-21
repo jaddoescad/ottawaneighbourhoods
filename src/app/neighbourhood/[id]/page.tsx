@@ -16,6 +16,7 @@ import BusStopsRow from "@/components/BusStopsRow";
 import TransitInfoRow from "@/components/TransitInfoRow";
 import ParksStatRow from "@/components/ParksStatRow";
 import SchoolsStatRow from "@/components/SchoolsStatRow";
+import EducationStatRow from "@/components/EducationStatRow";
 
 const BASE_URL = "https://ottawahoods.com";
 
@@ -330,7 +331,12 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
               name: s.name,
               eqaoScore: s.eqaoScore,
               category: s.category,
+              board: s.board,
             }))}
+          />
+          <EducationStatRow
+            boundaries={boundaries}
+            neighbourhoodName={name}
           />
           <ExpandableStatRow
             icon="📚"

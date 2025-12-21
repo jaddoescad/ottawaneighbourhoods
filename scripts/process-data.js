@@ -528,9 +528,10 @@ async function main() {
       // Diversity
       pctImmigrants: parseFloat(entry.census_general_percent_of_pop_that_are_immigrants) || 0,
       pctRacialized: parseFloat(entry.census_general_percent_of_pop_that_are_racialized) || 0,
-      // Education
+      // Education (ages 25-64)
+      pctNoHighSchool: parseFloat(entry.census_general_percent_of_pop_age_25_64_with_no_high_school_diploma_or_equivalent) || 0,
       pctPostSecondary: parseFloat(entry.census_general_percent_of_pop_age_25_64_with_postsecondary_degree_diploma_certificate) || 0,
-      pctBachelorPlus: parseFloat(entry['census_general_percent_of_people_aged_25_64_with_a_bachelors_degree_or_higher']) || 0,
+      pctBachelors: parseFloat(entry['census_general_percent_of_people_aged_25_64_with_a_bachelors_degree_or_higher']) || 0,
       // Commute
       pctCommuteCar: parseFloat(entry.census_general_percent_of_workers_age_15_who_commute_by_car_truck_or_van) || 0,
       pctCommuteTransit: parseFloat(entry.census_general_percent_of_workers_age_15_who_commute_by_public_transit) || 0,
@@ -1292,6 +1293,10 @@ async function main() {
           pctAdults: censusData.pctAdults || 0,
           pctSeniors: censusData.pctSeniors || 0,
           avgAge: censusData.avgAge || 0,
+          // Education levels of residents (ages 25-64)
+          pctNoHighSchool: censusData.pctNoHighSchool || 0,
+          pctPostSecondary: censusData.pctPostSecondary || 0,
+          pctBachelors: censusData.pctBachelors || 0,
           dataYear: '2021',
           source: 'Statistics Canada 2021 Census',
           sourceUrl: 'https://ons-sqo.ca',

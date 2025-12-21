@@ -108,6 +108,10 @@ export interface NeighbourhoodBoundary {
   pctAdults: number; // % aged 25-64
   pctSeniors: number; // % aged 65+
   avgAge: number; // Average age
+  // Education levels of residents (2021 Census, ages 25-64)
+  pctNoHighSchool: number; // % without high school diploma
+  pctPostSecondary: number; // % with post-secondary degree/diploma
+  pctBachelors: number; // % with bachelor's degree or higher
   dataYear: string; // Year of population data (e.g., '2021', '2011')
   source: string; // Data source name
   sourceUrl: string; // URL for citation

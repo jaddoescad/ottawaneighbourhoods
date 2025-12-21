@@ -266,32 +266,33 @@ export default function SchoolsOnsMap({ boundaries, schools, neighbourhoodName }
         </MapContainer>
       </div>
 
-      {/* School List */}
-      <div className="bg-white rounded-lg border border-gray-200">
-        <div className="px-3 py-2 border-b border-gray-100 bg-gray-50 flex items-center justify-between">
-          <span className="text-xs font-medium text-gray-600 uppercase tracking-wide">
-            Schools in {neighbourhoodName}
-          </span>
-          <span className="text-xs text-gray-500">
-            {filteredSchools.length} schools
-          </span>
-        </div>
-        <div className="divide-y divide-gray-100 max-h-48 overflow-y-auto">
-          {filteredSchools
-            .sort((a, b) => (b.eqaoScore || 0) - (a.eqaoScore || 0))
-            .map((school, index) => (
-              <div key={`list-${index}-${school.name}`} className="px-3 py-2 flex items-center justify-between">
-                <div className="flex items-center gap-2 min-w-0">
-                  <span
-                    className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: getColor(school, filterType) }}
-                  />
-                  <div className="min-w-0">
-                    <div className="text-sm text-gray-700 truncate">{school.name}</div>
-                    <div className="text-xs text-gray-400">{school.category} • {BOARD_NAMES[school.board] || school.board}</div>
+      {/* School List - EQAO Scores */}
+      {filteredSchools.filter(s => s.eqaoScore !== null).length > 0 && (
+        <div className="bg-white rounded-lg border border-gray-200">
+          <div className="px-3 py-2 border-b border-gray-100 bg-gray-50 flex items-center justify-between">
+            <span className="text-xs font-medium text-gray-600 uppercase tracking-wide">
+              Schools with EQAO Scores
+            </span>
+            <span className="text-xs text-gray-500">
+              {filteredSchools.filter(s => s.eqaoScore !== null).length} schools
+            </span>
+          </div>
+          <div className="divide-y divide-gray-100 max-h-48 overflow-y-auto">
+            {filteredSchools
+              .filter(s => s.eqaoScore !== null)
+              .sort((a, b) => (b.eqaoScore || 0) - (a.eqaoScore || 0))
+              .map((school, index) => (
+                <div key={`list-${index}-${school.name}`} className="px-3 py-2 flex items-center justify-between">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span
+                      className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: getColor(school, filterType) }}
+                    />
+                    <div className="min-w-0">
+                      <div className="text-sm text-gray-700 truncate">{school.name}</div>
+                      <div className="text-xs text-gray-400">{school.category} • {BOARD_NAMES[school.board] || school.board}</div>
+                    </div>
                   </div>
-                </div>
-                {school.eqaoScore !== null && (
                   <div className="flex items-center gap-1 flex-shrink-0 ml-2">
                     <span
                       className="w-2 h-2 rounded-full"
@@ -299,11 +300,45 @@ export default function SchoolsOnsMap({ boundaries, schools, neighbourhoodName }
                     />
                     <span className="text-xs font-medium text-gray-600">{school.eqaoScore}%</span>
                   </div>
-                )}
-              </div>
-            ))}
+                </div>
+              ))}
+          </div>
         </div>
-      </div>
+      )}
+
+      {/* Schools without EQAO scores */}
+      {filteredSchools.filter(s => s.eqaoScore === null).length > 0 && (
+        <div className="bg-white rounded-lg border border-gray-200">
+          <div className="px-3 py-2 border-b border-gray-100 bg-gray-50 flex items-center justify-between">
+            <span className="text-xs font-medium text-gray-600 uppercase tracking-wide">
+              Other Schools (No EQAO Data)
+            </span>
+            <span className="text-xs text-gray-500">
+              {filteredSchools.filter(s => s.eqaoScore === null).length} schools
+            </span>
+          </div>
+          <div className="divide-y divide-gray-100 max-h-32 overflow-y-auto">
+            {filteredSchools
+              .filter(s => s.eqaoScore === null)
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((school, index) => (
+                <div key={`nodata-${index}-${school.name}`} className="px-3 py-2 flex items-center justify-between">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span
+                      className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: getColor(school, filterType) }}
+                    />
+                    <div className="min-w-0">
+                      <div className="text-sm text-gray-700 truncate">{school.name}</div>
+                      <div className="text-xs text-gray-400">{school.category} • {BOARD_NAMES[school.board] || school.board}</div>
+                    </div>
+                  </div>
+                  <span className="text-xs text-gray-400 flex-shrink-0 ml-2">N/A</span>
+                </div>
+              ))}
+          </div>
+        </div>
+      )}
 
       {/* EQAO Legend */}
       <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
