@@ -348,19 +348,91 @@ Contains average home price research data with sources for each neighbourhood:
 | priceSource | Data source (AgentInOttawa, Zolo, OREB, etc.) |
 | notes | Additional context about the data (YoY changes, sample size) |
 
+## ONS Boundary & Census Data Systems
+
+### Understanding ONS ID Systems
+
+Ottawa has TWO different ONS ID systems:
+
+| System | ID Range | Used By | Example |
+|--------|----------|---------|---------|
+| **Gen 2 (Legacy)** | 3-999 | Old City of Ottawa API (Layer 0) | Findlay Creek = 921 |
+| **Gen 3 / ONS-SQO** | 3001-3117 | New API (Layer 2), Census data | Findlay Creek = 3044 |
+
+**We use Gen 3 / ONS-SQO IDs** (3001-3117) because:
+1. They match the 2021 Census data from ONS-SQO
+2. Gen 3 boundaries are updated (2024)
+3. 116 neighbourhoods vs 111 in Gen 2
+
+### Boundary API Layers
+
+```
+https://maps.ottawa.ca/arcgis/rest/services/Neighbourhoods/MapServer/
+├── Layer 0 - Gen 2 Names (2016) - 111 areas - DEPRECATED
+├── Layer 1 - Gen 2 Boundaries (2016) - DEPRECATED
+├── Layer 2 - Gen 3 Boundaries (2024) - 116 areas - WE USE THIS
+└── Layer 3 - Gen 3 Names (2024)
+```
+
+### Census Data Source (ONS-SQO)
+
+Population and demographics come from the Ottawa Neighbourhood Study API:
+
+```bash
+# Download census data (64 indicators for 116 neighbourhoods)
+node scripts/download-ons-census-data.js
+```
+
+**API Endpoints:**
+- Data: `https://ons-sqo.ca/wp-json/ons/v1/get-data/data`
+- Neighbourhoods: `https://ons-sqo.ca/wp-json/ons/v1/get-data/neighbourhoods`
+
+**Key Census Indicators:**
+- `pop2021_total` - Population
+- `household_count` - Households
+- `census_general_median_after_tax_income_of_households_in_2020` - Median income
+- `census_general_percent_of_pop_that_are_children_age_0_14` - % Children
+- `census_general_percent_of_pop_that_are_seniors_65` - % Seniors
+- `walkscore_mean`, `bikescore_mean` - Walk/Bike scores
+
+### ons_census_data.csv
+
+This file contains 2021 Census data for all 116 ONS neighbourhoods:
+
+| Field | Description |
+|-------|-------------|
+| ons_id | ONS-SQO ID (3001-3117) |
+| name | Neighbourhood name |
+| pop2021_total | 2021 Census population |
+| household_count | Number of households |
+| + 60 more | Demographics, income, housing, etc. |
+
+**To refresh census data:**
+```bash
+node scripts/download-ons-census-data.js
+node scripts/process-data.js
+```
+
 ## Neighbourhood Mapping
 
 Edit `scripts/config/neighbourhood-mapping.js` to change which ONS areas belong to each neighbourhood.
 
-Example:
+**IMPORTANT:** Use `onsSqoIds` (Gen 3 IDs) for boundaries and census data:
+
 ```javascript
-'westboro': {
-  name: 'Westboro',
-  onsIds: [958, 931, 910, 32], // Westboro, Laurentian, McKellar Heights, Crystal Bay
+'findlay-creek': {
+  name: 'Findlay Creek',
+  onsIds: [921],        // OLD Gen 2 ID - kept for reference only
+  onsSqoIds: ['3044'],  // Gen 3 / ONS-SQO ID - USED for boundaries & census
+},
+'barrhaven': {
+  name: 'Barrhaven',
+  onsIds: [937, 938, 914, 952],  // OLD
+  onsSqoIds: ['3079', '3080', '3027', '3109'],  // USED
 },
 ```
 
-To find ONS IDs, check `src/data/csv/ons_neighbourhoods.csv`.
+To find ONS-SQO IDs, check `src/data/csv/ons_census_data.csv`.
 
 ## API Query Examples
 

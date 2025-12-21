@@ -25,7 +25,8 @@ const fs = require('fs');
 const path = require('path');
 const neighbourhoodMapping = require('./config/neighbourhood-mapping.js');
 
-const NEIGHBOURHOODS_API = 'https://maps.ottawa.ca/arcgis/rest/services/Neighbourhoods/MapServer/0/query';
+// Gen 3 (2024) boundaries - Layer 2 uses ONS-SQO IDs (3001-3117) matching census data
+const NEIGHBOURHOODS_API = 'https://maps.ottawa.ca/arcgis/rest/services/Neighbourhoods/MapServer/2/query';
 
 // ============================================================================
 // School Name Normalization (for EQAO matching)
@@ -544,55 +545,6 @@ async function main() {
     };
   }
 
-  // Build census lookup by name for boundary population display
-  // (Maps boundary name to census data since City of Ottawa ONS IDs differ from ONS-SQO IDs)
-  const onsCensusByName = {};
-  const censusNames = []; // For fuzzy matching
-  for (const entry of onsCensusData) {
-    const name = entry.name.toLowerCase().trim();
-    const data = {
-      population: parseInt(entry.pop2021_total) || 0,
-      dataYear: '2021',
-      source: 'Statistics Canada 2021 Census',
-      sourceUrl: 'https://ons-sqo.ca',
-    };
-    onsCensusByName[name] = data;
-    censusNames.push({ name, data, original: entry.name });
-  }
-
-  // Helper to find census data by name with fuzzy matching
-  function findCensusDataByName(boundaryName) {
-    const searchName = (boundaryName || '').toLowerCase().trim();
-
-    // Exact match
-    if (onsCensusByName[searchName]) return onsCensusByName[searchName];
-
-    // Try matching first part before " - "
-    const firstPart = searchName.split(' - ')[0].trim();
-    if (onsCensusByName[firstPart]) return onsCensusByName[firstPart];
-
-    // Try finding census name that starts with boundary name part
-    for (const { name, data } of censusNames) {
-      if (name.startsWith(firstPart) || firstPart.startsWith(name.split(' - ')[0])) {
-        return data;
-      }
-    }
-
-    // Try finding any matching segment
-    const segments = searchName.split(' - ').map(s => s.trim());
-    for (const segment of segments) {
-      if (segment.length > 3) { // Skip very short segments
-        for (const { name, data } of censusNames) {
-          if (name.includes(segment) || segment.includes(name.split(' - ')[0])) {
-            return data;
-          }
-        }
-      }
-    }
-
-    return null;
-  }
-
   // Build greenbelt trails lookup by neighbourhood ID
   const greenbeltByNeighbourhood = {};
   for (const trail of greenbeltTrails) {
@@ -628,11 +580,12 @@ async function main() {
   const populationByOnsId = await fetchPopulationData();
   console.log(`  Fetched population for ${Object.keys(populationByOnsId).length} ONS areas\n`);
 
-  // Fetch all neighbourhood boundaries
-  console.log('Fetching neighbourhood boundaries from Ottawa Open Data...');
+  // Fetch all neighbourhood boundaries using Gen 3 (2024) API with ONS-SQO IDs
+  console.log('Fetching neighbourhood boundaries from Ottawa Open Data (Gen 3)...');
   const allOnsIds = new Set();
   for (const config of Object.values(neighbourhoodMapping)) {
-    config.onsIds.forEach(id => allOnsIds.add(id));
+    // Use onsSqoIds for Gen 3 boundaries (same IDs as census data)
+    (config.onsSqoIds || []).forEach(id => allOnsIds.add(id));
   }
 
   const boundariesByNeighbourhood = {};
@@ -648,7 +601,9 @@ async function main() {
       }];
       console.log(` 1 areas (custom boundary)`);
     } else {
-      boundariesByNeighbourhood[neighbourhoodId] = await fetchAllBoundaries(config.onsIds);
+      // Use onsSqoIds for Gen 3 API (IDs like 3044, 3047, etc.)
+      const idsToFetch = config.onsSqoIds || [];
+      boundariesByNeighbourhood[neighbourhoodId] = await fetchAllBoundaries(idsToFetch);
       console.log(` ${boundariesByNeighbourhood[neighbourhoodId].length} areas`);
     }
   }
@@ -1323,17 +1278,17 @@ async function main() {
       pros: info.pros ? info.pros.split('; ') : [],
       cons: info.cons ? info.cons.split('; ') : [],
       // Boundaries for map display (array of polygons with rings and population)
+      // Gen 3 boundaries use ONS-SQO IDs which match census data directly
       boundaries: (boundariesByNeighbourhood[info.id] || []).map(b => {
-        // Match by name to get census data (City of Ottawa ONS IDs differ from ONS-SQO IDs)
-        const censusData = findCensusDataByName(b.name) || {};
+        const censusData = onsCensusBySqoId[b.onsId] || {};
         return {
           onsId: b.onsId,
           name: b.name,
           rings: b.rings,
           population: censusData.population || 0,
-          dataYear: censusData.dataYear || '2021',
-          source: censusData.source || 'Statistics Canada 2021 Census',
-          sourceUrl: censusData.sourceUrl || 'https://ons-sqo.ca',
+          dataYear: '2021',
+          source: 'Statistics Canada 2021 Census',
+          sourceUrl: 'https://ons-sqo.ca',
         };
       }),
     });

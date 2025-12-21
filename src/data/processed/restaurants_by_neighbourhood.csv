@@ -42,6 +42,7 @@ the-glebe,The Glebe,Light of India Restaurant,restaurant,indian,45.4041106,-75.6
 the-glebe,The Glebe,Local Public Eatery,restaurant,,45.3999382,-75.6840316,3632200617,node
 the-glebe,The Glebe,Mad Radish,restaurant,,45.4013352,-75.6872576,5159905522,node
 the-glebe,The Glebe,Margarita,restaurant,mexican,45.4006665,-75.6866785,298460056,way
+the-glebe,The Glebe,Mexicali Rosa's,restaurant,mexican,45.3965033,-75.7056158,2570629670,node
 the-glebe,The Glebe,Milestones,restaurant,bar_and_grill,45.4004374,-75.6840612,3624147948,node
 the-glebe,The Glebe,Mona's Taqueria,restaurant,mexican,45.4008555,-75.686956,2104707493,node
 the-glebe,The Glebe,Pretoria Place Restaurant,restaurant,,45.4092219,-75.6887003,5916236088,node
@@ -58,11 +59,11 @@ the-glebe,The Glebe,The St. Rita,restaurant,pizza,45.4041153,-75.6888431,5800014
 the-glebe,The Glebe,the unrefined olive,restaurant,,45.4036506,-75.6892807,2930375111,node
 the-glebe,The Glebe,The Works,restaurant,burger,45.4078283,-75.6913625,3047796105,node
 the-glebe,The Glebe,Thr33's Co.,restaurant,international,45.4078317,-75.6909668,5916222982,node
+the-glebe,The Glebe,Umbrella Bar,restaurant,,45.3961643,-75.7055287,4565707171,node
 the-glebe,The Glebe,Von's,restaurant,,45.4022853,-75.6878198,1483920550,node
 the-glebe,The Glebe,Weis Noodle House,restaurant,noodle,45.4039848,-75.7018232,5825900100,node
 the-glebe,The Glebe,Yolks,restaurant,breakfast;lunch,45.4014442,-75.6876503,7281190801,node
 westboro,Westboro,Aseer Time,cafe,,45.3896629,-75.7581814,747184851,node
-westboro,Westboro,Bridgehead,cafe,coffee_shop,45.3707493,-75.7685203,406481942,way
 westboro,Westboro,Bridgehead,cafe,coffee_shop,45.395893,-75.7497205,4876778421,node
 westboro,Westboro,Cloud Forest Pokoloko,cafe,coffee_shop,45.3921356,-75.7540899,3325662206,node
 westboro,Westboro,Equator Coffee,cafe,coffee_shop,45.3917047,-75.7537558,314798810,way
@@ -71,35 +72,28 @@ westboro,Westboro,Preso tea,cafe,bubble_tea,45.3917342,-75.7543496,830720565,nod
 westboro,Westboro,Quelque Chose,cafe,,45.3913796,-75.7557127,9836641818,node
 westboro,Westboro,SconeWitch,cafe,,45.3916985,-75.756442,478969448,way
 westboro,Westboro,Second Cup,cafe,coffee_shop,45.3726295,-75.7699621,457623304,way
-westboro,Westboro,Starbucks,cafe,coffee_shop,45.3689926,-75.7721892,672788706,way
 westboro,Westboro,Starbucks,cafe,coffee_shop,45.3905632,-75.7573384,686659922,node
 westboro,Westboro,The Bower Coffee CO,cafe,coffee_shop,45.3901126,-75.7582307,6337444312,node
-westboro,Westboro,Tim Hortons,cafe,,45.375882,-75.7770965,68609292,way
 westboro,Westboro,Tim Hortons,cafe,coffee_shop,45.377104,-75.7536615,236328144,way
 westboro,Westboro,Tim Hortons,cafe,coffee_shop,45.372658,-75.770241,457623307,way
 westboro,Westboro,Tim Hortons,cafe,coffee_shop,45.3910651,-75.7563674,9836659417,node
 westboro,Westboro,Tru Tea,cafe,bubble_tea,45.3951055,-75.7475238,5877024893,node
 westboro,Westboro,Aahar - The Taste of India,restaurant,indian,45.3812126,-75.7468628,237159461,way
 westboro,Westboro,Al's Diner,restaurant,breakfast,45.377865,-75.749738,380253018,way
-westboro,Westboro,Boston Pizza,restaurant,pizza,45.37954,-75.74832,175677672,way
 westboro,Westboro,Brassica,restaurant,italian,45.3928112,-75.7526373,3522632487,node
 westboro,Westboro,Cadena Restaurant & Tap Bar,restaurant,,45.3912464,-75.7559923,747539341,node
-westboro,Westboro,Colonnade Pizza,restaurant,pizza;italian_pizza;breakfast,45.3708073,-75.768306,487516630,way
 westboro,Westboro,Elise,restaurant,french,45.393182,-75.7531948,12344814878,node
 westboro,Westboro,Everest Cuisine,restaurant,nepalese,45.3758656,-75.7564892,672788996,way
 westboro,Westboro,Fratelli Westboro,restaurant,,45.393408,-75.7512666,6714638178,node
 westboro,Westboro,Georgie's Pizza&Subs,restaurant,pizza,45.379836,-75.7490267,3603219504,node
 westboro,Westboro,gezellig,restaurant,regional,45.3922141,-75.7540266,3325661877,node
-westboro,Westboro,Golden Palace,restaurant,chinese,45.369985,-75.7717409,237593148,way
 westboro,Westboro,Goldfinch,restaurant,,45.3921004,-75.7535428,6714638172,node
 westboro,Westboro,Grounded,restaurant,coffee_shop;breakfast;grill,45.3821703,-75.7451585,11739068526,node
 westboro,Westboro,House of Pizza,restaurant,pizza,45.3951888,-75.7463197,6988507669,node
 westboro,Westboro,KHAO,restaurant,thai,45.3947197,-75.748632,155986813,way
 westboro,Westboro,Kochi Ramen,restaurant,asian,45.3931414,-75.7518428,2446563762,node
 westboro,Westboro,Lexington Smokehouse & Bar,restaurant,,45.3918615,-75.754087,5716085115,node
-westboro,Westboro,Lorenzo Bar & Grill,restaurant,,45.3784904,-75.774653,565106784,way
-westboro,Westboro,Mia's Indian Cuisine,restaurant,indian,45.3780833,-75.7748342,196942582,way
-westboro,Westboro,Moe's Pizza,restaurant,pizza,45.3709881,-75.7820053,3778702558,node
+westboro,Westboro,Napoli's Pizzeria,restaurant,pizza,45.3970024,-75.7433415,155034928,way
 westboro,Westboro,Newport,restaurant,italian,45.3945689,-75.7555461,221090932,way
 westboro,Westboro,Pizza Hut,restaurant,pizza,45.3931604,-75.7518006,10036742183,node
 westboro,Westboro,Pure Kitchen,restaurant,,45.3917527,-75.754907,6714638170,node
@@ -107,7 +101,6 @@ westboro,Westboro,Reynolds Restaurant,restaurant,,45.3765893,-75.7489489,2571570
 westboro,Westboro,Sapporo Sushi,restaurant,japanese,45.3797065,-75.7493336,3603256846,node
 westboro,Westboro,Silver Spoon,restaurant,asian,45.3776947,-75.7541679,257904944,way
 westboro,Westboro,Strutt Pavilion,restaurant,,45.3958013,-75.7613879,155022785,way
-westboro,Westboro,Swiss Chalet,restaurant,chicken,45.3705149,-75.7689503,551950057,way
 westboro,Westboro,The Keg,restaurant,steak_house,45.3882653,-75.7619613,1658402022,node
 westboro,Westboro,The Works,restaurant,burger,45.3922165,-75.7532891,6714638173,node
 westboro,Westboro,Thyme & Again Kitchen & Food Shop,restaurant,,45.3772546,-75.7563506,157553118,way
@@ -144,6 +137,7 @@ byward-market,Byward Market,Ahora Mexican Cuisine,restaurant,mexican,45.4294051,
 byward-market,Byward Market,All You Can Eat,restaurant,chinese,45.4300121,-75.6922653,4751129370,node
 byward-market,Byward Market,Alora,restaurant,regional,45.4283438,-75.6943453,7102261581,node
 byward-market,Byward Market,Back to Brooklyn,restaurant,,45.4292092,-75.6931147,7579146834,node
+byward-market,Byward Market,Banc Sushi,restaurant,japanese,45.4470243,-75.6289893,3306672995,node
 byward-market,Byward Market,Barrio,restaurant,spanish,45.4265718,-75.6913533,588151002,node
 byward-market,Byward Market,Beyond the Pale Byward Taproom,restaurant,grill,45.4268862,-75.693818,2967021002,node
 byward-market,Byward Market,Bistro Ristoro,restaurant,mediterranean,45.4284501,-75.6949379,5934579435,node
@@ -271,7 +265,6 @@ centretown,Centretown,Ottawa Bike Cafe,cafe,,45.4231506,-75.6969957,11110237655,
 centretown,Centretown,Presotea,cafe,dessert;bubble_tea,45.419412,-75.6993198,4350043119,node
 centretown,Centretown,Presse Café,cafe,,45.4210513,-75.6999585,5631157087,node
 centretown,Centretown,Real Fruit Bubble Tea,cafe,bubble_tea,45.4106386,-75.6929206,9894948888,node
-centretown,Centretown,Second Cup,cafe,coffee_shop,45.3867549,-75.7352776,654118370,way
 centretown,Centretown,Second Cup,cafe,coffee_shop,45.4209905,-75.6955214,938691904,node
 centretown,Centretown,Second Cup,cafe,coffee_shop,45.3926855,-75.7217389,941527871,node
 centretown,Centretown,Second Cup,cafe,coffee_shop,45.4214639,-75.697723,2546870760,node
@@ -289,7 +282,6 @@ centretown,Centretown,The Canteen,cafe,,45.4182323,-75.7008051,6154404893,node
 centretown,Centretown,The EveryPerson (EP) Cafe,cafe,coffee_shop,45.4191059,-75.6993668,5838553665,node
 centretown,Centretown,The Tulip Café,cafe,,45.3932323,-75.7209611,5129263656,node
 centretown,Centretown,The Vanitea Room,cafe,tea,45.4131195,-75.7021043,4152424712,node
-centretown,Centretown,Tim Hortons,cafe,coffee_shop,45.3704555,-75.732592,166313378,way
 centretown,Centretown,Tim Hortons,cafe,coffee_shop,45.413324,-75.7018087,485006313,way
 centretown,Centretown,Tim Hortons,cafe,coffee_shop,45.4208701,-75.6958842,736395925,node
 centretown,Centretown,Tim Hortons,cafe,coffee_shop,45.4221172,-75.6948609,4210789303,node
@@ -468,7 +460,6 @@ centretown,Centretown,Retro Gusto,restaurant,italian,45.4084567,-75.714416,42435
 centretown,Centretown,Ricardo's Pizza,restaurant,,45.415109,-75.703755,482003442,way
 centretown,Centretown,Rice & Roll Sushi,restaurant,sushi,45.4200481,-75.7016835,5631157091,node
 centretown,Centretown,Riviera,restaurant,,45.4230687,-75.6963285,264399747,way
-centretown,Centretown,Rockin' Johnny's,restaurant,diner,45.3868168,-75.7352249,654118381,way
 centretown,Centretown,Rosebowl Steak & Seafood,restaurant,steak_house;seafood,45.4051999,-75.7124544,2296549958,node
 centretown,Centretown,Royal Treasure Restaurant,restaurant,chinese,45.4098777,-75.7095177,3663875493,node
 centretown,Centretown,Saigon Boy Noodle House,restaurant,vietnamese,45.4116286,-75.7048832,242714052,way
@@ -483,7 +474,6 @@ centretown,Centretown,Social Thai,restaurant,asian,45.4132725,-75.6943931,367117
 centretown,Centretown,Spin Kitchen & Bar,restaurant,,45.4196871,-75.703313,5631157093,node
 centretown,Centretown,St. Elsewhere,restaurant,,45.409049,-75.7114884,7747286861,node
 centretown,Centretown,St. Louis Bar & Grill,restaurant,chicken,45.414946,-75.6875022,1144102577,node
-centretown,Centretown,St. Louis Bar & Grill,restaurant,chicken,45.3628004,-75.7401675,2752679740,node
 centretown,Centretown,Sushi 88,restaurant,sushi,45.4110448,-75.7063288,2402682118,node
 centretown,Centretown,Suya Royale,restaurant,,45.4090915,-75.7113405,2946837335,node
 centretown,Centretown,Talay Thai,restaurant,thai,45.4100245,-75.6921155,482248230,way
@@ -570,7 +560,6 @@ little-italy,Little Italy,Caffe Mio,restaurant,italian,45.3983631,-75.7394233,15
 little-italy,Little Italy,Carlos Pizza,restaurant,pizza,45.3966647,-75.732686,167834835,way
 little-italy,Little Italy,Chesterfield's Gastro Dinner (New Location),restaurant,,45.3987227,-75.7358331,12102755822,node
 little-italy,Little Italy,Italian Joe's Kitchen,restaurant,,45.3988073,-75.7368697,3104504361,node
-little-italy,Little Italy,Napoli's Pizzeria,restaurant,pizza,45.3970024,-75.7433415,155034928,way
 little-italy,Little Italy,Ottawa Bagelshop and Deli,restaurant,bagel,45.398855,-75.73667,1649542506,node
 little-italy,Little Italy,Parlour,restaurant,,45.398893,-75.736516,7744657464,node
 little-italy,Little Italy,Petit Bill's Bistro,restaurant,regional,45.3990911,-75.7354987,845121550,node
@@ -730,53 +719,84 @@ alta-vista,Alta Vista,3 Sisters,cafe,,45.3898718,-75.6287308,9844869117,node
 alta-vista,Alta Vista,Boho Latte,cafe,,45.3797086,-75.6678078,11112826342,node
 alta-vista,Alta Vista,Café 501,cafe,,45.4014291,-75.6481668,5692990023,node
 alta-vista,Alta Vista,Cafe El-Hara,cafe,,45.3714621,-75.664249,275479192,way
+alta-vista,Alta Vista,Dubai Cafe,cafe,,45.3948985,-75.6056624,447587645,way
 alta-vista,Alta Vista,Dubai Cafe,cafe,,45.3766471,-75.6668916,5834483728,node
 alta-vista,Alta Vista,E T Cafe,cafe,,45.3881374,-75.6751474,5739418227,node
+alta-vista,Alta Vista,Figaro Coffee House,cafe,,45.4103774,-75.6403373,629141133,way
+alta-vista,Alta Vista,Marcie's Cafe,cafe,,45.3801256,-75.6332597,5832594952,node
 alta-vista,Alta Vista,Oasis,cafe,,45.4010196,-75.6513933,5693066258,node
 alta-vista,Alta Vista,PopulariTea,cafe,bubble_tea,45.3734666,-75.6640127,578272895,way
+alta-vista,Alta Vista,Real Fruit Bubble Tea,cafe,bubble_tea,45.354909,-75.6452364,652110293,way
 alta-vista,Alta Vista,Second Cup,cafe,coffee_shop,45.3824487,-75.6710137,683614556,way
 alta-vista,Alta Vista,Second Cup,cafe,coffee_shop,45.4013018,-75.6477721,5692990021,node
+alta-vista,Alta Vista,Starbucks,cafe,coffee_shop,45.412868,-75.6463564,621820178,way
+alta-vista,Alta Vista,Starbucks,cafe,coffee_shop,45.3681,-75.6627256,868191640,way
+alta-vista,Alta Vista,Tim Hortons,cafe,coffee_shop,45.4036645,-75.62705,275523459,way
 alta-vista,Alta Vista,Tim Hortons,cafe,coffee_shop,45.4080813,-75.6577754,287531451,way
+alta-vista,Alta Vista,Tim Hortons,cafe,coffee_shop,45.394155,-75.605283,447587604,way
 alta-vista,Alta Vista,Tim Hortons,cafe,,45.3773165,-75.6453565,483702489,way
+alta-vista,Alta Vista,Tim Hortons,cafe,coffee_shop,45.3541419,-75.6459537,652110308,way
 alta-vista,Alta Vista,Tim Hortons,cafe,,45.3853243,-75.6773551,679914088,way
+alta-vista,Alta Vista,Tim Hortons,cafe,coffee_shop,45.3826826,-75.6315333,2501656860,node
+alta-vista,Alta Vista,Tim Hortons,cafe,coffee_shop,45.4147318,-75.6436944,2801647373,node
 alta-vista,Alta Vista,Tim Hortons,cafe,coffee_shop,45.3782261,-75.6668207,2965189866,node
+alta-vista,Alta Vista,Tim Hortons,cafe,coffee_shop,45.4113024,-75.6409784,3277850472,node
 alta-vista,Alta Vista,Tim Hortons,cafe,coffee_shop,45.4021965,-75.6460898,5692997384,node
 alta-vista,Alta Vista,Tim Hortons,cafe,coffee_shop,45.3775068,-75.6673546,5764424918,node
 alta-vista,Alta Vista,Tim Hortons,cafe,coffee_shop,45.4080823,-75.6577875,9893531119,node
 alta-vista,Alta Vista,Timothy's,cafe,coffee_shop,45.3860824,-75.6766927,605374219,way
+alta-vista,Alta Vista,168 Sushi Asian Buffet,restaurant,,45.4045114,-75.6268171,4354449991,node
 alta-vista,Alta Vista,Aahar,restaurant,indian,45.4083624,-75.657437,578269816,way
 alta-vista,Alta Vista,Aiyara Thai Cuisine,restaurant,thai,45.376752,-75.646263,2088038850,node
 alta-vista,Alta Vista,Alhalabi Restaurant,restaurant,syrian,45.376954,-75.667095,483246510,way
+alta-vista,Alta Vista,All Seasons restaurant,restaurant,,45.4199709,-75.6192612,536141783,way
 alta-vista,Alta Vista,Allô! Mon Coco,restaurant,breakfast,45.3855997,-75.6782658,605365770,way
 alta-vista,Alta Vista,Ariana Kebab House,restaurant,,45.3722962,-75.6625691,578268901,way
 alta-vista,Alta Vista,Asli Dining,restaurant,somali,45.3654206,-75.6595735,5939864448,node
 alta-vista,Alta Vista,Beijing Legend,restaurant,chinese,45.3720405,-75.6646892,617092347,way
 alta-vista,Alta Vista,Bella Vista,restaurant,,45.3727611,-75.6620822,578268886,way
+alta-vista,Alta Vista,Boston Pizza,restaurant,pizza,45.3827704,-75.6302489,468194033,way
 alta-vista,Alta Vista,COBS Bread,restaurant,,45.3994014,-75.6238288,485200637,way
 alta-vista,Alta Vista,Colonnade Pizza,restaurant,,45.380814,-75.6693485,249256393,way
 alta-vista,Alta Vista,Cora,restaurant,breakfast,45.37345,-75.662071,578268909,way
+alta-vista,Alta Vista,Cora,restaurant,breakfast,45.4114009,-75.6305597,2801647375,node
+alta-vista,Alta Vista,Cozy's Express,restaurant,,45.4111475,-75.626388,483103103,way
 alta-vista,Alta Vista,Danas Indian Cuisine,restaurant,indian,45.3788455,-75.6673681,5635792581,node
 alta-vista,Alta Vista,Fat Alberts,restaurant,pizza,45.4008512,-75.624155,5737284781,node
+alta-vista,Alta Vista,Hadramount Restaurant,restaurant,yemeni,45.3672788,-75.6630589,10747284501,node
 alta-vista,Alta Vista,J.M. Walkley Dining Lounge,restaurant,,45.3736307,-75.6534196,2088038882,node
 alta-vista,Alta Vista,Kara Mia,restaurant,italian;northern_italian;southern_italian,45.3988684,-75.624712,485194406,way
 alta-vista,Alta Vista,Kumpir House,restaurant,turkish,45.3763375,-75.6667677,11679595255,node
+alta-vista,Alta Vista,Lebanese Palace,restaurant,shawarma,45.406739,-75.6283415,230118842,way
+alta-vista,Alta Vista,Little Garden Restaurant,restaurant,breakfast,45.3946016,-75.6054849,447587656,way
 alta-vista,Alta Vista,Lorenzos,restaurant,pizza,45.3898074,-75.6304196,4782141726,node
 alta-vista,Alta Vista,Mermaid's Seafood Restaurant,restaurant,seafood,45.3785145,-75.6459296,701917663,way
+alta-vista,Alta Vista,Moe's BBQ and Smokehouse,restaurant,barbecue,45.3529105,-75.6469936,709271111,way
 alta-vista,Alta Vista,Mr. B's Osteria,restaurant,italian,45.3526562,-75.6468675,709271116,way
 alta-vista,Alta Vista,NH 44,restaurant,indian,45.4011582,-75.6192049,5737389120,node
 alta-vista,Alta Vista,Ocho Rios,restaurant,jamaican;caribbean,45.3720106,-75.6650211,617092344,way
 alta-vista,Alta Vista,Pelican Fishery & Grill,restaurant,seafood,45.3810769,-75.6704211,576873990,way
 alta-vista,Alta Vista,Pizza Hut,restaurant,pizza,45.3691776,-75.6623428,11112820186,node
+alta-vista,Alta Vista,Red Lobster,restaurant,seafood,45.4127557,-75.630351,68899677,way
 alta-vista,Alta Vista,Red Sea Pizza & Bar,restaurant,pizza,45.3762119,-75.6667159,10555699489,node
+alta-vista,Alta Vista,Robbies,restaurant,italian,45.4117005,-75.6297265,68899703,way
+alta-vista,Alta Vista,Roger's Italian Bistro,restaurant,italian,45.4146729,-75.6482808,621820164,way
 alta-vista,Alta Vista,Royal Indian Cuisine,restaurant,indian,45.3723927,-75.662351,578268895,way
 alta-vista,Alta Vista,Sala Thai,restaurant,thai,45.3735254,-75.6635628,578272888,way
 alta-vista,Alta Vista,Samar Kabab House,restaurant,afghan,45.3783764,-75.6463174,701917664,way
+alta-vista,Alta Vista,Schnitzel Works,restaurant,,45.4208315,-75.621106,483101142,way
+alta-vista,Alta Vista,Scores,restaurant,chicken;barbecue,45.4132852,-75.6452542,209263485,way
 alta-vista,Alta Vista,Small Street Barbecue Restaurant,restaurant,chicken,45.3723014,-75.6646182,275479191,way
+alta-vista,Alta Vista,St-Hubert,restaurant,chicken;barbecue,45.405019,-75.627083,68587061,way
+alta-vista,Alta Vista,Stan's Diner,restaurant,diner,45.4100595,-75.6210015,483103095,way
 alta-vista,Alta Vista,Sufra Cafe & Lounge,restaurant,,45.3523091,-75.6465995,709271122,way
 alta-vista,Alta Vista,Sweet Basil,restaurant,thai,45.379024,-75.6673365,483246476,way
+alta-vista,Alta Vista,Tadka Junction,restaurant,indian,45.3671943,-75.6629752,5833495172,node
 alta-vista,Alta Vista,Ten Sushi Japanese Restaurant,restaurant,sushi,45.3817074,-75.6703877,249256392,way
+alta-vista,Alta Vista,The Chopped Leaf,restaurant,salad,45.4129947,-75.6453682,621820151,way
 alta-vista,Alta Vista,The Works,restaurant,burger,45.3542177,-75.6438443,583075397,way
 alta-vista,Alta Vista,Zaytoun Pizza,restaurant,,45.3767249,-75.646349,2088038858,node
+sandy-hill,Sandy Hill,Arey Tea & Coffee,cafe,,45.4324595,-75.6475995,479756583,way
 sandy-hill,Sandy Hill,Bridgehead,cafe,coffee_shop,45.4262714,-75.6910575,651533596,way
 sandy-hill,Sandy Hill,BT Cravings,cafe,coffee_shop,45.423518,-75.6835505,13341771890,node
 sandy-hill,Sandy Hill,Café Omni,cafe,,45.4234375,-75.6854103,1669178975,node
@@ -807,9 +827,9 @@ sandy-hill,Sandy Hill,Tim Hortons,cafe,coffee_shop,45.4277133,-75.6870976,471064
 sandy-hill,Sandy Hill,Tim Hortons,cafe,coffee_shop,45.4226616,-75.683858,5204841596,node
 sandy-hill,Sandy Hill,Tim Hortons,cafe,coffee_shop,45.421782,-75.6814107,6016201028,node
 sandy-hill,Sandy Hill,Working Title,cafe,coffee_shop;bakery,45.4272748,-75.6776448,6699498943,node
-sandy-hill,Sandy Hill,Zoureen's Cafe,cafe,,45.4315062,-75.6538854,580611245,way
 sandy-hill,Sandy Hill,A La Istanbul Turkish Cuisine,restaurant,turkish,45.4266319,-75.6902108,4779809835,node
 sandy-hill,Sandy Hill,Ariana Kabab House,restaurant,,45.430493,-75.6812358,5631415369,node
+sandy-hill,Sandy Hill,Arta Coffee House,restaurant,international,45.4325372,-75.6468671,5636351047,node
 sandy-hill,Sandy Hill,Asal Restaurant,restaurant,african,45.4212576,-75.6722581,4751593724,node
 sandy-hill,Sandy Hill,Bento Sushi,restaurant,sushi,45.4255519,-75.691149,651630090,way
 sandy-hill,Sandy Hill,Bento Sushi,restaurant,japanese,45.4226641,-75.6838916,5204841597,node
@@ -831,12 +851,13 @@ sandy-hill,Sandy Hill,Fragrant Noodles,restaurant,chinese;noodle,45.4295462,-75.
 sandy-hill,Sandy Hill,Golden BBQ Grill,restaurant,chinese,45.426832,-75.6394309,320898322,way
 sandy-hill,Sandy Hill,Golden India Restaurant,restaurant,indian,45.4319296,-75.6486314,3286789271,node
 sandy-hill,Sandy Hill,Govinda's,restaurant,indian,45.422436,-75.6789247,607449917,way
+sandy-hill,Sandy Hill,Greek to Go,restaurant,greek,45.4325161,-75.647118,5636351045,node
 sandy-hill,Sandy Hill,Hong Kong Express,restaurant,chinese,45.428035,-75.6869659,4710660985,node
 sandy-hill,Sandy Hill,Host Indian Cuisine,restaurant,indian,45.442403,-75.641744,305804889,way
 sandy-hill,Sandy Hill,In's Kitchen,restaurant,korean,45.421044,-75.6779347,10700896316,node
 sandy-hill,Sandy Hill,Indian Affair Takeout,restaurant,indian,45.4252885,-75.6529361,3899100120,node
 sandy-hill,Sandy Hill,Joey,restaurant,regional,45.4263803,-75.6906527,651533594,way
-sandy-hill,Sandy Hill,Liu's Garden,restaurant,chinese,45.4309812,-75.6626428,480205077,way
+sandy-hill,Sandy Hill,Lai Lai Chinese Restaurant,restaurant,chinese,45.432705,-75.644405,479756621,way
 sandy-hill,Sandy Hill,Lone Star Texas Grill,restaurant,tex-mex,45.422197,-75.6340735,68661987,way
 sandy-hill,Sandy Hill,Lordia,restaurant,,45.4270399,-75.6308187,484079378,way
 sandy-hill,Sandy Hill,Madhuban Indian Cuisine,restaurant,indian,45.4329786,-75.6749179,2964220033,node
@@ -851,13 +872,14 @@ sandy-hill,Sandy Hill,Pho Ong Thin,restaurant,dessert;vietnamese,45.4271844,-75.
 sandy-hill,Sandy Hill,Pho Vietnam,restaurant,vietnamese,45.4229646,-75.6358418,673129219,way
 sandy-hill,Sandy Hill,Pizza Hut,restaurant,pizza,45.4406113,-75.645999,573385579,way
 sandy-hill,Sandy Hill,Pizza Studio,restaurant,pizza,45.4256637,-75.6817084,4102445394,node
-sandy-hill,Sandy Hill,Pizzaro's Italian Ristorante,restaurant,italian,45.430643,-75.6665185,481375423,way
 sandy-hill,Sandy Hill,Reza's,restaurant,,45.4230583,-75.6344039,6049977222,node
 sandy-hill,Sandy Hill,Shanghai Wonton Noodle,restaurant,chinese;noodle,45.4271404,-75.6891909,4779809322,node
 sandy-hill,Sandy Hill,Signatures,restaurant,french,45.429169,-75.6747135,310454236,way
 sandy-hill,Sandy Hill,Silk Road Restaurant,restaurant,kebab,45.4257212,-75.6358858,244243182,way
+sandy-hill,Sandy Hill,Stacked,restaurant,,45.432546,-75.6467845,5636351048,node
 sandy-hill,Sandy Hill,Stuffed Burgers,restaurant,,45.4311897,-75.6415344,4911333408,node
 sandy-hill,Sandy Hill,Sugar & Slice,restaurant,pizza;burger,45.4212244,-75.6723425,4751593610,node
+sandy-hill,Sandy Hill,Suya Palace,restaurant,caribbean,45.4322412,-75.6487589,5994231117,node
 sandy-hill,Sandy Hill,Swiss Chalet,restaurant,chicken,45.4408854,-75.6454387,305805011,way
 sandy-hill,Sandy Hill,Tahini's,restaurant,mediterranean,45.42587,-75.6812318,13341771898,node
 sandy-hill,Sandy Hill,The Albion Rooms,restaurant,,45.4258276,-75.6894694,5844699565,node
@@ -905,7 +927,6 @@ orleans,Orleans,Tim Hortons,cafe,coffee_shop,45.4569954,-75.5908987,6198754160,n
 orleans,Orleans,Tim Hortons,cafe,coffee_shop,45.4435783,-75.6360831,6198754163,node
 orleans,Orleans,Ali Baba bakery,restaurant,middle_eastern,45.4573656,-75.4874515,591869372,way
 orleans,Orleans,Anmol Indian Cuisine,restaurant,,45.4875795,-75.5117074,602277183,way
-orleans,Orleans,Banc Sushi,restaurant,japanese,45.4470243,-75.6289893,3306672995,node
 orleans,Orleans,Bite Burger House,restaurant,burger,45.4684853,-75.4901093,485140487,way
 orleans,Orleans,Bon Goût Créole Restaurant,restaurant,caribbean,45.4704752,-75.5253244,597564037,way
 orleans,Orleans,Boston Pizza,restaurant,pizza,45.453032,-75.510242,484530529,way
@@ -1040,26 +1061,35 @@ barrhaven,Barrhaven,Tutti Frutti,restaurant,,45.2704548,-75.7848322,510520354,wa
 barrhaven,Barrhaven,Wan's Chinese Food,restaurant,chinese,45.2937266,-75.7415259,479399894,way
 barrhaven,Barrhaven,Willy's Pizza,restaurant,pizza,45.2662675,-75.7715619,479191225,way
 barrhaven,Barrhaven,Yorgo's Greek Food and Pizza,restaurant,,45.287092,-75.7577294,478978382,way
+bayshore,Bayshore,Bridgehead,cafe,coffee_shop,45.3707493,-75.7685203,406481942,way
 bayshore,Bayshore,Britannia Coffeehouse,cafe,,45.3655596,-75.7960236,635759371,way
 bayshore,Bayshore,Real Fruit Bubble Tea,cafe,bubble_tea,45.3473878,-75.8066738,437086811,way
 bayshore,Bayshore,Second Cup,cafe,coffee_shop,45.3467654,-75.8071088,436986881,way
+bayshore,Bayshore,Starbucks,cafe,coffee_shop,45.3689926,-75.7721892,672788706,way
 bayshore,Bayshore,Starbucks,cafe,coffee_shop,45.3473522,-75.8073022,9695158495,node
+bayshore,Bayshore,Tim Hortons,cafe,,45.375882,-75.7770965,68609292,way
 bayshore,Bayshore,Tim Hortons,cafe,coffee_shop,45.3555465,-75.8028065,218815745,way
 bayshore,Bayshore,Tim Hortons,cafe,coffee_shop,45.3474428,-75.8071268,9695158494,node
 bayshore,Bayshore,African BBQ House,restaurant,african,45.3554796,-75.8049947,10926955199,node
 bayshore,Bayshore,Baja Burger,restaurant,burger,45.364216,-75.8018148,3778731922,node
 bayshore,Bayshore,Biagio's,restaurant,italian,45.3645306,-75.788307,68587725,way
 bayshore,Bayshore,Britannia Yacht Club,restaurant,,45.3716837,-75.8032635,6873516125,node
+bayshore,Bayshore,Colonnade Pizza,restaurant,pizza;italian_pizza;breakfast,45.3708073,-75.768306,487516630,way
 bayshore,Bayshore,Cora,restaurant,breakfast,45.3669475,-75.7874412,562117358,way
+bayshore,Bayshore,Golden Palace,restaurant,chinese,45.369985,-75.7717409,237593148,way
 bayshore,Bayshore,Kahaani - Modern Indian Eatery,restaurant,indian,45.3543459,-75.8072747,12710732801,node
 bayshore,Bayshore,Little India Cafe,restaurant,indian,45.3547431,-75.8069299,609966176,way
+bayshore,Bayshore,Lorenzo Bar & Grill,restaurant,,45.3784904,-75.774653,565106784,way
 bayshore,Bayshore,Lorenzo's Restaurant,restaurant,,45.3553459,-75.8052911,4018178651,node
 bayshore,Bayshore,Mezbaan,restaurant,afghan,45.3539325,-75.8058892,484638739,way
+bayshore,Bayshore,Mia's Indian Cuisine,restaurant,indian,45.3780833,-75.7748342,196942582,way
+bayshore,Bayshore,Moe's Pizza,restaurant,pizza,45.3709881,-75.7820053,3778702558,node
 bayshore,Bayshore,Pookie's Thai Restaurant,restaurant,thai,45.3678934,-75.7742425,656819196,way
 bayshore,Bayshore,Ralph & Sons Diner,restaurant,breakfast,45.3520202,-75.8356683,672998176,way
 bayshore,Bayshore,Salang Restaurant,restaurant,kebab,45.3560801,-75.8017205,609608197,way
 bayshore,Bayshore,Senpai,restaurant,sushi,45.367954,-75.7742748,68587644,way
 bayshore,Bayshore,Sheikh Almandi,restaurant,middle_eastern,45.354703,-75.8072318,5777078828,node
+bayshore,Bayshore,Swiss Chalet,restaurant,chicken,45.3705149,-75.7689503,551950057,way
 bayshore,Bayshore,Taj Indian Cuisine,restaurant,,45.3553071,-75.8053856,4018181737,node
 bayshore,Bayshore,The Gallery,restaurant,,45.3512358,-75.8264861,6117519716,node
 bayshore,Bayshore,Willys Pizza,restaurant,,45.3682008,-75.7857844,545360475,way
@@ -1098,7 +1128,7 @@ carlington,Carlington,First Cup,cafe,,45.3480831,-75.7573816,6754681493,node
 carlington,Carlington,GIS cafe,cafe,,45.3493053,-75.7543711,6961683,relation
 carlington,Carlington,Gong Cha,cafe,bubble_tea,45.3505304,-75.7618657,481693120,way
 carlington,Carlington,Melllo's Coffee Shop,cafe,,45.3564982,-75.737492,575369475,way
-carlington,Carlington,Morning Owl,cafe,,45.3748452,-75.747984,307096811,way
+carlington,Carlington,Second Cup,cafe,coffee_shop,45.3867549,-75.7352776,654118370,way
 carlington,Carlington,Shuyi Tealicious,cafe,bubble_tea,45.3584661,-75.7389887,5108651133,node
 carlington,Carlington,Sip Tea,cafe,,45.3555233,-75.7349879,158028952,way
 carlington,Carlington,Starbucks,cafe,coffee_shop,45.3503312,-75.7617254,481693124,way
@@ -1106,6 +1136,7 @@ carlington,Carlington,Starbucks,cafe,coffee_shop,45.3624999,-75.7355323,57640913
 carlington,Carlington,Starbucks,cafe,coffee_shop,45.3499125,-75.7562196,6754398783,node
 carlington,Carlington,Starbucks,cafe,coffee_shop,45.3516267,-75.7594823,12373638779,node
 carlington,Carlington,Tiger Sugar,cafe,bubble_tea,45.352904,-75.735384,576378541,way
+carlington,Carlington,Tim Hortons,cafe,coffee_shop,45.3704555,-75.732592,166313378,way
 carlington,Carlington,Tim Hortons,cafe,coffee_shop,45.3692738,-75.7026655,171266703,way
 carlington,Carlington,Tim Hortons,cafe,coffee_shop,45.3617709,-75.7378316,270213695,way
 carlington,Carlington,Tim Hortons,cafe,coffee_shop,45.3514544,-75.7330612,473224067,way
@@ -1115,12 +1146,12 @@ carlington,Carlington,Alirang,restaurant,korean,45.3594884,-75.7354725,294777461
 carlington,Carlington,Allô! Mon Coco,restaurant,breakfast,45.3500019,-75.7612879,481693133,way
 carlington,Carlington,Amigo's,restaurant,,45.3847796,-75.732877,129435336,way
 carlington,Carlington,Bite&Bite,restaurant,chinese;shanghai,45.360105,-75.7334325,551943411,way
+carlington,Carlington,Boston Pizza,restaurant,pizza,45.37954,-75.74832,175677672,way
 carlington,Carlington,Broadway Bar&Grill,restaurant,,45.3536184,-75.7052551,481890133,way
 carlington,Carlington,Casa México,restaurant,mexican,45.358958,-75.7359357,575408955,way
 carlington,Carlington,Chances R Restaurant,restaurant,,45.3503045,-75.758608,157291438,way
 carlington,Carlington,Chongqing Liuyishou Hotpot,restaurant,chinese;chongqing;sichuan;hotpot,45.3517185,-75.7348279,599071832,way
 carlington,Carlington,Colonnade Pizza,restaurant,italian,45.3613523,-75.7331296,551943409,way
-carlington,Carlington,Crispy's Grill & Resto,restaurant,,45.3420198,-75.7560792,499974976,way
 carlington,Carlington,Daal Roti,restaurant,indian,45.3535665,-75.7358226,576378518,way
 carlington,Carlington,Delicious Sichuan Cuisine,restaurant,chinese,45.3685949,-75.7024191,5629499466,node
 carlington,Carlington,Denny's,restaurant,american,45.3596273,-75.7392854,5085980121,node
@@ -1140,13 +1171,12 @@ carlington,Carlington,Merivale Noodle House,restaurant,vietnamese,45.3570853,-75
 carlington,Carlington,Merivale Seafood Grill,restaurant,seafood,45.3601556,-75.7358944,7862180579,node
 carlington,Carlington,Miss Molly's Breakfast Club,restaurant,breakfast,45.3767213,-75.7457167,238085276,way
 carlington,Carlington,Nando's,restaurant,chicken;portuguese,45.3615742,-75.7336234,551943407,way
-carlington,Carlington,New Hong Kong Chinese Restaurant,restaurant,chinese,45.3419262,-75.7560926,499974974,way
 carlington,Carlington,Ng's Cuisine,restaurant,chinese,45.3581638,-75.7365513,286940851,way
-carlington,Carlington,Noodle House 79,restaurant,vietnamese,45.3494099,-75.7335394,569421714,way
 carlington,Carlington,Pizza Hut,restaurant,pizza,45.3537781,-75.7358329,156730365,way
 carlington,Carlington,Prime Burger Bar,restaurant,,45.3705878,-75.7166388,484822876,way
 carlington,Carlington,Red Lobster,restaurant,seafood,45.3521242,-75.7324742,68609059,way
 carlington,Carlington,Restaurant International,restaurant,,45.3498681,-75.7571258,5680428543,node
+carlington,Carlington,Rockin' Johnny's,restaurant,diner,45.3868168,-75.7352249,654118381,way
 carlington,Carlington,Royal Lounge,restaurant,,45.3568559,-75.7363734,575369504,way
 carlington,Carlington,Saffron,restaurant,indian,45.3548102,-75.7338063,576378462,way
 carlington,Carlington,Sansotei Ramen,restaurant,japanese,45.3558553,-75.736023,575369512,way
@@ -1155,6 +1185,7 @@ carlington,Carlington,Shaan Curry House,restaurant,indian,45.3591928,-75.7358683
 carlington,Carlington,Shahrazad Restaurant,restaurant,middle_eastern,45.3790724,-75.7326865,5862216280,node
 carlington,Carlington,Shawarma De Roza,restaurant,,45.3539459,-75.7044495,578296255,way
 carlington,Carlington,Spicy Man,restaurant,chinese,45.3815461,-75.7334425,13161144933,node
+carlington,Carlington,St. Louis Bar & Grill,restaurant,chicken,45.3628004,-75.7401675,2752679740,node
 carlington,Carlington,Sundari's Cuisine,restaurant,indian,45.3593346,-75.7356836,575408953,way
 carlington,Carlington,Sushi Kan,restaurant,japanese,45.364073,-75.7327035,482735227,way
 carlington,Carlington,Takumi BBQ,restaurant,chinese;barbecue,45.3815787,-75.7334572,5521529911,node
@@ -1162,55 +1193,28 @@ carlington,Carlington,Thai Coconut,restaurant,,45.369291,-75.7031781,3733591483,
 carlington,Carlington,The Observatory,restaurant,,45.3490407,-75.7576914,6754681516,node
 carlington,Carlington,Wild Wing,restaurant,chicken,45.3687794,-75.7026015,5528478945,node
 carlington,Carlington,Wolves Den Restaurant,restaurant,,45.3508225,-75.7545652,10211286557,node
-hunt-club,Hunt Club,Cafe & Vin,cafe,,45.3224791,-75.668207,6744461083,node
 hunt-club,Hunt Club,Café Hiraeth,cafe,,45.3427434,-75.668549,604084514,way
-hunt-club,Hunt Club,CoCo Fresh Tea & Juice,cafe,bubble_tea,45.3349876,-75.6908351,4969122479,node
-hunt-club,Hunt Club,Marcie's Cafe,cafe,,45.3801256,-75.6332597,5832594952,node
-hunt-club,Hunt Club,Real Fruit Bubble Tea,cafe,bubble_tea,45.354909,-75.6452364,652110293,way
-hunt-club,Hunt Club,Second Cup,cafe,coffee_shop,45.334406,-75.6921115,447277008,way
 hunt-club,Hunt Club,Second Cup,cafe,coffee_shop,45.3742871,-75.5980905,9046464750,node
-hunt-club,Hunt Club,Starbucks,cafe,coffee_shop,45.3681,-75.6627256,868191640,way
-hunt-club,Hunt Club,Starbucks,cafe,coffee_shop,45.3210869,-75.6657145,2388632480,node
 hunt-club,Hunt Club,Starbucks,cafe,coffee_shop,45.3566782,-75.655831,4485962422,node
-hunt-club,Hunt Club,The Dadam,cafe,korean,45.3256343,-75.6534545,3928664712,node
 hunt-club,Hunt Club,Tim Hortons,cafe,coffee_shop,45.3473515,-75.6240485,473049693,way
 hunt-club,Hunt Club,Tim Hortons,cafe,coffee_shop,45.337964,-75.683493,473083848,way
 hunt-club,Hunt Club,Tim Hortons,cafe,coffee_shop,45.3607145,-75.63074,483664585,way
-hunt-club,Hunt Club,Tim Hortons,cafe,coffee_shop,45.3541419,-75.6459537,652110308,way
-hunt-club,Hunt Club,Tim Hortons,cafe,coffee_shop,45.3826826,-75.6315333,2501656860,node
 hunt-club,Hunt Club,Tim Hortons,cafe,coffee_shop,45.342712,-75.6904345,3668935288,node
-hunt-club,Hunt Club,Tim Hortons,cafe,coffee_shop,45.3221089,-75.6668641,4708975590,node
-hunt-club,Hunt Club,Tim Hortons,cafe,coffee_shop,45.3218791,-75.6672788,5645816802,node
 hunt-club,Hunt Club,Tim Hortons,cafe,coffee_shop,45.364051,-75.6201464,5762406675,node
-hunt-club,Hunt Club,Tim Hortons,cafe,coffee_shop,45.3226637,-75.6670241,6744498906,node
-hunt-club,Hunt Club,Y-Not Go For Tea,cafe,bubble_tea,45.3341244,-75.6899249,11558082467,node
-hunt-club,Hunt Club,Angry Dragonz,restaurant,chinese,45.3203455,-75.690702,472413803,way
-hunt-club,Hunt Club,Bambu,restaurant,asian,45.332768,-75.692714,447277014,way
-hunt-club,Hunt Club,Big Rig,restaurant,,45.3217409,-75.6669608,13279271296,node
-hunt-club,Hunt Club,Boston Pizza,restaurant,pizza,45.3827704,-75.6302489,468194033,way
-hunt-club,Hunt Club,Cork and Well,restaurant,airport,45.3233518,-75.6697808,6744494972,node
-hunt-club,Hunt Club,Garden Grille and Bar,restaurant,,45.327722,-75.6520848,7212135879,node
-hunt-club,Hunt Club,Hadramount Restaurant,restaurant,yemeni,45.3672788,-75.6630589,10747284501,node
 hunt-club,Hunt Club,House of Mandi,restaurant,,45.3528271,-75.6511015,663541689,way
 hunt-club,Hunt Club,Kallisto,restaurant,greek,45.3464865,-75.6263378,620180748,way
 hunt-club,Hunt Club,Kelsey's,restaurant,american,45.3569055,-75.6545595,482653840,way
-hunt-club,Hunt Club,Kimonos Ramen & Poke,restaurant,ramen,45.3337207,-75.6924015,4781714912,node
 hunt-club,Hunt Club,KS on the Keys,restaurant,,45.353285,-75.652098,482653757,way
 hunt-club,Hunt Club,Lone Star Texas Grill,restaurant,tex-mex,45.3434802,-75.6686028,498924545,way
-hunt-club,Hunt Club,Moe's BBQ and Smokehouse,restaurant,barbecue,45.3529105,-75.6469936,709271111,way
 hunt-club,Hunt Club,Montana's,restaurant,barbecue,45.3534715,-75.6529565,482653707,way
 hunt-club,Hunt Club,Moose McGuire's Irish Pub & Grill,restaurant,,45.3509608,-75.670767,480073437,way
-hunt-club,Hunt Club,Moxie's,restaurant,bar_and_grill,45.3340365,-75.6924945,447277065,way
 hunt-club,Hunt Club,Nippon Sushi,restaurant,sushi,45.3443274,-75.6661067,604084872,way
 hunt-club,Hunt Club,O'Grady's Outpost,restaurant,,45.3637904,-75.6464774,583053810,way
 hunt-club,Hunt Club,Pho Kam Long,restaurant,vietnamese,45.3447407,-75.6920311,473084310,way
 hunt-club,Hunt Club,Riverside Pizzeria,restaurant,pizza,45.3435675,-75.6903688,561138178,way
-hunt-club,Hunt Club,Royal Rooster Shawarma,restaurant,shawarma,45.3333515,-75.6923814,5916191220,node
 hunt-club,Hunt Club,Sona the Indian Kitchen,restaurant,indian,45.3527509,-75.6510489,663542343,way
 hunt-club,Hunt Club,Southside Tap & Grill,restaurant,,45.369307,-75.6204542,2038796594,node
 hunt-club,Hunt Club,Stacked,restaurant,sandwich,45.3528745,-75.6349595,482458648,way
-hunt-club,Hunt Club,Stacked Pancake & Breakfast House,restaurant,breakfast,45.3338712,-75.6908476,13084867309,node
-hunt-club,Hunt Club,Tadka Junction,restaurant,indian,45.3671943,-75.6629752,5833495172,node
 hunt-club,Hunt Club,Thai Lannan Cuisine,restaurant,,45.3548172,-75.6492759,3978199030,node
 hunt-club,Hunt Club,The Keg,restaurant,steak_house,45.338482,-75.682163,473083898,way
 hunt-club,Hunt Club,Vittoria Trattoria,restaurant,italian,45.345816,-75.692604,473083809,way
@@ -1223,18 +1227,30 @@ riverside-south,Riverside South,Broadway Bar & Grill,restaurant,,45.2699233,-75.
 riverside-south,Riverside South,Canton Restaurant,restaurant,chinese,45.2871715,-75.6725014,593943470,way
 riverside-south,Riverside South,Host India,restaurant,indian,45.2872118,-75.6726359,445605693,way
 riverside-south,Riverside South,Punjabi Canteen,restaurant,indian,45.2700331,-75.6958684,593971602,way
+manotick,Manotick,692 Coffee & Bar,cafe,,45.224882,-75.684097,470022490,way
+manotick,Manotick,Mimi's In Manotick,cafe,coffee_shop,45.2292623,-75.6819607,5554845552,node
+manotick,Manotick,Morning Owl,cafe,,45.22643,-75.6857613,6579180690,node
 manotick,Manotick,Tim Hortons,cafe,coffee_shop,45.2345608,-75.6764424,175821516,way
+manotick,Manotick,Angelina,restaurant,italian,45.2257042,-75.6853802,9611926169,node
+manotick,Manotick,Babbos,restaurant,italian,45.2237678,-75.6848973,560871152,way
+manotick,Manotick,Black Dog Bistro,restaurant,,45.2252713,-75.6847664,470022425,way
 manotick,Manotick,Burgers and Shakes,restaurant,american,45.2466369,-75.6495649,5818685254,node
+manotick,Manotick,CreekSide Bar & Grill,restaurant,,45.2269994,-75.6860301,560812572,way
 manotick,Manotick,Kelly's Landing,restaurant,,45.1985258,-75.6375667,7086940166,node
+manotick,Manotick,Khao Yum,restaurant,thai,45.2240167,-75.6832132,470022627,way
+manotick,Manotick,Mano City Pizza,restaurant,,45.2271507,-75.6862287,557128319,way
+manotick,Manotick,Miller's Oven,restaurant,,45.226106,-75.684212,470022657,way
+manotick,Manotick,Pearl House,restaurant,chinese,45.2228247,-75.6820534,473645896,way
+manotick,Manotick,Pizza Hut,restaurant,pizza,45.2241004,-75.6835022,9611926161,node
+manotick,Manotick,Take Another Bite,restaurant,,45.226232,-75.684045,470022614,way
+manotick,Manotick,The Olive Branch,restaurant,greek,45.2241714,-75.683617,9611926163,node
 manotick,Manotick,The Swan on the Rideau,restaurant,regional,45.1621485,-75.63053,469780517,way
+manotick,Manotick,Viet Express,restaurant,vietnamese,45.2237232,-75.6848645,560871136,way
 vars,Vars-Navan,Country Perks Cafe,cafe,,45.4210925,-75.4271496,470334517,way
-vars,Vars-Navan,Starbucks,cafe,coffee_shop,45.3179588,-75.5909073,762491854,way
 vars,Vars-Navan,Starbucks,cafe,coffee_shop,45.3445429,-75.4420869,12607940400,node
 vars,Vars-Navan,Castello's Pizza,restaurant,pizza,45.4211195,-75.424999,470334951,way
-vars,Vars-Navan,Crust & Crate,restaurant,,45.3178545,-75.591707,762491853,way
 vars,Vars-Navan,Dunn's Famous,restaurant,,45.2973773,-75.5798063,7126118770,node
 vars,Vars-Navan,Happy Lam,restaurant,chinese,45.2822731,-75.5711103,324322251,way
-vars,Vars-Navan,Mojo's Chinese Food,restaurant,chinese,45.3189804,-75.5923612,7752634549,node
 vars,Vars-Navan,Navan Restaurant,restaurant,,45.420908,-75.4258805,470334781,way
 vars,Vars-Navan,Palki Cuisine of India,restaurant,indian,45.3695029,-75.4558149,191017583,way
 vars,Vars-Navan,The Sticks Restaurant,restaurant,,45.3533052,-75.5225362,3959508886,node
@@ -1276,67 +1292,41 @@ nepean,Nepean,New Hong Shing,restaurant,chinese,45.3241962,-75.7776024,545542947
 nepean,Nepean,Ottawa Shawarma,restaurant,kebab,45.3243341,-75.7793632,545573732,way
 nepean,Nepean,Parti Pizza,restaurant,pizza,45.3244494,-75.7777449,545542950,way
 nepean,Nepean,Shifa Restaurant,restaurant,,45.352795,-75.777875,319963370,way
-merivale,Merivale,Cappuccino Bar,cafe,,45.3295681,-75.7275186,6200081788,node
 merivale,Merivale,Second Cup,cafe,coffee_shop,45.3448666,-75.7296078,473224062,way
 merivale,Merivale,Simply Biscotti,cafe,,45.3464158,-75.703256,5973552974,node
 merivale,Merivale,Starbucks,cafe,coffee_shop,45.3273715,-75.701512,252266021,way
-merivale,Merivale,Tim Hortons,cafe,coffee_shop,45.3356279,-75.7239075,460242952,way
-merivale,Merivale,Tim Hortons,cafe,coffee_shop,45.329458,-75.7218139,460246058,way
-merivale,Merivale,Tim Hortons,cafe,coffee_shop,45.3333194,-75.7018202,5506692108,node
 merivale,Merivale,Unnamed,restaurant,greek,45.3509018,-75.7316116,551780151,way
 merivale,Merivale,168 Sushi,restaurant,sushi,45.3509222,-75.7314217,551780152,way
-merivale,Merivale,2020 Biryani Express,restaurant,indian,45.3263047,-75.7199527,5739855486,node
-merivale,Merivale,Baton Rouge,restaurant,,45.33958,-75.710976,472844034,way
 merivale,Merivale,Blue Diamond Bar & Grill,restaurant,indian,45.3629602,-75.7119389,5973556904,node
 merivale,Merivale,Boston Pizza,restaurant,pizza,45.3346871,-75.7252045,460242956,way
-merivale,Merivale,Capital Bites,restaurant,pizza,45.3221624,-75.7212482,6152284399,node
-merivale,Merivale,Chop,restaurant,,45.3387929,-75.7098991,484428425,way
-merivale,Merivale,Cindy's Restaurant,restaurant,,45.3317685,-75.7064411,6146660587,node
-merivale,Merivale,Cora,restaurant,breakfast,45.3394995,-75.7118263,484428427,way
-merivale,Merivale,Country Place Chinese Restaurant,restaurant,chinese,45.327033,-75.7192905,472168773,way
-merivale,Merivale,D-Luxe,restaurant,,45.3342687,-75.7242952,460246050,way
-merivale,Merivale,East Side Mario's,restaurant,italian,45.3336094,-75.7257293,460246049,way
-merivale,Merivale,Freshii,restaurant,salad,45.3385962,-75.71084,667329599,way
-merivale,Merivale,Grenfell Catering,restaurant,sandwich,45.3236695,-75.7224783,13075876078,node
-merivale,Merivale,Hardstone Grill,restaurant,,45.3386529,-75.7255578,244442925,way
-merivale,Merivale,Jack Astor's,restaurant,american,45.3390651,-75.7129027,472844036,way
+merivale,Merivale,Crispy's Grill & Resto,restaurant,,45.3420198,-75.7560792,499974976,way
 merivale,Merivale,Les Grillades,restaurant,mediterranean,45.3464299,-75.7023467,6053540753,node
-merivale,Merivale,Mandarin,restaurant,chinese,45.33855,-75.7105713,472844028,way
-merivale,Merivale,Merivale Station Restaurant,restaurant,,45.3317508,-75.7233538,11382662117,node
-merivale,Merivale,Mexi's,restaurant,mexican,45.3331853,-75.7267788,460246044,way
 merivale,Merivale,Montana's,restaurant,barbecue,45.3457666,-75.73004,239818804,way
-merivale,Merivale,Nihari Express,restaurant,indian,45.3264095,-75.7200426,7821651483,node
-merivale,Merivale,Pi Squared Pizza,restaurant,pizza,45.3318208,-75.7231642,11382662132,node
-merivale,Merivale,Shanghai One,restaurant,chinese,45.3333784,-75.7250505,583580937,way
-merivale,Merivale,Steele's Restaurant,restaurant,,45.3302666,-75.7222277,6078060159,node
-merivale,Merivale,The Captain's Boil,restaurant,seafood,45.3384782,-75.7109692,573312286,way
+merivale,Merivale,New Hong Kong Chinese Restaurant,restaurant,chinese,45.3419262,-75.7560926,499974974,way
+merivale,Merivale,Noodle House 79,restaurant,vietnamese,45.3494099,-75.7335394,569421714,way
 merivale,Merivale,Xiang Zi,restaurant,chinese,45.3626839,-75.7118444,479919696,way
 vanier,Vanier,Anina's Cafe,cafe,sandwich,45.4399736,-75.661275,321498040,way
-vanier,Vanier,Arey Tea & Coffee,cafe,,45.4324595,-75.6475995,479756583,way
 vanier,Vanier,Tim Hortons,cafe,coffee_shop,45.4344494,-75.6667157,153383765,way
 vanier,Vanier,Tim Hortons,cafe,coffee_shop,45.4339991,-75.6660402,6198974146,node
 vanier,Vanier,Yo Lassie,cafe,,45.4389884,-75.6768694,6464895586,node
-vanier,Vanier,Arta Coffee House,restaurant,international,45.4325372,-75.6468671,5636351047,node
+vanier,Vanier,Zoureen's Cafe,cafe,,45.4315062,-75.6538854,580611245,way
 vanier,Vanier,Bobby's Table,restaurant,,45.4364191,-75.6610865,5667233869,node
 vanier,Vanier,Bukhari Restaurant,restaurant,yemeni,45.4338465,-75.6670409,5667282252,node
 vanier,Vanier,ChiChi Restaurant & Bar,restaurant,,45.4381175,-75.6567415,312872835,way
 vanier,Vanier,D. J. Nels Plus,restaurant,caribbean,45.4375994,-75.6581642,466690718,way
 vanier,Vanier,Dhruvees,restaurant,indian,45.4389499,-75.6770595,4347487189,node
 vanier,Vanier,Fontenelle,restaurant,,45.4336223,-75.6682907,5667366792,node
-vanier,Vanier,Greek to Go,restaurant,greek,45.4325161,-75.647118,5636351045,node
 vanier,Vanier,Grillades Kenayah,restaurant,,45.4317038,-75.6573486,6015802191,node
 vanier,Vanier,Habesha Restaurant,restaurant,ethiopian,45.434153,-75.6670151,460669832,way
 vanier,Vanier,Il Vagabondo Ristorante,restaurant,italian,45.4417488,-75.6711977,478630935,way
 vanier,Vanier,Iwacu Bar & Grill,restaurant,,45.4338184,-75.6677631,7241404361,node
 vanier,Vanier,La Villa Latina,restaurant,spanish,45.4339833,-75.6673344,5667282247,node
-vanier,Vanier,Lai Lai Chinese Restaurant,restaurant,chinese,45.432705,-75.644405,479756621,way
-vanier,Vanier,Le St. Laurent,restaurant,french,45.4455392,-75.6496135,6032576980,node
+vanier,Vanier,Liu's Garden,restaurant,chinese,45.4309812,-75.6626428,480205077,way
 vanier,Vanier,Mr. Poke,restaurant,,45.4394026,-75.6747855,11608980701,node
 vanier,Vanier,Pho La Express,restaurant,vietnamese,45.4338597,-75.6676595,5667282245,node
+vanier,Vanier,Pizzaro's Italian Ristorante,restaurant,italian,45.430643,-75.6665185,481375423,way
 vanier,Vanier,Plantain Cartel,restaurant,,45.443403,-75.6701629,11609146264,node
 vanier,Vanier,Restaurant Vision Éclair,restaurant,,45.4317278,-75.6658385,6015834727,node
-vanier,Vanier,Stacked,restaurant,,45.432546,-75.6467845,5636351048,node
-vanier,Vanier,Suya Palace,restaurant,caribbean,45.4322412,-75.6487589,5994231117,node
 vanier,Vanier,The Soca Kitchen,restaurant,,45.4434541,-75.6701093,5842291537,node
 vanier,Vanier,Wow India,restaurant,indian,45.4348939,-75.6651629,481375480,way
 new-edinburgh,New Edinburgh,Bridgehead,cafe,coffee_shop,45.442089,-75.6720114,941441313,node
@@ -1352,48 +1342,27 @@ new-edinburgh,New Edinburgh,Chilaquiles,restaurant,mexican,45.4401681,-75.675782
 new-edinburgh,New Edinburgh,Dante,restaurant,,45.4402048,-75.6763169,4342742090,node
 new-edinburgh,New Edinburgh,Edinburger,restaurant,burger,45.4400204,-75.6762409,11181983278,node
 new-edinburgh,New Edinburgh,Idriss Mediterranean Restaurant,restaurant,Mediterranean,45.450258,-75.6517055,246860642,way
+new-edinburgh,New Edinburgh,Le St. Laurent,restaurant,french,45.4455392,-75.6496135,6032576980,node
 new-edinburgh,New Edinburgh,Mia's Indian Cuisine,restaurant,indian,45.4499888,-75.65157,246860638,way
 new-edinburgh,New Edinburgh,Schoolhouse Pizza,restaurant,,45.4402702,-75.6763265,4342788290,node
 new-edinburgh,New Edinburgh,Shawarma King,restaurant,kebab;lebanese,45.4401502,-75.6758777,11181999755,node
 new-edinburgh,New Edinburgh,So Good Asian Fusion,restaurant,asian,45.440332,-75.6763375,3791891418,node
 new-edinburgh,New Edinburgh,The Works,restaurant,burger,45.4488458,-75.6509686,2538363336,node
+pineview,Pineview,The Scone Witch Express,cafe,,45.4172236,-75.6080669,664747075,way
+pineview,Pineview,Golden Bowl,restaurant,chinese,45.418063,-75.6105485,321072596,way
+pineview,Pineview,Made In Chicago Pizza,restaurant,pizza,45.4166838,-75.607641,589120344,way
 cyrville,Cyrville,Country Style,cafe,coffee_shop,45.383073,-75.6015131,6388479610,node
-cyrville,Cyrville,Dubai Cafe,cafe,,45.3948985,-75.6056624,447587645,way
-cyrville,Cyrville,Figaro Coffee House,cafe,,45.4103774,-75.6403373,629141133,way
-cyrville,Cyrville,Starbucks,cafe,coffee_shop,45.412868,-75.6463564,621820178,way
-cyrville,Cyrville,The Scone Witch Express,cafe,,45.4172236,-75.6080669,664747075,way
-cyrville,Cyrville,Tim Hortons,cafe,coffee_shop,45.4036645,-75.62705,275523459,way
-cyrville,Cyrville,Tim Hortons,cafe,coffee_shop,45.394155,-75.605283,447587604,way
 cyrville,Cyrville,Tim Hortons,cafe,coffee_shop,45.3817975,-75.602267,469453077,way
-cyrville,Cyrville,Tim Hortons,cafe,coffee_shop,45.4163855,-75.601815,473202506,way
-cyrville,Cyrville,Tim Hortons,cafe,coffee_shop,45.4147318,-75.6436944,2801647373,node
-cyrville,Cyrville,Tim Hortons,cafe,coffee_shop,45.4113024,-75.6409784,3277850472,node
-cyrville,Cyrville,Tim Hortons,cafe,coffee_shop,45.4146655,-75.6045105,4715845735,node
-cyrville,Cyrville,168 Sushi Asian Buffet,restaurant,,45.4045114,-75.6268171,4354449991,node
-cyrville,Cyrville,All Seasons restaurant,restaurant,,45.4199709,-75.6192612,536141783,way
 cyrville,Cyrville,Big H Restaurant,restaurant,,45.3818098,-75.6056584,5762521393,node
-cyrville,Cyrville,Broadway Bar & Grill,restaurant,,45.41453,-75.6052944,5039207629,node
-cyrville,Cyrville,Cora,restaurant,breakfast,45.4114009,-75.6305597,2801647375,node
-cyrville,Cyrville,Cozy's Express,restaurant,,45.4111475,-75.626388,483103103,way
-cyrville,Cyrville,Golden Bowl,restaurant,chinese,45.418063,-75.6105485,321072596,way
-cyrville,Cyrville,Lebanese Palace,restaurant,shawarma,45.406739,-75.6283415,230118842,way
-cyrville,Cyrville,Little Garden Restaurant,restaurant,breakfast,45.3946016,-75.6054849,447587656,way
-cyrville,Cyrville,Made In Chicago Pizza,restaurant,pizza,45.4166838,-75.607641,589120344,way
 cyrville,Cyrville,Mona's,restaurant,,45.4026479,-75.6055927,6075056932,node
 cyrville,Cyrville,Open Rice,restaurant,asian,45.4049558,-75.625809,4353880995,node
 cyrville,Cyrville,Pizza Hut,restaurant,pizza,45.4053713,-75.6259975,4354349089,node
-cyrville,Cyrville,Red Lobster,restaurant,seafood,45.4127557,-75.630351,68899677,way
-cyrville,Cyrville,Robbies,restaurant,italian,45.4117005,-75.6297265,68899703,way
-cyrville,Cyrville,Roger's Italian Bistro,restaurant,italian,45.4146729,-75.6482808,621820164,way
-cyrville,Cyrville,Schnitzel Works,restaurant,,45.4208315,-75.621106,483101142,way
-cyrville,Cyrville,Scores,restaurant,chicken;barbecue,45.4132852,-75.6452542,209263485,way
-cyrville,Cyrville,St-Hubert,restaurant,chicken;barbecue,45.405019,-75.627083,68587061,way
-cyrville,Cyrville,Stan's Diner,restaurant,diner,45.4100595,-75.6210015,483103095,way
-cyrville,Cyrville,Swiss Chalet,restaurant,chicken,45.415922,-75.6015245,664747501,way
-cyrville,Cyrville,The Chopped Leaf,restaurant,salad,45.4129947,-75.6453682,621820151,way
 findlay-creek,Findlay Creek,Country Style,cafe,coffee_shop,45.3246838,-75.5968179,5859756865,node
+findlay-creek,Findlay Creek,Starbucks,cafe,coffee_shop,45.3179588,-75.5909073,762491854,way
 findlay-creek,Findlay Creek,Tim Hortons,cafe,coffee_shop,45.318831,-75.5932495,219306013,way
+findlay-creek,Findlay Creek,Crust & Crate,restaurant,,45.3178545,-75.591707,762491853,way
 findlay-creek,Findlay Creek,Johnny Canuck's,restaurant,,45.318432,-75.5940465,219306003,way
+findlay-creek,Findlay Creek,Mojo's Chinese Food,restaurant,chinese,45.3189804,-75.5923612,7752634549,node
 greely,Greely,Chantal's Hot Fries,restaurant,,45.2696561,-75.5930326,293294911,node
 greely,Greely,Greely Hot Pizzeria,restaurant,,45.2653566,-75.5621583,315560681,way
 greely,Greely,Papa Joe's Pizza,restaurant,pizza,45.2772212,-75.5679359,7126550213,node
@@ -1402,4 +1371,5 @@ north-gower,North Gower,The Kitcheness,cafe,,45.1307711,-75.7161993,12117670735,
 north-gower,North Gower,Tim Hortons,cafe,coffee_shop,45.1553241,-75.6581162,12150682912,node
 dunrobin,Dunrobin,Constance Lake Lodge,restaurant,,45.4023137,-75.9757726,5827078488,node
 dunrobin,Dunrobin,Heart and Soul Café,restaurant,,45.4215882,-76.0200808,560136806,way
+belair-heights,Bel Air Heights,Morning Owl,cafe,,45.3748452,-75.747984,307096811,way
 belair-heights,Bel Air Heights,Summerhays Restaurant,restaurant,,45.3522061,-75.7620728,233903078,way

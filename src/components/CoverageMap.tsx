@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { neighbourhoods } from "@/data/neighbourhoods";
 import "leaflet/dist/leaflet.css";
 
@@ -29,6 +29,12 @@ interface CoverageMapProps {
   onClose: () => void;
 }
 
+interface UnassignedZone {
+  onsId: number;
+  name: string;
+  rings: number[][][];
+}
+
 // Generate distinct colors for neighbourhoods
 const COLORS = [
   "#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00",
@@ -39,12 +45,82 @@ const COLORS = [
   "#8dd3c7", "#bebada",
 ];
 
+// Gen 3 (2024) boundaries API - uses ONS-SQO IDs (3001-3117)
+const NEIGHBOURHOODS_API = 'https://maps.ottawa.ca/arcgis/rest/services/Neighbourhoods/MapServer/2/query';
+
 export default function CoverageMap({ isOpen, onClose }: CoverageMapProps) {
   const [mounted, setMounted] = useState(false);
+  const [unassignedZones, setUnassignedZones] = useState<UnassignedZone[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [showUnassigned, setShowUnassigned] = useState(true);
+
+  // Get all assigned ONS IDs from our neighbourhoods (memoized to avoid recreating on every render)
+  const assignedOnsIds = useMemo(() => {
+    const ids = new Set<number>();
+    neighbourhoods.forEach(n => {
+      n.boundaries?.forEach(b => {
+        if (typeof b.onsId === 'number') {
+          ids.add(b.onsId);
+        } else if (typeof b.onsId === 'string' && !isNaN(parseInt(b.onsId))) {
+          ids.add(parseInt(b.onsId));
+        }
+      });
+    });
+    return ids;
+  }, []);
+
+  const fetchUnassignedZones = useCallback(async () => {
+    if (unassignedZones.length > 0) return; // Already fetched
+
+    setLoading(true);
+    try {
+      // Fetch all boundaries from Gen 3 API
+      const url = `${NEIGHBOURHOODS_API}?where=1%3D1&outFields=ONS_ID,NAME&returnGeometry=true&outSR=4326&f=json`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (!data.features) {
+        console.error('No features in response');
+        return;
+      }
+
+      const unassigned: UnassignedZone[] = [];
+
+      for (const feature of data.features) {
+        const onsId = feature.attributes.ONS_ID;
+        const name = feature.attributes.NAME;
+
+        // Skip if this zone is already assigned
+        if (assignedOnsIds.has(onsId)) continue;
+
+        // Extract geometry rings
+        const geometry = feature.geometry;
+        if (!geometry || !geometry.rings) continue;
+
+        unassigned.push({
+          onsId,
+          name,
+          rings: geometry.rings,
+        });
+      }
+
+      setUnassignedZones(unassigned);
+    } catch (error) {
+      console.error('Failed to fetch unassigned zones:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, [assignedOnsIds, unassignedZones.length]);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (isOpen && mounted) {
+      fetchUnassignedZones();
+    }
+  }, [isOpen, mounted, fetchUnassignedZones]);
 
   if (!isOpen) return null;
 
@@ -68,27 +144,43 @@ export default function CoverageMap({ isOpen, onClose }: CoverageMapProps) {
               Neighbourhood Coverage Map
             </h2>
             <p className="text-sm text-gray-500 mt-1">
-              Showing {neighbourhoods.length} neighbourhoods - gaps indicate areas not currently covered
+              Showing {neighbourhoods.length} neighbourhoods
+              {unassignedZones.length > 0 && (
+                <span className="text-gray-400"> + {unassignedZones.length} unassigned ONS zones</span>
+              )}
+              {loading && <span className="text-blue-500 ml-2">Loading zones...</span>}
             </p>
           </div>
-          <button
-            onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-full transition"
-          >
-            <svg
-              className="w-6 h-6 text-gray-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
+          <div className="flex items-center gap-4">
+            {/* Toggle for unassigned zones */}
+            <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={showUnassigned}
+                onChange={(e) => setShowUnassigned(e.target.checked)}
+                className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
               />
-            </svg>
-          </button>
+              Show unassigned
+            </label>
+            <button
+              onClick={onClose}
+              className="p-2 hover:bg-gray-100 rounded-full transition"
+            >
+              <svg
+                className="w-6 h-6 text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Map Container */}
@@ -105,6 +197,39 @@ export default function CoverageMap({ isOpen, onClose }: CoverageMapProps) {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
 
+              {/* Render unassigned zones first (underneath assigned zones) */}
+              {showUnassigned && unassignedZones.map((zone) => {
+                // Convert rings to Leaflet format [lat, lng]
+                const positions = zone.rings.map((ring: number[][]) =>
+                  ring.map((coord: number[]) => [coord[1], coord[0]] as [number, number])
+                );
+
+                return (
+                  <Polygon
+                    key={`unassigned-${zone.onsId}`}
+                    positions={positions}
+                    pathOptions={{
+                      color: "#6b7280",
+                      weight: 1,
+                      fillColor: "#9ca3af",
+                      fillOpacity: 0.2,
+                      dashArray: "4",
+                    }}
+                  >
+                    <Tooltip sticky>
+                      <div className="font-medium text-gray-500">Unassigned</div>
+                      <div className="text-sm text-gray-700">
+                        {zone.name}
+                      </div>
+                      <div className="text-xs font-mono text-gray-500 mt-0.5">
+                        ONS ID: {zone.onsId}
+                      </div>
+                    </Tooltip>
+                  </Polygon>
+                );
+              })}
+
+              {/* Render assigned neighbourhoods on top */}
               {neighbourhoods.map((neighbourhood, index) => {
                 const color = COLORS[index % COLORS.length];
 
@@ -145,7 +270,17 @@ export default function CoverageMap({ isOpen, onClose }: CoverageMapProps) {
 
         {/* Legend */}
         <div className="px-6 py-3 border-t bg-gray-50 rounded-b-xl">
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 items-center">
+            {/* Unassigned indicator */}
+            {showUnassigned && unassignedZones.length > 0 && (
+              <div className="flex items-center gap-1.5 text-xs border-r border-gray-300 pr-3 mr-1">
+                <div
+                  className="w-3 h-3 rounded-sm border border-dashed border-gray-400"
+                  style={{ backgroundColor: "#e5e7eb" }}
+                />
+                <span className="text-gray-500">Unassigned ({unassignedZones.length})</span>
+              </div>
+            )}
             {neighbourhoods.slice(0, 15).map((n, i) => (
               <div key={n.id} className="flex items-center gap-1.5 text-xs">
                 <div

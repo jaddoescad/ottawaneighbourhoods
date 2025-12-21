@@ -146,7 +146,7 @@ module.exports = {
   'orleans': {
     name: 'Orleans',
     onsIds: [920, 915, 939, 909, 913, 75, 942, 943, 916, 904, 912, 93, 3, 76], // Orleans sub-areas
-    onsSqoIds: ['3043', '3032', '3085', '3017', '3025', '3026', '3091', '3095', '3037', '3010', '3022', '3004', '3094', '3103', '3071'], // Fallingbrook, Convent Glen, Orleans Village, Cardinal Creek, Chapel Hills, Portobello, Queenswood, Cumberland, Blackburn, Carson Grove, Beacon Hill, Queenswood-Chatelaine, Rothwell Heights, Marlborough
+    onsSqoIds: ['3043', '3032', '3085', '3017', '3025', '3026', '3091', '3095', '3037', '3010', '3022', '3004', '3094', '3103'], // Fallingbrook, Convent Glen, Orleans Village, Cardinal Creek, Chapel Hills, Portobello, Queenswood, Cumberland, Blackburn, Carson Grove, Beacon Hill, Queenswood-Chatelaine, Rothwell Heights
   },
   'vars': {
     name: 'Vars-Navan',
