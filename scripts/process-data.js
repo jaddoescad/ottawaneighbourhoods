@@ -491,6 +491,108 @@ async function main() {
     console.log('  - No NCC Greenbelt trails file (run: node scripts/download-ncc-greenbelt.js)');
   }
 
+  // Load ONS Census Data from ons-sqo.ca (2021 Census data)
+  let onsCensusData = [];
+  const onsCensusPath = path.join(csvDir, 'ons_census_data.csv');
+  if (fs.existsSync(onsCensusPath)) {
+    onsCensusData = parseCSV(fs.readFileSync(onsCensusPath, 'utf8'));
+    console.log(`  - ${onsCensusData.length} ONS census entries (2021 Census)`);
+  } else {
+    console.log('  - No ONS census file (run: node scripts/download-ons-census-data.js)');
+  }
+
+  // Build ONS census lookup by ONS-SQO internal ID (3001, 3002, etc.)
+  const onsCensusBySqoId = {};
+  for (const entry of onsCensusData) {
+    onsCensusBySqoId[entry.ons_id] = {
+      name: entry.name,
+      population: parseInt(entry.pop2021_total) || 0,
+      households: parseInt(entry.household_count) || 0,
+      // Demographics
+      pctChildren: parseFloat(entry.census_general_percent_of_pop_that_are_children_age_0_14) || 0,
+      pctYouth: parseFloat(entry['census_general_percent_of_of_pop_that_are_youth_age_15_24']) || 0,
+      pctAdults: parseFloat(entry.census_general_percent_of_pop_that_are_adults_age_25_64) || 0,
+      pctSeniors: parseFloat(entry.census_general_percent_of_pop_that_are_seniors_65) || 0,
+      avgAge: parseFloat(entry.census_general_average_age_of_the_population) || 0,
+      // Income
+      medianIncome: parseInt(entry.census_general_median_after_tax_income_of_households_in_2020) || 0,
+      avgIncome: parseInt(entry.census_general_average_after_tax_income_of_households_in_2020) || 0,
+      unemploymentRate: parseFloat(entry.census_general_unemployment_rate) || 0,
+      pctLowIncome: parseFloat(entry.census_general_percent_of_people_in_low_income_based_on_lim_at) || 0,
+      // Housing
+      pctRenters: parseFloat(entry.census_general_percent_of_renter_households) || 0,
+      avgRent: parseInt(entry.census_general_average_monthly_shelter_costs_for_rented_dwellings) || 0,
+      medianHomeValue: parseInt(entry.census_general_median_value_of_owned_dwellings) || 0,
+      pctCoreHousingNeed: parseFloat(entry.census_general_percent_of_households_living_in_core_housing_need) || 0,
+      // Diversity
+      pctImmigrants: parseFloat(entry.census_general_percent_of_pop_that_are_immigrants) || 0,
+      pctRacialized: parseFloat(entry.census_general_percent_of_pop_that_are_racialized) || 0,
+      // Education
+      pctPostSecondary: parseFloat(entry.census_general_percent_of_pop_age_25_64_with_postsecondary_degree_diploma_certificate) || 0,
+      pctBachelorPlus: parseFloat(entry['census_general_percent_of_people_aged_25_64_with_a_bachelors_degree_or_higher']) || 0,
+      // Commute
+      pctCommuteCar: parseFloat(entry.census_general_percent_of_workers_age_15_who_commute_by_car_truck_or_van) || 0,
+      pctCommuteTransit: parseFloat(entry.census_general_percent_of_workers_age_15_who_commute_by_public_transit) || 0,
+      pctCommuteWalk: parseFloat(entry.census_general_percent_of_workers_age_15_who_commute_by_walking) || 0,
+      pctCommuteBike: parseFloat(entry.census_general_percent_of_workers_age_15_who_commute_by_bicycle) || 0,
+      pctWorkFromHome: parseFloat(entry.census_general_percent_of_workers_age_15_who_work_at_home) || 0,
+      // Walk/Bike scores
+      walkScore: parseFloat(entry.walkscore_mean) || null,
+      bikeScore: parseFloat(entry.bikescore_mean) || null,
+      // Environment
+      treeCanopy: parseFloat(entry.percent_coverage_tree_canopy_2024) || null,
+    };
+  }
+
+  // Build census lookup by name for boundary population display
+  // (Maps boundary name to census data since City of Ottawa ONS IDs differ from ONS-SQO IDs)
+  const onsCensusByName = {};
+  const censusNames = []; // For fuzzy matching
+  for (const entry of onsCensusData) {
+    const name = entry.name.toLowerCase().trim();
+    const data = {
+      population: parseInt(entry.pop2021_total) || 0,
+      dataYear: '2021',
+      source: 'Statistics Canada 2021 Census',
+      sourceUrl: 'https://ons-sqo.ca',
+    };
+    onsCensusByName[name] = data;
+    censusNames.push({ name, data, original: entry.name });
+  }
+
+  // Helper to find census data by name with fuzzy matching
+  function findCensusDataByName(boundaryName) {
+    const searchName = (boundaryName || '').toLowerCase().trim();
+
+    // Exact match
+    if (onsCensusByName[searchName]) return onsCensusByName[searchName];
+
+    // Try matching first part before " - "
+    const firstPart = searchName.split(' - ')[0].trim();
+    if (onsCensusByName[firstPart]) return onsCensusByName[firstPart];
+
+    // Try finding census name that starts with boundary name part
+    for (const { name, data } of censusNames) {
+      if (name.startsWith(firstPart) || firstPart.startsWith(name.split(' - ')[0])) {
+        return data;
+      }
+    }
+
+    // Try finding any matching segment
+    const segments = searchName.split(' - ').map(s => s.trim());
+    for (const segment of segments) {
+      if (segment.length > 3) { // Skip very short segments
+        for (const { name, data } of censusNames) {
+          if (name.includes(segment) || segment.includes(name.split(' - ')[0])) {
+            return data;
+          }
+        }
+      }
+    }
+
+    return null;
+  }
+
   // Build greenbelt trails lookup by neighbourhood ID
   const greenbeltByNeighbourhood = {};
   for (const trail of greenbeltTrails) {
@@ -1018,14 +1120,76 @@ async function main() {
     const greenbeltTrailCount = greenbeltTrailsForNeighbourhood.length;
     const greenbeltTotalLengthKm = greenbeltTrailsForNeighbourhood.reduce((sum, t) => sum + t.lengthKm, 0);
 
-    // Calculate population by summing all ONS areas for this neighbourhood
+    // Get population data from ONS Census (2021 Census from ons-sqo.ca)
+    // Aggregate population from all ONS-SQO areas that make up this neighbourhood
     const mapping = neighbourhoodMapping[info.id];
     let population = 0;
-    if (mapping && mapping.onsIds) {
+    let households = 0;
+    let censusPctChildren = 0;
+    let censusPctSeniors = 0;
+    let censusMedIncome = 0;
+    let censusUnemployment = 0;
+    let censusPctRenters = 0;
+    let censusPctImmigrants = 0;
+    let censusPctRacialized = 0;
+    let censusPctPostSecondary = 0;
+    let censusPctCommuteCar = 0;
+    let censusPctCommuteTransit = 0;
+    let censusPctWorkFromHome = 0;
+    let censusTreeCanopy = 0;
+    let sqoAreasWithData = 0;
+
+    if (mapping && mapping.onsSqoIds && mapping.onsSqoIds.length > 0) {
+      // Use ONS-SQO census data (2021 Census)
+      for (const sqoId of mapping.onsSqoIds) {
+        const censusEntry = onsCensusBySqoId[sqoId];
+        if (censusEntry) {
+          population += censusEntry.population;
+          households += censusEntry.households;
+          // Accumulate for weighted average
+          if (censusEntry.population > 0) {
+            censusPctChildren += censusEntry.pctChildren * censusEntry.population;
+            censusPctSeniors += censusEntry.pctSeniors * censusEntry.population;
+            censusMedIncome += censusEntry.medianIncome * censusEntry.population;
+            censusUnemployment += censusEntry.unemploymentRate * censusEntry.population;
+            censusPctRenters += censusEntry.pctRenters * censusEntry.population;
+            censusPctImmigrants += censusEntry.pctImmigrants * censusEntry.population;
+            censusPctRacialized += censusEntry.pctRacialized * censusEntry.population;
+            censusPctPostSecondary += censusEntry.pctPostSecondary * censusEntry.population;
+            censusPctCommuteCar += censusEntry.pctCommuteCar * censusEntry.population;
+            censusPctCommuteTransit += censusEntry.pctCommuteTransit * censusEntry.population;
+            censusPctWorkFromHome += censusEntry.pctWorkFromHome * censusEntry.population;
+            if (censusEntry.treeCanopy !== null) {
+              censusTreeCanopy += censusEntry.treeCanopy * censusEntry.population;
+            }
+            sqoAreasWithData++;
+          }
+        }
+      }
+      // Calculate weighted averages
+      if (population > 0) {
+        censusPctChildren = roundTo(censusPctChildren / population, 1);
+        censusPctSeniors = roundTo(censusPctSeniors / population, 1);
+        censusMedIncome = Math.round(censusMedIncome / population);
+        censusUnemployment = roundTo(censusUnemployment / population, 1);
+        censusPctRenters = roundTo(censusPctRenters / population, 1);
+        censusPctImmigrants = roundTo(censusPctImmigrants / population, 1);
+        censusPctRacialized = roundTo(censusPctRacialized / population, 1);
+        censusPctPostSecondary = roundTo(censusPctPostSecondary / population, 1);
+        censusPctCommuteCar = roundTo(censusPctCommuteCar / population, 1);
+        censusPctCommuteTransit = roundTo(censusPctCommuteTransit / population, 1);
+        censusPctWorkFromHome = roundTo(censusPctWorkFromHome / population, 1);
+        censusTreeCanopy = roundTo(censusTreeCanopy / population, 1);
+      }
+    } else if (mapping && mapping.onsIds) {
+      // Fallback: Calculate population by summing all ONS areas (outdated POPEST)
       for (const onsId of mapping.onsIds) {
         population += populationByOnsId[onsId] || 0;
       }
     }
+
+    // For historical values, we only have 2021 data from census
+    const pop2021 = population;
 
     // Calculate population density (people per km²)
     const populationDensity = areaKm2 > 0 ? roundTo(population / areaKm2, 0) : 0;
@@ -1065,6 +1229,12 @@ async function main() {
       s.category === 'Secondary' || s.category === 'Elementary/Secondary' || s.category === 'Intermediate'
     ).length;
 
+    // Use census data for demographics if available, fall back to age_demographics.csv
+    const finalPctChildren = censusPctChildren > 0 ? censusPctChildren : ageDemographics.pctChildren;
+    const finalPctSeniors = censusPctSeniors > 0 ? censusPctSeniors : ageDemographics.pctSeniors;
+    // Census median income can override CSV median income if available
+    const finalMedianIncome = censusMedIncome > 0 ? censusMedIncome : (parseInt(info.medianIncome) || 0);
+
     neighbourhoods.push({
       id: info.id,
       name: info.name,
@@ -1072,15 +1242,30 @@ async function main() {
       image: info.image,
       population,
       populationDensity,
-      medianIncome: parseInt(info.medianIncome) || 0,
+      households, // from 2021 Census
+      pop2021, // 2021 Census population
+      dataYear: 2021, // Census year
+      dataSource: population > 0 && sqoAreasWithData > 0 ? 'Statistics Canada 2021 Census via ONS-SQO' : 'City of Ottawa POPEST',
+      medianIncome: finalMedianIncome,
       avgRent: parseInt(info.avgRent) || 0,
       avgHomePrice: parseInt(info.avgHomePrice) || 0,
       walkScore: walkScores.walkScore,
       transitScore: walkScores.transitScore,
       bikeScore: walkScores.bikeScore,
-      pctChildren: ageDemographics.pctChildren,
-      pctYoungProfessionals: ageDemographics.pctYoungProfessionals,
-      pctSeniors: ageDemographics.pctSeniors,
+      // Demographics from 2021 Census
+      pctChildren: finalPctChildren,
+      pctYoungProfessionals: ageDemographics.pctYoungProfessionals, // not in census data, keep from CSV
+      pctSeniors: finalPctSeniors,
+      // Additional census demographics
+      unemploymentRate: censusUnemployment > 0 ? censusUnemployment : null,
+      pctRenters: censusPctRenters > 0 ? censusPctRenters : null,
+      pctImmigrants: censusPctImmigrants > 0 ? censusPctImmigrants : null,
+      pctRacialized: censusPctRacialized > 0 ? censusPctRacialized : null,
+      pctPostSecondary: censusPctPostSecondary > 0 ? censusPctPostSecondary : null,
+      pctCommuteCar: censusPctCommuteCar > 0 ? censusPctCommuteCar : null,
+      pctCommuteTransit: censusPctCommuteTransit > 0 ? censusPctCommuteTransit : null,
+      pctWorkFromHome: censusPctWorkFromHome > 0 ? censusPctWorkFromHome : null,
+      treeCanopy: censusTreeCanopy > 0 ? censusTreeCanopy : null,
       commuteToDowntown: commuteData.commuteToDowntown,
       commuteByTransit: commuteData.commuteByTransit,
       // Transit station proximity
@@ -1137,12 +1322,20 @@ async function main() {
       },
       pros: info.pros ? info.pros.split('; ') : [],
       cons: info.cons ? info.cons.split('; ') : [],
-      // Boundaries for map display (array of polygons with rings)
-      boundaries: (boundariesByNeighbourhood[info.id] || []).map(b => ({
-        onsId: b.onsId,
-        name: b.name,
-        rings: b.rings,
-      })),
+      // Boundaries for map display (array of polygons with rings and population)
+      boundaries: (boundariesByNeighbourhood[info.id] || []).map(b => {
+        // Match by name to get census data (City of Ottawa ONS IDs differ from ONS-SQO IDs)
+        const censusData = findCensusDataByName(b.name) || {};
+        return {
+          onsId: b.onsId,
+          name: b.name,
+          rings: b.rings,
+          population: censusData.population || 0,
+          dataYear: censusData.dataYear || '2021',
+          source: censusData.source || 'Statistics Canada 2021 Census',
+          sourceUrl: censusData.sourceUrl || 'https://ons-sqo.ca',
+        };
+      }),
     });
   }
 

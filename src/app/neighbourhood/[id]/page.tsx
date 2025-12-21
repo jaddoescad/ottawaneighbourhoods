@@ -6,6 +6,7 @@ import { neighbourhoods } from "@/data/neighbourhoods";
 import { neighbourhoodMeta, defaultMeta } from "@/data/neighbourhood-meta";
 import ExpandableStatRow from "@/components/ExpandableStatRow";
 import StatRow from "@/components/StatRow";
+import PopulationStatRow from "@/components/PopulationStatRow";
 import CrimeStatRow from "@/components/CrimeStatRow";
 import EqaoStatRow from "@/components/EqaoStatRow";
 import WalkScoreRow from "@/components/WalkScoreRow";
@@ -215,7 +216,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
     notFound();
   }
 
-  const { name, area, image, population, populationDensity, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, commuteByTransit, nearestOTrainStation, nearestOTrainLine, distanceToOTrain, nearestTransitwayStation, distanceToTransitway, details, overallScore, categoryScores, scoreWeights } = neighbourhood;
+  const { name, area, image, population, populationDensity, households, pop2021, dataYear, dataSource, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, commuteByTransit, nearestOTrainStation, nearestOTrainLine, distanceToOTrain, nearestTransitwayStation, distanceToTransitway, details, overallScore, categoryScores, scoreWeights, boundaries } = neighbourhood;
 
   // Combine Linear Parks and NCC Greenbelt trails
   const linearParks = details.parksData
@@ -278,21 +279,17 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             transitScore={transitScore}
             bikeScore={bikeScore}
           />
-          <StatRow
-            icon="👥"
-            label="Population"
-            value={`${formattedPopulation} residents`}
+          <PopulationStatRow
+            population={population}
+            populationDensity={populationDensity}
+            households={households}
+            pop2021={pop2021}
+            dataYear={dataYear}
+            dataSource={dataSource}
             percent={getPercent(population, "population")}
             type={getScoreType(population, "population")}
-            labelSet="population"
-          />
-          <StatRow
-            icon="📊"
-            label="Pop. Density"
-            value={`${populationDensity.toLocaleString()}/km²`}
-            percent={getPercent(populationDensity, "populationDensity")}
-            type={getScoreType(populationDensity, "populationDensity")}
-            labelSet="density"
+            boundaries={boundaries}
+            neighbourhoodName={name}
           />
           <AgeDemographicsRow
             pctChildren={pctChildren}

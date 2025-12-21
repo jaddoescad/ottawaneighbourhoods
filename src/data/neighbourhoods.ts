@@ -101,6 +101,10 @@ export interface NeighbourhoodBoundary {
   onsId: number | string; // ONS area ID (or 'custom' for custom boundaries)
   name: string;
   rings: number[][][]; // Array of rings, each ring is array of [lng, lat] coords
+  population: number; // Population of this ONS zone
+  dataYear: string; // Year of population data (e.g., '2021', '2011')
+  source: string; // Data source name
+  sourceUrl: string; // URL for citation
 }
 
 export interface CategoryScores {
@@ -136,15 +140,30 @@ export interface Neighbourhood {
   image: string;
   population: number;
   populationDensity: number; // people per km²
+  households: number; // Number of households (2021 Census)
+  pop2021: number; // 2021 Census population
+  dataYear: number; // Year of census data (2021)
+  dataSource: string; // "Statistics Canada 2021 Census via ONS-SQO" or "City of Ottawa POPEST"
   medianIncome: number;
   avgRent: number;
   avgHomePrice: number;
   walkScore: number;      // 0-100 walkability score
   transitScore: number;   // 0-100 transit accessibility score
   bikeScore: number;      // 0-100 bikeability score
+  // Demographics from 2021 Census
   pctChildren: number;    // % of population aged 0-14 (families with children indicator)
   pctYoungProfessionals: number; // % of population aged 25-44
   pctSeniors: number;     // % of population aged 65+
+  // Additional census demographics
+  unemploymentRate: number | null; // Unemployment rate %
+  pctRenters: number | null; // % of households that rent
+  pctImmigrants: number | null; // % of population that are immigrants
+  pctRacialized: number | null; // % of population that are racialized
+  pctPostSecondary: number | null; // % of population (25-64) with post-secondary education
+  pctCommuteCar: number | null; // % of workers who commute by car
+  pctCommuteTransit: number | null; // % of workers who commute by public transit
+  pctWorkFromHome: number | null; // % of workers who work from home
+  treeCanopy: number | null; // % tree canopy coverage (2024)
   commuteToDowntown: number; // Average commute time to downtown in minutes (by car)
   commuteByTransit: number; // Average commute time to downtown in minutes (by transit)
   // Transit station proximity
