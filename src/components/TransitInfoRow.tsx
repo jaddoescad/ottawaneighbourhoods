@@ -84,7 +84,7 @@ export default function TransitInfoRow({
       >
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
           {/* Label */}
-          <div className="flex items-center justify-between sm:justify-start gap-2 sm:w-36 sm:shrink-0">
+          <div className="flex items-center justify-between sm:justify-start gap-2 sm:w-28 sm:shrink-0">
             <div className="flex items-center gap-2">
               <span className="text-lg sm:text-xl">🚗</span>
               <span className="text-gray-900 font-medium text-sm">To Downtown</span>
@@ -103,20 +103,20 @@ export default function TransitInfoRow({
           </div>
 
           {/* Bars */}
-          <div className="w-full sm:flex-1 space-y-1.5">
+          <div className="w-full sm:flex-1 space-y-1">
             {/* By Car */}
             <div className="flex items-center gap-2">
               <span className="text-xs text-gray-500 w-16 sm:w-20">By Car</span>
-              <div className="flex-1 relative h-5 sm:h-6 bg-gray-100 rounded-lg overflow-hidden">
+              <div className="flex-1 relative h-4 sm:h-5 bg-gray-100 rounded-lg overflow-hidden">
                 <div
                   className={`absolute inset-y-0 left-0 rounded-lg ${getCommuteColor(commuteToDowntown)}`}
                   style={{ width: `${carBarWidth}%` }}
                 />
-                <span className="absolute inset-0 flex items-center px-3 text-xs font-semibold text-gray-800">
+                <span className="absolute inset-0 flex items-center px-2 text-xs font-semibold text-gray-800">
                   {getCommuteLabel(commuteToDowntown)}
                 </span>
               </div>
-              <span className="text-sm font-bold text-gray-900 w-14 text-right">
+              <span className="text-xs font-bold text-gray-900 w-14 text-right sm:hidden">
                 {commuteToDowntown} min
               </span>
             </div>
@@ -124,18 +124,28 @@ export default function TransitInfoRow({
             {/* By Transit */}
             <div className="flex items-center gap-2">
               <span className="text-xs text-gray-500 w-16 sm:w-20">By Transit</span>
-              <div className="flex-1 relative h-5 sm:h-6 bg-gray-100 rounded-lg overflow-hidden">
+              <div className="flex-1 relative h-4 sm:h-5 bg-gray-100 rounded-lg overflow-hidden">
                 <div
                   className={`absolute inset-y-0 left-0 rounded-lg ${getCommuteColor(commuteByTransit)}`}
                   style={{ width: `${transitBarWidth}%` }}
                 />
-                <span className="absolute inset-0 flex items-center px-3 text-xs font-semibold text-gray-800">
+                <span className="absolute inset-0 flex items-center px-2 text-xs font-semibold text-gray-800">
                   {getCommuteLabel(commuteByTransit)}
                 </span>
               </div>
-              <span className="text-sm font-bold text-gray-900 w-14 text-right">
+              <span className="text-xs font-bold text-gray-900 w-14 text-right sm:hidden">
                 {commuteByTransit} min
               </span>
+            </div>
+          </div>
+
+          {/* Values - outside bar container to match other rows */}
+          <div className="hidden sm:block text-right w-28 space-y-1">
+            <div className="text-xs font-bold text-gray-900 h-5 flex items-center justify-end">
+              {commuteToDowntown} min
+            </div>
+            <div className="text-xs font-bold text-gray-900 h-5 flex items-center justify-end">
+              {commuteByTransit} min
             </div>
           </div>
 

@@ -1018,6 +1018,11 @@ async function main() {
   let crimesWithoutCoords = 0;
 
   for (const crime of crimeRaw) {
+    // Only include 2024 crimes
+    if (crime.YEAR !== '2024') {
+      continue;
+    }
+
     const lat = parseFloat(crime.LATITUDE);
     const lng = parseFloat(crime.LONGITUDE);
 
@@ -1328,7 +1333,7 @@ async function main() {
           pctNoHighSchool: censusData.pctNoHighSchool || 0,
           pctPostSecondary: censusData.pctPostSecondary || 0,
           pctBachelors: censusData.pctBachelors || 0,
-          // Crime data (2023-2024)
+          // Crime data (2024)
           crimeTotal: zoneCrimeTotal,
           crimeRate: crimeRate,
           dataYear: '2021',
@@ -1429,8 +1434,8 @@ async function main() {
   // Calculate scores for each neighbourhood
   for (const neighbourhood of neighbourhoods) {
     const pop = neighbourhood.population;
-    // Divide by 2 because crime data spans 2 years (2023-2024) - get annual rate
-    const crimePerCapita = pop > 0 ? (neighbourhood.details.crimeTotal / 2 / pop) * 1000 : null;
+    // Crime data is for 2024 only
+    const crimePerCapita = pop > 0 ? (neighbourhood.details.crimeTotal / pop) * 1000 : null;
 
     // Calculate individual metric scores (0-100) using absolute benchmarks
     const scores = {

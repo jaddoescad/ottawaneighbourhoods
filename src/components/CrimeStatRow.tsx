@@ -25,7 +25,7 @@ interface CrimeStatRowProps {
   neighbourhoodName?: string;
 }
 
-// Thresholds based on crime per 1,000 residents (2023-2024, 2 years of data)
+// Thresholds based on crime per 1,000 residents (2024)
 // Low: < 50 per 1,000 (safe suburban/rural areas like Barrhaven, Orleans)
 // Moderate: 50-150 per 1,000 (typical urban areas)
 // High: > 150 per 1,000 (high crime areas like downtown)
@@ -118,7 +118,7 @@ export default function CrimeStatRow({
             </span>
             <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
               <div className="font-semibold mb-1">Crime Rate Breakdown</div>
-              <div>{total.toLocaleString()} total crimes (2023-2024)</div>
+              <div>{total.toLocaleString()} total crimes (2024)</div>
               <div>{population.toLocaleString()} residents</div>
               <div className="mt-1 pt-1 border-t border-gray-700">
                 = {perCapita.toFixed(1)} crimes per 1,000 people
@@ -145,7 +145,7 @@ export default function CrimeStatRow({
       {isExpanded && hasCategories && (
         <div className="px-3 sm:px-5 pb-4 bg-gray-50">
           <div className="text-xs text-gray-500 mb-3 uppercase tracking-wide">
-            Crime by Category (2023-2024)
+            Crime by Category (2024)
           </div>
           <div className="space-y-2">
             {sortedCategories.map(([category, count]) => {

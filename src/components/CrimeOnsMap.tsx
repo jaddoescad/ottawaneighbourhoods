@@ -27,7 +27,7 @@ interface CrimeOnsMapProps {
   neighbourhoodName: string;
 }
 
-// Ottawa average crime rate per 1,000 residents (2023-2024, 2 years)
+// Ottawa average crime rate per 1,000 residents (2024)
 const OTTAWA_AVG_CRIME_RATE = 95; // Approximate city-wide average
 
 // Color scale: green (safe) to red (high crime)
@@ -239,7 +239,7 @@ export default function CrimeOnsMap({ boundaries, neighbourhoodName }: CrimeOnsM
 
       {/* Source */}
       <div className="text-xs text-gray-500">
-        Crime rate = crimes per 1,000 residents (2023-2024). Source:{" "}
+        Crime rate = crimes per 1,000 residents (2024). Source:{" "}
         <a
           href="https://data.ottawapolice.ca"
           target="_blank"

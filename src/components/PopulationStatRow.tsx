@@ -22,6 +22,28 @@ interface PopulationStatRowProps {
   neighbourhoodName?: string;
 }
 
+// Density thresholds (people per km²)
+// Very Low: < 500 (rural areas)
+// Low: 500-1500 (suburban)
+// Moderate: 1500-3000 (inner suburban)
+// High: 3000-6000 (urban)
+// Very High: > 6000 (downtown/high-rise)
+function getDensityColor(density: number): string {
+  if (density < 500) return "bg-gray-400";
+  if (density < 1500) return "bg-green-400";
+  if (density < 3000) return "bg-green-500";
+  if (density < 6000) return "bg-yellow-400";
+  return "bg-orange-500";
+}
+
+function getDensityLabel(density: number): string {
+  if (density < 500) return "Rural";
+  if (density < 1500) return "Suburban";
+  if (density < 3000) return "Urban";
+  if (density < 6000) return "Dense Urban";
+  return "Very Dense";
+}
+
 export default function PopulationStatRow({
   population,
   populationDensity,
@@ -36,24 +58,11 @@ export default function PopulationStatRow({
 }: PopulationStatRowProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const colors = {
-    great: "bg-green-500",
-    good: "bg-green-400",
-    okay: "bg-yellow-400",
-    bad: "bg-orange-500",
-    neutral: "bg-gray-300",
-  };
-
-  const qualityLabels = {
-    great: "Large",
-    good: "Medium-Large",
-    okay: "Medium",
-    bad: "Small",
-    neutral: "N/A",
-  };
-
-  const barWidth = Math.max(5, Math.min(percent, 100));
+  // Bar width based on density (max ~4000/km² for scaling - most Ottawa areas are under this)
+  const maxDensity = 4000;
+  const barWidth = Math.max(10, Math.min((populationDensity / maxDensity) * 100, 100));
   const formattedPopulation = population.toLocaleString();
+  const formattedDensity = populationDensity.toLocaleString();
 
   // Calculate average household size
   const avgHouseholdSize = households > 0 ? (population / households).toFixed(1) : "N/A";
@@ -74,7 +83,10 @@ export default function PopulationStatRow({
             </div>
             {/* Value and chevron shown inline on mobile */}
             <div className="flex items-center gap-2 sm:hidden">
-              <span className="text-gray-900 font-bold text-sm">{formattedPopulation}</span>
+              <div className="text-right">
+                <div className="text-gray-900 font-bold text-sm">{formattedPopulation}</div>
+                <div className="text-gray-600 font-bold text-xs">{formattedDensity}/km²</div>
+              </div>
               <svg
                 className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
                 fill="none"
@@ -85,18 +97,21 @@ export default function PopulationStatRow({
               </svg>
             </div>
           </div>
-          {/* Bar */}
+          {/* Bar - reflects population density */}
           <div className="w-full sm:flex-1 relative h-7 sm:h-9 bg-gray-100 rounded-lg overflow-hidden">
             <div
-              className={`absolute inset-y-0 left-0 rounded-lg ${colors[type]} transition-all duration-300`}
+              className={`absolute inset-y-0 left-0 rounded-lg ${getDensityColor(populationDensity)} transition-all duration-300`}
               style={{ width: `${barWidth}%` }}
             />
             <span className="absolute inset-0 flex items-center px-3 sm:px-4 text-gray-800 font-semibold text-xs sm:text-sm">
-              {qualityLabels[type]}
+              {getDensityLabel(populationDensity)}
             </span>
           </div>
-          {/* Value - hidden on mobile, shown on desktop */}
-          <span className="hidden sm:block text-gray-900 font-bold w-28 text-right">{formattedPopulation}</span>
+          {/* Values - hidden on mobile, shown on desktop */}
+          <div className="hidden sm:block text-right w-28">
+            <div className="text-gray-900 font-bold text-sm">{formattedPopulation}</div>
+            <div className="text-gray-600 font-bold text-xs">({formattedDensity}/km²)</div>
+          </div>
           <div className="hidden sm:block w-5 h-5">
             <svg
               className={`w-5 h-5 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
