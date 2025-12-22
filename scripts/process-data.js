@@ -410,6 +410,20 @@ async function main() {
     console.log('  - No gyms file found (run: node scripts/download-gyms.js)');
   }
 
+  // Load Traffic Collision Data (optional - file may not exist)
+  const collisionsPath = path.join(csvDir, 'collisions_raw.csv');
+  const hasCollisionsData = fs.existsSync(collisionsPath);
+  const collisionsRaw = hasCollisionsData
+    ? parseCSV(fs.readFileSync(collisionsPath, 'utf8'))
+    : [];
+  if (hasCollisionsData) {
+    const fatalCount = collisionsRaw.filter(c => c.CLASSIFICATION && c.CLASSIFICATION.includes('Fatal')).length;
+    const injuryCount = collisionsRaw.filter(c => c.CLASSIFICATION && c.CLASSIFICATION.includes('Non-fatal injury')).length;
+    console.log(`  - ${collisionsRaw.length} traffic collisions (${fatalCount} fatal, ${injuryCount} injury)`);
+  } else {
+    console.log('  - No collisions file found (run: node scripts/download-collisions.js)');
+  }
+
   // Load OC Transpo Bus Stops (optional - file may not exist)
   const busStopsPath = path.join(csvDir, 'OC_Transpo_Stops.csv');
   const hasBusStopsData = fs.existsSync(busStopsPath);
@@ -947,6 +961,55 @@ async function main() {
   }
   console.log(`  Assigned ${assignedBusStops} bus stops`);
 
+  // Assign traffic collisions to neighbourhoods
+  console.log('\nAssigning traffic collisions to neighbourhoods...');
+  const collisionsByNeighbourhood = {};
+  let assignedCollisions = 0;
+
+  if (hasCollisionsData) {
+    for (const collision of collisionsRaw) {
+      const lat = parseFloat(collision.LATITUDE);
+      const lng = parseFloat(collision.LONGITUDE);
+
+      if (isNaN(lat) || isNaN(lng)) continue;
+
+      const neighbourhoodId = assignToNeighbourhood(lat, lng, boundariesByNeighbourhood);
+      if (neighbourhoodId) {
+        if (!collisionsByNeighbourhood[neighbourhoodId]) {
+          collisionsByNeighbourhood[neighbourhoodId] = {
+            total: 0,
+            fatal: 0,
+            injury: 0,
+            propertyDamage: 0,
+            pedestrian: 0,
+            bicycle: 0,
+            motorcycle: 0,
+          };
+        }
+        const data = collisionsByNeighbourhood[neighbourhoodId];
+        data.total++;
+
+        // Classification
+        const classification = collision.CLASSIFICATION || '';
+        if (classification.includes('Fatal')) {
+          data.fatal++;
+        } else if (classification.includes('Non-fatal injury')) {
+          data.injury++;
+        } else if (classification.includes('P.D.')) {
+          data.propertyDamage++;
+        }
+
+        // Vulnerable road users
+        if (parseInt(collision.PEDESTRIANS) > 0) data.pedestrian++;
+        if (parseInt(collision.BICYCLES) > 0) data.bicycle++;
+        if (parseInt(collision.MOTORCYCLES) > 0) data.motorcycle++;
+
+        assignedCollisions++;
+      }
+    }
+  }
+  console.log(`  Assigned ${assignedCollisions} traffic collisions`);
+
   // Process hospitals - calculate nearest hospital for each neighbourhood
   console.log('\nCalculating hospital proximity for each neighbourhood...');
   const hospitals = hospitalsRaw.map(h => ({
@@ -1179,6 +1242,17 @@ async function main() {
     const stopsWithShelter = busStops.filter(s => s.hasShelter).length;
     const stopsWithBench = busStops.filter(s => s.hasBench).length;
 
+    // Get traffic collision data for this neighbourhood
+    const collisions = collisionsByNeighbourhood[info.id] || {
+      total: 0, fatal: 0, injury: 0, propertyDamage: 0,
+      pedestrian: 0, bicycle: 0, motorcycle: 0
+    };
+    const collisionTotal = hasCollisionsData ? collisions.total : null;
+    const collisionFatal = hasCollisionsData ? collisions.fatal : null;
+    const collisionInjury = hasCollisionsData ? collisions.injury : null;
+    const collisionPedestrian = hasCollisionsData ? collisions.pedestrian : null;
+    const collisionBicycle = hasCollisionsData ? collisions.bicycle : null;
+
     // Get NCC Greenbelt trails for this neighbourhood
     const greenbeltTrailsForNeighbourhood = greenbeltByNeighbourhood[info.id] || [];
     const greenbeltTrailCount = greenbeltTrailsForNeighbourhood.length;
@@ -1398,6 +1472,12 @@ async function main() {
         stopsWithShelter,
         stopsWithBench,
         busStopsData: busStops,
+        // Traffic collisions (2022-2024)
+        collisions: collisionTotal,
+        collisionsFatal: collisionFatal,
+        collisionsInjury: collisionInjury,
+        collisionsPedestrian: collisionPedestrian,
+        collisionsBicycle: collisionBicycle,
         crimeTotal: crime.total,
         crimeByCategory: crime.byCategory,
         nearestHospital: hospitalData.nearestHospital,

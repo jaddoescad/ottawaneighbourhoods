@@ -23,6 +23,7 @@ src/data/
 │   ├── libraries_raw.csv         # All 34 libraries from Ottawa Open Data
 │   ├── eqao_scores.csv           # EQAO school scores from Ontario Open Data
 │   ├── crime_raw.csv             # ~98K crimes (2023-2024) from Ottawa Police
+│   ├── collisions_raw.csv        # ~15K traffic collisions (2022-2024) from Ottawa Open Data
 │   ├── hospitals_raw.csv         # All 10 hospitals from Ottawa Open Data
 │   ├── restaurants_cafes_raw.csv # Restaurants & cafés (OpenStreetMap / Overpass)
 │   ├── grocery_stores_raw.csv    # Grocery stores (OpenStreetMap / Overpass)
@@ -50,6 +51,7 @@ scripts/
 ├── generate-income-data.js       # Generates median income CSV from 2021 Census (ONS-SQO)
 ├── download-ncc-greenbelt.js     # Downloads NCC Greenbelt trails data
 ├── download-transit-stations.js  # Downloads O-Train and Transitway stations
+├── download-collisions.js        # Downloads traffic collision data from Ottawa Open Data
 └── config/
     └── neighbourhood-mapping.js  # Maps our neighbourhoods to ONS IDs
 ```
@@ -67,6 +69,7 @@ Most data from **City of Ottawa Open Data** (ArcGIS REST APIs). Restaurants & ca
 | Transit Stations | https://maps.ottawa.ca/arcgis/rest/services/TransitServices/MapServer/0 | 40 |
 | O-Train Stations | https://maps.ottawa.ca/arcgis/rest/services/TransitServices/MapServer/1 | 5 |
 | Crime (2023-2024) | https://services7.arcgis.com/2vhcNzw0NfUwAD3d/ArcGIS/rest/services/Criminal_Offences_Open_Data/FeatureServer/0 | ~98K |
+| Collisions (2022-2024) | https://services.arcgis.com/G6F8XLCl5KtAlZ2G/arcgis/rest/services/Collisions/FeatureServer/0 | ~15K |
 | Hospitals | https://maps.ottawa.ca/arcgis/rest/services/Hospitals/MapServer/0 | 10 |
 | Restaurants & Cafés | https://overpass-api.de/api/interpreter (OSM Overpass) | ~1-3K |
 | Grocery Stores | https://overpass-api.de/api/interpreter (OSM Overpass) | ~226 |
@@ -145,6 +148,40 @@ node scripts/process-data.js
 | WARD | City ward |
 
 **Crime Categories:** Arson, Assaults, Break and Enter, Fraud, Mischief, Robbery, Sexual Violations, Theft $5000 and Under, Theft Over $5000, Theft - Motor Vehicle, and more.
+
+### collisions_raw.csv
+Traffic collision data from City of Ottawa Open Data (2022-2024). Used for traffic safety metrics.
+
+| Field | Description |
+|-------|-------------|
+| LATITUDE / LONGITUDE | Collision coordinates |
+| YEAR | Year of collision (2022-2024) |
+| DATE | Unix timestamp of collision |
+| CLASSIFICATION | Classification: Fatal, Injury, Property Damage |
+| IMPACT_TYPE | Angle, Rear End, Sideswipe, etc. |
+| ROAD_CONDITION | Dry, Wet, Ice, Snow, etc. |
+| ENVIRONMENT | Clear, Rain, Snow, Fog, etc. |
+| LIGHT | Daylight, Dark, Dawn, Dusk |
+| PEDESTRIANS | Number of pedestrians involved |
+| BICYCLES | Number of bicycles involved |
+| MOTORCYCLES | Number of motorcycles involved |
+| INJURIES | Total injuries |
+| FATAL | Number of fatalities |
+| MAJOR | Major injuries |
+| MINOR | Minor injuries |
+
+**Collision Metrics Output:**
+- `collisions` - Total collisions in neighbourhood
+- `collisionsFatal` - Fatal collisions
+- `collisionsInjury` - Injury collisions
+- `collisionsPedestrian` - Collisions involving pedestrians
+- `collisionsBicycle` - Collisions involving cyclists
+
+**To refresh collision data:**
+```bash
+node scripts/download-collisions.js
+node scripts/process-data.js
+```
 
 ### hospitals_raw.csv
 | Field | Description |

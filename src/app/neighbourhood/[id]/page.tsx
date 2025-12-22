@@ -8,6 +8,7 @@ import ExpandableStatRow from "@/components/ExpandableStatRow";
 import StatRow from "@/components/StatRow";
 import PopulationStatRow from "@/components/PopulationStatRow";
 import CrimeStatRow from "@/components/CrimeStatRow";
+import CollisionStatRow from "@/components/CollisionStatRow";
 import EqaoStatRow from "@/components/EqaoStatRow";
 import WalkScoreRow from "@/components/WalkScoreRow";
 import AgeDemographicsRow from "@/components/AgeDemographicsRow";
@@ -57,6 +58,10 @@ const DATA_SOURCES = {
   crime: {
     name: "Ottawa Police Open Data",
     url: "https://data.ottawapolice.ca/",
+  },
+  collisions: {
+    name: "City of Ottawa Open Data",
+    url: "https://open.ottawa.ca/datasets/traffic-collision-data",
   },
   eqao: {
     name: "Ontario Open Data (EQAO)",
@@ -462,6 +467,16 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             source={DATA_SOURCES.crime}
             boundaries={boundaries}
             neighbourhoodName={name}
+          />
+          <CollisionStatRow
+            total={details.collisions}
+            fatal={details.collisionsFatal}
+            injury={details.collisionsInjury}
+            pedestrian={details.collisionsPedestrian}
+            bicycle={details.collisionsBicycle}
+            population={population}
+            areaKm2={details.areaKm2}
+            source={DATA_SOURCES.collisions}
           />
           <IncomeStatRow
             medianIncome={medianIncome}

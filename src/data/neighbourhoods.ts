@@ -262,6 +262,12 @@ export interface Neighbourhood {
     greenbeltTrailsLengthKm: number;
     greenbeltTrailsList: string[];
     greenbeltTrailsData: GreenbeltTrailData[];
+    // Traffic collisions (2022-2024)
+    collisions: number | null;
+    collisionsFatal: number | null;
+    collisionsInjury: number | null;
+    collisionsPedestrian: number | null;
+    collisionsBicycle: number | null;
   };
   pros: string[];
   cons: string[];
