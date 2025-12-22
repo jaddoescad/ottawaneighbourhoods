@@ -1419,8 +1419,8 @@ async function main() {
     avgEqaoScore: { min: 55, max: 82, higherIsBetter: true },
 
     // Healthcare (distance to nearest hospital in km)
-    // <3km excellent, >15km poor
-    hospitalDistance: { min: 1, max: 15, higherIsBetter: false },
+    // <= 3km very close, <= 5km close, <= 8km medium, > 8km far
+    hospitalDistance: { min: 1, max: 12, higherIsBetter: false },
 
     // Income - Ottawa context
     medianIncome: { min: 60000, max: 130000, higherIsBetter: true },

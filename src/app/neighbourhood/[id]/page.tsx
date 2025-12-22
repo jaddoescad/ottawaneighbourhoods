@@ -18,6 +18,9 @@ import ParksStatRow from "@/components/ParksStatRow";
 import SchoolsStatRow from "@/components/SchoolsStatRow";
 import EducationStatRow from "@/components/EducationStatRow";
 import IncomeStatRow from "@/components/IncomeStatRow";
+import HospitalStatRow from "@/components/HospitalStatRow";
+import LibrariesStatRow from "@/components/LibrariesStatRow";
+import TrailsStatRow from "@/components/TrailsStatRow";
 
 const BASE_URL = "https://ottawahoods.com";
 
@@ -190,11 +193,12 @@ function getCommutePercent(minutes: number): number {
 }
 
 // For hospital distance, lower is better (inverted scoring)
+// Thresholds: <= 3km very close, <= 5km close, <= 8km medium, > 8km far
 function getHealthcareScoreType(distanceKm: number | null): "great" | "good" | "okay" | "bad" | "neutral" {
   if (distanceKm === null) return "neutral";
   if (distanceKm <= 3) return "great";
-  if (distanceKm <= 8) return "good";
-  if (distanceKm <= 15) return "okay";
+  if (distanceKm <= 5) return "good";
+  if (distanceKm <= 8) return "okay";
   return "bad";
 }
 
@@ -339,29 +343,18 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             boundaries={boundaries}
             neighbourhoodName={name}
           />
-          <ExpandableStatRow
-            icon="📚"
-            label="Libraries"
-            value={`${details.libraries} ${details.libraries === 1 ? 'library' : 'libraries'}`}
-            percent={getPercent(details.libraries, "libraries")}
-            type={getScoreType(details.libraries, "libraries")}
-            items={details.librariesList}
-            itemLabel="libraries"
-            source={DATA_SOURCES.libraries}
+          <LibrariesStatRow
+            count={details.libraries}
+            librariesData={details.librariesData}
+            boundaries={boundaries}
+            neighbourhoodName={name}
           />
-          <ExpandableStatRow
-            icon="🚴"
-            label="Trails"
-            value={
-              greenbeltLengthKm > 0
-                ? `${allTrails.length} trails (${greenbeltLengthKm} km Greenbelt)`
-                : `${allTrails.length} trails`
-            }
-            percent={getPercent(allTrails.length, "trails")}
-            type={allTrails.length > 0 ? getScoreType(allTrails.length, "trails") : "neutral"}
-            items={allTrails}
-            itemLabel="trails"
-            source={DATA_SOURCES.trails}
+          <TrailsStatRow
+            greenbeltTrails={details.greenbeltTrailsData}
+            greenbeltLengthKm={greenbeltLengthKm}
+            linearParks={details.parksData.filter(p => p.category === "Linear Park")}
+            boundaries={boundaries}
+            neighbourhoodName={name}
           />
           <ExpandableStatRow
             icon="🍽️"
@@ -445,13 +438,10 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             nearestTransitwayStation={nearestTransitwayStation}
             distanceToTransitway={distanceToTransitway}
           />
-          <StatRow
-            icon="🏥"
-            label="Hospital"
-            value={details.distanceToNearestHospital !== null ? `${details.distanceToNearestHospital} km` : "N/A"}
-            percent={getHealthcarePercent(details.distanceToNearestHospital)}
-            type={getHealthcareScoreType(details.distanceToNearestHospital)}
-            labelSet="healthcare"
+          <HospitalStatRow
+            nearestHospital={details.nearestHospital}
+            nearestHospitalAddress={details.nearestHospitalAddress}
+            distanceKm={details.distanceToNearestHospital}
           />
           <CrimeStatRow
             total={details.crimeTotal}
