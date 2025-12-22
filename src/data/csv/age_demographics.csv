@@ -1,11 +1,13 @@
 id,name,pctChildren,pctYoungProfessionals,pctSeniors,censusSubArea,source
 the-glebe,The Glebe,9.9,36,15.2,Inner Area,Statistics Canada 2021 Census
+old-ottawa-east,Old Ottawa East,17.9,39.1,14.4,Inner Area,Statistics Canada 2021 Census
 westboro,Westboro,14.1,30.8,18.9,Ottawa West,Statistics Canada 2021 Census
 byward-market,Byward Market,4.4,45.2,13.2,Central Area,Statistics Canada 2021 Census
 centretown,Centretown,4.4,45.2,13.2,Central Area,Statistics Canada 2021 Census
-old-ottawa-south,Old Ottawa South,9.9,36,15.2,Inner Area,Statistics Canada 2021 Census
+old-ottawa-south,Old Ottawa South,18.2,40.2,15.5,Inner Area,Statistics Canada 2021 Census
+riverside-park,Riverside Park,10.0,43.2,21.8,Inner Area,Statistics Canada 2021 Census
 hintonburg,Hintonburg,14.1,30.8,18.9,Ottawa West,Statistics Canada 2021 Census
-little-italy,Little Italy,9.9,36,15.2,Inner Area,Statistics Canada 2021 Census
+wellington-village,Wellington Village,10.6,41.8,18.1,Inner Area,Statistics Canada 2021 Census
 kanata,Kanata,19.8,26.5,14.1,Kanata-Stittsville,Statistics Canada 2021 Census
 stittsville,Stittsville,19.8,26.5,14.1,Kanata-Stittsville,Statistics Canada 2021 Census
 alta-vista,Alta Vista,15.4,28.9,18.4,Alta Vista,Statistics Canada 2021 Census
@@ -34,3 +36,7 @@ greely,Greely,18.5,24.0,14.0,Rural Southeast,Statistics Canada 2021 Census
 north-gower,North Gower,17.4,21.7,16.2,Rural Southeast,Statistics Canada 2021 Census
 dunrobin,Dunrobin,16.6,20.2,17.5,Rural Northwest,Statistics Canada 2021 Census
 belair-heights,Bel Air Heights,15.1,26.3,18.7,Cedarview,Statistics Canada 2021 Census
+cumberland,Cumberland,15.1,19.9,19.5,Rural Northeast,Statistics Canada 2021 Census
+kinburn,Kinburn,16.6,20.2,17.5,Rural Northwest,Statistics Canada 2021 Census
+munster-ashton,Munster-Ashton,17.8,20.3,20.2,Rural Southwest,Statistics Canada 2021 Census
+corkery,Corkery,16.6,20.2,17.5,Rural Northwest,Statistics Canada 2021 Census

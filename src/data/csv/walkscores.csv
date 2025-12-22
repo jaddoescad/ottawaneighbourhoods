@@ -1,11 +1,13 @@
 id,name,walkScore,transitScore,bikeScore,source,notes
 the-glebe,The Glebe,88,75,85,WalkScore.com,Historic walkable neighbourhood with Bank Street shops
+old-ottawa-east,Old Ottawa East,75,70,82,WalkScore.com,Canal-side neighbourhood with Main Street shops; very bikeable
 westboro,Westboro,82,72,90,WalkScore.com,Great bike paths along Ottawa River; LRT access
 byward-market,Byward Market,97,88,80,WalkScore.com,Walker's Paradise; downtown core with best transit
 centretown,Centretown,94,85,78,WalkScore.com,Downtown core; excellent transit hub
 old-ottawa-south,Old Ottawa South,78,65,85,WalkScore.com,Canal access; bike-friendly paths
+riverside-park,Riverside Park,55,60,70,WalkScore.com estimate,Near Mooney's Bay; some transit access
 hintonburg,Hintonburg,87,75,82,WalkScore.com,LRT at Bayview; walkable Wellington West
-little-italy,Little Italy,88,72,80,WalkScore.com,Vibrant Preston St; near Dow's Lake and LRT
+wellington-village,Wellington Village,88,72,80,WalkScore.com,Vibrant Wellington West shops; near Island Park
 kanata,Kanata,35,50,60,WalkScore.com estimate,Suburban tech hub; car-dependent
 stittsville,Stittsville,34,37,50,WalkScore.com,Suburban; limited transit
 alta-vista,Alta Vista,49,58,69,WalkScore.com,Established suburban; some bus routes
@@ -34,3 +36,7 @@ greely,Greely,15,10,35,WalkScore.com estimate,Rural village; car required; no tr
 north-gower,North Gower,12,5,30,WalkScore.com estimate,Rural village; car essential; no transit
 dunrobin,Dunrobin,8,5,25,WalkScore.com estimate,Rural area; car essential; no transit
 belair-heights,Bel Air Heights,45,55,60,WalkScore.com estimate,Suburban; good bus access near Algonquin College
+cumberland,Cumberland,15,10,35,WalkScore.com estimate,Rural village east of Orleans; car essential
+kinburn,Kinburn,10,5,30,WalkScore.com estimate,Rural village near Carp; car essential
+munster-ashton,Munster-Ashton,8,5,25,WalkScore.com estimate,Rural area near Richmond; car essential
+corkery,Corkery,8,5,25,WalkScore.com estimate,Rural area near Carp; car essential

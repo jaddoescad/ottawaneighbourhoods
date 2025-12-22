@@ -14,8 +14,13 @@ module.exports = {
   // Central Ottawa
   'the-glebe': {
     name: 'The Glebe',
-    onsIds: [923, 82], // Glebe-Dows Lake, Old Ottawa East
-    onsSqoIds: ['3047', '3082'], // Glebe - Dows Lake, Old Ottawa East
+    onsIds: [923], // Glebe-Dows Lake only
+    onsSqoIds: ['3047'], // Glebe - Dows Lake
+  },
+  'old-ottawa-east': {
+    name: 'Old Ottawa East',
+    onsIds: [82], // Old Ottawa East
+    onsSqoIds: ['3082'], // Old Ottawa East
   },
   'westboro': {
     name: 'Westboro',
@@ -34,16 +39,21 @@ module.exports = {
   },
   'old-ottawa-south': {
     name: 'Old Ottawa South',
-    onsIds: [83, 90], // Old Ottawa South, Riverside Park
-    onsSqoIds: ['3083', '3098'], // Old Ottawa South, Riverside Park - Mooney's Bay
+    onsIds: [83], // Old Ottawa South only
+    onsSqoIds: ['3083'], // Old Ottawa South
+  },
+  'riverside-park': {
+    name: 'Riverside Park',
+    onsIds: [90, 91], // Riverside Park, Riverside Park South
+    onsSqoIds: ['3098', '3099'], // Riverside Park - Mooney's Bay, Riverside Park South - Revelstoke
   },
   'hintonburg': {
     name: 'Hintonburg',
     onsIds: [47], // Hintonburg-Mechanicsville
     onsSqoIds: ['3055'], // Hintonburg - Mechanicsville
   },
-  'little-italy': {
-    name: 'Little Italy',
+  'wellington-village': {
+    name: 'Wellington Village',
     onsIds: [55], // Island Park-Wellington Village
     onsSqoIds: ['3059'], // Island Park - Wellington Village
   },
@@ -145,8 +155,13 @@ module.exports = {
   // East End
   'orleans': {
     name: 'Orleans',
-    onsIds: [920, 915, 939, 909, 913, 75, 942, 943, 916, 904, 912, 93, 3, 76], // Orleans sub-areas
-    onsSqoIds: ['3043', '3032', '3085', '3017', '3025', '3026', '3091', '3095', '3037', '3010', '3022', '3004', '3094', '3103'], // Fallingbrook, Convent Glen, Orleans Village, Cardinal Creek, Chapel Hills, Portobello, Queenswood, Cumberland, Blackburn, Carson Grove, Beacon Hill, Queenswood-Chatelaine, Rothwell Heights
+    onsIds: [920, 915, 939, 909, 913, 75, 942, 943, 904, 912, 93, 3, 76], // Orleans sub-areas
+    onsSqoIds: ['3043', '3032', '3085', '3017', '3025', '3026', '3091', '3095', '3010', '3022', '3004', '3094', '3103'], // Fallingbrook, Convent Glen, Orleans Village, Cardinal Creek, Chapel Hills, Portobello, Queenswood, Blackburn, Carson Grove, Beacon Hill, Queenswood-Chatelaine, Rothwell Heights
+  },
+  'cumberland': {
+    name: 'Cumberland',
+    onsIds: [916], // Cumberland
+    onsSqoIds: ['3037'], // Cumberland
   },
   'vars': {
     name: 'Vars-Navan',
@@ -157,8 +172,18 @@ module.exports = {
   // Rural West
   'carp': {
     name: 'Carp',
-    onsIds: [911, 30, 930], // Carp, Corkery, Kinburn
-    onsSqoIds: ['3021', '3033', '3062'], // Carp, Corkery, Kinburn
+    onsIds: [911], // Carp
+    onsSqoIds: ['3021'], // Carp
+  },
+  'corkery': {
+    name: 'Corkery',
+    onsIds: [30], // Corkery
+    onsSqoIds: ['3033'], // Corkery
+  },
+  'kinburn': {
+    name: 'Kinburn',
+    onsIds: [930], // Kinburn
+    onsSqoIds: ['3062'], // Kinburn
   },
   'constance-bay': {
     name: 'Constance Bay',
@@ -172,8 +197,13 @@ module.exports = {
   },
   'richmond': {
     name: 'Richmond',
-    onsIds: [944, 67], // Richmond, Munster-Ashton
-    onsSqoIds: ['3074', '3075'], // Richmond, Munster-Ashton
+    onsIds: [944], // Richmond
+    onsSqoIds: ['3074'], // Richmond
+  },
+  'munster-ashton': {
+    name: 'Munster-Ashton',
+    onsIds: [67], // Munster-Ashton
+    onsSqoIds: ['3075'], // Munster-Ashton
   },
 
   // Rural South

@@ -24,6 +24,7 @@ import TrailsStatRow from "@/components/TrailsStatRow";
 import FoodEstablishmentsStatRow from "@/components/FoodEstablishmentsStatRow";
 import GroceryStoresStatRow from "@/components/GroceryStoresStatRow";
 import GymStatRow from "@/components/GymStatRow";
+import CoverageButton from "@/components/CoverageButton";
 
 const BASE_URL = "https://ottawahoods.com";
 
@@ -261,6 +262,14 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </Link>
+
+        {/* Coverage Button */}
+        <div className="absolute top-6 right-6">
+          <CoverageButton
+            neighbourhoodName={name}
+            boundaries={boundaries || []}
+          />
+        </div>
 
         {/* Hero Content */}
         <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-8">

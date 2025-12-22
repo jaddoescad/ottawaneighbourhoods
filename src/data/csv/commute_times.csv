@@ -1,11 +1,13 @@
 id,name,commuteToDowntown,commuteByTransit,commuteMethod,source,notes
 the-glebe,The Glebe,12,15,mixed,Google Maps estimate,Central location; walking/cycling viable; excellent transit
+old-ottawa-east,Old Ottawa East,10,15,mixed,Google Maps estimate,Near downtown; cycling along canal; good transit
 westboro,Westboro,15,18,mixed,Google Maps estimate,LRT Line 1 access; quick transit to downtown
 byward-market,Byward Market,5,5,mixed,Google Maps estimate,Already downtown; walking distance to Parliament
 centretown,Centretown,8,8,mixed,Google Maps estimate,Downtown core; very walkable to offices
 old-ottawa-south,Old Ottawa South,15,20,mixed,Google Maps estimate,Canal-adjacent; good cycling and transit options
+riverside-park,Riverside Park,18,30,mixed,Google Maps estimate,Near Mooney's Bay; bus routes to downtown
 hintonburg,Hintonburg,12,15,mixed,Google Maps estimate,Tunney's Pasture LRT station; quick connection
-little-italy,Little Italy,10,15,mixed,Google Maps estimate,Central location; multiple bus routes
+wellington-village,Wellington Village,10,15,mixed,Google Maps estimate,Central location; multiple bus routes
 kanata,Kanata,40,80,mixed,Google Maps estimate,Highway 417 commute; no direct LRT; 1h15m-1h30m by transit
 stittsville,Stittsville,50,95,mixed,Google Maps estimate,Further west than Kanata; highway dependent; very long transit
 alta-vista,Alta Vista,18,30,mixed,Google Maps estimate,Bus routes to downtown; moderate distance
@@ -34,3 +36,7 @@ greely,Greely,45,95,mixed,Google Maps estimate,Rural south; very limited transit
 north-gower,North Gower,50,105,mixed,Google Maps estimate,Rural south; essentially no transit
 dunrobin,Dunrobin,50,110,mixed,Google Maps estimate,Rural west; no transit service
 belair-heights,Bel Air Heights,20,35,mixed,Google Maps estimate,Near Baseline LRT; needs bus connection
+cumberland,Cumberland,45,90,mixed,Google Maps estimate,Rural east; very limited transit; east of Orleans
+kinburn,Kinburn,50,110,mixed,Google Maps estimate,Rural west; no transit service; near Carp
+munster-ashton,Munster-Ashton,50,105,mixed,Google Maps estimate,Rural west; no transit service; near Richmond
+corkery,Corkery,50,110,mixed,Google Maps estimate,Rural west; no transit service; near Carp
