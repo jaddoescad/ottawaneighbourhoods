@@ -29,7 +29,6 @@ nepean,Nepean,25,40,mixed,Google Maps estimate,Established suburb; Queensway acc
 merivale,Merivale,22,35,mixed,Google Maps estimate,Near Baseline LRT station; needs bus connection
 vanier,Vanier,12,18,mixed,Google Maps estimate,East downtown adjacent; good walkability
 new-edinburgh,New Edinburgh,10,15,mixed,Google Maps estimate,Near Rideau Hall; walking distance to downtown
-pineview,Pineview,20,30,mixed,Google Maps estimate,Near Trillium Line; good transit access
 cyrville,Cyrville,18,25,mixed,Google Maps estimate,Near Blair LRT station; excellent transit
 findlay-creek,Findlay Creek,35,70,mixed,Google Maps estimate,South suburb; limited bus service
 greely,Greely,45,95,mixed,Google Maps estimate,Rural south; very limited transit
@@ -40,3 +39,5 @@ cumberland,Cumberland,45,90,mixed,Google Maps estimate,Rural east; very limited 
 kinburn,Kinburn,50,110,mixed,Google Maps estimate,Rural west; no transit service; near Carp
 munster-ashton,Munster-Ashton,50,105,mixed,Google Maps estimate,Rural west; no transit service; near Richmond
 corkery,Corkery,50,110,mixed,Google Maps estimate,Rural west; no transit service; near Carp
+blackburn-hamlet,Blackburn Hamlet,30,55,mixed,Google Maps estimate,East end; bus to Blair LRT station
+gloucester,Gloucester,25,45,mixed,Google Maps estimate,East end; bus routes to Blair LRT

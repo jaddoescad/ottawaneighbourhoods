@@ -155,8 +155,18 @@ module.exports = {
   // East End
   'orleans': {
     name: 'Orleans',
-    onsIds: [920, 915, 939, 909, 913, 75, 942, 943, 904, 912, 93, 3, 76], // Orleans sub-areas
-    onsSqoIds: ['3043', '3032', '3085', '3017', '3025', '3026', '3091', '3095', '3010', '3022', '3004', '3094', '3103'], // Fallingbrook, Convent Glen, Orleans Village, Cardinal Creek, Chapel Hills, Portobello, Queenswood, Blackburn, Carson Grove, Beacon Hill, Queenswood-Chatelaine, Rothwell Heights
+    onsIds: [920, 915, 939, 909, 913, 75, 942, 943, 3], // Orleans sub-areas
+    onsSqoIds: ['3043', '3032', '3085', '3017', '3025', '3026', '3091', '3095', '3094'], // Fallingbrook, Convent Glen, Orleans Village, Cardinal Creek, Chapel Hills, Portobello, Queenswood, Queenswood-Chatelaine
+  },
+  'gloucester': {
+    name: 'Gloucester',
+    onsIds: [912, 93, 76, 86], // Carson Grove, Beacon Hill South, Rothwell Heights, Pineview
+    onsSqoIds: ['3022', '3004', '3103', '3089'], // Carson Grove, Beacon Hill South, Rothwell Heights - Beacon Hill North, Pineview
+  },
+  'blackburn-hamlet': {
+    name: 'Blackburn Hamlet',
+    onsIds: [904], // Blackburn Hamlet
+    onsSqoIds: ['3010'], // Blackburn Hamlet
   },
   'cumberland': {
     name: 'Cumberland',
@@ -211,13 +221,6 @@ module.exports = {
     name: 'Metcalfe-Osgoode',
     onsIds: [66, 81], // Metcalfe, Osgoode-Vernon
     onsSqoIds: ['3073', '3086'], // Metcalfe, Osgoode-Vernon
-  },
-
-  // Pineview / South End
-  'pineview': {
-    name: 'Pineview',
-    onsIds: [86], // Pineview
-    onsSqoIds: ['3089'], // Pineview
   },
 
   // Nepean / Centrepointe area
