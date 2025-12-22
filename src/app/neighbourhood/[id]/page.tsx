@@ -436,14 +436,13 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             source={DATA_SOURCES.busStops}
           />
           <TransitInfoRow
+            commuteToDowntown={commuteToDowntown}
+            commuteByTransit={commuteByTransit}
             nearestOTrainStation={nearestOTrainStation}
             nearestOTrainLine={nearestOTrainLine}
             distanceToOTrain={distanceToOTrain}
             nearestTransitwayStation={nearestTransitwayStation}
             distanceToTransitway={distanceToTransitway}
-            commuteToDowntown={commuteToDowntown}
-            commuteByTransit={commuteByTransit}
-            transitScore={transitScore}
           />
           <StatRow
             icon="🏥"
@@ -458,6 +457,8 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             byCategory={details.crimeByCategory}
             population={population}
             source={DATA_SOURCES.crime}
+            boundaries={boundaries}
+            neighbourhoodName={name}
           />
           <StatRow
             icon="💰"

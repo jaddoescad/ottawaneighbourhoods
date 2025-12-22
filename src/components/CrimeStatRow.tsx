@@ -1,7 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { CrimeByCategory } from "@/data/neighbourhoods";
+import dynamic from "next/dynamic";
+import { CrimeByCategory, NeighbourhoodBoundary } from "@/data/neighbourhoods";
+
+const CrimeOnsMap = dynamic(
+  () => import("./CrimeOnsMap"),
+  { ssr: false, loading: () => <div className="h-64 bg-gray-100 rounded-lg animate-pulse" /> }
+);
 
 interface DataSource {
   name: string;
@@ -15,6 +21,8 @@ interface CrimeStatRowProps {
   maxTotal?: number;
   maxCategory?: number;
   source?: DataSource;
+  boundaries?: NeighbourhoodBoundary[];
+  neighbourhoodName?: string;
 }
 
 // Thresholds based on crime per 1,000 residents (2023-2024, 2 years of data)
@@ -47,6 +55,8 @@ export default function CrimeStatRow({
   maxTotal = 15000,
   maxCategory = 4000,
   source,
+  boundaries = [],
+  neighbourhoodName = "",
 }: CrimeStatRowProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -176,6 +186,19 @@ export default function CrimeStatRow({
                 </svg>
                 <span>Source: {source.name}</span>
               </a>
+            </div>
+          )}
+
+          {/* Crime Density Map by ONS Zone */}
+          {boundaries.length > 0 && (
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <div className="text-xs text-gray-500 mb-3 uppercase tracking-wide">
+                Crime Rate by ONS Zone
+              </div>
+              <CrimeOnsMap
+                boundaries={boundaries}
+                neighbourhoodName={neighbourhoodName}
+              />
             </div>
           )}
         </div>

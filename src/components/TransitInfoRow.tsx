@@ -3,18 +3,29 @@
 import { useState } from "react";
 
 interface TransitInfoRowProps {
-  // O-Train data
-  nearestOTrainStation: string | null;
-  nearestOTrainLine: string | null;
-  distanceToOTrain: number | null;
-  // Transitway data
-  nearestTransitwayStation: string | null;
-  distanceToTransitway: number | null;
-  // Commute times
-  commuteToDowntown: number;
-  commuteByTransit: number;
-  // Transit score for context
-  transitScore: number;
+  commuteToDowntown: number; // minutes by car
+  commuteByTransit: number; // minutes by transit
+  nearestOTrainStation?: string | null;
+  nearestOTrainLine?: string | null;
+  distanceToOTrain?: number | null;
+  nearestTransitwayStation?: string | null;
+  distanceToTransitway?: number | null;
+}
+
+function getCommuteColor(minutes: number): string {
+  if (minutes <= 15) return "bg-green-500";
+  if (minutes <= 25) return "bg-green-400";
+  if (minutes <= 40) return "bg-yellow-400";
+  if (minutes <= 60) return "bg-orange-500";
+  return "bg-red-500";
+}
+
+function getCommuteLabel(minutes: number): string {
+  if (minutes <= 15) return "Quick";
+  if (minutes <= 25) return "Short";
+  if (minutes <= 40) return "Moderate";
+  if (minutes <= 60) return "Long";
+  return "Very Long";
 }
 
 function getDistanceLabel(distance: number | null): string {
@@ -32,124 +43,122 @@ function getDistanceColor(distance: number | null): string {
   return "text-red-500";
 }
 
-function getCommuteColor(minutes: number): string {
+function getCommuteTextColor(minutes: number): string {
   if (minutes <= 15) return "text-green-600";
-  if (minutes <= 30) return "text-green-500";
-  if (minutes <= 45) return "text-yellow-600";
+  if (minutes <= 25) return "text-green-500";
+  if (minutes <= 40) return "text-yellow-600";
   if (minutes <= 60) return "text-orange-500";
   return "text-red-500";
 }
 
-function getCommuteDifferenceLabel(carTime: number, transitTime: number): { text: string; color: string } {
-  if (transitTime === 0 || carTime === 0) {
-    return { text: "", color: "" };
-  }
-
-  const diff = transitTime - carTime;
-  const ratio = transitTime / carTime;
-
-  if (diff <= 5) {
-    return { text: "Similar to driving", color: "text-green-600" };
-  } else if (ratio <= 1.5) {
-    return { text: `+${diff} min vs car`, color: "text-yellow-600" };
-  } else if (ratio <= 2) {
-    return { text: `+${diff} min vs car`, color: "text-orange-500" };
-  } else {
-    return { text: `${ratio.toFixed(1)}x longer than car`, color: "text-red-500" };
-  }
-}
-
 export default function TransitInfoRow({
+  commuteToDowntown,
+  commuteByTransit,
   nearestOTrainStation,
   nearestOTrainLine,
   distanceToOTrain,
   nearestTransitwayStation,
   distanceToTransitway,
-  commuteToDowntown,
-  commuteByTransit,
-  transitScore,
 }: TransitInfoRowProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const hasOTrain = nearestOTrainStation !== null;
-  const hasTransitway = nearestTransitwayStation !== null;
-  const hasData = hasOTrain || hasTransitway || commuteByTransit > 0;
-
-  if (!hasData) {
+  if (commuteToDowntown === 0 && commuteByTransit === 0) {
     return null;
   }
 
-  const commuteDiff = getCommuteDifferenceLabel(commuteToDowntown, commuteByTransit);
+  const hasOTrain = nearestOTrainStation !== null && nearestOTrainStation !== undefined;
+  const hasTransitway = nearestTransitwayStation !== null && nearestTransitwayStation !== undefined;
+  const hasDetails = hasOTrain || hasTransitway;
+
+  // Max commute for bar scaling (90 min)
+  const maxCommute = 90;
+  const carBarWidth = Math.max(5, Math.min((commuteToDowntown / maxCommute) * 100, 100));
+  const transitBarWidth = Math.max(5, Math.min((commuteByTransit / maxCommute) * 100, 100));
 
   return (
     <div className="border-b border-gray-100 last:border-b-0">
-      {/* Main Row */}
       <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full px-3 sm:px-5 py-3 sm:py-4 hover:bg-gray-50 cursor-pointer transition-colors"
+        onClick={() => hasDetails && setIsExpanded(!isExpanded)}
+        className={`w-full px-3 sm:px-5 py-3 sm:py-4 ${hasDetails ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`}
+        disabled={!hasDetails}
       >
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
           {/* Label */}
-          <div className="flex items-center justify-between sm:justify-start gap-2 sm:w-32 sm:shrink-0">
+          <div className="flex items-center justify-between sm:justify-start gap-2 sm:w-36 sm:shrink-0">
             <div className="flex items-center gap-2">
-              <span className="text-lg sm:text-xl">🚇</span>
-              <span className="text-gray-900 font-medium text-sm sm:text-base">Rapid Transit</span>
+              <span className="text-lg sm:text-xl">🚗</span>
+              <span className="text-gray-900 font-medium text-sm">To Downtown</span>
             </div>
             {/* Mobile chevron */}
-            <svg
-              className={`w-4 h-4 text-gray-400 transition-transform sm:hidden ${isExpanded ? "rotate-180" : ""}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
+            {hasDetails && (
+              <svg
+                className={`w-4 h-4 text-gray-400 transition-transform sm:hidden ${isExpanded ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            )}
           </div>
 
-          {/* Summary info */}
-          <div className="flex-1 flex flex-wrap items-center gap-2 sm:gap-4">
-            {hasOTrain && (
-              <div className="flex items-center gap-1.5 bg-red-50 px-2 py-1 rounded-full">
-                <span className="text-red-600 text-xs font-medium">O-Train</span>
-                <span className={`text-xs font-bold ${getDistanceColor(distanceToOTrain)}`}>
-                  {getDistanceLabel(distanceToOTrain)}
+          {/* Bars */}
+          <div className="w-full sm:flex-1 space-y-1.5">
+            {/* By Car */}
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-gray-500 w-16 sm:w-20">By Car</span>
+              <div className="flex-1 relative h-5 sm:h-6 bg-gray-100 rounded-lg overflow-hidden">
+                <div
+                  className={`absolute inset-y-0 left-0 rounded-lg ${getCommuteColor(commuteToDowntown)}`}
+                  style={{ width: `${carBarWidth}%` }}
+                />
+                <span className="absolute inset-0 flex items-center px-3 text-xs font-semibold text-gray-800">
+                  {getCommuteLabel(commuteToDowntown)}
                 </span>
               </div>
-            )}
-            {hasTransitway && (
-              <div className="flex items-center gap-1.5 bg-blue-50 px-2 py-1 rounded-full">
-                <span className="text-blue-600 text-xs font-medium">Transitway</span>
-                <span className={`text-xs font-bold ${getDistanceColor(distanceToTransitway)}`}>
-                  {getDistanceLabel(distanceToTransitway)}
+              <span className="text-sm font-bold text-gray-900 w-14 text-right">
+                {commuteToDowntown} min
+              </span>
+            </div>
+
+            {/* By Transit */}
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-gray-500 w-16 sm:w-20">By Transit</span>
+              <div className="flex-1 relative h-5 sm:h-6 bg-gray-100 rounded-lg overflow-hidden">
+                <div
+                  className={`absolute inset-y-0 left-0 rounded-lg ${getCommuteColor(commuteByTransit)}`}
+                  style={{ width: `${transitBarWidth}%` }}
+                />
+                <span className="absolute inset-0 flex items-center px-3 text-xs font-semibold text-gray-800">
+                  {getCommuteLabel(commuteByTransit)}
                 </span>
               </div>
-            )}
-            {commuteByTransit > 0 && (
-              <div className="flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded-full">
-                <span className="text-gray-600 text-xs font-medium">Downtown</span>
-                <span className={`text-xs font-bold ${getCommuteColor(commuteByTransit)}`}>
-                  {commuteByTransit} min
-                </span>
-              </div>
-            )}
+              <span className="text-sm font-bold text-gray-900 w-14 text-right">
+                {commuteByTransit} min
+              </span>
+            </div>
           </div>
 
           {/* Desktop chevron */}
-          <svg
-            className={`hidden sm:block w-5 h-5 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
+          {hasDetails && (
+            <div className="hidden sm:block w-5 h-5">
+              <svg
+                className={`w-5 h-5 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          )}
         </div>
       </button>
 
       {/* Expanded View */}
-      {isExpanded && (
+      {isExpanded && hasDetails && (
         <div className="px-3 sm:px-5 pb-4 bg-gray-50">
-          <div className="space-y-4">
+          <div className="space-y-3">
             {/* O-Train Section */}
             {hasOTrain && (
               <div className="bg-white rounded-lg p-3 border border-gray-100">
@@ -166,8 +175,8 @@ export default function TransitInfoRow({
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-gray-700">{nearestOTrainStation}</span>
-                  <span className={`font-bold ${getDistanceColor(distanceToOTrain)}`}>
-                    {getDistanceLabel(distanceToOTrain)}
+                  <span className={`font-bold ${getDistanceColor(distanceToOTrain ?? null)}`}>
+                    {getDistanceLabel(distanceToOTrain ?? null)}
                   </span>
                 </div>
               </div>
@@ -189,74 +198,59 @@ export default function TransitInfoRow({
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-gray-700">{nearestTransitwayStation}</span>
-                  <span className={`font-bold ${getDistanceColor(distanceToTransitway)}`}>
-                    {getDistanceLabel(distanceToTransitway)}
+                  <span className={`font-bold ${getDistanceColor(distanceToTransitway ?? null)}`}>
+                    {getDistanceLabel(distanceToTransitway ?? null)}
                   </span>
                 </div>
               </div>
             )}
 
             {/* Commute Comparison */}
-            {commuteByTransit > 0 && commuteToDowntown > 0 && (
-              <div className="bg-white rounded-lg p-3 border border-gray-100">
-                <h4 className="font-medium text-gray-900 mb-3">Commute to Downtown</h4>
-                <div className="grid grid-cols-2 gap-3">
-                  {/* By Car */}
-                  <div className="text-center p-2 bg-gray-50 rounded-lg">
-                    <div className="flex justify-center mb-1">
-                      <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
-                      </svg>
-                    </div>
-                    <p className="text-xs text-gray-500 mb-1">By Car</p>
-                    <p className={`text-lg font-bold ${getCommuteColor(commuteToDowntown)}`}>
-                      {commuteToDowntown} min
-                    </p>
+            <div className="bg-white rounded-lg p-3 border border-gray-100">
+              <h4 className="font-medium text-gray-900 mb-3">Commute Comparison</h4>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="text-center p-2 bg-gray-50 rounded-lg">
+                  <div className="flex justify-center mb-1">
+                    <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                    </svg>
                   </div>
-                  {/* By Transit */}
-                  <div className="text-center p-2 bg-gray-50 rounded-lg">
-                    <div className="flex justify-center mb-1">
-                      <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2c-4.42 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-6H6V6h5v5zm5.5 6c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6h-5V6h5v5z"/>
-                      </svg>
-                    </div>
-                    <p className="text-xs text-gray-500 mb-1">By Transit</p>
-                    <p className={`text-lg font-bold ${getCommuteColor(commuteByTransit)}`}>
-                      {commuteByTransit} min
-                    </p>
-                  </div>
-                </div>
-                {commuteDiff.text && (
-                  <p className={`text-center text-sm mt-2 ${commuteDiff.color}`}>
-                    {commuteDiff.text}
+                  <p className="text-xs text-gray-500 mb-1">By Car</p>
+                  <p className={`text-lg font-bold ${getCommuteTextColor(commuteToDowntown)}`}>
+                    {commuteToDowntown} min
                   </p>
-                )}
+                </div>
+                <div className="text-center p-2 bg-gray-50 rounded-lg">
+                  <div className="flex justify-center mb-1">
+                    <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2c-4.42 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-6H6V6h5v5zm5.5 6c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6h-5V6h5v5z"/>
+                    </svg>
+                  </div>
+                  <p className="text-xs text-gray-500 mb-1">By Transit</p>
+                  <p className={`text-lg font-bold ${getCommuteTextColor(commuteByTransit)}`}>
+                    {commuteByTransit} min
+                  </p>
+                </div>
               </div>
-            )}
+              {commuteByTransit > commuteToDowntown && (
+                <p className="text-center text-sm mt-2 text-gray-500">
+                  Transit is {Math.round((commuteByTransit / commuteToDowntown - 1) * 100)}% slower than driving
+                </p>
+              )}
+            </div>
 
-            {/* Sources */}
-            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs pt-2 border-t border-gray-200">
+            {/* Source */}
+            <div className="text-center pt-2 border-t border-gray-200">
               <a
                 href="https://open.ottawa.ca/search?tags=o-train"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors"
+                className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 transition-colors"
               >
                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
-                <span>City of Ottawa Open Data</span>
-              </a>
-              <a
-                href="https://www.walkscore.com/CA-ON/Ottawa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors"
-              >
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-                <span>WalkScore.com</span>
+                <span>Source: City of Ottawa Open Data</span>
               </a>
             </div>
           </div>

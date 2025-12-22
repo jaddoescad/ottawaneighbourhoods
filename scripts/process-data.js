@@ -325,6 +325,21 @@ function assignToNeighbourhood(lat, lng, boundariesByNeighbourhood) {
   return null;
 }
 
+// Assign point to specific ONS zone and return both neighbourhood ID and zone ID
+function assignToOnsZone(lat, lng, boundariesByNeighbourhood) {
+  const coords = [lng, lat];
+
+  for (const [neighbourhoodId, boundaries] of Object.entries(boundariesByNeighbourhood)) {
+    for (const boundary of boundaries) {
+      if (pointInPolygonWithHoles(coords, boundary.rings)) {
+        return { neighbourhoodId, onsId: boundary.onsId };
+      }
+    }
+  }
+
+  return null;
+}
+
 // ============================================================================
 // Main Processing
 // ============================================================================
@@ -996,8 +1011,9 @@ async function main() {
   }
 
   // Process crime data using point-in-polygon matching
-  console.log('\nAssigning crimes to neighbourhoods...');
+  console.log('\nAssigning crimes to neighbourhoods and ONS zones...');
   const crimeByNeighbourhood = {};
+  const crimeByOnsZone = {}; // Track crime per individual ONS zone
   let assignedCrimes = 0;
   let crimesWithoutCoords = 0;
 
@@ -1010,8 +1026,11 @@ async function main() {
       continue;
     }
 
-    const neighbourhoodId = assignToNeighbourhood(lat, lng, boundariesByNeighbourhood);
-    if (neighbourhoodId) {
+    const result = assignToOnsZone(lat, lng, boundariesByNeighbourhood);
+    if (result) {
+      const { neighbourhoodId, onsId } = result;
+
+      // Track by neighbourhood
       if (!crimeByNeighbourhood[neighbourhoodId]) {
         crimeByNeighbourhood[neighbourhoodId] = {
           total: 0,
@@ -1025,10 +1044,18 @@ async function main() {
         crimeByNeighbourhood[neighbourhoodId].byCategory[category] = 0;
       }
       crimeByNeighbourhood[neighbourhoodId].byCategory[category]++;
+
+      // Track by ONS zone
+      if (!crimeByOnsZone[onsId]) {
+        crimeByOnsZone[onsId] = 0;
+      }
+      crimeByOnsZone[onsId]++;
+
       assignedCrimes++;
     }
   }
   console.log(`  Assigned ${assignedCrimes} crimes to neighbourhoods`);
+  console.log(`  Tracked crime in ${Object.keys(crimeByOnsZone).length} ONS zones`);
   if (crimesWithoutCoords > 0) {
     console.log(`  Skipped ${crimesWithoutCoords} crimes without coordinates`);
   }
@@ -1282,11 +1309,15 @@ async function main() {
       // Gen 3 boundaries use ONS-SQO IDs which match census data directly
       boundaries: (boundariesByNeighbourhood[info.id] || []).map(b => {
         const censusData = onsCensusBySqoId[b.onsId] || {};
+        const zoneCrimeTotal = crimeByOnsZone[b.onsId] || 0;
+        const zonePopulation = censusData.population || 0;
+        // Crime rate per 1,000 residents (2 years of data, so divide by 2 for annual rate)
+        const crimeRate = zonePopulation > 0 ? roundTo((zoneCrimeTotal / zonePopulation) * 1000, 1) : 0;
         return {
           onsId: b.onsId,
           name: b.name,
           rings: b.rings,
-          population: censusData.population || 0,
+          population: zonePopulation,
           // Age demographics from 2021 Census
           pctChildren: censusData.pctChildren || 0,
           pctYouth: censusData.pctYouth || 0,
@@ -1297,6 +1328,9 @@ async function main() {
           pctNoHighSchool: censusData.pctNoHighSchool || 0,
           pctPostSecondary: censusData.pctPostSecondary || 0,
           pctBachelors: censusData.pctBachelors || 0,
+          // Crime data (2023-2024)
+          crimeTotal: zoneCrimeTotal,
+          crimeRate: crimeRate,
           dataYear: '2021',
           source: 'Statistics Canada 2021 Census',
           sourceUrl: 'https://ons-sqo.ca',
