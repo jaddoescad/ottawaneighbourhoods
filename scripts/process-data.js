@@ -365,28 +365,36 @@ async function main() {
   const hospitalsRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'hospitals_raw.csv'), 'utf8'));
   const neighbourhoodsInfo = parseCSV(fs.readFileSync(path.join(csvDir, 'neighbourhoods.csv'), 'utf8'));
 
-  // Load Restaurants & Cafes (optional - file may not exist)
-  const restaurantsCafesPath = path.join(csvDir, 'restaurants_cafes_raw.csv');
-  const hasRestaurantsCafesData = fs.existsSync(restaurantsCafesPath);
-  const restaurantsCafesRaw = hasRestaurantsCafesData
-    ? parseCSV(fs.readFileSync(restaurantsCafesPath, 'utf8'))
+  // Load OPH Food Establishments (categorized data from Ottawa Public Health)
+  const ophFoodPath = path.join(csvDir, 'oph_categorized.csv');
+  const hasOphFoodData = fs.existsSync(ophFoodPath);
+  const ophFoodRaw = hasOphFoodData
+    ? parseCSV(fs.readFileSync(ophFoodPath, 'utf8'))
     : [];
-  if (hasRestaurantsCafesData) {
-    console.log(`  - ${restaurantsCafesRaw.length} restaurants & cafes`);
+  if (hasOphFoodData) {
+    // Count by category
+    const categoryCounts = {};
+    for (const item of ophFoodRaw) {
+      const cat = item.CATEGORY || 'unknown';
+      categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+    }
+    console.log(`  - ${ophFoodRaw.length} food establishments (OPH)`);
+    console.log(`    Categories: ${Object.entries(categoryCounts).map(([k, v]) => `${k}:${v}`).join(', ')}`);
   } else {
-    console.log('  - No restaurants/cafes file found (run: node scripts/download-restaurants-cafes.js)');
+    console.log('  - No OPH food data found (run: node scripts/categorize-oph-establishments.js)');
   }
 
-  // Load Grocery Stores (optional - file may not exist)
+  // Consumer-facing food categories (exclude institutional, catering, etc.)
+  const CONSUMER_FOOD_CATEGORIES = ['restaurant', 'cafe', 'fast_food', 'coffee_shop', 'bakery', 'pub', 'bar', 'ice_cream', 'grocery', 'food_court'];
+
+  // Legacy: Also check for old grocery stores file for backwards compatibility
   const groceryStoresPath = path.join(csvDir, 'grocery_stores_raw.csv');
   const hasGroceryStoresData = fs.existsSync(groceryStoresPath);
   const groceryStoresRaw = hasGroceryStoresData
     ? parseCSV(fs.readFileSync(groceryStoresPath, 'utf8'))
     : [];
-  if (hasGroceryStoresData) {
-    console.log(`  - ${groceryStoresRaw.length} grocery stores`);
-  } else {
-    console.log('  - No grocery stores file found (run: node scripts/download-grocery-stores.js)');
+  if (hasGroceryStoresData && !hasOphFoodData) {
+    console.log(`  - ${groceryStoresRaw.length} grocery stores (legacy OSM data)`);
   }
 
 
@@ -762,44 +770,80 @@ async function main() {
   }
   console.log(`  Assigned ${assignedLibraries} libraries`);
 
-  // Process restaurants & cafes (optional)
-  console.log('\nAssigning restaurants & cafes to neighbourhoods...');
-  const restaurantsByNeighbourhood = {};
-  let assignedRestaurantsCafes = 0;
+  // Process OPH food establishments by category
+  console.log('\nAssigning food establishments to neighbourhoods (OPH data)...');
+  const foodByNeighbourhood = {};
+  const foodCategoryCounts = {};
+  let assignedFood = 0;
 
-  if (hasRestaurantsCafesData) {
-    for (const place of restaurantsCafesRaw) {
+  // Initialize category counts
+  for (const cat of CONSUMER_FOOD_CATEGORIES) {
+    foodCategoryCounts[cat] = 0;
+  }
+
+  // Decode HTML entities in names
+  function decodeHtmlEntities(str) {
+    return (str || '')
+      .replace(/&amp;/g, '&')
+      .replace(/&#39;/g, "'")
+      .replace(/&quot;/g, '"')
+      .replace(/&#\d+;/g, '')
+      .replace(/[\x00-\x1F\x7F]/g, '');
+  }
+
+  if (hasOphFoodData) {
+    for (const place of ophFoodRaw) {
       const lat = parseFloat(place.LATITUDE);
       const lng = parseFloat(place.LONGITUDE);
+      const category = place.CATEGORY || 'unknown';
 
+      // Only process consumer-facing categories
+      if (!CONSUMER_FOOD_CATEGORIES.includes(category)) continue;
       if (isNaN(lat) || isNaN(lng)) continue;
 
       const neighbourhoodId = assignToNeighbourhood(lat, lng, boundariesByNeighbourhood);
       if (neighbourhoodId) {
-        if (!restaurantsByNeighbourhood[neighbourhoodId]) {
-          restaurantsByNeighbourhood[neighbourhoodId] = [];
+        if (!foodByNeighbourhood[neighbourhoodId]) {
+          foodByNeighbourhood[neighbourhoodId] = {
+            all: [],
+            restaurant: [],
+            cafe: [],
+            fast_food: [],
+            coffee_shop: [],
+            bakery: [],
+            pub: [],
+            bar: [],
+            ice_cream: [],
+            grocery: [],
+            food_court: [],
+          };
         }
-        restaurantsByNeighbourhood[neighbourhoodId].push({
-          name: place.NAME || 'Unnamed',
-          type: place.TYPE || 'unknown',
-          cuisine: place.CUISINE || '',
+        const establishment = {
+          name: decodeHtmlEntities(place.NAME) || 'Unnamed',
+          category,
+          address: place.ADDRESS || '',
           lat,
           lng,
-          osmId: place.OSM_ID,
-          osmType: place.OSM_TYPE,
-        });
-        assignedRestaurantsCafes++;
+          id: place.ID,
+        };
+        foodByNeighbourhood[neighbourhoodId].all.push(establishment);
+        if (foodByNeighbourhood[neighbourhoodId][category]) {
+          foodByNeighbourhood[neighbourhoodId][category].push(establishment);
+        }
+        foodCategoryCounts[category]++;
+        assignedFood++;
       }
     }
   }
-  console.log(`  Assigned ${assignedRestaurantsCafes} restaurants & cafes`);
+  console.log(`  Assigned ${assignedFood} food establishments`);
+  console.log(`  By category: ${Object.entries(foodCategoryCounts).filter(([, v]) => v > 0).map(([k, v]) => `${k}:${v}`).join(', ')}`);
 
-  // Process grocery stores (optional)
-  console.log('\nAssigning grocery stores to neighbourhoods...');
+  // Legacy: Process grocery stores from old OSM data if no OPH data
   const groceryStoresByNeighbourhood = {};
   let assignedGroceryStores = 0;
 
-  if (hasGroceryStoresData) {
+  if (!hasOphFoodData && hasGroceryStoresData) {
+    console.log('\nFallback: Assigning grocery stores from legacy OSM data...');
     for (const store of groceryStoresRaw) {
       const lat = parseFloat(store.LATITUDE);
       const lng = parseFloat(store.LONGITUDE);
@@ -825,8 +869,16 @@ async function main() {
         assignedGroceryStores++;
       }
     }
+    console.log(`  Assigned ${assignedGroceryStores} grocery stores (legacy)`);
   }
-  console.log(`  Assigned ${assignedGroceryStores} grocery stores`);
+
+  // Backwards compatibility: map OPH data to old format
+  const restaurantsByNeighbourhood = {};
+  for (const [nId, food] of Object.entries(foodByNeighbourhood)) {
+    // Combine restaurants, cafes, fast_food for the old restaurantsAndCafes count
+    const combined = [...(food.restaurant || []), ...(food.cafe || []), ...(food.fast_food || [])];
+    restaurantsByNeighbourhood[nId] = combined;
+  }
 
   // Process gyms & fitness centers (optional)
   console.log('\nAssigning gyms & fitness centers to neighbourhoods...');
@@ -1080,13 +1132,37 @@ async function main() {
       distanceToNearestHospital: null,
     };
     const areaKm2 = areaKm2ByNeighbourhood[info.id] || 0;
+
+    // Food establishments (from OPH data)
+    const foodData = foodByNeighbourhood[info.id] || {
+      all: [], restaurant: [], cafe: [], fast_food: [], coffee_shop: [],
+      bakery: [], pub: [], bar: [], ice_cream: [], grocery: [], food_court: []
+    };
+    const totalFoodEstablishments = hasOphFoodData ? foodData.all.length : null;
+    const totalFoodDensity = totalFoodEstablishments !== null && areaKm2 > 0
+      ? roundTo(totalFoodEstablishments / areaKm2, 1) : null;
+
+    // Individual category counts
+    const restaurantCount = hasOphFoodData ? foodData.restaurant.length : null;
+    const cafeCount = hasOphFoodData ? foodData.cafe.length : null;
+    const coffeeShopCount = hasOphFoodData ? foodData.coffee_shop.length : null;
+    const fastFoodCount = hasOphFoodData ? foodData.fast_food.length : null;
+    const bakeryCount = hasOphFoodData ? foodData.bakery.length : null;
+    const pubCount = hasOphFoodData ? foodData.pub.length : null;
+    const barCount = hasOphFoodData ? foodData.bar.length : null;
+    const iceCreamCount = hasOphFoodData ? foodData.ice_cream.length : null;
+    const groceryFromOph = hasOphFoodData ? foodData.grocery.length : null;
+
+    // Backwards compatibility - combine for old restaurantsAndCafes field
     const restaurants = restaurantsByNeighbourhood[info.id] || [];
-    const restaurantsAndCafes = hasRestaurantsCafesData ? restaurants.length : null;
+    const restaurantsAndCafes = hasOphFoodData ? restaurants.length : null;
     const restaurantsAndCafesDensity = restaurantsAndCafes !== null && areaKm2 > 0
       ? roundTo(restaurantsAndCafes / areaKm2, 1) // per km²
       : null;
-    const groceryStores = groceryStoresByNeighbourhood[info.id] || [];
-    const groceryStoreCount = hasGroceryStoresData ? groceryStores.length : null;
+
+    // Grocery stores - prefer OPH data, fallback to legacy OSM data
+    const groceryStores = hasOphFoodData ? foodData.grocery : (groceryStoresByNeighbourhood[info.id] || []);
+    const groceryStoreCount = hasOphFoodData ? groceryFromOph : (hasGroceryStoresData ? groceryStores.length : null);
     const groceryStoreDensity = groceryStoreCount !== null && areaKm2 > 0
       ? roundTo(groceryStoreCount / areaKm2, 2) // per km²
       : null;
@@ -1280,10 +1356,35 @@ async function main() {
         libraries: libraries.length,
         librariesList: libraries.map(l => l.name),
         librariesData: libraries,
+        // Legacy fields for backwards compatibility
         restaurantsAndCafes,
         restaurantsAndCafesDensity,
         restaurantsList: restaurants.map(r => r.name),
         restaurantsData: restaurants,
+
+        // New OPH food data by category
+        foodEstablishments: totalFoodEstablishments,
+        foodDensity: totalFoodDensity,
+        foodData: foodData.all,
+        // Individual categories
+        restaurants: restaurantCount,
+        restaurantsOnlyData: foodData.restaurant,
+        cafes: cafeCount,
+        cafesData: foodData.cafe,
+        coffeeShops: coffeeShopCount,
+        coffeeShopsData: foodData.coffee_shop,
+        fastFood: fastFoodCount,
+        fastFoodData: foodData.fast_food,
+        bakeries: bakeryCount,
+        bakeriesData: foodData.bakery,
+        pubs: pubCount,
+        pubsData: foodData.pub,
+        bars: barCount,
+        barsData: foodData.bar,
+        iceCreamShops: iceCreamCount,
+        iceCreamShopsData: foodData.ice_cream,
+
+        // Grocery stores (OPH data preferred)
         groceryStores: groceryStoreCount,
         groceryStoreDensity,
         groceryStoresList: groceryStores.map(g => g.name),
@@ -1548,7 +1649,7 @@ async function main() {
   console.log(`\nWritten to: ${outputFile} (${fileSizeMB} MB)`);
 
   // Export assigned restaurants to CSV
-  if (hasRestaurantsCafesData) {
+  if (hasOphFoodData) {
     const restaurantsCsvRows = [];
     for (const n of neighbourhoods) {
       const restaurants = n.details.restaurantsData || [];
@@ -1589,7 +1690,7 @@ async function main() {
   }
 
   // Export assigned grocery stores to CSV
-  if (hasGroceryStoresData) {
+  if (hasOphFoodData) {
     const groceryCsvRows = [];
     for (const n of neighbourhoods) {
       const stores = n.details.groceryStoresData || [];
@@ -1638,8 +1739,7 @@ async function main() {
   console.log(`Total schools assigned: ${assignedSchools}`);
   console.log(`Total schools with EQAO scores: ${matchedEqaoScores}`);
   console.log(`Total libraries assigned: ${assignedLibraries}`);
-  console.log(`Total restaurants & cafes assigned: ${assignedRestaurantsCafes}`);
-  console.log(`Total grocery stores assigned: ${assignedGroceryStores}`);
+  console.log(`Total food establishments assigned: ${assignedFood}`);
   console.log(`Total gyms & fitness centers assigned: ${assignedGyms}`);
   console.log(`Total bus stops assigned: ${assignedBusStops}`);
   console.log(`Total crimes assigned: ${assignedCrimes}`);

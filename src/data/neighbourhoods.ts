@@ -58,6 +58,15 @@ export interface GroceryStoreData {
   osmType: string;
 }
 
+export interface FoodEstablishmentData {
+  id: string;
+  name: string;
+  category: string;
+  address: string;
+  lat: number;
+  lng: number;
+}
+
 export interface BusStopData {
   stopId: string;
   location: string;
@@ -208,10 +217,32 @@ export interface Neighbourhood {
     librariesData: LibraryData[];
     restaurantsAndCafes: number | null;
     restaurantsAndCafesDensity: number | null; // per km²
+    restaurantsList: string[];
+    restaurantsData: FoodEstablishmentData[];
+    // New food establishment categories (from OPH data)
+    foodEstablishments: number | null;
+    foodDensity: number | null; // per km²
+    foodData: FoodEstablishmentData[];
+    restaurants: number | null;
+    restaurantsOnlyData: FoodEstablishmentData[];
+    cafes: number | null;
+    cafesData: FoodEstablishmentData[];
+    coffeeShops: number | null;
+    coffeeShopsData: FoodEstablishmentData[];
+    fastFood: number | null;
+    fastFoodData: FoodEstablishmentData[];
+    bakeries: number | null;
+    bakeriesData: FoodEstablishmentData[];
+    pubs: number | null;
+    pubsData: FoodEstablishmentData[];
+    bars: number | null;
+    barsData: FoodEstablishmentData[];
+    iceCreamShops: number | null;
+    iceCreamShopsData: FoodEstablishmentData[];
     groceryStores: number | null;
     groceryStoreDensity: number | null; // per km²
     groceryStoresList: string[];
-    groceryStoresData: GroceryStoreData[];
+    groceryStoresData: FoodEstablishmentData[];
     gyms: number | null;
     gymDensity: number | null; // per km²
     gymsList: string[];

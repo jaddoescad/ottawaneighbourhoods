@@ -21,6 +21,8 @@ import IncomeStatRow from "@/components/IncomeStatRow";
 import HospitalStatRow from "@/components/HospitalStatRow";
 import LibrariesStatRow from "@/components/LibrariesStatRow";
 import TrailsStatRow from "@/components/TrailsStatRow";
+import FoodEstablishmentsStatRow from "@/components/FoodEstablishmentsStatRow";
+import GroceryStoresStatRow from "@/components/GroceryStoresStatRow";
 
 const BASE_URL = "https://ottawahoods.com";
 
@@ -42,13 +44,9 @@ const DATA_SOURCES = {
     name: "NCC Greenbelt & City of Ottawa",
     url: "https://ncc-ccn.gc.ca/places/greenbelt",
   },
-  restaurants: {
-    name: "OpenStreetMap",
-    url: "https://www.openstreetmap.org/",
-  },
-  groceryStores: {
-    name: "OpenStreetMap",
-    url: "https://www.openstreetmap.org/",
+  food: {
+    name: "Ottawa Public Health",
+    url: "https://inspections.ottawapublichealth.ca/",
   },
   gyms: {
     name: "OpenStreetMap",
@@ -356,36 +354,44 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             boundaries={boundaries}
             neighbourhoodName={name}
           />
-          <ExpandableStatRow
-            icon="🍽️"
-            label="Restaurants & Cafés"
-            value={
-              details.restaurantsAndCafes !== null && details.restaurantsAndCafesDensity !== null
-                ? `${details.restaurantsAndCafes} (${details.restaurantsAndCafesDensity}/km²)`
-                : "N/A"
-            }
+          <FoodEstablishmentsStatRow
+            foodData={(details.foodData || []).filter(f => f.category !== 'grocery')}
+            totalCount={(details.foodEstablishments || 0) - (details.groceryStores || 0)}
+            foodDensity={details.foodDensity}
+            restaurants={details.restaurants}
+            restaurantsData={details.restaurantsOnlyData || []}
+            cafes={details.cafes}
+            cafesData={details.cafesData || []}
+            coffeeShops={details.coffeeShops}
+            coffeeShopsData={details.coffeeShopsData || []}
+            fastFood={details.fastFood}
+            fastFoodData={details.fastFoodData || []}
+            bakeries={details.bakeries}
+            bakeriesData={details.bakeriesData || []}
+            pubs={details.pubs}
+            pubsData={details.pubsData || []}
+            bars={details.bars}
+            barsData={details.barsData || []}
+            iceCreamShops={details.iceCreamShops}
+            iceCreamShopsData={details.iceCreamShopsData || []}
             percent={
-              details.restaurantsAndCafesDensity !== null
-                ? getPercent(details.restaurantsAndCafesDensity, "restaurantsCafesDensity")
+              details.foodDensity !== null
+                ? getPercent(details.foodDensity, "restaurantsCafesDensity")
                 : 0
             }
             type={
-              details.restaurantsAndCafesDensity !== null
-                ? getScoreType(details.restaurantsAndCafesDensity, "restaurantsCafesDensity")
+              details.foodDensity !== null
+                ? getScoreType(details.foodDensity, "restaurantsCafesDensity")
                 : "neutral"
             }
-            items={[]}
-            itemLabel="places"
-            source={DATA_SOURCES.restaurants}
+            source={DATA_SOURCES.food}
+            boundaries={boundaries}
+            neighbourhoodName={name}
           />
-          <ExpandableStatRow
-            icon="🛒"
-            label="Grocery Stores"
-            value={
-              details.groceryStores !== null && details.groceryStoreDensity !== null
-                ? `${details.groceryStores} (${details.groceryStoreDensity}/km²)`
-                : "N/A"
-            }
+          <GroceryStoresStatRow
+            groceryStores={details.groceryStores}
+            groceryStoreDensity={details.groceryStoreDensity}
+            groceryStoresData={details.groceryStoresData || []}
             percent={
               details.groceryStoreDensity !== null
                 ? getPercent(details.groceryStoreDensity, "groceryStoreDensity")
@@ -396,9 +402,9 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
                 ? getScoreType(details.groceryStoreDensity, "groceryStoreDensity")
                 : "neutral"
             }
-            items={details.groceryStoresList || []}
-            itemLabel="stores"
-            source={DATA_SOURCES.groceryStores}
+            source={DATA_SOURCES.food}
+            boundaries={boundaries}
+            neighbourhoodName={name}
           />
           <ExpandableStatRow
             icon="🏋️"
