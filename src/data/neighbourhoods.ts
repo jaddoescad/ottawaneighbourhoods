@@ -112,6 +112,9 @@ export interface NeighbourhoodBoundary {
   pctNoHighSchool: number; // % without high school diploma
   pctPostSecondary: number; // % with post-secondary degree/diploma
   pctBachelors: number; // % with bachelor's degree or higher
+  // Income data (2021 Census)
+  medianIncome: number; // Median after-tax household income
+  households: number; // Number of households
   // Crime data (2023-2024)
   crimeTotal: number; // Total crimes in this zone
   crimeRate: number; // Crimes per 1,000 residents

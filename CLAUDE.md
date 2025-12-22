@@ -31,6 +31,7 @@ src/data/
 │   ├── commute_times.csv         # Commute times to downtown (by car and transit)
 │   ├── transit_stations.csv      # O-Train and Transitway stations (43 stations)
 │   ├── neighbourhoods.csv        # Neighbourhood info (scores, pros/cons, avgRent, avgHomePrice)
+│   ├── income_data.csv           # Median income from 2021 Census (ONS-SQO)
 │   ├── rent_data.csv             # Rent research data with sources
 │   ├── home_prices.csv           # Home price research data with sources
 │   ├── ncc_greenbelt_trails.csv  # NCC Greenbelt trails (37 trails, 141+ km)
@@ -46,6 +47,7 @@ scripts/
 ├── download-restaurants-cafes.js # Downloads restaurants & cafés from OpenStreetMap (Overpass)
 ├── download-grocery-stores.js    # Downloads grocery stores from OpenStreetMap (Overpass)
 ├── generate-age-demographics.js  # Generates age demographics CSV from 2021 Census
+├── generate-income-data.js       # Generates median income CSV from 2021 Census (ONS-SQO)
 ├── download-ncc-greenbelt.js     # Downloads NCC Greenbelt trails data
 ├── download-transit-stations.js  # Downloads O-Train and Transitway stations
 └── config/
@@ -69,6 +71,7 @@ Most data from **City of Ottawa Open Data** (ArcGIS REST APIs). Restaurants & ca
 | Restaurants & Cafés | https://overpass-api.de/api/interpreter (OSM Overpass) | ~1-3K |
 | Grocery Stores | https://overpass-api.de/api/interpreter (OSM Overpass) | ~226 |
 | Walk Scores | https://www.walkscore.com/CA-ON/Ottawa | 27 |
+| Median Income | https://ons-sqo.ca/wp-json/ons/v1/get-data/data (2021 Census) | 34 |
 | Age Demographics | https://open.ottawa.ca/datasets/ottawa::2021-long-form-census-sub-area | 27 |
 | Commute Times | Google Maps estimates (manual research) | 37 |
 | NCC Greenbelt Trails | https://services2.arcgis.com/WLyMuW006nKOfa5Z/ArcGIS/rest/services/Walking_Hiking/FeatureServer + manual research | 37 |
@@ -239,6 +242,28 @@ Walk Score, Transit Score, and Bike Score for each neighbourhood (0-100 scale):
 - 0-24: Almost All Errands Require Car, Minimal Transit
 
 **Data Source:** https://www.walkscore.com/CA-ON/Ottawa (researched December 2024)
+
+### income_data.csv
+Median household income data from Statistics Canada 2021 Census via ONS-SQO API:
+| Field | Description |
+|-------|-------------|
+| id | Neighbourhood ID (matches neighbourhoods.csv) |
+| name | Neighbourhood name |
+| medianIncome | Median after-tax household income (2020) |
+| households | Total households in neighbourhood |
+| population | Total population in neighbourhood |
+| source | Data source (Statistics Canada 2021 Census) |
+| onsAreas | ONS areas included with individual incomes |
+
+**Methodology:** For neighbourhoods spanning multiple ONS areas, income is calculated as a household-weighted average of the median incomes from each ONS area.
+
+**Data Source:** Statistics Canada 2021 Census via ONS-SQO API (https://ons-sqo.ca/wp-json/ons/v1/get-data/data)
+
+**To refresh income data:**
+```bash
+node scripts/generate-income-data.js
+node scripts/process-data.js
+```
 
 ### age_demographics.csv
 Age demographics data from Statistics Canada 2021 Census:

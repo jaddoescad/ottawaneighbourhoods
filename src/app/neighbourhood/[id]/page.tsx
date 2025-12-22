@@ -17,6 +17,7 @@ import TransitInfoRow from "@/components/TransitInfoRow";
 import ParksStatRow from "@/components/ParksStatRow";
 import SchoolsStatRow from "@/components/SchoolsStatRow";
 import EducationStatRow from "@/components/EducationStatRow";
+import IncomeStatRow from "@/components/IncomeStatRow";
 
 const BASE_URL = "https://ottawahoods.com";
 
@@ -460,12 +461,11 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             boundaries={boundaries}
             neighbourhoodName={name}
           />
-          <StatRow
-            icon="💰"
-            label="Income"
-            value={`$${formattedIncome}`}
-            percent={getPercent(medianIncome, "income")}
-            type={getScoreType(medianIncome, "income")}
+          <IncomeStatRow
+            medianIncome={medianIncome}
+            households={households}
+            boundaries={boundaries}
+            neighbourhoodName={name}
           />
           <StatRow
             icon="🏠"

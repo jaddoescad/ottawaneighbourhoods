@@ -1333,6 +1333,9 @@ async function main() {
           pctNoHighSchool: censusData.pctNoHighSchool || 0,
           pctPostSecondary: censusData.pctPostSecondary || 0,
           pctBachelors: censusData.pctBachelors || 0,
+          // Income data (2021 Census)
+          medianIncome: censusData.medianIncome || 0,
+          households: censusData.households || 0,
           // Crime data (2024)
           crimeTotal: zoneCrimeTotal,
           crimeRate: crimeRate,
