@@ -124,6 +124,9 @@ export interface NeighbourhoodBoundary {
   // Income data (2021 Census)
   medianIncome: number; // Median after-tax household income
   households: number; // Number of households
+  // Diversity (2021 Census)
+  pctImmigrants: number; // % of population that are immigrants
+  pctRacialized: number; // % of population that are visible minorities
   // Crime data (2023-2024)
   crimeTotal: number; // Total crimes in this zone
   crimeRate: number; // Crimes per 1,000 residents

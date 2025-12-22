@@ -1517,6 +1517,9 @@ async function main() {
           // Income data (2021 Census)
           medianIncome: censusData.medianIncome || 0,
           households: censusData.households || 0,
+          // Diversity (2021 Census)
+          pctImmigrants: censusData.pctImmigrants || 0,
+          pctRacialized: censusData.pctRacialized || 0,
           // Crime data (2024)
           crimeTotal: zoneCrimeTotal,
           crimeRate: crimeRate,

@@ -12,6 +12,7 @@ import CollisionStatRow from "@/components/CollisionStatRow";
 import EqaoStatRow from "@/components/EqaoStatRow";
 import WalkScoreRow from "@/components/WalkScoreRow";
 import AgeDemographicsRow from "@/components/AgeDemographicsRow";
+import DiversityStatRow from "@/components/DiversityStatRow";
 import ScoreBreakdown from "@/components/ScoreBreakdown";
 import BusStopsRow from "@/components/BusStopsRow";
 import TransitInfoRow from "@/components/TransitInfoRow";
@@ -316,6 +317,12 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             pctChildren={pctChildren}
             pctYoungProfessionals={pctYoungProfessionals}
             pctSeniors={pctSeniors}
+            boundaries={boundaries}
+            neighbourhoodName={name}
+          />
+          <DiversityStatRow
+            pctImmigrants={neighbourhood.pctImmigrants}
+            pctRacialized={neighbourhood.pctRacialized}
             boundaries={boundaries}
             neighbourhoodName={name}
           />
