@@ -23,6 +23,7 @@ import LibrariesStatRow from "@/components/LibrariesStatRow";
 import TrailsStatRow from "@/components/TrailsStatRow";
 import FoodEstablishmentsStatRow from "@/components/FoodEstablishmentsStatRow";
 import GroceryStoresStatRow from "@/components/GroceryStoresStatRow";
+import GymStatRow from "@/components/GymStatRow";
 
 const BASE_URL = "https://ottawahoods.com";
 
@@ -406,14 +407,10 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             boundaries={boundaries}
             neighbourhoodName={name}
           />
-          <ExpandableStatRow
-            icon="🏋️"
-            label="Gyms & Fitness"
-            value={
-              details.gyms !== null && details.gymDensity !== null
-                ? `${details.gyms} (${details.gymDensity}/km²)`
-                : "N/A"
-            }
+          <GymStatRow
+            gyms={details.gyms}
+            gymDensity={details.gymDensity}
+            gymsData={details.gymsData || []}
             percent={
               details.gymDensity !== null
                 ? getPercent(details.gymDensity, "gymDensity")
@@ -424,9 +421,9 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
                 ? getScoreType(details.gymDensity, "gymDensity")
                 : "neutral"
             }
-            items={details.gymsList || []}
-            itemLabel="gyms"
             source={DATA_SOURCES.gyms}
+            boundaries={boundaries}
+            neighbourhoodName={name}
           />
           <BusStopsRow
             totalStops={details.busStops}
