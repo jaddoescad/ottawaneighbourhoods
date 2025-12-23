@@ -283,11 +283,6 @@ module.exports = {
     onsIds: [],
     onsSqoIds: ['3063'],
   },
-  'lebreton-development': {
-    name: 'Lebreton Development',
-    onsIds: [],
-    onsSqoIds: ['3064'],
-  },
   'ledbury-heron-gate-ridgemont': {
     name: 'Ledbury - Heron Gate - Ridgemont',
     onsIds: [],

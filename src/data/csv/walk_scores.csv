@@ -1,0 +1,107 @@
+id,name,walkScore,groceryStores,restaurants,parks,schools,libraries,recreation,areaKm2
+hintonburg-mechanicsville,Hintonburg - Mechanicsville,97,13,60,10,3,1,4,1.71
+vanier-south,Vanier South,94,12,21,6,5,0,2,1.21
+centretown,Centretown,92,26,301,11,10,1,6,3.74
+vanier-north,Vanier North,92,15,27,10,1,1,3,1.76
+glebe-dows-lake,Glebe - Dows Lake,90,13,84,15,7,0,4,3.01
+west-centretown,West Centretown,90,14,114,5,4,0,3,1.51
+sandy-hill,Sandy Hill,89,9,120,10,2,1,4,2.33
+lowertown-west,Lowertown West,87,8,116,6,5,0,1,1.21
+beacon-hill-south-cardinal-heights,Beacon Hill South - Cardinal Heights,86,9,26,10,3,1,5,2.27
+lowertown-east,Lowertown East,85,3,12,8,3,0,6,0.93
+overbrook,Overbrook,82,21,88,18,13,1,11,6.25
+old-ottawa-south,Old Ottawa South,80,4,24,9,1,1,4,1.62
+fisher-heights,Fisher Heights,74,8,49,5,1,1,1,1.95
+ledbury-heron-gate-ridgemont,Ledbury - Heron Gate - Ridgemont,73,15,36,11,8,0,10,4.03
+carlington,Carlington,71,12,32,11,8,0,7,3.63
+bayshore,Bayshore,69,5,30,8,4,0,2,2.05
+billings-bridge-heron-park,Billings Bridge - Heron Park,68,12,41,6,4,0,0,2.64
+bells-corners-west,Bells Corners West,66,6,15,5,1,0,0,1.2
+laurentian,Laurentian,64,8,41,7,11,0,3,3.16
+glen-cairn,Glen Cairn,63,13,40,17,12,1,3,4.74
+south-keys,South Keys,63,6,24,2,1,0,0,1.23
+iris,Iris,62,5,14,4,5,0,3,1.88
+old-ottawa-east,Old Ottawa East,60,4,18,9,3,0,2,1.9
+britannia,Britannia,59,11,30,4,2,0,2,2.8
+katimavik-hazeldean,Katimavik - Hazeldean,59,16,34,28,6,0,5,5.49
+westboro,Westboro,59,5,36,13,4,0,3,2.97
+bells-corners-east,Bells Corners East,57,8,33,15,5,1,1,3.52
+queenswood-heights,Queenswood Heights,56,12,33,12,5,0,4,4.17
+elmvale-canterbury,Elmvale - Canterbury,53,8,10,2,5,0,5,2.67
+city-view,City view,51,6,38,3,3,0,0,2.5
+crestview-tanglewood,Crestview - Tanglewood,50,8,27,16,4,0,2,3.69
+manor-park,Manor Park,50,6,16,6,2,0,1,2.1
+pineview,Pineview,50,6,9,12,2,0,1,2.14
+carson-grove-carson-meadows,Carson Grove - Carson Meadows,49,10,28,13,4,0,3,4.04
+blackburn-hamlet,Blackburn Hamlet,48,3,9,12,6,1,5,3.2
+beaverbrook,Beaverbrook,45,1,4,31,7,1,4,3
+fallingbrook,Fallingbrook,45,7,23,15,8,1,9,5.78
+emerald-woods-sawmill-creek,Emerald Woods - Sawmill Creek,44,5,18,6,0,0,0,1.89
+hunt-club-park,Hunt Club Park,43,3,3,9,3,0,1,1.68
+island-park-wellington-village,Island Park - Wellington Village,43,2,32,4,5,0,1,2.47
+old-barrhaven-east,Old Barrhaven East,42,7,38,24,9,0,0,5.17
+riverview,Riverview,39,21,47,9,9,0,3,8.15
+stittsville,Stittsville,39,8,46,49,10,1,8,10.33
+orleans-village-chateauneuf,Orléans Village - Chateauneuf,38,4,24,13,4,1,0,3.6
+carleton-heights-courtland-park,Carleton Heights - Courtland Park,37,4,17,9,3,0,2,3.06
+greenboro-west,Greenboro West,35,1,2,7,0,1,1,1.26
+rothwell-heights-beacon-hill-north,Rothwell Heights - Beacon Hill North,35,3,23,14,7,0,8,5.72
+alta-vista,Alta Vista,34,1,25,15,1,1,2,3.8
+convent-glen-orleans-woods,Convent Glen - Orléans Woods,34,3,28,29,9,0,1,5.83
+parkwood-hills,Parkwood Hills,34,1,1,1,2,0,0,0.5
+civic-hospital,Civic Hospital,32,2,8,3,3,0,0,1.51
+whitehaven-woodpark-glabar-park,Whitehaven - Woodpark - Glabar Park,32,3,12,7,5,1,1,3.28
+leslie-park-bruce-farm,Leslie Park - Bruce Farm,31,1,1,4,2,0,0,0.91
+trend-arlington,Trend-Arlington,31,1,10,9,1,0,0,1.75
+blossom-park-timbermill,Blossom Park - Timbermill,30,5,13,14,5,0,2,4.5
+bridlewood-emerald-meadows,Bridlewood - Emerald Meadows,29,4,9,28,9,0,3,6.52
+riverside-park-mooney-s-bay,Riverside Park - Mooney's Bay,29,3,19,7,3,0,2,3.49
+old-barrhaven-west,Old Barrhaven West,28,8,34,28,13,1,5,10.86
+braemar-park-bel-air-heights-copeland-park,Braemar Park - Bel Air Heights - Copeland Park,27,1,6,9,6,0,2,3.18
+chapman-mills,Chapman Mills,27,2,11,14,4,0,0,3.27
+greenboro-east,Greenboro East,27,1,2,11,2,0,0,1.53
+borden-farm-fisher-glen,Borden Farm - Fisher Glen,26,3,11,7,4,0,0,2.91
+brookside-briarbrook-morgan-s-grant,Brookside - Briarbrook - Morgan's Grant,26,6,48,27,11,0,3,10.52
+craig-henry-manordale,Craig Henry - Manordale,25,3,4,11,3,0,0,2.91
+hawthorne-meadows-sheffield-glen,Hawthorne Meadows - Sheffield Glen,24,0,4,3,1,1,2,1.24
+kanata-lakes,Kanata Lakes,24,10,75,31,5,0,0,12.7
+new-edinburgh,New Edinburgh,24,0,14,2,3,0,2,1.66
+chapel-hill-north,Chapel Hill North,23,3,12,10,3,0,1,4.06
+playfair-park-guildwood-estates,Playfair Park - Guildwood Estates,23,1,3,4,5,0,0,1.9
+queensway-terrace-north,Queensway Terrace North,23,0,2,4,4,0,2,1.43
+stittsville-north,Stittsville North,23,9,29,26,2,0,0,8.65
+portobello-south,Portobello South,21,14,49,35,10,0,4,16.82
+old-hunt-club,Old Hunt Club,20,6,17,13,2,1,3,7.92
+rideau-crest-davidson-heights,Rideau Crest - Davidson Heights,19,3,5,19,3,0,0,5.08
+stonebridge-half-moon-bay,Stonebridge - Half Moon Bay,19,9,37,39,8,0,5,16.92
+centrepointe,Centrepointe,18,0,6,9,4,1,1,3
+queenswood-chatelaine,Queenswood - Chatelaine,18,1,5,15,2,0,2,4.67
+stittsville-east,Stittsville East,16,4,12,13,4,0,0,6.61
+rockcliffe-park,Rockcliffe Park,15,0,0,4,3,1,3,2.54
+merivale-gardens-grenfell-glen-pineglen-country-place,Merivale Gardens - Grenfell Glen - Pineglen - Country Place,14,0,3,6,2,0,12,5.85
+chapel-hill-south,Chapel Hill South,13,6,21,18,3,0,1,11.74
+cardinal-creek,Cardinal Creek,12,3,10,19,2,0,2,9.77
+findlay-creek,Findlay Creek,11,5,8,22,5,0,5,16.76
+crystal-bay-lakeview-park,Crystal Bay - Lakeview Park,10,1,1,7,3,0,2,5.66
+wateridge-village,Wateridge Village,10,1,7,8,0,0,0,4.25
+qualicum-redwood,Qualicum - Redwood,9,0,0,7,3,0,0,2.26
+riverside-south-leitrim,Riverside South - Leitrim,8,5,13,32,8,0,2,23.65
+riverside-park-south-revelstoke,Riverside Park South - Revelstoke,6,0,0,6,2,0,0,2.53
+constance-bay,Constance Bay,4,2,2,3,0,1,1,14.11
+lebreton-development,Lebreton Development,4,0,3,0,0,0,0,0.81
+manotick,Manotick,4,7,24,39,6,1,2,63.65
+greely,Greely,2,2,14,23,2,1,2,68.43
+carp,Carp,1,1,11,17,2,1,3,143.09
+cumberland,Cumberland,1,1,1,9,1,0,1,64.6
+dunrobin,Dunrobin,1,2,4,12,3,0,1,136.92
+edwards-carlsbad-springs,Edwards - Carlsbad Springs,1,5,12,3,2,0,2,135.31
+fitzroy,Fitzroy,1,1,1,10,1,1,3,165.12
+metcalfe,Metcalfe,1,1,6,11,5,1,4,161.38
+richmond,Richmond,1,6,18,27,7,1,3,168.6
+navan-sarsfield,Navan - Sarsfield,1,3,6,8,1,0,1,76.01
+north-gower-kars,North Gower - Kars,1,2,7,21,2,1,4,108.22
+osgoode-vernon,Osgoode - Vernon,1,3,10,13,2,2,4,150.59
+corkery,Corkery,0,0,0,2,1,0,0,139.16
+kinburn,Kinburn,0,0,1,2,0,0,1,161.24
+munster-ashton,Munster - Ashton,0,0,4,5,0,1,0,148.95
+vars,Vars,0,0,1,4,1,0,2,88.43

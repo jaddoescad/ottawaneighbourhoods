@@ -84,8 +84,8 @@ const DATA_SOURCES = {
     url: "https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/index.cfm",
   },
   walkScore: {
-    name: "WalkScore.com",
-    url: "https://www.walkscore.com/CA-ON/Ottawa",
+    name: "Ottawa Open Data & OC Transpo GTFS",
+    url: "https://open.ottawa.ca",
   },
   busStops: {
     name: "OC Transpo / City of Ottawa",

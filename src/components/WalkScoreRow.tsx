@@ -110,19 +110,28 @@ export default function WalkScoreRow({ walkScore, transitScore, bikeScore }: Wal
           ))}
         </div>
 
-        {/* Source link */}
+        {/* Source info */}
         <div className="mt-3 pt-2 border-t border-gray-100">
-          <a
-            href="https://www.walkscore.com/CA-ON/Ottawa"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs text-blue-600 hover:text-blue-800 transition-colors"
-          >
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-            <span>Source: WalkScore.com</span>
-          </a>
+          <div className="text-[10px] sm:text-xs text-gray-500">
+            <span className="font-medium">Data sources:</span>{" "}
+            <a
+              href="https://open.ottawa.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800"
+            >
+              Ottawa Open Data
+            </a>
+            {" · "}
+            <a
+              href="https://www.octranspo.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800"
+            >
+              OC Transpo GTFS
+            </a>
+          </div>
         </div>
       </div>
     </div>

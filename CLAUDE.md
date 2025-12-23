@@ -27,7 +27,9 @@ src/data/
 │   ├── hospitals_raw.csv         # All 10 hospitals from Ottawa Open Data
 │   ├── restaurants_cafes_raw.csv # Restaurants & cafés (OpenStreetMap / Overpass)
 │   ├── grocery_stores_raw.csv    # Grocery stores (OpenStreetMap / Overpass)
-│   ├── walkscores.csv            # Walk Score, Transit Score, Bike Score (from WalkScore.com)
+│   ├── transit_scores.csv        # Transit Score (calculated from OC Transpo GTFS)
+│   ├── walk_scores.csv           # Walk Score (calculated from amenity density)
+│   ├── bike_scores.csv           # Bike Score (calculated from trails/connectivity)
 │   ├── age_demographics.csv      # Age demographics (% children, young professionals, seniors)
 │   ├── commute_times.csv         # Commute times to downtown (by car and transit)
 │   ├── transit_stations.csv      # O-Train and Transitway stations (43 stations)
@@ -334,26 +336,73 @@ node scripts/download-ncc-greenbelt.js
 node scripts/process-data.js
 ```
 
-### walkscores.csv
-Walk Score, Transit Score, and Bike Score for each neighbourhood (0-100 scale):
+### transit_scores.csv
+Transit Score calculated from OC Transpo GTFS data:
 | Field | Description |
 |-------|-------------|
-| id | Neighbourhood ID (matches neighbourhoods.csv) |
+| id | Neighbourhood ID |
 | name | Neighbourhood name |
-| walkScore | Walk Score (0-100) - walkability to amenities |
-| transitScore | Transit Score (0-100) - access to public transit |
-| bikeScore | Bike Score (0-100) - bikeability |
-| source | Data source (WalkScore.com) |
-| notes | Additional context |
+| transitScore | Transit Score (0-100) |
+| otrainStops | O-Train stations in neighbourhood |
+| busStops | Bus stops in neighbourhood |
+| busStopDensity | Bus stops per km² |
+| distanceToOtrain | Distance to nearest O-Train (km) |
 
-**Score Interpretation:**
-- 90-100: Walker's/Biker's Paradise, Excellent Transit
-- 70-89: Very Walkable/Bikeable, Excellent Transit
-- 50-69: Somewhat Walkable/Bikeable, Good Transit
-- 25-49: Car-Dependent, Some Transit
-- 0-24: Almost All Errands Require Car, Minimal Transit
+**Calculation Method:**
+- O-Train access (0-40 pts): Stations within neighbourhood or proximity
+- Bus stop density (0-40 pts): Stops per km² (max at 20+ stops/km²)
+- Bus coverage (0-20 pts): Total bus stop count
 
-**Data Source:** https://www.walkscore.com/CA-ON/Ottawa (researched December 2024)
+**To refresh:** `node scripts/calculate-transit-scores.js`
+
+### walk_scores.csv
+Walk Score calculated from local amenity density:
+| Field | Description |
+|-------|-------------|
+| id | Neighbourhood ID |
+| name | Neighbourhood name |
+| walkScore | Walk Score (0-100) |
+| groceryStores | Grocery stores in neighbourhood |
+| restaurants | Restaurants & cafes |
+| parks | Parks count |
+
+**Calculation Method (weighted by importance):**
+- Grocery stores: 30% (daily essentials)
+- Restaurants & cafes: 25% (dining options)
+- Recreation facilities: 15% (pools, arenas, community centres)
+- Parks: 15% (green space)
+- Schools: 10% (education)
+- Libraries: 5% (community services)
+
+**To refresh:** `node scripts/calculate-walk-scores.js`
+
+### bike_scores.csv
+Bike Score calculated from trails and connectivity:
+| Field | Description |
+|-------|-------------|
+| id | Neighbourhood ID |
+| name | Neighbourhood name |
+| bikeScore | Bike Score (0-100) |
+| greenbeltTrailsKm | NCC Greenbelt trail length (km) |
+| parks | Parks count |
+
+**Calculation Method:**
+- Walkability proxy: 25% (walkable = bikeable)
+- Downtown proximity: 25% (central = more bike infrastructure)
+- Greenbelt trails: 20% (multi-use paths)
+- Parks: 15% (green corridors)
+- Transit integration: 15% (bike-transit combo)
+
+**To refresh:** `node scripts/calculate-bike-scores.js`
+
+**Score Interpretation (all scores):**
+- 90-100: Excellent
+- 70-89: Very Good
+- 50-69: Good
+- 25-49: Some Options
+- 0-24: Minimal
+
+**Data Sources:** Ottawa Open Data, OC Transpo GTFS (December 2024)
 
 ### income_data.csv
 Median household income data from Statistics Canada 2021 Census via ONS-SQO API:

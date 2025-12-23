@@ -488,24 +488,46 @@ async function main() {
     console.log('  - No transit stations file found (run: node scripts/download-transit-stations.js)');
   }
 
-  // Load Walk Scores (optional - file may not exist)
-  let walkScoresData = [];
-  const walkScoresPath = path.join(csvDir, 'walkscores.csv');
-  if (fs.existsSync(walkScoresPath)) {
-    walkScoresData = parseCSV(fs.readFileSync(walkScoresPath, 'utf8'));
-    console.log(`  - ${walkScoresData.length} walk score entries`);
+  // Load Walk/Transit/Bike Scores from our calculated CSV files
+  const walkScoresById = {};
+
+  // Load Transit Scores (calculated from GTFS data)
+  const transitScoresPath = path.join(csvDir, 'transit_scores.csv');
+  if (fs.existsSync(transitScoresPath)) {
+    const transitData = parseCSV(fs.readFileSync(transitScoresPath, 'utf8'));
+    console.log(`  - ${transitData.length} transit score entries (from GTFS)`);
+    for (const entry of transitData) {
+      if (!walkScoresById[entry.id]) walkScoresById[entry.id] = {};
+      walkScoresById[entry.id].transitScore = parseInt(entry.transitScore) || 0;
+    }
   } else {
-    console.log('  - No walk scores file found');
+    console.log('  - No transit scores file (run: node scripts/calculate-transit-scores.js)');
   }
 
-  // Build walk scores lookup by id
-  const walkScoresById = {};
-  for (const entry of walkScoresData) {
-    walkScoresById[entry.id] = {
-      walkScore: parseInt(entry.walkScore) || 0,
-      transitScore: parseInt(entry.transitScore) || 0,
-      bikeScore: parseInt(entry.bikeScore) || 0,
-    };
+  // Load Walk Scores (calculated from amenity data)
+  const walkScoresPath = path.join(csvDir, 'walk_scores.csv');
+  if (fs.existsSync(walkScoresPath)) {
+    const walkData = parseCSV(fs.readFileSync(walkScoresPath, 'utf8'));
+    console.log(`  - ${walkData.length} walk score entries (from amenities)`);
+    for (const entry of walkData) {
+      if (!walkScoresById[entry.id]) walkScoresById[entry.id] = {};
+      walkScoresById[entry.id].walkScore = parseInt(entry.walkScore) || 0;
+    }
+  } else {
+    console.log('  - No walk scores file (run: node scripts/calculate-walk-scores.js)');
+  }
+
+  // Load Bike Scores (calculated from trails/connectivity)
+  const bikeScoresPath = path.join(csvDir, 'bike_scores.csv');
+  if (fs.existsSync(bikeScoresPath)) {
+    const bikeData = parseCSV(fs.readFileSync(bikeScoresPath, 'utf8'));
+    console.log(`  - ${bikeData.length} bike score entries (from trails/connectivity)`);
+    for (const entry of bikeData) {
+      if (!walkScoresById[entry.id]) walkScoresById[entry.id] = {};
+      walkScoresById[entry.id].bikeScore = parseInt(entry.bikeScore) || 0;
+    }
+  } else {
+    console.log('  - No bike scores file (run: node scripts/calculate-bike-scores.js)');
   }
 
   // Load Age Demographics (optional - file may not exist)
