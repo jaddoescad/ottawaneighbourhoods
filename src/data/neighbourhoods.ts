@@ -127,6 +127,9 @@ export interface NeighbourhoodBoundary {
   // Diversity (2021 Census)
   pctImmigrants: number; // % of population that are immigrants
   pctRacialized: number; // % of population that are visible minorities
+  // Greenspace (2024)
+  treeCanopy: number; // % tree canopy coverage
+  parklandCoverage: number; // % parkland coverage
   // Crime data (2023-2024)
   crimeTotal: number; // Total crimes in this zone
   crimeRate: number; // Crimes per 1,000 residents

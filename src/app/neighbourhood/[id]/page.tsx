@@ -17,6 +17,7 @@ import ScoreBreakdown from "@/components/ScoreBreakdown";
 import BusStopsRow from "@/components/BusStopsRow";
 import TransitInfoRow from "@/components/TransitInfoRow";
 import ParksStatRow from "@/components/ParksStatRow";
+import GreenspaceStatRow from "@/components/GreenspaceStatRow";
 import SchoolsStatRow from "@/components/SchoolsStatRow";
 import EducationStatRow from "@/components/EducationStatRow";
 import IncomeStatRow from "@/components/IncomeStatRow";
@@ -333,6 +334,14 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             percent={getPercent(details.parks, "parks")}
             type={getScoreType(details.parks, "parks")}
             source={DATA_SOURCES.parks}
+            boundaries={boundaries}
+            neighbourhoodName={name}
+          />
+          <GreenspaceStatRow
+            treeCanopy={neighbourhood.treeCanopy}
+            parksCount={details.parks}
+            greenbeltTrailsCount={details.greenbeltTrails}
+            greenbeltLengthKm={greenbeltLengthKm}
             boundaries={boundaries}
             neighbourhoodName={name}
           />

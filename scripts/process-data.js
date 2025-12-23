@@ -578,8 +578,9 @@ async function main() {
       // Walk/Bike scores
       walkScore: parseFloat(entry.walkscore_mean) || null,
       bikeScore: parseFloat(entry.bikescore_mean) || null,
-      // Environment
-      treeCanopy: parseFloat(entry.percent_coverage_tree_canopy_2024) || null,
+      // Environment / Greenspace
+      treeCanopy: parseFloat(entry.percent_coverage_tree_canopy_2024) || 0,
+      parklandCoverage: parseFloat(entry.percent_coverage_parkland_residential) || 0,
     };
   }
 
@@ -1520,6 +1521,9 @@ async function main() {
           // Diversity (2021 Census)
           pctImmigrants: censusData.pctImmigrants || 0,
           pctRacialized: censusData.pctRacialized || 0,
+          // Greenspace (2024)
+          treeCanopy: censusData.treeCanopy || 0,
+          parklandCoverage: censusData.parklandCoverage || 0,
           // Crime data (2024)
           crimeTotal: zoneCrimeTotal,
           crimeRate: crimeRate,

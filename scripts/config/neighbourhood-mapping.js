@@ -197,8 +197,13 @@ module.exports = {
   },
   'constance-bay': {
     name: 'Constance Bay',
-    onsIds: [29, 922], // Constance Bay, Fitzroy
-    onsSqoIds: ['3031', '3046'], // Constance Bay, Fitzroy
+    onsIds: [29], // Constance Bay only
+    onsSqoIds: ['3031'], // Constance Bay
+  },
+  'fitzroy': {
+    name: 'Fitzroy',
+    onsIds: [922], // Fitzroy
+    onsSqoIds: ['3046'], // Fitzroy
   },
   'dunrobin': {
     name: 'Dunrobin',
