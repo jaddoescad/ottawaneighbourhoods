@@ -1,9 +1,6 @@
 /**
  * Neighbourhood Mapping Configuration
- *
- * Maps our curated neighbourhood IDs to:
- * - onsIds: City of Ottawa ONS IDs (used for boundaries from maps.ottawa.ca)
- * - onsSqoIds: ONS-SQO internal IDs (used for census data from ons-sqo.ca)
+ * Each ONS area is its own distinct neighbourhood
  *
  * Data sources:
  * - Boundaries: https://maps.ottawa.ca/arcgis/rest/services/Neighbourhoods/MapServer/0
@@ -11,282 +8,544 @@
  */
 
 module.exports = {
-  // Central Ottawa
-  'the-glebe': {
-    name: 'The Glebe',
-    onsIds: [923], // Glebe-Dows Lake only
-    onsSqoIds: ['3047'], // Glebe - Dows Lake
-  },
-  'old-ottawa-east': {
-    name: 'Old Ottawa East',
-    onsIds: [82], // Old Ottawa East
-    onsSqoIds: ['3082'], // Old Ottawa East
-  },
-  'westboro': {
-    name: 'Westboro',
-    onsIds: [958, 931, 910], // Westboro, Laurentian, McKellar Heights
-    onsSqoIds: ['3116', '3063'], // Westboro, Laurentian
-  },
-  'byward-market': {
-    name: 'Byward Market',
-    onsIds: [908, 934, 956], // Byward Market, Lowertown, Wateridge Village
-    onsSqoIds: ['3067', '3068', '3114'], // Lowertown East, Lowertown West, Wateridge Village
-  },
-  'centretown': {
-    name: 'Centretown',
-    onsIds: [24, 957, 28, 60], // Centretown, West Centretown, Civic Hospital, Lebreton
-    onsSqoIds: ['3024', '3115', '3029', '3064'], // Centretown, West Centretown, Civic Hospital, Lebreton Development
-  },
-  'old-ottawa-south': {
-    name: 'Old Ottawa South',
-    onsIds: [83], // Old Ottawa South only
-    onsSqoIds: ['3083'], // Old Ottawa South
-  },
-  'riverside-park': {
-    name: 'Riverside Park',
-    onsIds: [90, 91], // Riverside Park, Riverside Park South
-    onsSqoIds: ['3098', '3099'], // Riverside Park - Mooney's Bay, Riverside Park South - Revelstoke
-  },
-  'hintonburg': {
-    name: 'Hintonburg',
-    onsIds: [47], // Hintonburg-Mechanicsville
-    onsSqoIds: ['3055'], // Hintonburg - Mechanicsville
-  },
-  'wellington-village': {
-    name: 'Wellington Village',
-    onsIds: [55], // Island Park-Wellington Village
-    onsSqoIds: ['3059'], // Island Park - Wellington Village
-  },
-  'sandy-hill': {
-    name: 'Sandy Hill',
-    onsIds: [949, 940], // Sandy Hill, Overbrook-McArthur
-    onsSqoIds: ['3104', '3087'], // Sandy Hill, Overbrook
-  },
-  'vanier': {
-    name: 'Vanier',
-    onsIds: [953, 954], // Vanier North, Vanier South
-    onsSqoIds: ['3111', '3112'], // Vanier North, Vanier South
-  },
-  'rockcliffe': {
-    name: 'Rockcliffe',
-    onsIds: [933, 935, 948], // Lindenlea-New Edinburgh, Manor Park, Rockcliffe Park
-    onsSqoIds: ['3077', '3069', '3102'], // New Edinburgh, Manor Park, Rockcliffe Park
-  },
-
-  // West End
-  'bayshore': {
-    name: 'Bayshore',
-    onsIds: [901], // Bayshore-Belltown
-    onsSqoIds: ['3003'], // Bayshore
-  },
-  'britannia': {
-    name: 'Britannia',
-    onsIds: [906, 106], // Britannia, Whitehaven-Queensway Terrace North
-    onsSqoIds: ['3015', '3117'], // Britannia, Whitehaven - Woodpark - Glabar Park
-  },
-  'crystal-beach': {
-    name: 'Crystal Beach',
-    onsIds: [32], // Crystal Bay
-    onsSqoIds: ['3036'], // Crystal Bay - Lakeview Park
-  },
-  'bells-corners': {
-    name: 'Bells Corners',
-    onsIds: [6, 7], // Bells Corners East, West
-    onsSqoIds: ['3007', '3008'], // Bells Corners East, Bells Corners West
-  },
-  'qualicum': {
-    name: 'Qualicum',
-    onsIds: [88], // Qualicum-Redwood Park
-    onsSqoIds: ['3092'], // Qualicum - Redwood
-  },
-  'carlington': {
-    name: 'Carlington',
-    onsIds: [18, 950, 31, 16], // Carlington, Skyline-Fisher Heights, Cityview, Carleton Heights
-    onsSqoIds: ['3020', '3045', '3028', '3018'], // Carlington, Fisher Heights, City view, Carleton Heights
-  },
-  'kanata': {
-    name: 'Kanata',
-    onsIds: [928, 929, 924, 902, 907, 13], // Kanata Lakes, Katimavik-Hazeldean, Glen Cairn, Beaverbrook, Morgan's Grant, Bridlewood-Emerald Meadows
-    onsSqoIds: ['3060', '3061', '3048', '3005', '3016', '3014'], // Kanata Lakes, Katimavik-Hazeldean, Glen Cairn, Beaverbrook, Brookside, Bridlewood
-  },
-  'stittsville': {
-    name: 'Stittsville',
-    onsIds: [951], // Stittsville
-    onsSqoIds: ['3106', '3107', '3108'], // Stittsville, Stittsville East, Stittsville North
-  },
-  'merivale': {
-    name: 'Merivale',
-    onsIds: [65, 941, 905, 99, 51], // Merivale Gardens, Parkwood Hills, Borden Farm, Tanglewood, Hunt Club South Industrial
-    onsSqoIds: ['3072', '3088', '3012', '3035', '3030'], // Merivale Gardens, Parkwood Hills, Borden Farm, Crestview-Tanglewood, Colonnade Business Park
-  },
-  'queensway-terrace-north': {
-    name: 'Queensway Terrace North',
-    onsIds: [], // Queensway Terrace North
-    onsSqoIds: ['3093'], // Queensway Terrace North
-  },
-
-  // South End
   'alta-vista': {
     name: 'Alta Vista',
-    onsIds: [903, 87], // Alta Vista, Playfair Park
-    onsSqoIds: ['3002', '3090'], // Alta Vista, Playfair Park
+    onsIds: [],
+    onsSqoIds: ['3002'],
   },
-  'trainyards': {
-    name: 'Trainyards',
-    onsIds: [947], // Riverview
-    onsSqoIds: ['3101'], // Riverview (Trainyards area)
+  'bayshore': {
+    name: 'Bayshore',
+    onsIds: [],
+    onsSqoIds: ['3003'],
   },
-  'billings-bridge': {
-    name: 'Billings Bridge',
-    onsIds: [], // Billings Bridge - Heron Park
-    onsSqoIds: ['3009'], // Billings Bridge - Heron Park
+  'beacon-hill-south-cardinal-heights': {
+    name: 'Beacon Hill South - Cardinal Heights',
+    onsIds: [],
+    onsSqoIds: ['3004'],
   },
-  'heron-gate': {
-    name: 'Heron Gate',
-    onsIds: [], // Ledbury-Heron Gate-Ridgemont
-    onsSqoIds: ['3065'], // Ledbury - Heron Gate - Ridgemont
+  'beaverbrook': {
+    name: 'Beaverbrook',
+    onsIds: [],
+    onsSqoIds: ['3005'],
   },
-  'hawthorne-elmvale': {
-    name: 'Hawthorne-Elmvale',
-    onsIds: [919, 38], // Elmvale, Hawthorne
-    onsSqoIds: ['3040', '3054'], // Elmvale, Hawthorne Meadows
+  'bells-corners-east': {
+    name: 'Bells Corners East',
+    onsIds: [],
+    onsSqoIds: ['3007'],
   },
-  'cyrville': {
-    name: 'Cyrville',
-    onsIds: [917], // East Industrial (Cyrville area)
-    onsSqoIds: ['3057'], // Industrial East
+  'bells-corners-west': {
+    name: 'Bells Corners West',
+    onsIds: [],
+    onsSqoIds: ['3008'],
   },
-  'hunt-club': {
-    name: 'Hunt Club',
-    onsIds: [48, 49, 50, 52, 927, 45, 97], // Hunt Club areas + Greenboro + Emerald Woods
-    onsSqoIds: ['3056', '3081', '3052', '3053', '3105', '3011', '3041'], // Hunt Club Park, Old Hunt Club, Greenboro East/West, South Keys, Blossom Park, Emerald Woods-Sawmill Creek
-  },
-  'barrhaven': {
-    name: 'Barrhaven',
-    onsIds: [937, 938, 914, 952], // Old Barrhaven East/West, Chapman Mills, Stonebridge
-    onsSqoIds: ['3079', '3080', '3027', '3109'], // Old Barrhaven East/West, Chapman Mills, Stonebridge
-  },
-  'riverside-south': {
-    name: 'Riverside South',
-    onsIds: [946, 945], // Riverside South-Leitrim, Rideau Crest
-    onsSqoIds: ['3100', '3097'], // Riverside South - Leitrim, Rideau Crest - Davidson Heights
-  },
-  'findlay-creek': {
-    name: 'Findlay Creek',
-    onsIds: [921], // Findlay Creek
-    onsSqoIds: ['3044'], // Findlay Creek
-  },
-  'manotick': {
-    name: 'Manotick',
-    onsIds: [64], // Manotick
-    onsSqoIds: ['3070'], // Manotick
-  },
-  'north-gower': {
-    name: 'North Gower',
-    onsIds: [70], // North Gower-Kars
-    onsSqoIds: ['3078'], // North Gower - Kars
-  },
-  'greely': {
-    name: 'Greely',
-    onsIds: [925], // Greely
-    onsSqoIds: ['3049'], // Greely
-  },
-
-  // East End
-  'orleans': {
-    name: 'Orleans',
-    onsIds: [920, 915, 939, 909, 913, 75, 942, 943, 3], // Orleans sub-areas
-    onsSqoIds: ['3043', '3032', '3085', '3017', '3025', '3026', '3091', '3095', '3094'], // Fallingbrook, Convent Glen, Orleans Village, Cardinal Creek, Chapel Hills, Portobello, Queenswood, Queenswood-Chatelaine
-  },
-  'gloucester': {
-    name: 'Gloucester',
-    onsIds: [912, 93, 76, 86], // Carson Grove, Beacon Hill South, Rothwell Heights, Pineview
-    onsSqoIds: ['3022', '3004', '3103', '3089'], // Carson Grove, Beacon Hill South, Rothwell Heights - Beacon Hill North, Pineview
+  'billings-bridge-heron-park': {
+    name: 'Billings Bridge - Heron Park',
+    onsIds: [],
+    onsSqoIds: ['3009'],
   },
   'blackburn-hamlet': {
     name: 'Blackburn Hamlet',
-    onsIds: [904], // Blackburn Hamlet
-    onsSqoIds: ['3010'], // Blackburn Hamlet
+    onsIds: [],
+    onsSqoIds: ['3010'],
   },
-  'cumberland': {
-    name: 'Cumberland',
-    onsIds: [916], // Cumberland
-    onsSqoIds: ['3037'], // Cumberland
+  'blossom-park-timbermill': {
+    name: 'Blossom Park - Timbermill',
+    onsIds: [],
+    onsSqoIds: ['3011'],
   },
-  'vars': {
-    name: 'Vars-Navan',
-    onsIds: [955, 936, 918], // Vars, Navan-Sarsfield, Edwards-Carlsbad Springs
-    onsSqoIds: ['3113', '3076', '3039'], // Vars, Navan-Sarsfield, Edwards-Carlsbad Springs
+  'borden-farm-fisher-glen': {
+    name: 'Borden Farm - Fisher Glen',
+    onsIds: [],
+    onsSqoIds: ['3012'],
   },
-
-  // Rural West
+  'braemar-park-bel-air-heights-copeland-park': {
+    name: 'Braemar Park - Bel Air Heights - Copeland Park',
+    onsIds: [],
+    onsSqoIds: ['3013'],
+  },
+  'bridlewood-emerald-meadows': {
+    name: 'Bridlewood - Emerald Meadows',
+    onsIds: [],
+    onsSqoIds: ['3014'],
+  },
+  'britannia': {
+    name: 'Britannia',
+    onsIds: [],
+    onsSqoIds: ['3015'],
+  },
+  'brookside-briarbrook-morgan-s-grant': {
+    name: 'Brookside - Briarbrook - Morgan\'s Grant',
+    onsIds: [],
+    onsSqoIds: ['3016'],
+  },
+  'cardinal-creek': {
+    name: 'Cardinal Creek',
+    onsIds: [],
+    onsSqoIds: ['3017'],
+  },
+  'carleton-heights-courtland-park': {
+    name: 'Carleton Heights - Courtland Park',
+    onsIds: [],
+    onsSqoIds: ['3018'],
+  },
+  'carlington': {
+    name: 'Carlington',
+    onsIds: [],
+    onsSqoIds: ['3020'],
+  },
   'carp': {
     name: 'Carp',
-    onsIds: [911], // Carp
-    onsSqoIds: ['3021'], // Carp
+    onsIds: [],
+    onsSqoIds: ['3021'],
   },
-  'corkery': {
-    name: 'Corkery',
-    onsIds: [30], // Corkery
-    onsSqoIds: ['3033'], // Corkery
-  },
-  'kinburn': {
-    name: 'Kinburn',
-    onsIds: [930], // Kinburn
-    onsSqoIds: ['3062'], // Kinburn
-  },
-  'constance-bay': {
-    name: 'Constance Bay',
-    onsIds: [29], // Constance Bay only
-    onsSqoIds: ['3031'], // Constance Bay
-  },
-  'fitzroy': {
-    name: 'Fitzroy',
-    onsIds: [922], // Fitzroy
-    onsSqoIds: ['3046'], // Fitzroy
-  },
-  'dunrobin': {
-    name: 'Dunrobin',
-    onsIds: [35], // Dunrobin
-    onsSqoIds: ['3038'], // Dunrobin
-  },
-  'richmond': {
-    name: 'Richmond',
-    onsIds: [944], // Richmond
-    onsSqoIds: ['3074'], // Richmond
-  },
-  'munster-ashton': {
-    name: 'Munster-Ashton',
-    onsIds: [67], // Munster-Ashton
-    onsSqoIds: ['3075'], // Munster-Ashton
-  },
-
-  // Rural South
-  'metcalfe': {
-    name: 'Metcalfe-Osgoode',
-    onsIds: [66, 81], // Metcalfe, Osgoode-Vernon
-    onsSqoIds: ['3073', '3086'], // Metcalfe, Osgoode-Vernon
-  },
-
-  // Nepean / Centrepointe area
-  'nepean': {
-    name: 'Nepean',
-    onsIds: [100, 108, 12], // Trend-Arlington, Craig Henry, Leslie Park
-    onsSqoIds: ['3110', '3034', '3066'], // Trend-Arlington, Craig Henry-Manordale, Leslie Park - Bruce Farm
-  },
-  'pinecrest': {
-    name: 'Pinecrest',
-    onsIds: [54], // Iris
-    onsSqoIds: ['3058'], // Iris
+  'carson-grove-carson-meadows': {
+    name: 'Carson Grove - Carson Meadows',
+    onsIds: [],
+    onsSqoIds: ['3022'],
   },
   'centrepointe': {
     name: 'Centrepointe',
-    onsIds: [23], // Centrepointe
-    onsSqoIds: ['3023'], // Centrepointe
+    onsIds: [],
+    onsSqoIds: ['3023'],
   },
-  'belair-heights': {
-    name: 'Bel Air Heights',
-    onsIds: [11], // Braemar Park - Bel Air Heights - Copeland Park
-    onsSqoIds: ['3013'], // Braemar Park - Bel Air Heights - Copeland Park
+  'centretown': {
+    name: 'Centretown',
+    onsIds: [],
+    onsSqoIds: ['3024'],
+  },
+  'chapel-hill-north': {
+    name: 'Chapel Hill North',
+    onsIds: [],
+    onsSqoIds: ['3025'],
+  },
+  'chapel-hill-south': {
+    name: 'Chapel Hill South',
+    onsIds: [],
+    onsSqoIds: ['3026'],
+  },
+  'chapman-mills': {
+    name: 'Chapman Mills',
+    onsIds: [],
+    onsSqoIds: ['3027'],
+  },
+  'city-view': {
+    name: 'City view',
+    onsIds: [],
+    onsSqoIds: ['3028'],
+  },
+  'civic-hospital': {
+    name: 'Civic Hospital',
+    onsIds: [],
+    onsSqoIds: ['3029'],
+  },
+  'colonnade-business-park': {
+    name: 'Colonnade Business Park',
+    onsIds: [],
+    onsSqoIds: ['3030'],
+  },
+  'constance-bay': {
+    name: 'Constance Bay',
+    onsIds: [],
+    onsSqoIds: ['3031'],
+  },
+  'convent-glen-orleans-woods': {
+    name: 'Convent Glen - Orléans Woods',
+    onsIds: [],
+    onsSqoIds: ['3032'],
+  },
+  'corkery': {
+    name: 'Corkery',
+    onsIds: [],
+    onsSqoIds: ['3033'],
+  },
+  'craig-henry-manordale': {
+    name: 'Craig Henry - Manordale',
+    onsIds: [],
+    onsSqoIds: ['3034'],
+  },
+  'crestview-tanglewood': {
+    name: 'Crestview - Tanglewood',
+    onsIds: [],
+    onsSqoIds: ['3035'],
+  },
+  'crystal-bay-lakeview-park': {
+    name: 'Crystal Bay - Lakeview Park',
+    onsIds: [],
+    onsSqoIds: ['3036'],
+  },
+  'cumberland': {
+    name: 'Cumberland',
+    onsIds: [],
+    onsSqoIds: ['3037'],
+  },
+  'dunrobin': {
+    name: 'Dunrobin',
+    onsIds: [],
+    onsSqoIds: ['3038'],
+  },
+  'edwards-carlsbad-springs': {
+    name: 'Edwards - Carlsbad Springs',
+    onsIds: [],
+    onsSqoIds: ['3039'],
+  },
+  'elmvale-canterbury': {
+    name: 'Elmvale - Canterbury',
+    onsIds: [],
+    onsSqoIds: ['3040'],
+  },
+  'emerald-woods-sawmill-creek': {
+    name: 'Emerald Woods - Sawmill Creek',
+    onsIds: [],
+    onsSqoIds: ['3041'],
+  },
+  'fallingbrook': {
+    name: 'Fallingbrook',
+    onsIds: [],
+    onsSqoIds: ['3043'],
+  },
+  'findlay-creek': {
+    name: 'Findlay Creek',
+    onsIds: [],
+    onsSqoIds: ['3044'],
+  },
+  'fisher-heights': {
+    name: 'Fisher Heights',
+    onsIds: [],
+    onsSqoIds: ['3045'],
+  },
+  'fitzroy': {
+    name: 'Fitzroy',
+    onsIds: [],
+    onsSqoIds: ['3046'],
+  },
+  'glebe-dows-lake': {
+    name: 'Glebe - Dows Lake',
+    onsIds: [],
+    onsSqoIds: ['3047'],
+  },
+  'glen-cairn': {
+    name: 'Glen Cairn',
+    onsIds: [],
+    onsSqoIds: ['3048'],
+  },
+  'greely': {
+    name: 'Greely',
+    onsIds: [],
+    onsSqoIds: ['3049'],
+  },
+  'greenboro-east': {
+    name: 'Greenboro East',
+    onsIds: [],
+    onsSqoIds: ['3052'],
+  },
+  'greenboro-west': {
+    name: 'Greenboro West',
+    onsIds: [],
+    onsSqoIds: ['3053'],
+  },
+  'hawthorne-meadows-sheffield-glen': {
+    name: 'Hawthorne Meadows - Sheffield Glen',
+    onsIds: [],
+    onsSqoIds: ['3054'],
+  },
+  'hintonburg-mechanicsville': {
+    name: 'Hintonburg - Mechanicsville',
+    onsIds: [],
+    onsSqoIds: ['3055'],
+  },
+  'hunt-club-park': {
+    name: 'Hunt Club Park',
+    onsIds: [],
+    onsSqoIds: ['3056'],
+  },
+  'industrial-east': {
+    name: 'Industrial East',
+    onsIds: [],
+    onsSqoIds: ['3057'],
+  },
+  'iris': {
+    name: 'Iris',
+    onsIds: [],
+    onsSqoIds: ['3058'],
+  },
+  'island-park-wellington-village': {
+    name: 'Island Park - Wellington Village',
+    onsIds: [],
+    onsSqoIds: ['3059'],
+  },
+  'kanata-lakes': {
+    name: 'Kanata Lakes',
+    onsIds: [],
+    onsSqoIds: ['3060'],
+  },
+  'katimavik-hazeldean': {
+    name: 'Katimavik - Hazeldean',
+    onsIds: [],
+    onsSqoIds: ['3061'],
+  },
+  'kinburn': {
+    name: 'Kinburn',
+    onsIds: [],
+    onsSqoIds: ['3062'],
+  },
+  'laurentian': {
+    name: 'Laurentian',
+    onsIds: [],
+    onsSqoIds: ['3063'],
+  },
+  'lebreton-development': {
+    name: 'Lebreton Development',
+    onsIds: [],
+    onsSqoIds: ['3064'],
+  },
+  'ledbury-heron-gate-ridgemont': {
+    name: 'Ledbury - Heron Gate - Ridgemont',
+    onsIds: [],
+    onsSqoIds: ['3065'],
+  },
+  'leslie-park-bruce-farm': {
+    name: 'Leslie Park - Bruce Farm',
+    onsIds: [],
+    onsSqoIds: ['3066'],
+  },
+  'lowertown-east': {
+    name: 'Lowertown East',
+    onsIds: [],
+    onsSqoIds: ['3067'],
+  },
+  'lowertown-west': {
+    name: 'Lowertown West',
+    onsIds: [],
+    onsSqoIds: ['3068'],
+  },
+  'manor-park': {
+    name: 'Manor Park',
+    onsIds: [],
+    onsSqoIds: ['3069'],
+  },
+  'manotick': {
+    name: 'Manotick',
+    onsIds: [],
+    onsSqoIds: ['3070'],
+  },
+  'merivale-gardens-grenfell-glen-pineglen-country-place': {
+    name: 'Merivale Gardens - Grenfell Glen - Pineglen - Country Place',
+    onsIds: [],
+    onsSqoIds: ['3072'],
+  },
+  'metcalfe': {
+    name: 'Metcalfe',
+    onsIds: [],
+    onsSqoIds: ['3073'],
+  },
+  'richmond': {
+    name: 'Richmond',
+    onsIds: [],
+    onsSqoIds: ['3074'],
+  },
+  'munster-ashton': {
+    name: 'Munster - Ashton',
+    onsIds: [],
+    onsSqoIds: ['3075'],
+  },
+  'navan-sarsfield': {
+    name: 'Navan - Sarsfield',
+    onsIds: [],
+    onsSqoIds: ['3076'],
+  },
+  'new-edinburgh': {
+    name: 'New Edinburgh',
+    onsIds: [],
+    onsSqoIds: ['3077'],
+  },
+  'north-gower-kars': {
+    name: 'North Gower - Kars',
+    onsIds: [],
+    onsSqoIds: ['3078'],
+  },
+  'old-barrhaven-east': {
+    name: 'Old Barrhaven East',
+    onsIds: [],
+    onsSqoIds: ['3079'],
+  },
+  'old-barrhaven-west': {
+    name: 'Old Barrhaven West',
+    onsIds: [],
+    onsSqoIds: ['3080'],
+  },
+  'old-hunt-club': {
+    name: 'Old Hunt Club',
+    onsIds: [],
+    onsSqoIds: ['3081'],
+  },
+  'old-ottawa-east': {
+    name: 'Old Ottawa East',
+    onsIds: [],
+    onsSqoIds: ['3082'],
+  },
+  'old-ottawa-south': {
+    name: 'Old Ottawa South',
+    onsIds: [],
+    onsSqoIds: ['3083'],
+  },
+  'orleans-village-chateauneuf': {
+    name: 'Orléans Village - Chateauneuf',
+    onsIds: [],
+    onsSqoIds: ['3085'],
+  },
+  'osgoode-vernon': {
+    name: 'Osgoode - Vernon',
+    onsIds: [],
+    onsSqoIds: ['3086'],
+  },
+  'overbrook': {
+    name: 'Overbrook',
+    onsIds: [],
+    onsSqoIds: ['3087'],
+  },
+  'parkwood-hills': {
+    name: 'Parkwood Hills',
+    onsIds: [],
+    onsSqoIds: ['3088'],
+  },
+  'pineview': {
+    name: 'Pineview',
+    onsIds: [],
+    onsSqoIds: ['3089'],
+  },
+  'playfair-park-guildwood-estates': {
+    name: 'Playfair Park - Guildwood Estates',
+    onsIds: [],
+    onsSqoIds: ['3090'],
+  },
+  'portobello-south': {
+    name: 'Portobello South',
+    onsIds: [],
+    onsSqoIds: ['3091'],
+  },
+  'qualicum-redwood': {
+    name: 'Qualicum - Redwood',
+    onsIds: [],
+    onsSqoIds: ['3092'],
+  },
+  'queensway-terrace-north': {
+    name: 'Queensway Terrace North',
+    onsIds: [],
+    onsSqoIds: ['3093'],
+  },
+  'queenswood-chatelaine': {
+    name: 'Queenswood - Chatelaine',
+    onsIds: [],
+    onsSqoIds: ['3094'],
+  },
+  'queenswood-heights': {
+    name: 'Queenswood Heights',
+    onsIds: [],
+    onsSqoIds: ['3095'],
+  },
+  'rideau-crest-davidson-heights': {
+    name: 'Rideau Crest - Davidson Heights',
+    onsIds: [],
+    onsSqoIds: ['3097'],
+  },
+  'riverside-park-mooney-s-bay': {
+    name: 'Riverside Park - Mooney\'s Bay',
+    onsIds: [],
+    onsSqoIds: ['3098'],
+  },
+  'riverside-park-south-revelstoke': {
+    name: 'Riverside Park South - Revelstoke',
+    onsIds: [],
+    onsSqoIds: ['3099'],
+  },
+  'riverside-south-leitrim': {
+    name: 'Riverside South - Leitrim',
+    onsIds: [],
+    onsSqoIds: ['3100'],
+  },
+  'riverview': {
+    name: 'Riverview',
+    onsIds: [],
+    onsSqoIds: ['3101'],
+  },
+  'rockcliffe-park': {
+    name: 'Rockcliffe Park',
+    onsIds: [],
+    onsSqoIds: ['3102'],
+  },
+  'rothwell-heights-beacon-hill-north': {
+    name: 'Rothwell Heights - Beacon Hill North',
+    onsIds: [],
+    onsSqoIds: ['3103'],
+  },
+  'sandy-hill': {
+    name: 'Sandy Hill',
+    onsIds: [],
+    onsSqoIds: ['3104'],
+  },
+  'south-keys': {
+    name: 'South Keys',
+    onsIds: [],
+    onsSqoIds: ['3105'],
+  },
+  'stittsville': {
+    name: 'Stittsville',
+    onsIds: [],
+    onsSqoIds: ['3106'],
+  },
+  'stittsville-east': {
+    name: 'Stittsville East',
+    onsIds: [],
+    onsSqoIds: ['3107'],
+  },
+  'stittsville-north': {
+    name: 'Stittsville North',
+    onsIds: [],
+    onsSqoIds: ['3108'],
+  },
+  'stonebridge-half-moon-bay': {
+    name: 'Stonebridge - Half Moon Bay',
+    onsIds: [],
+    onsSqoIds: ['3109'],
+  },
+  'trend-arlington': {
+    name: 'Trend-Arlington',
+    onsIds: [],
+    onsSqoIds: ['3110'],
+  },
+  'vanier-north': {
+    name: 'Vanier North',
+    onsIds: [],
+    onsSqoIds: ['3111'],
+  },
+  'vanier-south': {
+    name: 'Vanier South',
+    onsIds: [],
+    onsSqoIds: ['3112'],
+  },
+  'vars': {
+    name: 'Vars',
+    onsIds: [],
+    onsSqoIds: ['3113'],
+  },
+  'wateridge-village': {
+    name: 'Wateridge Village',
+    onsIds: [],
+    onsSqoIds: ['3114'],
+  },
+  'west-centretown': {
+    name: 'West Centretown',
+    onsIds: [],
+    onsSqoIds: ['3115'],
+  },
+  'westboro': {
+    name: 'Westboro',
+    onsIds: [],
+    onsSqoIds: ['3116'],
+  },
+  'whitehaven-woodpark-glabar-park': {
+    name: 'Whitehaven - Woodpark - Glabar Park',
+    onsIds: [],
+    onsSqoIds: ['3117'],
   },
 };
