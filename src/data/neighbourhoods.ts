@@ -89,6 +89,16 @@ export interface GymData {
   osmType: string;
 }
 
+export interface RecreationFacilityData {
+  name: string;
+  facilityType: string; // Arena, Pool - Indoor, Community Center, etc.
+  buildingName: string;
+  address: string;
+  lat: number;
+  lng: number;
+  link: string;
+}
+
 export interface CrimeByCategory {
   [category: string]: number;
 }
@@ -253,6 +263,13 @@ export interface Neighbourhood {
     gymDensity: number | null; // per km²
     gymsList: string[];
     gymsData: GymData[];
+    // Recreation facilities (pools, arenas, rinks, community centres)
+    recreationFacilities: number | null;
+    recreationFacilitiesList: string[];
+    recreationFacilitiesData: RecreationFacilityData[];
+    arenas: number | null;
+    pools: number | null;
+    communityCentres: number | null;
     busStops: number | null;
     busStopDensity: number | null; // per km²
     stopsWithShelter: number;

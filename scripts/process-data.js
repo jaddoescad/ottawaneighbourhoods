@@ -410,6 +410,25 @@ async function main() {
     console.log('  - No gyms file found (run: node scripts/download-gyms.js)');
   }
 
+  // Load Recreation Facilities (pools, arenas, rinks, etc.)
+  const recreationFacilitiesPath = path.join(csvDir, 'recreation_facilities_raw.csv');
+  const hasRecreationFacilitiesData = fs.existsSync(recreationFacilitiesPath);
+  const recreationFacilitiesRaw = hasRecreationFacilitiesData
+    ? parseCSV(fs.readFileSync(recreationFacilitiesPath, 'utf8'))
+    : [];
+  if (hasRecreationFacilitiesData) {
+    // Count by type
+    const typeCounts = {};
+    for (const facility of recreationFacilitiesRaw) {
+      const type = facility.FACILITY_TYPE || 'Unknown';
+      typeCounts[type] = (typeCounts[type] || 0) + 1;
+    }
+    console.log(`  - ${recreationFacilitiesRaw.length} recreation facilities`);
+    console.log(`    Types: ${Object.entries(typeCounts).map(([k, v]) => `${k}:${v}`).join(', ')}`);
+  } else {
+    console.log('  - No recreation facilities file found (run: node scripts/download-recreation-facilities.js)');
+  }
+
   // Load Traffic Collision Data (optional - file may not exist)
   const collisionsPath = path.join(csvDir, 'collisions_raw.csv');
   const hasCollisionsData = fs.existsSync(collisionsPath);
@@ -930,6 +949,38 @@ async function main() {
   }
   console.log(`  Assigned ${assignedGyms} gyms & fitness centers`);
 
+  // Process recreation facilities (pools, arenas, rinks, etc.)
+  console.log('\nAssigning recreation facilities to neighbourhoods...');
+  const recreationFacilitiesByNeighbourhood = {};
+  let assignedRecreationFacilities = 0;
+
+  if (hasRecreationFacilitiesData) {
+    for (const facility of recreationFacilitiesRaw) {
+      const lat = parseFloat(facility.LATITUDE);
+      const lng = parseFloat(facility.LONGITUDE);
+
+      if (isNaN(lat) || isNaN(lng)) continue;
+
+      const neighbourhoodId = assignToNeighbourhood(lat, lng, boundariesByNeighbourhood);
+      if (neighbourhoodId) {
+        if (!recreationFacilitiesByNeighbourhood[neighbourhoodId]) {
+          recreationFacilitiesByNeighbourhood[neighbourhoodId] = [];
+        }
+        recreationFacilitiesByNeighbourhood[neighbourhoodId].push({
+          name: facility.NAME || 'Unnamed',
+          facilityType: facility.FACILITY_TYPE || 'Unknown',
+          buildingName: facility.BUILDING_NAME || '',
+          address: facility.ADDRESS || '',
+          lat,
+          lng,
+          link: facility.LINK || '',
+        });
+        assignedRecreationFacilities++;
+      }
+    }
+  }
+  console.log(`  Assigned ${assignedRecreationFacilities} recreation facilities`);
+
 
   // Process bus stops (optional)
   console.log('\nAssigning bus stops to neighbourhoods...');
@@ -1235,6 +1286,14 @@ async function main() {
     const gymDensity = gymCount !== null && areaKm2 > 0
       ? roundTo(gymCount / areaKm2, 2) // per km²
       : null;
+    const recreationFacilities = recreationFacilitiesByNeighbourhood[info.id] || [];
+    const recreationFacilityCount = hasRecreationFacilitiesData ? recreationFacilities.length : null;
+    const arenaCount = hasRecreationFacilitiesData
+      ? recreationFacilities.filter(f => f.facilityType === 'Arena').length : null;
+    const poolCount = hasRecreationFacilitiesData
+      ? recreationFacilities.filter(f => f.facilityType === 'Pool - Indoor').length : null;
+    const communityCentreCount = hasRecreationFacilitiesData
+      ? recreationFacilities.filter(f => f.facilityType === 'Community Center').length : null;
     const busStops = busStopsByNeighbourhood[info.id] || [];
     const busStopCount = hasBusStopsData ? busStops.length : null;
     const busStopDensity = busStopCount !== null && areaKm2 > 0
@@ -1468,6 +1527,13 @@ async function main() {
         gymDensity,
         gymsList: gyms.map(g => g.name),
         gymsData: gyms,
+        // Recreation facilities (pools, arenas, rinks, etc.)
+        recreationFacilities: recreationFacilityCount,
+        recreationFacilitiesList: recreationFacilities.map(f => f.name),
+        recreationFacilitiesData: recreationFacilities,
+        arenas: arenaCount,
+        pools: poolCount,
+        communityCentres: communityCentreCount,
         busStops: busStopCount,
         busStopDensity,
         stopsWithShelter,
@@ -1828,6 +1894,7 @@ async function main() {
   console.log(`Total libraries assigned: ${assignedLibraries}`);
   console.log(`Total food establishments assigned: ${assignedFood}`);
   console.log(`Total gyms & fitness centers assigned: ${assignedGyms}`);
+  console.log(`Total recreation facilities assigned: ${assignedRecreationFacilities}`);
   console.log(`Total bus stops assigned: ${assignedBusStops}`);
   console.log(`Total crimes assigned: ${assignedCrimes}`);
 

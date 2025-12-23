@@ -36,6 +36,7 @@ src/data/
 │   ├── rent_data.csv             # Rent research data with sources
 │   ├── home_prices.csv           # Home price research data with sources
 │   ├── ncc_greenbelt_trails.csv  # NCC Greenbelt trails (37 trails, 141+ km)
+│   ├── recreation_facilities_raw.csv # Pools, arenas, rinks, community centres (263 facilities)
 │   └── ons_neighbourhoods.csv    # Reference: all 111 ONS area IDs
 ├── processed/
 │   └── data.json                 # Generated output (don't edit directly)
@@ -52,6 +53,7 @@ scripts/
 ├── download-ncc-greenbelt.js     # Downloads NCC Greenbelt trails data
 ├── download-transit-stations.js  # Downloads O-Train and Transitway stations
 ├── download-collisions.js        # Downloads traffic collision data from Ottawa Open Data
+├── download-recreation-facilities.js # Downloads pools, arenas, rinks from Ottawa Open Data
 └── config/
     └── neighbourhood-mapping.js  # Maps our neighbourhoods to ONS IDs
 ```
@@ -71,6 +73,7 @@ Most data from **City of Ottawa Open Data** (ArcGIS REST APIs). Restaurants & ca
 | Crime (2023-2024) | https://services7.arcgis.com/2vhcNzw0NfUwAD3d/ArcGIS/rest/services/Criminal_Offences_Open_Data/FeatureServer/0 | ~98K |
 | Collisions (2022-2024) | https://services.arcgis.com/G6F8XLCl5KtAlZ2G/arcgis/rest/services/Collisions/FeatureServer/0 | ~15K |
 | Hospitals | https://maps.ottawa.ca/arcgis/rest/services/Hospitals/MapServer/0 | 10 |
+| Recreation Facilities | https://maps.ottawa.ca/arcgis/rest/services/City_Facilities/MapServer/5 | 263 |
 | Restaurants & Cafés | https://overpass-api.de/api/interpreter (OSM Overpass) | ~1-3K |
 | Grocery Stores | https://overpass-api.de/api/interpreter (OSM Overpass) | ~226 |
 | Walk Scores | https://www.walkscore.com/CA-ON/Ottawa | 27 |
@@ -195,6 +198,37 @@ node scripts/process-data.js
 **To refresh hospital data:**
 ```bash
 node scripts/download-hospitals.js
+node scripts/process-data.js
+```
+
+### recreation_facilities_raw.csv
+Recreation facilities (pools, arenas, rinks, community centres) from City of Ottawa Open Data.
+
+| Field | Description |
+|-------|-------------|
+| NAME | Facility name (e.g., "Walkley Arena", "Jack Purcell Pool") |
+| FACILITY_TYPE | Type of facility (Arena, Pool - Indoor, Community Center, etc.) |
+| BUILDING_NAME | Parent building name (e.g., "Jim Durrell Recreation Centre") |
+| ADDRESS | Street address |
+| LATITUDE / LONGITUDE | Coordinates |
+| LINK | City of Ottawa facility page URL |
+
+**Facility Types (263 total):**
+- **Arena**: 54 ice rinks across the city
+- **Community Center**: 80 community centres and halls
+- **Field House**: 75 field houses in parks
+- **Recreation Complex**: 21 multi-use recreation complexes
+- **Pool - Indoor**: 20 indoor pools
+- **Fitness Centre**: 7 city-run fitness centres
+- **Athletic Facility**: 3 gymnasiums
+- **Stadium**: 2 (TD Place, Ottawa Stadium)
+- **Curling Rink**: 1
+
+**Data Source:** https://maps.ottawa.ca/arcgis/rest/services/City_Facilities/MapServer/5
+
+**To refresh recreation facilities data:**
+```bash
+node scripts/download-recreation-facilities.js
 node scripts/process-data.js
 ```
 

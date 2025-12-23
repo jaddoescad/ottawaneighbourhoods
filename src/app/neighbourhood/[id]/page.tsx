@@ -27,6 +27,7 @@ import TrailsStatRow from "@/components/TrailsStatRow";
 import FoodEstablishmentsStatRow from "@/components/FoodEstablishmentsStatRow";
 import GroceryStoresStatRow from "@/components/GroceryStoresStatRow";
 import GymStatRow from "@/components/GymStatRow";
+import RecreationFacilitiesStatRow from "@/components/RecreationFacilitiesStatRow";
 import CoverageButton from "@/components/CoverageButton";
 
 const BASE_URL = "https://ottawahoods.com";
@@ -56,6 +57,10 @@ const DATA_SOURCES = {
   gyms: {
     name: "OpenStreetMap",
     url: "https://www.openstreetmap.org/",
+  },
+  recreation: {
+    name: "City of Ottawa Open Data",
+    url: "https://open.ottawa.ca/datasets/city-facilities",
   },
   crime: {
     name: "Ottawa Police Open Data",
@@ -452,6 +457,16 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
                 : "neutral"
             }
             source={DATA_SOURCES.gyms}
+            boundaries={boundaries}
+            neighbourhoodName={name}
+          />
+          <RecreationFacilitiesStatRow
+            totalCount={details.recreationFacilities}
+            facilitiesData={details.recreationFacilitiesData || []}
+            arenas={details.arenas}
+            pools={details.pools}
+            communityCentres={details.communityCentres}
+            source={DATA_SOURCES.recreation}
             boundaries={boundaries}
             neighbourhoodName={name}
           />
