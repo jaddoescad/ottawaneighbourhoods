@@ -37,6 +37,7 @@ src/data/
 │   ├── home_prices.csv           # Home price research data with sources
 │   ├── ncc_greenbelt_trails.csv  # NCC Greenbelt trails (37 trails, 141+ km)
 │   ├── recreation_facilities_raw.csv # Pools, arenas, rinks, community centres (263 facilities)
+│   ├── sports_courts_raw.csv     # Sports courts & fields (1,389 total: basketball, tennis, soccer, etc.)
 │   └── ons_neighbourhoods.csv    # Reference: all 111 ONS area IDs
 ├── processed/
 │   └── data.json                 # Generated output (don't edit directly)
@@ -54,6 +55,7 @@ scripts/
 ├── download-transit-stations.js  # Downloads O-Train and Transitway stations
 ├── download-collisions.js        # Downloads traffic collision data from Ottawa Open Data
 ├── download-recreation-facilities.js # Downloads pools, arenas, rinks from Ottawa Open Data
+├── download-sports-courts.js     # Downloads sports courts & fields from Ottawa Open Data
 └── config/
     └── neighbourhood-mapping.js  # Maps our neighbourhoods to ONS IDs
 ```
@@ -74,6 +76,7 @@ Most data from **City of Ottawa Open Data** (ArcGIS REST APIs). Restaurants & ca
 | Collisions (2022-2024) | https://services.arcgis.com/G6F8XLCl5KtAlZ2G/arcgis/rest/services/Collisions/FeatureServer/0 | ~15K |
 | Hospitals | https://maps.ottawa.ca/arcgis/rest/services/Hospitals/MapServer/0 | 10 |
 | Recreation Facilities | https://maps.ottawa.ca/arcgis/rest/services/City_Facilities/MapServer/5 | 263 |
+| Sports Courts | https://maps.ottawa.ca/arcgis/rest/services/Parks_Inventory/MapServer (Layers 1,3,19,21,22,27) | 1,389 |
 | Restaurants & Cafés | https://overpass-api.de/api/interpreter (OSM Overpass) | ~1-3K |
 | Grocery Stores | https://overpass-api.de/api/interpreter (OSM Overpass) | ~226 |
 | Walk Scores | https://www.walkscore.com/CA-ON/Ottawa | 27 |
@@ -229,6 +232,44 @@ Recreation facilities (pools, arenas, rinks, community centres) from City of Ott
 **To refresh recreation facilities data:**
 ```bash
 node scripts/download-recreation-facilities.js
+node scripts/process-data.js
+```
+
+### sports_courts_raw.csv
+Sports courts and fields from City of Ottawa Parks Inventory (public facilities in city parks).
+
+| Field | Description |
+|-------|-------------|
+| COURT_TYPE | Type of court/field (Basketball Court, Tennis Court, Sports Field, etc.) |
+| SPORT_TYPE | Specific sport (soccer, football, general open field, etc.) |
+| NAME | Court/field name |
+| PARK_NAME | Park name where facility is located |
+| ADDRESS | Street address |
+| LATITUDE / LONGITUDE | Coordinates |
+| FIELD_SIZE | Field size (full, half, etc.) |
+| LIGHTS | Whether facility has lights (yes/no) |
+| ACCESSIBLE | Accessibility status |
+| WARD | City ward |
+
+**Court/Field Types (1,389 total):**
+- **Sports Field**: 526 (soccer: 434, football: 32, general: 33, ultimate: 13, multi-use: 7, cricket: 5)
+- **Basketball Court**: 308 (full court, half court, key court)
+- **Ball Diamond**: 281 (baseball/softball diamonds)
+- **Tennis Court**: 132
+- **Pickleball Court**: 103
+- **Volleyball Court**: 39
+
+**Data Source:** https://maps.ottawa.ca/arcgis/rest/services/Parks_Inventory/MapServer
+- Layer 1: Ball Diamonds
+- Layer 3: Basketball Courts
+- Layer 19: Sports Fields
+- Layer 21: Tennis Courts
+- Layer 22: Volleyball Courts
+- Layer 27: Pickleball Courts
+
+**To refresh sports courts data:**
+```bash
+node scripts/download-sports-courts.js
 node scripts/process-data.js
 ```
 

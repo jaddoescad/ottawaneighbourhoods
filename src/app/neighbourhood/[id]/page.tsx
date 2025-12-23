@@ -28,6 +28,7 @@ import FoodEstablishmentsStatRow from "@/components/FoodEstablishmentsStatRow";
 import GroceryStoresStatRow from "@/components/GroceryStoresStatRow";
 import GymStatRow from "@/components/GymStatRow";
 import RecreationFacilitiesStatRow from "@/components/RecreationFacilitiesStatRow";
+import SportsCourtsStatRow from "@/components/SportsCourtsStatRow";
 import CoverageButton from "@/components/CoverageButton";
 
 const BASE_URL = "https://ottawahoods.com";
@@ -61,6 +62,10 @@ const DATA_SOURCES = {
   recreation: {
     name: "City of Ottawa Open Data",
     url: "https://open.ottawa.ca/datasets/city-facilities",
+  },
+  sportsCourts: {
+    name: "City of Ottawa Parks Inventory",
+    url: "https://open.ottawa.ca/datasets/parks-inventory",
   },
   crime: {
     name: "Ottawa Police Open Data",
@@ -467,6 +472,21 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             pools={details.pools}
             communityCentres={details.communityCentres}
             source={DATA_SOURCES.recreation}
+            boundaries={boundaries}
+            neighbourhoodName={name}
+          />
+          <SportsCourtsStatRow
+            totalCount={details.sportsCourts}
+            courtsData={details.sportsCourtsData || []}
+            basketballCourts={details.basketballCourts}
+            tennisCourts={details.tennisCourts}
+            volleyballCourts={details.volleyballCourts}
+            pickleballCourts={details.pickleballCourts}
+            ballDiamonds={details.ballDiamonds}
+            sportsFields={details.sportsFields}
+            soccerFields={details.soccerFields}
+            footballFields={details.footballFields}
+            source={DATA_SOURCES.sportsCourts}
             boundaries={boundaries}
             neighbourhoodName={name}
           />

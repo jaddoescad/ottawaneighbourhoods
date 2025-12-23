@@ -67,8 +67,8 @@ module.exports = {
     onsIds: [953, 954], // Vanier North, Vanier South
     onsSqoIds: ['3111', '3112'], // Vanier North, Vanier South
   },
-  'new-edinburgh': {
-    name: 'New Edinburgh',
+  'rockcliffe': {
+    name: 'Rockcliffe',
     onsIds: [933, 935, 948], // Lindenlea-New Edinburgh, Manor Park, Rockcliffe Park
     onsSqoIds: ['3077', '3069', '3102'], // New Edinburgh, Manor Park, Rockcliffe Park
   },
@@ -76,13 +76,28 @@ module.exports = {
   // West End
   'bayshore': {
     name: 'Bayshore',
-    onsIds: [901, 906, 106, 32], // Bayshore-Belltown, Britannia, Whitehaven-Queensway Terrace North, Crystal Bay
-    onsSqoIds: ['3003', '3015', '3117', '3036'], // Bayshore, Britannia, Whitehaven - Woodpark, Crystal Bay - Lakeview Park
+    onsIds: [901], // Bayshore-Belltown
+    onsSqoIds: ['3003'], // Bayshore
+  },
+  'britannia': {
+    name: 'Britannia',
+    onsIds: [906, 106], // Britannia, Whitehaven-Queensway Terrace North
+    onsSqoIds: ['3015', '3117'], // Britannia, Whitehaven - Woodpark - Glabar Park
+  },
+  'crystal-beach': {
+    name: 'Crystal Beach',
+    onsIds: [32], // Crystal Bay
+    onsSqoIds: ['3036'], // Crystal Bay - Lakeview Park
   },
   'bells-corners': {
     name: 'Bells Corners',
-    onsIds: [6, 7, 12, 88], // Bells Corners East, West, Briar Green-Leslie Park, Qualicum-Redwood Park
-    onsSqoIds: ['3007', '3008', '3066', '3092'], // Bells Corners East, Bells Corners West, Leslie Park - Bruce Farm, Qualicum - Redwood
+    onsIds: [6, 7], // Bells Corners East, West
+    onsSqoIds: ['3007', '3008'], // Bells Corners East, Bells Corners West
+  },
+  'qualicum': {
+    name: 'Qualicum',
+    onsIds: [88], // Qualicum-Redwood Park
+    onsSqoIds: ['3092'], // Qualicum - Redwood
   },
   'carlington': {
     name: 'Carlington',
@@ -102,14 +117,39 @@ module.exports = {
   'merivale': {
     name: 'Merivale',
     onsIds: [65, 941, 905, 99, 51], // Merivale Gardens, Parkwood Hills, Borden Farm, Tanglewood, Hunt Club South Industrial
-    onsSqoIds: ['3072', '3088', '3012', '3035'], // Merivale Gardens, Parkwood Hills, Borden Farm, Crestview-Tanglewood
+    onsSqoIds: ['3072', '3088', '3012', '3035', '3030'], // Merivale Gardens, Parkwood Hills, Borden Farm, Crestview-Tanglewood, Colonnade Business Park
+  },
+  'queensway-terrace-north': {
+    name: 'Queensway Terrace North',
+    onsIds: [], // Queensway Terrace North
+    onsSqoIds: ['3093'], // Queensway Terrace North
   },
 
   // South End
   'alta-vista': {
     name: 'Alta Vista',
-    onsIds: [903, 919, 932, 38, 46, 947, 87], // Billings Bridge-Alta Vista, Elmvale, Heron Gate, Emerald Woods, Hawthorne, Riverview, Playfair Park
-    onsSqoIds: ['3002', '3009', '3040', '3065', '3041', '3054', '3101', '3090'], // Alta Vista, Billings Bridge, Elmvale, Heron Gate, Emerald Woods, Hawthorne, Riverview, Playfair Park
+    onsIds: [903, 87], // Alta Vista, Playfair Park
+    onsSqoIds: ['3002', '3090'], // Alta Vista, Playfair Park
+  },
+  'trainyards': {
+    name: 'Trainyards',
+    onsIds: [947], // Riverview
+    onsSqoIds: ['3101'], // Riverview (Trainyards area)
+  },
+  'billings-bridge': {
+    name: 'Billings Bridge',
+    onsIds: [], // Billings Bridge - Heron Park
+    onsSqoIds: ['3009'], // Billings Bridge - Heron Park
+  },
+  'heron-gate': {
+    name: 'Heron Gate',
+    onsIds: [], // Ledbury-Heron Gate-Ridgemont
+    onsSqoIds: ['3065'], // Ledbury - Heron Gate - Ridgemont
+  },
+  'hawthorne-elmvale': {
+    name: 'Hawthorne-Elmvale',
+    onsIds: [919, 38], // Elmvale, Hawthorne
+    onsSqoIds: ['3040', '3054'], // Elmvale, Hawthorne Meadows
   },
   'cyrville': {
     name: 'Cyrville',
@@ -118,8 +158,8 @@ module.exports = {
   },
   'hunt-club': {
     name: 'Hunt Club',
-    onsIds: [48, 49, 50, 52, 927, 45, 97], // Hunt Club areas + Greenboro
-    onsSqoIds: ['3056', '3081', '3052', '3053', '3105', '3011'], // Hunt Club Park, Old Hunt Club, Greenboro East/West, South Keys, Blossom Park
+    onsIds: [48, 49, 50, 52, 927, 45, 97], // Hunt Club areas + Greenboro + Emerald Woods
+    onsSqoIds: ['3056', '3081', '3052', '3053', '3105', '3011', '3041'], // Hunt Club Park, Old Hunt Club, Greenboro East/West, South Keys, Blossom Park, Emerald Woods-Sawmill Creek
   },
   'barrhaven': {
     name: 'Barrhaven',
@@ -231,8 +271,18 @@ module.exports = {
   // Nepean / Centrepointe area
   'nepean': {
     name: 'Nepean',
-    onsIds: [23, 100, 108, 54], // Centrepointe, Trend-Arlington, Craig Henry, Iris
-    onsSqoIds: ['3023', '3110', '3034', '3058'], // Centrepointe, Trend-Arlington, Craig Henry-Manordale, Iris
+    onsIds: [100, 108, 12], // Trend-Arlington, Craig Henry, Leslie Park
+    onsSqoIds: ['3110', '3034', '3066'], // Trend-Arlington, Craig Henry-Manordale, Leslie Park - Bruce Farm
+  },
+  'pinecrest': {
+    name: 'Pinecrest',
+    onsIds: [54], // Iris
+    onsSqoIds: ['3058'], // Iris
+  },
+  'centrepointe': {
+    name: 'Centrepointe',
+    onsIds: [23], // Centrepointe
+    onsSqoIds: ['3023'], // Centrepointe
   },
   'belair-heights': {
     name: 'Bel Air Heights',

@@ -99,6 +99,19 @@ export interface RecreationFacilityData {
   link: string;
 }
 
+export interface SportsCourtData {
+  courtType: string; // Basketball Court, Tennis Court, Sports Field, etc.
+  sportType: string; // soccer, football, basketball, etc.
+  name: string;
+  parkName: string;
+  address: string;
+  fieldSize: string;
+  lights: string;
+  accessible: string;
+  lat: number;
+  lng: number;
+}
+
 export interface CrimeByCategory {
   [category: string]: number;
 }
@@ -270,6 +283,17 @@ export interface Neighbourhood {
     arenas: number | null;
     pools: number | null;
     communityCentres: number | null;
+    // Sports courts
+    sportsCourts: number | null;
+    basketballCourts: number | null;
+    tennisCourts: number | null;
+    volleyballCourts: number | null;
+    pickleballCourts: number | null;
+    ballDiamonds: number | null;
+    sportsFields: number | null;
+    soccerFields: number | null;
+    footballFields: number | null;
+    sportsCourtsData: SportsCourtData[];
     busStops: number | null;
     busStopDensity: number | null; // per km²
     stopsWithShelter: number;

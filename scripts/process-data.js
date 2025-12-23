@@ -429,6 +429,25 @@ async function main() {
     console.log('  - No recreation facilities file found (run: node scripts/download-recreation-facilities.js)');
   }
 
+  // Load Sports Courts (basketball, tennis, volleyball, sports fields, ball diamonds, pickleball)
+  const sportsCourtsPath = path.join(csvDir, 'sports_courts_raw.csv');
+  const hasSportsCourtsData = fs.existsSync(sportsCourtsPath);
+  const sportsCourtsRaw = hasSportsCourtsData
+    ? parseCSV(fs.readFileSync(sportsCourtsPath, 'utf8'))
+    : [];
+  if (hasSportsCourtsData) {
+    // Count by court type
+    const courtTypeCounts = {};
+    for (const court of sportsCourtsRaw) {
+      const type = court.COURT_TYPE || 'Unknown';
+      courtTypeCounts[type] = (courtTypeCounts[type] || 0) + 1;
+    }
+    console.log(`  - ${sportsCourtsRaw.length} sports courts/fields`);
+    console.log(`    Types: ${Object.entries(courtTypeCounts).map(([k, v]) => `${k}:${v}`).join(', ')}`);
+  } else {
+    console.log('  - No sports courts file found (run: node scripts/download-sports-courts.js)');
+  }
+
   // Load Traffic Collision Data (optional - file may not exist)
   const collisionsPath = path.join(csvDir, 'collisions_raw.csv');
   const hasCollisionsData = fs.existsSync(collisionsPath);
@@ -981,6 +1000,40 @@ async function main() {
   }
   console.log(`  Assigned ${assignedRecreationFacilities} recreation facilities`);
 
+  // Process sports courts (basketball, tennis, volleyball, sports fields, ball diamonds, pickleball)
+  console.log('\nAssigning sports courts to neighbourhoods...');
+  const sportsCourtsByNeighbourhood = {};
+  let assignedSportsCourts = 0;
+
+  if (hasSportsCourtsData) {
+    for (const court of sportsCourtsRaw) {
+      const lat = parseFloat(court.LATITUDE);
+      const lng = parseFloat(court.LONGITUDE);
+
+      if (isNaN(lat) || isNaN(lng)) continue;
+
+      const neighbourhoodId = assignToNeighbourhood(lat, lng, boundariesByNeighbourhood);
+      if (neighbourhoodId) {
+        if (!sportsCourtsByNeighbourhood[neighbourhoodId]) {
+          sportsCourtsByNeighbourhood[neighbourhoodId] = [];
+        }
+        sportsCourtsByNeighbourhood[neighbourhoodId].push({
+          courtType: court.COURT_TYPE || 'Unknown',
+          sportType: court.SPORT_TYPE || '',
+          name: court.NAME || '',
+          parkName: court.PARK_NAME || '',
+          address: court.ADDRESS || '',
+          fieldSize: court.FIELD_SIZE || '',
+          lights: court.LIGHTS || '',
+          accessible: court.ACCESSIBLE || '',
+          lat,
+          lng,
+        });
+        assignedSportsCourts++;
+      }
+    }
+  }
+  console.log(`  Assigned ${assignedSportsCourts} sports courts/fields`);
 
   // Process bus stops (optional)
   console.log('\nAssigning bus stops to neighbourhoods...');
@@ -1294,6 +1347,27 @@ async function main() {
       ? recreationFacilities.filter(f => f.facilityType === 'Pool - Indoor').length : null;
     const communityCentreCount = hasRecreationFacilitiesData
       ? recreationFacilities.filter(f => f.facilityType === 'Community Center').length : null;
+
+    // Sports courts metrics
+    const sportsCourts = sportsCourtsByNeighbourhood[info.id] || [];
+    const sportsCourtCount = hasSportsCourtsData ? sportsCourts.length : null;
+    const basketballCourtCount = hasSportsCourtsData
+      ? sportsCourts.filter(c => c.courtType === 'Basketball Court').length : null;
+    const tennisCourtCount = hasSportsCourtsData
+      ? sportsCourts.filter(c => c.courtType === 'Tennis Court').length : null;
+    const volleyballCourtCount = hasSportsCourtsData
+      ? sportsCourts.filter(c => c.courtType === 'Volleyball Court').length : null;
+    const pickleballCourtCount = hasSportsCourtsData
+      ? sportsCourts.filter(c => c.courtType === 'Pickleball Court').length : null;
+    const ballDiamondCount = hasSportsCourtsData
+      ? sportsCourts.filter(c => c.courtType === 'Ball Diamond').length : null;
+    const sportsFieldCount = hasSportsCourtsData
+      ? sportsCourts.filter(c => c.courtType === 'Sports Field').length : null;
+    const soccerFieldCount = hasSportsCourtsData
+      ? sportsCourts.filter(c => c.sportType === 'soccer').length : null;
+    const footballFieldCount = hasSportsCourtsData
+      ? sportsCourts.filter(c => c.sportType === 'football').length : null;
+
     const busStops = busStopsByNeighbourhood[info.id] || [];
     const busStopCount = hasBusStopsData ? busStops.length : null;
     const busStopDensity = busStopCount !== null && areaKm2 > 0
@@ -1534,6 +1608,17 @@ async function main() {
         arenas: arenaCount,
         pools: poolCount,
         communityCentres: communityCentreCount,
+        // Sports courts (basketball, tennis, volleyball, sports fields, ball diamonds, pickleball)
+        sportsCourts: sportsCourtCount,
+        basketballCourts: basketballCourtCount,
+        tennisCourts: tennisCourtCount,
+        volleyballCourts: volleyballCourtCount,
+        pickleballCourts: pickleballCourtCount,
+        ballDiamonds: ballDiamondCount,
+        sportsFields: sportsFieldCount,
+        soccerFields: soccerFieldCount,
+        footballFields: footballFieldCount,
+        sportsCourtsData: sportsCourts,
         busStops: busStopCount,
         busStopDensity,
         stopsWithShelter,
@@ -1795,6 +1880,12 @@ async function main() {
     console.log(`    ${n.overallScore}/100 - ${n.name}`);
   }
 
+  // Assign ranks based on overall score (1 = best)
+  sortedByScore.forEach((n, index) => {
+    n.rank = index + 1;
+  });
+  console.log(`\nAssigned ranks 1-${neighbourhoods.length} to neighbourhoods`);
+
   // Write output (minified for faster loading)
   const outputFile = path.join(outputDir, 'data.json');
   fs.writeFileSync(outputFile, JSON.stringify({ neighbourhoods }));
@@ -1895,6 +1986,7 @@ async function main() {
   console.log(`Total food establishments assigned: ${assignedFood}`);
   console.log(`Total gyms & fitness centers assigned: ${assignedGyms}`);
   console.log(`Total recreation facilities assigned: ${assignedRecreationFacilities}`);
+  console.log(`Total sports courts assigned: ${assignedSportsCourts}`);
   console.log(`Total bus stops assigned: ${assignedBusStops}`);
   console.log(`Total crimes assigned: ${assignedCrimes}`);
 
