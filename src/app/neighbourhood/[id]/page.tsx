@@ -24,6 +24,7 @@ import IncomeStatRow from "@/components/IncomeStatRow";
 import HospitalStatRow from "@/components/HospitalStatRow";
 import LibrariesStatRow from "@/components/LibrariesStatRow";
 import TrailsStatRow from "@/components/TrailsStatRow";
+import CyclingInfraStatRow from "@/components/CyclingInfraStatRow";
 import FoodEstablishmentsStatRow from "@/components/FoodEstablishmentsStatRow";
 import GroceryStoresStatRow from "@/components/GroceryStoresStatRow";
 import GymStatRow from "@/components/GymStatRow";
@@ -394,6 +395,15 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             linearParks={details.parksData.filter(p => p.category === "Linear Park")}
             boundaries={boundaries}
             neighbourhoodName={name}
+          />
+          <CyclingInfraStatRow
+            cyclingTotalKm={details.cyclingTotalKm || 0}
+            bikeLanesKm={details.bikeLanesKm || 0}
+            pathsKm={details.pathsKm || 0}
+            pavedShouldersKm={details.pavedShouldersKm || 0}
+            cyclingByType={details.cyclingByType || {}}
+            bikeScore={bikeScore}
+            areaKm2={details.areaKm2 || 1}
           />
           <FoodEstablishmentsStatRow
             foodData={(details.foodData || []).filter(f => f.category !== 'grocery')}

@@ -1,152 +1,210 @@
 /**
  * Calculate Bike Scores for Ottawa Neighbourhoods
  *
- * Uses available data to estimate bikeability (0-100):
- * - NCC Greenbelt trails (multi-use paths)
- * - Parks (green corridors for cycling)
- * - Transit integration (bike-transit combo)
- * - Population density (urban = more bike infrastructure)
- * - Distance to downtown (central areas more connected)
+ * Uses REAL cycling infrastructure data from City of Ottawa:
+ * - Bike lanes, cycle tracks, segregated lanes
+ * - Multi-use paths
+ * - Paved shoulders (rural)
  *
- * Note: Official bike lane data not readily available via API
- * This is an estimated score based on proxy indicators
+ * Data source: https://maps.ottawa.ca/arcgis/rest/services/CyclingMap/MapServer/3
  */
 
 const fs = require('fs');
 const path = require('path');
 
+// Point-in-polygon algorithm
+function pointInPolygon(point, polygon) {
+  const [x, y] = point;
+  let inside = false;
+
+  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+    const [xi, yi] = polygon[i];
+    const [xj, yj] = polygon[j];
+
+    if (((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi)) {
+      inside = !inside;
+    }
+  }
+
+  return inside;
+}
+
+function pointInMultiPolygon(point, geometry) {
+  if (geometry.type === 'Polygon') {
+    return pointInPolygon(point, geometry.coordinates[0]);
+  } else if (geometry.type === 'MultiPolygon') {
+    return geometry.coordinates.some(poly => pointInPolygon(point, poly[0]));
+  }
+  return false;
+}
+
 async function main() {
-  console.log('Loading neighbourhood data...');
+  console.log('Loading data...');
+
+  // Load neighbourhood boundaries
   const dataPath = path.join(__dirname, '../src/data/processed/data.json');
   const data = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
 
-  // Also load our calculated transit scores
-  const transitScoresPath = path.join(__dirname, '../src/data/csv/transit_scores.csv');
-  const transitScoresContent = fs.readFileSync(transitScoresPath, 'utf-8');
-  const transitScores = {};
-  transitScoresContent.split('\n').slice(1).forEach(line => {
-    const [id, name, score] = line.split(',');
-    if (id) transitScores[id] = parseInt(score) || 0;
-  });
-
-  // Load walk scores
-  const walkScoresPath = path.join(__dirname, '../src/data/csv/walk_scores.csv');
-  const walkScoresContent = fs.readFileSync(walkScoresPath, 'utf-8');
-  const walkScores = {};
-  walkScoresContent.split('\n').slice(1).forEach(line => {
-    const [id, name, score] = line.split(',');
-    if (id) walkScores[id] = parseInt(score) || 0;
-  });
-
   const neighbourhoods = Object.values(data.neighbourhoods)
-    .filter(n => n.details && n.details.areaKm2 > 0);
+    .filter(n => n.boundaries && n.boundaries.length > 0)
+    .map(n => {
+      const rings = n.boundaries[0].rings;
+      return {
+        id: n.id,
+        name: n.name,
+        geometry: { type: 'Polygon', coordinates: rings },
+        areaKm2: n.details?.areaKm2 || 1,
+        commuteTime: n.commuteToDowntown || 30
+      };
+    });
 
   console.log(`Loaded ${neighbourhoods.length} neighbourhoods`);
+
+  // Load cycling network
+  const cyclingPath = path.join(__dirname, '../src/data/csv/cycling_network.csv');
+  const cyclingData = fs.readFileSync(cyclingPath, 'utf-8')
+    .split('\n')
+    .slice(1)
+    .filter(line => line.trim())
+    .map(line => {
+      // Handle CSV with quoted fields: OBJECTID,"TYPE",LENGTH,LAT,LON
+      const match = line.match(/^(\d+),"([^"]+)",(\d+),([\d.-]+),([\d.-]+)$/);
+      if (!match) return null;
+      return {
+        type: match[2],
+        lengthM: parseInt(match[3]) || 0,
+        lat: parseFloat(match[4]),
+        lon: parseFloat(match[5])
+      };
+    })
+    .filter(Boolean);
+
+  console.log(`Loaded ${cyclingData.length} cycling segments`);
+
+  // Infrastructure weights (protected > painted > suggested)
+  const weights = {
+    'Cycle Track': 1.5,           // Protected bike lane
+    'Segregated Bike Lane': 1.5,  // Physically separated
+    'Bike Lane': 1.0,             // Painted bike lane
+    'Path': 1.2,                  // Multi-use path
+    'Paved Shoulder': 0.5,        // Rural paved shoulder
+    'Mountain Bike Trail': 0.8,   // Off-road trail
+    'Suggested Route': 0.2,       // No infrastructure, just suggested
+    'Network Link': 0.1,          // Connection segment
+    'Crossride': 0.5,             // Crossing
+    'Unknown': 0.3                // Unknown type
+  };
+
+  // Assign cycling infrastructure to neighbourhoods
+  console.log('\nAssigning cycling infrastructure to neighbourhoods...');
+  const neighbourhoodCycling = {};
+
+  for (const segment of cyclingData) {
+    if (!segment.lat || !segment.lon) continue;
+
+    for (const n of neighbourhoods) {
+      if (pointInMultiPolygon([segment.lon, segment.lat], n.geometry)) {
+        if (!neighbourhoodCycling[n.id]) {
+          neighbourhoodCycling[n.id] = {
+            totalLengthM: 0,
+            weightedLengthM: 0,
+            byType: {}
+          };
+        }
+
+        const weight = weights[segment.type] || 0.3;
+        neighbourhoodCycling[n.id].totalLengthM += segment.lengthM;
+        neighbourhoodCycling[n.id].weightedLengthM += segment.lengthM * weight;
+
+        if (!neighbourhoodCycling[n.id].byType[segment.type]) {
+          neighbourhoodCycling[n.id].byType[segment.type] = 0;
+        }
+        neighbourhoodCycling[n.id].byType[segment.type] += segment.lengthM;
+
+        break; // Only assign to first matching neighbourhood
+      }
+    }
+  }
+
+  // Load transit scores for integration bonus
+  const transitScoresPath = path.join(__dirname, '../src/data/csv/transit_scores.csv');
+  const transitScores = {};
+  if (fs.existsSync(transitScoresPath)) {
+    fs.readFileSync(transitScoresPath, 'utf-8')
+      .split('\n').slice(1).forEach(line => {
+        const [id, name, score] = line.split(',');
+        if (id) transitScores[id] = parseInt(score) || 0;
+      });
+  }
 
   // Calculate bike scores
   const results = [];
 
-  // First pass: collect metrics for normalization
-  const metrics = {
-    trailLength: [],
-    parkDensity: [],
-    populationDensity: []
-  };
+  // Get percentile for normalization
+  const allDensities = neighbourhoods.map(n => {
+    const cycling = neighbourhoodCycling[n.id];
+    return cycling ? cycling.weightedLengthM / 1000 / n.areaKm2 : 0;
+  }).filter(d => d > 0).sort((a, b) => a - b);
+
+  const p90Density = allDensities[Math.floor(allDensities.length * 0.9)] || 5;
+  console.log(`90th percentile cycling density: ${p90Density.toFixed(2)} km/km²`);
 
   for (const n of neighbourhoods) {
-    const area = n.details.areaKm2 || 1;
-    metrics.trailLength.push(n.details.greenbeltTrailsLengthKm || 0);
-    metrics.parkDensity.push((n.details.parks || 0) / area);
-    metrics.populationDensity.push(n.populationDensity || 0);
-  }
+    const cycling = neighbourhoodCycling[n.id] || { totalLengthM: 0, weightedLengthM: 0, byType: {} };
+    const transitScore = transitScores[n.id] || 0;
 
-  // Get percentile thresholds
-  function getPercentile(arr, p) {
-    const sorted = [...arr].filter(x => x > 0).sort((a, b) => a - b);
-    if (sorted.length === 0) return 1;
-    const index = Math.floor(sorted.length * p);
-    return sorted[Math.min(index, sorted.length - 1)];
-  }
+    // Calculate metrics
+    const totalKm = cycling.totalLengthM / 1000;
+    const weightedKm = cycling.weightedLengthM / 1000;
+    const density = weightedKm / n.areaKm2;
 
-  const thresholds = {
-    trails: getPercentile(metrics.trailLength, 0.9) || 10,
-    parks: getPercentile(metrics.parkDensity, 0.9) || 5,
-    popDensity: getPercentile(metrics.populationDensity, 0.9) || 5000
-  };
+    // Score components (total = 100)
+    // 1. Infrastructure density (0-50 pts)
+    const densityScore = Math.min(50, (density / p90Density) * 50);
 
-  console.log('\nThresholds:');
-  console.log(`  Trail length: ${thresholds.trails.toFixed(1)} km`);
-  console.log(`  Park density: ${thresholds.parks.toFixed(1)} per km²`);
-  console.log(`  Pop density: ${thresholds.popDensity.toFixed(0)} per km²`);
+    // 2. Infrastructure quality bonus (0-20 pts)
+    const protectedKm = ((cycling.byType['Cycle Track'] || 0) +
+                         (cycling.byType['Segregated Bike Lane'] || 0)) / 1000;
+    const qualityScore = Math.min(20, protectedKm * 4);
 
-  // Component weights (total = 100)
-  const weights = {
-    trails: 20,          // Greenbelt/MUP access
-    parks: 15,           // Green corridors
-    transitIntegration: 15, // Bike-transit combo
-    walkability: 25,     // Walkable = likely bikeable
-    centrality: 25       // Downtown proximity
-  };
+    // 3. Downtown proximity (0-15 pts) - central = more connected network
+    const centralityScore = Math.max(0, (60 - n.commuteTime) / 60) * 15;
 
-  for (const n of neighbourhoods) {
-    const area = n.details.areaKm2 || 1;
+    // 4. Transit integration (0-15 pts) - bike + transit combo
+    const transitIntegration = (transitScore / 100) * 15;
 
-    // Get distance to downtown (from commute time as proxy)
-    const commuteTime = n.commuteToDowntown || 30;
-    // Convert commute time to centrality score (5 min = 100, 60 min = 0)
-    const centralityScore = Math.max(0, Math.min(1, (60 - commuteTime) / 55));
+    let bikeScore = Math.round(densityScore + qualityScore + centralityScore + transitIntegration);
 
-    // Calculate component scores
-    const trailScore = Math.min(1, (n.details.greenbeltTrailsLengthKm || 0) / thresholds.trails);
-    const parkScore = Math.min(1, ((n.details.parks || 0) / area) / thresholds.parks);
-    const transitScore = (transitScores[n.id] || 0) / 100;
-    const walkScore = (walkScores[n.id] || 0) / 100;
-
-    // Population density bonus (denser = more bike infrastructure typically)
-    const densityBonus = Math.min(0.2, (n.populationDensity || 0) / thresholds.popDensity * 0.2);
-
-    // Calculate total score
-    let bikeScore =
-      trailScore * weights.trails +
-      parkScore * weights.parks +
-      transitScore * weights.transitIntegration +
-      walkScore * weights.walkability +
-      centralityScore * weights.centrality +
-      densityBonus * 20; // Up to 4 bonus points
-
-    // Penalty for very rural areas (huge area, low density)
-    if (area > 50 && (n.populationDensity || 0) < 100) {
-      bikeScore *= 0.5;
-    }
-
-    bikeScore = Math.round(Math.min(100, bikeScore));
+    // Cap at 100
+    bikeScore = Math.min(100, bikeScore);
 
     results.push({
       id: n.id,
       name: n.name,
       bikeScore,
-      greenbeltTrails: n.details.greenbeltTrailsLengthKm || 0,
-      parks: n.details.parks || 0,
-      transitScore: transitScores[n.id] || 0,
-      walkScore: walkScores[n.id] || 0,
-      commuteTime: commuteTime,
-      areaKm2: Math.round(area * 100) / 100
+      totalKm: Math.round(totalKm * 10) / 10,
+      bikeLanesKm: Math.round(((cycling.byType['Bike Lane'] || 0) +
+                               (cycling.byType['Cycle Track'] || 0) +
+                               (cycling.byType['Segregated Bike Lane'] || 0)) / 100) / 10,
+      pathsKm: Math.round((cycling.byType['Path'] || 0) / 100) / 10,
+      density: Math.round(density * 100) / 100,
+      transitScore,
+      areaKm2: Math.round(n.areaKm2 * 100) / 100
     });
   }
 
-  // Sort by bike score
+  // Sort by score
   results.sort((a, b) => b.bikeScore - a.bikeScore);
 
   // Print top 20
   console.log('\nTop 20 Bike Scores:');
-  console.log('ID | Bike | Trails | Parks | Transit | Walk | Commute');
-  console.log('-'.repeat(80));
+  console.log('ID | Score | Total | Lanes | Paths | Density');
+  console.log('-'.repeat(75));
   results.slice(0, 20).forEach(r => {
     console.log(
       `${r.id.substring(0, 28).padEnd(28)} | ${r.bikeScore.toString().padStart(3)} | ` +
-      `${r.greenbeltTrails.toFixed(1).padStart(5)}km | ${r.parks.toString().padStart(2)} pk | ` +
-      `${r.transitScore.toString().padStart(3)} tr | ${r.walkScore.toString().padStart(3)} wk | ` +
-      `${r.commuteTime.toString().padStart(2)} min`
+      `${r.totalKm.toFixed(1).padStart(5)}km | ${r.bikeLanesKm.toFixed(1).padStart(4)}km | ` +
+      `${r.pathsKm.toFixed(1).padStart(5)}km | ${r.density.toFixed(2)}/km²`
     );
   });
 
@@ -155,17 +213,16 @@ async function main() {
   results.slice(-10).forEach(r => {
     console.log(
       `${r.id.substring(0, 28).padEnd(28)} | ${r.bikeScore.toString().padStart(3)} | ` +
-      `${r.greenbeltTrails.toFixed(1).padStart(5)}km | ${r.parks.toString().padStart(2)} pk | ` +
-      `${r.transitScore.toString().padStart(3)} tr | ${r.walkScore.toString().padStart(3)} wk | ` +
-      `${r.commuteTime.toString().padStart(2)} min`
+      `${r.totalKm.toFixed(1).padStart(5)}km | ${r.bikeLanesKm.toFixed(1).padStart(4)}km | ` +
+      `${r.pathsKm.toFixed(1).padStart(5)}km | ${r.density.toFixed(2)}/km²`
     );
   });
 
   // Save to CSV
   const csvPath = path.join(__dirname, '../src/data/csv/bike_scores.csv');
-  const csvHeader = 'id,name,bikeScore,greenbeltTrailsKm,parks,transitScore,walkScore,commuteTime,areaKm2\n';
+  const csvHeader = 'id,name,bikeScore,totalCyclingKm,bikeLanesKm,pathsKm,densityPerKm2,transitScore,areaKm2\n';
   const csvRows = results.map(r =>
-    `${r.id},${r.name.replace(/,/g, ' -')},${r.bikeScore},${r.greenbeltTrails},${r.parks},${r.transitScore},${r.walkScore},${r.commuteTime},${r.areaKm2}`
+    `${r.id},${r.name.replace(/,/g, ' -')},${r.bikeScore},${r.totalKm},${r.bikeLanesKm},${r.pathsKm},${r.density},${r.transitScore},${r.areaKm2}`
   ).join('\n');
 
   fs.writeFileSync(csvPath, csvHeader + csvRows);
@@ -173,14 +230,13 @@ async function main() {
 
   // Summary
   const avgScore = Math.round(results.reduce((sum, r) => sum + r.bikeScore, 0) / results.length);
-  const maxScore = Math.max(...results.map(r => r.bikeScore));
-  const minScore = Math.min(...results.map(r => r.bikeScore));
+  const totalCyclingKm = results.reduce((sum, r) => sum + r.totalKm, 0);
 
   console.log(`\nSummary:`);
   console.log(`  Average bike score: ${avgScore}`);
-  console.log(`  Range: ${minScore} - ${maxScore}`);
-  console.log(`  Note: Score based on trails, parks, transit, walkability, and downtown proximity`);
-  console.log(`  (Official bike lane data not available via open API)`);
+  console.log(`  Range: ${Math.min(...results.map(r => r.bikeScore))} - ${Math.max(...results.map(r => r.bikeScore))}`);
+  console.log(`  Total cycling infrastructure: ${totalCyclingKm.toFixed(0)} km`);
+  console.log(`  Data source: City of Ottawa CyclingMap (maps.ottawa.ca)`);
 }
 
 main().catch(console.error);

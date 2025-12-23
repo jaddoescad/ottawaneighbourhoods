@@ -309,6 +309,12 @@ export interface Neighbourhood {
     greenbeltTrailsLengthKm: number;
     greenbeltTrailsList: string[];
     greenbeltTrailsData: GreenbeltTrailData[];
+    // Cycling infrastructure
+    cyclingTotalKm: number;
+    bikeLanesKm: number;
+    pathsKm: number;
+    pavedShouldersKm: number;
+    cyclingByType: Record<string, number>;
     // Traffic collisions (2022-2024)
     collisions: number | null;
     collisionsFatal: number | null;

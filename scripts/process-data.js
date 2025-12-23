@@ -589,6 +589,26 @@ async function main() {
     console.log('  - No NCC Greenbelt trails file (run: node scripts/download-ncc-greenbelt.js)');
   }
 
+  // Load Cycling Infrastructure (optional - file may not exist)
+  let cyclingNetwork = [];
+  const cyclingPath = path.join(csvDir, 'cycling_network.csv');
+  if (fs.existsSync(cyclingPath)) {
+    const cyclingContent = fs.readFileSync(cyclingPath, 'utf8');
+    cyclingNetwork = cyclingContent.split('\n').slice(1).filter(line => line.trim()).map(line => {
+      const match = line.match(/^(\d+),"([^"]+)",(\d+),([\d.-]+),([\d.-]+)$/);
+      if (!match) return null;
+      return {
+        type: match[2],
+        lengthM: parseInt(match[3]) || 0,
+        lat: parseFloat(match[4]),
+        lon: parseFloat(match[5])
+      };
+    }).filter(Boolean);
+    console.log(`  - ${cyclingNetwork.length} cycling infrastructure segments`);
+  } else {
+    console.log('  - No cycling network file (run: node scripts/download-cycling-network.js)');
+  }
+
   // Load ONS Census Data from ons-sqo.ca (2021 Census data)
   let onsCensusData = [];
   const onsCensusPath = path.join(csvDir, 'ons_census_data.csv');
@@ -1137,6 +1157,36 @@ async function main() {
   }
   console.log(`  Assigned ${assignedCollisions} traffic collisions`);
 
+  // Assign cycling infrastructure to neighbourhoods
+  console.log('\nAssigning cycling infrastructure to neighbourhoods...');
+  const cyclingByNeighbourhood = {};
+  let assignedCycling = 0;
+
+  for (const segment of cyclingNetwork) {
+    if (!segment.lat || !segment.lon) continue;
+
+    const neighbourhoodId = assignToNeighbourhood(segment.lat, segment.lon, boundariesByNeighbourhood);
+    if (neighbourhoodId) {
+      if (!cyclingByNeighbourhood[neighbourhoodId]) {
+        cyclingByNeighbourhood[neighbourhoodId] = {
+          totalLengthM: 0,
+          byType: {},
+          segments: []
+        };
+      }
+      const data = cyclingByNeighbourhood[neighbourhoodId];
+      data.totalLengthM += segment.lengthM;
+
+      if (!data.byType[segment.type]) {
+        data.byType[segment.type] = 0;
+      }
+      data.byType[segment.type] += segment.lengthM;
+
+      assignedCycling++;
+    }
+  }
+  console.log(`  Assigned ${assignedCycling} cycling segments`);
+
   // Process hospitals - calculate nearest hospital for each neighbourhood
   console.log('\nCalculating hospital proximity for each neighbourhood...');
   const hospitals = hospitalsRaw.map(h => ({
@@ -1414,6 +1464,15 @@ async function main() {
     const greenbeltTrailCount = greenbeltTrailsForNeighbourhood.length;
     const greenbeltTotalLengthKm = greenbeltTrailsForNeighbourhood.reduce((sum, t) => sum + t.lengthKm, 0);
 
+    // Get cycling infrastructure for this neighbourhood
+    const cyclingData = cyclingByNeighbourhood[info.id] || { totalLengthM: 0, byType: {} };
+    const cyclingTotalKm = roundTo(cyclingData.totalLengthM / 1000, 1);
+    const bikeLanesKm = roundTo(((cyclingData.byType['Bike Lane'] || 0) +
+                                  (cyclingData.byType['Cycle Track'] || 0) +
+                                  (cyclingData.byType['Segregated Bike Lane'] || 0)) / 1000, 1);
+    const pathsKm = roundTo((cyclingData.byType['Path'] || 0) / 1000, 1);
+    const pavedShouldersKm = roundTo((cyclingData.byType['Paved Shoulder'] || 0) / 1000, 1);
+
     // Get population data from ONS Census (2021 Census from ons-sqo.ca)
     // Aggregate population from all ONS-SQO areas that make up this neighbourhood
     const mapping = neighbourhoodMapping[info.id];
@@ -1662,6 +1721,12 @@ async function main() {
         greenbeltTrailsLengthKm: roundTo(greenbeltTotalLengthKm, 1),
         greenbeltTrailsList: greenbeltTrailsForNeighbourhood.map(t => t.name),
         greenbeltTrailsData: greenbeltTrailsForNeighbourhood,
+        // Cycling infrastructure
+        cyclingTotalKm,
+        bikeLanesKm,
+        pathsKm,
+        pavedShouldersKm,
+        cyclingByType: cyclingData.byType,
       },
       pros: info.pros ? info.pros.split('; ') : [],
       cons: info.cons ? info.cons.split('; ') : [],
