@@ -138,11 +138,6 @@ module.exports = {
     onsIds: [],
     onsSqoIds: ['3029'],
   },
-  'colonnade-business-park': {
-    name: 'Colonnade Business Park',
-    onsIds: [],
-    onsSqoIds: ['3030'],
-  },
   'constance-bay': {
     name: 'Constance Bay',
     onsIds: [],
@@ -257,11 +252,6 @@ module.exports = {
     name: 'Hunt Club Park',
     onsIds: [],
     onsSqoIds: ['3056'],
-  },
-  'industrial-east': {
-    name: 'Industrial East',
-    onsIds: [],
-    onsSqoIds: ['3057'],
   },
   'iris': {
     name: 'Iris',

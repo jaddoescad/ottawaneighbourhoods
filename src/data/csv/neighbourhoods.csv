@@ -1,109 +1,107 @@
 id,name,area,image,medianIncome,avgRent,avgHomePrice,pros,cons
-alta-vista,Alta Vista,South East,/neighbourhoodcovers/default.jpg,115000,2200,800000,Established community,Varies by location
-bayshore,Bayshore,West End,/neighbourhoodcovers/default.jpg,64000,1800,600000,Waterfront access,Varies by location
-beacon-hill-south-cardinal-heights,Beacon Hill South - Cardinal Heights,East End,/neighbourhoodcovers/default.jpg,73500,1800,600000,Established community,Varies by location
-beaverbrook,Beaverbrook,Kanata,/neighbourhoodcovers/default.jpg,89000,2000,700000,Tech hub proximity,Far from downtown
-bells-corners-east,Bells Corners East,West End,/neighbourhoodcovers/default.jpg,83000,2000,700000,Established community,Varies by location
-bells-corners-west,Bells Corners West,West End,/neighbourhoodcovers/default.jpg,74000,1800,600000,Established community,Varies by location
-billings-bridge-heron-park,Billings Bridge - Heron Park,South East,/neighbourhoodcovers/default.jpg,55200,1650,500000,Green space access,Varies by location
-blackburn-hamlet,Blackburn Hamlet,East End,/neighbourhoodcovers/default.jpg,90000,2000,700000,Established community,Varies by location
-blossom-park-timbermill,Blossom Park - Timbermill,South End,/neighbourhoodcovers/default.jpg,95000,2000,700000,Green space access,Varies by location
-borden-farm-fisher-glen,Borden Farm - Fisher Glen,South West,/neighbourhoodcovers/default.jpg,81000,2000,700000,Established community,Varies by location
-braemar-park-bel-air-heights-copeland-park,Braemar Park - Bel Air Heights - Copeland Park,South West,/neighbourhoodcovers/default.jpg,79500,1800,600000,Green space access,Varies by location
-bridlewood-emerald-meadows,Bridlewood - Emerald Meadows,Kanata,/neighbourhoodcovers/default.jpg,112000,2200,800000,Tech hub proximity,Far from downtown
-britannia,Britannia,West End,/neighbourhoodcovers/default.jpg,58800,1650,500000,Established community,Varies by location
-brookside-briarbrook-morgan-s-grant,Brookside - Briarbrook - Morgan's Grant,Kanata,/neighbourhoodcovers/default.jpg,112000,2200,800000,Tech hub proximity,Far from downtown
-cardinal-creek,Cardinal Creek,Orleans,/neighbourhoodcovers/default.jpg,114000,2200,800000,Family friendly,Far from downtown
-carleton-heights-courtland-park,Carleton Heights - Courtland Park,Central West,/neighbourhoodcovers/default.jpg,68500,1800,600000,Green space access,Varies by location
-carlington,Carlington,Central West,/neighbourhoodcovers/default.jpg,62000,1800,600000,Established community,Varies by location
-carp,Carp,Rural West,/neighbourhoodcovers/default.jpg,126000,2400,950000,Quiet rural setting,Car essential
-carson-grove-carson-meadows,Carson Grove - Carson Meadows,East End,/neighbourhoodcovers/default.jpg,75500,1800,600000,Established community,Varies by location
-centrepointe,Centrepointe,South West,/neighbourhoodcovers/default.jpg,101000,2200,800000,Established community,Varies by location
-centretown,Centretown,Downtown,/neighbourhoodcovers/default.jpg,62800,1800,600000,Walking distance to downtown,Higher density
-chapel-hill-north,Chapel Hill North,Orleans,/neighbourhoodcovers/default.jpg,105000,2200,800000,Family friendly,Far from downtown
-chapel-hill-south,Chapel Hill South,Orleans,/neighbourhoodcovers/default.jpg,117000,2200,800000,Family friendly,Far from downtown
-chapman-mills,Chapman Mills,Barrhaven,/neighbourhoodcovers/default.jpg,103000,2200,800000,Established community,Far from downtown
-city-view,City view,Ottawa,/neighbourhoodcovers/default.jpg,80000,1800,600000,Established community,Varies by location
-civic-hospital,Civic Hospital,Downtown,/neighbourhoodcovers/default.jpg,102000,2200,800000,Walking distance to downtown,Higher density
-colonnade-business-park,Colonnade Business Park,South West,/neighbourhoodcovers/default.jpg,70000,1800,600000,Green space access,Varies by location
-constance-bay,Constance Bay,Rural West,/neighbourhoodcovers/default.jpg,89000,2000,700000,Waterfront access; Quiet rural setting,Car essential
-convent-glen-orleans-woods,Convent Glen - Orléans Woods,Orleans,/neighbourhoodcovers/default.jpg,93000,2000,700000,Family friendly,Far from downtown
-corkery,Corkery,Rural West,/neighbourhoodcovers/default.jpg,124000,2400,950000,Quiet rural setting,Car essential
-craig-henry-manordale,Craig Henry - Manordale,South West,/neighbourhoodcovers/default.jpg,90000,2000,700000,Established community,Varies by location
-crestview-tanglewood,Crestview - Tanglewood,South West,/neighbourhoodcovers/default.jpg,88000,2000,700000,Established community,Varies by location
-crystal-bay-lakeview-park,Crystal Bay - Lakeview Park,West End,/neighbourhoodcovers/default.jpg,108000,2200,800000,Waterfront access; Green space access,Varies by location
-cumberland,Cumberland,Rural East,/neighbourhoodcovers/default.jpg,125000,2400,950000,Quiet rural setting,Car essential
-dunrobin,Dunrobin,Rural West,/neighbourhoodcovers/default.jpg,123000,2400,950000,Quiet rural setting,Car essential
-edwards-carlsbad-springs,Edwards - Carlsbad Springs,Rural East,/neighbourhoodcovers/default.jpg,86000,2000,700000,Quiet rural setting,Car essential
-elmvale-canterbury,Elmvale - Canterbury,South East,/neighbourhoodcovers/default.jpg,78500,1800,600000,Established community,Varies by location
-emerald-woods-sawmill-creek,Emerald Woods - Sawmill Creek,South End,/neighbourhoodcovers/default.jpg,67500,1800,600000,Established community,Varies by location
-fallingbrook,Fallingbrook,Orleans,/neighbourhoodcovers/default.jpg,109000,2200,800000,Family friendly,Far from downtown
-findlay-creek,Findlay Creek,South Suburban,/neighbourhoodcovers/default.jpg,111000,2200,800000,Established community,Limited transit
-fisher-heights,Fisher Heights,Central West,/neighbourhoodcovers/default.jpg,91000,2000,700000,Established community,Varies by location
-fitzroy,Fitzroy,Rural West,/neighbourhoodcovers/default.jpg,95000,2000,700000,Quiet rural setting,Car essential
-glebe-dows-lake,Glebe - Dows Lake,Central Ottawa,/neighbourhoodcovers/default.jpg,89000,2000,700000,Central location,Varies by location
-glen-cairn,Glen Cairn,Kanata,/neighbourhoodcovers/default.jpg,93000,2000,700000,Tech hub proximity,Far from downtown
-greely,Greely,Rural South,/neighbourhoodcovers/default.jpg,128000,2400,950000,Quiet rural setting,Car essential
-greenboro-east,Greenboro East,South End,/neighbourhoodcovers/default.jpg,89000,2000,700000,Established community,Varies by location
-greenboro-west,Greenboro West,South End,/neighbourhoodcovers/default.jpg,89000,2000,700000,Established community,Varies by location
-hawthorne-meadows-sheffield-glen,Hawthorne Meadows - Sheffield Glen,South East,/neighbourhoodcovers/default.jpg,60800,1800,600000,Established community,Varies by location
-hintonburg-mechanicsville,Hintonburg - Mechanicsville,West End,/neighbourhoodcovers/default.jpg,67500,1800,600000,Established community,Varies by location
-hunt-club-park,Hunt Club Park,South End,/neighbourhoodcovers/default.jpg,91000,2000,700000,Green space access,Varies by location
-industrial-east,Industrial East,Ottawa,/neighbourhoodcovers/default.jpg,70000,1800,600000,Established community,Varies by location
-iris,Iris,South West,/neighbourhoodcovers/default.jpg,70500,1800,600000,Established community,Varies by location
-island-park-wellington-village,Island Park - Wellington Village,West End,/neighbourhoodcovers/default.jpg,120000,2200,800000,Green space access,Varies by location
-kanata-lakes,Kanata Lakes,Kanata,/neighbourhoodcovers/default.jpg,108000,2200,800000,Tech hub proximity,Far from downtown
-katimavik-hazeldean,Katimavik - Hazeldean,Kanata,/neighbourhoodcovers/default.jpg,94000,2000,700000,Tech hub proximity,Far from downtown
-kinburn,Kinburn,Rural West,/neighbourhoodcovers/default.jpg,108000,2200,800000,Quiet rural setting,Car essential
-laurentian,Laurentian,West End,/neighbourhoodcovers/default.jpg,92000,2000,700000,Established community,Varies by location
-lebreton-development,Lebreton Development,Downtown,/neighbourhoodcovers/default.jpg,70000,1800,600000,Walking distance to downtown,Higher density
-ledbury-heron-gate-ridgemont,Ledbury - Heron Gate - Ridgemont,South East,/neighbourhoodcovers/default.jpg,56400,1650,500000,Established community,Varies by location
-leslie-park-bruce-farm,Leslie Park - Bruce Farm,South West,/neighbourhoodcovers/default.jpg,84000,2000,700000,Green space access,Varies by location
-lowertown-east,Lowertown East,Central,/neighbourhoodcovers/default.jpg,49200,1650,500000,Walking distance to downtown,Varies by location
-lowertown-west,Lowertown West,Central,/neighbourhoodcovers/default.jpg,64500,1800,600000,Walking distance to downtown,Varies by location
-manor-park,Manor Park,Central,/neighbourhoodcovers/default.jpg,64000,1800,600000,Walking distance to downtown; Green space access,Varies by location
-manotick,Manotick,Rural South,/neighbourhoodcovers/default.jpg,128000,2400,950000,Quiet rural setting,Car essential
-merivale-gardens-grenfell-glen-pineglen-country-place,Merivale Gardens - Grenfell Glen - Pineglen - Country Place,South West,/neighbourhoodcovers/default.jpg,130000,2400,950000,Established community,Varies by location
-metcalfe,Metcalfe,Rural South,/neighbourhoodcovers/default.jpg,108000,2200,800000,Quiet rural setting,Car essential
-richmond,Richmond,Rural West,/neighbourhoodcovers/default.jpg,109000,2200,800000,Quiet rural setting,Car essential
-munster-ashton,Munster - Ashton,Rural West,/neighbourhoodcovers/default.jpg,106000,2200,800000,Quiet rural setting,Car essential
-navan-sarsfield,Navan - Sarsfield,Rural East,/neighbourhoodcovers/default.jpg,106000,2200,800000,Quiet rural setting,Car essential
-new-edinburgh,New Edinburgh,Central,/neighbourhoodcovers/default.jpg,98000,2000,700000,Walking distance to downtown,Varies by location
-north-gower-kars,North Gower - Kars,Rural South,/neighbourhoodcovers/default.jpg,108000,2200,800000,Quiet rural setting,Car essential
-old-barrhaven-east,Old Barrhaven East,Barrhaven,/neighbourhoodcovers/default.jpg,101000,2200,800000,Established community,Far from downtown
-old-barrhaven-west,Old Barrhaven West,Barrhaven,/neighbourhoodcovers/default.jpg,105000,2200,800000,Established community,Far from downtown
-old-hunt-club,Old Hunt Club,South End,/neighbourhoodcovers/default.jpg,89000,2000,700000,Established community,Varies by location
-old-ottawa-east,Old Ottawa East,Central Ottawa,/neighbourhoodcovers/default.jpg,82000,2000,700000,Central location,Varies by location
-old-ottawa-south,Old Ottawa South,Central Ottawa,/neighbourhoodcovers/default.jpg,125000,2400,950000,Central location,Varies by location
-orleans-village-chateauneuf,Orléans Village - Chateauneuf,Ottawa,/neighbourhoodcovers/default.jpg,106000,2200,800000,Established community,Varies by location
-osgoode-vernon,Osgoode - Vernon,Rural South,/neighbourhoodcovers/default.jpg,103000,2200,800000,Quiet rural setting,Car essential
-overbrook,Overbrook,Central East,/neighbourhoodcovers/default.jpg,64000,1800,600000,Established community,Varies by location
-parkwood-hills,Parkwood Hills,South West,/neighbourhoodcovers/default.jpg,58400,1650,500000,Green space access,Varies by location
-pineview,Pineview,East End,/neighbourhoodcovers/default.jpg,85000,2000,700000,Established community,Varies by location
-playfair-park-guildwood-estates,Playfair Park - Guildwood Estates,South East,/neighbourhoodcovers/default.jpg,91000,2000,700000,Green space access,Varies by location
-portobello-south,Portobello South,Orleans,/neighbourhoodcovers/default.jpg,108000,2200,800000,Family friendly,Far from downtown
-qualicum-redwood,Qualicum - Redwood,West End,/neighbourhoodcovers/default.jpg,87000,2000,700000,Established community,Varies by location
-queensway-terrace-north,Queensway Terrace North,Ottawa,/neighbourhoodcovers/default.jpg,92000,2000,700000,Established community,Varies by location
-queenswood-chatelaine,Queenswood - Chatelaine,Orleans,/neighbourhoodcovers/default.jpg,86000,2000,700000,Family friendly,Far from downtown
-queenswood-heights,Queenswood Heights,Orleans,/neighbourhoodcovers/default.jpg,92000,2000,700000,Family friendly,Far from downtown
-rideau-crest-davidson-heights,Rideau Crest - Davidson Heights,South Suburban,/neighbourhoodcovers/default.jpg,113000,2200,800000,Established community,Limited transit
-riverside-park-mooney-s-bay,Riverside Park - Mooney's Bay,South End,/neighbourhoodcovers/default.jpg,73000,1800,600000,Waterfront access; Green space access,Varies by location
-riverside-park-south-revelstoke,Riverside Park South - Revelstoke,South End,/neighbourhoodcovers/default.jpg,116000,2200,800000,Waterfront access; Green space access,Varies by location
-riverside-south-leitrim,Riverside South - Leitrim,South Suburban,/neighbourhoodcovers/default.jpg,117000,2200,800000,Waterfront access,Limited transit
-riverview,Riverview,South East,/neighbourhoodcovers/default.jpg,64000,1800,600000,Waterfront access,Varies by location
-rockcliffe-park,Rockcliffe Park,Central,/neighbourhoodcovers/default.jpg,212000,2400,950000,Walking distance to downtown; Green space access,Varies by location
-rothwell-heights-beacon-hill-north,Rothwell Heights - Beacon Hill North,East End,/neighbourhoodcovers/default.jpg,99000,2000,700000,Established community,Varies by location
-sandy-hill,Sandy Hill,Central,/neighbourhoodcovers/default.jpg,56400,1650,500000,Walking distance to downtown,Varies by location
-south-keys,South Keys,South End,/neighbourhoodcovers/default.jpg,77500,1800,600000,Established community,Varies by location
-stittsville,Stittsville,Stittsville,/neighbourhoodcovers/default.jpg,120000,2200,800000,Established community,Far from downtown
-stittsville-east,Stittsville East,Stittsville,/neighbourhoodcovers/default.jpg,109000,2200,800000,Established community,Far from downtown
-stittsville-north,Stittsville North,Stittsville,/neighbourhoodcovers/default.jpg,110000,2200,800000,Established community,Far from downtown
-stonebridge-half-moon-bay,Stonebridge - Half Moon Bay,Barrhaven,/neighbourhoodcovers/default.jpg,109000,2200,800000,Waterfront access,Far from downtown
-trend-arlington,Trend-Arlington,South West,/neighbourhoodcovers/default.jpg,95000,2000,700000,Established community,Varies by location
-vanier-north,Vanier North,Central East,/neighbourhoodcovers/default.jpg,61200,1800,600000,Established community,Varies by location
-vanier-south,Vanier South,Central East,/neighbourhoodcovers/default.jpg,49200,1650,500000,Established community,Varies by location
-vars,Vars,Rural East,/neighbourhoodcovers/default.jpg,105000,2200,800000,Quiet rural setting,Car essential
-wateridge-village,Wateridge Village,Central,/neighbourhoodcovers/default.jpg,77500,1800,600000,Walking distance to downtown,Varies by location
-west-centretown,West Centretown,Downtown,/neighbourhoodcovers/default.jpg,54400,1650,500000,Walking distance to downtown,Higher density
-westboro,Westboro,West End,/neighbourhoodcovers/default.jpg,84000,2000,700000,Established community,Varies by location
-whitehaven-woodpark-glabar-park,Whitehaven - Woodpark - Glabar Park,West End,/neighbourhoodcovers/default.jpg,70500,1800,600000,Green space access,Varies by location
+alta-vista,Alta Vista,South East,/neighbourhoodcovers/alta-vista.webp,115000,2200,800000,Established community,Varies by location
+bayshore,Bayshore,West End,/neighbourhoodcovers/bayshore.jpg,64000,1800,600000,Waterfront access,Varies by location
+beacon-hill-south-cardinal-heights,Beacon Hill South - Cardinal Heights,East End,/neighbourhoodcovers/beacon-hill-south-cardinal-heights.webp,73500,1800,600000,Established community,Varies by location
+beaverbrook,Beaverbrook,Kanata,/neighbourhoodcovers/beaverbrook.jpg,89000,2000,700000,Tech hub proximity,Far from downtown
+bells-corners-east,Bells Corners East,West End,/neighbourhoodcovers/bells-corners-east.jpg,83000,2000,700000,Established community,Varies by location
+bells-corners-west,Bells Corners West,West End,/neighbourhoodcovers/bells-corners-west.jpg,74000,1800,600000,Established community,Varies by location
+billings-bridge-heron-park,Billings Bridge - Heron Park,South East,/neighbourhoodcovers/billings-bridge-heron-park.jpg,55200,1650,500000,Green space access,Varies by location
+blackburn-hamlet,Blackburn Hamlet,East End,/neighbourhoodcovers/blackburn-hamlet.jpg,90000,2000,700000,Established community,Varies by location
+blossom-park-timbermill,Blossom Park - Timbermill,South End,/neighbourhoodcovers/blossom-park-timbermill.jpg,95000,2000,700000,Green space access,Varies by location
+borden-farm-fisher-glen,Borden Farm - Fisher Glen,South West,/neighbourhoodcovers/borden-farm-fisher-glen.jpg,81000,2000,700000,Established community,Varies by location
+braemar-park-bel-air-heights-copeland-park,Braemar Park - Bel Air Heights - Copeland Park,South West,/neighbourhoodcovers/braemar-park-bel-air-heights-copeland-park.webp,79500,1800,600000,Green space access,Varies by location
+bridlewood-emerald-meadows,Bridlewood - Emerald Meadows,Kanata,/neighbourhoodcovers/bridlewood-emerald-meadows.jpg,112000,2200,800000,Tech hub proximity,Far from downtown
+britannia,Britannia,West End,/neighbourhoodcovers/britannia.webp,58800,1650,500000,Established community,Varies by location
+brookside-briarbrook-morgan-s-grant,Brookside - Briarbrook - Morgan's Grant,Kanata,/neighbourhoodcovers/brookside-briarbrook-morgan-s-grant.png,112000,2200,800000,Tech hub proximity,Far from downtown
+cardinal-creek,Cardinal Creek,Orleans,/neighbourhoodcovers/cardinal-creek.jpeg,114000,2200,800000,Family friendly,Far from downtown
+carleton-heights-courtland-park,Carleton Heights - Courtland Park,Central West,/neighbourhoodcovers/carleton-heights-courtland-park.jpg,68500,1800,600000,Green space access,Varies by location
+carlington,Carlington,Central West,/neighbourhoodcovers/carlington.jpeg,62000,1800,600000,Established community,Varies by location
+carp,Carp,Rural West,/neighbourhoodcovers/carp.jpg,126000,2400,950000,Quiet rural setting,Car essential
+carson-grove-carson-meadows,Carson Grove - Carson Meadows,East End,/neighbourhoodcovers/carson-grove-carson-meadows.webp,75500,1800,600000,Established community,Varies by location
+centrepointe,Centrepointe,South West,/neighbourhoodcovers/centrepointe.webp,101000,2200,800000,Established community,Varies by location
+centretown,Centretown,Downtown,/neighbourhoodcovers/centretown.webp,62800,1800,600000,Walking distance to downtown,Higher density
+chapel-hill-north,Chapel Hill North,Orleans,/neighbourhoodcovers/chapel-hill-north.jpeg,105000,2200,800000,Family friendly,Far from downtown
+chapel-hill-south,Chapel Hill South,Orleans,/neighbourhoodcovers/chapel-hill-south.webp,117000,2200,800000,Family friendly,Far from downtown
+chapman-mills,Chapman Mills,Barrhaven,/neighbourhoodcovers/chapman-mills.jpg,103000,2200,800000,Established community,Far from downtown
+city-view,City view,Ottawa,/neighbourhoodcovers/city-view.jpg,80000,1800,600000,Established community,Varies by location
+civic-hospital,Civic Hospital,Downtown,/neighbourhoodcovers/civic-hospital.jpg,102000,2200,800000,Walking distance to downtown,Higher density
+constance-bay,Constance Bay,Rural West,/neighbourhoodcovers/constance-bay.jpg,89000,2000,700000,Waterfront access; Quiet rural setting,Car essential
+convent-glen-orleans-woods,Convent Glen - Orléans Woods,Orleans,/neighbourhoodcovers/convent-glen-orleans-woods.jpg,93000,2000,700000,Family friendly,Far from downtown
+corkery,Corkery,Rural West,/neighbourhoodcovers/corkery.jpg,124000,2400,950000,Quiet rural setting,Car essential
+craig-henry-manordale,Craig Henry - Manordale,South West,/neighbourhoodcovers/craig-henry-manordale.webp,90000,2000,700000,Established community,Varies by location
+crestview-tanglewood,Crestview - Tanglewood,South West,/neighbourhoodcovers/crestview-tanglewood.webp,88000,2000,700000,Established community,Varies by location
+crystal-bay-lakeview-park,Crystal Bay - Lakeview Park,West End,/neighbourhoodcovers/crystal-bay-lakeview-park.jpg,108000,2200,800000,Waterfront access; Green space access,Varies by location
+cumberland,Cumberland,Rural East,/neighbourhoodcovers/cumberland.jpeg,125000,2400,950000,Quiet rural setting,Car essential
+dunrobin,Dunrobin,Rural West,/neighbourhoodcovers/dunrobin.jpg,123000,2400,950000,Quiet rural setting,Car essential
+edwards-carlsbad-springs,Edwards - Carlsbad Springs,Rural East,/neighbourhoodcovers/edwards-carlsbad-springs.jpg,86000,2000,700000,Quiet rural setting,Car essential
+elmvale-canterbury,Elmvale - Canterbury,South East,/neighbourhoodcovers/elmvale-canterbury.jpg,78500,1800,600000,Established community,Varies by location
+emerald-woods-sawmill-creek,Emerald Woods - Sawmill Creek,South End,/neighbourhoodcovers/emerald-woods-sawmill-creek.jpg,67500,1800,600000,Established community,Varies by location
+fallingbrook,Fallingbrook,Orleans,/neighbourhoodcovers/fallingbrook.jpg,109000,2200,800000,Family friendly,Far from downtown
+findlay-creek,Findlay Creek,South Suburban,/neighbourhoodcovers/findlay-creek.jpg,111000,2200,800000,Established community,Limited transit
+fisher-heights,Fisher Heights,Central West,/neighbourhoodcovers/fisher-heights.jpg,91000,2000,700000,Established community,Varies by location
+fitzroy,Fitzroy,Rural West,/neighbourhoodcovers/fitzroy.jpg,95000,2000,700000,Quiet rural setting,Car essential
+glebe-dows-lake,Glebe - Dows Lake,Central Ottawa,/neighbourhoodcovers/glebe-dows-lake.jpg,89000,2000,700000,Central location,Varies by location
+glen-cairn,Glen Cairn,Kanata,/neighbourhoodcovers/glen-cairn.jpg,93000,2000,700000,Tech hub proximity,Far from downtown
+greely,Greely,Rural South,/neighbourhoodcovers/greely.jpeg,128000,2400,950000,Quiet rural setting,Car essential
+greenboro-east,Greenboro East,South End,/neighbourhoodcovers/greenboro-east.jpg,89000,2000,700000,Established community,Varies by location
+greenboro-west,Greenboro West,South End,/neighbourhoodcovers/greenboro-west.jpg,89000,2000,700000,Established community,Varies by location
+hawthorne-meadows-sheffield-glen,Hawthorne Meadows - Sheffield Glen,South East,/neighbourhoodcovers/hawthorne-meadows-sheffield-glen.webp,60800,1800,600000,Established community,Varies by location
+hintonburg-mechanicsville,Hintonburg - Mechanicsville,West End,/neighbourhoodcovers/hintonburg-mechanicsville.jpeg,67500,1800,600000,Established community,Varies by location
+hunt-club-park,Hunt Club Park,South End,/neighbourhoodcovers/hunt-club-park.webp,91000,2000,700000,Green space access,Varies by location
+iris,Iris,South West,/neighbourhoodcovers/iris.jpg,70500,1800,600000,Established community,Varies by location
+island-park-wellington-village,Island Park - Wellington Village,West End,/neighbourhoodcovers/island-park-wellington-village.png,120000,2200,800000,Green space access,Varies by location
+kanata-lakes,Kanata Lakes,Kanata,/neighbourhoodcovers/kanata-lakes.webp,108000,2200,800000,Tech hub proximity,Far from downtown
+katimavik-hazeldean,Katimavik - Hazeldean,Kanata,/neighbourhoodcovers/katimavik-hazeldean.jpeg,94000,2000,700000,Tech hub proximity,Far from downtown
+kinburn,Kinburn,Rural West,/neighbourhoodcovers/kinburn.jpg,108000,2200,800000,Quiet rural setting,Car essential
+laurentian,Laurentian,West End,/neighbourhoodcovers/laurentian.webp,92000,2000,700000,Established community,Varies by location
+lebreton-development,Lebreton Development,Downtown,/neighbourhoodcovers/lebreton-development.jpg,70000,1800,600000,Walking distance to downtown,Higher density
+ledbury-heron-gate-ridgemont,Ledbury - Heron Gate - Ridgemont,South East,/neighbourhoodcovers/ledbury-heron-gate-ridgemont.jpeg,56400,1650,500000,Established community,Varies by location
+leslie-park-bruce-farm,Leslie Park - Bruce Farm,South West,/neighbourhoodcovers/leslie-park-bruce-farm.avif,84000,2000,700000,Green space access,Varies by location
+lowertown-east,Lowertown East,Central,/neighbourhoodcovers/lowertown-east.jpg,49200,1650,500000,Walking distance to downtown,Varies by location
+lowertown-west,Lowertown West,Central,/neighbourhoodcovers/lowertown-west.jpg,64500,1800,600000,Walking distance to downtown,Varies by location
+manor-park,Manor Park,Central,/neighbourhoodcovers/manor-park.jpg,64000,1800,600000,Walking distance to downtown; Green space access,Varies by location
+manotick,Manotick,Rural South,/neighbourhoodcovers/manotick.jpeg,128000,2400,950000,Quiet rural setting,Car essential
+merivale-gardens-grenfell-glen-pineglen-country-place,Merivale Gardens - Grenfell Glen - Pineglen - Country Place,South West,/neighbourhoodcovers/merivale-gardens-grenfell-glen-pineglen-country-place.avif,130000,2400,950000,Established community,Varies by location
+metcalfe,Metcalfe,Rural South,/neighbourhoodcovers/metcalfe.jpeg,108000,2200,800000,Quiet rural setting,Car essential
+richmond,Richmond,Rural West,/neighbourhoodcovers/richmond.jpg,109000,2200,800000,Quiet rural setting,Car essential
+munster-ashton,Munster - Ashton,Rural West,/neighbourhoodcovers/munster-ashton.avif,106000,2200,800000,Quiet rural setting,Car essential
+navan-sarsfield,Navan - Sarsfield,Rural East,/neighbourhoodcovers/navan-sarsfield.jpg,106000,2200,800000,Quiet rural setting,Car essential
+new-edinburgh,New Edinburgh,Central,/neighbourhoodcovers/new-edinburgh.jpeg,98000,2000,700000,Walking distance to downtown,Varies by location
+north-gower-kars,North Gower - Kars,Rural South,/neighbourhoodcovers/north-gower-kars.jpg,108000,2200,800000,Quiet rural setting,Car essential
+old-barrhaven-east,Old Barrhaven East,Barrhaven,/neighbourhoodcovers/old-barrhaven-east.webp,101000,2200,800000,Established community,Far from downtown
+old-barrhaven-west,Old Barrhaven West,Barrhaven,/neighbourhoodcovers/old-barrhaven-west.webp,105000,2200,800000,Established community,Far from downtown
+old-hunt-club,Old Hunt Club,South End,/neighbourhoodcovers/old-hunt-club.jpeg,89000,2000,700000,Established community,Varies by location
+old-ottawa-east,Old Ottawa East,Central Ottawa,/neighbourhoodcovers/old-ottawa-east.avif,82000,2000,700000,Central location,Varies by location
+old-ottawa-south,Old Ottawa South,Central Ottawa,/neighbourhoodcovers/old-ottawa-south.webp,125000,2400,950000,Central location,Varies by location
+orleans-village-chateauneuf,Orléans Village - Chateauneuf,Ottawa,/neighbourhoodcovers/orleans-village-chateauneuf.webp,106000,2200,800000,Established community,Varies by location
+osgoode-vernon,Osgoode - Vernon,Rural South,/neighbourhoodcovers/osgoode-vernon.jpg,103000,2200,800000,Quiet rural setting,Car essential
+overbrook,Overbrook,Central East,/neighbourhoodcovers/overbrook.jpg,64000,1800,600000,Established community,Varies by location
+parkwood-hills,Parkwood Hills,South West,/neighbourhoodcovers/parkwood-hills.jpg,58400,1650,500000,Green space access,Varies by location
+pineview,Pineview,East End,/neighbourhoodcovers/pineview.jpg,85000,2000,700000,Established community,Varies by location
+playfair-park-guildwood-estates,Playfair Park - Guildwood Estates,South East,/neighbourhoodcovers/playfair-park-guildwood-estates.jpg,91000,2000,700000,Green space access,Varies by location
+portobello-south,Portobello South,Orleans,/neighbourhoodcovers/portobello-south.jpeg,108000,2200,800000,Family friendly,Far from downtown
+qualicum-redwood,Qualicum - Redwood,West End,/neighbourhoodcovers/qualicum-redwood.jpg,87000,2000,700000,Established community,Varies by location
+queensway-terrace-north,Queensway Terrace North,Ottawa,/neighbourhoodcovers/queensway-terrace-north.jpg,92000,2000,700000,Established community,Varies by location
+queenswood-chatelaine,Queenswood - Chatelaine,Orleans,/neighbourhoodcovers/queenswood-chatelaine.jpg,86000,2000,700000,Family friendly,Far from downtown
+queenswood-heights,Queenswood Heights,Orleans,/neighbourhoodcovers/queenswood-heights.avif,92000,2000,700000,Family friendly,Far from downtown
+rideau-crest-davidson-heights,Rideau Crest - Davidson Heights,South Suburban,/neighbourhoodcovers/rideau-crest-davidson-heights.avif,113000,2200,800000,Established community,Limited transit
+riverside-park-mooney-s-bay,Riverside Park - Mooney's Bay,South End,/neighbourhoodcovers/riverside-park-mooney-s-bay.jpg,73000,1800,600000,Waterfront access; Green space access,Varies by location
+riverside-park-south-revelstoke,Riverside Park South - Revelstoke,South End,/neighbourhoodcovers/riverside-park-south-revelstoke.jpg,116000,2200,800000,Waterfront access; Green space access,Varies by location
+riverside-south-leitrim,Riverside South - Leitrim,South Suburban,/neighbourhoodcovers/riverside-south-leitrim.jpg,117000,2200,800000,Waterfront access,Limited transit
+riverview,Riverview,South East,/neighbourhoodcovers/riverview.png,64000,1800,600000,Waterfront access,Varies by location
+rockcliffe-park,Rockcliffe Park,Central,/neighbourhoodcovers/rockcliffe-park.png,212000,2400,950000,Walking distance to downtown; Green space access,Varies by location
+rothwell-heights-beacon-hill-north,Rothwell Heights - Beacon Hill North,East End,/neighbourhoodcovers/rothwell-heights-beacon-hill-north.webp,99000,2000,700000,Established community,Varies by location
+sandy-hill,Sandy Hill,Central,/neighbourhoodcovers/sandy-hill.jpg,56400,1650,500000,Walking distance to downtown,Varies by location
+south-keys,South Keys,South End,/neighbourhoodcovers/south-keys.webp,77500,1800,600000,Established community,Varies by location
+stittsville,Stittsville,Stittsville,/neighbourhoodcovers/stittsville.jpg,120000,2200,800000,Established community,Far from downtown
+stittsville-east,Stittsville East,Stittsville,/neighbourhoodcovers/stittsville-east.jpg,109000,2200,800000,Established community,Far from downtown
+stittsville-north,Stittsville North,Stittsville,/neighbourhoodcovers/stittsville-north.jpeg,110000,2200,800000,Established community,Far from downtown
+stonebridge-half-moon-bay,Stonebridge - Half Moon Bay,Barrhaven,/neighbourhoodcovers/stonebridge-half-moon-bay.jpg,109000,2200,800000,Waterfront access,Far from downtown
+trend-arlington,Trend-Arlington,South West,/neighbourhoodcovers/trend-arlington.webp,95000,2000,700000,Established community,Varies by location
+vanier-north,Vanier North,Central East,/neighbourhoodcovers/vanier-north.webp,61200,1800,600000,Established community,Varies by location
+vanier-south,Vanier South,Central East,/neighbourhoodcovers/vanier-south.webp,49200,1650,500000,Established community,Varies by location
+vars,Vars,Rural East,/neighbourhoodcovers/vars.jpg,105000,2200,800000,Quiet rural setting,Car essential
+wateridge-village,Wateridge Village,Central,/neighbourhoodcovers/wateridge-village.jpg,77500,1800,600000,Walking distance to downtown,Varies by location
+west-centretown,West Centretown,Downtown,/neighbourhoodcovers/west-centretown.webp,54400,1650,500000,Walking distance to downtown,Higher density
+westboro,Westboro,West End,/neighbourhoodcovers/westboro.jpg,84000,2000,700000,Established community,Varies by location
+whitehaven-woodpark-glabar-park,Whitehaven - Woodpark - Glabar Park,West End,/neighbourhoodcovers/whitehaven-woodpark-glabar-park.jpg,70500,1800,600000,Green space access,Varies by location
