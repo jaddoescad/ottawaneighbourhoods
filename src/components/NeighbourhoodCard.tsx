@@ -6,6 +6,7 @@ import { Neighbourhood } from "@/data/neighbourhoods";
 
 interface NeighbourhoodCardProps {
   neighbourhood: Neighbourhood;
+  rank?: number;
 }
 
 function getBarColor(value: number, max: number): string {
@@ -76,6 +77,7 @@ function getScoreRingColor(score: number): string {
 
 export default function NeighbourhoodCard({
   neighbourhood,
+  rank,
 }: NeighbourhoodCardProps) {
   const { id, name, area, image, population, avgRent, overallScore } = neighbourhood;
 
@@ -103,12 +105,14 @@ export default function NeighbourhoodCard({
       {/* Default Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 transition-opacity duration-300 group-hover:opacity-0" />
 
-      {/* Score Badge - Top Right */}
-      <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10">
-        <div className={`w-9 h-9 sm:w-12 sm:h-12 rounded-full ${getScoreColor(overallScore)} ring-2 ${getScoreRingColor(overallScore)} ring-offset-2 ring-offset-black/50 flex items-center justify-center shadow-lg`}>
-          <span className="text-white font-bold text-xs sm:text-sm">{overallScore}</span>
+      {/* Ranking Badge - Top Left */}
+      {rank && (
+        <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center shadow-lg border border-white/20">
+            <span className="text-white font-bold text-sm sm:text-lg">{rank}</span>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Hover Overlay - Dark with stats */}
       <div className="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-5 flex flex-col">
@@ -213,6 +217,13 @@ export default function NeighbourhoodCard({
             {name}
           </h2>
           <p className="text-white/80 text-xs sm:text-sm mt-1">{area}</p>
+        </div>
+
+        {/* Score Badge - Bottom */}
+        <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3">
+          <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${getScoreColor(overallScore)} ring-2 ${getScoreRingColor(overallScore)} ring-offset-2 ring-offset-black/50 flex items-center justify-center shadow-lg`}>
+            <span className="text-white font-bold text-xs sm:text-sm">{overallScore}</span>
+          </div>
         </div>
       </div>
     </Link>

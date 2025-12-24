@@ -59,10 +59,11 @@ export default function Home() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
           {[...neighbourhoods]
             .sort((a, b) => b.overallScore - a.overallScore)
-            .map((neighbourhood) => (
+            .map((neighbourhood, index) => (
               <NeighbourhoodCard
                 key={neighbourhood.id}
                 neighbourhood={neighbourhood}
+                rank={index + 1}
               />
             ))}
         </div>
