@@ -1,0 +1,842 @@
+{
+  "alta-vista": {
+    "name": "Alta Vista",
+    "treeCanopy": 28,
+    "treeEquityScore": 83,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Inner Urban, Outer Urban"
+  },
+  "bayshore": {
+    "name": "Bayshore",
+    "treeCanopy": 17,
+    "treeEquityScore": 51,
+    "censusTractCount": 2,
+    "priorityAreas": 1,
+    "transects": "Inner Urban, Outer Urban"
+  },
+  "beacon-hill-south-cardinal-heights": {
+    "name": "Beacon Hill South",
+    "treeCanopy": 21,
+    "treeEquityScore": 72,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "beaverbrook": {
+    "name": "Beaverbrook",
+    "treeCanopy": 29,
+    "treeEquityScore": 88,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "bells-corners-east": {
+    "name": "Bells Corners East",
+    "treeCanopy": 24,
+    "treeEquityScore": 78,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "bells-corners-west": {
+    "name": "Bells Corners West",
+    "treeCanopy": 21,
+    "treeEquityScore": 69,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "billings-bridge-heron-park": {
+    "name": "Billings Bridge",
+    "treeCanopy": 21,
+    "treeEquityScore": 72,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Inner Urban, Outer Urban"
+  },
+  "blackburn-hamlet": {
+    "name": "Blackburn Hamlet",
+    "treeCanopy": 26,
+    "treeEquityScore": 84,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "blossom-park-timbermill": {
+    "name": "Blossom Park",
+    "treeCanopy": 20,
+    "treeEquityScore": 69,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "borden-farm-fisher-glen": {
+    "name": "Borden Farm",
+    "treeCanopy": 18,
+    "treeEquityScore": 62,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "braemar-park-bel-air-heights-copeland-park": {
+    "name": "Braemar Park",
+    "treeCanopy": 22,
+    "treeEquityScore": 73,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "bridlewood-emerald-meadows": {
+    "name": "Bridlewood",
+    "treeCanopy": 16,
+    "treeEquityScore": 73,
+    "censusTractCount": 4,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "britannia": {
+    "name": "Britannia",
+    "treeCanopy": 25,
+    "treeEquityScore": 77,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Inner Urban, Outer Urban"
+  },
+  "brookside-briarbrook-morgan-s-grant": {
+    "name": "Morgan's Grant",
+    "treeCanopy": 16,
+    "treeEquityScore": 75,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "cardinal-creek": {
+    "name": "Cardinal Creek",
+    "treeCanopy": 9,
+    "treeEquityScore": 73,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "carleton-heights-courtland-park": {
+    "name": "Carleton Heights",
+    "treeCanopy": 21,
+    "treeEquityScore": 71,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "carlington": {
+    "name": "Carlington",
+    "treeCanopy": 21,
+    "treeEquityScore": 71,
+    "censusTractCount": 4,
+    "priorityAreas": 2,
+    "transects": "Inner Urban, Outer Urban"
+  },
+  "carp": {
+    "name": "Carp",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "carson-grove-carson-meadows": {
+    "name": "Carson Grove",
+    "treeCanopy": 20,
+    "treeEquityScore": 71,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "centrepointe": {
+    "name": "Centrepointe",
+    "treeCanopy": 24,
+    "treeEquityScore": 74,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "centretown": {
+    "name": "Centretown",
+    "treeCanopy": 14,
+    "treeEquityScore": 77,
+    "censusTractCount": 8,
+    "priorityAreas": 1,
+    "transects": "Downtown Core"
+  },
+  "chapel-hill-north": {
+    "name": "Chapel Hill North",
+    "treeCanopy": 22,
+    "treeEquityScore": 84,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "chapel-hill-south": {
+    "name": "Chapel Hill South",
+    "treeCanopy": 10,
+    "treeEquityScore": 69,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "chapman-mills": {
+    "name": "Chapman Mills",
+    "treeCanopy": 10,
+    "treeEquityScore": 65,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "city-view": {
+    "name": "City view",
+    "treeCanopy": 24,
+    "treeEquityScore": 75,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "civic-hospital": {
+    "name": "Civic Hospital",
+    "treeCanopy": 25,
+    "treeEquityScore": 85,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Inner Urban"
+  },
+  "constance-bay": {
+    "name": "Constance Bay",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "convent-glen-orleans-woods": {
+    "name": "Convent Glen",
+    "treeCanopy": 18,
+    "treeEquityScore": 81,
+    "censusTractCount": 4,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "corkery": {
+    "name": "Corkery",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "craig-henry-manordale": {
+    "name": "Craig Henry",
+    "treeCanopy": 17,
+    "treeEquityScore": 60,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "crestview-tanglewood": {
+    "name": "Crestview",
+    "treeCanopy": 22,
+    "treeEquityScore": 73,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "crystal-bay-lakeview-park": {
+    "name": "Crystal Bay",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "cumberland": {
+    "name": "Cumberland",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "dunrobin": {
+    "name": "Dunrobin",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "edwards-carlsbad-springs": {
+    "name": "Carlsbad Springs",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "elmvale-canterbury": {
+    "name": "Elmvale Acres",
+    "treeCanopy": 21,
+    "treeEquityScore": 73,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "emerald-woods-sawmill-creek": {
+    "name": "Sawmill Creek",
+    "treeCanopy": 20,
+    "treeEquityScore": 62,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "fallingbrook": {
+    "name": "Fallingbrook",
+    "treeCanopy": 16,
+    "treeEquityScore": 78,
+    "censusTractCount": 5,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "findlay-creek": {
+    "name": "Findlay Creek",
+    "treeCanopy": 6,
+    "treeEquityScore": 68,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "fisher-heights": {
+    "name": "Fisher Heights",
+    "treeCanopy": 23,
+    "treeEquityScore": 69,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "fitzroy": {
+    "name": "Fitzroy",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "glebe-dows-lake": {
+    "name": "Glebe - Dows Lake",
+    "treeCanopy": 25,
+    "treeEquityScore": 84,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Inner Urban"
+  },
+  "glen-cairn": {
+    "name": "Glen Cairn",
+    "treeCanopy": 19,
+    "treeEquityScore": 78,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "greely": {
+    "name": "Greely",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "greenboro-east": {
+    "name": "Greenboro East",
+    "treeCanopy": 19,
+    "treeEquityScore": 62,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "greenboro-west": {
+    "name": "Greenboro West",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "hawthorne-meadows-sheffield-glen": {
+    "name": "Sheffield Glen",
+    "treeCanopy": 20,
+    "treeEquityScore": 64,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "hintonburg-mechanicsville": {
+    "name": "Hintonburg",
+    "treeCanopy": 19,
+    "treeEquityScore": 76,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Inner Urban"
+  },
+  "hunt-club-park": {
+    "name": "Hunt Club Park",
+    "treeCanopy": 16,
+    "treeEquityScore": 62,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "iris": {
+    "name": "Iris",
+    "treeCanopy": 21,
+    "treeEquityScore": 70,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Inner Urban, Outer Urban"
+  },
+  "island-park-wellington-village": {
+    "name": "Wellington Village",
+    "treeCanopy": 27,
+    "treeEquityScore": 88,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Inner Urban"
+  },
+  "kanata-lakes": {
+    "name": "Kanata Lakes",
+    "treeCanopy": 18,
+    "treeEquityScore": 74,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "katimavik-hazeldean": {
+    "name": "Katimavik",
+    "treeCanopy": 25,
+    "treeEquityScore": 83,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "kinburn": {
+    "name": "Kinburn",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "laurentian": {
+    "name": "Laurentian",
+    "treeCanopy": 27,
+    "treeEquityScore": 83,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Inner Urban"
+  },
+  "ledbury-heron-gate-ridgemont": {
+    "name": "Heron Gate",
+    "treeCanopy": 14,
+    "treeEquityScore": 50,
+    "censusTractCount": 3,
+    "priorityAreas": 2,
+    "transects": "Outer Urban"
+  },
+  "leslie-park-bruce-farm": {
+    "name": "Leslie Park",
+    "treeCanopy": 25,
+    "treeEquityScore": 80,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "lowertown-east": {
+    "name": "Lowertown East",
+    "treeCanopy": 14,
+    "treeEquityScore": 72,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Downtown Core"
+  },
+  "lowertown-west": {
+    "name": "Lowertown West",
+    "treeCanopy": 10,
+    "treeEquityScore": 73,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Downtown Core"
+  },
+  "manor-park": {
+    "name": "Manor Park",
+    "treeCanopy": 27,
+    "treeEquityScore": 89,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Inner Urban"
+  },
+  "manotick": {
+    "name": "Manotick",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "merivale-gardens-grenfell-glen-pineglen-country-place": {
+    "name": "Merivale Gardens",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "metcalfe": {
+    "name": "Metcalfe",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "richmond": {
+    "name": "Richmond",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "munster-ashton": {
+    "name": "Munster - Ashton",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "navan-sarsfield": {
+    "name": "Navan - Sarsfield",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "new-edinburgh": {
+    "name": "New Edinburgh",
+    "treeCanopy": 29,
+    "treeEquityScore": 89,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Inner Urban"
+  },
+  "north-gower-kars": {
+    "name": "North Gower - Kars",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "old-barrhaven-east": {
+    "name": "Old Barrhaven East",
+    "treeCanopy": 13,
+    "treeEquityScore": 68,
+    "censusTractCount": 5,
+    "priorityAreas": 1,
+    "transects": "Suburban"
+  },
+  "old-barrhaven-west": {
+    "name": "Old Barrhaven West",
+    "treeCanopy": 18,
+    "treeEquityScore": 76,
+    "censusTractCount": 5,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "old-hunt-club": {
+    "name": "Old Hunt Club",
+    "treeCanopy": 24,
+    "treeEquityScore": 78,
+    "censusTractCount": 5,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "old-ottawa-east": {
+    "name": "Old Ottawa East",
+    "treeCanopy": 18,
+    "treeEquityScore": 73,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Downtown Core, Inner Urban"
+  },
+  "old-ottawa-south": {
+    "name": "Old Ottawa South",
+    "treeCanopy": 29,
+    "treeEquityScore": 88,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Inner Urban"
+  },
+  "orleans-village-chateauneuf": {
+    "name": "Orléans Village",
+    "treeCanopy": 18,
+    "treeEquityScore": 78,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "osgoode-vernon": {
+    "name": "Osgoode - Vernon",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "overbrook": {
+    "name": "Overbrook",
+    "treeCanopy": 19,
+    "treeEquityScore": 68,
+    "censusTractCount": 6,
+    "priorityAreas": 2,
+    "transects": "Inner Urban"
+  },
+  "parkwood-hills": {
+    "name": "Parkwood Hills",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "pineview": {
+    "name": "Pineview",
+    "treeCanopy": 17,
+    "treeEquityScore": 62,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "playfair-park-guildwood-estates": {
+    "name": "Playfair Park",
+    "treeCanopy": 24,
+    "treeEquityScore": 81,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "portobello-south": {
+    "name": "Portobello South",
+    "treeCanopy": 4,
+    "treeEquityScore": 62,
+    "censusTractCount": 6,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "qualicum-redwood": {
+    "name": "Qualicum - Redwood",
+    "treeCanopy": 26,
+    "treeEquityScore": 81,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "queensway-terrace-north": {
+    "name": "Queensway Terrace North",
+    "treeCanopy": 22,
+    "treeEquityScore": 70,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Inner Urban"
+  },
+  "queenswood-chatelaine": {
+    "name": "Queenswood",
+    "treeCanopy": 21,
+    "treeEquityScore": 81,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "queenswood-heights": {
+    "name": "Queenswood Heights",
+    "treeCanopy": 18,
+    "treeEquityScore": 81,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "rideau-crest-davidson-heights": {
+    "name": "Rideau Crest",
+    "treeCanopy": 14,
+    "treeEquityScore": 71,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "riverside-park-mooney-s-bay": {
+    "name": "Mooney's Bay",
+    "treeCanopy": 23,
+    "treeEquityScore": 73,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "riverside-park-south-revelstoke": {
+    "name": "Riverside Park South",
+    "treeCanopy": 31,
+    "treeEquityScore": 92,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "riverside-south-leitrim": {
+    "name": "Riverside South",
+    "treeCanopy": 8,
+    "treeEquityScore": 64,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "riverview": {
+    "name": "Riverview",
+    "treeCanopy": 21,
+    "treeEquityScore": 70,
+    "censusTractCount": 4,
+    "priorityAreas": 0,
+    "transects": "Inner Urban, Outer Urban"
+  },
+  "rockcliffe-park": {
+    "name": "Rockcliffe Park",
+    "treeCanopy": 47,
+    "treeEquityScore": 100,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Inner Urban"
+  },
+  "rothwell-heights-beacon-hill-north": {
+    "name": "Rothwell Heights",
+    "treeCanopy": 34,
+    "treeEquityScore": 88,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "sandy-hill": {
+    "name": "Sandy Hill",
+    "treeCanopy": 23,
+    "treeEquityScore": 87,
+    "censusTractCount": 4,
+    "priorityAreas": 0,
+    "transects": "Downtown Core"
+  },
+  "south-keys": {
+    "name": "South Keys",
+    "treeCanopy": 19,
+    "treeEquityScore": 68,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "stittsville": {
+    "name": "Stittsville",
+    "treeCanopy": 20,
+    "treeEquityScore": 78,
+    "censusTractCount": 4,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "stittsville-east": {
+    "name": "Stittsville East",
+    "treeCanopy": 13,
+    "treeEquityScore": 64,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "stittsville-north": {
+    "name": "Stittsville North",
+    "treeCanopy": 11,
+    "treeEquityScore": 72,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "stonebridge-half-moon-bay": {
+    "name": "Half Moon Bay",
+    "treeCanopy": 6,
+    "treeEquityScore": 61,
+    "censusTractCount": 5,
+    "priorityAreas": 0,
+    "transects": "Suburban"
+  },
+  "trend-arlington": {
+    "name": "Trend-Arlington",
+    "treeCanopy": 24,
+    "treeEquityScore": 79,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "vanier-north": {
+    "name": "Vanier North",
+    "treeCanopy": 19,
+    "treeEquityScore": 76,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Inner Urban"
+  },
+  "vanier-south": {
+    "name": "Vanier South",
+    "treeCanopy": 17,
+    "treeEquityScore": 69,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Inner Urban"
+  },
+  "vars": {
+    "name": "Vars",
+    "treeCanopy": null,
+    "treeEquityScore": null,
+    "censusTractCount": 0,
+    "priorityAreas": 0,
+    "transects": ""
+  },
+  "wateridge-village": {
+    "name": "Wateridge Village",
+    "treeCanopy": 44,
+    "treeEquityScore": 100,
+    "censusTractCount": 1,
+    "priorityAreas": 0,
+    "transects": "Outer Urban"
+  },
+  "west-centretown": {
+    "name": "West Centretown",
+    "treeCanopy": 16,
+    "treeEquityScore": 73,
+    "censusTractCount": 3,
+    "priorityAreas": 1,
+    "transects": "Downtown Core"
+  },
+  "westboro": {
+    "name": "Westboro",
+    "treeCanopy": 25,
+    "treeEquityScore": 82,
+    "censusTractCount": 3,
+    "priorityAreas": 0,
+    "transects": "Inner Urban"
+  },
+  "whitehaven-woodpark-glabar-park": {
+    "name": "Whitehaven",
+    "treeCanopy": 25,
+    "treeEquityScore": 79,
+    "censusTractCount": 2,
+    "priorityAreas": 0,
+    "transects": "Inner Urban"
+  }
+}

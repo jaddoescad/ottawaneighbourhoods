@@ -218,6 +218,14 @@ export interface Neighbourhood {
   pctCommuteTransit: number | null; // % of workers who commute by public transit
   pctWorkFromHome: number | null; // % of workers who work from home
   treeCanopy: number | null; // % tree canopy coverage (2024)
+  treeEquityScore: number | null; // Tree Equity Score (0-100)
+  treeEquityPriorityAreas: number; // Number of priority areas for tree planting
+  neiScore: number | null; // Neighbourhood Equity Index score (0-100, higher = better equity)
+  // Overdose ED visits (Ottawa Public Health, 2020-2024)
+  overdoseCumulative: number | null; // Total overdose ED visits over 5 years
+  overdoseYearlyAvg: number | null; // Average yearly overdose ED visits
+  overdoseRatePer100k: number | null; // Average yearly rate per 100,000 population
+  overdoseYears: string | null; // Date range of data (e.g., "2020-2024")
   commuteToDowntown: number; // Average commute time to downtown in minutes (by car)
   commuteByTransit: number; // Average commute time to downtown in minutes (by transit)
   // Transit station proximity

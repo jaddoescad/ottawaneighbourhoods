@@ -11,6 +11,8 @@ const GreenspaceOnsMap = dynamic(
 
 interface GreenspaceStatRowProps {
   treeCanopy: number | null;
+  treeEquityScore: number | null;
+  treeEquityPriorityAreas: number;
   parksCount: number;
   greenbeltTrailsCount: number;
   greenbeltLengthKm: number;
@@ -36,8 +38,24 @@ function getTreeCanopyLabel(pct: number): string {
   return "Low";
 }
 
+function getTreeEquityLabel(score: number): string {
+  if (score >= 90) return "Excellent";
+  if (score >= 70) return "Good";
+  if (score >= 50) return "Moderate";
+  return "Priority";
+}
+
+function getTreeEquityColor(score: number): string {
+  if (score >= 90) return "text-green-600";
+  if (score >= 70) return "text-green-500";
+  if (score >= 50) return "text-amber-600";
+  return "text-red-500";
+}
+
 export default function GreenspaceStatRow({
   treeCanopy,
+  treeEquityScore,
+  treeEquityPriorityAreas,
   parksCount,
   greenbeltTrailsCount,
   greenbeltLengthKm,
@@ -114,7 +132,7 @@ export default function GreenspaceStatRow({
           </div>
 
           {/* Summary Stats */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs mb-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 text-xs mb-4">
             <div className="bg-white rounded-lg p-2 border border-gray-200">
               <div className="text-gray-500">Tree Canopy</div>
               <div className="font-bold text-gray-900 text-lg">{canopy.toFixed(1)}%</div>
@@ -122,6 +140,13 @@ export default function GreenspaceStatRow({
                 Target: {TREE_TARGET}%
               </div>
             </div>
+            {treeEquityScore !== null && (
+              <div className="bg-white rounded-lg p-2 border border-gray-200">
+                <div className="text-gray-500">Tree Equity</div>
+                <div className={`font-bold text-lg ${getTreeEquityColor(treeEquityScore)}`}>{treeEquityScore}</div>
+                <div className="text-xs text-gray-400">{getTreeEquityLabel(treeEquityScore)}</div>
+              </div>
+            )}
             <div className="bg-white rounded-lg p-2 border border-gray-200">
               <div className="text-gray-500">Parks</div>
               <div className="font-bold text-gray-900 text-lg">{parksCount}</div>
@@ -201,6 +226,14 @@ export default function GreenspaceStatRow({
             <p className="mb-2">
               <strong>Tree Canopy:</strong> Percentage of land covered by tree crowns when viewed from above. Ottawa's Official Plan targets 40% canopy in urban areas.
             </p>
+            {treeEquityScore !== null && (
+              <p className="mb-2">
+                <strong>Tree Equity Score:</strong> Combines canopy cover with equity factors (income, heat vulnerability) to measure urban forest equity. Score 0-100, higher is better.
+                {treeEquityPriorityAreas > 0 && (
+                  <span className="text-amber-600"> This area has {treeEquityPriorityAreas} priority tract{treeEquityPriorityAreas > 1 ? 's' : ''} identified for tree planting.</span>
+                )}
+              </p>
+            )}
             <p>
               <strong>Parkland:</strong> Percentage of land designated as parks and green space in residential areas.
             </p>

@@ -1,0 +1,217 @@
+ctuid,name,transect,canopyCover,canopyGoal,treeEquityScore,isPriorityArea
+"5050053.00","Lowertown-Rideau St","Downtown Core",12,30,68,false
+"5050040.00","Centretown-Lyon St-Maclaren St","Downtown Core",20,30,86,false
+"5050037.01","Centretown-Elgin-Cooper","Downtown Core",11,30,73,false
+"5050038.00","Centretown-Bank St","Downtown Core",11,30,64,true
+"5050047.00","LeBreton Flats","Downtown Core",20,30,92,false
+"5050051.00","Sandy Hill-King Edward Ave","Downtown Core",21,30,84,false
+"5050055.00","Sussex Dr-Bingham Park","Downtown Core",15,30,82,false
+"5050048.00","Centretown-Downtown","Downtown Core",5,30,66,false
+"5050049.00","Centretown-Golden Triangle","Downtown Core",21,30,88,false
+"5050052.00","Sandy Hill-Riverfront-Cummings Bridge","Downtown Core",26,30,94,false
+"5050054.00","Byward Market","Downtown Core",6,30,66,false
+"5050014.00","Sandy Hill-Strathcona Heights","Downtown Core",18,30,76,false
+"5050039.00","Centretown-Lyon St-McLeod St","Downtown Core",20,30,86,false
+"5050015.00","Old Ottawa East-St Paul University","Downtown Core",20,30,82,false
+"5050035.00","The Glebe Annex-Little Italy","Downtown Core",12,30,72,false
+"5050042.00","Dalhousie-Rochester Heights","Downtown Core",13,30,63,true
+"5050050.00","University of Ottawa","Downtown Core",18,30,84,false
+"5050056.00","Lowertown-Beausoleil Dr","Downtown Core",16,30,76,false
+"5050037.02","Centretown-Elgin-Gladstone","Downtown Core",15,30,80,false
+"5050041.00","Somerset-Chinatown","Downtown Core",19,30,82,false
+"5050032.02","Laurentian View-Highland Park","Inner Urban",28,40,85,false
+"5050033.01","Westboro-Dovercourt","Inner Urban",26,40,84,false
+"5050033.02","Westboro-Hampton Park","Inner Urban",27,40,86,false
+"5050122.01","Cummings-Cyrville","Inner Urban",17,40,60,true
+"5050122.03","Carson Grove","Inner Urban",7,40,62,false
+"5050045.01","Island Park-Tunney's Pasture","Inner Urban",26,40,87,false
+"5050045.02","Island Park-Van Lang","Inner Urban",21,40,78,false
+"5050102.00","Vanier-Montreal Rd","Inner Urban",16,40,70,false
+"5050103.00","Vanier-Richelieu Park","Inner Urban",20,40,76,false
+"5050104.00","Vanier-Landry St","Inner Urban",16,40,75,false
+"5050110.00","Rockcliffe Park","Inner Urban",47,40,100,false
+"5050138.00","Bayshore","Inner Urban",25,40,72,false
+"5050023.02","Central Park","Inner Urban",13,40,67,true
+"5050011.03","Rideau River Park-Riviera","Inner Urban",18,40,69,false
+"5050011.01","East Industrial-Sheffield Glen-Russell Heights","Inner Urban",15,40,59,true
+"5050062.02","Wateridge Village at Rockcliffe","Inner Urban",10,40,73,false
+"5050020.01","Rideauview-Courtland Park-Experimental Farm-Carleton University","Inner Urban",23,40,76,false
+"5050032.01","Woodpark","Inner Urban",25,40,80,false
+"5050004.00","Clementine","Inner Urban",23,40,77,false
+"5050005.00","Billings Bridge","Inner Urban",19,40,70,false
+"5050012.00","Overbrook-The Four Corners-Queen Mary Court","Inner Urban",20,40,69,false
+"5050013.00","Overbrook-Donald Court","Inner Urban",19,40,70,false
+"5050015.00","Old Ottawa East-St Paul University","Inner Urban",17,40,69,false
+"5050016.00","Rideau Gardens","Inner Urban",30,40,90,false
+"5050017.00","Old Ottawa South-Brewer Park","Inner Urban",28,40,86,false
+"5050044.00","Island Park-Fisher Park","Inner Urban",29,40,90,false
+"5050046.00","Mechanicsville","Inner Urban",16,40,69,false
+"5050057.00","Lindenlea","Inner Urban",22,40,84,false
+"5050058.00","New Edinburg-Rideau Hall","Inner Urban",31,40,91,false
+"5050059.00","Rockcliffe-Manor Park","Inner Urban",33,40,94,false
+"5050060.00","Brittany-Beechwood","Inner Urban",34,40,92,false
+"5050061.00","Forbes","Inner Urban",19,40,69,false
+"5050100.00","Vanier-McArthur Ave","Inner Urban",17,40,68,false
+"5050101.00","Vanier-Parkway-Kingsview Park","Inner Urban",21,40,78,false
+"5050018.00","Glebe-Lansdowne","Inner Urban",20,40,80,false
+"5050019.00","Glebe South-Dows Lake","Inner Urban",28,40,86,false
+"5050021.00","Carlington-Alexander","Inner Urban",24,40,78,false
+"5050025.00","Whitehaven-Glabar Park","Inner Urban",25,40,80,false
+"5050026.00","Pinecrest Terrace","Inner Urban",21,40,73,false
+"5050022.00","Carlington-Belleview-Lepage-Caldwell","Inner Urban",22,40,68,true
+"5050028.00","Foster Farm","Inner Urban",22,40,70,false
+"5050030.00","Britannia Village-Eva Tylor Court-Winthrop Court-Regina Towers","Inner Urban",23,40,75,false
+"5050031.00","Lincoln Heights-McEwen Towers","Inner Urban",24,40,75,false
+"5050034.00","Parkdale-Civic Hospital","Inner Urban",26,40,86,false
+"5050035.00","The Glebe Annex-Little Italy","Inner Urban",21,40,78,false
+"5050036.00","Glebe-Patterson Creek","Inner Urban",27,40,86,false
+"5050043.00","Hintonburg","Inner Urban",21,40,81,false
+"5050003.00","Riverside Park","Outer Urban",23,40,73,false
+"5050004.00","Clementine","Outer Urban",20,40,69,false
+"5050005.00","Billings Bridge","Outer Urban",26,40,77,false
+"5050006.00","Alta Vista","Outer Urban",30,40,89,false
+"5050002.01","Riverside Park South","Outer Urban",31,40,92,false
+"5050002.02","Hunt Club West-Owl Park","Outer Urban",24,40,80,false
+"5050007.03","Guildwood Estates","Outer Urban",23,40,79,false
+"5050125.01","Blackburn Hamlet","Outer Urban",27,40,85,false
+"5050125.02","Blackburn-Innes Park","Outer Urban",23,40,77,false
+"5050125.03","Greenbelt-Mer Bleue","Outer Urban",32,40,93,false
+"5050130.01","Merivale Gardens-Pineglen","Outer Urban",36,40,96,false
+"5050130.02","Tanglewood","Outer Urban",17,40,65,false
+"5050135.03","Manordale","Outer Urban",20,40,72,false
+"5050136.01","Bells Corners East-Lynwood Village-Arbeatha Park","Outer Urban",24,40,78,false
+"5050026.00","Pinecrest Terrace","Outer Urban",21,40,69,false
+"5050027.00","Morrison Gardens","Outer Urban",16,40,64,false
+"5050029.00","Britannia Woods-Michele Heights","Outer Urban",27,40,78,false
+"5050132.00","Skyline-Fisher Heights","Outer Urban",23,40,69,false
+"5050133.00","City View-Algonquin College","Outer Urban",24,40,75,false
+"5050134.00","Meadowlands","Outer Urban",24,40,75,false
+"5050138.00","Bayshore","Outer Urban",16,40,48,true
+"5050139.00","Crystal Bay-Lakeview Park","Outer Urban",24,40,83,false
+"5050023.01","Bel Air Heights","Outer Urban",22,40,71,false
+"5050023.02","Central Park","Outer Urban",12,40,61,false
+"5050001.07","Greenboro-Hunt Club Park","Outer Urban",18,40,66,false
+"5050001.08","Hunt Club Park-East Industrial","Outer Urban",15,40,59,false
+"5050011.03","Rideau River Park-Riviera","Outer Urban",16,40,61,false
+"5050011.04","Riverview-Blair","Outer Urban",23,40,75,false
+"5050007.02","Heron Gate","Outer Urban",11,40,38,true
+"5050011.01","East Industrial-Sheffield Glen-Russell Heights","Outer Urban",21,40,65,false
+"5050062.01","Viscount Alexander Park-La Cite","Outer Urban",21,40,68,false
+"5050062.02","Wateridge Village at Rockcliffe","Outer Urban",44,40,100,false
+"5050120.01","Rothwell Heights","Outer Urban",49,40,100,false
+"5050120.02","Beacon Hill North","Outer Urban",23,40,79,false
+"5050127.00","Uplands-Ottawa Airport","Outer Urban",20,40,76,false
+"5050136.02","Bells Corners West-Bellwood-Westcliffe Estates","Outer Urban",21,40,69,false
+"5050137.02","Bruce Farm-Leslie Park","Outer Urban",25,40,80,false
+"5050137.03","Qualicum-Graham Park","Outer Urban",32,40,93,false
+"5050002.04","Riverside Gate","Outer Urban",24,40,84,false
+"5050122.03","Carson Grove","Outer Urban",20,40,73,false
+"5050001.04","South Keys","Outer Urban",19,40,68,false
+"5050001.05","Greenboro","Outer Urban",19,40,65,false
+"5050001.06","Greenboro East","Outer Urban",18,40,58,false
+"5050137.04","Briargreen Park","Outer Urban",33,40,92,false
+"5050137.05","Centrepointe","Outer Urban",19,40,64,false
+"5050002.05","Hunt Club West-Ashgrove-Shearwater Court","Outer Urban",21,40,65,false
+"5050002.06","Hunt Club Woods","Outer Urban",29,40,87,false
+"5050141.19","Barrhaven-Baroness","Outer Urban",29,40,90,false
+"5050001.09","Heatherington-Fairlea","Outer Urban",14,40,47,true
+"5050008.00","Canterbury","Outer Urban",19,40,67,false
+"5050009.00","Elmvale","Outer Urban",23,40,80,false
+"5050010.00","Hawthorn Meadows-Confederation Court","Outer Urban",20,40,64,false
+"5050024.00","Bel Air Park-Copeland Park","Outer Urban",23,40,78,false
+"5050135.01","Craig Henry-Woodvale","Outer Urban",15,40,55,false
+"5050135.02","Arlington Woods-Sheahan Estates","Outer Urban",24,40,79,false
+"5050126.05","Riverside South","Outer Urban",36,40,95,false
+"5050020.01","Rideauview-Courtland Park-Experimental Farm-Carleton University","Outer Urban",20,40,67,false
+"5050020.02","Carleton Heights","Outer Urban",21,40,74,false
+"5050120.03","Rothwell Village-Beaconwood","Outer Urban",28,40,83,false
+"5050121.01","Cardinal Heights","Outer Urban",24,40,76,false
+"5050121.02","Beacon Hill South","Outer Urban",17,40,65,false
+"5050122.02","Pineview-Cyrville","Outer Urban",17,40,62,false
+"5050123.01","Emerald Woods-Sawmill Creek","Outer Urban",20,40,62,false
+"5050001.10","Ledbury-Albion","Outer Urban",16,40,62,false
+"5050123.03","Hunt Club-Bank-Conroy","Outer Urban",18,40,69,false
+"5050131.01","Borden Farm-Fisher Glen-Red Pine","Outer Urban",19,40,60,false
+"5050131.02","Parkwood Hills","Outer Urban",18,40,64,false
+"5050007.01","Playfair Park","Outer Urban",25,40,85,false
+"5050123.04","Hunt Club -Blossom Park-Timbermill","Outer Urban",22,40,69,false
+"5050151.08","Stittsville-Iber Rd-Stanley Corners","Suburban",9,40,52,false
+"5050171.14","Nottinggate South-Provence","Suburban",5,40,73,false
+"5050125.08","Orleans Village-Chateauneuf South","Suburban",18,40,77,false
+"5050140.04","Old Barrhaven West-Weybridge","Suburban",18,40,78,false
+"5050171.05","Cardinal Creek-Springridge","Suburban",13,40,75,false
+"5050171.06","Cumberland-Sarsfield","Suburban",4,40,75,false
+"5050141.10","Old Barrhaven East-Stinson Park","Suburban",16,40,71,false
+"5050141.11","Old Barrhaven East-Rodeo Dr","Suburban",8,40,58,true
+"5050170.12","Fallingbrook-Pineridge","Suburban",10,40,70,false
+"5050170.13","Fallingbrook-Gardenway East","Suburban",12,40,70,false
+"5050161.05","Emerald Meadows-Bridgestone Dr","Suburban",16,40,75,false
+"5050161.06","Emerald Meadows-Hope Side Rd","Suburban",11,40,63,false
+"5050171.07","Nottinggate North","Suburban",9,40,71,false
+"5050141.13","Barrhaven-Heart's Desire","Suburban",16,40,77,false
+"5050126.05","Riverside South","Suburban",16,40,78,false
+"5050126.06","Riverside South-Spratt Rd-Earl Armstrong Rd","Suburban",9,40,71,false
+"5050160.11","South March-Brookside-Briarbrook","Suburban",14,40,74,false
+"5050141.17","Old Barrhaven East-Longfields","Suburban",7,40,61,false
+"5050141.18","Barrhaven-Rideaucrest","Suburban",14,40,72,false
+"5050141.19","Barrhaven-Baroness","Suburban",23,40,89,false
+"5050171.11","Avalon West","Suburban",2,40,56,false
+"5050171.12","Avalon East","Suburban",2,40,52,false
+"5050160.12","South March Morgan's Grant North","Suburban",13,40,73,false
+"5050171.15","Nottinggate South-Aquaview","Suburban",8,40,71,false
+"5050126.07","Findley Creek North","Suburban",6,40,61,false
+"5050126.08","Findley Creek South","Suburban",6,40,71,false
+"5050124.01","Convent Glen-Place d'Orleans","Suburban",19,40,77,false
+"5050124.02","Queenswood Village","Suburban",21,40,83,false
+"5050124.03","Hiawatha Park-Voyageurs Park","Suburban",16,40,81,false
+"5050125.04","Chapel Hill North-Willowbark","Suburban",26,40,90,false
+"5050140.03","Old Barrhaven East-Fallowfield Rd","Suburban",19,40,81,false
+"5050160.02","Beaverbrook","Suburban",29,40,88,false
+"5050170.01","Chatelaine Village","Suburban",21,40,81,false
+"5050170.04","Queenswood Heights-Kinsella Park","Suburban",19,40,83,false
+"5050160.06","Village Green-Centrum","Suburban",17,40,70,false
+"5050160.07","Kanata Lakes","Suburban",23,40,80,false
+"5050162.02","Glen Cairn-Abbottsville Crossing","Suburban",13,40,64,false
+"5050160.05","Katimavik-Hazeldean-McCurdy","Suburban",25,40,86,false
+"5050125.09","Chapel Hill North-Roy Park","Suburban",21,40,81,false
+"5050170.05","Queenswood Heights South","Suburban",19,40,81,false
+"5050141.26","Barrhaven Southeast","Suburban",6,40,64,false
+"5050141.24","Barrhaven-River Run-Cambrian","Suburban",3,40,54,false
+"5050141.25","Barrhaven Southwest","Suburban",3,40,48,false
+"5050141.04","Barrhaven-Stonebridge","Suburban",12,40,76,false
+"5050126.04","Hawthorne-Carlsbad Springs","Suburban",1,40,48,false
+"5050141.09","Barrhaven-Rideaucrest South","Suburban",12,40,66,false
+"5050151.05","Stittsville-Amberwood Village","Suburban",20,40,81,false
+"5050141.16","Old Barrhaven East-Mountshannon","Suburban",15,40,71,false
+"5050160.13","South March Morgan's Grant South","Suburban",20,40,79,false
+"5050160.14","Kanata Estates","Suburban",5,40,60,false
+"5050160.15","Kanata-Goldridge","Suburban",17,40,73,false
+"5050125.10","Chapel Hill South-Page","Suburban",12,40,70,false
+"5050125.11","Chapel Hill South-Spring Valley","Suburban",7,40,68,false
+"5050300.01","Carp","Suburban",15,40,80,false
+"5050162.03","Glen Cairn-Blackstone","Suburban",24,40,84,false
+"5050162.04","Glen Cairn-Cope Dr","Suburban",6,40,62,false
+"5050151.10","Sttitsville-Huntmar","Suburban",8,40,66,false
+"5050151.11","Stittsville-Jackson Trails-Timbermere Park","Suburban",13,40,75,false
+"5050171.13","Summerside","Suburban",5,40,82,false
+"5050140.05","Old Barrhaven West-Houlahan Park-Moloughney Park","Suburban",19,40,76,false
+"5050124.04","Jeanne d'Arc Park-Terry Fox Park","Suburban",19,40,81,false
+"5050125.07","Chapel Hill North-Beausejour","Suburban",20,40,81,false
+"5050170.08","Fallingbrook-Gardenway West","Suburban",14,40,80,false
+"5050170.09","Fallingbrook-Charlemagne","Suburban",15,40,77,false
+"5050161.03","Bridlewood","Suburban",20,40,79,false
+"5050161.04","Bridlewood-Steeple Chase Dr","Suburban",20,40,80,false
+"5050140.06","Old Barrhaven West-Fallowfield Rd","Suburban",25,40,88,false
+"5050140.07","Old Barrhaven West-Mowat Farm Park-Malvern Park","Suburban",24,40,81,false
+"5050170.10","Fallingbrook-Princess Louise Dr","Suburban",19,40,80,false
+"5050170.11","Fallingbrook-Ridgemount","Suburban",19,40,82,false
+"5050151.04","Stittsville-Crossing Bridge","Suburban",24,40,84,false
+"5050125.05","Orleans Village-Chateauneuf North","Suburban",17,40,78,false
+"5050160.04","Katimavik-Hazeldean-Kakulu","Suburban",26,40,84,false
+"5050170.03","Queenswood Heights North","Suburban",17,40,80,false
+"5050126.09","Leitrim","Suburban",6,40,72,false
+"5050141.20","Barrhaven-Jockvale","Suburban",3,40,58,false
+"5050141.21","Barrhaven-Chapman Mills North","Suburban",3,40,56,false
+"5050141.22","Barrhaven-Chapman Mills South","Suburban",9,40,58,false
+"5050141.23","Barrhaven West","Suburban",3,40,61,false
+"5050151.06","Stittsville South","Suburban",21,40,83,false

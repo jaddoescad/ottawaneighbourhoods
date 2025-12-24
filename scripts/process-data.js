@@ -530,6 +530,22 @@ async function main() {
     console.log('  - No bike scores file (run: node scripts/calculate-bike-scores.js)');
   }
 
+  // Load Food Cost Burden data (calculated from income vs NFB cost)
+  const foodCostBurdenById = {};
+  const foodAffordabilityPath = path.join(csvDir, 'food_affordability.csv');
+  if (fs.existsSync(foodAffordabilityPath)) {
+    const foodData = parseCSV(fs.readFileSync(foodAffordabilityPath, 'utf8'));
+    console.log(`  - ${foodData.length} food cost burden entries`);
+    for (const entry of foodData) {
+      foodCostBurdenById[entry.id] = {
+        foodCostBurden: parseFloat(entry.foodCostBurden) || 0,
+        foodCostBurdenRating: entry.foodCostBurdenRating || '',
+      };
+    }
+  } else {
+    console.log('  - No food cost burden file (run: node scripts/calculate-food-affordability.js)');
+  }
+
   // Load Age Demographics (optional - file may not exist)
   let ageDemographicsData = [];
   const ageDemographicsPath = path.join(csvDir, 'age_demographics.csv');
@@ -627,6 +643,55 @@ async function main() {
     console.log(`  - Development applications for ${Object.keys(developmentData).length} neighbourhoods`);
   } else {
     console.log('  - No development data file (run: node scripts/process-development-data.js)');
+  }
+
+  // Load Tree Equity Score data (optional - pre-processed from process-tree-equity.js)
+  let treeEquityData = {};
+  const treeEquityPath = path.join(csvDir, 'tree_equity_by_neighbourhood.json');
+  if (fs.existsSync(treeEquityPath)) {
+    treeEquityData = JSON.parse(fs.readFileSync(treeEquityPath, 'utf8'));
+    const withData = Object.values(treeEquityData).filter(t => t.treeEquityScore !== null).length;
+    console.log(`  - Tree Equity Scores for ${withData} neighbourhoods`);
+  } else {
+    console.log('  - No tree equity data file (run: node scripts/download-tree-equity.js && node scripts/process-tree-equity.js)');
+  }
+
+  // Load Neighbourhood Equity Index (NEI) 2019 scores
+  let neiScoresById = {};
+  const neiScoresPath = path.join(csvDir, 'nei_scores.csv');
+  if (fs.existsSync(neiScoresPath)) {
+    const neiData = parseCSV(fs.readFileSync(neiScoresPath, 'utf8'));
+    const withData = neiData.filter(e => e.neiScore && e.neiScore !== '').length;
+    console.log(`  - NEI Equity Scores for ${withData} neighbourhoods`);
+    for (const entry of neiData) {
+      neiScoresById[entry.id] = {
+        neiScore: parseFloat(entry.neiScore) || null,
+        neiCensusTracts: parseInt(entry.censusTracts) || 0,
+        neiRedIndicators: parseInt(entry.redIndicators) || 0,
+        neiYellowIndicators: parseInt(entry.yellowIndicators) || 0,
+      };
+    }
+  } else {
+    console.log('  - No NEI scores file (run: node scripts/download-nei-scores.js)');
+  }
+
+  // Load Overdose ED Visits data by ONS neighbourhood (Ottawa Public Health)
+  let overdoseDataById = {};
+  const overdosePath = path.join(csvDir, 'overdose_by_neighbourhood.csv');
+  if (fs.existsSync(overdosePath)) {
+    const overdoseRaw = parseCSV(fs.readFileSync(overdosePath, 'utf8'));
+    console.log(`  - Overdose ED visits for ${overdoseRaw.length} ONS neighbourhoods`);
+    for (const entry of overdoseRaw) {
+      overdoseDataById[entry.ons_id] = {
+        onsName: entry.ons_name,
+        cumulativeOverdoseEdVisits: parseFloat(entry.cumulative_overdose_ed_visits) || 0,
+        yearlyAvgOverdoseEdVisits: parseFloat(entry.yearly_avg_overdose_ed_visits) || 0,
+        overdoseRatePer100k: parseFloat(entry.yearly_rate_per_100k) || null,
+        overdoseYears: entry.years || '',
+      };
+    }
+  } else {
+    console.log('  - No overdose data file (run: node scripts/download-overdose-data.js)');
   }
 
   // Load ONS Census Data from ons-sqo.ca (2021 Census data)
@@ -1588,6 +1653,34 @@ async function main() {
       distanceToRapidTransit: null,
     };
 
+    // Aggregate overdose data from ONS neighbourhoods
+    let overdoseCumulative = 0;
+    let overdoseYearlyAvg = 0;
+    let overdoseRatePer100k = null;
+    let overdoseOnsAreas = 0;
+    let overdoseYears = '';
+    if (mapping && mapping.onsSqoIds && mapping.onsSqoIds.length > 0) {
+      let rateSum = 0;
+      let rateCount = 0;
+      for (const sqoId of mapping.onsSqoIds) {
+        const overdoseEntry = overdoseDataById[sqoId];
+        if (overdoseEntry) {
+          overdoseCumulative += overdoseEntry.cumulativeOverdoseEdVisits;
+          overdoseYearlyAvg += overdoseEntry.yearlyAvgOverdoseEdVisits;
+          if (overdoseEntry.overdoseRatePer100k !== null) {
+            rateSum += overdoseEntry.overdoseRatePer100k;
+            rateCount++;
+          }
+          if (!overdoseYears) overdoseYears = overdoseEntry.overdoseYears;
+          overdoseOnsAreas++;
+        }
+      }
+      // Average the rate if we have multiple ONS areas with data
+      if (rateCount > 0) {
+        overdoseRatePer100k = roundTo(rateSum / rateCount, 1);
+      }
+    }
+
     // Calculate average EQAO score for the neighbourhood
     const schoolsWithScores = schools.filter(s => s.eqaoScore !== null);
     const avgEqaoScore = schoolsWithScores.length > 0
@@ -1639,6 +1732,17 @@ async function main() {
       pctCommuteTransit: censusPctCommuteTransit > 0 ? censusPctCommuteTransit : null,
       pctWorkFromHome: censusPctWorkFromHome > 0 ? censusPctWorkFromHome : null,
       treeCanopy: censusTreeCanopy > 0 ? censusTreeCanopy : null,
+      treeEquityScore: treeEquityData[info.id]?.treeEquityScore || null,
+      treeEquityPriorityAreas: treeEquityData[info.id]?.priorityAreas || 0,
+      neiScore: neiScoresById[info.id]?.neiScore || null,
+      // Food Cost Burden (2025 Nutritious Food Basket vs Median Income)
+      foodCostBurden: foodCostBurdenById[info.id]?.foodCostBurden || null,
+      foodCostBurdenRating: foodCostBurdenById[info.id]?.foodCostBurdenRating || null,
+      // Overdose ED visits (Ottawa Public Health, 2020-2024)
+      overdoseCumulative: overdoseCumulative > 0 ? roundTo(overdoseCumulative, 1) : null,
+      overdoseYearlyAvg: overdoseYearlyAvg > 0 ? roundTo(overdoseYearlyAvg, 1) : null,
+      overdoseRatePer100k: overdoseRatePer100k,
+      overdoseYears: overdoseYears || null,
       commuteToDowntown: commuteData.commuteToDowntown,
       commuteByTransit: commuteData.commuteByTransit,
       // Transit station proximity

@@ -9,6 +9,7 @@ import StatRow from "@/components/StatRow";
 import PopulationStatRow from "@/components/PopulationStatRow";
 import CrimeStatRow from "@/components/CrimeStatRow";
 import CollisionStatRow from "@/components/CollisionStatRow";
+import OverdoseStatRow from "@/components/OverdoseStatRow";
 import EqaoStatRow from "@/components/EqaoStatRow";
 import WalkScoreRow from "@/components/WalkScoreRow";
 import AgeDemographicsRow from "@/components/AgeDemographicsRow";
@@ -34,6 +35,7 @@ import GroceryStoresStatRow from "@/components/GroceryStoresStatRow";
 import GymStatRow from "@/components/GymStatRow";
 import RecreationFacilitiesStatRow from "@/components/RecreationFacilitiesStatRow";
 import SportsCourtsStatRow from "@/components/SportsCourtsStatRow";
+import EquityStatRow from "@/components/EquityStatRow";
 import CoverageButton from "@/components/CoverageButton";
 
 const BASE_URL = "https://ottawahoods.com";
@@ -79,6 +81,10 @@ const DATA_SOURCES = {
   collisions: {
     name: "City of Ottawa Open Data",
     url: "https://open.ottawa.ca/datasets/traffic-collision-data",
+  },
+  overdose: {
+    name: "Ottawa Public Health",
+    url: "https://open.ottawa.ca/datasets/ottawa::confirmed-drug-overdose-ed-visits-by-ons-neighbourhood-of-patient",
   },
   eqao: {
     name: "Ontario Open Data (EQAO)",
@@ -246,7 +252,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
     notFound();
   }
 
-  const { name, area, image, population, populationDensity, households, pop2021, dataYear, dataSource, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, commuteByTransit, nearestOTrainStation, nearestOTrainLine, distanceToOTrain, nearestTransitwayStation, distanceToTransitway, details, overallScore, categoryScores, scoreWeights, boundaries } = neighbourhood;
+  const { name, area, image, population, populationDensity, households, pop2021, dataYear, dataSource, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, commuteByTransit, nearestOTrainStation, nearestOTrainLine, distanceToOTrain, nearestTransitwayStation, distanceToTransitway, overdoseCumulative, overdoseYearlyAvg, overdoseRatePer100k, overdoseYears, details, overallScore, categoryScores, scoreWeights, boundaries } = neighbourhood;
 
   // Combine Linear Parks and NCC Greenbelt trails
   const linearParks = details.parksData
@@ -342,6 +348,9 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             boundaries={boundaries}
             neighbourhoodName={name}
           />
+          <EquityStatRow
+            neiScore={neighbourhood.neiScore}
+          />
           <ParksStatRow
             parksCount={details.parks}
             parksList={details.parksList}
@@ -354,6 +363,8 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
           />
           <GreenspaceStatRow
             treeCanopy={neighbourhood.treeCanopy}
+            treeEquityScore={neighbourhood.treeEquityScore}
+            treeEquityPriorityAreas={neighbourhood.treeEquityPriorityAreas ?? 0}
             parksCount={details.parks}
             greenbeltTrailsCount={details.greenbeltTrails}
             greenbeltLengthKm={greenbeltLengthKm}
@@ -566,6 +577,14 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             population={population}
             areaKm2={details.areaKm2}
             source={DATA_SOURCES.collisions}
+          />
+          <OverdoseStatRow
+            cumulative={overdoseCumulative}
+            yearlyAvg={overdoseYearlyAvg}
+            ratePer100k={overdoseRatePer100k}
+            years={overdoseYears}
+            population={population}
+            source={DATA_SOURCES.overdose}
           />
           <ServiceRequestsStatRow
             total={details.serviceRequests || 0}

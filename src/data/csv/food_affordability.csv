@@ -1,0 +1,106 @@
+id,name,medianIncome,annualFoodCost,foodCostBurden,foodCostBurdenRating
+lowertown-east,"Lowertown East",49200,14160,28.8,Severe
+vanier-south,"Vanier South",49200,14160,28.8,Severe
+west-centretown,"West Centretown",54400,14160,26,Severe
+billings-bridge-heron-park,"Billings Bridge",55200,14160,25.7,Severe
+ledbury-heron-gate-ridgemont,"Heron Gate",56400,14160,25.1,Severe
+sandy-hill,"Sandy Hill",56400,14160,25.1,Severe
+parkwood-hills,"Parkwood Hills",58400,14160,24.2,Very High
+britannia,"Britannia",58800,14160,24.1,Very High
+hawthorne-meadows-sheffield-glen,"Sheffield Glen",60800,14160,23.3,Very High
+vanier-north,"Vanier North",61200,14160,23.1,Very High
+carlington,"Carlington",62000,14160,22.8,Very High
+centretown,"Centretown",62800,14160,22.5,Very High
+bayshore,"Bayshore",64000,14160,22.1,Very High
+manor-park,"Manor Park",64000,14160,22.1,Very High
+overbrook,"Overbrook",64000,14160,22.1,Very High
+riverview,"Riverview",64000,14160,22.1,Very High
+lowertown-west,"Lowertown West",64500,14160,22,Very High
+emerald-woods-sawmill-creek,"Sawmill Creek",67500,14160,21,Very High
+hintonburg-mechanicsville,"Hintonburg",67500,14160,21,Very High
+carleton-heights-courtland-park,"Carleton Heights",68500,14160,20.7,Very High
+iris,"Iris",70500,14160,20.1,Very High
+whitehaven-woodpark-glabar-park,"Whitehaven",70500,14160,20.1,Very High
+riverside-park-mooney-s-bay,"Mooney's Bay",73000,14160,19.4,High
+beacon-hill-south-cardinal-heights,"Beacon Hill South",73500,14160,19.3,High
+bells-corners-west,"Bells Corners West",74000,14160,19.1,High
+carson-grove-carson-meadows,"Carson Grove",75500,14160,18.8,High
+south-keys,"South Keys",77500,14160,18.3,High
+wateridge-village,"Wateridge Village",77500,14160,18.3,High
+elmvale-canterbury,"Elmvale Acres",78500,14160,18,High
+braemar-park-bel-air-heights-copeland-park,"Braemar Park",79500,14160,17.8,High
+city-view,"City view",80000,14160,17.7,High
+borden-farm-fisher-glen,"Borden Farm",81000,14160,17.5,High
+old-ottawa-east,"Old Ottawa East",82000,14160,17.3,High
+bells-corners-east,"Bells Corners East",83000,14160,17.1,High
+leslie-park-bruce-farm,"Leslie Park",84000,14160,16.9,High
+westboro,"Westboro",84000,14160,16.9,High
+pineview,"Pineview",85000,14160,16.7,High
+edwards-carlsbad-springs,"Carlsbad Springs",86000,14160,16.5,High
+queenswood-chatelaine,"Queenswood",86000,14160,16.5,High
+qualicum-redwood,"Qualicum - Redwood",87000,14160,16.3,High
+crestview-tanglewood,"Crestview",88000,14160,16.1,High
+beaverbrook,"Beaverbrook",89000,14160,15.9,Moderate
+constance-bay,"Constance Bay",89000,14160,15.9,Moderate
+glebe-dows-lake,"Glebe - Dows Lake",89000,14160,15.9,Moderate
+greenboro-east,"Greenboro East",89000,14160,15.9,Moderate
+greenboro-west,"Greenboro West",89000,14160,15.9,Moderate
+old-hunt-club,"Old Hunt Club",89000,14160,15.9,Moderate
+blackburn-hamlet,"Blackburn Hamlet",90000,14160,15.7,Moderate
+craig-henry-manordale,"Craig Henry",90000,14160,15.7,Moderate
+fisher-heights,"Fisher Heights",91000,14160,15.6,Moderate
+hunt-club-park,"Hunt Club Park",91000,14160,15.6,Moderate
+playfair-park-guildwood-estates,"Playfair Park",91000,14160,15.6,Moderate
+laurentian,"Laurentian",92000,14160,15.4,Moderate
+queensway-terrace-north,"Queensway Terrace North",92000,14160,15.4,Moderate
+queenswood-heights,"Queenswood Heights",92000,14160,15.4,Moderate
+convent-glen-orleans-woods,"Convent Glen",93000,14160,15.2,Moderate
+glen-cairn,"Glen Cairn",93000,14160,15.2,Moderate
+katimavik-hazeldean,"Katimavik",94000,14160,15.1,Moderate
+blossom-park-timbermill,"Blossom Park",95000,14160,14.9,Moderate
+fitzroy,"Fitzroy",95000,14160,14.9,Moderate
+trend-arlington,"Trend-Arlington",95000,14160,14.9,Moderate
+new-edinburgh,"New Edinburgh",98000,14160,14.4,Moderate
+rothwell-heights-beacon-hill-north,"Rothwell Heights",99000,14160,14.3,Moderate
+centrepointe,"Centrepointe",101000,14160,14,Moderate
+old-barrhaven-east,"Old Barrhaven East",101000,14160,14,Moderate
+civic-hospital,"Civic Hospital",102000,14160,13.9,Moderate
+chapman-mills,"Chapman Mills",103000,14160,13.7,Moderate
+osgoode-vernon,"Osgoode - Vernon",103000,14160,13.7,Moderate
+chapel-hill-north,"Chapel Hill North",105000,14160,13.5,Moderate
+old-barrhaven-west,"Old Barrhaven West",105000,14160,13.5,Moderate
+vars,"Vars",105000,14160,13.5,Moderate
+munster-ashton,"Munster - Ashton",106000,14160,13.4,Moderate
+navan-sarsfield,"Navan - Sarsfield",106000,14160,13.4,Moderate
+orleans-village-chateauneuf,"Orléans Village",106000,14160,13.4,Moderate
+crystal-bay-lakeview-park,"Crystal Bay",108000,14160,13.1,Moderate
+kanata-lakes,"Kanata Lakes",108000,14160,13.1,Moderate
+kinburn,"Kinburn",108000,14160,13.1,Moderate
+metcalfe,"Metcalfe",108000,14160,13.1,Moderate
+north-gower-kars,"North Gower - Kars",108000,14160,13.1,Moderate
+portobello-south,"Portobello South",108000,14160,13.1,Moderate
+fallingbrook,"Fallingbrook",109000,14160,13,Moderate
+richmond,"Richmond",109000,14160,13,Moderate
+stittsville-east,"Stittsville East",109000,14160,13,Moderate
+stonebridge-half-moon-bay,"Half Moon Bay",109000,14160,13,Moderate
+stittsville-north,"Stittsville North",110000,14160,12.9,Moderate
+findlay-creek,"Findlay Creek",111000,14160,12.8,Moderate
+bridlewood-emerald-meadows,"Bridlewood",112000,14160,12.6,Moderate
+brookside-briarbrook-morgan-s-grant,"Morgan's Grant",112000,14160,12.6,Moderate
+rideau-crest-davidson-heights,"Rideau Crest",113000,14160,12.5,Moderate
+cardinal-creek,"Cardinal Creek",114000,14160,12.4,Moderate
+alta-vista,"Alta Vista",115000,14160,12.3,Moderate
+riverside-park-south-revelstoke,"Riverside Park South",116000,14160,12.2,Moderate
+chapel-hill-south,"Chapel Hill South",117000,14160,12.1,Moderate
+riverside-south-leitrim,"Riverside South",117000,14160,12.1,Moderate
+island-park-wellington-village,"Wellington Village",120000,14160,11.8,Low
+stittsville,"Stittsville",120000,14160,11.8,Low
+dunrobin,"Dunrobin",123000,14160,11.5,Low
+corkery,"Corkery",124000,14160,11.4,Low
+cumberland,"Cumberland",125000,14160,11.3,Low
+old-ottawa-south,"Old Ottawa South",125000,14160,11.3,Low
+carp,"Carp",126000,14160,11.2,Low
+greely,"Greely",128000,14160,11.1,Low
+manotick,"Manotick",128000,14160,11.1,Low
+merivale-gardens-grenfell-glen-pineglen-country-place,"Merivale Gardens",130000,14160,10.9,Low
+rockcliffe-park,"Rockcliffe Park",212000,14160,6.7,Low

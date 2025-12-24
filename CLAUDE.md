@@ -43,6 +43,12 @@ src/data/
 │   ├── 311_current_year.csv      # 311 Service Requests (current year ~365K)
 │   ├── 311_previous_year.csv     # 311 Service Requests (previous year ~319K)
 │   ├── 311_by_neighbourhood.json # Processed 311 data by neighbourhood
+│   ├── tree_equity_raw.json      # Tree Equity Score census tract data (216 tracts)
+│   ├── tree_equity_scores.csv    # Tree Equity Scores by neighbourhood (84 with data)
+│   ├── tree_equity_by_neighbourhood.json # Processed tree equity by neighbourhood
+│   ├── nei_scores.csv            # Neighbourhood Equity Index 2019 (96 with data)
+│   ├── overdose_by_neighbourhood.csv # Overdose ED visits by ONS neighbourhood (113 areas)
+│   ├── food_affordability.csv    # Food Cost Burden data (105 neighbourhoods)
 │   └── ons_neighbourhoods.csv    # Reference: all 111 ONS area IDs
 ├── processed/
 │   └── data.json                 # Generated output (don't edit directly)
@@ -62,6 +68,11 @@ scripts/
 ├── download-recreation-facilities.js # Downloads pools, arenas, rinks from Ottawa Open Data
 ├── download-sports-courts.js     # Downloads sports courts & fields from Ottawa Open Data
 ├── process-311-data.js           # Processes 311 service requests by neighbourhood
+├── download-tree-equity.js       # Downloads Tree Equity Score data from City of Ottawa
+├── process-tree-equity.js        # Maps census tract tree data to neighbourhoods
+├── download-nei-scores.js        # Downloads NEI 2019 scores and maps to neighbourhoods
+├── download-overdose-data.js     # Downloads overdose ED visits by ONS neighbourhood
+├── calculate-food-affordability.js # Calculates food cost burden from NFB vs income
 └── config/
     └── neighbourhood-mapping.js  # Maps our neighbourhoods to ONS IDs
 ```
@@ -91,6 +102,10 @@ Most data from **City of Ottawa Open Data** (ArcGIS REST APIs). Restaurants & ca
 | Age Demographics | https://open.ottawa.ca/datasets/ottawa::2021-long-form-census-sub-area | 27 |
 | Commute Times | Google Maps estimates (manual research) | 37 |
 | NCC Greenbelt Trails | https://services2.arcgis.com/WLyMuW006nKOfa5Z/ArcGIS/rest/services/Walking_Hiking/FeatureServer + manual research | 37 |
+| Tree Equity Score | https://services5.arcgis.com/KnPa9eifqCaXA5Rl/ArcGIS/rest/services (4 transects) | 216 |
+| NEI 2019 | https://maps.ottawa.ca/arcgis/rest/services/Planning/MapServer/109 | 165 |
+| Food Cost Burden | Ottawa Public Health 2025 NFB + 2021 Census Income | 105 |
+| Overdose ED Visits | https://services.arcgis.com/G6F8XLCl5KtAlZ2G/arcgis/rest/services/Confirmed_Drug_Overdose_ED_Visits.../FeatureServer/0 | 113 |
 | Boundaries | https://maps.ottawa.ca/arcgis/rest/services/Neighbourhoods/MapServer/0 | 111 |
 
 ## Raw Data Fields
@@ -236,6 +251,189 @@ curl -o src/data/csv/311_current_year.csv https://311opendatastorage.blob.core.w
 curl -o src/data/csv/311_previous_year.csv https://311opendatastorage.blob.core.windows.net/311data/311opendata_lastyear.csv
 # Process and aggregate by neighbourhood
 node scripts/process-311-data.js
+node scripts/process-data.js
+```
+
+### tree_equity_scores.csv
+Tree Equity Score data from City of Ottawa (2025). Combines tree canopy cover with equity factors to measure urban forest equity across census tracts.
+
+| Field | Description |
+|-------|-------------|
+| id | Neighbourhood ID |
+| name | Neighbourhood name |
+| treeCanopy | Tree canopy cover percentage (0-100) |
+| treeEquityScore | Tree Equity Score (0-100, higher = better) |
+| censusTractCount | Number of census tracts in neighbourhood |
+| priorityAreas | Census tracts flagged as priority areas |
+| transects | Urban transects (Downtown Core, Inner Urban, Outer Urban, Suburban) |
+
+**Methodology:**
+- Data comes from 4 transect layers covering 216 census tracts
+- Census tract centroids are matched to neighbourhoods using point-in-polygon
+- Scores are area-weighted averages when multiple tracts fall within a neighbourhood
+- 84/105 neighbourhoods have tree equity data (rural areas excluded)
+
+**Tree Canopy Coverage Ranges:**
+- Highest: Rockcliffe Park (47%), Wateridge Village (44%), Rothwell Heights (34%)
+- Lowest: Portobello South (4%), Findlay Creek (6%), Half Moon Bay (6%)
+- City Average: ~20%
+
+**Tree Equity Score Interpretation:**
+- 90-100: Excellent urban forest equity
+- 70-89: Good tree coverage and equity
+- 50-69: Moderate, some priority areas
+- Below 50: Priority for tree planting initiatives
+
+**Data Sources:**
+- Downtown Core: https://services5.arcgis.com/KnPa9eifqCaXA5Rl/ArcGIS/rest/services/TES_DowntownCore_Area_WFL1/FeatureServer
+- Inner Urban: https://services5.arcgis.com/KnPa9eifqCaXA5Rl/ArcGIS/rest/services/TES_InnerUrban_Area_WFL1/FeatureServer
+- Outer Urban: https://services5.arcgis.com/KnPa9eifqCaXA5Rl/ArcGIS/rest/services/TES_OuterUrban_Area_WFL1/FeatureServer
+- Suburban: https://services5.arcgis.com/KnPa9eifqCaXA5Rl/ArcGIS/rest/services/TES_Suburban_Area_WFL1/FeatureServer
+
+**To refresh tree equity data:**
+```bash
+node scripts/download-tree-equity.js
+node scripts/process-tree-equity.js
+node scripts/process-data.js
+```
+
+### nei_scores.csv
+Neighbourhood Equity Index (NEI) 2019 scores from City of Ottawa. The NEI is based on WHO's Urban HEART framework and measures equity across five domains: economy, social development, physical environment, health, and community/belonging.
+
+| Field | Description |
+|-------|-------------|
+| id | Neighbourhood ID |
+| name | Neighbourhood name |
+| neiScore | NEI Score (0-100, higher = better equity) |
+| censusTracts | Number of census tracts mapped to neighbourhood |
+| redIndicators | Count of indicators in "red" (high concern) |
+| yellowIndicators | Count of indicators in "yellow" (some concern) |
+| lightGreenIndicators | Count of indicators in "light green" |
+| greenIndicators | Count of indicators in "green" (no concern) |
+
+**Methodology:**
+- Data comes from 165 census tracts with NEI scores
+- Census tract centroids are matched to ONS neighbourhoods using point-in-polygon
+- Scores are area-weighted averages when multiple tracts fall within a neighbourhood
+- 96/105 neighbourhoods have NEI data (rural/greenbelt areas excluded)
+
+**NEI Score Ranges:**
+- Highest equity: Civic Hospital (85.8), Old Ottawa South (81.2), Island Park (80.0)
+- Lowest equity: Heron Gate (46.2), Hawthorne Meadows (48.2), Vanier South (49.1)
+- City Average: ~67.8
+
+**Score Interpretation:**
+- 80-100: High equity - few concerns across all domains
+- 65-79: Good equity - some concerns in specific areas
+- 50-64: Moderate equity - multiple concern areas
+- Below 50: Priority neighbourhood - significant equity challenges
+
+**Data Source:** https://maps.ottawa.ca/arcgis/rest/services/Planning/MapServer/109
+
+**Partners:** United Way Ottawa, City of Ottawa, Social Planning Council of Ottawa
+
+**To refresh NEI data:**
+```bash
+node scripts/download-nei-scores.js
+node scripts/process-data.js
+```
+
+### overdose_by_neighbourhood.csv
+Confirmed drug overdose ED (Emergency Department) visits by ONS neighbourhood from Ottawa Public Health. Data is based on patient residence postal code, not incident location.
+
+| Field | Description |
+|-------|-------------|
+| ons_id | ONS neighbourhood ID (3001-3117, Gen 3) |
+| ons_name | ONS neighbourhood name |
+| cumulative_overdose_ed_visits | Total ED visits for drug overdose (2020-2024) |
+| yearly_avg_overdose_ed_visits | Average yearly ED visits |
+| yearly_rate_per_100k | Average yearly rate per 100,000 population |
+| years | Date range of data (e.g., "2020-2024") |
+
+**Methodology:**
+- A drug overdose is defined as an unscheduled ED visit where drug poisoning was recorded as the main or other problem
+- Geographic data extracted yearly by OPH from NACRS using IntelliHEALTH Ontario
+- Includes poisoning by narcotics, hallucinogens, hypnotics, stimulants and cannabis (ICD-10 codes T40.0-T40.9, T423, T436)
+- ED visits may underestimate community overdoses as not all individuals seek care
+- Rate suppressed (null) for small populations to protect privacy
+
+**Rate Interpretation (per 100,000 population):**
+- Below 30: Low rate
+- 30-70: Moderate rate
+- 70-130: High rate
+- Above 130: Very high rate
+
+**Highest Rates (2020-2024):**
+- Lowertown West: 1888.6 (shelter/service hub area)
+- Sandy Hill: 331.8
+- West Centretown: 233.4
+- Lowertown East: 194.5
+- Vanier South: 167.4
+
+**Data Source:** Ottawa Public Health via Open Ottawa
+https://open.ottawa.ca/datasets/ottawa::confirmed-drug-overdose-ed-visits-by-ons-neighbourhood-of-patient
+
+**To refresh overdose data:**
+```bash
+node scripts/download-overdose-data.js
+node scripts/process-data.js
+```
+
+### food_affordability.csv
+Food Cost Burden calculated from the 2025 Nutritious Food Basket (NFB) cost vs median household income. Measures what percentage of household income goes to food.
+
+| Field | Description |
+|-------|-------------|
+| id | Neighbourhood ID (matches neighbourhoods.csv) |
+| name | Neighbourhood name |
+| medianIncome | Median household income (from 2021 Census) |
+| annualFoodCost | Annual NFB cost for family of 4 ($14,160 in 2025) |
+| foodCostBurden | % of income spent on food (higher = greater burden) |
+| foodCostBurdenRating | Low/Moderate/High/Very High/Severe |
+
+**Rating Thresholds (% of income on food):**
+| Rating | % of Income | Description |
+|--------|-------------|-------------|
+| Low | <12% | Minimal burden |
+| Moderate | 12-16% | Manageable |
+| High | 16-20% | Noticeable burden |
+| Very High | 20-25% | Financial pressure |
+| Severe | >25% | Food insecurity risk |
+
+**Distribution (2025):**
+- Low: 11 neighbourhoods (10%)
+- Moderate: 53 neighbourhoods (50%)
+- High: 19 neighbourhoods (18%)
+- Very High: 16 neighbourhoods (15%)
+- Severe: 6 neighbourhoods (6%)
+
+**Highest Burden (2025):**
+| Neighbourhood | % of Income | Median Income | Rating |
+|---------------|-------------|---------------|--------|
+| Lowertown East | 28.8% | $49,200 | Severe |
+| Vanier South | 28.8% | $49,200 | Severe |
+| West Centretown | 26.0% | $54,400 | Severe |
+| Billings Bridge | 25.7% | $55,200 | Severe |
+| Heron Gate | 25.1% | $56,400 | Severe |
+
+**Lowest Burden (2025):**
+| Neighbourhood | % of Income | Median Income | Rating |
+|---------------|-------------|---------------|--------|
+| Rockcliffe Park | 6.7% | $212,000 | Low |
+| Merivale Gardens | 10.9% | $130,000 | Low |
+| Manotick | 11.1% | $128,000 | Low |
+| Greely | 11.1% | $128,000 | Low |
+| Carp | 11.2% | $126,000 | Low |
+
+**Data Sources:**
+- NFB Cost: Ottawa Public Health 2025 Nutritious Food Basket Report ($1,180/month for family of 4)
+- Median Income: Statistics Canada 2021 Census via ONS-SQO
+
+**NFB Source:** https://www.ottawapublichealth.ca/en/public-health-topics/food-insecurity.aspx
+
+**To refresh food cost burden data:**
+```bash
+node scripts/calculate-food-affordability.js
 node scripts/process-data.js
 ```
 

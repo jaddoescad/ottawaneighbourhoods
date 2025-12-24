@@ -1,0 +1,106 @@
+id,name,neiScore,censusTracts,redIndicators,yellowIndicators,lightGreenIndicators,greenIndicators
+civic-hospital,"Civic Hospital",85.8,1,2,5,3,18
+old-ottawa-south,"Old Ottawa South",81.2,2,7,8,14,27
+island-park-wellington-village,"Island Park - Wellington Village",80,2,5,9,11,30
+glebe-dows-lake,"Glebe - Dows Lake",79.4,3,12,14,20,38
+qualicum-redwood,"Qualicum - Redwood",75.7,2,14,10,12,20
+centrepointe,"Centrepointe",75.6,2,4,12,17,23
+riverside-park-south-revelstoke,"Riverside Park South - Revelstoke",74.9,1,5,2,8,13
+merivale-gardens-grenfell-glen-pineglen-country-place,"Merivale Gardens - Grenfell Glen - Pineglen - Country Place",74.8,1,8,5,3,12
+riverside-south-leitrim,"Riverside South - Leitrim",74.7,2,11,10,16,18
+westboro,"Westboro",74.7,1,4,10,3,11
+laurentian,"Laurentian",74.3,3,10,28,18,28
+crystal-bay-lakeview-park,"Crystal Bay - Lakeview Park",73.9,1,3,8,7,10
+stittsville,"Stittsville",73.9,3,14,15,22,33
+alta-vista,"Alta Vista",73.8,2,9,16,12,19
+chapel-hill-north,"Chapel Hill North",73.7,3,10,23,19,31
+carleton-heights-courtland-park,"Carleton Heights - Courtland Park",73.4,1,2,13,6,7
+chapel-hill-south,"Chapel Hill South",73.4,1,5,9,7,7
+orleans-village-chateauneuf,"Orléans Village - Chateauneuf",73.4,3,6,22,24,31
+queenswood-heights,"Queenswood Heights",73.3,2,7,13,16,20
+bridlewood-emerald-meadows,"Bridlewood - Emerald Meadows",73.2,4,18,24,26,44
+new-edinburgh,"New Edinburgh",73.2,2,7,10,15,24
+cardinal-creek,"Cardinal Creek",73,3,11,24,21,26
+rideau-crest-davidson-heights,"Rideau Crest - Davidson Heights",72.4,1,5,7,8,8
+fallingbrook,"Fallingbrook",72.2,4,10,30,33,37
+whitehaven-woodpark-glabar-park,"Whitehaven - Woodpark - Glabar Park",72.1,2,9,19,15,13
+old-barrhaven-west,"Old Barrhaven West",72,4,14,30,29,37
+convent-glen-orleans-woods,"Convent Glen - Orléans Woods",71.9,2,4,18,15,19
+kanata-lakes,"Kanata Lakes",71.8,3,16,22,15,30
+stittsville-east,"Stittsville East",71.8,1,7,5,8,8
+stittsville-north,"Stittsville North",71.6,1,8,4,6,10
+brookside-briarbrook-morgan-s-grant,"Brookside - Briarbrook - Morgan's Grant",71.4,2,11,10,14,21
+north-gower-kars,"North Gower - Kars",71.3,1,8,3,5,12
+manotick,"Manotick",71.2,1,5,5,7,11
+stonebridge-half-moon-bay,"Stonebridge - Half Moon Bay",70.9,3,18,21,20,25
+elmvale-canterbury,"Elmvale - Canterbury",70.8,2,2,26,20,8
+katimavik-hazeldean,"Katimavik - Hazeldean",70.8,2,2,23,17,13
+old-barrhaven-east,"Old Barrhaven East",70.8,4,13,35,38,24
+rockcliffe-park,"Rockcliffe Park",70.8,2,11,13,17,15
+corkery,"Corkery",70.7,1,7,1,10,10
+glen-cairn,"Glen Cairn",70.4,2,7,25,11,13
+dunrobin,"Dunrobin",70.3,1,9,4,3,12
+osgoode-vernon,"Osgoode - Vernon",70.2,2,15,11,7,22
+braemar-park-bel-air-heights-copeland-park,"Braemar Park - Bel Air Heights - Copeland Park",70.1,2,8,21,16,11
+centretown,"Centretown",69.9,6,50,27,30,60
+leslie-park-bruce-farm,"Leslie Park - Bruce Farm",69.8,1,3,10,7,8
+blackburn-hamlet,"Blackburn Hamlet",69.6,2,5,27,8,16
+playfair-park-guildwood-estates,"Playfair Park - Guildwood Estates",69.6,2,8,13,21,14
+vars,"Vars",69.6,1,6,6,9,7
+queenswood-chatelaine,"Queenswood - Chatelaine",69.5,1,4,7,12,5
+rothwell-heights-beacon-hill-north,"Rothwell Heights - Beacon Hill North",69.5,3,11,29,20,24
+chapman-mills,"Chapman Mills",69.4,1,4,9,7,7
+portobello-south,"Portobello South",69.4,3,15,20,25,20
+richmond,"Richmond",69.1,1,7,5,6,7
+hintonburg-mechanicsville,"Hintonburg - Mechanicsville",68.7,2,14,12,16,14
+munster-ashton,"Munster - Ashton",68.6,1,9,2,7,10
+old-ottawa-east,"Old Ottawa East",68.5,1,8,7,2,11
+crestview-tanglewood,"Crestview - Tanglewood",68.4,2,9,21,17,9
+greely,"Greely",68.2,2,16,5,18,17
+beaverbrook,"Beaverbrook",68,1,2,10,8,8
+fitzroy,"Fitzroy",68,1,8,2,7,11
+metcalfe,"Metcalfe",68,1,8,7,4,9
+findlay-creek,"Findlay Creek",67.7,1,9,6,8,4
+blossom-park-timbermill,"Blossom Park - Timbermill",67.5,1,3,14,7,4
+iris,"Iris",67.5,1,5,8,10,5
+city-view,"City view",67.1,1,7,6,7,8
+cumberland,"Cumberland",67,1,8,3,9,8
+riverside-park-mooney-s-bay,"Riverside Park - Mooney's Bay",66.6,1,3,10,8,7
+carson-grove-carson-meadows,"Carson Grove - Carson Meadows",66,2,12,19,17,8
+south-keys,"South Keys",65.8,1,9,5,9,5
+pineview,"Pineview",65.7,1,8,9,7,4
+bells-corners-east,"Bells Corners East",65.4,2,14,21,16,5
+greenboro-east,"Greenboro East",65.3,2,10,24,14,8
+craig-henry-manordale,"Craig Henry - Manordale",65,2,7,20,19,10
+borden-farm-fisher-glen,"Borden Farm - Fisher Glen",64.8,2,11,19,19,7
+beacon-hill-south-cardinal-heights,"Beacon Hill South - Cardinal Heights",63.7,2,12,23,12,9
+constance-bay,"Constance Bay",63.7,1,10,4,5,9
+queensway-terrace-north,"Queensway Terrace North",63.5,1,9,8,7,4
+hunt-club-park,"Hunt Club Park",62.2,1,7,10,6,4
+lowertown-west,"Lowertown West",61.9,2,18,10,11,17
+fisher-heights,"Fisher Heights",61.2,1,9,8,7,4
+west-centretown,"West Centretown",60.8,3,39,16,7,22
+old-hunt-club,"Old Hunt Club",60.5,2,14,17,14,11
+carlington,"Carlington",60.3,3,33,16,18,17
+riverview,"Riverview",60.3,3,30,16,11,27
+billings-bridge-heron-park,"Billings Bridge - Heron Park",59.5,1,11,7,1,9
+sandy-hill,"Sandy Hill",57.3,4,51,9,11,37
+vanier-north,"Vanier North",57.3,3,38,21,9,16
+lowertown-east,"Lowertown East",54.8,2,31,3,8,14
+britannia,"Britannia",53.6,2,25,13,9,9
+emerald-woods-sawmill-creek,"Emerald Woods - Sawmill Creek",53.5,1,13,6,6,3
+overbrook,"Overbrook",52.9,4,60,15,14,23
+wateridge-village,"Wateridge Village",52.5,1,13,8,1,6
+bayshore,"Bayshore",51.5,1,11,9,6,2
+vanier-south,"Vanier South",49.1,2,36,2,8,9
+hawthorne-meadows-sheffield-glen,"Hawthorne Meadows - Sheffield Glen",48.2,1,16,2,6,4
+ledbury-heron-gate-ridgemont,"Ledbury - Heron Gate - Ridgemont",46.2,2,30,11,10,5
+bells-corners-west,"Bells Corners West",,0,0,0,0,0
+carp,"Carp",,0,0,0,0,0
+edwards-carlsbad-springs,"Edwards - Carlsbad Springs",,0,0,0,0,0
+greenboro-west,"Greenboro West",,0,0,0,0,0
+kinburn,"Kinburn",,0,0,0,0,0
+manor-park,"Manor Park",,0,0,0,0,0
+navan-sarsfield,"Navan - Sarsfield",,0,0,0,0,0
+parkwood-hills,"Parkwood Hills",,0,0,0,0,0
+trend-arlington,"Trend-Arlington",,0,0,0,0,0
