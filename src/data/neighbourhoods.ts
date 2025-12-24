@@ -113,7 +113,7 @@ export interface SportsCourtData {
 }
 
 export interface CrimeByCategory {
-  [category: string]: number;
+  [category: string]: number | undefined;
 }
 
 export interface GreenbeltTrailData {
@@ -314,13 +314,36 @@ export interface Neighbourhood {
     bikeLanesKm: number;
     pathsKm: number;
     pavedShouldersKm: number;
-    cyclingByType: Record<string, number>;
+    cyclingByType: Record<string, number | undefined>;
     // Traffic collisions (2022-2024)
     collisions: number | null;
     collisionsFatal: number | null;
     collisionsInjury: number | null;
     collisionsPedestrian: number | null;
     collisionsBicycle: number | null;
+    // 311 Service Requests (2024-2025)
+    serviceRequests: number | null;
+    serviceRequestRate: number | null; // per 1000 residents
+    serviceRequestsByType: Record<string, number>;
+    // Road Quality (from 311 data - potholes, surface damage, etc.)
+    roadQualityScore: number | null; // 0-100, higher = better roads
+    roadComplaints: number | null;
+    roadComplaintsRate: number | null; // per 1000 residents
+    roadComplaintsPerKm2: number | null;
+    roadComplaintsByType: Record<string, number>;
+    // Noise Level (from 311 data - music, construction, shouting, etc.)
+    quietScore: number | null; // 0-100, higher = quieter neighbourhood
+    noiseComplaints: number | null;
+    noiseComplaintsRate: number | null; // per 1000 residents
+    noiseComplaintsByType: Record<string, number | undefined>;
+    // Development Activity (from City of Ottawa Development Applications)
+    developmentScore: number | null; // 0-100, higher = more development activity
+    developmentTotal: number | null; // Total applications since 2008
+    developmentActive: number | null; // Currently active applications
+    developmentApproved: number | null; // Approved applications
+    developmentRecent: number | null; // Recent applications (2023-2025)
+    developmentRate: number | null; // Recent applications per 1000 residents
+    developmentByType: Record<string, number | undefined>;
   };
   pros: string[];
   cons: string[];

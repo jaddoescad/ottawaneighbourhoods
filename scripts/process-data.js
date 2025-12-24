@@ -609,6 +609,26 @@ async function main() {
     console.log('  - No cycling network file (run: node scripts/download-cycling-network.js)');
   }
 
+  // Load 311 Service Requests data (optional - pre-processed from process-311-data.js)
+  let serviceRequestsData = {};
+  const serviceRequestsPath = path.join(csvDir, '311_by_neighbourhood.json');
+  if (fs.existsSync(serviceRequestsPath)) {
+    serviceRequestsData = JSON.parse(fs.readFileSync(serviceRequestsPath, 'utf8'));
+    console.log(`  - 311 service requests for ${Object.keys(serviceRequestsData).length} neighbourhoods`);
+  } else {
+    console.log('  - No 311 data file (run: node scripts/process-311-data.js)');
+  }
+
+  // Load Development Applications data (optional - pre-processed from process-development-data.js)
+  let developmentData = {};
+  const developmentPath = path.join(csvDir, 'development_by_neighbourhood.json');
+  if (fs.existsSync(developmentPath)) {
+    developmentData = JSON.parse(fs.readFileSync(developmentPath, 'utf8'));
+    console.log(`  - Development applications for ${Object.keys(developmentData).length} neighbourhoods`);
+  } else {
+    console.log('  - No development data file (run: node scripts/process-development-data.js)');
+  }
+
   // Load ONS Census Data from ons-sqo.ca (2021 Census data)
   let onsCensusData = [];
   const onsCensusPath = path.join(csvDir, 'ons_census_data.csv');
@@ -1727,6 +1747,29 @@ async function main() {
         pathsKm,
         pavedShouldersKm,
         cyclingByType: cyclingData.byType,
+        // 311 Service Requests (2024-2025)
+        serviceRequests: serviceRequestsData[info.id]?.total || null,
+        serviceRequestRate: serviceRequestsData[info.id]?.rate || null,
+        serviceRequestsByType: serviceRequestsData[info.id]?.byType || {},
+        // Road Quality (from 311 data - potholes, surface damage, etc.)
+        roadQualityScore: serviceRequestsData[info.id]?.roadQualityScore || null,
+        roadComplaints: serviceRequestsData[info.id]?.roadComplaints || null,
+        roadComplaintsRate: serviceRequestsData[info.id]?.roadComplaintsRate || null,
+        roadComplaintsPerKm2: serviceRequestsData[info.id]?.roadComplaintsPerKm2 || null,
+        roadComplaintsByType: serviceRequestsData[info.id]?.roadComplaintsByType || {},
+        // Noise Level (from 311 data - music, construction, shouting, etc.)
+        quietScore: serviceRequestsData[info.id]?.quietScore || null,
+        noiseComplaints: serviceRequestsData[info.id]?.noiseComplaints || null,
+        noiseComplaintsRate: serviceRequestsData[info.id]?.noiseComplaintsRate || null,
+        noiseComplaintsByType: serviceRequestsData[info.id]?.noiseComplaintsByType || {},
+        // Development Activity (from City of Ottawa Development Applications)
+        developmentScore: developmentData[info.id]?.developmentScore || null,
+        developmentTotal: developmentData[info.id]?.total || null,
+        developmentActive: developmentData[info.id]?.active || null,
+        developmentApproved: developmentData[info.id]?.approved || null,
+        developmentRecent: developmentData[info.id]?.recent || null,
+        developmentRate: developmentData[info.id]?.developmentRate || null,
+        developmentByType: developmentData[info.id]?.byType || {},
       },
       pros: info.pros ? info.pros.split('; ') : [],
       cons: info.cons ? info.cons.split('; ') : [],

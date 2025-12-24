@@ -40,6 +40,9 @@ src/data/
 │   ├── ncc_greenbelt_trails.csv  # NCC Greenbelt trails (37 trails, 141+ km)
 │   ├── recreation_facilities_raw.csv # Pools, arenas, rinks, community centres (263 facilities)
 │   ├── sports_courts_raw.csv     # Sports courts & fields (1,389 total: basketball, tennis, soccer, etc.)
+│   ├── 311_current_year.csv      # 311 Service Requests (current year ~365K)
+│   ├── 311_previous_year.csv     # 311 Service Requests (previous year ~319K)
+│   ├── 311_by_neighbourhood.json # Processed 311 data by neighbourhood
 │   └── ons_neighbourhoods.csv    # Reference: all 111 ONS area IDs
 ├── processed/
 │   └── data.json                 # Generated output (don't edit directly)
@@ -58,6 +61,7 @@ scripts/
 ├── download-collisions.js        # Downloads traffic collision data from Ottawa Open Data
 ├── download-recreation-facilities.js # Downloads pools, arenas, rinks from Ottawa Open Data
 ├── download-sports-courts.js     # Downloads sports courts & fields from Ottawa Open Data
+├── process-311-data.js           # Processes 311 service requests by neighbourhood
 └── config/
     └── neighbourhood-mapping.js  # Maps our neighbourhoods to ONS IDs
 ```
@@ -79,6 +83,7 @@ Most data from **City of Ottawa Open Data** (ArcGIS REST APIs). Restaurants & ca
 | Hospitals | https://maps.ottawa.ca/arcgis/rest/services/Hospitals/MapServer/0 | 10 |
 | Recreation Facilities | https://maps.ottawa.ca/arcgis/rest/services/City_Facilities/MapServer/5 | 263 |
 | Sports Courts | https://maps.ottawa.ca/arcgis/rest/services/Parks_Inventory/MapServer (Layers 1,3,19,21,22,27) | 1,389 |
+| 311 Service Requests | https://311opendatastorage.blob.core.windows.net/311data/ | ~685K |
 | Restaurants & Cafés | https://overpass-api.de/api/interpreter (OSM Overpass) | ~1-3K |
 | Grocery Stores | https://overpass-api.de/api/interpreter (OSM Overpass) | ~226 |
 | Walk Scores | https://www.walkscore.com/CA-ON/Ottawa | 27 |
@@ -188,6 +193,49 @@ Traffic collision data from City of Ottawa Open Data (2022-2024). Used for traff
 **To refresh collision data:**
 ```bash
 node scripts/download-collisions.js
+node scripts/process-data.js
+```
+
+### 311 Service Requests (311_current_year.csv, 311_previous_year.csv)
+311 service request data from City of Ottawa Open Data (2024-2025). Tracks citizen requests for city services like road repairs, garbage collection, bylaw enforcement, etc.
+
+| Field | Description |
+|-------|-------------|
+| Service Request ID | Unique request identifier |
+| Status | Request status (Resolved, Open, etc.) |
+| Type | Service category (Roads and Transportation, Garbage and Recycling, etc.) |
+| Description | Detailed service request description |
+| Opened Date | When request was submitted |
+| Closed Date | When request was resolved |
+| Address | Service location (for public requests only) |
+| Latitude / Longitude | Coordinates (for public requests only) |
+| Ward | City ward number (1-24) |
+| Channel | How request was submitted (Web, Phone, Mobile) |
+
+**Service Request Categories:**
+- **Roads and Transportation** (~35%): Potholes, road maintenance, traffic signals
+- **Garbage and Recycling** (~31%): Missed collection, bin requests, waste issues
+- **Bylaw Services** (~18%): Noise complaints, property standards, parking violations
+- **Water and Environment** (~10%): Tree maintenance, water issues, flooding
+- **Recreation and Culture** (~3%): Parks, recreation programs
+- **Other** (~3%): Licenses, health, social services
+
+**Data Sources:**
+- Current Year: https://311opendatastorage.blob.core.windows.net/311data/311opendata_currentyear.csv
+- Previous Year: https://311opendatastorage.blob.core.windows.net/311data/311opendata_lastyear.csv
+
+**Metrics Output:**
+- `serviceRequests` - Total 311 requests in neighbourhood (2024-2025)
+- `serviceRequestRate` - Requests per 1,000 residents
+- `serviceRequestsByType` - Breakdown by category
+
+**To refresh 311 data:**
+```bash
+# Download latest data (automatic from Azure Blob Storage)
+curl -o src/data/csv/311_current_year.csv https://311opendatastorage.blob.core.windows.net/311data/311opendata_currentyear.csv
+curl -o src/data/csv/311_previous_year.csv https://311opendatastorage.blob.core.windows.net/311data/311opendata_lastyear.csv
+# Process and aggregate by neighbourhood
+node scripts/process-311-data.js
 node scripts/process-data.js
 ```
 

@@ -1,0 +1,4030 @@
+{
+  "alta-vista": {
+    "total": 5272,
+    "rate": 678.9,
+    "byType": {
+      "Water & Environment": 364,
+      "Bylaw Services": 919,
+      "Other": 688,
+      "Garbage & Recycling": 1721,
+      "Roads & Transportation": 1362,
+      "Health & Safety": 12,
+      "Recreation & Culture": 133,
+      "Licenses & Permits": 20,
+      "Social Services": 50,
+      "City Hall": 4,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 337,
+    "roadComplaintsRate": 43.4,
+    "roadComplaintsPerKm2": 88.7,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 334,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 132,
+    "noiseComplaintsRate": 17,
+    "noiseComplaintsByType": {
+      "Noise - Music": 62,
+      "Noise - Construction": 21,
+      "Noise - Shouting": 17,
+      "Noise - Info-Noise": 9,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 9,
+      "Noise - Idling": 5,
+      "Noise - Car Alarms": 4
+    },
+    "roadQualityScore": 5,
+    "quietScore": 55
+  },
+  "bayshore": {
+    "total": 9188,
+    "rate": 640.7,
+    "byType": {
+      "Garbage & Recycling": 4501,
+      "Roads & Transportation": 1104,
+      "Other": 1502,
+      "Bylaw Services": 1327,
+      "Water & Environment": 602,
+      "Licenses & Permits": 21,
+      "Social Services": 41,
+      "Health & Safety": 8,
+      "Recreation & Culture": 60,
+      "City Hall": 6,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 15
+    },
+    "roadComplaints": 166,
+    "roadComplaintsRate": 11.6,
+    "roadComplaintsPerKm2": 81,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 165,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 178,
+    "noiseComplaintsRate": 12.4,
+    "noiseComplaintsByType": {
+      "Noise - Music": 100,
+      "Noise - Construction": 17,
+      "Noise - Shouting": 15,
+      "Noise - Info-Noise": 16,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 11,
+      "Noise - Muffler": 6,
+      "Noise - Idling": 5,
+      "Noise - Car Alarms": 4
+    },
+    "roadQualityScore": 8,
+    "quietScore": 66
+  },
+  "beacon-hill-south-cardinal-heights": {
+    "total": 7980,
+    "rate": 1030.3,
+    "byType": {
+      "Garbage & Recycling": 3751,
+      "Other": 1280,
+      "Bylaw Services": 1269,
+      "Water & Environment": 476,
+      "Licenses & Permits": 23,
+      "Roads & Transportation": 1048,
+      "Health & Safety": 8,
+      "Social Services": 19,
+      "Recreation & Culture": 97,
+      "City Hall": 3,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 5
+    },
+    "roadComplaints": 187,
+    "roadComplaintsRate": 24.1,
+    "roadComplaintsPerKm2": 82.4,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 183,
+      "Road Maintenance - Shoulder Pothole": 4
+    },
+    "noiseComplaints": 206,
+    "noiseComplaintsRate": 26.6,
+    "noiseComplaintsByType": {
+      "Noise - Music": 125,
+      "Noise - Shouting": 25,
+      "Noise - Construction": 12,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 11,
+      "Noise - Info-Noise": 9,
+      "Noise - Idling": 6,
+      "Noise - Car Alarms": 4,
+      "Noise - Muffler": 4,
+      "Noise - Festival": 2
+    },
+    "roadQualityScore": 6,
+    "quietScore": 26
+  },
+  "beaverbrook": {
+    "total": 2023,
+    "rate": 302.8,
+    "byType": {
+      "Bylaw Services": 185,
+      "Garbage & Recycling": 559,
+      "Roads & Transportation": 816,
+      "Other": 78,
+      "Water & Environment": 79,
+      "Recreation & Culture": 265,
+      "Health & Safety": 3,
+      "Licenses & Permits": 4,
+      "Social Services": 33,
+      "City Hall": 1,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 128,
+    "roadComplaintsRate": 19.2,
+    "roadComplaintsPerKm2": 42.7,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 126,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 25,
+    "noiseComplaintsRate": 3.7,
+    "noiseComplaintsByType": {
+      "Noise - Music": 13,
+      "Noise - Construction": 3,
+      "Noise - Info-Noise": 2,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 2,
+      "Noise - Shouting": 2,
+      "Noise - Idling": 1,
+      "Noise - Delivery/Load/Unload": 0,
+      "Noise - Squeal Tires": 0
+    },
+    "roadQualityScore": 39,
+    "quietScore": 100
+  },
+  "bells-corners-east": {
+    "total": 3345,
+    "rate": 640.8,
+    "byType": {
+      "Roads & Transportation": 581,
+      "Water & Environment": 209,
+      "Garbage & Recycling": 1538,
+      "Other": 430,
+      "Bylaw Services": 448,
+      "Licenses & Permits": 7,
+      "Social Services": 48,
+      "Recreation & Culture": 76,
+      "Health & Safety": 3,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 4
+    },
+    "roadComplaints": 89,
+    "roadComplaintsRate": 17,
+    "roadComplaintsPerKm2": 25.3,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 83,
+      "Road Maintenance - Shoulder Pothole": 6
+    },
+    "noiseComplaints": 63,
+    "noiseComplaintsRate": 12.1,
+    "noiseComplaintsByType": {
+      "Noise - Music": 32,
+      "Noise - Construction": 7,
+      "Noise - Info-Noise": 6,
+      "Noise - Shouting": 6,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 5,
+      "Noise - Idling": 2,
+      "Noise - Muffler": 2,
+      "Noise - Car Alarms": 1
+    },
+    "roadQualityScore": 61,
+    "quietScore": 72
+  },
+  "bells-corners-west": {
+    "total": 2673,
+    "rate": 617.3,
+    "byType": {
+      "Roads & Transportation": 402,
+      "Water & Environment": 173,
+      "Garbage & Recycling": 1276,
+      "Other": 355,
+      "Bylaw Services": 371,
+      "Licenses & Permits": 6,
+      "Recreation & Culture": 44,
+      "Social Services": 40,
+      "Health & Safety": 3,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 47,
+    "roadComplaintsRate": 10.9,
+    "roadComplaintsPerKm2": 39.2,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 47
+    },
+    "noiseComplaints": 53,
+    "noiseComplaintsRate": 12.2,
+    "noiseComplaintsByType": {
+      "Noise - Music": 27,
+      "Noise - Construction": 6,
+      "Noise - Info-Noise": 5,
+      "Noise - Shouting": 5,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 4,
+      "Noise - Idling": 2,
+      "Noise - Muffler": 2,
+      "Noise - Car Alarms": 1
+    },
+    "roadQualityScore": 45,
+    "quietScore": 68
+  },
+  "billings-bridge-heron-park": {
+    "total": 4065,
+    "rate": 670.2,
+    "byType": {
+      "Roads & Transportation": 1018,
+      "Water & Environment": 284,
+      "Bylaw Services": 718,
+      "Other": 537,
+      "Garbage & Recycling": 1344,
+      "Recreation & Culture": 98,
+      "Health & Safety": 9,
+      "Licenses & Permits": 15,
+      "Social Services": 40,
+      "City Hall": 1,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 205,
+    "roadComplaintsRate": 33.8,
+    "roadComplaintsPerKm2": 77.7,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 202,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 103,
+    "noiseComplaintsRate": 17,
+    "noiseComplaintsByType": {
+      "Noise - Music": 48,
+      "Noise - Construction": 15,
+      "Noise - Shouting": 13,
+      "Noise - Info-Noise": 7,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 7,
+      "Noise - Idling": 4,
+      "Noise - Car Alarms": 3
+    },
+    "roadQualityScore": 10,
+    "quietScore": 56
+  },
+  "blackburn-hamlet": {
+    "total": 8267,
+    "rate": 1001.5,
+    "byType": {
+      "Garbage & Recycling": 3998,
+      "Other": 1363,
+      "Bylaw Services": 1351,
+      "Water & Environment": 508,
+      "Licenses & Permits": 24,
+      "Roads & Transportation": 907,
+      "Health & Safety": 8,
+      "Recreation & Culture": 88,
+      "Social Services": 14,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 6
+    },
+    "roadComplaints": 106,
+    "roadComplaintsRate": 12.8,
+    "roadComplaintsPerKm2": 33.1,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 103,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 219,
+    "noiseComplaintsRate": 26.5,
+    "noiseComplaintsByType": {
+      "Noise - Music": 133,
+      "Noise - Shouting": 26,
+      "Noise - Construction": 13,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 11,
+      "Noise - Info-Noise": 10,
+      "Noise - Idling": 6,
+      "Noise - Car Alarms": 5,
+      "Noise - Muffler": 4,
+      "Noise - Festival": 2
+    },
+    "roadQualityScore": 51,
+    "quietScore": 28
+  },
+  "blossom-park-timbermill": {
+    "total": 7493,
+    "rate": 820.7,
+    "byType": {
+      "Other": 1212,
+      "Bylaw Services": 1461,
+      "Recreation & Culture": 221,
+      "Water & Environment": 649,
+      "Roads & Transportation": 986,
+      "Garbage & Recycling": 2850,
+      "Licenses & Permits": 45,
+      "Health & Safety": 41,
+      "Social Services": 21,
+      "City Hall": 2,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 95,
+    "roadComplaintsRate": 10.4,
+    "roadComplaintsPerKm2": 21.1,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 93,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 231,
+    "noiseComplaintsRate": 25.3,
+    "noiseComplaintsByType": {
+      "Noise - Music": 123,
+      "Noise - Shouting": 35,
+      "Noise - Construction": 17,
+      "Noise - Info-Noise": 14,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 10,
+      "Noise - Idling": 7,
+      "Noise - Car Alarms": 6,
+      "Noise - Muffler": 5
+    },
+    "roadQualityScore": 67,
+    "quietScore": 30
+  },
+  "borden-farm-fisher-glen": {
+    "total": 5343,
+    "rate": 624.9,
+    "byType": {
+      "Garbage & Recycling": 1620,
+      "Bylaw Services": 982,
+      "Roads & Transportation": 941,
+      "Water & Environment": 517,
+      "Other": 1126,
+      "Health & Safety": 27,
+      "Social Services": 20,
+      "Recreation & Culture": 84,
+      "Licenses & Permits": 19,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 4
+    },
+    "roadComplaints": 162,
+    "roadComplaintsRate": 18.9,
+    "roadComplaintsPerKm2": 55.7,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 159,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 205,
+    "noiseComplaintsRate": 24,
+    "noiseComplaintsByType": {
+      "Noise - Music": 90,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 26,
+      "Noise - Construction": 21,
+      "Noise - Shouting": 18,
+      "Noise - Info-Noise": 11,
+      "Noise - Idling": 10,
+      "Noise - Car Alarms": 7,
+      "Noise - Festival": 6,
+      "Noise - Special Event": 3
+    },
+    "roadQualityScore": 27,
+    "quietScore": 38
+  },
+  "braemar-park-bel-air-heights-copeland-park": {
+    "total": 8641,
+    "rate": 951.1,
+    "byType": {
+      "Bylaw Services": 1699,
+      "Garbage & Recycling": 2790,
+      "Water & Environment": 1125,
+      "Other": 1301,
+      "Roads & Transportation": 1467,
+      "Health & Safety": 80,
+      "Licenses & Permits": 43,
+      "Recreation & Culture": 73,
+      "Social Services": 54,
+      "City Hall": 3,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 5
+    },
+    "roadComplaints": 185,
+    "roadComplaintsRate": 20.4,
+    "roadComplaintsPerKm2": 58.2,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 184,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 266,
+    "noiseComplaintsRate": 29.3,
+    "noiseComplaintsByType": {
+      "Noise - Music": 118,
+      "Noise - Construction": 29,
+      "Noise - Info-Noise": 31,
+      "Noise - Shouting": 32,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 15,
+      "Noise - Car Alarms": 12,
+      "Noise - Idling": 10
+    },
+    "roadQualityScore": 24,
+    "quietScore": 21
+  },
+  "bridlewood-emerald-meadows": {
+    "total": 14740,
+    "rate": 570.8,
+    "byType": {
+      "Garbage & Recycling": 4960,
+      "Other": 2337,
+      "Bylaw Services": 3102,
+      "Roads & Transportation": 2278,
+      "Licenses & Permits": 78,
+      "Water & Environment": 1462,
+      "Recreation & Culture": 390,
+      "Health & Safety": 53,
+      "Social Services": 73,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 5
+    },
+    "roadComplaints": 186,
+    "roadComplaintsRate": 7.2,
+    "roadComplaintsPerKm2": 28.5,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 182,
+      "Road Maintenance - Shoulder Pothole": 4
+    },
+    "noiseComplaints": 588,
+    "noiseComplaintsRate": 22.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 280,
+      "Noise - Info-Noise": 86,
+      "Noise - Construction": 57,
+      "Noise - Shouting": 63,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 37,
+      "Noise - Car Alarms": 17,
+      "Noise - Idling": 15
+    },
+    "roadQualityScore": 57,
+    "quietScore": 44
+  },
+  "britannia": {
+    "total": 7073,
+    "rate": 825.3,
+    "byType": {
+      "Other": 1179,
+      "Garbage & Recycling": 2478,
+      "Water & Environment": 654,
+      "Bylaw Services": 1557,
+      "Recreation & Culture": 121,
+      "Roads & Transportation": 984,
+      "Health & Safety": 24,
+      "Licenses & Permits": 29,
+      "Social Services": 40,
+      "City Hall": 3,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 113,
+    "roadComplaintsRate": 13.2,
+    "roadComplaintsPerKm2": 40.4,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 109,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 325,
+    "noiseComplaintsRate": 37.9,
+    "noiseComplaintsByType": {
+      "Noise - Music": 169,
+      "Noise - Shouting": 31,
+      "Noise - Construction": 31,
+      "Noise - Info-Noise": 28,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 16,
+      "Noise - Car Alarms": 13,
+      "Noise - Idling": 6,
+      "Noise - Festival": 5,
+      "Noise - Muffler": 4
+    },
+    "roadQualityScore": 43,
+    "quietScore": 10
+  },
+  "brookside-briarbrook-morgan-s-grant": {
+    "total": 3777,
+    "rate": 243.3,
+    "byType": {
+      "Bylaw Services": 431,
+      "Garbage & Recycling": 1300,
+      "Roads & Transportation": 1343,
+      "Other": 181,
+      "Water & Environment": 184,
+      "Recreation & Culture": 279,
+      "Health & Safety": 6,
+      "Licenses & Permits": 10,
+      "Social Services": 39,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 183,
+    "roadComplaintsRate": 11.8,
+    "roadComplaintsPerKm2": 17.4,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 178,
+      "Road Maintenance - Shoulder Pothole": 4
+    },
+    "noiseComplaints": 59,
+    "noiseComplaintsRate": 3.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 30,
+      "Noise - Construction": 8,
+      "Noise - Info-Noise": 5,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 5,
+      "Noise - Shouting": 4,
+      "Noise - Idling": 2,
+      "Noise - Delivery/Load/Unload": 1,
+      "Noise - Squeal Tires": 1
+    },
+    "roadQualityScore": 69,
+    "quietScore": 97
+  },
+  "cardinal-creek": {
+    "total": 5181,
+    "rate": 398.2,
+    "byType": {
+      "Garbage & Recycling": 2193,
+      "Bylaw Services": 723,
+      "Recreation & Culture": 213,
+      "Water & Environment": 461,
+      "Roads & Transportation": 1049,
+      "Other": 502,
+      "Social Services": 7,
+      "Health & Safety": 12,
+      "Licenses & Permits": 16,
+      "City Hall": 1,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 113,
+    "roadComplaintsRate": 8.7,
+    "roadComplaintsPerKm2": 11.6,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 112,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 106,
+    "noiseComplaintsRate": 8.1,
+    "noiseComplaintsByType": {
+      "Noise - Music": 55,
+      "Noise - Shouting": 10,
+      "Noise - Construction": 8,
+      "Noise - Info-Noise": 9,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 7,
+      "Noise - Idling": 3,
+      "Noise - Muffler": 3,
+      "Noise - Car Alarms": 3
+    },
+    "roadQualityScore": 75,
+    "quietScore": 79
+  },
+  "carleton-heights-courtland-park": {
+    "total": 7642,
+    "rate": 926.3,
+    "byType": {
+      "Bylaw Services": 1478,
+      "Garbage & Recycling": 2846,
+      "Other": 1207,
+      "Roads & Transportation": 1386,
+      "Water & Environment": 531,
+      "Recreation & Culture": 86,
+      "Licenses & Permits": 37,
+      "Social Services": 49,
+      "Health & Safety": 19,
+      "City Hall": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 224,
+    "roadComplaintsRate": 27.2,
+    "roadComplaintsPerKm2": 73.2,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 218,
+      "Road Maintenance - Shoulder Pothole": 6
+    },
+    "noiseComplaints": 203,
+    "noiseComplaintsRate": 24.6,
+    "noiseComplaintsByType": {
+      "Noise - Music": 99,
+      "Noise - Shouting": 35,
+      "Noise - Info-Noise": 21,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 12,
+      "Noise - Construction": 10,
+      "Noise - Car Alarms": 9,
+      "Noise - Muffler": 6
+    },
+    "roadQualityScore": 14,
+    "quietScore": 36
+  },
+  "carlington": {
+    "total": 10261,
+    "rate": 637.9,
+    "byType": {
+      "Garbage & Recycling": 3048,
+      "Bylaw Services": 1850,
+      "Roads & Transportation": 1895,
+      "Water & Environment": 973,
+      "Other": 2121,
+      "Health & Safety": 51,
+      "Recreation & Culture": 172,
+      "Social Services": 102,
+      "Licenses & Permits": 36,
+      "City Hall": 4,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 8
+    },
+    "roadComplaints": 185,
+    "roadComplaintsRate": 11.5,
+    "roadComplaintsPerKm2": 51,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 179,
+      "Road Maintenance - Shoulder Pothole": 6
+    },
+    "noiseComplaints": 385,
+    "noiseComplaintsRate": 23.9,
+    "noiseComplaintsByType": {
+      "Noise - Music": 169,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 48,
+      "Noise - Construction": 39,
+      "Noise - Shouting": 33,
+      "Noise - Info-Noise": 22,
+      "Noise - Idling": 19,
+      "Noise - Car Alarms": 13,
+      "Noise - Festival": 11,
+      "Noise - Special Event": 5
+    },
+    "roadQualityScore": 31,
+    "quietScore": 40
+  },
+  "carp": {
+    "total": 6709,
+    "rate": 1045.8,
+    "byType": {
+      "Other": 760,
+      "Garbage & Recycling": 2782,
+      "Water & Environment": 599,
+      "Roads & Transportation": 1525,
+      "Bylaw Services": 933,
+      "Licenses & Permits": 20,
+      "Recreation & Culture": 64,
+      "Health & Safety": 13,
+      "Social Services": 9,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 380,
+    "roadComplaintsRate": 59.2,
+    "roadComplaintsPerKm2": 2.7,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 369,
+      "Road Maintenance - Shoulder Pothole": 11
+    },
+    "noiseComplaints": 145,
+    "noiseComplaintsRate": 22.6,
+    "noiseComplaintsByType": {
+      "Noise - Music": 87,
+      "Noise - Shouting": 13,
+      "Noise - Info-Noise": 12,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 9,
+      "Noise - Construction": 6,
+      "Noise - Idling": 4,
+      "Noise - Muffler": 4,
+      "Noise - Car Alarms": 2
+    },
+    "roadQualityScore": 87,
+    "quietScore": 49
+  },
+  "carson-grove-carson-meadows": {
+    "total": 9093,
+    "rate": 855,
+    "byType": {
+      "Other": 1783,
+      "Water & Environment": 747,
+      "Garbage & Recycling": 2899,
+      "Bylaw Services": 2069,
+      "Roads & Transportation": 1374,
+      "Recreation & Culture": 115,
+      "Licenses & Permits": 30,
+      "Health & Safety": 44,
+      "Social Services": 26,
+      "City Hall": 1,
+      "Corporate Complaints": 2,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 159,
+    "roadComplaintsRate": 15,
+    "roadComplaintsPerKm2": 39.4,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 157,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 365,
+    "noiseComplaintsRate": 34.3,
+    "noiseComplaintsByType": {
+      "Noise - Music": 176,
+      "Noise - Shouting": 57,
+      "Noise - Info-Noise": 42,
+      "Noise - Construction": 27,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 20,
+      "Noise - Car Alarms": 11,
+      "Noise - Idling": 9
+    },
+    "roadQualityScore": 44,
+    "quietScore": 16
+  },
+  "centrepointe": {
+    "total": 8586,
+    "rate": 927.2,
+    "byType": {
+      "Bylaw Services": 1732,
+      "Garbage & Recycling": 2843,
+      "Water & Environment": 1146,
+      "Other": 1330,
+      "Roads & Transportation": 1171,
+      "Recreation & Culture": 143,
+      "Health & Safety": 82,
+      "Licenses & Permits": 44,
+      "Social Services": 75,
+      "City Hall": 15,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 5
+    },
+    "roadComplaints": 132,
+    "roadComplaintsRate": 14.3,
+    "roadComplaintsPerKm2": 44,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 128,
+      "Road Maintenance - Shoulder Pothole": 4
+    },
+    "noiseComplaints": 271,
+    "noiseComplaintsRate": 29.3,
+    "noiseComplaintsByType": {
+      "Noise - Music": 121,
+      "Noise - Construction": 30,
+      "Noise - Info-Noise": 32,
+      "Noise - Shouting": 33,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 15,
+      "Noise - Car Alarms": 13,
+      "Noise - Idling": 10
+    },
+    "roadQualityScore": 35,
+    "quietScore": 22
+  },
+  "centretown": {
+    "total": 22886,
+    "rate": 717.7,
+    "byType": {
+      "Bylaw Services": 3005,
+      "Water & Environment": 1442,
+      "Garbage & Recycling": 5598,
+      "Roads & Transportation": 8222,
+      "Other": 3291,
+      "Recreation & Culture": 570,
+      "Health & Safety": 154,
+      "Licenses & Permits": 71,
+      "Social Services": 496,
+      "City Hall": 13,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 22
+    },
+    "roadComplaints": 682,
+    "roadComplaintsRate": 21.4,
+    "roadComplaintsPerKm2": 182.4,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 662,
+      "Road Maintenance - Shoulder Pothole": 20
+    },
+    "noiseComplaints": 578,
+    "noiseComplaintsRate": 18.1,
+    "noiseComplaintsByType": {
+      "Noise - Music": 201,
+      "Noise - Construction": 139,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 52,
+      "Noise - Shouting": 51,
+      "Noise - Info-Noise": 54,
+      "Noise - Idling": 27,
+      "Noise - Car Alarms": 20
+    },
+    "roadQualityScore": 1,
+    "quietScore": 53
+  },
+  "chapel-hill-north": {
+    "total": 10309,
+    "rate": 874.8,
+    "byType": {
+      "Water & Environment": 817,
+      "Garbage & Recycling": 4500,
+      "Other": 1509,
+      "Bylaw Services": 1636,
+      "Roads & Transportation": 1634,
+      "Health & Safety": 26,
+      "Licenses & Permits": 18,
+      "Recreation & Culture": 161,
+      "Social Services": 5,
+      "Corporate Complaints": 3,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 176,
+    "roadComplaintsRate": 14.9,
+    "roadComplaintsPerKm2": 43.3,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 172,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 194,
+    "noiseComplaintsRate": 16.5,
+    "noiseComplaintsByType": {
+      "Noise - Music": 109,
+      "Noise - Shouting": 22,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 13,
+      "Noise - Info-Noise": 15,
+      "Noise - Car Alarms": 9,
+      "Noise - Idling": 8,
+      "Noise - Construction": 7,
+      "Noise - Muffler": 4
+    },
+    "roadQualityScore": 37,
+    "quietScore": 59
+  },
+  "chapel-hill-south": {
+    "total": 12587,
+    "rate": 872.6,
+    "byType": {
+      "Water & Environment": 999,
+      "Garbage & Recycling": 5508,
+      "Other": 1847,
+      "Bylaw Services": 2005,
+      "Roads & Transportation": 1990,
+      "Health & Safety": 31,
+      "Recreation & Culture": 171,
+      "Licenses & Permits": 22,
+      "Social Services": 5,
+      "City Hall": 2,
+      "Corporate Complaints": 3,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 209,
+    "roadComplaintsRate": 14.5,
+    "roadComplaintsPerKm2": 17.8,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 202,
+      "Road Maintenance - Shoulder Pothole": 8
+    },
+    "noiseComplaints": 238,
+    "noiseComplaintsRate": 16.5,
+    "noiseComplaintsByType": {
+      "Noise - Music": 133,
+      "Noise - Shouting": 27,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 16,
+      "Noise - Info-Noise": 17,
+      "Noise - Car Alarms": 10,
+      "Noise - Idling": 9,
+      "Noise - Construction": 9,
+      "Noise - Muffler": 4
+    },
+    "roadQualityScore": 68,
+    "quietScore": 58
+  },
+  "chapman-mills": {
+    "total": 4425,
+    "rate": 366.5,
+    "byType": {
+      "Garbage & Recycling": 1857,
+      "Bylaw Services": 579,
+      "Other": 559,
+      "Water & Environment": 310,
+      "Roads & Transportation": 916,
+      "Licenses & Permits": 12,
+      "Health & Safety": 4,
+      "Recreation & Culture": 145,
+      "Social Services": 31,
+      "City Hall": 6,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 5
+    },
+    "roadComplaints": 121,
+    "roadComplaintsRate": 10,
+    "roadComplaintsPerKm2": 37,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 121
+    },
+    "noiseComplaints": 79,
+    "noiseComplaintsRate": 6.5,
+    "noiseComplaintsByType": {
+      "Noise - Music": 41,
+      "Noise - Shouting": 8,
+      "Noise - Info-Noise": 6,
+      "Noise - Construction": 6,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 5,
+      "Noise - Muffler": 3,
+      "Noise - Idling": 2,
+      "Noise - Car Alarms": 2
+    },
+    "roadQualityScore": 49,
+    "quietScore": 83
+  },
+  "city-view": {
+    "total": 4293,
+    "rate": 646,
+    "byType": {
+      "Roads & Transportation": 798,
+      "Water & Environment": 266,
+      "Garbage & Recycling": 1957,
+      "Other": 545,
+      "Bylaw Services": 567,
+      "Licenses & Permits": 9,
+      "Social Services": 95,
+      "Recreation & Culture": 45,
+      "Health & Safety": 4,
+      "City Hall": 1,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 5
+    },
+    "roadComplaints": 128,
+    "roadComplaintsRate": 19.3,
+    "roadComplaintsPerKm2": 51.2,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 127,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 81,
+    "noiseComplaintsRate": 12.2,
+    "noiseComplaintsByType": {
+      "Noise - Music": 41,
+      "Noise - Construction": 9,
+      "Noise - Info-Noise": 7,
+      "Noise - Shouting": 7,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 6,
+      "Noise - Idling": 3,
+      "Noise - Muffler": 3,
+      "Noise - Car Alarms": 2
+    },
+    "roadQualityScore": 30,
+    "quietScore": 69
+  },
+  "civic-hospital": {
+    "total": 3440,
+    "rate": 597.2,
+    "byType": {
+      "Bylaw Services": 533,
+      "Water & Environment": 260,
+      "Garbage & Recycling": 1011,
+      "Roads & Transportation": 870,
+      "Other": 594,
+      "Health & Safety": 28,
+      "Licenses & Permits": 13,
+      "Social Services": 64,
+      "Recreation & Culture": 62,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 4
+    },
+    "roadComplaints": 88,
+    "roadComplaintsRate": 15.3,
+    "roadComplaintsPerKm2": 58.3,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 88
+    },
+    "noiseComplaints": 104,
+    "noiseComplaintsRate": 18.1,
+    "noiseComplaintsByType": {
+      "Noise - Music": 37,
+      "Noise - Construction": 25,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 9,
+      "Noise - Shouting": 9,
+      "Noise - Info-Noise": 10,
+      "Noise - Idling": 5,
+      "Noise - Car Alarms": 4
+    },
+    "roadQualityScore": 23,
+    "quietScore": 54
+  },
+  "constance-bay": {
+    "total": 2169,
+    "rate": 947.2,
+    "byType": {
+      "Other": 271,
+      "Garbage & Recycling": 993,
+      "Water & Environment": 214,
+      "Roads & Transportation": 324,
+      "Bylaw Services": 333,
+      "Licenses & Permits": 7,
+      "Recreation & Culture": 17,
+      "Health & Safety": 5,
+      "Social Services": 4,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 64,
+    "roadComplaintsRate": 27.9,
+    "roadComplaintsPerKm2": 4.5,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 62,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 52,
+    "noiseComplaintsRate": 22.7,
+    "noiseComplaintsByType": {
+      "Noise - Music": 31,
+      "Noise - Shouting": 5,
+      "Noise - Info-Noise": 4,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 3,
+      "Noise - Construction": 2,
+      "Noise - Idling": 1,
+      "Noise - Muffler": 1,
+      "Noise - Car Alarms": 1
+    },
+    "roadQualityScore": 83,
+    "quietScore": 46
+  },
+  "convent-glen-orleans-woods": {
+    "total": 7971,
+    "rate": 539.7,
+    "byType": {
+      "Garbage & Recycling": 3671,
+      "Water & Environment": 645,
+      "Other": 698,
+      "Bylaw Services": 1140,
+      "Recreation & Culture": 280,
+      "Roads & Transportation": 1479,
+      "Licenses & Permits": 26,
+      "Health & Safety": 12,
+      "Social Services": 13,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 5
+    },
+    "roadComplaints": 314,
+    "roadComplaintsRate": 21.3,
+    "roadComplaintsPerKm2": 53.9,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 310,
+      "Road Maintenance - Shoulder Pothole": 4
+    },
+    "noiseComplaints": 159,
+    "noiseComplaintsRate": 10.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 78,
+      "Noise - Info-Noise": 15,
+      "Noise - Construction": 17,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 14,
+      "Noise - Shouting": 13,
+      "Noise - Muffler": 6,
+      "Noise - Idling": 5,
+      "Noise - Car Alarms": 3
+    },
+    "roadQualityScore": 28,
+    "quietScore": 76
+  },
+  "corkery": {
+    "total": 3767,
+    "rate": 988.7,
+    "byType": {
+      "Other": 451,
+      "Garbage & Recycling": 1652,
+      "Water & Environment": 356,
+      "Roads & Transportation": 717,
+      "Bylaw Services": 554,
+      "Licenses & Permits": 12,
+      "Recreation & Culture": 8,
+      "Social Services": 7,
+      "Health & Safety": 8,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 130,
+    "roadComplaintsRate": 34.1,
+    "roadComplaintsPerKm2": 0.9,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 122,
+      "Road Maintenance - Shoulder Pothole": 8
+    },
+    "noiseComplaints": 86,
+    "noiseComplaintsRate": 22.6,
+    "noiseComplaintsByType": {
+      "Noise - Music": 52,
+      "Noise - Shouting": 8,
+      "Noise - Info-Noise": 7,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 6,
+      "Noise - Construction": 4,
+      "Noise - Idling": 2,
+      "Noise - Muffler": 2,
+      "Noise - Car Alarms": 1
+    },
+    "roadQualityScore": 94,
+    "quietScore": 50
+  },
+  "craig-henry-manordale": {
+    "total": 5366,
+    "rate": 612.6,
+    "byType": {
+      "Garbage & Recycling": 1660,
+      "Bylaw Services": 1006,
+      "Roads & Transportation": 843,
+      "Water & Environment": 530,
+      "Other": 1154,
+      "Health & Safety": 28,
+      "Social Services": 31,
+      "Licenses & Permits": 20,
+      "Recreation & Culture": 89,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 4
+    },
+    "roadComplaints": 106,
+    "roadComplaintsRate": 12.1,
+    "roadComplaintsPerKm2": 36.4,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 105,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 210,
+    "noiseComplaintsRate": 24,
+    "noiseComplaintsByType": {
+      "Noise - Music": 92,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 26,
+      "Noise - Construction": 21,
+      "Noise - Shouting": 18,
+      "Noise - Info-Noise": 12,
+      "Noise - Idling": 10,
+      "Noise - Car Alarms": 7,
+      "Noise - Festival": 6,
+      "Noise - Special Event": 3
+    },
+    "roadQualityScore": 50,
+    "quietScore": 39
+  },
+  "crestview-tanglewood": {
+    "total": 5429,
+    "rate": 653.7,
+    "byType": {
+      "Roads & Transportation": 1042,
+      "Water & Environment": 333,
+      "Garbage & Recycling": 2446,
+      "Other": 686,
+      "Bylaw Services": 714,
+      "Licenses & Permits": 12,
+      "Recreation & Culture": 87,
+      "Social Services": 98,
+      "Health & Safety": 5,
+      "City Hall": 1,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 6
+    },
+    "roadComplaints": 190,
+    "roadComplaintsRate": 22.9,
+    "roadComplaintsPerKm2": 51.5,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 189,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 101,
+    "noiseComplaintsRate": 12.2,
+    "noiseComplaintsByType": {
+      "Noise - Music": 51,
+      "Noise - Construction": 11,
+      "Noise - Info-Noise": 9,
+      "Noise - Shouting": 9,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 7,
+      "Noise - Idling": 4,
+      "Noise - Muffler": 3,
+      "Noise - Car Alarms": 2
+    },
+    "roadQualityScore": 30,
+    "quietScore": 70
+  },
+  "crystal-bay-lakeview-park": {
+    "total": 3441,
+    "rate": 873.4,
+    "byType": {
+      "Other": 542,
+      "Garbage & Recycling": 1139,
+      "Water & Environment": 301,
+      "Bylaw Services": 716,
+      "Roads & Transportation": 570,
+      "Health & Safety": 11,
+      "Recreation & Culture": 129,
+      "Licenses & Permits": 13,
+      "Social Services": 15,
+      "City Hall": 3,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 75,
+    "roadComplaintsRate": 19,
+    "roadComplaintsPerKm2": 13.3,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 74,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 149,
+    "noiseComplaintsRate": 37.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 78,
+      "Noise - Shouting": 14,
+      "Noise - Construction": 14,
+      "Noise - Info-Noise": 13,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 8,
+      "Noise - Car Alarms": 6,
+      "Noise - Idling": 3,
+      "Noise - Festival": 2,
+      "Noise - Muffler": 2
+    },
+    "roadQualityScore": 73,
+    "quietScore": 12
+  },
+  "cumberland": {
+    "total": 8291,
+    "rate": 1802.4,
+    "byType": {
+      "Other": 1018,
+      "Garbage & Recycling": 3836,
+      "Bylaw Services": 1283,
+      "Water & Environment": 939,
+      "Roads & Transportation": 1126,
+      "Health & Safety": 25,
+      "Recreation & Culture": 34,
+      "Licenses & Permits": 19,
+      "Social Services": 4,
+      "City Hall": 3,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 4
+    },
+    "roadComplaints": 137,
+    "roadComplaintsRate": 29.8,
+    "roadComplaintsPerKm2": 2.1,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 131,
+      "Road Maintenance - Shoulder Pothole": 6
+    },
+    "noiseComplaints": 152,
+    "noiseComplaintsRate": 33,
+    "noiseComplaintsByType": {
+      "Noise - Music": 69,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 21,
+      "Noise - Construction": 20,
+      "Noise - Shouting": 16,
+      "Noise - Info-Noise": 12,
+      "Noise - Idling": 4,
+      "Noise - Muffler": 1
+    },
+    "roadQualityScore": 90,
+    "quietScore": 20
+  },
+  "dunrobin": {
+    "total": 5760,
+    "rate": 1018.6,
+    "byType": {
+      "Other": 670,
+      "Garbage & Recycling": 2453,
+      "Water & Environment": 528,
+      "Roads & Transportation": 1193,
+      "Recreation & Culture": 47,
+      "Bylaw Services": 823,
+      "Licenses & Permits": 18,
+      "Health & Safety": 11,
+      "Social Services": 10,
+      "City Hall": 4,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 259,
+    "roadComplaintsRate": 45.8,
+    "roadComplaintsPerKm2": 1.9,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 245,
+      "Road Maintenance - Shoulder Pothole": 14
+    },
+    "noiseComplaints": 128,
+    "noiseComplaintsRate": 22.6,
+    "noiseComplaintsByType": {
+      "Noise - Music": 77,
+      "Noise - Shouting": 12,
+      "Noise - Info-Noise": 10,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 8,
+      "Noise - Construction": 6,
+      "Noise - Idling": 4,
+      "Noise - Muffler": 3,
+      "Noise - Car Alarms": 2
+    },
+    "roadQualityScore": 90,
+    "quietScore": 48
+  },
+  "edwards-carlsbad-springs": {
+    "total": 1308,
+    "rate": 428.9,
+    "byType": {
+      "Garbage & Recycling": 373,
+      "Roads & Transportation": 687,
+      "Other": 32,
+      "Water & Environment": 58,
+      "Bylaw Services": 130,
+      "Licenses & Permits": 7,
+      "Health & Safety": 2,
+      "Recreation & Culture": 15,
+      "Social Services": 0,
+      "City Hall": 4,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 126,
+    "roadComplaintsRate": 41.3,
+    "roadComplaintsPerKm2": 0.9,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 122,
+      "Road Maintenance - Shoulder Pothole": 4
+    },
+    "noiseComplaints": 12,
+    "noiseComplaintsRate": 3.9,
+    "noiseComplaintsByType": {
+      "Noise - Music": 7,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 1,
+      "Noise - Muffler": 1,
+      "Noise - Info-Noise": 1,
+      "Noise - Shouting": 0,
+      "Noise - Construction": 0,
+      "Noise - Idling": 0,
+      "Noise - Car Alarms": 0
+    },
+    "roadQualityScore": 95,
+    "quietScore": 93
+  },
+  "elmvale-canterbury": {
+    "total": 5119,
+    "rate": 627.7,
+    "byType": {
+      "Other": 600,
+      "Water & Environment": 367,
+      "Garbage & Recycling": 1803,
+      "Bylaw Services": 1002,
+      "Roads & Transportation": 1152,
+      "Licenses & Permits": 21,
+      "Recreation & Culture": 124,
+      "Health & Safety": 12,
+      "Social Services": 32,
+      "City Hall": 4,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 182,
+    "roadComplaintsRate": 22.3,
+    "roadComplaintsPerKm2": 68.2,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 179,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 118,
+    "noiseComplaintsRate": 14.5,
+    "noiseComplaintsByType": {
+      "Noise - Music": 61,
+      "Noise - Info-Noise": 12,
+      "Noise - Shouting": 12,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 6,
+      "Noise - Car Alarms": 6,
+      "Noise - Construction": 5,
+      "Noise - Idling": 4,
+      "Noise - Muffler": 3,
+      "Noise - Delivery/Load/Unload": 3
+    },
+    "roadQualityScore": 18,
+    "quietScore": 60
+  },
+  "emerald-woods-sawmill-creek": {
+    "total": 4717,
+    "rate": 813.3,
+    "byType": {
+      "Other": 770,
+      "Bylaw Services": 930,
+      "Roads & Transportation": 632,
+      "Water & Environment": 413,
+      "Garbage & Recycling": 1810,
+      "Licenses & Permits": 29,
+      "Health & Safety": 26,
+      "Recreation & Culture": 95,
+      "Social Services": 9,
+      "City Hall": 1,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 134,
+    "roadComplaintsRate": 23.1,
+    "roadComplaintsPerKm2": 70.9,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 133,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 147,
+    "noiseComplaintsRate": 25.3,
+    "noiseComplaintsByType": {
+      "Noise - Music": 78,
+      "Noise - Shouting": 22,
+      "Noise - Construction": 11,
+      "Noise - Info-Noise": 9,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 7,
+      "Noise - Idling": 5,
+      "Noise - Car Alarms": 4,
+      "Noise - Muffler": 3
+    },
+    "roadQualityScore": 16,
+    "quietScore": 29
+  },
+  "fallingbrook": {
+    "total": 9312,
+    "rate": 517,
+    "byType": {
+      "Garbage & Recycling": 4476,
+      "Roads & Transportation": 1522,
+      "Water & Environment": 787,
+      "Other": 852,
+      "Bylaw Services": 1387,
+      "Licenses & Permits": 31,
+      "Recreation & Culture": 208,
+      "Social Services": 23,
+      "Health & Safety": 15,
+      "City Hall": 6,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 6
+    },
+    "roadComplaints": 216,
+    "roadComplaintsRate": 12,
+    "roadComplaintsPerKm2": 37.4,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 212,
+      "Road Maintenance - Shoulder Pothole": 4
+    },
+    "noiseComplaints": 194,
+    "noiseComplaintsRate": 10.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 96,
+      "Noise - Info-Noise": 19,
+      "Noise - Construction": 21,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 17,
+      "Noise - Shouting": 16,
+      "Noise - Muffler": 7,
+      "Noise - Idling": 6,
+      "Noise - Car Alarms": 4
+    },
+    "roadQualityScore": 47,
+    "quietScore": 75
+  },
+  "findlay-creek": {
+    "total": 8301,
+    "rate": 581.3,
+    "byType": {
+      "Garbage & Recycling": 2743,
+      "Other": 1293,
+      "Bylaw Services": 1716,
+      "Licenses & Permits": 43,
+      "Roads & Transportation": 1347,
+      "Water & Environment": 809,
+      "Recreation & Culture": 300,
+      "Health & Safety": 29,
+      "Social Services": 13,
+      "City Hall": 6,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 120,
+    "roadComplaintsRate": 8.4,
+    "roadComplaintsPerKm2": 7.2,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 118,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 325,
+    "noiseComplaintsRate": 22.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 155,
+      "Noise - Info-Noise": 47,
+      "Noise - Construction": 31,
+      "Noise - Shouting": 35,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 21,
+      "Noise - Car Alarms": 9,
+      "Noise - Idling": 8
+    },
+    "roadQualityScore": 82,
+    "quietScore": 45
+  },
+  "fisher-heights": {
+    "total": 3052,
+    "rate": 673,
+    "byType": {
+      "Garbage & Recycling": 859,
+      "Bylaw Services": 524,
+      "Roads & Transportation": 688,
+      "Water & Environment": 274,
+      "Other": 597,
+      "Health & Safety": 14,
+      "Social Services": 44,
+      "Licenses & Permits": 10,
+      "Recreation & Culture": 36,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 132,
+    "roadComplaintsRate": 29.1,
+    "roadComplaintsPerKm2": 67.7,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 130,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 108,
+    "noiseComplaintsRate": 23.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 48,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 14,
+      "Noise - Construction": 11,
+      "Noise - Shouting": 9,
+      "Noise - Info-Noise": 6,
+      "Noise - Idling": 5,
+      "Noise - Car Alarms": 4,
+      "Noise - Festival": 3,
+      "Noise - Special Event": 2
+    },
+    "roadQualityScore": 19,
+    "quietScore": 42
+  },
+  "fitzroy": {
+    "total": 3838,
+    "rate": 979.1,
+    "byType": {
+      "Other": 464,
+      "Garbage & Recycling": 1700,
+      "Roads & Transportation": 686,
+      "Water & Environment": 366,
+      "Bylaw Services": 571,
+      "Licenses & Permits": 12,
+      "Recreation & Culture": 19,
+      "Health & Safety": 8,
+      "Social Services": 7,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 130,
+    "roadComplaintsRate": 33.2,
+    "roadComplaintsPerKm2": 0.8,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 127,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 89,
+    "noiseComplaintsRate": 22.7,
+    "noiseComplaintsByType": {
+      "Noise - Music": 53,
+      "Noise - Shouting": 8,
+      "Noise - Info-Noise": 7,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 6,
+      "Noise - Construction": 4,
+      "Noise - Idling": 3,
+      "Noise - Muffler": 2,
+      "Noise - Car Alarms": 1
+    },
+    "roadQualityScore": 98,
+    "quietScore": 47
+  },
+  "glebe-dows-lake": {
+    "total": 17288,
+    "rate": 1274.5,
+    "byType": {
+      "Roads & Transportation": 3309,
+      "Garbage & Recycling": 4232,
+      "Other": 3732,
+      "Bylaw Services": 4440,
+      "Health & Safety": 205,
+      "Water & Environment": 858,
+      "Licenses & Permits": 69,
+      "Social Services": 187,
+      "Recreation & Culture": 232,
+      "City Hall": 3,
+      "Corporate Complaints": 7,
+      "Miscellaneous": 15
+    },
+    "roadComplaints": 467,
+    "roadComplaintsRate": 34.4,
+    "roadComplaintsPerKm2": 155.1,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 465,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 1244,
+    "noiseComplaintsRate": 91.7,
+    "noiseComplaintsByType": {
+      "Noise - Music": 532,
+      "Noise - Construction": 191,
+      "Noise - Shouting": 150,
+      "Noise - Info-Noise": 110,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 94,
+      "Noise - Car Alarms": 46,
+      "Noise - Idling": 33
+    },
+    "roadQualityScore": 2,
+    "quietScore": 2
+  },
+  "glen-cairn": {
+    "total": 8180,
+    "rate": 652.3,
+    "byType": {
+      "Roads & Transportation": 1527,
+      "Water & Environment": 502,
+      "Garbage & Recycling": 3694,
+      "Other": 1031,
+      "Bylaw Services": 1072,
+      "Recreation & Culture": 262,
+      "Licenses & Permits": 18,
+      "Social Services": 57,
+      "Health & Safety": 7,
+      "City Hall": 1,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 9
+    },
+    "roadComplaints": 122,
+    "roadComplaintsRate": 9.7,
+    "roadComplaintsPerKm2": 25.7,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 118,
+      "Road Maintenance - Shoulder Pothole": 4
+    },
+    "noiseComplaints": 152,
+    "noiseComplaintsRate": 12.1,
+    "noiseComplaintsByType": {
+      "Noise - Music": 77,
+      "Noise - Construction": 16,
+      "Noise - Info-Noise": 14,
+      "Noise - Shouting": 13,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 11,
+      "Noise - Idling": 6,
+      "Noise - Muffler": 5,
+      "Noise - Car Alarms": 3
+    },
+    "roadQualityScore": 60,
+    "quietScore": 71
+  },
+  "greely": {
+    "total": 3245,
+    "rate": 305.8,
+    "byType": {
+      "Garbage & Recycling": 1296,
+      "Roads & Transportation": 1049,
+      "Other": 111,
+      "Water & Environment": 203,
+      "Bylaw Services": 438,
+      "Licenses & Permits": 23,
+      "Recreation & Culture": 104,
+      "Social Services": 10,
+      "Health & Safety": 6,
+      "City Hall": 1,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 175,
+    "roadComplaintsRate": 16.5,
+    "roadComplaintsPerKm2": 2.6,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 169,
+      "Road Maintenance - Shoulder Pothole": 6
+    },
+    "noiseComplaints": 43,
+    "noiseComplaintsRate": 4.1,
+    "noiseComplaintsByType": {
+      "Noise - Music": 27,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 6,
+      "Noise - Muffler": 3,
+      "Noise - Info-Noise": 3,
+      "Noise - Shouting": 1,
+      "Noise - Construction": 1,
+      "Noise - Idling": 1,
+      "Noise - Car Alarms": 0
+    },
+    "roadQualityScore": 88,
+    "quietScore": 90
+  },
+  "greenboro-east": {
+    "total": 5042,
+    "rate": 817.2,
+    "byType": {
+      "Other": 819,
+      "Bylaw Services": 986,
+      "Recreation & Culture": 125,
+      "Water & Environment": 439,
+      "Roads & Transportation": 682,
+      "Garbage & Recycling": 1926,
+      "Licenses & Permits": 31,
+      "Health & Safety": 27,
+      "Social Services": 4,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 62,
+    "roadComplaintsRate": 10,
+    "roadComplaintsPerKm2": 40.5,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 59,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 156,
+    "noiseComplaintsRate": 25.3,
+    "noiseComplaintsByType": {
+      "Noise - Music": 83,
+      "Noise - Shouting": 24,
+      "Noise - Construction": 11,
+      "Noise - Info-Noise": 9,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 7,
+      "Noise - Idling": 5,
+      "Noise - Car Alarms": 4,
+      "Noise - Muffler": 3
+    },
+    "roadQualityScore": 42,
+    "quietScore": 31
+  },
+  "greenboro-west": {
+    "total": 4633,
+    "rate": 831.8,
+    "byType": {
+      "Other": 739,
+      "Bylaw Services": 890,
+      "Water & Environment": 396,
+      "Roads & Transportation": 681,
+      "Garbage & Recycling": 1739,
+      "Licenses & Permits": 28,
+      "Recreation & Culture": 125,
+      "Health & Safety": 25,
+      "Social Services": 8,
+      "City Hall": 1,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 55,
+    "roadComplaintsRate": 9.9,
+    "roadComplaintsPerKm2": 43.7,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 53,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 141,
+    "noiseComplaintsRate": 25.3,
+    "noiseComplaintsByType": {
+      "Noise - Music": 75,
+      "Noise - Shouting": 21,
+      "Noise - Construction": 10,
+      "Noise - Info-Noise": 9,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 6,
+      "Noise - Idling": 5,
+      "Noise - Car Alarms": 4,
+      "Noise - Muffler": 3
+    },
+    "roadQualityScore": 36,
+    "quietScore": 30
+  },
+  "hawthorne-meadows-sheffield-glen": {
+    "total": 6726,
+    "rate": 989.1,
+    "byType": {
+      "Garbage & Recycling": 3293,
+      "Other": 1122,
+      "Bylaw Services": 1113,
+      "Water & Environment": 418,
+      "Licenses & Permits": 20,
+      "Roads & Transportation": 694,
+      "Health & Safety": 7,
+      "Recreation & Culture": 43,
+      "Social Services": 9,
+      "City Hall": 1,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 5
+    },
+    "roadComplaints": 82,
+    "roadComplaintsRate": 12.1,
+    "roadComplaintsPerKm2": 66.1,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 80,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 181,
+    "noiseComplaintsRate": 26.6,
+    "noiseComplaintsByType": {
+      "Noise - Music": 110,
+      "Noise - Shouting": 22,
+      "Noise - Construction": 11,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 9,
+      "Noise - Info-Noise": 8,
+      "Noise - Idling": 5,
+      "Noise - Car Alarms": 4,
+      "Noise - Muffler": 4,
+      "Noise - Festival": 2
+    },
+    "roadQualityScore": 22,
+    "quietScore": 25
+  },
+  "hintonburg-mechanicsville": {
+    "total": 6634,
+    "rate": 605,
+    "byType": {
+      "Bylaw Services": 1016,
+      "Water & Environment": 496,
+      "Garbage & Recycling": 1925,
+      "Roads & Transportation": 1590,
+      "Other": 1136,
+      "Health & Safety": 53,
+      "Licenses & Permits": 24,
+      "Social Services": 218,
+      "Recreation & Culture": 165,
+      "City Hall": 3,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 8
+    },
+    "roadComplaints": 132,
+    "roadComplaintsRate": 12,
+    "roadComplaintsPerKm2": 77.2,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 131,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 199,
+    "noiseComplaintsRate": 18.1,
+    "noiseComplaintsByType": {
+      "Noise - Music": 69,
+      "Noise - Construction": 47,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 18,
+      "Noise - Shouting": 17,
+      "Noise - Info-Noise": 19,
+      "Noise - Idling": 9,
+      "Noise - Car Alarms": 7
+    },
+    "roadQualityScore": 10,
+    "quietScore": 52
+  },
+  "hunt-club-park": {
+    "total": 6795,
+    "rate": 798.9,
+    "byType": {
+      "Other": 1129,
+      "Bylaw Services": 1359,
+      "Water & Environment": 605,
+      "Roads & Transportation": 847,
+      "Garbage & Recycling": 2655,
+      "Licenses & Permits": 42,
+      "Health & Safety": 38,
+      "Recreation & Culture": 111,
+      "Social Services": 5,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 49,
+    "roadComplaintsRate": 5.8,
+    "roadComplaintsPerKm2": 29.2,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 48,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 215,
+    "noiseComplaintsRate": 25.3,
+    "noiseComplaintsByType": {
+      "Noise - Music": 115,
+      "Noise - Shouting": 32,
+      "Noise - Construction": 15,
+      "Noise - Info-Noise": 13,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 10,
+      "Noise - Idling": 7,
+      "Noise - Car Alarms": 6,
+      "Noise - Muffler": 4
+    },
+    "roadQualityScore": 54,
+    "quietScore": 32
+  },
+  "iris": {
+    "total": 4050,
+    "rate": 687,
+    "byType": {
+      "Garbage & Recycling": 1850,
+      "Other": 618,
+      "Bylaw Services": 546,
+      "Water & Environment": 247,
+      "Recreation & Culture": 77,
+      "Roads & Transportation": 658,
+      "Licenses & Permits": 9,
+      "Social Services": 35,
+      "Health & Safety": 3,
+      "City Hall": 1,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 6
+    },
+    "roadComplaints": 126,
+    "roadComplaintsRate": 21.4,
+    "roadComplaintsPerKm2": 67,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 123,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 73,
+    "noiseComplaintsRate": 12.4,
+    "noiseComplaintsByType": {
+      "Noise - Music": 41,
+      "Noise - Construction": 7,
+      "Noise - Shouting": 6,
+      "Noise - Info-Noise": 6,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 5,
+      "Noise - Muffler": 2,
+      "Noise - Idling": 2,
+      "Noise - Car Alarms": 1
+    },
+    "roadQualityScore": 20,
+    "quietScore": 67
+  },
+  "island-park-wellington-village": {
+    "total": 5111,
+    "rate": 931,
+    "byType": {
+      "Other": 755,
+      "Roads & Transportation": 1115,
+      "Garbage & Recycling": 1587,
+      "Water & Environment": 419,
+      "Bylaw Services": 1000,
+      "Health & Safety": 15,
+      "Licenses & Permits": 18,
+      "Social Services": 96,
+      "Recreation & Culture": 101,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 123,
+    "roadComplaintsRate": 22.4,
+    "roadComplaintsPerKm2": 49.8,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 121,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 208,
+    "noiseComplaintsRate": 37.9,
+    "noiseComplaintsByType": {
+      "Noise - Music": 108,
+      "Noise - Shouting": 20,
+      "Noise - Construction": 20,
+      "Noise - Info-Noise": 18,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 11,
+      "Noise - Car Alarms": 8,
+      "Noise - Idling": 4,
+      "Noise - Festival": 3,
+      "Noise - Muffler": 3
+    },
+    "roadQualityScore": 32,
+    "quietScore": 10
+  },
+  "kanata-lakes": {
+    "total": 4602,
+    "rate": 230.7,
+    "byType": {
+      "Bylaw Services": 554,
+      "Social Services": 42,
+      "Garbage & Recycling": 1670,
+      "Roads & Transportation": 1436,
+      "Other": 232,
+      "Water & Environment": 236,
+      "Recreation & Culture": 406,
+      "Health & Safety": 8,
+      "Licenses & Permits": 12,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 182,
+    "roadComplaintsRate": 9.1,
+    "roadComplaintsPerKm2": 14.3,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 177,
+      "Road Maintenance - Shoulder Pothole": 5
+    },
+    "noiseComplaints": 76,
+    "noiseComplaintsRate": 3.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 39,
+      "Noise - Construction": 10,
+      "Noise - Info-Noise": 6,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 7,
+      "Noise - Shouting": 5,
+      "Noise - Idling": 3,
+      "Noise - Delivery/Load/Unload": 1,
+      "Noise - Squeal Tires": 1
+    },
+    "roadQualityScore": 71,
+    "quietScore": 95
+  },
+  "katimavik-hazeldean": {
+    "total": 3198,
+    "rate": 279.5,
+    "byType": {
+      "Bylaw Services": 317,
+      "Garbage & Recycling": 958,
+      "Roads & Transportation": 1222,
+      "Other": 133,
+      "Water & Environment": 135,
+      "Recreation & Culture": 310,
+      "Health & Safety": 5,
+      "Social Services": 109,
+      "Licenses & Permits": 7,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 181,
+    "roadComplaintsRate": 15.8,
+    "roadComplaintsPerKm2": 33,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 178,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 43,
+    "noiseComplaintsRate": 3.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 22,
+      "Noise - Construction": 6,
+      "Noise - Info-Noise": 3,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 4,
+      "Noise - Shouting": 3,
+      "Noise - Idling": 1,
+      "Noise - Delivery/Load/Unload": 1,
+      "Noise - Squeal Tires": 1
+    },
+    "roadQualityScore": 52,
+    "quietScore": 99
+  },
+  "kinburn": {
+    "total": 2609,
+    "rate": 980.8,
+    "byType": {
+      "Other": 315,
+      "Garbage & Recycling": 1154,
+      "Water & Environment": 248,
+      "Roads & Transportation": 474,
+      "Bylaw Services": 387,
+      "Licenses & Permits": 8,
+      "Recreation & Culture": 12,
+      "Health & Safety": 5,
+      "Social Services": 3,
+      "City Hall": 1,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 53,
+    "roadComplaintsRate": 19.9,
+    "roadComplaintsPerKm2": 0.3,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 51,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 60,
+    "noiseComplaintsRate": 22.6,
+    "noiseComplaintsByType": {
+      "Noise - Music": 36,
+      "Noise - Shouting": 6,
+      "Noise - Info-Noise": 5,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 4,
+      "Noise - Construction": 3,
+      "Noise - Idling": 2,
+      "Noise - Muffler": 2,
+      "Noise - Car Alarms": 1
+    },
+    "roadQualityScore": 100,
+    "quietScore": 50
+  },
+  "laurentian": {
+    "total": 7375,
+    "rate": 645.8,
+    "byType": {
+      "Roads & Transportation": 1429,
+      "Water & Environment": 457,
+      "Garbage & Recycling": 3364,
+      "Other": 939,
+      "Bylaw Services": 976,
+      "Recreation & Culture": 99,
+      "Licenses & Permits": 16,
+      "Social Services": 74,
+      "Health & Safety": 7,
+      "City Hall": 5,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 8
+    },
+    "roadComplaints": 238,
+    "roadComplaintsRate": 20.8,
+    "roadComplaintsPerKm2": 75.3,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 230,
+      "Road Maintenance - Shoulder Pothole": 8
+    },
+    "noiseComplaints": 139,
+    "noiseComplaintsRate": 12.2,
+    "noiseComplaintsByType": {
+      "Noise - Music": 71,
+      "Noise - Construction": 14,
+      "Noise - Info-Noise": 12,
+      "Noise - Shouting": 12,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 10,
+      "Noise - Idling": 5,
+      "Noise - Muffler": 5,
+      "Noise - Car Alarms": 3
+    },
+    "roadQualityScore": 11,
+    "quietScore": 70
+  },
+  "ledbury-heron-gate-ridgemont": {
+    "total": 8345,
+    "rate": 594.2,
+    "byType": {
+      "Other": 1036,
+      "Water & Environment": 632,
+      "Garbage & Recycling": 3105,
+      "Bylaw Services": 1725,
+      "Roads & Transportation": 1517,
+      "Licenses & Permits": 37,
+      "Recreation & Culture": 234,
+      "Health & Safety": 20,
+      "Social Services": 24,
+      "City Hall": 11,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 278,
+    "roadComplaintsRate": 19.8,
+    "roadComplaintsPerKm2": 69,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 273,
+      "Road Maintenance - Shoulder Pothole": 5
+    },
+    "noiseComplaints": 203,
+    "noiseComplaintsRate": 14.5,
+    "noiseComplaintsByType": {
+      "Noise - Music": 104,
+      "Noise - Info-Noise": 20,
+      "Noise - Shouting": 20,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 11,
+      "Noise - Car Alarms": 10,
+      "Noise - Construction": 8,
+      "Noise - Idling": 8,
+      "Noise - Muffler": 5,
+      "Noise - Delivery/Load/Unload": 5
+    },
+    "roadQualityScore": 17,
+    "quietScore": 61
+  },
+  "leslie-park-bruce-farm": {
+    "total": 1970,
+    "rate": 618.5,
+    "byType": {
+      "Other": 233,
+      "Water & Environment": 143,
+      "Garbage & Recycling": 704,
+      "Bylaw Services": 391,
+      "Roads & Transportation": 387,
+      "Recreation & Culture": 52,
+      "Licenses & Permits": 8,
+      "Social Services": 45,
+      "Health & Safety": 5,
+      "City Hall": 0,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 67,
+    "roadComplaintsRate": 21,
+    "roadComplaintsPerKm2": 73.6,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 64,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 46,
+    "noiseComplaintsRate": 14.4,
+    "noiseComplaintsByType": {
+      "Noise - Music": 24,
+      "Noise - Info-Noise": 5,
+      "Noise - Shouting": 5,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 3,
+      "Noise - Car Alarms": 2,
+      "Noise - Construction": 2,
+      "Noise - Idling": 2,
+      "Noise - Muffler": 1,
+      "Noise - Delivery/Load/Unload": 1
+    },
+    "roadQualityScore": 13,
+    "quietScore": 62
+  },
+  "lowertown-east": {
+    "total": 4189,
+    "rate": 608.4,
+    "byType": {
+      "Other": 669,
+      "Garbage & Recycling": 1031,
+      "Bylaw Services": 1278,
+      "Water & Environment": 191,
+      "Roads & Transportation": 677,
+      "Health & Safety": 35,
+      "Recreation & Culture": 179,
+      "Licenses & Permits": 15,
+      "Social Services": 85,
+      "City Hall": 27,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 50,
+    "roadComplaintsRate": 7.3,
+    "roadComplaintsPerKm2": 53.8,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 50
+    },
+    "noiseComplaints": 305,
+    "noiseComplaintsRate": 44.3,
+    "noiseComplaintsByType": {
+      "Noise - Music": 168,
+      "Noise - Shouting": 50,
+      "Noise - Info-Noise": 31,
+      "Noise - Construction": 20,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 11,
+      "Noise - Car Alarms": 6,
+      "Noise - Idling": 4
+    },
+    "roadQualityScore": 29,
+    "quietScore": 5
+  },
+  "lowertown-west": {
+    "total": 4688,
+    "rate": 789.2,
+    "byType": {
+      "Other": 577,
+      "Garbage & Recycling": 890,
+      "Bylaw Services": 1115,
+      "Water & Environment": 164,
+      "Roads & Transportation": 1620,
+      "Health & Safety": 30,
+      "Licenses & Permits": 13,
+      "Social Services": 184,
+      "Recreation & Culture": 85,
+      "City Hall": 8,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 69,
+    "roadComplaintsRate": 11.6,
+    "roadComplaintsPerKm2": 57,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 68,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 263,
+    "noiseComplaintsRate": 44.3,
+    "noiseComplaintsByType": {
+      "Noise - Music": 145,
+      "Noise - Shouting": 43,
+      "Noise - Info-Noise": 27,
+      "Noise - Construction": 17,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 10,
+      "Noise - Car Alarms": 5,
+      "Noise - Idling": 4
+    },
+    "roadQualityScore": 25,
+    "quietScore": 7
+  },
+  "manor-park": {
+    "total": 6696,
+    "rate": 830.8,
+    "byType": {
+      "Other": 1350,
+      "Water & Environment": 566,
+      "Garbage & Recycling": 2197,
+      "Bylaw Services": 1565,
+      "Roads & Transportation": 878,
+      "Licenses & Permits": 22,
+      "Health & Safety": 34,
+      "Social Services": 10,
+      "Recreation & Culture": 69,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 29,
+    "roadComplaintsRate": 3.6,
+    "roadComplaintsPerKm2": 13.8,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 28,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 276,
+    "noiseComplaintsRate": 34.2,
+    "noiseComplaintsByType": {
+      "Noise - Music": 133,
+      "Noise - Shouting": 43,
+      "Noise - Info-Noise": 32,
+      "Noise - Construction": 21,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 15,
+      "Noise - Car Alarms": 8,
+      "Noise - Idling": 7
+    },
+    "roadQualityScore": 72,
+    "quietScore": 17
+  },
+  "manotick": {
+    "total": 3884,
+    "rate": 371.9,
+    "byType": {
+      "Roads & Transportation": 1294,
+      "Water & Environment": 176,
+      "Bylaw Services": 527,
+      "Garbage & Recycling": 1536,
+      "Other": 114,
+      "Licenses & Permits": 19,
+      "Recreation & Culture": 197,
+      "Health & Safety": 5,
+      "Social Services": 13,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 261,
+    "roadComplaintsRate": 25,
+    "roadComplaintsPerKm2": 4.1,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 248,
+      "Road Maintenance - Shoulder Pothole": 13
+    },
+    "noiseComplaints": 46,
+    "noiseComplaintsRate": 4.4,
+    "noiseComplaintsByType": {
+      "Noise - Music": 23,
+      "Noise - Info-Noise": 6,
+      "Noise - Construction": 5,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 4,
+      "Noise - Muffler": 3,
+      "Noise - Shouting": 2,
+      "Noise - Delivery/Load/Unload": 0
+    },
+    "roadQualityScore": 85,
+    "quietScore": 87
+  },
+  "merivale-gardens-grenfell-glen-pineglen-country-place": {
+    "total": 2059,
+    "rate": 679.5,
+    "byType": {
+      "Garbage & Recycling": 574,
+      "Bylaw Services": 348,
+      "Roads & Transportation": 434,
+      "Water & Environment": 183,
+      "Other": 399,
+      "Health & Safety": 10,
+      "Social Services": 9,
+      "Recreation & Culture": 90,
+      "Licenses & Permits": 7,
+      "City Hall": 4,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 48,
+    "roadComplaintsRate": 15.8,
+    "roadComplaintsPerKm2": 8.2,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 48
+    },
+    "noiseComplaints": 72,
+    "noiseComplaintsRate": 23.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 32,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 9,
+      "Noise - Construction": 7,
+      "Noise - Shouting": 6,
+      "Noise - Info-Noise": 4,
+      "Noise - Idling": 4,
+      "Noise - Car Alarms": 3,
+      "Noise - Festival": 2,
+      "Noise - Special Event": 1
+    },
+    "roadQualityScore": 79,
+    "quietScore": 43
+  },
+  "metcalfe": {
+    "total": 1914,
+    "rate": 330.9,
+    "byType": {
+      "Garbage & Recycling": 707,
+      "Roads & Transportation": 721,
+      "Other": 61,
+      "Water & Environment": 111,
+      "Bylaw Services": 238,
+      "Recreation & Culture": 50,
+      "Licenses & Permits": 12,
+      "Health & Safety": 3,
+      "Social Services": 4,
+      "City Hall": 4,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 98,
+    "roadComplaintsRate": 16.9,
+    "roadComplaintsPerKm2": 0.6,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 95,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 23,
+    "noiseComplaintsRate": 4,
+    "noiseComplaintsByType": {
+      "Noise - Music": 14,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 3,
+      "Noise - Muffler": 2,
+      "Noise - Info-Noise": 2,
+      "Noise - Shouting": 1,
+      "Noise - Construction": 1,
+      "Noise - Idling": 0,
+      "Noise - Car Alarms": 0
+    },
+    "roadQualityScore": 99,
+    "quietScore": 92
+  },
+  "richmond": {
+    "total": 3793,
+    "rate": 440.5,
+    "byType": {
+      "Water & Environment": 145,
+      "Roads & Transportation": 1693,
+      "Bylaw Services": 435,
+      "Garbage & Recycling": 1266,
+      "Other": 94,
+      "Licenses & Permits": 15,
+      "Recreation & Culture": 124,
+      "Health & Safety": 4,
+      "Social Services": 12,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 388,
+    "roadComplaintsRate": 45.1,
+    "roadComplaintsPerKm2": 2.3,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 380,
+      "Road Maintenance - Shoulder Pothole": 8
+    },
+    "noiseComplaints": 38,
+    "noiseComplaintsRate": 4.4,
+    "noiseComplaintsByType": {
+      "Noise - Music": 20,
+      "Noise - Info-Noise": 5,
+      "Noise - Construction": 4,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 3,
+      "Noise - Muffler": 2,
+      "Noise - Shouting": 1,
+      "Noise - Delivery/Load/Unload": 0
+    },
+    "roadQualityScore": 89,
+    "quietScore": 86
+  },
+  "munster-ashton": {
+    "total": 1582,
+    "rate": 407.2,
+    "byType": {
+      "Water & Environment": 65,
+      "Roads & Transportation": 675,
+      "Bylaw Services": 195,
+      "Garbage & Recycling": 571,
+      "Other": 42,
+      "Licenses & Permits": 7,
+      "Recreation & Culture": 22,
+      "Health & Safety": 2,
+      "Social Services": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 238,
+    "roadComplaintsRate": 61.3,
+    "roadComplaintsPerKm2": 1.6,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 233,
+      "Road Maintenance - Shoulder Pothole": 5
+    },
+    "noiseComplaints": 17,
+    "noiseComplaintsRate": 4.4,
+    "noiseComplaintsByType": {
+      "Noise - Music": 8,
+      "Noise - Info-Noise": 2,
+      "Noise - Construction": 2,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 1,
+      "Noise - Muffler": 1,
+      "Noise - Shouting": 1,
+      "Noise - Delivery/Load/Unload": 0
+    },
+    "roadQualityScore": 91,
+    "quietScore": 88
+  },
+  "navan-sarsfield": {
+    "total": 5561,
+    "rate": 1820.3,
+    "byType": {
+      "Other": 676,
+      "Roads & Transportation": 794,
+      "Garbage & Recycling": 2548,
+      "Bylaw Services": 853,
+      "Water & Environment": 624,
+      "Health & Safety": 17,
+      "Licenses & Permits": 13,
+      "Recreation & Culture": 28,
+      "Social Services": 3,
+      "City Hall": 3,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 66,
+    "roadComplaintsRate": 21.6,
+    "roadComplaintsPerKm2": 0.9,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 64,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 101,
+    "noiseComplaintsRate": 33.1,
+    "noiseComplaintsByType": {
+      "Noise - Music": 47,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 14,
+      "Noise - Construction": 13,
+      "Noise - Shouting": 11,
+      "Noise - Info-Noise": 8,
+      "Noise - Idling": 2,
+      "Noise - Muffler": 1
+    },
+    "roadQualityScore": 96,
+    "quietScore": 19
+  },
+  "new-edinburgh": {
+    "total": 4858,
+    "rate": 865.2,
+    "byType": {
+      "Other": 941,
+      "Water & Environment": 394,
+      "Garbage & Recycling": 1531,
+      "Bylaw Services": 1090,
+      "Roads & Transportation": 768,
+      "Recreation & Culture": 88,
+      "Licenses & Permits": 16,
+      "Health & Safety": 23,
+      "Social Services": 4,
+      "City Hall": 1,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 15,
+    "roadComplaintsRate": 2.7,
+    "roadComplaintsPerKm2": 9,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 15
+    },
+    "noiseComplaints": 193,
+    "noiseComplaintsRate": 34.4,
+    "noiseComplaintsByType": {
+      "Noise - Music": 93,
+      "Noise - Shouting": 30,
+      "Noise - Info-Noise": 22,
+      "Noise - Construction": 14,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 11,
+      "Noise - Car Alarms": 6,
+      "Noise - Idling": 5
+    },
+    "roadQualityScore": 77,
+    "quietScore": 14
+  },
+  "north-gower-kars": {
+    "total": 1772,
+    "rate": 359.4,
+    "byType": {
+      "Water & Environment": 83,
+      "Roads & Transportation": 608,
+      "Bylaw Services": 248,
+      "Garbage & Recycling": 725,
+      "Other": 54,
+      "Recreation & Culture": 40,
+      "Licenses & Permits": 9,
+      "Health & Safety": 2,
+      "Social Services": 1,
+      "City Hall": 1,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 135,
+    "roadComplaintsRate": 27.4,
+    "roadComplaintsPerKm2": 1.2,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 130,
+      "Road Maintenance - Shoulder Pothole": 5
+    },
+    "noiseComplaints": 22,
+    "noiseComplaintsRate": 4.5,
+    "noiseComplaintsByType": {
+      "Noise - Music": 11,
+      "Noise - Info-Noise": 2,
+      "Noise - Construction": 2,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 2,
+      "Noise - Muffler": 1,
+      "Noise - Shouting": 1,
+      "Noise - Delivery/Load/Unload": 0
+    },
+    "roadQualityScore": 92,
+    "quietScore": 85
+  },
+  "old-barrhaven-east": {
+    "total": 8444,
+    "rate": 350.3,
+    "byType": {
+      "Garbage & Recycling": 3706,
+      "Bylaw Services": 1154,
+      "Other": 1116,
+      "Water & Environment": 619,
+      "Roads & Transportation": 1492,
+      "Recreation & Culture": 270,
+      "Licenses & Permits": 23,
+      "Health & Safety": 9,
+      "Social Services": 33,
+      "City Hall": 9,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 11
+    },
+    "roadComplaints": 137,
+    "roadComplaintsRate": 5.7,
+    "roadComplaintsPerKm2": 26.5,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 136,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 158,
+    "noiseComplaintsRate": 6.6,
+    "noiseComplaintsByType": {
+      "Noise - Music": 82,
+      "Noise - Shouting": 16,
+      "Noise - Info-Noise": 11,
+      "Noise - Construction": 14,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 11,
+      "Noise - Muffler": 7,
+      "Noise - Idling": 4,
+      "Noise - Car Alarms": 3
+    },
+    "roadQualityScore": 59,
+    "quietScore": 81
+  },
+  "old-barrhaven-west": {
+    "total": 8259,
+    "rate": 370,
+    "byType": {
+      "Garbage & Recycling": 3432,
+      "Roads & Transportation": 1797,
+      "Bylaw Services": 1070,
+      "Other": 1033,
+      "Water & Environment": 574,
+      "Licenses & Permits": 22,
+      "Health & Safety": 8,
+      "Recreation & Culture": 289,
+      "Social Services": 22,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 10
+    },
+    "roadComplaints": 266,
+    "roadComplaintsRate": 11.9,
+    "roadComplaintsPerKm2": 24.5,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 258,
+      "Road Maintenance - Shoulder Pothole": 8
+    },
+    "noiseComplaints": 146,
+    "noiseComplaintsRate": 6.5,
+    "noiseComplaintsByType": {
+      "Noise - Music": 76,
+      "Noise - Shouting": 15,
+      "Noise - Info-Noise": 11,
+      "Noise - Construction": 13,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 10,
+      "Noise - Muffler": 6,
+      "Noise - Idling": 4,
+      "Noise - Car Alarms": 3
+    },
+    "roadQualityScore": 63,
+    "quietScore": 84
+  },
+  "old-hunt-club": {
+    "total": 9926,
+    "rate": 596.7,
+    "byType": {
+      "Recreation & Culture": 218,
+      "Other": 1221,
+      "Water & Environment": 749,
+      "Garbage & Recycling": 3678,
+      "Bylaw Services": 2044,
+      "Roads & Transportation": 1871,
+      "Licenses & Permits": 44,
+      "Health & Safety": 24,
+      "Social Services": 72,
+      "City Hall": 2,
+      "Corporate Complaints": 2,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 323,
+    "roadComplaintsRate": 19.4,
+    "roadComplaintsPerKm2": 40.8,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 317,
+      "Road Maintenance - Shoulder Pothole": 6
+    },
+    "noiseComplaints": 240,
+    "noiseComplaintsRate": 14.4,
+    "noiseComplaintsByType": {
+      "Noise - Music": 123,
+      "Noise - Info-Noise": 24,
+      "Noise - Shouting": 24,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 13,
+      "Noise - Car Alarms": 11,
+      "Noise - Construction": 10,
+      "Noise - Idling": 9,
+      "Noise - Muffler": 6,
+      "Noise - Delivery/Load/Unload": 6
+    },
+    "roadQualityScore": 41,
+    "quietScore": 63
+  },
+  "old-ottawa-east": {
+    "total": 10246,
+    "rate": 1200.5,
+    "byType": {
+      "Garbage & Recycling": 2663,
+      "Other": 2348,
+      "Bylaw Services": 2794,
+      "Roads & Transportation": 1496,
+      "Health & Safety": 129,
+      "Water & Environment": 540,
+      "Licenses & Permits": 43,
+      "Recreation & Culture": 124,
+      "Social Services": 95,
+      "City Hall": 1,
+      "Corporate Complaints": 4,
+      "Miscellaneous": 9
+    },
+    "roadComplaints": 47,
+    "roadComplaintsRate": 5.5,
+    "roadComplaintsPerKm2": 24.7,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 46,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 783,
+    "noiseComplaintsRate": 91.7,
+    "noiseComplaintsByType": {
+      "Noise - Music": 335,
+      "Noise - Construction": 120,
+      "Noise - Shouting": 94,
+      "Noise - Info-Noise": 69,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 59,
+      "Noise - Car Alarms": 29,
+      "Noise - Idling": 21
+    },
+    "roadQualityScore": 62,
+    "quietScore": 1
+  },
+  "old-ottawa-south": {
+    "total": 7934,
+    "rate": 1224.4,
+    "byType": {
+      "Garbage & Recycling": 2022,
+      "Other": 1783,
+      "Bylaw Services": 2122,
+      "Roads & Transportation": 1206,
+      "Health & Safety": 98,
+      "Water & Environment": 410,
+      "Licenses & Permits": 33,
+      "Recreation & Culture": 154,
+      "Social Services": 92,
+      "City Hall": 4,
+      "Corporate Complaints": 3,
+      "Miscellaneous": 7
+    },
+    "roadComplaints": 61,
+    "roadComplaintsRate": 9.4,
+    "roadComplaintsPerKm2": 37.7,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 59,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 594,
+    "noiseComplaintsRate": 91.7,
+    "noiseComplaintsByType": {
+      "Noise - Music": 254,
+      "Noise - Construction": 91,
+      "Noise - Shouting": 71,
+      "Noise - Info-Noise": 52,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 45,
+      "Noise - Car Alarms": 22,
+      "Noise - Idling": 16
+    },
+    "roadQualityScore": 46,
+    "quietScore": 3
+  },
+  "orleans-village-chateauneuf": {
+    "total": 6231,
+    "rate": 550.9,
+    "byType": {
+      "Garbage & Recycling": 2811,
+      "Roads & Transportation": 1342,
+      "Water & Environment": 494,
+      "Other": 535,
+      "Bylaw Services": 872,
+      "Licenses & Permits": 20,
+      "Recreation & Culture": 138,
+      "Health & Safety": 10,
+      "Social Services": 3,
+      "City Hall": 3,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 4
+    },
+    "roadComplaints": 262,
+    "roadComplaintsRate": 23.2,
+    "roadComplaintsPerKm2": 72.8,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 252,
+      "Road Maintenance - Shoulder Pothole": 10
+    },
+    "noiseComplaints": 122,
+    "noiseComplaintsRate": 10.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 60,
+      "Noise - Info-Noise": 12,
+      "Noise - Construction": 13,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 10,
+      "Noise - Shouting": 10,
+      "Noise - Muffler": 4,
+      "Noise - Idling": 4,
+      "Noise - Car Alarms": 2
+    },
+    "roadQualityScore": 15,
+    "quietScore": 74
+  },
+  "osgoode-vernon": {
+    "total": 1820,
+    "rate": 318.5,
+    "byType": {
+      "Garbage & Recycling": 698,
+      "Roads & Transportation": 633,
+      "Other": 60,
+      "Water & Environment": 110,
+      "Bylaw Services": 235,
+      "Licenses & Permits": 12,
+      "Recreation & Culture": 60,
+      "Health & Safety": 3,
+      "Social Services": 4,
+      "City Hall": 2,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 120,
+    "roadComplaintsRate": 21,
+    "roadComplaintsPerKm2": 0.8,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 115,
+      "Road Maintenance - Shoulder Pothole": 5
+    },
+    "noiseComplaints": 23,
+    "noiseComplaintsRate": 4,
+    "noiseComplaintsByType": {
+      "Noise - Music": 14,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 3,
+      "Noise - Muffler": 2,
+      "Noise - Info-Noise": 2,
+      "Noise - Shouting": 1,
+      "Noise - Construction": 1,
+      "Noise - Idling": 0,
+      "Noise - Car Alarms": 0
+    },
+    "roadQualityScore": 97,
+    "quietScore": 91
+  },
+  "overbrook": {
+    "total": 12500,
+    "rate": 591,
+    "byType": {
+      "Other": 2057,
+      "Garbage & Recycling": 3168,
+      "Recreation & Culture": 271,
+      "Bylaw Services": 3927,
+      "Water & Environment": 586,
+      "Roads & Transportation": 2191,
+      "Health & Safety": 106,
+      "Licenses & Permits": 46,
+      "Social Services": 129,
+      "City Hall": 13,
+      "Corporate Complaints": 3,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 145,
+    "roadComplaintsRate": 6.9,
+    "roadComplaintsPerKm2": 23.2,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 138,
+      "Road Maintenance - Shoulder Pothole": 7
+    },
+    "noiseComplaints": 936,
+    "noiseComplaintsRate": 44.3,
+    "noiseComplaintsByType": {
+      "Noise - Music": 516,
+      "Noise - Shouting": 152,
+      "Noise - Info-Noise": 96,
+      "Noise - Construction": 62,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 35,
+      "Noise - Car Alarms": 19,
+      "Noise - Idling": 13
+    },
+    "roadQualityScore": 65,
+    "quietScore": 8
+  },
+  "parkwood-hills": {
+    "total": 3387,
+    "rate": 573.6,
+    "byType": {
+      "Garbage & Recycling": 1119,
+      "Bylaw Services": 678,
+      "Roads & Transportation": 396,
+      "Water & Environment": 357,
+      "Other": 778,
+      "Health & Safety": 19,
+      "Social Services": 11,
+      "Licenses & Permits": 13,
+      "Recreation & Culture": 13,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 37,
+    "roadComplaintsRate": 6.3,
+    "roadComplaintsPerKm2": 74,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 36,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 141,
+    "noiseComplaintsRate": 23.9,
+    "noiseComplaintsByType": {
+      "Noise - Music": 62,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 18,
+      "Noise - Construction": 14,
+      "Noise - Shouting": 12,
+      "Noise - Info-Noise": 8,
+      "Noise - Idling": 7,
+      "Noise - Car Alarms": 5,
+      "Noise - Festival": 4,
+      "Noise - Special Event": 2
+    },
+    "roadQualityScore": 12,
+    "quietScore": 41
+  },
+  "pineview": {
+    "total": 2634,
+    "rate": 421.1,
+    "byType": {
+      "Garbage & Recycling": 1054,
+      "Bylaw Services": 348,
+      "Water & Environment": 222,
+      "Roads & Transportation": 614,
+      "Other": 241,
+      "Social Services": 10,
+      "Recreation & Culture": 127,
+      "Health & Safety": 6,
+      "Licenses & Permits": 8,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 90,
+    "roadComplaintsRate": 14.4,
+    "roadComplaintsPerKm2": 42.1,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 87,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 51,
+    "noiseComplaintsRate": 8.2,
+    "noiseComplaintsByType": {
+      "Noise - Music": 26,
+      "Noise - Shouting": 5,
+      "Noise - Construction": 4,
+      "Noise - Info-Noise": 5,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 3,
+      "Noise - Idling": 2,
+      "Noise - Muffler": 1,
+      "Noise - Car Alarms": 1
+    },
+    "roadQualityScore": 40,
+    "quietScore": 78
+  },
+  "playfair-park-guildwood-estates": {
+    "total": 5632,
+    "rate": 922.5,
+    "byType": {
+      "Bylaw Services": 1094,
+      "Garbage & Recycling": 2106,
+      "Other": 893,
+      "Water & Environment": 393,
+      "Roads & Transportation": 974,
+      "Recreation & Culture": 118,
+      "Licenses & Permits": 27,
+      "Health & Safety": 14,
+      "Social Services": 10,
+      "City Hall": 1,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 127,
+    "roadComplaintsRate": 20.8,
+    "roadComplaintsPerKm2": 66.8,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 125,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 150,
+    "noiseComplaintsRate": 24.6,
+    "noiseComplaintsByType": {
+      "Noise - Music": 73,
+      "Noise - Shouting": 26,
+      "Noise - Info-Noise": 16,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 9,
+      "Noise - Construction": 7,
+      "Noise - Car Alarms": 7,
+      "Noise - Muffler": 4
+    },
+    "roadQualityScore": 21,
+    "quietScore": 37
+  },
+  "portobello-south": {
+    "total": 11568,
+    "rate": 385.8,
+    "byType": {
+      "Garbage & Recycling": 5054,
+      "Bylaw Services": 1671,
+      "Water & Environment": 1064,
+      "Roads & Transportation": 2097,
+      "Other": 1157,
+      "Recreation & Culture": 404,
+      "Social Services": 42,
+      "Health & Safety": 27,
+      "Licenses & Permits": 38,
+      "City Hall": 8,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 7
+    },
+    "roadComplaints": 135,
+    "roadComplaintsRate": 4.5,
+    "roadComplaintsPerKm2": 8,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 129,
+      "Road Maintenance - Shoulder Pothole": 6
+    },
+    "noiseComplaints": 244,
+    "noiseComplaintsRate": 8.1,
+    "noiseComplaintsByType": {
+      "Noise - Music": 126,
+      "Noise - Shouting": 23,
+      "Noise - Construction": 18,
+      "Noise - Info-Noise": 22,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 17,
+      "Noise - Idling": 8,
+      "Noise - Muffler": 7,
+      "Noise - Car Alarms": 7
+    },
+    "roadQualityScore": 80,
+    "quietScore": 80
+  },
+  "qualicum-redwood": {
+    "total": 3090,
+    "rate": 691.3,
+    "byType": {
+      "Garbage & Recycling": 1403,
+      "Other": 468,
+      "Bylaw Services": 413,
+      "Water & Environment": 188,
+      "Roads & Transportation": 510,
+      "Licenses & Permits": 7,
+      "Health & Safety": 2,
+      "Recreation & Culture": 58,
+      "Social Services": 35,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 5
+    },
+    "roadComplaints": 66,
+    "roadComplaintsRate": 14.8,
+    "roadComplaintsPerKm2": 29.2,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 65,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 56,
+    "noiseComplaintsRate": 12.5,
+    "noiseComplaintsByType": {
+      "Noise - Music": 31,
+      "Noise - Construction": 5,
+      "Noise - Shouting": 5,
+      "Noise - Info-Noise": 5,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 3,
+      "Noise - Muffler": 2,
+      "Noise - Idling": 1,
+      "Noise - Car Alarms": 1
+    },
+    "roadQualityScore": 53,
+    "quietScore": 64
+  },
+  "queensway-terrace-north": {
+    "total": 3214,
+    "rate": 1017.1,
+    "byType": {
+      "Bylaw Services": 594,
+      "Garbage & Recycling": 970,
+      "Water & Environment": 391,
+      "Other": 452,
+      "Roads & Transportation": 685,
+      "Health & Safety": 28,
+      "Licenses & Permits": 15,
+      "Social Services": 21,
+      "Recreation & Culture": 56,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 116,
+    "roadComplaintsRate": 36.7,
+    "roadComplaintsPerKm2": 81.1,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 116
+    },
+    "noiseComplaints": 92,
+    "noiseComplaintsRate": 29.1,
+    "noiseComplaintsByType": {
+      "Noise - Music": 41,
+      "Noise - Construction": 10,
+      "Noise - Info-Noise": 11,
+      "Noise - Shouting": 11,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 5,
+      "Noise - Car Alarms": 4,
+      "Noise - Idling": 3
+    },
+    "roadQualityScore": 7,
+    "quietScore": 24
+  },
+  "queenswood-chatelaine": {
+    "total": 2442,
+    "rate": 538.5,
+    "byType": {
+      "Garbage & Recycling": 1127,
+      "Water & Environment": 198,
+      "Other": 214,
+      "Bylaw Services": 350,
+      "Roads & Transportation": 416,
+      "Recreation & Culture": 106,
+      "Licenses & Permits": 8,
+      "Social Services": 17,
+      "Health & Safety": 4,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 21,
+    "roadComplaintsRate": 4.6,
+    "roadComplaintsPerKm2": 4.5,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 21
+    },
+    "noiseComplaints": 49,
+    "noiseComplaintsRate": 10.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 24,
+      "Noise - Info-Noise": 5,
+      "Noise - Construction": 6,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 4,
+      "Noise - Shouting": 4,
+      "Noise - Muffler": 2,
+      "Noise - Idling": 1,
+      "Noise - Car Alarms": 1
+    },
+    "roadQualityScore": 84,
+    "quietScore": 73
+  },
+  "queenswood-heights": {
+    "total": 4178,
+    "rate": 407,
+    "byType": {
+      "Garbage & Recycling": 1730,
+      "Bylaw Services": 572,
+      "Water & Environment": 364,
+      "Roads & Transportation": 897,
+      "Other": 397,
+      "Recreation & Culture": 167,
+      "Social Services": 24,
+      "Health & Safety": 9,
+      "Licenses & Permits": 13,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 118,
+    "roadComplaintsRate": 11.5,
+    "roadComplaintsPerKm2": 28.3,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 115,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 84,
+    "noiseComplaintsRate": 8.2,
+    "noiseComplaintsByType": {
+      "Noise - Music": 43,
+      "Noise - Shouting": 8,
+      "Noise - Construction": 6,
+      "Noise - Info-Noise": 8,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 6,
+      "Noise - Idling": 3,
+      "Noise - Muffler": 2,
+      "Noise - Car Alarms": 2
+    },
+    "roadQualityScore": 58,
+    "quietScore": 77
+  },
+  "rideau-crest-davidson-heights": {
+    "total": 4132,
+    "rate": 284,
+    "byType": {
+      "Garbage & Recycling": 1778,
+      "Roads & Transportation": 1111,
+      "Other": 153,
+      "Water & Environment": 279,
+      "Bylaw Services": 599,
+      "Licenses & Permits": 31,
+      "Recreation & Culture": 155,
+      "Health & Safety": 8,
+      "Social Services": 13,
+      "Miscellaneous": 4
+    },
+    "roadComplaints": 112,
+    "roadComplaintsRate": 7.7,
+    "roadComplaintsPerKm2": 22,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 112
+    },
+    "noiseComplaints": 59,
+    "noiseComplaintsRate": 4.1,
+    "noiseComplaintsByType": {
+      "Noise - Music": 36,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 8,
+      "Noise - Muffler": 4,
+      "Noise - Info-Noise": 4,
+      "Noise - Shouting": 2,
+      "Noise - Construction": 2,
+      "Noise - Idling": 1,
+      "Noise - Car Alarms": 0
+    },
+    "roadQualityScore": 66,
+    "quietScore": 90
+  },
+  "riverside-park-mooney-s-bay": {
+    "total": 4812,
+    "rate": 1026,
+    "byType": {
+      "Bylaw Services": 842,
+      "Garbage & Recycling": 1618,
+      "Other": 686,
+      "Water & Environment": 302,
+      "Roads & Transportation": 1124,
+      "Recreation & Culture": 148,
+      "Licenses & Permits": 21,
+      "Social Services": 56,
+      "Health & Safety": 11,
+      "City Hall": 3,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 166,
+    "roadComplaintsRate": 35.4,
+    "roadComplaintsPerKm2": 47.6,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 162,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 116,
+    "noiseComplaintsRate": 24.7,
+    "noiseComplaintsByType": {
+      "Noise - Music": 56,
+      "Noise - Shouting": 21,
+      "Noise - Info-Noise": 12,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 7,
+      "Noise - Construction": 6,
+      "Noise - Car Alarms": 5,
+      "Noise - Muffler": 3
+    },
+    "roadQualityScore": 34,
+    "quietScore": 35
+  },
+  "riverside-park-south-revelstoke": {
+    "total": 2973,
+    "rate": 981.2,
+    "byType": {
+      "Bylaw Services": 543,
+      "Garbage & Recycling": 1045,
+      "Other": 443,
+      "Water & Environment": 195,
+      "Roads & Transportation": 625,
+      "Recreation & Culture": 95,
+      "Licenses & Permits": 14,
+      "Health & Safety": 7,
+      "Social Services": 6,
+      "City Hall": 0,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 85,
+    "roadComplaintsRate": 28.1,
+    "roadComplaintsPerKm2": 33.6,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 84,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 75,
+    "noiseComplaintsRate": 24.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 36,
+      "Noise - Shouting": 13,
+      "Noise - Info-Noise": 7,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 5,
+      "Noise - Construction": 4,
+      "Noise - Car Alarms": 3,
+      "Noise - Muffler": 2
+    },
+    "roadQualityScore": 50,
+    "quietScore": 34
+  },
+  "riverside-south-leitrim": {
+    "total": 6460,
+    "rate": 337.8,
+    "byType": {
+      "Water & Environment": 322,
+      "Roads & Transportation": 1644,
+      "Bylaw Services": 961,
+      "Garbage & Recycling": 2812,
+      "Other": 209,
+      "Recreation & Culture": 432,
+      "Licenses & Permits": 34,
+      "Health & Safety": 9,
+      "Social Services": 31,
+      "City Hall": 1,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 96,
+    "roadComplaintsRate": 5,
+    "roadComplaintsPerKm2": 4.1,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 95,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 83,
+    "noiseComplaintsRate": 4.3,
+    "noiseComplaintsByType": {
+      "Noise - Music": 43,
+      "Noise - Info-Noise": 10,
+      "Noise - Construction": 10,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 7,
+      "Noise - Muffler": 5,
+      "Noise - Shouting": 3,
+      "Noise - Delivery/Load/Unload": 1
+    },
+    "roadQualityScore": 86,
+    "quietScore": 89
+  },
+  "riverview": {
+    "total": 8257,
+    "rate": 614.1,
+    "byType": {
+      "Water & Environment": 630,
+      "Roads & Transportation": 1495,
+      "Bylaw Services": 1589,
+      "Other": 1191,
+      "Garbage & Recycling": 2979,
+      "Recreation & Culture": 195,
+      "Health & Safety": 20,
+      "Social Services": 111,
+      "Licenses & Permits": 34,
+      "City Hall": 10,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 192,
+    "roadComplaintsRate": 14.3,
+    "roadComplaintsPerKm2": 23.6,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 186,
+      "Road Maintenance - Shoulder Pothole": 6
+    },
+    "noiseComplaints": 228,
+    "noiseComplaintsRate": 17,
+    "noiseComplaintsByType": {
+      "Noise - Music": 107,
+      "Noise - Construction": 35,
+      "Noise - Shouting": 29,
+      "Noise - Info-Noise": 15,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 15,
+      "Noise - Idling": 9,
+      "Noise - Car Alarms": 7
+    },
+    "roadQualityScore": 64,
+    "quietScore": 57
+  },
+  "rockcliffe-park": {
+    "total": 1572,
+    "rate": 952.7,
+    "byType": {
+      "Other": 276,
+      "Water & Environment": 116,
+      "Garbage & Recycling": 450,
+      "Bylaw Services": 320,
+      "Roads & Transportation": 350,
+      "Licenses & Permits": 5,
+      "Health & Safety": 7,
+      "Social Services": 2,
+      "Recreation & Culture": 43,
+      "City Hall": 1,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 24,
+    "roadComplaintsRate": 14.5,
+    "roadComplaintsPerKm2": 9.4,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 24
+    },
+    "noiseComplaints": 57,
+    "noiseComplaintsRate": 34.5,
+    "noiseComplaintsByType": {
+      "Noise - Music": 28,
+      "Noise - Shouting": 9,
+      "Noise - Info-Noise": 7,
+      "Noise - Construction": 4,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 3,
+      "Noise - Car Alarms": 2,
+      "Noise - Idling": 1
+    },
+    "roadQualityScore": 76,
+    "quietScore": 13
+  },
+  "rothwell-heights-beacon-hill-north": {
+    "total": 11006,
+    "rate": 1002.4,
+    "byType": {
+      "Garbage & Recycling": 5317,
+      "Other": 1812,
+      "Bylaw Services": 1798,
+      "Water & Environment": 675,
+      "Licenses & Permits": 33,
+      "Roads & Transportation": 1192,
+      "Health & Safety": 11,
+      "Social Services": 34,
+      "Recreation & Culture": 121,
+      "City Hall": 3,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 7
+    },
+    "roadComplaints": 164,
+    "roadComplaintsRate": 14.9,
+    "roadComplaintsPerKm2": 28.7,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 164
+    },
+    "noiseComplaints": 292,
+    "noiseComplaintsRate": 26.6,
+    "noiseComplaintsByType": {
+      "Noise - Music": 177,
+      "Noise - Shouting": 35,
+      "Noise - Construction": 17,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 15,
+      "Noise - Info-Noise": 13,
+      "Noise - Idling": 8,
+      "Noise - Car Alarms": 6,
+      "Noise - Muffler": 6,
+      "Noise - Festival": 3
+    },
+    "roadQualityScore": 56,
+    "quietScore": 27
+  },
+  "sandy-hill": {
+    "total": 8825,
+    "rate": 637.6,
+    "byType": {
+      "Other": 1344,
+      "Garbage & Recycling": 2073,
+      "Roads & Transportation": 1776,
+      "Bylaw Services": 2572,
+      "Water & Environment": 383,
+      "Health & Safety": 70,
+      "Licenses & Permits": 30,
+      "Recreation & Culture": 173,
+      "Social Services": 393,
+      "City Hall": 7,
+      "Corporate Complaints": 2,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 101,
+    "roadComplaintsRate": 7.3,
+    "roadComplaintsPerKm2": 43.3,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 99,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 613,
+    "noiseComplaintsRate": 44.3,
+    "noiseComplaintsByType": {
+      "Noise - Music": 338,
+      "Noise - Shouting": 100,
+      "Noise - Info-Noise": 64,
+      "Noise - Construction": 40,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 23,
+      "Noise - Car Alarms": 12,
+      "Noise - Idling": 8
+    },
+    "roadQualityScore": 38,
+    "quietScore": 6
+  },
+  "south-keys": {
+    "total": 2486,
+    "rate": 894.2,
+    "byType": {
+      "Other": 369,
+      "Bylaw Services": 444,
+      "Water & Environment": 198,
+      "Roads & Transportation": 538,
+      "Garbage & Recycling": 868,
+      "Licenses & Permits": 14,
+      "Health & Safety": 12,
+      "Recreation & Culture": 29,
+      "Social Services": 13,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 111,
+    "roadComplaintsRate": 39.9,
+    "roadComplaintsPerKm2": 90.2,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 110,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 70,
+    "noiseComplaintsRate": 25.2,
+    "noiseComplaintsByType": {
+      "Noise - Music": 38,
+      "Noise - Shouting": 11,
+      "Noise - Construction": 5,
+      "Noise - Info-Noise": 4,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 3,
+      "Noise - Idling": 2,
+      "Noise - Car Alarms": 2,
+      "Noise - Muffler": 1
+    },
+    "roadQualityScore": 4,
+    "quietScore": 33
+  },
+  "stittsville": {
+    "total": 5425,
+    "rate": 244.4,
+    "byType": {
+      "Bylaw Services": 616,
+      "Garbage & Recycling": 1858,
+      "Roads & Transportation": 1819,
+      "Other": 258,
+      "Water & Environment": 263,
+      "Social Services": 72,
+      "Recreation & Culture": 505,
+      "Health & Safety": 9,
+      "Licenses & Permits": 14,
+      "City Hall": 6,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 4
+    },
+    "roadComplaints": 386,
+    "roadComplaintsRate": 17.4,
+    "roadComplaintsPerKm2": 37.4,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 381,
+      "Road Maintenance - Shoulder Pothole": 5
+    },
+    "noiseComplaints": 84,
+    "noiseComplaintsRate": 3.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 43,
+      "Noise - Construction": 11,
+      "Noise - Info-Noise": 7,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 7,
+      "Noise - Shouting": 5,
+      "Noise - Idling": 3,
+      "Noise - Delivery/Load/Unload": 2,
+      "Noise - Squeal Tires": 1
+    },
+    "roadQualityScore": 48,
+    "quietScore": 98
+  },
+  "stittsville-east": {
+    "total": 2488,
+    "rate": 236.6,
+    "byType": {
+      "Bylaw Services": 290,
+      "Garbage & Recycling": 880,
+      "Roads & Transportation": 820,
+      "Other": 122,
+      "Water & Environment": 124,
+      "Health & Safety": 4,
+      "Recreation & Culture": 209,
+      "Social Services": 26,
+      "Licenses & Permits": 6,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 55,
+    "roadComplaintsRate": 5.2,
+    "roadComplaintsPerKm2": 8.3,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 54,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 40,
+    "noiseComplaintsRate": 3.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 21,
+      "Noise - Construction": 5,
+      "Noise - Info-Noise": 3,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 4,
+      "Noise - Shouting": 2,
+      "Noise - Idling": 1,
+      "Noise - Delivery/Load/Unload": 1,
+      "Noise - Squeal Tires": 1
+    },
+    "roadQualityScore": 78,
+    "quietScore": 96
+  },
+  "stittsville-north": {
+    "total": 3052,
+    "rate": 237.4,
+    "byType": {
+      "Bylaw Services": 357,
+      "Garbage & Recycling": 1076,
+      "Roads & Transportation": 991,
+      "Other": 150,
+      "Water & Environment": 152,
+      "Recreation & Culture": 245,
+      "Health & Safety": 5,
+      "Licenses & Permits": 8,
+      "Social Services": 63,
+      "City Hall": 2,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 125,
+    "roadComplaintsRate": 9.7,
+    "roadComplaintsPerKm2": 14.5,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 123,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 49,
+    "noiseComplaintsRate": 3.8,
+    "noiseComplaintsByType": {
+      "Noise - Music": 25,
+      "Noise - Construction": 6,
+      "Noise - Info-Noise": 4,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 5,
+      "Noise - Shouting": 3,
+      "Noise - Idling": 2,
+      "Noise - Delivery/Load/Unload": 1,
+      "Noise - Squeal Tires": 1
+    },
+    "roadQualityScore": 70,
+    "quietScore": 94
+  },
+  "stonebridge-half-moon-bay": {
+    "total": 10208,
+    "rate": 367,
+    "byType": {
+      "Garbage & Recycling": 4277,
+      "Bylaw Services": 1334,
+      "Other": 1291,
+      "Water & Environment": 715,
+      "Roads & Transportation": 2077,
+      "Recreation & Culture": 434,
+      "Licenses & Permits": 27,
+      "Health & Safety": 10,
+      "Social Services": 24,
+      "City Hall": 7,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 12
+    },
+    "roadComplaints": 200,
+    "roadComplaintsRate": 7.2,
+    "roadComplaintsPerKm2": 11.8,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 193,
+      "Road Maintenance - Shoulder Pothole": 7
+    },
+    "noiseComplaints": 182,
+    "noiseComplaintsRate": 6.5,
+    "noiseComplaintsByType": {
+      "Noise - Music": 94,
+      "Noise - Shouting": 19,
+      "Noise - Info-Noise": 13,
+      "Noise - Construction": 15,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 12,
+      "Noise - Muffler": 8,
+      "Noise - Idling": 5,
+      "Noise - Car Alarms": 4
+    },
+    "roadQualityScore": 74,
+    "quietScore": 82
+  },
+  "trend-arlington": {
+    "total": 4428,
+    "rate": 943.1,
+    "byType": {
+      "Bylaw Services": 878,
+      "Garbage & Recycling": 1442,
+      "Water & Environment": 581,
+      "Other": 672,
+      "Roads & Transportation": 713,
+      "Health & Safety": 42,
+      "Licenses & Permits": 22,
+      "Recreation & Culture": 56,
+      "Social Services": 20,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 3
+    },
+    "roadComplaints": 99,
+    "roadComplaintsRate": 21.1,
+    "roadComplaintsPerKm2": 56.6,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 98,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 137,
+    "noiseComplaintsRate": 29.2,
+    "noiseComplaintsByType": {
+      "Noise - Music": 61,
+      "Noise - Construction": 15,
+      "Noise - Info-Noise": 17,
+      "Noise - Shouting": 16,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 8,
+      "Noise - Car Alarms": 6,
+      "Noise - Idling": 5
+    },
+    "roadQualityScore": 26,
+    "quietScore": 23
+  },
+  "vanier-north": {
+    "total": 6217,
+    "rate": 592.4,
+    "byType": {
+      "Other": 1020,
+      "Garbage & Recycling": 1572,
+      "Bylaw Services": 1948,
+      "Water & Environment": 291,
+      "Roads & Transportation": 1105,
+      "Health & Safety": 53,
+      "Licenses & Permits": 23,
+      "Recreation & Culture": 155,
+      "Social Services": 38,
+      "City Hall": 10,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 51,
+    "roadComplaintsRate": 4.9,
+    "roadComplaintsPerKm2": 29,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 49,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 465,
+    "noiseComplaintsRate": 44.3,
+    "noiseComplaintsByType": {
+      "Noise - Music": 256,
+      "Noise - Shouting": 75,
+      "Noise - Info-Noise": 48,
+      "Noise - Construction": 31,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 17,
+      "Noise - Car Alarms": 9,
+      "Noise - Idling": 6
+    },
+    "roadQualityScore": 55,
+    "quietScore": 4
+  },
+  "vanier-south": {
+    "total": 4274,
+    "rate": 583.5,
+    "byType": {
+      "Other": 712,
+      "Garbage & Recycling": 1097,
+      "Bylaw Services": 1363,
+      "Water & Environment": 203,
+      "Roads & Transportation": 699,
+      "Health & Safety": 37,
+      "Licenses & Permits": 16,
+      "Recreation & Culture": 119,
+      "Social Services": 21,
+      "City Hall": 6,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 21,
+    "roadComplaintsRate": 2.9,
+    "roadComplaintsPerKm2": 17.4,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 21
+    },
+    "noiseComplaints": 324,
+    "noiseComplaintsRate": 44.2,
+    "noiseComplaintsByType": {
+      "Noise - Music": 178,
+      "Noise - Shouting": 52,
+      "Noise - Info-Noise": 33,
+      "Noise - Construction": 21,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 12,
+      "Noise - Car Alarms": 7,
+      "Noise - Idling": 4
+    },
+    "roadQualityScore": 70,
+    "quietScore": 9
+  },
+  "vars": {
+    "total": 5161,
+    "rate": 1836.7,
+    "byType": {
+      "Roads & Transportation": 764,
+      "Other": 622,
+      "Garbage & Recycling": 2344,
+      "Bylaw Services": 785,
+      "Water & Environment": 574,
+      "Health & Safety": 16,
+      "Recreation & Culture": 37,
+      "Licenses & Permits": 12,
+      "Social Services": 3,
+      "City Hall": 3,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 2
+    },
+    "roadComplaints": 87,
+    "roadComplaintsRate": 31,
+    "roadComplaintsPerKm2": 1,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 83,
+      "Road Maintenance - Shoulder Pothole": 4
+    },
+    "noiseComplaints": 93,
+    "noiseComplaintsRate": 33.1,
+    "noiseComplaintsByType": {
+      "Noise - Music": 42,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 13,
+      "Noise - Construction": 12,
+      "Noise - Shouting": 10,
+      "Noise - Info-Noise": 7,
+      "Noise - Idling": 2,
+      "Noise - Muffler": 1
+    },
+    "roadQualityScore": 93,
+    "quietScore": 18
+  },
+  "wateridge-village": {
+    "total": 2399,
+    "rate": 877.1,
+    "byType": {
+      "Other": 458,
+      "Water & Environment": 192,
+      "Garbage & Recycling": 746,
+      "Bylaw Services": 531,
+      "Roads & Transportation": 380,
+      "Licenses & Permits": 8,
+      "Health & Safety": 11,
+      "Social Services": 2,
+      "Recreation & Culture": 70,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 1
+    },
+    "roadComplaints": 31,
+    "roadComplaintsRate": 11.3,
+    "roadComplaintsPerKm2": 7.3,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 31
+    },
+    "noiseComplaints": 94,
+    "noiseComplaintsRate": 34.4,
+    "noiseComplaintsByType": {
+      "Noise - Music": 45,
+      "Noise - Shouting": 15,
+      "Noise - Info-Noise": 11,
+      "Noise - Construction": 7,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 5,
+      "Noise - Car Alarms": 3,
+      "Noise - Idling": 2
+    },
+    "roadQualityScore": 81,
+    "quietScore": 15
+  },
+  "west-centretown": {
+    "total": 5642,
+    "rate": 640.4,
+    "byType": {
+      "Bylaw Services": 817,
+      "Water & Environment": 398,
+      "Garbage & Recycling": 1547,
+      "Roads & Transportation": 1519,
+      "Other": 909,
+      "Health & Safety": 43,
+      "Licenses & Permits": 20,
+      "Social Services": 268,
+      "Recreation & Culture": 111,
+      "City Hall": 5,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 6
+    },
+    "roadComplaints": 158,
+    "roadComplaintsRate": 17.9,
+    "roadComplaintsPerKm2": 104.6,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 157,
+      "Road Maintenance - Shoulder Pothole": 1
+    },
+    "noiseComplaints": 160,
+    "noiseComplaintsRate": 18.2,
+    "noiseComplaintsByType": {
+      "Noise - Music": 55,
+      "Noise - Construction": 38,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 14,
+      "Noise - Shouting": 14,
+      "Noise - Info-Noise": 15,
+      "Noise - Idling": 7,
+      "Noise - Car Alarms": 6
+    },
+    "roadQualityScore": 3,
+    "quietScore": 51
+  },
+  "westboro": {
+    "total": 10712,
+    "rate": 872.3,
+    "byType": {
+      "Other": 1691,
+      "Garbage & Recycling": 3550,
+      "Water & Environment": 937,
+      "Roads & Transportation": 1900,
+      "Bylaw Services": 2236,
+      "Health & Safety": 34,
+      "Recreation & Culture": 163,
+      "Licenses & Permits": 41,
+      "Social Services": 153,
+      "City Hall": 2,
+      "Corporate Complaints": 1,
+      "Miscellaneous": 4
+    },
+    "roadComplaints": 239,
+    "roadComplaintsRate": 19.5,
+    "roadComplaintsPerKm2": 80.5,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 237,
+      "Road Maintenance - Shoulder Pothole": 2
+    },
+    "noiseComplaints": 465,
+    "noiseComplaintsRate": 37.9,
+    "noiseComplaintsByType": {
+      "Noise - Music": 242,
+      "Noise - Shouting": 45,
+      "Noise - Construction": 44,
+      "Noise - Info-Noise": 40,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 24,
+      "Noise - Car Alarms": 18,
+      "Noise - Idling": 9,
+      "Noise - Festival": 6,
+      "Noise - Muffler": 6
+    },
+    "roadQualityScore": 9,
+    "quietScore": 11
+  },
+  "whitehaven-woodpark-glabar-park": {
+    "total": 7955,
+    "rate": 696,
+    "byType": {
+      "Garbage & Recycling": 3587,
+      "Other": 1198,
+      "Bylaw Services": 1058,
+      "Water & Environment": 480,
+      "Roads & Transportation": 1465,
+      "Licenses & Permits": 17,
+      "Health & Safety": 6,
+      "Recreation & Culture": 80,
+      "Social Services": 49,
+      "City Hall": 1,
+      "Corporate Complaints": 0,
+      "Miscellaneous": 12
+    },
+    "roadComplaints": 162,
+    "roadComplaintsRate": 14.2,
+    "roadComplaintsPerKm2": 49.4,
+    "roadComplaintsByType": {
+      "Road Maintenance - Travelled Surface Pothole": 159,
+      "Road Maintenance - Shoulder Pothole": 3
+    },
+    "noiseComplaints": 142,
+    "noiseComplaintsRate": 12.4,
+    "noiseComplaintsByType": {
+      "Noise - Music": 79,
+      "Noise - Construction": 14,
+      "Noise - Shouting": 12,
+      "Noise - Info-Noise": 12,
+      "Noise - Machinery-AirCond/Fan/Pool/Mower/Generator": 9,
+      "Noise - Muffler": 5,
+      "Noise - Idling": 4,
+      "Noise - Car Alarms": 3
+    },
+    "roadQualityScore": 33,
+    "quietScore": 65
+  }
+}

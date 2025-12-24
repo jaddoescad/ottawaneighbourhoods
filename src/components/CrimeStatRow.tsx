@@ -61,6 +61,7 @@ export default function CrimeStatRow({
   const [isExpanded, setIsExpanded] = useState(false);
 
   const sortedCategories = Object.entries(byCategory)
+    .filter((entry): entry is [string, number] => entry[1] !== undefined)
     .sort((a, b) => b[1] - a[1]);
 
   // Calculate crime per 1,000 residents

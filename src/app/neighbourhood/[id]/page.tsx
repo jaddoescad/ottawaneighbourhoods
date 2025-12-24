@@ -25,6 +25,10 @@ import HospitalStatRow from "@/components/HospitalStatRow";
 import LibrariesStatRow from "@/components/LibrariesStatRow";
 import TrailsStatRow from "@/components/TrailsStatRow";
 import CyclingInfraStatRow from "@/components/CyclingInfraStatRow";
+import RoadQualityStatRow from "@/components/RoadQualityStatRow";
+import NoiseStatRow from "@/components/NoiseStatRow";
+import DevelopmentStatRow from "@/components/DevelopmentStatRow";
+import ServiceRequestsStatRow from "@/components/ServiceRequestsStatRow";
 import FoodEstablishmentsStatRow from "@/components/FoodEstablishmentsStatRow";
 import GroceryStoresStatRow from "@/components/GroceryStoresStatRow";
 import GymStatRow from "@/components/GymStatRow";
@@ -405,6 +409,30 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             bikeScore={bikeScore}
             areaKm2={details.areaKm2 || 1}
           />
+          <RoadQualityStatRow
+            roadQualityScore={details.roadQualityScore || 50}
+            roadComplaints={details.roadComplaints || 0}
+            roadComplaintsRate={details.roadComplaintsRate || 0}
+            roadComplaintsPerKm2={details.roadComplaintsPerKm2 || 0}
+            roadComplaintsByType={details.roadComplaintsByType || {}}
+            areaKm2={details.areaKm2 || 1}
+          />
+          <NoiseStatRow
+            quietScore={details.quietScore || 50}
+            noiseComplaints={details.noiseComplaints || 0}
+            noiseComplaintsRate={details.noiseComplaintsRate || 0}
+            noiseComplaintsByType={details.noiseComplaintsByType || {}}
+            population={population}
+          />
+          <DevelopmentStatRow
+            developmentScore={details.developmentScore || 0}
+            total={details.developmentTotal || 0}
+            active={details.developmentActive || 0}
+            approved={details.developmentApproved || 0}
+            recent={details.developmentRecent || 0}
+            developmentRate={details.developmentRate || 0}
+            byType={details.developmentByType || {}}
+          />
           <FoodEstablishmentsStatRow
             foodData={(details.foodData || []).filter(f => f.category !== 'grocery')}
             totalCount={(details.foodEstablishments || 0) - (details.groceryStores || 0)}
@@ -538,6 +566,12 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             population={population}
             areaKm2={details.areaKm2}
             source={DATA_SOURCES.collisions}
+          />
+          <ServiceRequestsStatRow
+            total={details.serviceRequests || 0}
+            rate={details.serviceRequestRate || 0}
+            byType={details.serviceRequestsByType || {}}
+            population={population}
           />
           <IncomeStatRow
             medianIncome={medianIncome}

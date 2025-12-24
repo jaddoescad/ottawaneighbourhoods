@@ -1,0 +1,1354 @@
+{
+  "alta-vista": {
+    "total": 8,
+    "active": 0,
+    "approved": 7,
+    "recent": 1,
+    "developmentRate": 0.13,
+    "byType": {
+      "Zoning By-law Amendment  ": 5,
+      "Site Plan Control        ": 3
+    },
+    "developmentScore": 5
+  },
+  "bayshore": {
+    "total": 31,
+    "active": 1,
+    "approved": 21,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {
+      "Zoning By-law Amendment  ": 15,
+      "Site Plan Control        ": 11,
+      "Official Plan Amendment  ": 5
+    },
+    "developmentScore": 0
+  },
+  "beacon-hill-south-cardinal-heights": {
+    "total": 6,
+    "active": 1,
+    "approved": 5,
+    "recent": 6,
+    "developmentRate": 0.77,
+    "byType": {
+      "Zoning By-law Amendment  ": 3,
+      "Official Plan Amendment  ": 2,
+      "Site Plan Control        ": 1
+    },
+    "developmentScore": 40
+  },
+  "beaverbrook": {
+    "total": 7,
+    "active": 3,
+    "approved": 4,
+    "recent": 1,
+    "developmentRate": 0.15,
+    "byType": {
+      "Zoning By-law Amendment  ": 4,
+      "Site Plan Control        ": 3,
+      "Official Plan Amendment  ": 0
+    },
+    "developmentScore": 7
+  },
+  "bells-corners-east": {
+    "total": 6,
+    "active": 3,
+    "approved": 1,
+    "recent": 1,
+    "developmentRate": 0.19,
+    "byType": {
+      "Site Plan Control        ": 4,
+      "Official Plan Amendment  ": 1,
+      "Zoning By-law Amendment  ": 1
+    },
+    "developmentScore": 14
+  },
+  "bells-corners-west": {
+    "total": 3,
+    "active": 3,
+    "approved": 0,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {
+      "Site Plan Control        ": 3
+    },
+    "developmentScore": 0
+  },
+  "billings-bridge-heron-park": {
+    "total": 24,
+    "active": 10,
+    "approved": 9,
+    "recent": 7,
+    "developmentRate": 1.15,
+    "byType": {
+      "Zoning By-law Amendment  ": 10,
+      "Official Plan Amendment  ": 9,
+      "Site Plan Control        ": 3,
+      "Plan of Subdivision      ": 2
+    },
+    "developmentScore": 61
+  },
+  "blackburn-hamlet": {
+    "total": 10,
+    "active": 4,
+    "approved": 5,
+    "recent": 3,
+    "developmentRate": 0.36,
+    "byType": {
+      "Site Plan Control        ": 10
+    },
+    "developmentScore": 23
+  },
+  "blossom-park-timbermill": {
+    "total": 26,
+    "active": 0,
+    "approved": 23,
+    "recent": 8,
+    "developmentRate": 0.88,
+    "byType": {
+      "Site Plan Control        ": 13,
+      "Zoning By-law Amendment  ": 10,
+      "Official Plan Amendment  ": 3
+    },
+    "developmentScore": 48
+  },
+  "borden-farm-fisher-glen": {
+    "total": 1,
+    "active": 0,
+    "approved": 0,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {
+      "Site Plan Control        ": 1
+    },
+    "developmentScore": 0
+  },
+  "braemar-park-bel-air-heights-copeland-park": {
+    "total": 23,
+    "active": 1,
+    "approved": 17,
+    "recent": 4,
+    "developmentRate": 0.44,
+    "byType": {
+      "Zoning By-law Amendment  ": 10,
+      "Site Plan Control        ": 9,
+      "Plan of Subdivision      ": 3
+    },
+    "developmentScore": 24
+  },
+  "bridlewood-emerald-meadows": {
+    "total": 6,
+    "active": 3,
+    "approved": 1,
+    "recent": 1,
+    "developmentRate": 0.04,
+    "byType": {
+      "Plan of Condominium      ": 3,
+      "Site Plan Control        ": 3
+    },
+    "developmentScore": 1
+  },
+  "britannia": {
+    "total": 16,
+    "active": 2,
+    "approved": 14,
+    "recent": 6,
+    "developmentRate": 0.7,
+    "byType": {
+      "Zoning By-law Amendment  ": 8,
+      "Site Plan Control        ": 7,
+      "Official Plan Amendment  ": 1
+    },
+    "developmentScore": 38
+  },
+  "brookside-briarbrook-morgan-s-grant": {
+    "total": 110,
+    "active": 21,
+    "approved": 72,
+    "recent": 39,
+    "developmentRate": 2.51,
+    "byType": {
+      "Zoning By-law Amendment  ": 47,
+      "Site Plan Control        ": 32,
+      "Plan of Subdivision      ": 24,
+      "Official Plan Amendment  ": 6,
+      "Plan of Condominium      ": 1
+    },
+    "developmentScore": 86
+  },
+  "cardinal-creek": {
+    "total": 35,
+    "active": 5,
+    "approved": 15,
+    "recent": 11,
+    "developmentRate": 0.85,
+    "byType": {
+      "Zoning By-law Amendment  ": 15,
+      "Site Plan Control        ": 10,
+      "Plan of Subdivision      ": 5,
+      "Official Plan Amendment  ": 5
+    },
+    "developmentScore": 43
+  },
+  "carleton-heights-courtland-park": {
+    "total": 12,
+    "active": 3,
+    "approved": 6,
+    "recent": 4,
+    "developmentRate": 0.48,
+    "byType": {
+      "Site Plan Control        ": 7,
+      "Zoning By-law Amendment  ": 5
+    },
+    "developmentScore": 30
+  },
+  "carlington": {
+    "total": 52,
+    "active": 9,
+    "approved": 38,
+    "recent": 18,
+    "developmentRate": 1.12,
+    "byType": {
+      "Site Plan Control        ": 27,
+      "Zoning By-law Amendment  ": 24,
+      "Official Plan Amendment  ": 1
+    },
+    "developmentScore": 60
+  },
+  "carp": {
+    "total": 69,
+    "active": 26,
+    "approved": 26,
+    "recent": 24,
+    "developmentRate": 3.74,
+    "byType": {
+      "Site Plan Control        ": 31,
+      "Plan of Subdivision      ": 17,
+      "Zoning By-law Amendment  ": 16,
+      "Official Plan Amendment  ": 3,
+      "Plan of Condominium      ": 2
+    },
+    "developmentScore": 92
+  },
+  "carson-grove-carson-meadows": {
+    "total": 12,
+    "active": 9,
+    "approved": 3,
+    "recent": 6,
+    "developmentRate": 0.56,
+    "byType": {
+      "Site Plan Control        ": 7,
+      "Zoning By-law Amendment  ": 3,
+      "Official Plan Amendment  ": 2
+    },
+    "developmentScore": 33
+  },
+  "centrepointe": {
+    "total": 26,
+    "active": 7,
+    "approved": 13,
+    "recent": 13,
+    "developmentRate": 1.4,
+    "byType": {
+      "Site Plan Control        ": 20,
+      "Zoning By-law Amendment  ": 4,
+      "Official Plan Amendment  ": 2
+    },
+    "developmentScore": 71
+  },
+  "centretown": {
+    "total": 221,
+    "active": 47,
+    "approved": 129,
+    "recent": 51,
+    "developmentRate": 1.6,
+    "byType": {
+      "Site Plan Control        ": 92,
+      "Zoning By-law Amendment  ": 73,
+      "Official Plan Amendment  ": 36,
+      "Ontario Heritage Act     ": 16,
+      "Demolition Control       ": 4
+    },
+    "developmentScore": 78
+  },
+  "chapel-hill-north": {
+    "total": 13,
+    "active": 1,
+    "approved": 8,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {
+      "Site Plan Control        ": 6,
+      "Zoning By-law Amendment  ": 5,
+      "Plan of Subdivision      ": 2
+    },
+    "developmentScore": 0
+  },
+  "chapel-hill-south": {
+    "total": 95,
+    "active": 31,
+    "approved": 51,
+    "recent": 32,
+    "developmentRate": 2.22,
+    "byType": {
+      "Zoning By-law Amendment  ": 39,
+      "Site Plan Control        ": 28,
+      "Plan of Subdivision      ": 26,
+      "Official Plan Amendment  ": 2
+    },
+    "developmentScore": 84
+  },
+  "chapman-mills": {
+    "total": 2,
+    "active": 0,
+    "approved": 0,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {
+      "Plan of Subdivision      ": 2
+    },
+    "developmentScore": 0
+  },
+  "city-view": {
+    "total": 2,
+    "active": 0,
+    "approved": 2,
+    "recent": 1,
+    "developmentRate": 0.15,
+    "byType": {
+      "Zoning By-law Amendment  ": 2,
+      "Site Plan Control        ": 0
+    },
+    "developmentScore": 8
+  },
+  "civic-hospital": {
+    "total": 3,
+    "active": 0,
+    "approved": 3,
+    "recent": 1,
+    "developmentRate": 0.17,
+    "byType": {
+      "Zoning By-law Amendment  ": 3
+    },
+    "developmentScore": 10
+  },
+  "constance-bay": {
+    "total": 0,
+    "active": 0,
+    "approved": 0,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {},
+    "developmentScore": 0
+  },
+  "convent-glen-orleans-woods": {
+    "total": 4,
+    "active": 0,
+    "approved": 4,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {
+      "Site Plan Control        ": 4
+    },
+    "developmentScore": 0
+  },
+  "corkery": {
+    "total": 31,
+    "active": 3,
+    "approved": 20,
+    "recent": 19,
+    "developmentRate": 4.99,
+    "byType": {
+      "Official Plan Amendment  ": 11,
+      "Zoning By-law Amendment  ": 11,
+      "Site Plan Control        ": 7,
+      "Plan of Subdivision      ": 2
+    },
+    "developmentScore": 97
+  },
+  "craig-henry-manordale": {
+    "total": 8,
+    "active": 0,
+    "approved": 4,
+    "recent": 1,
+    "developmentRate": 0.11,
+    "byType": {
+      "Zoning By-law Amendment  ": 5,
+      "Site Plan Control        ": 3
+    },
+    "developmentScore": 2
+  },
+  "crestview-tanglewood": {
+    "total": 6,
+    "active": 2,
+    "approved": 3,
+    "recent": 2,
+    "developmentRate": 0.24,
+    "byType": {
+      "Site Plan Control        ": 5,
+      "Zoning By-law Amendment  ": 1
+    },
+    "developmentScore": 16
+  },
+  "crystal-bay-lakeview-park": {
+    "total": 3,
+    "active": 0,
+    "approved": 3,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {
+      "Site Plan Control        ": 2,
+      "Zoning By-law Amendment  ": 1
+    },
+    "developmentScore": 0
+  },
+  "cumberland": {
+    "total": 10,
+    "active": 1,
+    "approved": 6,
+    "recent": 4,
+    "developmentRate": 0.87,
+    "byType": {
+      "Site Plan Control        ": 5,
+      "Zoning By-law Amendment  ": 4,
+      "Plan of Subdivision      ": 1
+    },
+    "developmentScore": 46
+  },
+  "dunrobin": {
+    "total": 9,
+    "active": 0,
+    "approved": 6,
+    "recent": 2,
+    "developmentRate": 0.35,
+    "byType": {
+      "Site Plan Control        ": 5,
+      "Zoning By-law Amendment  ": 3,
+      "Plan of Subdivision      ": 1
+    },
+    "developmentScore": 21
+  },
+  "edwards-carlsbad-springs": {
+    "total": 59,
+    "active": 14,
+    "approved": 33,
+    "recent": 11,
+    "developmentRate": 3.61,
+    "byType": {
+      "Site Plan Control        ": 33,
+      "Zoning By-law Amendment  ": 22,
+      "Official Plan Amendment  ": 3,
+      "Plan of Condominium      ": 1
+    },
+    "developmentScore": 91
+  },
+  "elmvale-canterbury": {
+    "total": 10,
+    "active": 4,
+    "approved": 3,
+    "recent": 1,
+    "developmentRate": 0.12,
+    "byType": {
+      "Site Plan Control        ": 8,
+      "Zoning By-law Amendment  ": 2
+    },
+    "developmentScore": 3
+  },
+  "emerald-woods-sawmill-creek": {
+    "total": 0,
+    "active": 0,
+    "approved": 0,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {},
+    "developmentScore": 0
+  },
+  "fallingbrook": {
+    "total": 10,
+    "active": 0,
+    "approved": 6,
+    "recent": 8,
+    "developmentRate": 0.44,
+    "byType": {
+      "Zoning By-law Amendment  ": 5,
+      "Site Plan Control        ": 5
+    },
+    "developmentScore": 25
+  },
+  "findlay-creek": {
+    "total": 41,
+    "active": 20,
+    "approved": 18,
+    "recent": 17,
+    "developmentRate": 1.19,
+    "byType": {
+      "Site Plan Control        ": 20,
+      "Official Plan Amendment  ": 8,
+      "Zoning By-law Amendment  ": 6,
+      "Plan of Condominium      ": 4,
+      "Plan of Subdivision      ": 3
+    },
+    "developmentScore": 64
+  },
+  "fisher-heights": {
+    "total": 16,
+    "active": 2,
+    "approved": 12,
+    "recent": 7,
+    "developmentRate": 1.54,
+    "byType": {
+      "Site Plan Control        ": 9,
+      "Zoning By-law Amendment  ": 7
+    },
+    "developmentScore": 76
+  },
+  "fitzroy": {
+    "total": 10,
+    "active": 0,
+    "approved": 10,
+    "recent": 4,
+    "developmentRate": 1.02,
+    "byType": {
+      "Zoning By-law Amendment  ": 10
+    },
+    "developmentScore": 56
+  },
+  "glebe-dows-lake": {
+    "total": 261,
+    "active": 86,
+    "approved": 170,
+    "recent": 181,
+    "developmentRate": 13.34,
+    "byType": {
+      "Site Plan Control        ": 120,
+      "Zoning By-law Amendment  ": 73,
+      "Official Plan Amendment  ": 39,
+      "Ontario Heritage Act     ": 20,
+      "Demolition Control       ": 7
+    },
+    "developmentScore": 100
+  },
+  "glen-cairn": {
+    "total": 19,
+    "active": 11,
+    "approved": 7,
+    "recent": 7,
+    "developmentRate": 0.56,
+    "byType": {
+      "Site Plan Control        ": 9,
+      "Zoning By-law Amendment  ": 8,
+      "Plan of Subdivision      ": 2
+    },
+    "developmentScore": 32
+  },
+  "greely": {
+    "total": 40,
+    "active": 16,
+    "approved": 13,
+    "recent": 14,
+    "developmentRate": 1.32,
+    "byType": {
+      "Site Plan Control        ": 16,
+      "Plan of Subdivision      ": 12,
+      "Official Plan Amendment  ": 6,
+      "Zoning By-law Amendment  ": 6
+    },
+    "developmentScore": 69
+  },
+  "greenboro-east": {
+    "total": 0,
+    "active": 0,
+    "approved": 0,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {},
+    "developmentScore": 0
+  },
+  "greenboro-west": {
+    "total": 0,
+    "active": 0,
+    "approved": 0,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {},
+    "developmentScore": 0
+  },
+  "hawthorne-meadows-sheffield-glen": {
+    "total": 12,
+    "active": 3,
+    "approved": 8,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {
+      "Site Plan Control        ": 8,
+      "Zoning By-law Amendment  ": 4
+    },
+    "developmentScore": 0
+  },
+  "hintonburg-mechanicsville": {
+    "total": 141,
+    "active": 31,
+    "approved": 92,
+    "recent": 13,
+    "developmentRate": 1.19,
+    "byType": {
+      "Site Plan Control        ": 60,
+      "Zoning By-law Amendment  ": 57,
+      "Official Plan Amendment  ": 22,
+      "Demolition Control       ": 2
+    },
+    "developmentScore": 63
+  },
+  "hunt-club-park": {
+    "total": 2,
+    "active": 0,
+    "approved": 1,
+    "recent": 2,
+    "developmentRate": 0.24,
+    "byType": {
+      "Site Plan Control        ": 1,
+      "Zoning By-law Amendment  ": 1
+    },
+    "developmentScore": 15
+  },
+  "iris": {
+    "total": 2,
+    "active": 0,
+    "approved": 2,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {
+      "Site Plan Control        ": 1,
+      "Zoning By-law Amendment  ": 1
+    },
+    "developmentScore": 0
+  },
+  "island-park-wellington-village": {
+    "total": 18,
+    "active": 1,
+    "approved": 15,
+    "recent": 4,
+    "developmentRate": 0.73,
+    "byType": {
+      "Zoning By-law Amendment  ": 11,
+      "Site Plan Control        ": 6,
+      "Plan of Subdivision      ": 1
+    },
+    "developmentScore": 39
+  },
+  "kanata-lakes": {
+    "total": 64,
+    "active": 8,
+    "approved": 44,
+    "recent": 12,
+    "developmentRate": 0.6,
+    "byType": {
+      "Zoning By-law Amendment  ": 28,
+      "Site Plan Control        ": 27,
+      "Plan of Subdivision      ": 5,
+      "Official Plan Amendment  ": 3,
+      "Plan of Condominium      ": 1
+    },
+    "developmentScore": 34
+  },
+  "katimavik-hazeldean": {
+    "total": 12,
+    "active": 3,
+    "approved": 8,
+    "recent": 3,
+    "developmentRate": 0.26,
+    "byType": {
+      "Site Plan Control        ": 5,
+      "Zoning By-law Amendment  ": 4,
+      "Plan of Subdivision      ": 2,
+      "Plan of Condominium      ": 1,
+      "Official Plan Amendment  ": 0
+    },
+    "developmentScore": 17
+  },
+  "kinburn": {
+    "total": 12,
+    "active": 0,
+    "approved": 12,
+    "recent": 4,
+    "developmentRate": 1.5,
+    "byType": {
+      "Zoning By-law Amendment  ": 12
+    },
+    "developmentScore": 74
+  },
+  "laurentian": {
+    "total": 72,
+    "active": 6,
+    "approved": 66,
+    "recent": 3,
+    "developmentRate": 0.26,
+    "byType": {
+      "Zoning By-law Amendment  ": 45,
+      "Site Plan Control        ": 26,
+      "Official Plan Amendment  ": 1
+    },
+    "developmentScore": 18
+  },
+  "ledbury-heron-gate-ridgemont": {
+    "total": 46,
+    "active": 23,
+    "approved": 18,
+    "recent": 19,
+    "developmentRate": 1.35,
+    "byType": {
+      "Zoning By-law Amendment  ": 15,
+      "Site Plan Control        ": 14,
+      "Plan of Subdivision      ": 10,
+      "Official Plan Amendment  ": 7
+    },
+    "developmentScore": 70
+  },
+  "leslie-park-bruce-farm": {
+    "total": 7,
+    "active": 5,
+    "approved": 1,
+    "recent": 4,
+    "developmentRate": 1.26,
+    "byType": {
+      "Site Plan Control        ": 4,
+      "Zoning By-law Amendment  ": 3
+    },
+    "developmentScore": 66
+  },
+  "lowertown-east": {
+    "total": 79,
+    "active": 40,
+    "approved": 38,
+    "recent": 8,
+    "developmentRate": 1.16,
+    "byType": {
+      "Site Plan Control        ": 44,
+      "Zoning By-law Amendment  ": 29,
+      "Demolition Control       ": 5,
+      "Official Plan Amendment  ": 1
+    },
+    "developmentScore": 62
+  },
+  "lowertown-west": {
+    "total": 56,
+    "active": 27,
+    "approved": 27,
+    "recent": 28,
+    "developmentRate": 4.71,
+    "byType": {
+      "Zoning By-law Amendment  ": 22,
+      "Site Plan Control        ": 20,
+      "Ontario Heritage Act     ": 10,
+      "Demolition Control       ": 2,
+      "Official Plan Amendment  ": 2
+    },
+    "developmentScore": 94
+  },
+  "manor-park": {
+    "total": 11,
+    "active": 0,
+    "approved": 0,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {
+      "Official Plan Amendment  ": 11
+    },
+    "developmentScore": 0
+  },
+  "manotick": {
+    "total": 50,
+    "active": 9,
+    "approved": 29,
+    "recent": 21,
+    "developmentRate": 2.01,
+    "byType": {
+      "Site Plan Control        ": 19,
+      "Zoning By-law Amendment  ": 19,
+      "Plan of Subdivision      ": 6,
+      "Plan of Condominium      ": 4,
+      "Official Plan Amendment  ": 2
+    },
+    "developmentScore": 82
+  },
+  "merivale-gardens-grenfell-glen-pineglen-country-place": {
+    "total": 0,
+    "active": 0,
+    "approved": 0,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {
+      "Site Plan Control        ": 0
+    },
+    "developmentScore": 0
+  },
+  "metcalfe": {
+    "total": 17,
+    "active": 1,
+    "approved": 13,
+    "recent": 9,
+    "developmentRate": 1.56,
+    "byType": {
+      "Zoning By-law Amendment  ": 10,
+      "Site Plan Control        ": 6,
+      "Official Plan Amendment  ": 1
+    },
+    "developmentScore": 77
+  },
+  "richmond": {
+    "total": 142,
+    "active": 40,
+    "approved": 86,
+    "recent": 60,
+    "developmentRate": 6.97,
+    "byType": {
+      "Zoning By-law Amendment  ": 82,
+      "Plan of Subdivision      ": 29,
+      "Official Plan Amendment  ": 17,
+      "Site Plan Control        ": 14
+    },
+    "developmentScore": 98
+  },
+  "munster-ashton": {
+    "total": 41,
+    "active": 29,
+    "approved": 12,
+    "recent": 37,
+    "developmentRate": 9.52,
+    "byType": {
+      "Zoning By-law Amendment  ": 23,
+      "Official Plan Amendment  ": 17,
+      "Site Plan Control        ": 1
+    },
+    "developmentScore": 99
+  },
+  "navan-sarsfield": {
+    "total": 8,
+    "active": 0,
+    "approved": 8,
+    "recent": 4,
+    "developmentRate": 1.31,
+    "byType": {
+      "Zoning By-law Amendment  ": 5,
+      "Site Plan Control        ": 3
+    },
+    "developmentScore": 68
+  },
+  "new-edinburgh": {
+    "total": 19,
+    "active": 3,
+    "approved": 6,
+    "recent": 5,
+    "developmentRate": 0.89,
+    "byType": {
+      "Site Plan Control        ": 15,
+      "Ontario Heritage Act     ": 2,
+      "Zoning By-law Amendment  ": 2
+    },
+    "developmentScore": 49
+  },
+  "north-gower-kars": {
+    "total": 16,
+    "active": 5,
+    "approved": 10,
+    "recent": 14,
+    "developmentRate": 2.84,
+    "byType": {
+      "Zoning By-law Amendment  ": 13,
+      "Official Plan Amendment  ": 1,
+      "Plan of Subdivision      ": 1,
+      "Site Plan Control        ": 1
+    },
+    "developmentScore": 89
+  },
+  "old-barrhaven-east": {
+    "total": 10,
+    "active": 3,
+    "approved": 4,
+    "recent": 4,
+    "developmentRate": 0.17,
+    "byType": {
+      "Site Plan Control        ": 10
+    },
+    "developmentScore": 9
+  },
+  "old-barrhaven-west": {
+    "total": 50,
+    "active": 11,
+    "approved": 35,
+    "recent": 10,
+    "developmentRate": 0.45,
+    "byType": {
+      "Zoning By-law Amendment  ": 16,
+      "Site Plan Control        ": 14,
+      "Plan of Subdivision      ": 10,
+      "Plan of Condominium      ": 5,
+      "Official Plan Amendment  ": 5
+    },
+    "developmentScore": 26
+  },
+  "old-hunt-club": {
+    "total": 37,
+    "active": 16,
+    "approved": 12,
+    "recent": 17,
+    "developmentRate": 1.02,
+    "byType": {
+      "Site Plan Control        ": 16,
+      "Zoning By-law Amendment  ": 12,
+      "Plan of Subdivision      ": 6,
+      "Plan of Condominium      ": 4
+    },
+    "developmentScore": 57
+  },
+  "old-ottawa-east": {
+    "total": 68,
+    "active": 4,
+    "approved": 58,
+    "recent": 13,
+    "developmentRate": 1.52,
+    "byType": {
+      "Site Plan Control        ": 42,
+      "Zoning By-law Amendment  ": 20,
+      "Demolition Control       ": 3,
+      "Official Plan Amendment  ": 2,
+      "Plan of Subdivision      ": 1
+    },
+    "developmentScore": 75
+  },
+  "old-ottawa-south": {
+    "total": 30,
+    "active": 6,
+    "approved": 23,
+    "recent": 3,
+    "developmentRate": 0.46,
+    "byType": {
+      "Site Plan Control        ": 22,
+      "Zoning By-law Amendment  ": 6,
+      "Official Plan Amendment  ": 1,
+      "Plan of Subdivision      ": 1
+    },
+    "developmentScore": 28
+  },
+  "orleans-village-chateauneuf": {
+    "total": 8,
+    "active": 6,
+    "approved": 2,
+    "recent": 2,
+    "developmentRate": 0.18,
+    "byType": {
+      "Site Plan Control        ": 8
+    },
+    "developmentScore": 11
+  },
+  "osgoode-vernon": {
+    "total": 13,
+    "active": 0,
+    "approved": 13,
+    "recent": 5,
+    "developmentRate": 0.87,
+    "byType": {
+      "Zoning By-law Amendment  ": 9,
+      "Plan of Subdivision      ": 2,
+      "Site Plan Control        ": 1,
+      "Official Plan Amendment  ": 1
+    },
+    "developmentScore": 47
+  },
+  "overbrook": {
+    "total": 85,
+    "active": 15,
+    "approved": 60,
+    "recent": 31,
+    "developmentRate": 1.47,
+    "byType": {
+      "Site Plan Control        ": 48,
+      "Zoning By-law Amendment  ": 30,
+      "Ontario Heritage Act     ": 3,
+      "Plan of Subdivision      ": 2,
+      "Official Plan Amendment  ": 2
+    },
+    "developmentScore": 72
+  },
+  "parkwood-hills": {
+    "total": 0,
+    "active": 0,
+    "approved": 0,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {
+      "Site Plan Control        ": 0
+    },
+    "developmentScore": 0
+  },
+  "pineview": {
+    "total": 6,
+    "active": 0,
+    "approved": 5,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {
+      "Site Plan Control        ": 4,
+      "Zoning By-law Amendment  ": 1
+    },
+    "developmentScore": 0
+  },
+  "playfair-park-guildwood-estates": {
+    "total": 10,
+    "active": 3,
+    "approved": 4,
+    "recent": 6,
+    "developmentRate": 0.98,
+    "byType": {
+      "Site Plan Control        ": 5,
+      "Zoning By-law Amendment  ": 3,
+      "Plan of Subdivision      ": 2
+    },
+    "developmentScore": 53
+  },
+  "portobello-south": {
+    "total": 56,
+    "active": 18,
+    "approved": 29,
+    "recent": 26,
+    "developmentRate": 0.87,
+    "byType": {
+      "Site Plan Control        ": 24,
+      "Zoning By-law Amendment  ": 20,
+      "Plan of Subdivision      ": 10,
+      "": 1,
+      "Plan of Condominium      ": 1
+    },
+    "developmentScore": 45
+  },
+  "qualicum-redwood": {
+    "total": 14,
+    "active": 12,
+    "approved": 0,
+    "recent": 0,
+    "developmentRate": 0,
+    "byType": {
+      "Site Plan Control        ": 14
+    },
+    "developmentScore": 0
+  },
+  "queensway-terrace-north": {
+    "total": 12,
+    "active": 0,
+    "approved": 10,
+    "recent": 8,
+    "developmentRate": 2.53,
+    "byType": {
+      "Zoning By-law Amendment  ": 8,
+      "Site Plan Control        ": 4
+    },
+    "developmentScore": 87
+  },
+  "queenswood-chatelaine": {
+    "total": 8,
+    "active": 3,
+    "approved": 5,
+    "recent": 3,
+    "developmentRate": 0.66,
+    "byType": {
+      "Zoning By-law Amendment  ": 3,
+      "Site Plan Control        ": 3,
+      "Official Plan Amendment  ": 1,
+      "Plan of Subdivision      ": 1
+    },
+    "developmentScore": 37
+  },
+  "queenswood-heights": {
+    "total": 34,
+    "active": 21,
+    "approved": 11,
+    "recent": 23,
+    "developmentRate": 2.24,
+    "byType": {
+      "Site Plan Control        ": 15,
+      "Zoning By-law Amendment  ": 12,
+      "Official Plan Amendment  ": 7
+    },
+    "developmentScore": 85
+  },
+  "rideau-crest-davidson-heights": {
+    "total": 18,
+    "active": 1,
+    "approved": 11,
+    "recent": 7,
+    "developmentRate": 0.48,
+    "byType": {
+      "Site Plan Control        ": 13,
+      "Zoning By-law Amendment  ": 4,
+      "Official Plan Amendment  ": 1
+    },
+    "developmentScore": 29
+  },
+  "riverside-park-mooney-s-bay": {
+    "total": 18,
+    "active": 5,
+    "approved": 6,
+    "recent": 6,
+    "developmentRate": 1.28,
+    "byType": {
+      "Site Plan Control        ": 14,
+      "Zoning By-law Amendment  ": 3,
+      "Official Plan Amendment  ": 1
+    },
+    "developmentScore": 67
+  },
+  "riverside-park-south-revelstoke": {
+    "total": 3,
+    "active": 1,
+    "approved": 1,
+    "recent": 1,
+    "developmentRate": 0.33,
+    "byType": {
+      "Site Plan Control        ": 2,
+      "Zoning By-law Amendment  ": 1
+    },
+    "developmentScore": 20
+  },
+  "riverside-south-leitrim": {
+    "total": 59,
+    "active": 7,
+    "approved": 44,
+    "recent": 19,
+    "developmentRate": 0.99,
+    "byType": {
+      "Plan of Subdivision      ": 26,
+      "Zoning By-law Amendment  ": 21,
+      "Site Plan Control        ": 12
+    },
+    "developmentScore": 55
+  },
+  "riverview": {
+    "total": 33,
+    "active": 13,
+    "approved": 16,
+    "recent": 11,
+    "developmentRate": 0.82,
+    "byType": {
+      "Site Plan Control        ": 23,
+      "Zoning By-law Amendment  ": 9,
+      "Plan of Condominium      ": 1
+    },
+    "developmentScore": 41
+  },
+  "rockcliffe-park": {
+    "total": 8,
+    "active": 4,
+    "approved": 3,
+    "recent": 8,
+    "developmentRate": 4.85,
+    "byType": {
+      "Ontario Heritage Act     ": 8
+    },
+    "developmentScore": 95
+  },
+  "rothwell-heights-beacon-hill-north": {
+    "total": 12,
+    "active": 6,
+    "approved": 5,
+    "recent": 2,
+    "developmentRate": 0.18,
+    "byType": {
+      "Site Plan Control        ": 7,
+      "Zoning By-law Amendment  ": 5
+    },
+    "developmentScore": 13
+  },
+  "sandy-hill": {
+    "total": 94,
+    "active": 21,
+    "approved": 65,
+    "recent": 23,
+    "developmentRate": 1.66,
+    "byType": {
+      "Site Plan Control        ": 44,
+      "Zoning By-law Amendment  ": 36,
+      "Official Plan Amendment  ": 7,
+      "Demolition Control       ": 4,
+      "Ontario Heritage Act     ": 3
+    },
+    "developmentScore": 79
+  },
+  "south-keys": {
+    "total": 4,
+    "active": 2,
+    "approved": 2,
+    "recent": 1,
+    "developmentRate": 0.36,
+    "byType": {
+      "Site Plan Control        ": 3,
+      "Zoning By-law Amendment  ": 1
+    },
+    "developmentScore": 22
+  },
+  "stittsville": {
+    "total": 55,
+    "active": 13,
+    "approved": 39,
+    "recent": 22,
+    "developmentRate": 0.99,
+    "byType": {
+      "Zoning By-law Amendment  ": 26,
+      "Site Plan Control        ": 21,
+      "Plan of Subdivision      ": 7,
+      "Plan of Condominium      ": 1,
+      "Official Plan Amendment  ": 0
+    },
+    "developmentScore": 54
+  },
+  "stittsville-east": {
+    "total": 53,
+    "active": 13,
+    "approved": 34,
+    "recent": 19,
+    "developmentRate": 1.81,
+    "byType": {
+      "Zoning By-law Amendment  ": 24,
+      "Site Plan Control        ": 16,
+      "Plan of Subdivision      ": 11,
+      "Plan of Condominium      ": 2,
+      "Official Plan Amendment  ": 0
+    },
+    "developmentScore": 80
+  },
+  "stittsville-north": {
+    "total": 45,
+    "active": 9,
+    "approved": 30,
+    "recent": 8,
+    "developmentRate": 0.62,
+    "byType": {
+      "Zoning By-law Amendment  ": 16,
+      "Site Plan Control        ": 16,
+      "Plan of Subdivision      ": 12,
+      "Official Plan Amendment  ": 1
+    },
+    "developmentScore": 36
+  },
+  "stonebridge-half-moon-bay": {
+    "total": 94,
+    "active": 20,
+    "approved": 64,
+    "recent": 27,
+    "developmentRate": 0.97,
+    "byType": {
+      "Site Plan Control        ": 32,
+      "Plan of Subdivision      ": 30,
+      "Zoning By-law Amendment  ": 30,
+      "Official Plan Amendment  ": 1,
+      "Plan of Condominium      ": 1
+    },
+    "developmentScore": 52
+  },
+  "trend-arlington": {
+    "total": 10,
+    "active": 3,
+    "approved": 5,
+    "recent": 4,
+    "developmentRate": 0.85,
+    "byType": {
+      "Site Plan Control        ": 6,
+      "Zoning By-law Amendment  ": 4
+    },
+    "developmentScore": 44
+  },
+  "vanier-north": {
+    "total": 117,
+    "active": 5,
+    "approved": 107,
+    "recent": 10,
+    "developmentRate": 0.95,
+    "byType": {
+      "Site Plan Control        ": 61,
+      "Zoning By-law Amendment  ": 53,
+      "Demolition Control       ": 3
+    },
+    "developmentScore": 51
+  },
+  "vanier-south": {
+    "total": 38,
+    "active": 6,
+    "approved": 25,
+    "recent": 1,
+    "developmentRate": 0.14,
+    "byType": {
+      "Site Plan Control        ": 20,
+      "Zoning By-law Amendment  ": 14,
+      "Official Plan Amendment  ": 3,
+      "Demolition Control       ": 1
+    },
+    "developmentScore": 6
+  },
+  "vars": {
+    "total": 9,
+    "active": 2,
+    "approved": 7,
+    "recent": 3,
+    "developmentRate": 1.07,
+    "byType": {
+      "Zoning By-law Amendment  ": 7,
+      "Site Plan Control        ": 2
+    },
+    "developmentScore": 59
+  },
+  "wateridge-village": {
+    "total": 37,
+    "active": 6,
+    "approved": 11,
+    "recent": 9,
+    "developmentRate": 3.29,
+    "byType": {
+      "Site Plan Control        ": 33,
+      "Plan of Condominium      ": 1,
+      "Plan of Subdivision      ": 1,
+      "Official Plan Amendment  ": 1,
+      "Zoning By-law Amendment  ": 1
+    },
+    "developmentScore": 90
+  },
+  "west-centretown": {
+    "total": 91,
+    "active": 20,
+    "approved": 58,
+    "recent": 33,
+    "developmentRate": 3.75,
+    "byType": {
+      "Site Plan Control        ": 40,
+      "Zoning By-law Amendment  ": 36,
+      "Official Plan Amendment  ": 10,
+      "Demolition Control       ": 5
+    },
+    "developmentScore": 93
+  },
+  "westboro": {
+    "total": 139,
+    "active": 25,
+    "approved": 101,
+    "recent": 27,
+    "developmentRate": 2.2,
+    "byType": {
+      "Zoning By-law Amendment  ": 68,
+      "Site Plan Control        ": 64,
+      "Official Plan Amendment  ": 6,
+      "Ontario Heritage Act     ": 1
+    },
+    "developmentScore": 83
+  },
+  "whitehaven-woodpark-glabar-park": {
+    "total": 17,
+    "active": 2,
+    "approved": 13,
+    "recent": 6,
+    "developmentRate": 0.52,
+    "byType": {
+      "Zoning By-law Amendment  ": 9,
+      "Official Plan Amendment  ": 5,
+      "Site Plan Control        ": 3
+    },
+    "developmentScore": 31
+  }
+}

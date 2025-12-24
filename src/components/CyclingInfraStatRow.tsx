@@ -7,7 +7,7 @@ interface CyclingInfraStatRowProps {
   bikeLanesKm: number;
   pathsKm: number;
   pavedShouldersKm: number;
-  cyclingByType: Record<string, number>;
+  cyclingByType: Record<string, number | undefined>;
   bikeScore: number;
   areaKm2: number;
 }
@@ -74,8 +74,8 @@ export default function CyclingInfraStatRow({
 
   // Sort infrastructure types by length
   const sortedTypes = Object.entries(cyclingByType)
+    .filter((entry): entry is [string, number] => entry[1] !== undefined && entry[1] > 0)
     .map(([type, lengthM]) => ({ type, km: lengthM / 1000 }))
-    .filter(t => t.km > 0)
     .sort((a, b) => b.km - a.km);
 
   const displayValue = cyclingTotalKm > 0 ? `${cyclingTotalKm.toFixed(1)} km` : 'None';
