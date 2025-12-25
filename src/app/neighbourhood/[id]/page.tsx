@@ -14,7 +14,6 @@ import EqaoStatRow from "@/components/EqaoStatRow";
 import WalkScoreRow from "@/components/WalkScoreRow";
 import AgeDemographicsRow from "@/components/AgeDemographicsRow";
 import DiversityStatRow from "@/components/DiversityStatRow";
-import ScoreBreakdown from "@/components/ScoreBreakdown";
 import BusStopsRow from "@/components/BusStopsRow";
 import TransitInfoRow from "@/components/TransitInfoRow";
 import ParksStatRow from "@/components/ParksStatRow";
@@ -307,13 +306,6 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-2">{name}</h1>
             <p className="text-white/80 text-sm sm:text-lg">{area}</p>
-            <div className="mt-2 sm:mt-3 flex flex-wrap justify-center gap-2 sm:gap-3">
-              <ScoreBreakdown
-                overallScore={overallScore}
-                categoryScores={categoryScores}
-                scoreWeights={scoreWeights}
-              />
-            </div>
           </div>
         </div>
       </div>
