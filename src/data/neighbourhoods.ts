@@ -203,6 +203,7 @@ export interface MetricScores {
   recreation: number | null;
   libraries: number | null;
   // Community metrics
+  nei: number | null;
   roadQuality: number | null;
   quietScore: number | null;
   serviceRequests: number | null;
@@ -234,6 +235,7 @@ export interface RawMetricValues {
   dining: number | null;
   recreation: number | null;
   libraries: number | null;
+  nei: number | null;
   roadQuality: number | null;
   quietScore: number | null;
   serviceRequests: number | null;

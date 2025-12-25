@@ -34,6 +34,7 @@ const METRICS: Record<keyof MetricScores, { label: string; unit: string; format:
   recreation: { label: "Recreation", unit: "facilities", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "more" },
   libraries: { label: "Libraries", unit: "libraries", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "more" },
   // Community
+  nei: { label: "Equity Index", unit: "score", format: (v) => v !== null ? Math.round(v).toString() : "N/A", goodDirection: "higher" },
   roadQuality: { label: "Road Quality", unit: "score", format: (v) => v !== null ? Math.round(v).toString() : "N/A", goodDirection: "higher" },
   quietScore: { label: "Noise Level", unit: "score", format: (v) => v !== null ? Math.round(v).toString() : "N/A", goodDirection: "higher" },
   serviceRequests: { label: "311 Requests", unit: "per 1,000", format: (v) => v !== null ? Math.round(v).toString() : "N/A", goodDirection: "lower" },
@@ -84,8 +85,8 @@ const CATEGORIES: {
   {
     key: "community",
     label: "Community",
-    metrics: ["roadQuality", "quietScore", "serviceRequests"],
-    weights: { roadQuality: 33, quietScore: 33, serviceRequests: 34 },
+    metrics: ["nei", "roadQuality", "quietScore", "serviceRequests"],
+    weights: { nei: 25, roadQuality: 25, quietScore: 25, serviceRequests: 25 },
   },
   {
     key: "nature",

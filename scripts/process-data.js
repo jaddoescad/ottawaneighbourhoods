@@ -2206,6 +2206,17 @@ async function main() {
     },
 
     // COMMUNITY
+    nei: { // Neighbourhood Equity Index 0-100 (higher is better)
+      thresholds: [
+        { max: 40, score: 20, label: 'Low Equity' },
+        { max: 55, score: 40, label: 'Below Average' },
+        { max: 70, score: 60, label: 'Average' },
+        { max: 85, score: 80, label: 'Good' },
+        { max: 100, score: 100, label: 'High Equity' },
+      ],
+      unit: 'score',
+      higherIsBetter: true,
+    },
     roadQuality: { // 0-100 score (higher is better)
       thresholds: [
         { max: 20, score: 20, label: 'Poor' },
@@ -2390,6 +2401,7 @@ async function main() {
       dining: neighbourhood.details.foodEstablishments || 0,
       recreation: neighbourhood.details.recreationFacilities || 0,
       libraries: neighbourhood.details.libraries,
+      nei: neighbourhood.neiScore,
       roadQuality: neighbourhood.details.roadQualityScore,
       quietScore: neighbourhood.details.quietScore,
       serviceRequests: neighbourhood.details.serviceRequestRate,
@@ -2427,7 +2439,8 @@ async function main() {
       recreation: getAbsoluteScore(rawValues.recreation, 'recreation'),
       libraries: getAbsoluteScore(rawValues.libraries, 'libraries'),
 
-      // Community (15%) - Removed NEI (equity index is demographic, not quality)
+      // Community (15%)
+      nei: getAbsoluteScore(rawValues.nei, 'nei'),
       roadQuality: getAbsoluteScore(rawValues.roadQuality, 'roadQuality'),
       quietScore: getAbsoluteScore(rawValues.quietScore, 'quietScore'),
       serviceRequests: getAbsoluteScore(rawValues.serviceRequests, 'serviceRequests'),
@@ -2453,7 +2466,7 @@ async function main() {
       schools: weightedAvg(scores.eqao, 0.7, scores.schoolCount, 0.3), // EQAO 70%, count 30%
       healthEnvironment: average([scores.treeCanopy, scores.hospital, scores.primaryCare, scores.foodSafety]),
       amenities: average([scores.parks, scores.grocery, scores.dining, scores.recreation, scores.libraries]),
-      community: average([scores.roadQuality, scores.quietScore, scores.serviceRequests]), // Removed NEI
+      community: average([scores.nei, scores.roadQuality, scores.quietScore, scores.serviceRequests]),
       nature: average([scores.trails, scores.cycling]),
       affordability: average([scores.rent, scores.homePrice, scores.foodCostBurden]),
       walkability: average([scores.walk, scores.transit, scores.bike]),
@@ -2506,7 +2519,8 @@ async function main() {
       dining: scores.dining,
       recreation: scores.recreation,
       libraries: scores.libraries,
-      // Community metrics (NEI removed - it's demographic, not quality)
+      // Community metrics
+      nei: scores.nei,
       roadQuality: scores.roadQuality,
       quietScore: scores.quietScore,
       serviceRequests: scores.serviceRequests,
