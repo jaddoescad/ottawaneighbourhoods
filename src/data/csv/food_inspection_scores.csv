@@ -1,0 +1,106 @@
+id,name,establishments,totalInspections,recentInspections,avgScore,recentAvgScore,perfectScoreRate,lowScoreRate,totalViolations,criticalViolations,violationsPerInspection,criticalViolationRate
+"alta-vista","Alta Vista",101,869,243,99.1,98.6,98.6,1.4,864,225,0.99,26
+"bayshore","Bayshore",114,913,214,98.9,98.8,98.5,1.5,715,194,0.78,27.1
+"beacon-hill-south-cardinal-heights","Beacon Hill South",109,769,179,98.7,100,97.5,2.5,381,76,0.5,19.9
+"beaverbrook","Beaverbrook",26,274,53,100,100,100,0,175,47,0.64,26.9
+"bells-corners-east","Bells Corners East",120,881,257,99.4,100,98.9,1.1,734,187,0.83,25.5
+"bells-corners-west","Bells Corners West",69,432,137,99.3,99.6,98.6,1.4,355,109,0.82,30.7
+"billings-bridge-heron-park","Billings Bridge",163,1302,348,98.7,98.9,97.7,2.3,1621,453,1.25,27.9
+"blackburn-hamlet","Blackburn Hamlet",54,323,80,99.1,98.8,98.1,1.9,213,42,0.66,19.7
+"blossom-park-timbermill","Blossom Park",66,365,114,100,100,100,0,219,45,0.6,20.5
+"borden-farm-fisher-glen","Borden Farm",40,465,127,98.7,99.2,98.3,1.7,403,130,0.87,32.3
+"braemar-park-bel-air-heights-copeland-park","Braemar Park",43,284,78,99.8,100,99.6,0.4,144,37,0.51,25.7
+"bridlewood-emerald-meadows","Bridlewood",39,373,101,99.5,99,99.2,0.8,207,52,0.55,25.1
+"britannia","Britannia",119,899,214,99.5,99.8,99.2,0.8,773,223,0.86,28.8
+"brookside-briarbrook-morgan-s-grant","Morgan's Grant",201,1655,396,99.4,99.4,99.1,0.9,1146,340,0.69,29.7
+"cardinal-creek","Cardinal Creek",33,331,78,98.3,99.4,96.7,3.3,459,135,1.39,29.4
+"carleton-heights-courtland-park","Carleton Heights",80,623,151,99.2,99.7,98.6,1.4,580,148,0.93,25.5
+"carlington","Carlington",165,1199,261,99.5,99.6,99.1,0.9,942,284,0.79,30.1
+"carp","Carp",94,661,150,99.7,100,99.5,0.5,441,115,0.67,26.1
+"carson-grove-carson-meadows","Carson Grove",116,1029,186,98.8,99.5,97.7,2.3,700,181,0.68,25.9
+"centrepointe","Centrepointe",31,281,79,99.5,99.4,98.9,1.1,219,61,0.78,27.9
+"centretown","Centretown",1363,8146,1850,98.9,98.2,98.1,1.9,6813,1930,0.84,28.3
+"chapel-hill-north","Chapel Hill North",49,374,83,97.3,100,95.2,4.8,293,70,0.78,23.9
+"chapel-hill-south","Chapel Hill South",70,864,167,98.8,97.6,98,2,699,227,0.81,32.5
+"chapman-mills","Chapman Mills",38,369,100,98.5,99.5,97.6,2.4,454,155,1.23,34.1
+"city-view","City view",114,941,242,99.5,99.8,99.3,0.7,443,128,0.47,28.9
+"civic-hospital","Civic Hospital",39,529,135,99.7,100,99.4,0.6,456,123,0.86,27
+"constance-bay","Constance Bay",14,92,18,100,100,100,0,60,10,0.65,16.7
+"convent-glen-orleans-woods","Convent Glen",94,748,160,98.9,99.7,97.9,2.1,501,117,0.67,23.4
+"corkery","Corkery",9,30,6,100,100,100,0,12,4,0.4,33.3
+"craig-henry-manordale","Craig Henry",26,159,47,98.4,98.9,97.5,2.5,89,25,0.56,28.1
+"crestview-tanglewood","Crestview",77,683,152,99.7,99.7,99.4,0.6,354,93,0.52,26.3
+"crystal-bay-lakeview-park","Crystal Bay",26,115,12,100,100,100,0,64,18,0.56,28.1
+"cumberland","Cumberland",35,206,61,98.3,97.5,97.1,2.9,204,62,0.99,30.4
+"dunrobin","Dunrobin",25,210,47,99.3,98.9,98.6,1.4,123,27,0.59,22
+"edwards-carlsbad-springs","Carlsbad Springs",69,265,62,99.4,100,99.2,0.8,187,40,0.71,21.4
+"elmvale-canterbury","Elmvale Acres",65,482,136,99.2,100,98.5,1.5,554,159,1.15,28.7
+"emerald-woods-sawmill-creek","Sawmill Creek",60,582,153,99.2,99,98.8,1.2,528,147,0.91,27.8
+"fallingbrook","Fallingbrook",102,1010,228,98.2,98.2,96.5,3.5,1087,348,1.08,32
+"findlay-creek","Findlay Creek",42,336,103,98.8,100,98.5,1.5,247,67,0.74,27.1
+"fisher-heights","Fisher Heights",150,1309,360,99.1,98.9,98.3,1.7,1142,316,0.87,27.7
+"fitzroy","Fitzroy",13,71,14,99.3,100,98.6,1.4,30,5,0.42,16.7
+"glebe-dows-lake","Glebe - Dows Lake",419,2611,684,98.8,98.8,98.2,1.8,3329,779,1.27,23.4
+"glen-cairn","Glen Cairn",157,1192,351,99.2,98.9,98.5,1.5,1244,351,1.04,28.2
+"greely","Greely",80,449,125,99.6,99.6,99.1,0.9,308,79,0.69,25.6
+"greenboro-east","Greenboro East",10,65,24,100,100,100,0,56,6,0.86,10.7
+"greenboro-west","Greenboro West",13,118,28,99.6,98.2,99.2,0.8,99,20,0.84,20.2
+"hawthorne-meadows-sheffield-glen","Sheffield Glen",29,180,36,98.9,98.6,98.3,1.7,160,44,0.89,27.5
+"hintonburg-mechanicsville","Hintonburg",318,1543,392,98.9,99.2,98.6,1.4,1184,331,0.77,28
+"hunt-club-park","Hunt Club Park",22,107,26,99.1,100,98.1,1.9,109,15,1.02,13.8
+"iris","Iris",76,702,163,99.6,100,99.3,0.7,367,93,0.52,25.3
+"island-park-wellington-village","Wellington Village",110,660,154,99.3,99,99.1,0.9,433,110,0.66,25.4
+"kanata-lakes","Kanata Lakes",178,1788,448,99.7,99.9,99.5,0.5,1534,363,0.86,23.7
+"katimavik-hazeldean","Katimavik",131,1586,356,99.5,99.7,99,1,1275,321,0.8,25.2
+"kinburn","Kinburn",10,28,7,100,100,100,0,3,1,0.11,33.3
+"laurentian","Laurentian",181,1257,295,99,98.1,98.2,1.8,996,303,0.79,30.4
+"ledbury-heron-gate-ridgemont","Heron Gate",147,1093,349,98.3,96.7,97.5,2.5,1146,300,1.05,26.2
+"leslie-park-bruce-farm","Leslie Park",10,69,15,98.6,96.7,97.1,2.9,98,24,1.42,24.5
+"lowertown-east","Lowertown East",79,442,110,97.2,98.2,95.9,4.1,613,184,1.39,30
+"lowertown-west","Lowertown West",566,4492,1140,98.7,98.6,97.8,2.2,6909,1705,1.54,24.7
+"manor-park","Manor Park",94,395,84,99.6,100,99.2,0.8,250,70,0.63,28
+"manotick","Manotick",123,689,208,99.8,100,99.6,0.4,479,151,0.7,31.5
+"merivale-gardens-grenfell-glen-pineglen-country-place","Merivale Gardens",18,108,23,100,100,100,0,74,23,0.69,31.1
+"metcalfe","Metcalfe",60,263,51,98.9,100,98.5,1.5,161,51,0.61,31.7
+"richmond","Richmond",89,579,152,99.8,100,99.7,0.3,566,146,0.98,25.8
+"munster-ashton","Munster - Ashton",29,160,47,99.7,100,99.4,0.6,165,45,1.03,27.3
+"navan-sarsfield","Navan - Sarsfield",45,236,49,99.6,99,99.2,0.8,136,44,0.58,32.4
+"new-edinburgh","New Edinburgh",64,476,96,99.5,100,99.2,0.8,366,103,0.77,28.1
+"north-gower-kars","North Gower - Kars",51,224,56,98.9,100,97.8,2.2,202,63,0.9,31.2
+"old-barrhaven-east","Old Barrhaven East",117,1163,363,98.5,99,97.3,2.7,1345,441,1.16,32.8
+"old-barrhaven-west","Old Barrhaven West",134,979,319,98.6,99.4,97.4,2.6,1065,350,1.09,32.9
+"old-hunt-club","Old Hunt Club",78,626,169,99.4,99.7,99,1,505,118,0.81,23.4
+"old-ottawa-east","Old Ottawa East",65,453,130,99.2,99.2,98.5,1.5,649,171,1.43,26.3
+"old-ottawa-south","Old Ottawa South",120,860,211,99.2,99.3,98.7,1.3,1064,290,1.24,27.3
+"orleans-village-chateauneuf","Orléans Village",91,905,214,98.6,98.6,97.5,2.5,830,197,0.92,23.7
+"osgoode-vernon","Osgoode - Vernon",53,301,88,99.8,99.4,99.7,0.3,174,37,0.58,21.3
+"overbrook","Overbrook",432,2863,617,99.3,99.4,99,1,1717,393,0.6,22.9
+"parkwood-hills","Parkwood Hills",17,80,17,100,100,100,0,77,22,0.96,28.6
+"pineview","Pineview",61,405,86,99,100,99,1,304,82,0.75,27
+"playfair-park-guildwood-estates","Playfair Park",14,65,24,100,100,100,0,65,8,1,12.3
+"portobello-south","Portobello South",156,1717,406,98.7,99.3,98,2,1749,514,1.02,29.4
+"qualicum-redwood","Qualicum - Redwood",24,180,27,99.2,98.1,98.3,1.7,126,54,0.7,42.9
+"queensway-terrace-north","Queensway Terrace North",13,84,21,100,100,100,0,50,19,0.6,38
+"queenswood-chatelaine","Queenswood",30,135,45,97.4,98.9,95.6,4.4,197,57,1.46,28.9
+"queenswood-heights","Queenswood Heights",183,1278,275,97.9,99.1,96.1,3.9,1497,553,1.17,36.9
+"rideau-crest-davidson-heights","Rideau Crest",24,205,56,99.3,100,99,1,96,25,0.47,26
+"riverside-park-mooney-s-bay","Mooney's Bay",76,263,94,99,98.9,98.9,1.1,180,55,0.68,30.6
+"riverside-park-south-revelstoke","Riverside Park South",5,32,9,100,100,100,0,12,1,0.38,8.3
+"riverside-south-leitrim","Riverside South",55,365,119,99.6,98.7,99.5,0.5,223,65,0.61,29.1
+"riverview","Riverview",281,1840,418,99.4,99.6,99.1,0.9,1090,255,0.59,23.4
+"rockcliffe-park","Rockcliffe Park",11,59,19,100,100,100,0,13,3,0.22,23.1
+"rothwell-heights-beacon-hill-north","Rothwell Heights",100,661,145,99.2,100,98.3,1.7,364,72,0.55,19.8
+"sandy-hill","Sandy Hill",475,2956,611,98.3,98,97.2,2.8,3892,1035,1.32,26.6
+"south-keys","South Keys",68,584,167,99.5,99.1,99.1,0.9,427,121,0.73,28.3
+"stittsville","Stittsville",164,1218,314,99.3,100,98.8,1.2,1063,281,0.87,26.4
+"stittsville-east","Stittsville East",40,196,80,100,100,100,0,112,25,0.57,22.3
+"stittsville-north","Stittsville North",170,1787,409,99.6,99.6,99.4,0.6,1045,350,0.58,33.5
+"stonebridge-half-moon-bay","Half Moon Bay",106,971,309,98.6,99.4,97.3,2.7,1152,389,1.19,33.8
+"trend-arlington","Trend-Arlington",40,258,95,99.6,99.5,99.2,0.8,185,37,0.72,20
+"vanier-north","Vanier North",177,1120,236,98.8,98.9,98.2,1.8,978,249,0.87,25.5
+"vanier-south","Vanier South",177,933,207,99.2,99.8,99,1,557,134,0.6,24.1
+"vars","Vars",32,167,28,99.4,98.2,98.8,1.2,117,36,0.7,30.8
+"wateridge-village","Wateridge Village",26,313,66,99,98.5,98.1,1.9,332,111,1.06,33.4
+"west-centretown","West Centretown",466,3662,769,98.8,99.3,98,2,4624,1305,1.26,28.2
+"westboro","Westboro",154,1036,220,99.4,99.3,99,1,797,256,0.77,32.1
+"whitehaven-woodpark-glabar-park","Whitehaven",78,693,147,99.4,99.7,98.8,1.2,548,157,0.79,28.6

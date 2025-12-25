@@ -694,6 +694,41 @@ async function main() {
     console.log('  - No overdose data file (run: node scripts/download-overdose-data.js)');
   }
 
+  // Load Health Data (OCHPP indicators by neighbourhood)
+  let healthDataById = {};
+  const healthDataPath = path.join(csvDir, 'health_data.csv');
+  if (fs.existsSync(healthDataPath)) {
+    const healthRaw = parseCSV(fs.readFileSync(healthDataPath, 'utf8'));
+    console.log(`  - Health indicators for ${healthRaw.length} neighbourhoods`);
+    for (const entry of healthRaw) {
+      healthDataById[entry.id] = {
+        primaryCareAccess: parseFloat(entry.primaryCareAccess) || null,
+        diabetesPrevalence: parseFloat(entry.diabetesPrevalence) || null,
+        asthmaPrevalence: parseFloat(entry.asthmaPrevalence) || null,
+        copdPrevalence: parseFloat(entry.copdPrevalence) || null,
+        hypertensionPrevalence: parseFloat(entry.hypertensionPrevalence) || null,
+        mentalHealthEdRate: parseFloat(entry.mentalHealthEdRate) || null,
+        prematureMortality: parseFloat(entry.prematureMortality) || null,
+        hospitalAdmissionRate: parseFloat(entry.hospitalAdmissionRate) || null,
+        healthDataYear: entry.dataYear || null,
+        healthDataSource: entry.dataSource || null,
+      };
+    }
+  } else {
+    console.log('  - No health data file (run: node scripts/download-health-data.js)');
+  }
+
+  // Load Food Inspection data (Ottawa Public Health)
+  let foodInspectionData = {};
+  const foodInspectionPath = path.join(csvDir, 'food_inspections_by_neighbourhood.json');
+  if (fs.existsSync(foodInspectionPath)) {
+    foodInspectionData = JSON.parse(fs.readFileSync(foodInspectionPath, 'utf8'));
+    const withData = Object.values(foodInspectionData).filter(f => f.establishments > 0).length;
+    console.log(`  - Food inspection data for ${withData} neighbourhoods`);
+  } else {
+    console.log('  - No food inspection data (run: node scripts/download-food-inspections.js && node scripts/process-food-inspections.js)');
+  }
+
   // Load ONS Census Data from ons-sqo.ca (2021 Census data)
   let onsCensusData = [];
   const onsCensusPath = path.join(csvDir, 'ons_census_data.csv');
@@ -1743,6 +1778,26 @@ async function main() {
       overdoseYearlyAvg: overdoseYearlyAvg > 0 ? roundTo(overdoseYearlyAvg, 1) : null,
       overdoseRatePer100k: overdoseRatePer100k,
       overdoseYears: overdoseYears || null,
+      // Health indicators (OCHPP data)
+      primaryCareAccess: healthDataById[info.id]?.primaryCareAccess || null,
+      diabetesPrevalence: healthDataById[info.id]?.diabetesPrevalence || null,
+      asthmaPrevalence: healthDataById[info.id]?.asthmaPrevalence || null,
+      copdPrevalence: healthDataById[info.id]?.copdPrevalence || null,
+      hypertensionPrevalence: healthDataById[info.id]?.hypertensionPrevalence || null,
+      mentalHealthEdRate: healthDataById[info.id]?.mentalHealthEdRate || null,
+      prematureMortality: healthDataById[info.id]?.prematureMortality || null,
+      hospitalAdmissionRate: healthDataById[info.id]?.hospitalAdmissionRate || null,
+      healthDataYear: healthDataById[info.id]?.healthDataYear || null,
+      healthDataSource: healthDataById[info.id]?.healthDataSource || null,
+      // Food Inspection data (Ottawa Public Health)
+      foodEstablishments: foodInspectionData[info.id]?.establishments || 0,
+      foodInspections: foodInspectionData[info.id]?.totalInspections || 0,
+      foodInspectionAvgScore: foodInspectionData[info.id]?.avgScore || null,
+      foodInspectionRecentAvgScore: foodInspectionData[info.id]?.recentAvgScore || null,
+      foodViolations: foodInspectionData[info.id]?.totalViolations || 0,
+      foodCriticalViolations: foodInspectionData[info.id]?.criticalViolations || 0,
+      foodViolationsPerInspection: foodInspectionData[info.id]?.violationsPerInspection || null,
+      foodPerfectScoreRate: foodInspectionData[info.id]?.perfectScoreRate || null,
       commuteToDowntown: commuteData.commuteToDowntown,
       commuteByTransit: commuteData.commuteByTransit,
       // Transit station proximity

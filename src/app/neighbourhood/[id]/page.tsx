@@ -36,6 +36,8 @@ import GymStatRow from "@/components/GymStatRow";
 import RecreationFacilitiesStatRow from "@/components/RecreationFacilitiesStatRow";
 import SportsCourtsStatRow from "@/components/SportsCourtsStatRow";
 import EquityStatRow from "@/components/EquityStatRow";
+import HealthStatRow from "@/components/HealthStatRow";
+import FoodInspectionStatRow from "@/components/FoodInspectionStatRow";
 import CoverageButton from "@/components/CoverageButton";
 
 const BASE_URL = "https://ottawahoods.com";
@@ -351,6 +353,23 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
           <EquityStatRow
             neiScore={neighbourhood.neiScore}
           />
+          <HealthStatRow
+            nearestHospital={details.nearestHospital}
+            distanceToHospital={details.distanceToNearestHospital}
+            overdoseRatePer100k={overdoseRatePer100k}
+            neiScore={neighbourhood.neiScore}
+            primaryCareAccess={neighbourhood.primaryCareAccess}
+            diabetesPrevalence={neighbourhood.diabetesPrevalence}
+            asthmaPrevalence={neighbourhood.asthmaPrevalence}
+            copdPrevalence={neighbourhood.copdPrevalence}
+            hypertensionPrevalence={neighbourhood.hypertensionPrevalence}
+            mentalHealthEdRate={neighbourhood.mentalHealthEdRate}
+            prematureMortality={neighbourhood.prematureMortality}
+            hospitalAdmissionRate={neighbourhood.hospitalAdmissionRate}
+            healthDataYear={neighbourhood.healthDataYear}
+            healthDataSource={neighbourhood.healthDataSource}
+            population={population}
+          />
           <ParksStatRow
             parksCount={details.parks}
             parksList={details.parksList}
@@ -477,6 +496,16 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             source={DATA_SOURCES.food}
             boundaries={boundaries}
             neighbourhoodName={name}
+          />
+          <FoodInspectionStatRow
+            establishments={neighbourhood.foodEstablishments}
+            inspections={neighbourhood.foodInspections}
+            avgScore={neighbourhood.foodInspectionAvgScore}
+            recentAvgScore={neighbourhood.foodInspectionRecentAvgScore}
+            violations={neighbourhood.foodViolations}
+            criticalViolations={neighbourhood.foodCriticalViolations}
+            violationsPerInspection={neighbourhood.foodViolationsPerInspection}
+            perfectScoreRate={neighbourhood.foodPerfectScoreRate}
           />
           <GroceryStoresStatRow
             groceryStores={details.groceryStores}

@@ -226,6 +226,26 @@ export interface Neighbourhood {
   overdoseYearlyAvg: number | null; // Average yearly overdose ED visits
   overdoseRatePer100k: number | null; // Average yearly rate per 100,000 population
   overdoseYears: string | null; // Date range of data (e.g., "2020-2024")
+  // Health indicators (OCHPP data)
+  primaryCareAccess: number | null; // % of residents with family doctor
+  diabetesPrevalence: number | null; // % of adults with diabetes
+  asthmaPrevalence: number | null; // % of adults with asthma
+  copdPrevalence: number | null; // % of adults with COPD
+  hypertensionPrevalence: number | null; // % of adults with hypertension
+  mentalHealthEdRate: number | null; // Mental health ED visits per 100K
+  prematureMortality: number | null; // Premature mortality rate per 100K
+  hospitalAdmissionRate: number | null; // Hospital admissions per 1K
+  healthDataYear: string | null; // Year of health data
+  healthDataSource: string | null; // Source of health data
+  // Food Inspection data (Ottawa Public Health)
+  foodEstablishments: number; // Number of food establishments
+  foodInspections: number; // Total inspections
+  foodInspectionAvgScore: number | null; // Average inspection score (0-100)
+  foodInspectionRecentAvgScore: number | null; // Recent 2-year average
+  foodViolations: number; // Total violations
+  foodCriticalViolations: number; // Critical violations
+  foodViolationsPerInspection: number | null; // Violations per inspection
+  foodPerfectScoreRate: number | null; // % of perfect scores
   commuteToDowntown: number; // Average commute time to downtown in minutes (by car)
   commuteByTransit: number; // Average commute time to downtown in minutes (by transit)
   // Transit station proximity

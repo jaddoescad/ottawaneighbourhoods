@@ -1,979 +1,143 @@
 # Ottawa Neighbourhoods App - Data Documentation
 
 ## Data Pipeline
-
 ```
-Raw CSV Files → process-data.js → data.json → Website
+Raw CSVs → node scripts/process-data.js → data.json → Website
 ```
-
-### To Update Data:
-```bash
-node scripts/process-data.js
-```
-
-This reads raw CSVs, fetches neighbourhood boundaries from Ottawa Open Data, assigns parks/schools/libraries/transit stations using point-in-polygon analysis, aggregates crime data by neighbourhood, and outputs `src/data/processed/data.json`.
 
 ## File Structure
-
 ```
-src/data/
-├── csv/                          # Raw data (edit these)
-│   ├── parks_raw.csv             # All 1,365 parks from Ottawa Open Data
-│   ├── schools_raw.csv           # All 451 schools from Ottawa Open Data
-│   ├── libraries_raw.csv         # All 34 libraries from Ottawa Open Data
-│   ├── eqao_scores.csv           # EQAO school scores from Ontario Open Data
-│   ├── crime_raw.csv             # ~98K crimes (2023-2024) from Ottawa Police
-│   ├── collisions_raw.csv        # ~15K traffic collisions (2022-2024) from Ottawa Open Data
-│   ├── hospitals_raw.csv         # All 10 hospitals from Ottawa Open Data
-│   ├── restaurants_cafes_raw.csv # Restaurants & cafés (OpenStreetMap / Overpass)
-│   ├── grocery_stores_raw.csv    # Grocery stores (OpenStreetMap / Overpass)
-│   ├── transit_scores.csv        # Transit Score (calculated from OC Transpo GTFS)
-│   ├── walk_scores.csv           # Walk Score (calculated from amenity density)
-│   ├── bike_scores.csv           # Bike Score (calculated from trails/connectivity)
-│   ├── age_demographics.csv      # Age demographics (% children, young professionals, seniors)
-│   ├── commute_times.csv         # Commute times to downtown (by car and transit)
-│   ├── transit_stations.csv      # O-Train and Transitway stations (43 stations)
-│   ├── neighbourhoods.csv        # Neighbourhood info (scores, pros/cons, avgRent, avgHomePrice)
-│   ├── income_data.csv           # Median income from 2021 Census (ONS-SQO)
-│   ├── rent_data.csv             # Rent research data with sources
-│   ├── home_prices.csv           # Home price research data with sources
-│   ├── ncc_greenbelt_trails.csv  # NCC Greenbelt trails (37 trails, 141+ km)
-│   ├── recreation_facilities_raw.csv # Pools, arenas, rinks, community centres (263 facilities)
-│   ├── sports_courts_raw.csv     # Sports courts & fields (1,389 total: basketball, tennis, soccer, etc.)
-│   ├── 311_current_year.csv      # 311 Service Requests (current year ~365K)
-│   ├── 311_previous_year.csv     # 311 Service Requests (previous year ~319K)
-│   ├── 311_by_neighbourhood.json # Processed 311 data by neighbourhood
-│   ├── tree_equity_raw.json      # Tree Equity Score census tract data (216 tracts)
-│   ├── tree_equity_scores.csv    # Tree Equity Scores by neighbourhood (84 with data)
-│   ├── tree_equity_by_neighbourhood.json # Processed tree equity by neighbourhood
-│   ├── nei_scores.csv            # Neighbourhood Equity Index 2019 (96 with data)
-│   ├── overdose_by_neighbourhood.csv # Overdose ED visits by ONS neighbourhood (113 areas)
-│   ├── food_affordability.csv    # Food Cost Burden data (105 neighbourhoods)
-│   └── ons_neighbourhoods.csv    # Reference: all 111 ONS area IDs
-├── processed/
-│   └── data.json                 # Generated output (don't edit directly)
-└── neighbourhoods.ts             # TypeScript loader
-
-scripts/
-├── process-data.js               # Main processing script
-├── download-eqao-data.js         # Downloads EQAO scores from Ontario Open Data
-├── download-hospitals.js         # Downloads hospitals from Ottawa Open Data
-├── download-restaurants-cafes.js # Downloads restaurants & cafés from OpenStreetMap (Overpass)
-├── download-grocery-stores.js    # Downloads grocery stores from OpenStreetMap (Overpass)
-├── generate-age-demographics.js  # Generates age demographics CSV from 2021 Census
-├── generate-income-data.js       # Generates median income CSV from 2021 Census (ONS-SQO)
-├── download-ncc-greenbelt.js     # Downloads NCC Greenbelt trails data
-├── download-transit-stations.js  # Downloads O-Train and Transitway stations
-├── download-collisions.js        # Downloads traffic collision data from Ottawa Open Data
-├── download-recreation-facilities.js # Downloads pools, arenas, rinks from Ottawa Open Data
-├── download-sports-courts.js     # Downloads sports courts & fields from Ottawa Open Data
-├── process-311-data.js           # Processes 311 service requests by neighbourhood
-├── download-tree-equity.js       # Downloads Tree Equity Score data from City of Ottawa
-├── process-tree-equity.js        # Maps census tract tree data to neighbourhoods
-├── download-nei-scores.js        # Downloads NEI 2019 scores and maps to neighbourhoods
-├── download-overdose-data.js     # Downloads overdose ED visits by ONS neighbourhood
-├── calculate-food-affordability.js # Calculates food cost burden from NFB vs income
-└── config/
-    └── neighbourhood-mapping.js  # Maps our neighbourhoods to ONS IDs
+src/data/csv/           # Raw data (edit these)
+src/data/processed/     # Generated output (don't edit)
+scripts/                # Processing & download scripts
+scripts/config/neighbourhood-mapping.js  # Maps neighbourhoods to ONS IDs
 ```
 
-## Data Sources
+## Data Sources Summary
 
-Most data from **City of Ottawa Open Data** (ArcGIS REST APIs). Restaurants & cafés via **OpenStreetMap** (Overpass):
+| Data | API/Source | Records |
+|------|------------|---------|
+| Parks | maps.ottawa.ca/arcgis/.../Parks_Inventory/MapServer/24 | 1,365 |
+| Schools | maps.ottawa.ca/arcgis/.../Schools/MapServer/0 | 451 |
+| EQAO Scores | data.ontario.ca | 244 |
+| Libraries | opendata.arcgis.com (Ottawa) | 34 |
+| Transit Stations | maps.ottawa.ca/arcgis/.../TransitServices/MapServer | 43 |
+| Crime (2023-24) | services7.arcgis.com/.../Criminal_Offences_Open_Data | ~98K |
+| Collisions (2022-24) | services.arcgis.com/.../Collisions | ~15K |
+| Hospitals | maps.ottawa.ca/arcgis/.../Hospitals | 10 |
+| Recreation Facilities | maps.ottawa.ca/arcgis/.../City_Facilities/MapServer/5 | 263 |
+| Sports Courts | maps.ottawa.ca/arcgis/.../Parks_Inventory (Layers 1,3,19,21,22,27) | 1,389 |
+| 311 Requests | 311opendatastorage.blob.core.windows.net | ~685K |
+| Restaurants/Grocery | overpass-api.de (OpenStreetMap) | ~1-3K |
+| Tree Equity | services5.arcgis.com/.../TES_*_Area_WFL1 (4 transects) | 216 |
+| NEI 2019 | maps.ottawa.ca/arcgis/.../Planning/MapServer/109 | 165 |
+| Overdose ED | services.arcgis.com/.../Confirmed_Drug_Overdose_ED_Visits | 113 |
+| Food Inspections | opendata.ottawa.ca/inspections/yelp_ottawa_healthscores_FoodSafety.zip | ~89K |
+| Boundaries | maps.ottawa.ca/arcgis/.../Neighbourhoods/MapServer | 116 |
+| Census Data | ons-sqo.ca/wp-json/ons/v1/get-data/data | 116 |
 
-| Data | API | Records |
-|------|-----|---------|
-| Parks | https://maps.ottawa.ca/arcgis/rest/services/Parks_Inventory/MapServer/24 | 1,365 |
-| Schools | https://maps.ottawa.ca/arcgis/rest/services/Schools/MapServer/0 | 451 |
-| EQAO Scores | https://data.ontario.ca/dataset/school-information-and-student-demographics | 244 |
-| Libraries | https://opendata.arcgis.com/datasets/ottawa::ottawa-public-library-locations-2024.geojson | 34 |
-| Transit Stations | https://maps.ottawa.ca/arcgis/rest/services/TransitServices/MapServer/0 | 40 |
-| O-Train Stations | https://maps.ottawa.ca/arcgis/rest/services/TransitServices/MapServer/1 | 5 |
-| Crime (2023-2024) | https://services7.arcgis.com/2vhcNzw0NfUwAD3d/ArcGIS/rest/services/Criminal_Offences_Open_Data/FeatureServer/0 | ~98K |
-| Collisions (2022-2024) | https://services.arcgis.com/G6F8XLCl5KtAlZ2G/arcgis/rest/services/Collisions/FeatureServer/0 | ~15K |
-| Hospitals | https://maps.ottawa.ca/arcgis/rest/services/Hospitals/MapServer/0 | 10 |
-| Recreation Facilities | https://maps.ottawa.ca/arcgis/rest/services/City_Facilities/MapServer/5 | 263 |
-| Sports Courts | https://maps.ottawa.ca/arcgis/rest/services/Parks_Inventory/MapServer (Layers 1,3,19,21,22,27) | 1,389 |
-| 311 Service Requests | https://311opendatastorage.blob.core.windows.net/311data/ | ~685K |
-| Restaurants & Cafés | https://overpass-api.de/api/interpreter (OSM Overpass) | ~1-3K |
-| Grocery Stores | https://overpass-api.de/api/interpreter (OSM Overpass) | ~226 |
-| Walk Scores | https://www.walkscore.com/CA-ON/Ottawa | 27 |
-| Median Income | https://ons-sqo.ca/wp-json/ons/v1/get-data/data (2021 Census) | 34 |
-| Age Demographics | https://open.ottawa.ca/datasets/ottawa::2021-long-form-census-sub-area | 27 |
-| Commute Times | Google Maps estimates (manual research) | 37 |
-| NCC Greenbelt Trails | https://services2.arcgis.com/WLyMuW006nKOfa5Z/ArcGIS/rest/services/Walking_Hiking/FeatureServer + manual research | 37 |
-| Tree Equity Score | https://services5.arcgis.com/KnPa9eifqCaXA5Rl/ArcGIS/rest/services (4 transects) | 216 |
-| NEI 2019 | https://maps.ottawa.ca/arcgis/rest/services/Planning/MapServer/109 | 165 |
-| Food Cost Burden | Ottawa Public Health 2025 NFB + 2021 Census Income | 105 |
-| Overdose ED Visits | https://services.arcgis.com/G6F8XLCl5KtAlZ2G/arcgis/rest/services/Confirmed_Drug_Overdose_ED_Visits.../FeatureServer/0 | 113 |
-| Boundaries | https://maps.ottawa.ca/arcgis/rest/services/Neighbourhoods/MapServer/0 | 111 |
+## Key CSV Files
 
-## Raw Data Fields
+| File | Description |
+|------|-------------|
+| neighbourhoods.csv | Main neighbourhood info (scores, pros/cons, rent, home prices) |
+| parks_raw.csv | Parks with coordinates, type, dog designation |
+| schools_raw.csv | Schools with board, category, coordinates |
+| eqao_scores.csv | EQAO test scores by school |
+| crime_raw.csv | Crime by year, category, neighbourhood |
+| collisions_raw.csv | Traffic collisions with severity, involved parties |
+| transit_scores.csv | Transit Score (0-100) from GTFS data |
+| walk_scores.csv | Walk Score (0-100) from amenity density |
+| bike_scores.csv | Bike Score (0-100) from trails/connectivity |
+| income_data.csv | Median income from 2021 Census |
+| age_demographics.csv | % children, young professionals, seniors |
+| commute_times.csv | Commute to downtown by car/transit |
+| tree_equity_scores.csv | Tree canopy % and equity score |
+| nei_scores.csv | Neighbourhood Equity Index 2019 |
+| food_affordability.csv | Food cost burden (% income on food) |
+| overdose_by_neighbourhood.csv | Overdose ED visits per 100K |
+| food_inspection_scores.csv | Food inspection scores by neighbourhood |
 
-### parks_raw.csv
-| Field | Description |
-|-------|-------------|
-| NAME | Park name |
-| LATITUDE / LONGITUDE | Coordinates |
-| PARK_TYPE | Active Recreation, Passive, etc. |
-| PARK_CATEGORY | District Park, Neighbourhood Park, etc. |
-| DOG_DESIGNATION | Dog policy (1=leash, 2=off-leash, 3=no dogs) |
-| WARD_NAME | City ward |
-| ADDRESS | Street address |
-| Shape_Area | Park area in square meters |
+## Common Commands
 
-### schools_raw.csv
-| Field | Description |
-|-------|-------------|
-| NAME | School name |
-| LATITUDE / LONGITUDE | Coordinates |
-| BOARD | School board code (OCSB, OCDSB, etc.) |
-| FULL_BOARD | Full board name |
-| CATEGORY | Elementary, Secondary, etc. |
-| NUM / STREET | Address |
-| PHONE | Phone number |
-
-### eqao_scores.csv
-EQAO (Education Quality and Accountability Office) standardized test scores for Ottawa schools.
-
-| Field | Description |
-|-------|-------------|
-| schoolName | School name |
-| boardName | School board name |
-| schoolLevel | Elementary or Secondary |
-| avgScore | Average % of students achieving provincial standard |
-
-**Score Interpretation:** The avgScore represents the average percentage of students achieving the provincial standard across all EQAO tests (Grade 3/6 Reading, Writing, Math; Grade 9 Math; Grade 10 Literacy).
-
-**To refresh EQAO data:**
 ```bash
-node scripts/download-eqao-data.js
+# Rebuild website data
 node scripts/process-data.js
-```
 
-### libraries_raw.csv
-| Field | Description |
-|-------|-------------|
-| NAME | Library branch name |
-| LATITUDE / LONGITUDE | Coordinates |
-| ADDRESS | Street address |
-| POSTAL_CODE | Postal code |
-| ACRONYM | Branch code (e.g., MA for Main) |
-
-### transit_stations_raw.csv
-| Field | Description |
-|-------|-------------|
-| NAME | Station name |
-| TYPE | Station type (Transitway, O-Train Line 2) |
-| LATITUDE / LONGITUDE | Coordinates |
-
-### crime_raw.csv
-| Field | Description |
-|-------|-------------|
-| YEAR | Year of offence (2023 or 2024) |
-| OFF_CATEG | Offence category (Assaults, Break and Enter, Theft, etc.) |
-| NB_NAME_EN | ONS neighbourhood name |
-| WARD | City ward |
-
-**Crime Categories:** Arson, Assaults, Break and Enter, Fraud, Mischief, Robbery, Sexual Violations, Theft $5000 and Under, Theft Over $5000, Theft - Motor Vehicle, and more.
-
-### collisions_raw.csv
-Traffic collision data from City of Ottawa Open Data (2022-2024). Used for traffic safety metrics.
-
-| Field | Description |
-|-------|-------------|
-| LATITUDE / LONGITUDE | Collision coordinates |
-| YEAR | Year of collision (2022-2024) |
-| DATE | Unix timestamp of collision |
-| CLASSIFICATION | Classification: Fatal, Injury, Property Damage |
-| IMPACT_TYPE | Angle, Rear End, Sideswipe, etc. |
-| ROAD_CONDITION | Dry, Wet, Ice, Snow, etc. |
-| ENVIRONMENT | Clear, Rain, Snow, Fog, etc. |
-| LIGHT | Daylight, Dark, Dawn, Dusk |
-| PEDESTRIANS | Number of pedestrians involved |
-| BICYCLES | Number of bicycles involved |
-| MOTORCYCLES | Number of motorcycles involved |
-| INJURIES | Total injuries |
-| FATAL | Number of fatalities |
-| MAJOR | Major injuries |
-| MINOR | Minor injuries |
-
-**Collision Metrics Output:**
-- `collisions` - Total collisions in neighbourhood
-- `collisionsFatal` - Fatal collisions
-- `collisionsInjury` - Injury collisions
-- `collisionsPedestrian` - Collisions involving pedestrians
-- `collisionsBicycle` - Collisions involving cyclists
-
-**To refresh collision data:**
-```bash
-node scripts/download-collisions.js
-node scripts/process-data.js
-```
-
-### 311 Service Requests (311_current_year.csv, 311_previous_year.csv)
-311 service request data from City of Ottawa Open Data (2024-2025). Tracks citizen requests for city services like road repairs, garbage collection, bylaw enforcement, etc.
-
-| Field | Description |
-|-------|-------------|
-| Service Request ID | Unique request identifier |
-| Status | Request status (Resolved, Open, etc.) |
-| Type | Service category (Roads and Transportation, Garbage and Recycling, etc.) |
-| Description | Detailed service request description |
-| Opened Date | When request was submitted |
-| Closed Date | When request was resolved |
-| Address | Service location (for public requests only) |
-| Latitude / Longitude | Coordinates (for public requests only) |
-| Ward | City ward number (1-24) |
-| Channel | How request was submitted (Web, Phone, Mobile) |
-
-**Service Request Categories:**
-- **Roads and Transportation** (~35%): Potholes, road maintenance, traffic signals
-- **Garbage and Recycling** (~31%): Missed collection, bin requests, waste issues
-- **Bylaw Services** (~18%): Noise complaints, property standards, parking violations
-- **Water and Environment** (~10%): Tree maintenance, water issues, flooding
-- **Recreation and Culture** (~3%): Parks, recreation programs
-- **Other** (~3%): Licenses, health, social services
-
-**Data Sources:**
-- Current Year: https://311opendatastorage.blob.core.windows.net/311data/311opendata_currentyear.csv
-- Previous Year: https://311opendatastorage.blob.core.windows.net/311data/311opendata_lastyear.csv
-
-**Metrics Output:**
-- `serviceRequests` - Total 311 requests in neighbourhood (2024-2025)
-- `serviceRequestRate` - Requests per 1,000 residents
-- `serviceRequestsByType` - Breakdown by category
-
-**To refresh 311 data:**
-```bash
-# Download latest data (automatic from Azure Blob Storage)
-curl -o src/data/csv/311_current_year.csv https://311opendatastorage.blob.core.windows.net/311data/311opendata_currentyear.csv
-curl -o src/data/csv/311_previous_year.csv https://311opendatastorage.blob.core.windows.net/311data/311opendata_lastyear.csv
-# Process and aggregate by neighbourhood
-node scripts/process-311-data.js
-node scripts/process-data.js
-```
-
-### tree_equity_scores.csv
-Tree Equity Score data from City of Ottawa (2025). Combines tree canopy cover with equity factors to measure urban forest equity across census tracts.
-
-| Field | Description |
-|-------|-------------|
-| id | Neighbourhood ID |
-| name | Neighbourhood name |
-| treeCanopy | Tree canopy cover percentage (0-100) |
-| treeEquityScore | Tree Equity Score (0-100, higher = better) |
-| censusTractCount | Number of census tracts in neighbourhood |
-| priorityAreas | Census tracts flagged as priority areas |
-| transects | Urban transects (Downtown Core, Inner Urban, Outer Urban, Suburban) |
-
-**Methodology:**
-- Data comes from 4 transect layers covering 216 census tracts
-- Census tract centroids are matched to neighbourhoods using point-in-polygon
-- Scores are area-weighted averages when multiple tracts fall within a neighbourhood
-- 84/105 neighbourhoods have tree equity data (rural areas excluded)
-
-**Tree Canopy Coverage Ranges:**
-- Highest: Rockcliffe Park (47%), Wateridge Village (44%), Rothwell Heights (34%)
-- Lowest: Portobello South (4%), Findlay Creek (6%), Half Moon Bay (6%)
-- City Average: ~20%
-
-**Tree Equity Score Interpretation:**
-- 90-100: Excellent urban forest equity
-- 70-89: Good tree coverage and equity
-- 50-69: Moderate, some priority areas
-- Below 50: Priority for tree planting initiatives
-
-**Data Sources:**
-- Downtown Core: https://services5.arcgis.com/KnPa9eifqCaXA5Rl/ArcGIS/rest/services/TES_DowntownCore_Area_WFL1/FeatureServer
-- Inner Urban: https://services5.arcgis.com/KnPa9eifqCaXA5Rl/ArcGIS/rest/services/TES_InnerUrban_Area_WFL1/FeatureServer
-- Outer Urban: https://services5.arcgis.com/KnPa9eifqCaXA5Rl/ArcGIS/rest/services/TES_OuterUrban_Area_WFL1/FeatureServer
-- Suburban: https://services5.arcgis.com/KnPa9eifqCaXA5Rl/ArcGIS/rest/services/TES_Suburban_Area_WFL1/FeatureServer
-
-**To refresh tree equity data:**
-```bash
-node scripts/download-tree-equity.js
-node scripts/process-tree-equity.js
-node scripts/process-data.js
-```
-
-### nei_scores.csv
-Neighbourhood Equity Index (NEI) 2019 scores from City of Ottawa. The NEI is based on WHO's Urban HEART framework and measures equity across five domains: economy, social development, physical environment, health, and community/belonging.
-
-| Field | Description |
-|-------|-------------|
-| id | Neighbourhood ID |
-| name | Neighbourhood name |
-| neiScore | NEI Score (0-100, higher = better equity) |
-| censusTracts | Number of census tracts mapped to neighbourhood |
-| redIndicators | Count of indicators in "red" (high concern) |
-| yellowIndicators | Count of indicators in "yellow" (some concern) |
-| lightGreenIndicators | Count of indicators in "light green" |
-| greenIndicators | Count of indicators in "green" (no concern) |
-
-**Methodology:**
-- Data comes from 165 census tracts with NEI scores
-- Census tract centroids are matched to ONS neighbourhoods using point-in-polygon
-- Scores are area-weighted averages when multiple tracts fall within a neighbourhood
-- 96/105 neighbourhoods have NEI data (rural/greenbelt areas excluded)
-
-**NEI Score Ranges:**
-- Highest equity: Civic Hospital (85.8), Old Ottawa South (81.2), Island Park (80.0)
-- Lowest equity: Heron Gate (46.2), Hawthorne Meadows (48.2), Vanier South (49.1)
-- City Average: ~67.8
-
-**Score Interpretation:**
-- 80-100: High equity - few concerns across all domains
-- 65-79: Good equity - some concerns in specific areas
-- 50-64: Moderate equity - multiple concern areas
-- Below 50: Priority neighbourhood - significant equity challenges
-
-**Data Source:** https://maps.ottawa.ca/arcgis/rest/services/Planning/MapServer/109
-
-**Partners:** United Way Ottawa, City of Ottawa, Social Planning Council of Ottawa
-
-**To refresh NEI data:**
-```bash
-node scripts/download-nei-scores.js
-node scripts/process-data.js
-```
-
-### overdose_by_neighbourhood.csv
-Confirmed drug overdose ED (Emergency Department) visits by ONS neighbourhood from Ottawa Public Health. Data is based on patient residence postal code, not incident location.
-
-| Field | Description |
-|-------|-------------|
-| ons_id | ONS neighbourhood ID (3001-3117, Gen 3) |
-| ons_name | ONS neighbourhood name |
-| cumulative_overdose_ed_visits | Total ED visits for drug overdose (2020-2024) |
-| yearly_avg_overdose_ed_visits | Average yearly ED visits |
-| yearly_rate_per_100k | Average yearly rate per 100,000 population |
-| years | Date range of data (e.g., "2020-2024") |
-
-**Methodology:**
-- A drug overdose is defined as an unscheduled ED visit where drug poisoning was recorded as the main or other problem
-- Geographic data extracted yearly by OPH from NACRS using IntelliHEALTH Ontario
-- Includes poisoning by narcotics, hallucinogens, hypnotics, stimulants and cannabis (ICD-10 codes T40.0-T40.9, T423, T436)
-- ED visits may underestimate community overdoses as not all individuals seek care
-- Rate suppressed (null) for small populations to protect privacy
-
-**Rate Interpretation (per 100,000 population):**
-- Below 30: Low rate
-- 30-70: Moderate rate
-- 70-130: High rate
-- Above 130: Very high rate
-
-**Highest Rates (2020-2024):**
-- Lowertown West: 1888.6 (shelter/service hub area)
-- Sandy Hill: 331.8
-- West Centretown: 233.4
-- Lowertown East: 194.5
-- Vanier South: 167.4
-
-**Data Source:** Ottawa Public Health via Open Ottawa
-https://open.ottawa.ca/datasets/ottawa::confirmed-drug-overdose-ed-visits-by-ons-neighbourhood-of-patient
-
-**To refresh overdose data:**
-```bash
-node scripts/download-overdose-data.js
-node scripts/process-data.js
-```
-
-### food_affordability.csv
-Food Cost Burden calculated from the 2025 Nutritious Food Basket (NFB) cost vs median household income. Measures what percentage of household income goes to food.
-
-| Field | Description |
-|-------|-------------|
-| id | Neighbourhood ID (matches neighbourhoods.csv) |
-| name | Neighbourhood name |
-| medianIncome | Median household income (from 2021 Census) |
-| annualFoodCost | Annual NFB cost for family of 4 ($14,160 in 2025) |
-| foodCostBurden | % of income spent on food (higher = greater burden) |
-| foodCostBurdenRating | Low/Moderate/High/Very High/Severe |
-
-**Rating Thresholds (% of income on food):**
-| Rating | % of Income | Description |
-|--------|-------------|-------------|
-| Low | <12% | Minimal burden |
-| Moderate | 12-16% | Manageable |
-| High | 16-20% | Noticeable burden |
-| Very High | 20-25% | Financial pressure |
-| Severe | >25% | Food insecurity risk |
-
-**Distribution (2025):**
-- Low: 11 neighbourhoods (10%)
-- Moderate: 53 neighbourhoods (50%)
-- High: 19 neighbourhoods (18%)
-- Very High: 16 neighbourhoods (15%)
-- Severe: 6 neighbourhoods (6%)
-
-**Highest Burden (2025):**
-| Neighbourhood | % of Income | Median Income | Rating |
-|---------------|-------------|---------------|--------|
-| Lowertown East | 28.8% | $49,200 | Severe |
-| Vanier South | 28.8% | $49,200 | Severe |
-| West Centretown | 26.0% | $54,400 | Severe |
-| Billings Bridge | 25.7% | $55,200 | Severe |
-| Heron Gate | 25.1% | $56,400 | Severe |
-
-**Lowest Burden (2025):**
-| Neighbourhood | % of Income | Median Income | Rating |
-|---------------|-------------|---------------|--------|
-| Rockcliffe Park | 6.7% | $212,000 | Low |
-| Merivale Gardens | 10.9% | $130,000 | Low |
-| Manotick | 11.1% | $128,000 | Low |
-| Greely | 11.1% | $128,000 | Low |
-| Carp | 11.2% | $126,000 | Low |
-
-**Data Sources:**
-- NFB Cost: Ottawa Public Health 2025 Nutritious Food Basket Report ($1,180/month for family of 4)
-- Median Income: Statistics Canada 2021 Census via ONS-SQO
-
-**NFB Source:** https://www.ottawapublichealth.ca/en/public-health-topics/food-insecurity.aspx
-
-**To refresh food cost burden data:**
-```bash
-node scripts/calculate-food-affordability.js
-node scripts/process-data.js
-```
-
-### hospitals_raw.csv
-| Field | Description |
-|-------|-------------|
-| NAME | Hospital name |
-| ADDRESS | Street address |
-| PHONE | Phone number |
-| LATITUDE / LONGITUDE | Coordinates |
-| LINK | Hospital website URL |
-
-**To refresh hospital data:**
-```bash
+# Download fresh data
+node scripts/download-raw-data.js      # Parks, schools, crime, boundaries
+node scripts/download-eqao-data.js     # School scores
+node scripts/download-collisions.js    # Traffic collisions
 node scripts/download-hospitals.js
-node scripts/process-data.js
-```
-
-### recreation_facilities_raw.csv
-Recreation facilities (pools, arenas, rinks, community centres) from City of Ottawa Open Data.
-
-| Field | Description |
-|-------|-------------|
-| NAME | Facility name (e.g., "Walkley Arena", "Jack Purcell Pool") |
-| FACILITY_TYPE | Type of facility (Arena, Pool - Indoor, Community Center, etc.) |
-| BUILDING_NAME | Parent building name (e.g., "Jim Durrell Recreation Centre") |
-| ADDRESS | Street address |
-| LATITUDE / LONGITUDE | Coordinates |
-| LINK | City of Ottawa facility page URL |
-
-**Facility Types (263 total):**
-- **Arena**: 54 ice rinks across the city
-- **Community Center**: 80 community centres and halls
-- **Field House**: 75 field houses in parks
-- **Recreation Complex**: 21 multi-use recreation complexes
-- **Pool - Indoor**: 20 indoor pools
-- **Fitness Centre**: 7 city-run fitness centres
-- **Athletic Facility**: 3 gymnasiums
-- **Stadium**: 2 (TD Place, Ottawa Stadium)
-- **Curling Rink**: 1
-
-**Data Source:** https://maps.ottawa.ca/arcgis/rest/services/City_Facilities/MapServer/5
-
-**To refresh recreation facilities data:**
-```bash
 node scripts/download-recreation-facilities.js
-node scripts/process-data.js
-```
-
-### sports_courts_raw.csv
-Sports courts and fields from City of Ottawa Parks Inventory (public facilities in city parks).
-
-| Field | Description |
-|-------|-------------|
-| COURT_TYPE | Type of court/field (Basketball Court, Tennis Court, Sports Field, etc.) |
-| SPORT_TYPE | Specific sport (soccer, football, general open field, etc.) |
-| NAME | Court/field name |
-| PARK_NAME | Park name where facility is located |
-| ADDRESS | Street address |
-| LATITUDE / LONGITUDE | Coordinates |
-| FIELD_SIZE | Field size (full, half, etc.) |
-| LIGHTS | Whether facility has lights (yes/no) |
-| ACCESSIBLE | Accessibility status |
-| WARD | City ward |
-
-**Court/Field Types (1,389 total):**
-- **Sports Field**: 526 (soccer: 434, football: 32, general: 33, ultimate: 13, multi-use: 7, cricket: 5)
-- **Basketball Court**: 308 (full court, half court, key court)
-- **Ball Diamond**: 281 (baseball/softball diamonds)
-- **Tennis Court**: 132
-- **Pickleball Court**: 103
-- **Volleyball Court**: 39
-
-**Data Source:** https://maps.ottawa.ca/arcgis/rest/services/Parks_Inventory/MapServer
-- Layer 1: Ball Diamonds
-- Layer 3: Basketball Courts
-- Layer 19: Sports Fields
-- Layer 21: Tennis Courts
-- Layer 22: Volleyball Courts
-- Layer 27: Pickleball Courts
-
-**To refresh sports courts data:**
-```bash
 node scripts/download-sports-courts.js
-node scripts/process-data.js
+node scripts/download-tree-equity.js && node scripts/process-tree-equity.js
+node scripts/download-nei-scores.js
+node scripts/download-overdose-data.js
+node scripts/process-311-data.js
+node scripts/download-food-inspections.js && node scripts/process-food-inspections.js
+
+# Calculate scores
+node scripts/calculate-transit-scores.js
+node scripts/calculate-walk-scores.js
+node scripts/calculate-bike-scores.js
+node scripts/calculate-food-affordability.js
+
+# Generate from census
+node scripts/generate-income-data.js
+node scripts/generate-age-demographics.js
 ```
 
-### grocery_stores_raw.csv
-Grocery stores from OpenStreetMap (supermarkets, grocery stores, greengrocers).
+## ONS ID Systems
 
-| Field | Description |
-|-------|-------------|
-| OSM_TYPE | OpenStreetMap element type (node, way, relation) |
-| OSM_ID | OpenStreetMap element ID |
-| NAME | Store name |
-| SHOP_TYPE | Shop type (supermarket, grocery, greengrocer) |
-| CATEGORY | Store category (Supermarket, Grocery Store, Produce Store) |
-| BRAND | Brand name (Loblaws, Metro, Sobeys, etc.) |
-| OPERATOR | Operator name |
-| ADDRESS | Street address |
-| OPENING_HOURS | Opening hours (if available) |
-| LATITUDE / LONGITUDE | Coordinates |
+| System | ID Range | Used For |
+|--------|----------|----------|
+| Gen 2 (Legacy) | 3-999 | Old references only |
+| **Gen 3 / ONS-SQO** | 3001-3117 | Boundaries & census (USE THIS) |
 
-**Store Categories:**
-- **Supermarket**: Large grocery stores (Loblaws, Metro, Sobeys, Farm Boy, etc.)
-- **Grocery Store**: Smaller grocery/convenience stores
-- **Produce Store**: Fruit/vegetable specialty stores (greengrocers)
+Boundary API: `maps.ottawa.ca/arcgis/.../Neighbourhoods/MapServer/`
+- Layer 2 = Gen 3 Boundaries (2024) - **WE USE THIS**
 
-**To refresh grocery store data:**
-```bash
-node scripts/download-grocery-stores.js
-node scripts/process-data.js
+## Neighbourhood Mapping
+
+Edit `scripts/config/neighbourhood-mapping.js`:
+```javascript
+'findlay-creek': {
+  name: 'Findlay Creek',
+  onsSqoIds: ['3044'],  // Gen 3 ID - USED for boundaries & census
+},
 ```
 
-### ncc_greenbelt_trails.csv
-NCC (National Capital Commission) Greenbelt trails data. The Greenbelt is a 20,000-hectare green space surrounding Ottawa with 150+ km of trails.
-
-| Field | Description |
-|-------|-------------|
-| NAME | Trail name |
-| SECTOR | Greenbelt sector (Stony Swamp, Shirleys Bay, Mer Bleue, etc.) |
-| LENGTH_KM | Trail length in kilometers |
-| DIFFICULTY | Trail difficulty (Easy, Moderate) |
-| TYPE | Trail type (Trail, Loop, Paved Pathway, Off-leash Dog Area, Boardwalk Trail) |
-| PARKING | Parking lot(s) for trail access (P1-P26) |
-| LATITUDE / LONGITUDE | Approximate trail coordinates |
-| NEIGHBOURHOODS | Semicolon-separated list of neighbourhood IDs this trail is assigned to |
-| NOTES | Additional context |
-| SOURCE | Data source (NCC) |
-
-**Greenbelt Sectors:**
-- **Shirleys Bay**: 4 trails (11 km) - near Bayshore, Bells Corners
-- **Stony Swamp**: 17 trails (73 km) - largest network, near Bells Corners, Nepean
-- **Southern Farm / Pinhey Forest**: 3 trails (9 km) - near Nepean, Barrhaven
-- **Pine Grove**: 5 trails (21 km) - near Hunt Club, Alta Vista
-- **Mer Bleue**: 5 trails (23 km) - near Orleans, Vars (includes famous bog boardwalk)
-- **Green's Creek**: 2 trails (3 km) - near Orleans
-
-**Data Sources:**
-- NCC ArcGIS API: https://services2.arcgis.com/WLyMuW006nKOfa5Z/ArcGIS/rest/services/Walking_Hiking/FeatureServer
-- NCC Website: https://ncc-ccn.gc.ca/places/hiking-and-walking-greenbelt
-
-**To refresh NCC Greenbelt data:**
-```bash
-node scripts/download-ncc-greenbelt.js
-node scripts/process-data.js
-```
-
-### transit_scores.csv
-Transit Score calculated from OC Transpo GTFS data:
-| Field | Description |
-|-------|-------------|
-| id | Neighbourhood ID |
-| name | Neighbourhood name |
-| transitScore | Transit Score (0-100) |
-| otrainStops | O-Train stations in neighbourhood |
-| busStops | Bus stops in neighbourhood |
-| busStopDensity | Bus stops per km² |
-| distanceToOtrain | Distance to nearest O-Train (km) |
-
-**Calculation Method:**
-- O-Train access (0-40 pts): Stations within neighbourhood or proximity
-- Bus stop density (0-40 pts): Stops per km² (max at 20+ stops/km²)
-- Bus coverage (0-20 pts): Total bus stop count
-
-**To refresh:** `node scripts/calculate-transit-scores.js`
-
-### walk_scores.csv
-Walk Score calculated from local amenity density:
-| Field | Description |
-|-------|-------------|
-| id | Neighbourhood ID |
-| name | Neighbourhood name |
-| walkScore | Walk Score (0-100) |
-| groceryStores | Grocery stores in neighbourhood |
-| restaurants | Restaurants & cafes |
-| parks | Parks count |
-
-**Calculation Method (weighted by importance):**
-- Grocery stores: 30% (daily essentials)
-- Restaurants & cafes: 25% (dining options)
-- Recreation facilities: 15% (pools, arenas, community centres)
-- Parks: 15% (green space)
-- Schools: 10% (education)
-- Libraries: 5% (community services)
-
-**To refresh:** `node scripts/calculate-walk-scores.js`
-
-### bike_scores.csv
-Bike Score calculated from trails and connectivity:
-| Field | Description |
-|-------|-------------|
-| id | Neighbourhood ID |
-| name | Neighbourhood name |
-| bikeScore | Bike Score (0-100) |
-| greenbeltTrailsKm | NCC Greenbelt trail length (km) |
-| parks | Parks count |
-
-**Calculation Method:**
-- Walkability proxy: 25% (walkable = bikeable)
-- Downtown proximity: 25% (central = more bike infrastructure)
-- Greenbelt trails: 20% (multi-use paths)
-- Parks: 15% (green corridors)
-- Transit integration: 15% (bike-transit combo)
-
-**To refresh:** `node scripts/calculate-bike-scores.js`
-
-**Score Interpretation (all scores):**
+## Score Interpretation (0-100)
 - 90-100: Excellent
 - 70-89: Very Good
 - 50-69: Good
 - 25-49: Some Options
 - 0-24: Minimal
 
-**Data Sources:** Ottawa Open Data, OC Transpo GTFS (December 2024)
+## Key Metrics
 
-### income_data.csv
-Median household income data from Statistics Canada 2021 Census via ONS-SQO API:
-| Field | Description |
-|-------|-------------|
-| id | Neighbourhood ID (matches neighbourhoods.csv) |
-| name | Neighbourhood name |
-| medianIncome | Median after-tax household income (2020) |
-| households | Total households in neighbourhood |
-| population | Total population in neighbourhood |
-| source | Data source (Statistics Canada 2021 Census) |
-| onsAreas | ONS areas included with individual incomes |
+**Transit Score** = O-Train access (40pts) + Bus density (40pts) + Bus coverage (20pts)
 
-**Methodology:** For neighbourhoods spanning multiple ONS areas, income is calculated as a household-weighted average of the median incomes from each ONS area.
+**Walk Score** = Grocery (30%) + Restaurants (25%) + Recreation (15%) + Parks (15%) + Schools (10%) + Libraries (5%)
 
-**Data Source:** Statistics Canada 2021 Census via ONS-SQO API (https://ons-sqo.ca/wp-json/ons/v1/get-data/data)
+**Bike Score** = Walkability (25%) + Downtown proximity (25%) + Greenbelt trails (20%) + Parks (15%) + Transit (15%)
 
-**To refresh income data:**
-```bash
-node scripts/generate-income-data.js
-node scripts/process-data.js
-```
+**NEI Score** (Neighbourhood Equity Index): 80-100 high equity, <50 priority neighbourhood
 
-### age_demographics.csv
-Age demographics data from Statistics Canada 2021 Census:
-| Field | Description |
-|-------|-------------|
-| id | Neighbourhood ID (matches neighbourhoods.csv) |
-| name | Neighbourhood name |
-| pctChildren | % of population aged 0-14 (families with children indicator) |
-| pctYoungProfessionals | % of population aged 25-44 |
-| pctSeniors | % of population aged 65+ |
-| censusSubArea | Census sub-area used for data mapping |
-| source | Data source |
+**Tree Equity Score**: 90-100 excellent, <50 priority for tree planting
 
-**Data Source:** Statistics Canada 2021 Census via City of Ottawa Open Data (https://open.ottawa.ca/datasets/ottawa::2021-long-form-census-sub-area)
+**Food Cost Burden**: <12% low, 12-16% moderate, 16-20% high, 20-25% very high, >25% severe
 
-**Ottawa Averages (2021 Census):**
-- Children (0-14): 16.7%
-- Young Professionals (25-44): 27.7%
-- Seniors (65+): 16.0%
+**Overdose Rate** (per 100K): <30 low, 30-70 moderate, 70-130 high, >130 very high
 
-**To refresh age demographics data:**
-```bash
-node scripts/generate-age-demographics.js
-node scripts/process-data.js
-```
+**Food Inspection Score** (0-100): Average OPH inspection score. 100 = perfect, city avg ~99.2
 
-### commute_times.csv
-Average commute time to downtown Ottawa (Parliament Hill area) for each neighbourhood:
-| Field | Description |
-|-------|-------------|
-| id | Neighbourhood ID (matches neighbourhoods.csv) |
-| name | Neighbourhood name |
-| commuteToDowntown | Average commute time in minutes (by car) |
-| commuteByTransit | Average commute time in minutes (by public transit) |
-| commuteMethod | Method of commute (mixed = car/transit average) |
-| source | Data source |
-| notes | Additional context |
+## Updating Rent/Home Prices
 
-**Commute Time Ranges (by Car):**
-- Downtown (0-10 min): Byward Market, Centretown, Sandy Hill
-- Central (10-20 min): Glebe, Westboro, Hintonburg, Little Italy, Vanier, New Edinburgh
-- Inner Suburbs (20-30 min): Alta Vista, Bayshore, Nepean, Hunt Club
-- Outer Suburbs (30-45 min): Orleans, Barrhaven, Kanata, Manotick
-- Rural (45+ min): Stittsville, Carp, Constance Bay, Vars, Metcalfe, Greely
+1. Edit `src/data/csv/rent_data.csv` or `home_prices.csv` (include sources)
+2. Copy values to `neighbourhoods.csv`
+3. Run `node scripts/process-data.js`
 
-**Transit vs Car Comparison (examples):**
-| Neighbourhood | By Car | By Transit | Ratio |
-|---------------|--------|------------|-------|
-| Centretown | 8 min | 8 min | 1.0x |
-| Westboro | 15 min | 18 min | 1.2x |
-| Kanata | 40 min | 80 min | 2.0x |
-| Barrhaven | 35 min | 65 min | 1.9x |
-| Stittsville | 50 min | 95 min | 1.9x |
-
-**Data Source:** Google Maps estimates (December 2024) - represents typical peak-hour commute times.
-
-### transit_stations.csv
-O-Train and Transitway rapid transit stations from Ottawa Open Data:
-| Field | Description |
-|-------|-------------|
-| NAME | Station name |
-| TYPE | Station type (O-Train or Transitway) |
-| LINE | O-Train line (Line 1 Confederation, Line 2 Trillium) or Transitway |
-| LATITUDE / LONGITUDE | Coordinates |
-
-**Station Counts:**
-- O-Train stations: 13 (Line 1 Confederation + Line 2 Trillium)
-- Transitway stations: 30 (Bus Rapid Transit)
-
-**To refresh transit station data:**
-```bash
-node scripts/download-transit-stations.js
-node scripts/process-data.js
-```
-
-### neighbourhoods.csv
-Edit this file to change neighbourhood info displayed on the website:
-| Field | Description |
-|-------|-------------|
-| id | Unique ID (must match neighbourhood-mapping.js) |
-| name | Display name |
-| area | Area description (Central, West End, etc.) |
-| image | Image URL |
-| medianIncome | Median household income |
-| avgRent | Average monthly rent (see rent_data.csv for sources) |
-| avgHomePrice | Average home price (see home_prices.csv for sources) |
-| pros | Semicolon-separated list of pros |
-| cons | Semicolon-separated list of cons |
-
-### rent_data.csv
-Contains average rent research data with sources for each neighbourhood:
-| Field | Description |
-|-------|-------------|
-| id | Neighbourhood ID (matches neighbourhoods.csv) |
-| name | Neighbourhood name |
-| avgRent | Average monthly rent in CAD |
-| rentSource | Data source (Zumper, CMHC, RentCafe, etc.) |
-| notes | Additional context about the data |
-
-### home_prices.csv
-Contains average home price research data with sources for each neighbourhood:
-| Field | Description |
-|-------|-------------|
-| id | Neighbourhood ID (matches neighbourhoods.csv) |
-| name | Neighbourhood name |
-| avgHomePrice | Average home price in CAD |
-| priceSource | Data source (AgentInOttawa, Zolo, OREB, etc.) |
-| notes | Additional context about the data (YoY changes, sample size) |
-
-## ONS Boundary & Census Data Systems
-
-### Understanding ONS ID Systems
-
-Ottawa has TWO different ONS ID systems:
-
-| System | ID Range | Used By | Example |
-|--------|----------|---------|---------|
-| **Gen 2 (Legacy)** | 3-999 | Old City of Ottawa API (Layer 0) | Findlay Creek = 921 |
-| **Gen 3 / ONS-SQO** | 3001-3117 | New API (Layer 2), Census data | Findlay Creek = 3044 |
-
-**We use Gen 3 / ONS-SQO IDs** (3001-3117) because:
-1. They match the 2021 Census data from ONS-SQO
-2. Gen 3 boundaries are updated (2024)
-3. 116 neighbourhoods vs 111 in Gen 2
-
-### Boundary API Layers
-
-```
-https://maps.ottawa.ca/arcgis/rest/services/Neighbourhoods/MapServer/
-├── Layer 0 - Gen 2 Names (2016) - 111 areas - DEPRECATED
-├── Layer 1 - Gen 2 Boundaries (2016) - DEPRECATED
-├── Layer 2 - Gen 3 Boundaries (2024) - 116 areas - WE USE THIS
-└── Layer 3 - Gen 3 Names (2024)
-```
-
-### Census Data Source (ONS-SQO)
-
-Population and demographics come from the Ottawa Neighbourhood Study API:
-
-```bash
-# Download census data (64 indicators for 116 neighbourhoods)
-node scripts/download-ons-census-data.js
-```
-
-**API Endpoints:**
-- Data: `https://ons-sqo.ca/wp-json/ons/v1/get-data/data`
-- Neighbourhoods: `https://ons-sqo.ca/wp-json/ons/v1/get-data/neighbourhoods`
-
-**Key Census Indicators:**
-- `pop2021_total` - Population
-- `household_count` - Households
-- `census_general_median_after_tax_income_of_households_in_2020` - Median income
-- `census_general_percent_of_pop_that_are_children_age_0_14` - % Children
-- `census_general_percent_of_pop_that_are_seniors_65` - % Seniors
-- `walkscore_mean`, `bikescore_mean` - Walk/Bike scores
-
-### ons_census_data.csv
-
-This file contains 2021 Census data for all 116 ONS neighbourhoods:
-
-| Field | Description |
-|-------|-------------|
-| ons_id | ONS-SQO ID (3001-3117) |
-| name | Neighbourhood name |
-| pop2021_total | 2021 Census population |
-| household_count | Number of households |
-| + 60 more | Demographics, income, housing, etc. |
-
-**To refresh census data:**
-```bash
-node scripts/download-ons-census-data.js
-node scripts/process-data.js
-```
-
-## Neighbourhood Mapping
-
-Edit `scripts/config/neighbourhood-mapping.js` to change which ONS areas belong to each neighbourhood.
-
-**IMPORTANT:** Use `onsSqoIds` (Gen 3 IDs) for boundaries and census data:
-
-```javascript
-'findlay-creek': {
-  name: 'Findlay Creek',
-  onsIds: [921],        // OLD Gen 2 ID - kept for reference only
-  onsSqoIds: ['3044'],  // Gen 3 / ONS-SQO ID - USED for boundaries & census
-},
-'barrhaven': {
-  name: 'Barrhaven',
-  onsIds: [937, 938, 914, 952],  // OLD
-  onsSqoIds: ['3079', '3080', '3027', '3109'],  // USED
-},
-```
-
-To find ONS-SQO IDs, check `src/data/csv/ons_census_data.csv`.
-
-## API Query Examples
-
-### Get all parks
-```
-https://maps.ottawa.ca/arcgis/rest/services/Parks_Inventory/MapServer/24/query?where=1%3D1&outFields=*&f=json
-```
-
-### Get all schools
-```
-https://maps.ottawa.ca/arcgis/rest/services/Schools/MapServer/0/query?where=1%3D1&outFields=*&returnGeometry=true&outSR=4326&f=json
-```
-
-### Get neighbourhood boundary by ONS ID
-```
-https://maps.ottawa.ca/arcgis/rest/services/Neighbourhoods/MapServer/0/query?where=ONS_ID%3D923&returnGeometry=true&outSR=4326&f=json
-```
-
-### Search parks by name
-```
-https://maps.ottawa.ca/arcgis/rest/services/Parks_Inventory/MapServer/24/query?where=NAME%20LIKE%20%27%25McKellar%25%27&outFields=*&f=json
-```
-
-### Get all transit stations
-```
-https://maps.ottawa.ca/arcgis/rest/services/TransitServices/MapServer/0/query?where=1%3D1&outFields=*&returnGeometry=true&outSR=4326&f=json
-```
-
-### Get crime data (2023-2024)
-```
-https://services7.arcgis.com/2vhcNzw0NfUwAD3d/ArcGIS/rest/services/Criminal_Offences_Open_Data/FeatureServer/0/query?where=YEAR>=2023&outFields=YEAR,OFF_CATEG,NB_NAME_EN,WARD&returnGeometry=false&f=json
-```
-
-## Refreshing Raw Data
-
-To download fresh data from Ottawa Open Data, use the download script:
-
-```bash
-node scripts/download-raw-data.js
-```
-
-This downloads parks, schools, transit stations, crime data (2023-2024), and ONS neighbourhoods to the `src/data/csv/` folder.
-
-Note: Libraries data must be downloaded manually from:
-https://opendata.arcgis.com/datasets/ottawa::ottawa-public-library-locations-2024.geojson
-
-Then run `node scripts/process-data.js` to regenerate the website data.
-
-## Rent Data Research Methodology
-
-Average rent data was manually researched in December 2024 using the following sources:
-
-### Primary Sources
-| Source | URL | Coverage |
-|--------|-----|----------|
-| Zumper | https://www.zumper.com/rent-research/ottawa-on | Neighbourhood-level averages with YoY trends |
-| CMHC | https://www.cmhc-schl.gc.ca/hmiportal | Official rental market survey data |
-| RentCafe | https://www.rentcafe.com/apartments-for-rent/ca/on/ottawa/ | Price ranges by unit type |
-| Rentals.ca | https://rentals.ca/ottawa | Current asking rents |
-
-### Methodology
-1. **Urban neighbourhoods** (Glebe, Westboro, Centretown, etc.): Used Zumper/RentCafe average rent data
-2. **Suburban neighbourhoods** (Kanata, Barrhaven, Orleans, etc.): Combined Zumper data with recent rental examples
-3. **Rural areas** (Carp, Constance Bay, Manotick, etc.): Estimated based on limited rental inventory and comparable areas
-
-### Data Notes
-- Rent figures represent average asking rents for all unit types (studios through 3+ bedrooms)
-- Data reflects 2024 market conditions (researched December 2024)
-- Rural areas have limited rental inventory; estimates based on available listings
-- Some areas show significant YoY changes due to market fluctuations
-
-### To Update Rent Data
-1. Edit `src/data/csv/rent_data.csv` with new research (include sources)
-2. Copy avgRent values to `src/data/csv/neighbourhoods.csv`
-3. Run `node scripts/process-data.js` to regenerate data.json
-
-## Home Price Data Research Methodology
-
-Average home price data was manually researched in December 2024 using the following sources:
-
-### Primary Sources
-| Source | URL | Coverage |
-|--------|-----|----------|
-| AgentInOttawa | https://agentinottawa.com/stats | Sold home prices by neighbourhood with YoY trends |
-| Zolo | https://www.zolo.ca/ottawa-real-estate/trends | MLS listing prices and market stats |
-| OREB | https://creastats.crea.ca/board/otta/ | Ottawa Real Estate Board official statistics |
-| MyOttawaProperty | https://www.myottawaproperty.com/market/ | Monthly market reports by neighbourhood |
-
-### Methodology
-1. **Urban neighbourhoods** (Glebe, Westboro, Centretown, etc.): Used AgentInOttawa sold price data from Oct 2024
-2. **Suburban neighbourhoods** (Kanata, Barrhaven, Orleans, etc.): Combined AgentInOttawa and Zolo MLS statistics
-3. **Rural areas** (Carp, Constance Bay, Manotick, etc.): Used Zolo listing averages where sold data was limited
-
-### Data Notes
-- Home prices represent average sold prices where available, or listing averages for areas with limited sales
-- Data reflects 2024 market conditions (researched December 2024)
-- Prices include all property types (detached, semi-detached, townhouses) unless noted
-- Rural areas have lower sales volume; some estimates based on listing prices
-- YoY (Year-over-Year) changes noted where significant
-
-### Price Ranges by Area Type (2024)
-| Area Type | Price Range | Examples |
-|-----------|-------------|----------|
-| Premium Central | $900K - $1.2M | Glebe, Westboro, Old Ottawa South, New Edinburgh |
-| Central Urban | $475K - $700K | Centretown, Sandy Hill, Hintonburg, Vanier |
-| Suburban | $700K - $850K | Kanata, Stittsville, Barrhaven, Orleans |
-| Rural/Village | $650K - $1.1M | Manotick, Carp, Richmond, Constance Bay |
-
-### To Update Home Price Data
-1. Edit `src/data/csv/home_prices.csv` with new research (include sources)
-2. Copy avgHomePrice values to `src/data/csv/neighbourhoods.csv`
-3. Run `node scripts/process-data.js` to regenerate data.json
+**Rent Sources:** Zumper, CMHC, RentCafe, Rentals.ca
+**Price Sources:** AgentInOttawa, Zolo, OREB, MyOttawaProperty
