@@ -183,6 +183,43 @@ export interface ScoreWeights {
   walkability: number;      // 3%
 }
 
+export interface MetricScores {
+  // Safety metrics
+  crime: number | null;
+  collisions: number | null;
+  overdose: number | null;
+  // School metrics
+  eqao: number | null;
+  schoolCount: number | null;
+  // Health & Environment metrics
+  treeCanopy: number | null;
+  hospital: number | null;
+  primaryCare: number | null;
+  foodSafety: number | null;
+  // Amenity metrics
+  parks: number | null;
+  grocery: number | null;
+  dining: number | null;
+  recreation: number | null;
+  libraries: number | null;
+  // Community metrics
+  nei: number | null;
+  roadQuality: number | null;
+  quietScore: number | null;
+  serviceRequests: number | null;
+  // Nature metrics
+  trails: number | null;
+  cycling: number | null;
+  // Affordability metrics
+  rent: number | null;
+  homePrice: number | null;
+  foodCostBurden: number | null;
+  // Walkability metrics
+  walk: number | null;
+  transit: number | null;
+  bike: number | null;
+}
+
 export interface Neighbourhood {
   id: string;
   name: string;
@@ -378,6 +415,7 @@ export interface Neighbourhood {
   overallScore: number;
   categoryScores: CategoryScores;
   scoreWeights: ScoreWeights;
+  metricScores: MetricScores;
 }
 
 export const neighbourhoods: Neighbourhood[] = data.neighbourhoods as Neighbourhood[];

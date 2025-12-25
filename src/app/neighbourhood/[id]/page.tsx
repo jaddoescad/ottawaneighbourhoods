@@ -39,6 +39,7 @@ import HealthStatRow from "@/components/HealthStatRow";
 import FoodInspectionStatRow from "@/components/FoodInspectionStatRow";
 import FoodCostBurdenStatRow from "@/components/FoodCostBurdenStatRow";
 import CoverageButton from "@/components/CoverageButton";
+import ScoreBreakdown from "@/components/ScoreBreakdown";
 
 const BASE_URL = "https://ottawahoods.com";
 
@@ -246,22 +247,6 @@ function getPercent(value: number, category: keyof typeof THRESHOLDS): number {
   return Math.min((value / max) * 100, 100);
 }
 
-// Score color based on value
-function getScoreColor(score: number): string {
-  if (score >= 70) return "bg-green-500";
-  if (score >= 50) return "bg-yellow-500";
-  if (score >= 30) return "bg-orange-500";
-  return "bg-red-500";
-}
-
-function getScoreLabel(score: number): string {
-  if (score >= 80) return "Top Tier";
-  if (score >= 60) return "Above Average";
-  if (score >= 40) return "Average";
-  if (score >= 20) return "Below Average";
-  return "Needs Improvement";
-}
-
 export default async function NeighbourhoodPage({ params }: PageProps) {
   const { id } = await params;
   const neighbourhood = neighbourhoods.find((n) => n.id === id);
@@ -270,7 +255,10 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
     notFound();
   }
 
-  const { name, area, image, population, populationDensity, households, pop2021, dataYear, dataSource, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, commuteByTransit, nearestOTrainStation, nearestOTrainLine, distanceToOTrain, nearestTransitwayStation, distanceToTransitway, overdoseCumulative, overdoseYearlyAvg, overdoseRatePer100k, overdoseYears, details, overallScore, categoryScores, scoreWeights, boundaries } = neighbourhood;
+  const { name, area, image, population, populationDensity, households, pop2021, dataYear, dataSource, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, commuteByTransit, nearestOTrainStation, nearestOTrainLine, distanceToOTrain, nearestTransitwayStation, distanceToTransitway, overdoseCumulative, overdoseYearlyAvg, overdoseRatePer100k, overdoseYears, details, overallScore, categoryScores, scoreWeights, metricScores, boundaries } = neighbourhood;
+
+  // Get rank for this neighbourhood
+  const rank = rankedNeighbourhoods.findIndex(n => n.id === id) + 1;
 
   // Combine Linear Parks and NCC Greenbelt trails
   const linearParks = details.parksData
@@ -322,14 +310,15 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-2">{name}</h1>
             <p className="text-white/80 text-sm sm:text-lg">{area}</p>
-            <div className="mt-3 sm:mt-4 inline-flex items-center gap-2 sm:gap-3 bg-white/20 backdrop-blur px-4 sm:px-5 py-2 sm:py-3 rounded-full">
-              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${getScoreColor(overallScore)} flex items-center justify-center shadow-lg`}>
-                <span className="text-white font-bold text-sm sm:text-lg">{overallScore}</span>
-              </div>
-              <div className="text-left">
-                <span className="text-white font-semibold block text-sm sm:text-base">{getScoreLabel(overallScore)}</span>
-                <span className="text-white/70 text-xs sm:text-sm">Ranked #{neighbourhoods.sort((a, b) => b.overallScore - a.overallScore).findIndex(n => n.id === id) + 1} of {neighbourhoods.length}</span>
-              </div>
+            <div className="mt-3 sm:mt-4">
+              <ScoreBreakdown
+                overallScore={overallScore}
+                categoryScores={categoryScores}
+                scoreWeights={scoreWeights}
+                metricScores={metricScores}
+                rank={rank}
+                totalNeighbourhoods={neighbourhoods.length}
+              />
             </div>
           </div>
         </div>

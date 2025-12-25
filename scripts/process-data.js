@@ -1994,14 +1994,14 @@ async function main() {
   //   - Walkability (5%): Walk/transit/bike scores - still counts but doesn't dominate
 
   const SCORE_WEIGHTS = {
-    safety: 0.30,           // Crime, collisions, overdose - TOP PRIORITY
+    safety: 0.20,           // Crime, collisions, overdose
     schools: 0.12,          // EQAO scores, school availability
     healthEnvironment: 0.15, // Tree canopy, healthcare, food safety
-    amenities: 0.08,        // Parks, grocery, recreation (reduced - urban bias)
+    amenities: 0.13,        // Parks, grocery, dining, recreation, libraries
     community: 0.15,        // NEI score, road quality - community health matters
     nature: 0.10,           // Trails, cycling infrastructure, green space
-    affordability: 0.07,    // Rent, home prices (reduced - lifestyle choice)
-    walkability: 0.03,      // Walk/transit/bike - minimal, it's a preference
+    affordability: 0.10,    // Rent, home prices, food costs
+    walkability: 0.05,      // Walk/transit/bike scores
   };
 
   // Helper to calculate average, ignoring nulls
@@ -2009,6 +2009,14 @@ async function main() {
     const valid = values.filter(v => v !== null && v !== undefined);
     if (valid.length === 0) return null;
     return valid.reduce((a, b) => a + b, 0) / valid.length;
+  }
+
+  // Helper for weighted average of two values
+  function weightedAvg(val1, weight1, val2, weight2) {
+    if (val1 === null && val2 === null) return null;
+    if (val1 === null) return val2;
+    if (val2 === null) return val1;
+    return (val1 * weight1 + val2 * weight2) / (weight1 + weight2);
   }
 
   // Absolute benchmark scoring: maps raw values to 0-100 scores
@@ -2020,12 +2028,23 @@ async function main() {
     return Math.round(score);
   }
 
-  // Benchmarks calibrated for Ottawa
+  // Log scaling for counts with diminishing returns (0→1 matters more than 4→5)
+  // Maps count to 0-100 using log curve, with targetCount being where score hits ~70
+  function logScore(count, targetCount) {
+    if (count === null || count === undefined) return null;
+    if (count <= 0) return 0;
+    // Using natural log: ln(count+1) / ln(target+1) gives 0-1 scale at target
+    // Multiply by 100 and cap at 100
+    const normalizedScore = (Math.log(count + 1) / Math.log(targetCount + 1)) * 100;
+    return Math.round(Math.min(100, normalizedScore));
+  }
+
+  // Benchmarks calibrated for Ottawa (based on p10-p90 percentiles of actual data)
   const BENCHMARKS = {
-    // Safety metrics
-    crimePerCapita: { min: 10, max: 80, higherIsBetter: false }, // per 1000 residents
-    collisionRate: { min: 0, max: 15, higherIsBetter: false }, // per 1000 residents
-    overdoseRate: { min: 0, max: 100, higherIsBetter: false }, // per 100K
+    // Safety metrics (p10 = best, p90 = worst for these)
+    crimePerCapita: { min: 15, max: 100, higherIsBetter: false }, // per 1000 residents (p10=14, p90=100)
+    collisionRate: { min: 5, max: 30, higherIsBetter: false }, // per 1000 residents (p10=5, p90=28)
+    overdoseRate: { min: 20, max: 130, higherIsBetter: false }, // per 100K (p10=21, p90=132)
 
     // School metrics
     avgEqaoScore: { min: 45, max: 85, higherIsBetter: true },
@@ -2043,11 +2062,11 @@ async function main() {
     recreationFacilities: { min: 0, max: 5, higherIsBetter: true },
     libraries: { min: 0, max: 2, higherIsBetter: true },
 
-    // Community quality
+    // Community quality (based on actual p10-p90 distribution)
     neiScore: { min: 40, max: 85, higherIsBetter: true }, // NEI equity index
-    roadQuality: { min: 20, max: 80, higherIsBetter: true }, // from 311 data
-    quietScore: { min: 40, max: 100, higherIsBetter: true }, // noise complaints inverse
-    serviceRequestRate: { min: 100, max: 600, higherIsBetter: false }, // 311 requests per 1000
+    roadQuality: { min: 10, max: 90, higherIsBetter: true }, // from 311 data (p10=10, p90=90)
+    quietScore: { min: 10, max: 90, higherIsBetter: true }, // noise complaints inverse (p10=10, p90=90)
+    serviceRequestRate: { min: 300, max: 1000, higherIsBetter: false }, // per 1000 (p10=330, p90=1017)
 
     // Nature access
     trailsKm: { min: 0, max: 15, higherIsBetter: true }, // greenbelt trails km
@@ -2081,9 +2100,9 @@ async function main() {
       collisions: absoluteScore(collisionRate, BENCHMARKS.collisionRate.min, BENCHMARKS.collisionRate.max, false),
       overdose: absoluteScore(neighbourhood.overdoseRatePer100k, BENCHMARKS.overdoseRate.min, BENCHMARKS.overdoseRate.max, false),
 
-      // Schools (15%)
+      // Schools (12%) - EQAO weighted 70%, school count 30%
       eqao: absoluteScore(neighbourhood.details.avgEqaoScore, BENCHMARKS.avgEqaoScore.min, BENCHMARKS.avgEqaoScore.max, true),
-      schoolCount: absoluteScore(neighbourhood.details.schools, BENCHMARKS.hasSchools.min, BENCHMARKS.hasSchools.max, true),
+      schoolCount: logScore(neighbourhood.details.schools, 8), // log scale, ~70 score at 8 schools
 
       // Health & Environment (15%)
       treeCanopy: absoluteScore(neighbourhood.treeCanopy, BENCHMARKS.treeCanopy.min, BENCHMARKS.treeCanopy.max, true),
@@ -2091,11 +2110,12 @@ async function main() {
       primaryCare: absoluteScore(neighbourhood.primaryCareAccess, BENCHMARKS.primaryCareAccess.min, BENCHMARKS.primaryCareAccess.max, true),
       foodSafety: absoluteScore(neighbourhood.foodInspectionAvgScore, BENCHMARKS.foodSafetyScore.min, BENCHMARKS.foodSafetyScore.max, true),
 
-      // Amenities (10%) - counts, not density
-      parks: absoluteScore(Math.min(neighbourhood.details.parks, 20), BENCHMARKS.parks.min, BENCHMARKS.parks.max, true),
-      grocery: absoluteScore(Math.min(neighbourhood.details.groceryStores || 0, 5), BENCHMARKS.groceryStores.min, BENCHMARKS.groceryStores.max, true),
-      recreation: absoluteScore(Math.min(neighbourhood.details.recreationFacilities || 0, 5), BENCHMARKS.recreationFacilities.min, BENCHMARKS.recreationFacilities.max, true),
-      libraries: absoluteScore(neighbourhood.details.libraries, BENCHMARKS.libraries.min, BENCHMARKS.libraries.max, true),
+      // Amenities (8%) - log scaling for diminishing returns
+      parks: logScore(neighbourhood.details.parks, 15), // ~70 score at 15 parks
+      grocery: logScore(neighbourhood.details.groceryStores || 0, 4), // ~70 score at 4 stores
+      dining: logScore(neighbourhood.details.foodEstablishments || 0, 25), // ~70 score at 25 restaurants/cafes
+      recreation: logScore(neighbourhood.details.recreationFacilities || 0, 4), // ~70 score at 4 facilities
+      libraries: logScore(neighbourhood.details.libraries, 2), // ~70 score at 2 libraries
 
       // Community (15%)
       nei: absoluteScore(neighbourhood.neiScore, BENCHMARKS.neiScore.min, BENCHMARKS.neiScore.max, true),
@@ -2121,11 +2141,11 @@ async function main() {
     // Calculate category scores
     const categoryScores = {
       safety: average([scores.crime, scores.collisions, scores.overdose]),
-      schools: average([scores.eqao, scores.schoolCount]),
+      schools: weightedAvg(scores.eqao, 0.7, scores.schoolCount, 0.3), // EQAO 70%, count 30%
       healthEnvironment: average([scores.treeCanopy, scores.hospital, scores.primaryCare, scores.foodSafety]),
-      amenities: average([scores.parks, scores.grocery, scores.recreation, scores.libraries]),
+      amenities: average([scores.parks, scores.grocery, scores.dining, scores.recreation, scores.libraries]),
       community: average([scores.nei, scores.roadQuality, scores.quietScore, scores.serviceRequests]),
-      nature: average([scores.trails, scores.cycling, scores.parks]), // parks count for nature too
+      nature: average([scores.trails, scores.cycling]), // removed parks - no double counting
       affordability: average([scores.rent, scores.homePrice, scores.foodCostBurden]),
       walkability: average([scores.walk, scores.transit, scores.bike]),
     };
@@ -2157,6 +2177,43 @@ async function main() {
       walkability: categoryScores.walkability !== null ? Math.round(categoryScores.walkability) : null,
     };
     neighbourhood.scoreWeights = SCORE_WEIGHTS;
+    // Store individual metric scores for detailed breakdown
+    neighbourhood.metricScores = {
+      // Safety metrics
+      crime: scores.crime,
+      collisions: scores.collisions,
+      overdose: scores.overdose,
+      // School metrics
+      eqao: scores.eqao,
+      schoolCount: scores.schoolCount,
+      // Health & Environment metrics
+      treeCanopy: scores.treeCanopy,
+      hospital: scores.hospital,
+      primaryCare: scores.primaryCare,
+      foodSafety: scores.foodSafety,
+      // Amenity metrics
+      parks: scores.parks,
+      grocery: scores.grocery,
+      dining: scores.dining,
+      recreation: scores.recreation,
+      libraries: scores.libraries,
+      // Community metrics
+      nei: scores.nei,
+      roadQuality: scores.roadQuality,
+      quietScore: scores.quietScore,
+      serviceRequests: scores.serviceRequests,
+      // Nature metrics
+      trails: scores.trails,
+      cycling: scores.cycling,
+      // Affordability metrics
+      rent: scores.rent,
+      homePrice: scores.homePrice,
+      foodCostBurden: scores.foodCostBurden,
+      // Walkability metrics
+      walk: scores.walk,
+      transit: scores.transit,
+      bike: scores.bike,
+    };
   }
 
   // Sort neighbourhoods by overall score for summary
