@@ -2046,6 +2046,8 @@ async function main() {
     // Community quality
     neiScore: { min: 40, max: 85, higherIsBetter: true }, // NEI equity index
     roadQuality: { min: 20, max: 80, higherIsBetter: true }, // from 311 data
+    quietScore: { min: 40, max: 100, higherIsBetter: true }, // noise complaints inverse
+    serviceRequestRate: { min: 100, max: 600, higherIsBetter: false }, // 311 requests per 1000
 
     // Nature access
     trailsKm: { min: 0, max: 15, higherIsBetter: true }, // greenbelt trails km
@@ -2054,6 +2056,7 @@ async function main() {
     // Affordability
     avgRent: { min: 1400, max: 2600, higherIsBetter: false },
     avgHomePrice: { min: 400000, max: 1000000, higherIsBetter: false },
+    foodCostBurden: { min: 10, max: 30, higherIsBetter: false }, // % of income on food
 
     // Walkability (still tracked but lower weight)
     walkScore: { min: 0, max: 100, higherIsBetter: true },
@@ -2094,17 +2097,20 @@ async function main() {
       recreation: absoluteScore(Math.min(neighbourhood.details.recreationFacilities || 0, 5), BENCHMARKS.recreationFacilities.min, BENCHMARKS.recreationFacilities.max, true),
       libraries: absoluteScore(neighbourhood.details.libraries, BENCHMARKS.libraries.min, BENCHMARKS.libraries.max, true),
 
-      // Community (10%)
+      // Community (15%)
       nei: absoluteScore(neighbourhood.neiScore, BENCHMARKS.neiScore.min, BENCHMARKS.neiScore.max, true),
       roadQuality: absoluteScore(neighbourhood.details.roadQualityScore, BENCHMARKS.roadQuality.min, BENCHMARKS.roadQuality.max, true),
+      quietScore: absoluteScore(neighbourhood.details.quietScore, BENCHMARKS.quietScore.min, BENCHMARKS.quietScore.max, true),
+      serviceRequests: absoluteScore(neighbourhood.details.serviceRequestRate, BENCHMARKS.serviceRequestRate.min, BENCHMARKS.serviceRequestRate.max, false),
 
       // Nature (10%)
       trails: absoluteScore(neighbourhood.details.greenbeltTrailsLengthKm || 0, BENCHMARKS.trailsKm.min, BENCHMARKS.trailsKm.max, true),
       cycling: absoluteScore(neighbourhood.details.cyclingTotalKm || 0, BENCHMARKS.cyclingKm.min, BENCHMARKS.cyclingKm.max, true),
 
-      // Affordability (10%)
+      // Affordability (7%)
       rent: absoluteScore(neighbourhood.avgRent, BENCHMARKS.avgRent.min, BENCHMARKS.avgRent.max, false),
       homePrice: absoluteScore(neighbourhood.avgHomePrice, BENCHMARKS.avgHomePrice.min, BENCHMARKS.avgHomePrice.max, false),
+      foodCostBurden: absoluteScore(neighbourhood.foodCostBurden, BENCHMARKS.foodCostBurden.min, BENCHMARKS.foodCostBurden.max, false),
 
       // Walkability (5%)
       walk: absoluteScore(neighbourhood.walkScore, BENCHMARKS.walkScore.min, BENCHMARKS.walkScore.max, true),
@@ -2118,9 +2124,9 @@ async function main() {
       schools: average([scores.eqao, scores.schoolCount]),
       healthEnvironment: average([scores.treeCanopy, scores.hospital, scores.primaryCare, scores.foodSafety]),
       amenities: average([scores.parks, scores.grocery, scores.recreation, scores.libraries]),
-      community: average([scores.nei, scores.roadQuality]),
+      community: average([scores.nei, scores.roadQuality, scores.quietScore, scores.serviceRequests]),
       nature: average([scores.trails, scores.cycling, scores.parks]), // parks count for nature too
-      affordability: average([scores.rent, scores.homePrice]),
+      affordability: average([scores.rent, scores.homePrice, scores.foodCostBurden]),
       walkability: average([scores.walk, scores.transit, scores.bike]),
     };
 

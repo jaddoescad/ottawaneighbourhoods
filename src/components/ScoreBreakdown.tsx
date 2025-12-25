@@ -33,7 +33,7 @@ const CATEGORY_INFO: Record<keyof CategoryScores, { label: string; emoji: string
   community: {
     label: "Community",
     emoji: "🏘️",
-    description: "Neighbourhood Equity Index, road quality",
+    description: "NEI, road quality, noise levels, 311 requests",
   },
   nature: {
     label: "Nature & Outdoors",
@@ -43,7 +43,7 @@ const CATEGORY_INFO: Record<keyof CategoryScores, { label: string; emoji: string
   affordability: {
     label: "Affordability",
     emoji: "💰",
-    description: "Average rent & home prices (lower is better)",
+    description: "Rent, home prices, food cost burden",
   },
   walkability: {
     label: "Walkability",
