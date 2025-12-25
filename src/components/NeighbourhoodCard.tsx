@@ -9,23 +9,64 @@ interface NeighbourhoodCardProps {
   rank?: number;
 }
 
-function getBarColor(value: number, max: number): string {
-  const percent = value / max;
-  if (percent >= 0.7) return "bg-green-400";
-  if (percent >= 0.5) return "bg-yellow-400";
-  return "bg-orange-400";
+// ==============================================
+// EXACT COPIES from detail page stat row components
+// ==============================================
+
+// From PopulationStatRow.tsx - uses DENSITY not population count
+// Density thresholds (people per km²)
+function getDensityColor(density: number): string {
+  if (density < 500) return "bg-gray-400";
+  if (density < 1500) return "bg-green-400";
+  if (density < 3000) return "bg-green-500";
+  if (density < 6000) return "bg-yellow-400";
+  return "bg-orange-500";
 }
 
-// For crime per capita: Low < 50, Moderate < 150, High >= 150
+// From ParksStatRow.tsx and SchoolsStatRow.tsx
+// Thresholds from neighbourhood/[id]/page.tsx
+const THRESHOLDS = {
+  parks: { max: 25, great: 20, okay: 10 },
+  schools: { max: 15, great: 12, okay: 6 },
+};
+
+function getScoreType(value: number, category: keyof typeof THRESHOLDS): "great" | "good" | "okay" | "bad" {
+  const t = THRESHOLDS[category];
+  if (value >= t.great) return "great";
+  if (value >= t.okay) return "okay";
+  return "bad";
+}
+
+// Colors from StatRow.tsx
+const colors: Record<string, string> = {
+  great: "bg-green-500",
+  good: "bg-green-400",
+  okay: "bg-yellow-400",
+  bad: "bg-orange-500",
+  neutral: "bg-gray-300",
+};
+
+// From CrimeStatRow.tsx
 function getCrimeBarColor(perCapita: number): string {
-  if (perCapita < 50) return "bg-green-400";
+  if (perCapita < 50) return "bg-green-500";
   if (perCapita < 150) return "bg-yellow-400";
-  return "bg-red-400";
+  return "bg-red-500";
 }
 
-function getBarWidth(value: number, max: number): string {
-  const percent = Math.min((value / max) * 100, 100);
-  return `${percent}%`;
+// From HospitalStatRow.tsx
+function getHospitalDistanceColor(distanceKm: number | null): string {
+  if (distanceKm === null) return "bg-gray-300";
+  if (distanceKm <= 3) return "bg-green-500";
+  if (distanceKm <= 5) return "bg-green-400";
+  if (distanceKm <= 8) return "bg-yellow-400";
+  return "bg-orange-500";
+}
+
+// From neighbourhood/[id]/page.tsx - getRentScoreType
+function getRentScoreType(value: number): "great" | "good" | "okay" | "bad" {
+  if (value <= 1800) return "great";
+  if (value <= 2000) return "okay";
+  return "bad";
 }
 
 function formatPopulation(pop: number): string {
@@ -37,28 +78,6 @@ function formatPopulation(pop: number): string {
 
 function formatRent(rent: number): string {
   return `$${rent.toLocaleString()}`;
-}
-
-// For rent: affordable < $1800, moderate < $2200, expensive >= $2200
-function getRentBarColor(value: number): string {
-  if (value < 1800) return "bg-green-400";
-  if (value < 2200) return "bg-yellow-400";
-  return "bg-orange-400";
-}
-
-// For hospital distance: close < 3km, moderate < 10km, far >= 10km
-function getHospitalBarColor(distanceKm: number | null): string {
-  if (distanceKm === null) return "bg-gray-400";
-  if (distanceKm <= 3) return "bg-green-400";
-  if (distanceKm <= 10) return "bg-yellow-400";
-  return "bg-orange-400";
-}
-
-function getHospitalBarWidth(distanceKm: number | null): string {
-  if (distanceKm === null) return "0%";
-  // Invert: closer = fuller bar. Max distance ~30km
-  const percent = Math.max(5, 100 - (distanceKm / 30) * 100);
-  return `${percent}%`;
 }
 
 function getScoreColor(score: number): string {
@@ -79,13 +98,17 @@ export default function NeighbourhoodCard({
   neighbourhood,
   rank,
 }: NeighbourhoodCardProps) {
-  const { id, name, area, image, population, avgRent, overallScore } = neighbourhood;
+  const { id, name, area, image, population, populationDensity, avgRent, overallScore } = neighbourhood;
 
-  // Regular stats
-  const stats = [
-    { label: "Population", emoji: "👥", value: population, max: 150000, displayValue: formatPopulation(population) },
-    { label: "Parks", emoji: "🌳", value: neighbourhood.details.parks, max: 50 },
-    { label: "Schools", emoji: "🏫", value: neighbourhood.details.schools, max: 20 },
+  // Parks and Schools stats with category keys matching THRESHOLDS
+  const stats: Array<{
+    label: string;
+    emoji: string;
+    value: number;
+    category: keyof typeof THRESHOLDS;
+  }> = [
+    { label: "Parks", emoji: "🌳", value: neighbourhood.details.parks, category: "parks" },
+    { label: "Schools", emoji: "🏫", value: neighbourhood.details.schools, category: "schools" },
   ];
 
   return (
@@ -124,25 +147,48 @@ export default function NeighbourhoodCard({
 
         {/* Stats Bars */}
         <div className="flex-1 flex flex-col justify-center space-y-3">
-          {stats.map((stat) => (
-            <div key={stat.label} className="flex items-center gap-3">
-              <div className="flex items-center gap-2 w-28">
-                <span className="text-lg">{stat.emoji}</span>
-                <span className="text-white text-sm font-medium">{stat.label}</span>
-              </div>
-              <div className="flex-1 h-4 bg-white/10 rounded-full overflow-hidden">
-                <div
-                  className={`h-full rounded-full ${getBarColor(stat.value, stat.max)} transition-all duration-500`}
-                  style={{ width: getBarWidth(stat.value, stat.max) }}
-                />
-              </div>
-              <span className="text-white text-sm font-semibold w-10 text-right">{"displayValue" in stat ? stat.displayValue : stat.value}</span>
+          {/* Population - uses density like PopulationStatRow (max 4000/km²) */}
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 w-28">
+              <span className="text-lg">👥</span>
+              <span className="text-white text-sm font-medium">Population</span>
             </div>
-          ))}
+            <div className="flex-1 h-4 bg-white/10 rounded-full overflow-hidden">
+              <div
+                className={`h-full rounded-full ${getDensityColor(populationDensity)} transition-all duration-500`}
+                style={{ width: `${Math.max(10, Math.min((populationDensity / 4000) * 100, 100))}%` }}
+              />
+            </div>
+            <span className="text-white text-sm font-semibold w-10 text-right">{formatPopulation(population)}</span>
+          </div>
 
-          {/* Crime Per Capita */}
+          {/* Parks and Schools - use THRESHOLDS */}
+          {stats.map((stat) => {
+            const type = getScoreType(stat.value, stat.category);
+            const max = THRESHOLDS[stat.category].max;
+            const barWidth = Math.min((stat.value / max) * 100, 100);
+            return (
+              <div key={stat.label} className="flex items-center gap-3">
+                <div className="flex items-center gap-2 w-28">
+                  <span className="text-lg">{stat.emoji}</span>
+                  <span className="text-white text-sm font-medium">{stat.label}</span>
+                </div>
+                <div className="flex-1 h-4 bg-white/10 rounded-full overflow-hidden">
+                  <div
+                    className={`h-full rounded-full ${colors[type]} transition-all duration-500`}
+                    style={{ width: `${barWidth}%` }}
+                  />
+                </div>
+                <span className="text-white text-sm font-semibold w-10 text-right">{stat.value}</span>
+              </div>
+            );
+          })}
+
+          {/* Crime Per Capita - matching CrimeStatRow max of 150 */}
           {(() => {
             const crimePerCapita = population > 0 ? (neighbourhood.details.crimeTotal / population) * 1000 : 0;
+            // Bar width based on per capita (max ~150 per 1,000 for scaling, matching detail page)
+            const barWidth = Math.max(5, Math.min((crimePerCapita / 150) * 100, 100));
             return (
               <div className="flex items-center gap-3 group/crime relative">
                 <div className="flex items-center gap-2 w-28">
@@ -152,7 +198,7 @@ export default function NeighbourhoodCard({
                 <div className="flex-1 h-4 bg-white/10 rounded-full overflow-hidden">
                   <div
                     className={`h-full rounded-full ${getCrimeBarColor(crimePerCapita)} transition-all duration-500`}
-                    style={{ width: `${Math.min((crimePerCapita / 200) * 100, 100)}%` }}
+                    style={{ width: `${barWidth}%` }}
                   />
                 </div>
                 <span className="text-white text-sm font-semibold w-16 text-right">{crimePerCapita.toFixed(0)}/1K</span>
@@ -164,43 +210,58 @@ export default function NeighbourhoodCard({
             );
           })()}
 
-          {/* Average Rent */}
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 w-28">
-              <span className="text-lg">🏠</span>
-              <span className="text-white text-sm font-medium">Avg Rent</span>
-            </div>
-            <div className="flex-1 h-4 bg-white/10 rounded-full overflow-hidden">
-              <div
-                className={`h-full rounded-full ${getRentBarColor(avgRent)} transition-all duration-500`}
-                style={{ width: getBarWidth(avgRent, 3000) }}
-              />
-            </div>
-            <span className="text-white text-sm font-semibold w-14 text-right">{formatRent(avgRent)}</span>
-          </div>
-
-          {/* Hospital Proximity */}
-          <div className="flex items-center gap-3 group/hospital relative">
-            <div className="flex items-center gap-2 w-28">
-              <span className="text-lg">🏥</span>
-              <span className="text-white text-sm font-medium">Hospital</span>
-            </div>
-            <div className="flex-1 h-4 bg-white/10 rounded-full overflow-hidden">
-              <div
-                className={`h-full rounded-full ${getHospitalBarColor(neighbourhood.details.distanceToNearestHospital)} transition-all duration-500`}
-                style={{ width: getHospitalBarWidth(neighbourhood.details.distanceToNearestHospital) }}
-              />
-            </div>
-            <span className="text-white text-sm font-semibold w-14 text-right">
-              {neighbourhood.details.distanceToNearestHospital !== null ? `${neighbourhood.details.distanceToNearestHospital}km` : "N/A"}
-            </span>
-            {/* Tooltip */}
-            {neighbourhood.details.nearestHospital && (
-              <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover/hospital:opacity-100 transition-opacity whitespace-nowrap z-20">
-                {neighbourhood.details.nearestHospital}
+          {/* Average Rent - matching detail page THRESHOLDS.rent.max = 2500 */}
+          {(() => {
+            const rentType = getRentScoreType(avgRent);
+            const rentBarWidth = Math.min((avgRent / 2500) * 100, 100);
+            return (
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 w-28">
+                  <span className="text-lg">🏠</span>
+                  <span className="text-white text-sm font-medium">Avg Rent</span>
+                </div>
+                <div className="flex-1 h-4 bg-white/10 rounded-full overflow-hidden">
+                  <div
+                    className={`h-full rounded-full ${colors[rentType]} transition-all duration-500`}
+                    style={{ width: `${rentBarWidth}%` }}
+                  />
+                </div>
+                <span className="text-white text-sm font-semibold w-14 text-right">{formatRent(avgRent)}</span>
               </div>
-            )}
-          </div>
+            );
+          })()}
+
+          {/* Hospital Proximity - matching HospitalStatRow (maxDistance = 25) */}
+          {(() => {
+            const distanceKm = neighbourhood.details.distanceToNearestHospital;
+            const maxDistance = 25;
+            const hospitalBarWidth = distanceKm !== null
+              ? Math.max(10, 100 - (distanceKm / maxDistance) * 100)
+              : 0;
+            return (
+              <div className="flex items-center gap-3 group/hospital relative">
+                <div className="flex items-center gap-2 w-28">
+                  <span className="text-lg">🏥</span>
+                  <span className="text-white text-sm font-medium">Hospital</span>
+                </div>
+                <div className="flex-1 h-4 bg-white/10 rounded-full overflow-hidden">
+                  <div
+                    className={`h-full rounded-full ${getHospitalDistanceColor(distanceKm)} transition-all duration-500`}
+                    style={{ width: `${hospitalBarWidth}%` }}
+                  />
+                </div>
+                <span className="text-white text-sm font-semibold w-14 text-right">
+                  {distanceKm !== null ? `${distanceKm}km` : "N/A"}
+                </span>
+                {/* Tooltip */}
+                {neighbourhood.details.nearestHospital && (
+                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover/hospital:opacity-100 transition-opacity whitespace-nowrap z-20">
+                    {neighbourhood.details.nearestHospital}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
         </div>
 
         {/* Footer hint */}
