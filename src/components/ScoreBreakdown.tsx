@@ -10,55 +10,45 @@ interface ScoreBreakdownProps {
 }
 
 const CATEGORY_INFO: Record<keyof CategoryScores, { label: string; emoji: string; description: string }> = {
-  walkability: {
-    label: "Walkability",
-    emoji: "🚶",
-    description: "Walk Score, Transit Score, Bike Score",
-  },
   safety: {
     label: "Safety",
     emoji: "🛡️",
-    description: "Crime rate per capita (lower is better)",
+    description: "Crime rate, traffic collisions, overdose rates",
   },
-  affordability: {
-    label: "House Affordability",
-    emoji: "💰",
-    description: "Average rent & home prices (lower is better)",
+  schools: {
+    label: "Schools",
+    emoji: "🎓",
+    description: "EQAO test scores, school availability",
+  },
+  healthEnvironment: {
+    label: "Health & Environment",
+    emoji: "🌳",
+    description: "Tree canopy, healthcare access, food safety",
   },
   amenities: {
     label: "Amenities",
     emoji: "🏪",
-    description: "Parks, schools, libraries, restaurants",
+    description: "Parks, grocery stores, recreation, libraries",
   },
-  education: {
-    label: "Education",
-    emoji: "🎓",
-    description: "Average EQAO test scores",
+  community: {
+    label: "Community",
+    emoji: "🏘️",
+    description: "Neighbourhood Equity Index, road quality",
   },
-  healthcare: {
-    label: "Healthcare",
-    emoji: "🏥",
-    description: "Distance to nearest hospital (closer is better)",
+  nature: {
+    label: "Nature & Outdoors",
+    emoji: "🚴",
+    description: "Trails, cycling infrastructure, green space",
   },
-  income: {
-    label: "Income",
-    emoji: "📈",
-    description: "Median household income",
+  affordability: {
+    label: "Affordability",
+    emoji: "💰",
+    description: "Average rent & home prices (lower is better)",
   },
-  familyFriendly: {
-    label: "Family Friendly",
-    emoji: "👨‍👩‍👧‍👦",
-    description: "Percentage of children in population",
-  },
-  commuteTime: {
-    label: "Commute",
-    emoji: "🚗",
-    description: "Average commute time to downtown (shorter is better)",
-  },
-  lifestyle: {
-    label: "Lifestyle",
-    emoji: "🍽️",
-    description: "Restaurants & cafes density",
+  walkability: {
+    label: "Walkability",
+    emoji: "🚶",
+    description: "Walk Score, Transit Score, Bike Score",
   },
 };
 

@@ -162,29 +162,25 @@ export interface NeighbourhoodBoundary {
 }
 
 export interface CategoryScores {
-  walkability: number | null;
-  safety: number | null;
-  affordability: number | null;
-  amenities: number | null;
-  education: number | null;
-  healthcare: number | null;
-  income: number | null;
-  familyFriendly: number | null;
-  commuteTime: number | null;
-  lifestyle: number | null;
+  safety: number | null;          // Crime, collisions, overdose (25%)
+  schools: number | null;         // EQAO, school availability (15%)
+  healthEnvironment: number | null; // Tree canopy, healthcare, food safety (15%)
+  amenities: number | null;       // Parks, grocery, recreation, libraries (10%)
+  community: number | null;       // NEI score, road quality (10%)
+  nature: number | null;          // Trails, cycling, green space (10%)
+  affordability: number | null;   // Rent, home prices (10%)
+  walkability: number | null;     // Walk/transit/bike scores (5%)
 }
 
 export interface ScoreWeights {
-  walkability: number;
-  safety: number;
-  affordability: number;
-  amenities: number;
-  education: number;
-  healthcare: number;
-  income: number;
-  familyFriendly: number;
-  commuteTime: number;
-  lifestyle: number;
+  safety: number;           // 30%
+  schools: number;          // 12%
+  healthEnvironment: number; // 15%
+  amenities: number;        // 8%
+  community: number;        // 15%
+  nature: number;           // 10%
+  affordability: number;    // 7%
+  walkability: number;      // 3%
 }
 
 export interface Neighbourhood {
@@ -246,6 +242,9 @@ export interface Neighbourhood {
   foodCriticalViolations: number; // Critical violations
   foodViolationsPerInspection: number | null; // Violations per inspection
   foodPerfectScoreRate: number | null; // % of perfect scores
+  // Food Cost Burden (Ottawa Public Health NFB vs 2021 Census Income)
+  foodCostBurden: number | null; // % of income spent on food
+  foodCostBurdenRating: string | null; // Low/Moderate/High/Very High/Severe
   commuteToDowntown: number; // Average commute time to downtown in minutes (by car)
   commuteByTransit: number; // Average commute time to downtown in minutes (by transit)
   // Transit station proximity

@@ -38,6 +38,7 @@ import SportsCourtsStatRow from "@/components/SportsCourtsStatRow";
 import EquityStatRow from "@/components/EquityStatRow";
 import HealthStatRow from "@/components/HealthStatRow";
 import FoodInspectionStatRow from "@/components/FoodInspectionStatRow";
+import FoodCostBurdenStatRow from "@/components/FoodCostBurdenStatRow";
 import CoverageButton from "@/components/CoverageButton";
 
 const BASE_URL = "https://ottawahoods.com";
@@ -506,6 +507,11 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             criticalViolations={neighbourhood.foodCriticalViolations}
             violationsPerInspection={neighbourhood.foodViolationsPerInspection}
             perfectScoreRate={neighbourhood.foodPerfectScoreRate}
+          />
+          <FoodCostBurdenStatRow
+            foodCostBurden={neighbourhood.foodCostBurden}
+            foodCostBurdenRating={neighbourhood.foodCostBurdenRating}
+            medianIncome={neighbourhood.medianIncome}
           />
           <GroceryStoresStatRow
             groceryStores={details.groceryStores}

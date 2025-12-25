@@ -1980,147 +1980,148 @@ async function main() {
   // ============================================================================
   console.log('\nCalculating neighbourhood scores...');
 
-  // Define category weights (must sum to 1.0)
+  // NEW SCORING MODEL - Balanced for urban AND suburban neighbourhoods
+  // Removes urban bias by focusing on universal quality-of-life factors
+  //
+  // Categories:
+  //   - Safety (25%): Crime, collisions, overdose - matters everywhere
+  //   - Schools (15%): EQAO scores, school availability
+  //   - Health & Environment (15%): Tree canopy, healthcare access, food safety
+  //   - Amenities (10%): Parks, grocery, recreation, libraries (counts, not density)
+  //   - Community (10%): NEI equity score, road quality, city investment
+  //   - Nature (10%): Trails, cycling infra, green space
+  //   - Affordability (10%): Rent and home prices vs city median
+  //   - Walkability (5%): Walk/transit/bike scores - still counts but doesn't dominate
+
   const SCORE_WEIGHTS = {
-    safety: 0.22,          // crime per capita (lower is better) - highest priority
-    amenities: 0.21,       // parks, schools, libraries, grocery stores (self-sufficiency)
-    education: 0.14,       // avgEqaoScore
-    walkability: 0.14,     // walkScore, transitScore, bikeScore, busStopDensity
-    commuteTime: 0.05,     // commute time to downtown (less important for self-contained suburbs)
-    lifestyle: 0.08,       // restaurants & cafes density, gym density
-    familyFriendly: 0.06,  // pctChildren (higher is better for families)
-    healthcare: 0.04,      // distance to hospital (lower is better)
-    affordability: 0.04,   // avgRent, avgHomePrice (lower is better)
-    income: 0.02,          // medianIncome (higher is better)
+    safety: 0.30,           // Crime, collisions, overdose - TOP PRIORITY
+    schools: 0.12,          // EQAO scores, school availability
+    healthEnvironment: 0.15, // Tree canopy, healthcare, food safety
+    amenities: 0.08,        // Parks, grocery, recreation (reduced - urban bias)
+    community: 0.15,        // NEI score, road quality - community health matters
+    nature: 0.10,           // Trails, cycling infrastructure, green space
+    affordability: 0.07,    // Rent, home prices (reduced - lifestyle choice)
+    walkability: 0.03,      // Walk/transit/bike - minimal, it's a preference
   };
 
+  // Helper to calculate average, ignoring nulls
+  function average(values) {
+    const valid = values.filter(v => v !== null && v !== undefined);
+    if (valid.length === 0) return null;
+    return valid.reduce((a, b) => a + b, 0) / valid.length;
+  }
+
   // Absolute benchmark scoring: maps raw values to 0-100 scores
-  // Uses linear interpolation between defined thresholds
   function absoluteScore(value, minVal, maxVal, higherIsBetter = true) {
     if (value === null || value === undefined) return null;
-
-    // Clamp value to range
     const clamped = Math.max(minVal, Math.min(maxVal, value));
-
-    // Linear interpolation to 0-100
     let score = ((clamped - minVal) / (maxVal - minVal)) * 100;
-
-    // Invert if lower is better
-    if (!higherIsBetter) {
-      score = 100 - score;
-    }
-
+    if (!higherIsBetter) score = 100 - score;
     return Math.round(score);
   }
 
-  // Define absolute benchmarks for each metric
-  // Format: { min: worst value, max: best value, higherIsBetter }
-  // Benchmarks are calibrated so "good" neighbourhoods score 70-85 on their strengths
+  // Benchmarks calibrated for Ottawa
   const BENCHMARKS = {
-    // Walkability scores (already 0-100 scale from WalkScore.com)
-    // Scale 0-100 as-is, already meaningful
+    // Safety metrics
+    crimePerCapita: { min: 10, max: 80, higherIsBetter: false }, // per 1000 residents
+    collisionRate: { min: 0, max: 15, higherIsBetter: false }, // per 1000 residents
+    overdoseRate: { min: 0, max: 100, higherIsBetter: false }, // per 100K
+
+    // School metrics
+    avgEqaoScore: { min: 45, max: 85, higherIsBetter: true },
+    hasSchools: { min: 0, max: 5, higherIsBetter: true }, // bonus for having schools
+
+    // Health & Environment
+    treeCanopy: { min: 5, max: 40, higherIsBetter: true }, // % coverage
+    hospitalDistance: { min: 1, max: 15, higherIsBetter: false }, // km
+    primaryCareAccess: { min: 70, max: 95, higherIsBetter: true }, // % with family doctor
+    foodSafetyScore: { min: 95, max: 100, higherIsBetter: true }, // avg inspection score
+
+    // Amenities (counts, not density - fairer to suburbs)
+    parks: { min: 0, max: 20, higherIsBetter: true }, // capped at 20
+    groceryStores: { min: 0, max: 5, higherIsBetter: true }, // capped at 5
+    recreationFacilities: { min: 0, max: 5, higherIsBetter: true },
+    libraries: { min: 0, max: 2, higherIsBetter: true },
+
+    // Community quality
+    neiScore: { min: 40, max: 85, higherIsBetter: true }, // NEI equity index
+    roadQuality: { min: 20, max: 80, higherIsBetter: true }, // from 311 data
+
+    // Nature access
+    trailsKm: { min: 0, max: 15, higherIsBetter: true }, // greenbelt trails km
+    cyclingKm: { min: 0, max: 20, higherIsBetter: true }, // cycling infrastructure km
+
+    // Affordability
+    avgRent: { min: 1400, max: 2600, higherIsBetter: false },
+    avgHomePrice: { min: 400000, max: 1000000, higherIsBetter: false },
+
+    // Walkability (still tracked but lower weight)
     walkScore: { min: 0, max: 100, higherIsBetter: true },
     transitScore: { min: 0, max: 100, higherIsBetter: true },
     bikeScore: { min: 0, max: 100, higherIsBetter: true },
-    busStopDensity: { min: 0, max: 15, higherIsBetter: true }, // 15+ stops/km² = excellent
-
-    // Safety: crimes per 1000 residents (ANNUAL - we divide 2-year total by 2)
-    // Ottawa typical: 20-50, excellent: <20, concerning: >70
-    crimePerCapita: { min: 10, max: 70, higherIsBetter: false },
-
-    // Affordability - calibrated to Ottawa market (Dec 2024)
-    avgRent: { min: 1500, max: 2800, higherIsBetter: false }, // $1500=100, $2800=0
-    avgHomePrice: { min: 450000, max: 1100000, higherIsBetter: false },
-
-    // Amenities - use counts that reward having "enough"
-    parks: { min: 0, max: 60, higherIsBetter: true }, // 60+ parks = 100
-    schools: { min: 0, max: 25, higherIsBetter: true }, // 25+ schools = 100
-    libraries: { min: 0, max: 2, higherIsBetter: true }, // 2+ = 100
-    groceryStoreDensity: { min: 0, max: 0.5, higherIsBetter: true }, // 0.5/km² = excellent
-
-    // Lifestyle - calibrated for Ottawa (not downtown Toronto)
-    restaurantsDensity: { min: 0, max: 8, higherIsBetter: true }, // 8/km² = excellent for Ottawa
-    gymDensity: { min: 0, max: 1.2, higherIsBetter: true }, // 1.2/km² = excellent
-
-    // Education (EQAO % achieving provincial standard)
-    // Provincial average ~60-65%, good schools 70+, excellent 80+
-    avgEqaoScore: { min: 55, max: 82, higherIsBetter: true },
-
-    // Healthcare (distance to nearest hospital in km)
-    // <= 3km very close, <= 5km close, <= 8km medium, > 8km far
-    hospitalDistance: { min: 1, max: 12, higherIsBetter: false },
-
-    // Income - Ottawa context
-    medianIncome: { min: 60000, max: 130000, higherIsBetter: true },
-
-    // Family Friendly (% children in population)
-    // Ottawa avg ~16%, family suburbs 18-22%
-    pctChildren: { min: 8, max: 20, higherIsBetter: true },
-
-    // Commute (minutes to downtown)
-    // <10 excellent, 20-30 typical, >40 long
-    commuteToDowntown: { min: 5, max: 45, higherIsBetter: false },
   };
 
   // Calculate scores for each neighbourhood
   for (const neighbourhood of neighbourhoods) {
-    const pop = neighbourhood.population;
-    // Crime data is for 2024 only
+    const pop = neighbourhood.population || 1;
+    const areaKm2 = neighbourhood.details.areaKm2 || 1;
+
+    // Derived metrics
     const crimePerCapita = pop > 0 ? (neighbourhood.details.crimeTotal / pop) * 1000 : null;
+    const collisionRate = pop > 0 && neighbourhood.details.collisions
+      ? (neighbourhood.details.collisions / pop) * 1000 : null;
 
-    // Calculate individual metric scores (0-100) using absolute benchmarks
+    // Calculate individual metric scores
     const scores = {
-      // Walkability
-      walkScore: absoluteScore(neighbourhood.walkScore, BENCHMARKS.walkScore.min, BENCHMARKS.walkScore.max, BENCHMARKS.walkScore.higherIsBetter),
-      transitScore: absoluteScore(neighbourhood.transitScore, BENCHMARKS.transitScore.min, BENCHMARKS.transitScore.max, BENCHMARKS.transitScore.higherIsBetter),
-      bikeScore: absoluteScore(neighbourhood.bikeScore, BENCHMARKS.bikeScore.min, BENCHMARKS.bikeScore.max, BENCHMARKS.bikeScore.higherIsBetter),
-      busStopDensity: absoluteScore(neighbourhood.details.busStopDensity, BENCHMARKS.busStopDensity.min, BENCHMARKS.busStopDensity.max, BENCHMARKS.busStopDensity.higherIsBetter),
+      // Safety (25%)
+      crime: absoluteScore(crimePerCapita, BENCHMARKS.crimePerCapita.min, BENCHMARKS.crimePerCapita.max, false),
+      collisions: absoluteScore(collisionRate, BENCHMARKS.collisionRate.min, BENCHMARKS.collisionRate.max, false),
+      overdose: absoluteScore(neighbourhood.overdoseRatePer100k, BENCHMARKS.overdoseRate.min, BENCHMARKS.overdoseRate.max, false),
 
-      // Safety
-      crimePerCapita: absoluteScore(crimePerCapita, BENCHMARKS.crimePerCapita.min, BENCHMARKS.crimePerCapita.max, BENCHMARKS.crimePerCapita.higherIsBetter),
+      // Schools (15%)
+      eqao: absoluteScore(neighbourhood.details.avgEqaoScore, BENCHMARKS.avgEqaoScore.min, BENCHMARKS.avgEqaoScore.max, true),
+      schoolCount: absoluteScore(neighbourhood.details.schools, BENCHMARKS.hasSchools.min, BENCHMARKS.hasSchools.max, true),
 
-      // Affordability
-      avgRent: absoluteScore(neighbourhood.avgRent, BENCHMARKS.avgRent.min, BENCHMARKS.avgRent.max, BENCHMARKS.avgRent.higherIsBetter),
-      avgHomePrice: absoluteScore(neighbourhood.avgHomePrice, BENCHMARKS.avgHomePrice.min, BENCHMARKS.avgHomePrice.max, BENCHMARKS.avgHomePrice.higherIsBetter),
+      // Health & Environment (15%)
+      treeCanopy: absoluteScore(neighbourhood.treeCanopy, BENCHMARKS.treeCanopy.min, BENCHMARKS.treeCanopy.max, true),
+      hospital: absoluteScore(neighbourhood.details.distanceToNearestHospital, BENCHMARKS.hospitalDistance.min, BENCHMARKS.hospitalDistance.max, false),
+      primaryCare: absoluteScore(neighbourhood.primaryCareAccess, BENCHMARKS.primaryCareAccess.min, BENCHMARKS.primaryCareAccess.max, true),
+      foodSafety: absoluteScore(neighbourhood.foodInspectionAvgScore, BENCHMARKS.foodSafetyScore.min, BENCHMARKS.foodSafetyScore.max, true),
 
-      // Amenities
-      parks: absoluteScore(neighbourhood.details.parks, BENCHMARKS.parks.min, BENCHMARKS.parks.max, BENCHMARKS.parks.higherIsBetter),
-      schools: absoluteScore(neighbourhood.details.schools, BENCHMARKS.schools.min, BENCHMARKS.schools.max, BENCHMARKS.schools.higherIsBetter),
-      libraries: absoluteScore(neighbourhood.details.libraries, BENCHMARKS.libraries.min, BENCHMARKS.libraries.max, BENCHMARKS.libraries.higherIsBetter),
-      groceryStoreDensity: absoluteScore(neighbourhood.details.groceryStoreDensity, BENCHMARKS.groceryStoreDensity.min, BENCHMARKS.groceryStoreDensity.max, BENCHMARKS.groceryStoreDensity.higherIsBetter),
+      // Amenities (10%) - counts, not density
+      parks: absoluteScore(Math.min(neighbourhood.details.parks, 20), BENCHMARKS.parks.min, BENCHMARKS.parks.max, true),
+      grocery: absoluteScore(Math.min(neighbourhood.details.groceryStores || 0, 5), BENCHMARKS.groceryStores.min, BENCHMARKS.groceryStores.max, true),
+      recreation: absoluteScore(Math.min(neighbourhood.details.recreationFacilities || 0, 5), BENCHMARKS.recreationFacilities.min, BENCHMARKS.recreationFacilities.max, true),
+      libraries: absoluteScore(neighbourhood.details.libraries, BENCHMARKS.libraries.min, BENCHMARKS.libraries.max, true),
 
-      // Lifestyle
-      restaurantsDensity: absoluteScore(neighbourhood.details.restaurantsAndCafesDensity, BENCHMARKS.restaurantsDensity.min, BENCHMARKS.restaurantsDensity.max, BENCHMARKS.restaurantsDensity.higherIsBetter),
-      gymDensity: absoluteScore(neighbourhood.details.gymDensity, BENCHMARKS.gymDensity.min, BENCHMARKS.gymDensity.max, BENCHMARKS.gymDensity.higherIsBetter),
+      // Community (10%)
+      nei: absoluteScore(neighbourhood.neiScore, BENCHMARKS.neiScore.min, BENCHMARKS.neiScore.max, true),
+      roadQuality: absoluteScore(neighbourhood.details.roadQualityScore, BENCHMARKS.roadQuality.min, BENCHMARKS.roadQuality.max, true),
 
-      // Education
-      avgEqaoScore: absoluteScore(neighbourhood.details.avgEqaoScore, BENCHMARKS.avgEqaoScore.min, BENCHMARKS.avgEqaoScore.max, BENCHMARKS.avgEqaoScore.higherIsBetter),
+      // Nature (10%)
+      trails: absoluteScore(neighbourhood.details.greenbeltTrailsLengthKm || 0, BENCHMARKS.trailsKm.min, BENCHMARKS.trailsKm.max, true),
+      cycling: absoluteScore(neighbourhood.details.cyclingTotalKm || 0, BENCHMARKS.cyclingKm.min, BENCHMARKS.cyclingKm.max, true),
 
-      // Healthcare
-      hospitalDistance: absoluteScore(neighbourhood.details.distanceToNearestHospital, BENCHMARKS.hospitalDistance.min, BENCHMARKS.hospitalDistance.max, BENCHMARKS.hospitalDistance.higherIsBetter),
+      // Affordability (10%)
+      rent: absoluteScore(neighbourhood.avgRent, BENCHMARKS.avgRent.min, BENCHMARKS.avgRent.max, false),
+      homePrice: absoluteScore(neighbourhood.avgHomePrice, BENCHMARKS.avgHomePrice.min, BENCHMARKS.avgHomePrice.max, false),
 
-      // Income
-      medianIncome: absoluteScore(neighbourhood.medianIncome, BENCHMARKS.medianIncome.min, BENCHMARKS.medianIncome.max, BENCHMARKS.medianIncome.higherIsBetter),
-
-      // Family Friendly
-      pctChildren: absoluteScore(neighbourhood.pctChildren, BENCHMARKS.pctChildren.min, BENCHMARKS.pctChildren.max, BENCHMARKS.pctChildren.higherIsBetter),
-
-      // Commute Time
-      commuteToDowntown: absoluteScore(neighbourhood.commuteToDowntown, BENCHMARKS.commuteToDowntown.min, BENCHMARKS.commuteToDowntown.max, BENCHMARKS.commuteToDowntown.higherIsBetter),
+      // Walkability (5%)
+      walk: absoluteScore(neighbourhood.walkScore, BENCHMARKS.walkScore.min, BENCHMARKS.walkScore.max, true),
+      transit: absoluteScore(neighbourhood.transitScore, BENCHMARKS.transitScore.min, BENCHMARKS.transitScore.max, true),
+      bike: absoluteScore(neighbourhood.bikeScore, BENCHMARKS.bikeScore.min, BENCHMARKS.bikeScore.max, true),
     };
 
-    // Calculate category scores (average of metrics in each category)
+    // Calculate category scores
     const categoryScores = {
-      safety: scores.crimePerCapita,
-      amenities: average([scores.parks, scores.schools, scores.libraries, scores.groceryStoreDensity]),
-      education: scores.avgEqaoScore,
-      walkability: average([scores.walkScore, scores.transitScore, scores.bikeScore, scores.busStopDensity]),
-      commuteTime: scores.commuteToDowntown,
-      lifestyle: average([scores.restaurantsDensity, scores.gymDensity]),
-      familyFriendly: scores.pctChildren,
-      healthcare: scores.hospitalDistance,
-      affordability: average([scores.avgRent, scores.avgHomePrice]),
-      income: scores.medianIncome,
+      safety: average([scores.crime, scores.collisions, scores.overdose]),
+      schools: average([scores.eqao, scores.schoolCount]),
+      healthEnvironment: average([scores.treeCanopy, scores.hospital, scores.primaryCare, scores.foodSafety]),
+      amenities: average([scores.parks, scores.grocery, scores.recreation, scores.libraries]),
+      community: average([scores.nei, scores.roadQuality]),
+      nature: average([scores.trails, scores.cycling, scores.parks]), // parks count for nature too
+      affordability: average([scores.rent, scores.homePrice]),
+      walkability: average([scores.walk, scores.transit, scores.bike]),
     };
 
     // Calculate weighted total score
@@ -2135,31 +2136,21 @@ async function main() {
       }
     }
 
-    // Normalize if not all categories have data
     const finalScore = totalWeight > 0 ? Math.round(totalScore / totalWeight) : 0;
 
     // Add scores to neighbourhood object
     neighbourhood.overallScore = finalScore;
     neighbourhood.categoryScores = {
       safety: categoryScores.safety !== null ? Math.round(categoryScores.safety) : null,
+      schools: categoryScores.schools !== null ? Math.round(categoryScores.schools) : null,
+      healthEnvironment: categoryScores.healthEnvironment !== null ? Math.round(categoryScores.healthEnvironment) : null,
       amenities: categoryScores.amenities !== null ? Math.round(categoryScores.amenities) : null,
-      education: categoryScores.education !== null ? Math.round(categoryScores.education) : null,
-      walkability: categoryScores.walkability !== null ? Math.round(categoryScores.walkability) : null,
-      commuteTime: categoryScores.commuteTime !== null ? Math.round(categoryScores.commuteTime) : null,
-      lifestyle: categoryScores.lifestyle !== null ? Math.round(categoryScores.lifestyle) : null,
-      familyFriendly: categoryScores.familyFriendly !== null ? Math.round(categoryScores.familyFriendly) : null,
-      healthcare: categoryScores.healthcare !== null ? Math.round(categoryScores.healthcare) : null,
+      community: categoryScores.community !== null ? Math.round(categoryScores.community) : null,
+      nature: categoryScores.nature !== null ? Math.round(categoryScores.nature) : null,
       affordability: categoryScores.affordability !== null ? Math.round(categoryScores.affordability) : null,
-      income: categoryScores.income !== null ? Math.round(categoryScores.income) : null,
+      walkability: categoryScores.walkability !== null ? Math.round(categoryScores.walkability) : null,
     };
     neighbourhood.scoreWeights = SCORE_WEIGHTS;
-  }
-
-  // Helper to calculate average, ignoring nulls
-  function average(values) {
-    const valid = values.filter(v => v !== null && v !== undefined);
-    if (valid.length === 0) return null;
-    return valid.reduce((a, b) => a + b, 0) / valid.length;
   }
 
   // Sort neighbourhoods by overall score for summary
