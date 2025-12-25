@@ -2019,123 +2019,432 @@ async function main() {
     return (val1 * weight1 + val2 * weight2) / (weight1 + weight2);
   }
 
-  // Absolute benchmark scoring: maps raw values to 0-100 scores
-  function absoluteScore(value, minVal, maxVal, higherIsBetter = true) {
+  // ABSOLUTE STANDARDS SCORING
+  // Each metric has defined thresholds that map to scores
+  // These are objective standards, not comparative to other Ottawa neighbourhoods
+
+  // Threshold-based scoring: returns score based on where value falls in thresholds
+  // thresholds: array of { max: number, score: number } sorted by max ascending
+  // For "lower is better" metrics, pass the value as-is and structure thresholds accordingly
+  function thresholdScore(value, thresholds, higherIsBetter = true) {
     if (value === null || value === undefined) return null;
-    const clamped = Math.max(minVal, Math.min(maxVal, value));
-    let score = ((clamped - minVal) / (maxVal - minVal)) * 100;
-    if (!higherIsBetter) score = 100 - score;
-    return Math.round(score);
+
+    for (const t of thresholds) {
+      if (higherIsBetter ? value <= t.max : value <= t.max) {
+        return t.score;
+      }
+    }
+    return thresholds[thresholds.length - 1].score;
   }
 
-  // Log scaling for counts with diminishing returns (0→1 matters more than 4→5)
-  // Maps count to 0-100 using log curve, with targetCount being where score hits ~70
-  function logScore(count, targetCount) {
-    if (count === null || count === undefined) return null;
-    if (count <= 0) return 0;
-    // Using natural log: ln(count+1) / ln(target+1) gives 0-1 scale at target
-    // Multiply by 100 and cap at 100
-    const normalizedScore = (Math.log(count + 1) / Math.log(targetCount + 1)) * 100;
-    return Math.round(Math.min(100, normalizedScore));
-  }
+  // ABSOLUTE STANDARDS - Objective thresholds based on urban planning standards & research
+  const STANDARDS = {
+    // SAFETY - Based on Canadian crime statistics and public health data
+    crime: { // per 1,000 residents (lower is better)
+      thresholds: [
+        { max: 15, score: 100, label: 'Very Low' },
+        { max: 30, score: 80, label: 'Low' },
+        { max: 50, score: 60, label: 'Moderate' },
+        { max: 80, score: 40, label: 'High' },
+        { max: 120, score: 20, label: 'Very High' },
+        { max: Infinity, score: 0, label: 'Extreme' },
+      ],
+      unit: 'per 1,000',
+      higherIsBetter: false,
+    },
+    collisions: { // per 1,000 residents (lower is better)
+      thresholds: [
+        { max: 5, score: 100, label: 'Very Safe' },
+        { max: 10, score: 80, label: 'Safe' },
+        { max: 15, score: 60, label: 'Moderate' },
+        { max: 25, score: 40, label: 'Elevated' },
+        { max: 40, score: 20, label: 'High' },
+        { max: Infinity, score: 0, label: 'Very High' },
+      ],
+      unit: 'per 1,000',
+      higherIsBetter: false,
+    },
+    overdose: { // per 100,000 residents (lower is better)
+      thresholds: [
+        { max: 25, score: 100, label: 'Very Low' },
+        { max: 50, score: 80, label: 'Low' },
+        { max: 80, score: 60, label: 'Moderate' },
+        { max: 120, score: 40, label: 'Elevated' },
+        { max: 200, score: 20, label: 'High' },
+        { max: Infinity, score: 0, label: 'Very High' },
+      ],
+      unit: 'per 100K',
+      higherIsBetter: false,
+    },
 
-  // Benchmarks calibrated for Ottawa (based on p10-p90 percentiles of actual data)
-  const BENCHMARKS = {
-    // Safety metrics (p10 = best, p90 = worst for these)
-    crimePerCapita: { min: 15, max: 100, higherIsBetter: false }, // per 1000 residents (p10=14, p90=100)
-    collisionRate: { min: 5, max: 30, higherIsBetter: false }, // per 1000 residents (p10=5, p90=28)
-    overdoseRate: { min: 20, max: 130, higherIsBetter: false }, // per 100K (p10=21, p90=132)
+    // SCHOOLS - Based on Ontario education standards
+    eqao: { // % meeting provincial standard (higher is better)
+      thresholds: [
+        { max: 49, score: 20, label: 'Below Standard' },
+        { max: 59, score: 40, label: 'Approaching' },
+        { max: 69, score: 60, label: 'Meeting' },
+        { max: 79, score: 80, label: 'Above' },
+        { max: 100, score: 100, label: 'Excellent' },
+      ],
+      unit: '%',
+      higherIsBetter: true,
+    },
+    schoolCount: { // number of schools (higher is better)
+      thresholds: [
+        { max: 0, score: 0, label: 'None' },
+        { max: 1, score: 40, label: 'Limited' },
+        { max: 3, score: 60, label: 'Some' },
+        { max: 6, score: 80, label: 'Good' },
+        { max: Infinity, score: 100, label: 'Excellent' },
+      ],
+      unit: 'schools',
+      higherIsBetter: true,
+    },
 
-    // School metrics
-    avgEqaoScore: { min: 45, max: 85, higherIsBetter: true },
-    hasSchools: { min: 0, max: 5, higherIsBetter: true }, // bonus for having schools
+    // HEALTH & ENVIRONMENT
+    treeCanopy: { // % coverage (higher is better) - Urban forestry standards
+      thresholds: [
+        { max: 10, score: 20, label: 'Sparse' },
+        { max: 20, score: 40, label: 'Low' },
+        { max: 30, score: 60, label: 'Moderate' },
+        { max: 40, score: 80, label: 'Good' },
+        { max: 100, score: 100, label: 'Excellent' },
+      ],
+      unit: '%',
+      higherIsBetter: true,
+    },
+    hospital: { // km to nearest (lower is better)
+      thresholds: [
+        { max: 3, score: 100, label: 'Very Close' },
+        { max: 5, score: 80, label: 'Close' },
+        { max: 8, score: 60, label: 'Moderate' },
+        { max: 12, score: 40, label: 'Far' },
+        { max: 20, score: 20, label: 'Very Far' },
+        { max: Infinity, score: 0, label: 'Remote' },
+      ],
+      unit: 'km',
+      higherIsBetter: false,
+    },
+    primaryCare: { // % with family doctor (higher is better)
+      thresholds: [
+        { max: 74, score: 20, label: 'Poor' },
+        { max: 79, score: 40, label: 'Low' },
+        { max: 84, score: 60, label: 'Moderate' },
+        { max: 89, score: 80, label: 'Good' },
+        { max: 100, score: 100, label: 'Excellent' },
+      ],
+      unit: '%',
+      higherIsBetter: true,
+    },
+    foodSafety: { // inspection score 0-100 (higher is better)
+      thresholds: [
+        { max: 95, score: 20, label: 'Poor' },
+        { max: 97, score: 50, label: 'Fair' },
+        { max: 98, score: 70, label: 'Good' },
+        { max: 99, score: 85, label: 'Very Good' },
+        { max: 100, score: 100, label: 'Excellent' },
+      ],
+      unit: 'score',
+      higherIsBetter: true,
+    },
 
-    // Health & Environment
-    treeCanopy: { min: 5, max: 40, higherIsBetter: true }, // % coverage
-    hospitalDistance: { min: 1, max: 15, higherIsBetter: false }, // km
-    primaryCareAccess: { min: 70, max: 95, higherIsBetter: true }, // % with family doctor
-    foodSafetyScore: { min: 95, max: 100, higherIsBetter: true }, // avg inspection score
+    // AMENITIES - Based on walkable neighbourhood standards
+    parks: { // count (higher is better)
+      thresholds: [
+        { max: 0, score: 0, label: 'None' },
+        { max: 2, score: 30, label: 'Few' },
+        { max: 5, score: 50, label: 'Some' },
+        { max: 10, score: 70, label: 'Good' },
+        { max: 20, score: 85, label: 'Many' },
+        { max: Infinity, score: 100, label: 'Abundant' },
+      ],
+      unit: 'parks',
+      higherIsBetter: true,
+    },
+    grocery: { // count (higher is better)
+      thresholds: [
+        { max: 0, score: 0, label: 'None' },
+        { max: 1, score: 50, label: 'Limited' },
+        { max: 2, score: 70, label: 'Some' },
+        { max: 4, score: 85, label: 'Good' },
+        { max: Infinity, score: 100, label: 'Excellent' },
+      ],
+      unit: 'stores',
+      higherIsBetter: true,
+    },
+    dining: { // count (higher is better)
+      thresholds: [
+        { max: 0, score: 0, label: 'None' },
+        { max: 5, score: 30, label: 'Few' },
+        { max: 15, score: 50, label: 'Some' },
+        { max: 30, score: 70, label: 'Good' },
+        { max: 60, score: 85, label: 'Many' },
+        { max: Infinity, score: 100, label: 'Abundant' },
+      ],
+      unit: 'places',
+      higherIsBetter: true,
+    },
+    recreation: { // count (higher is better)
+      thresholds: [
+        { max: 0, score: 0, label: 'None' },
+        { max: 1, score: 50, label: 'Limited' },
+        { max: 2, score: 70, label: 'Some' },
+        { max: 4, score: 85, label: 'Good' },
+        { max: Infinity, score: 100, label: 'Excellent' },
+      ],
+      unit: 'facilities',
+      higherIsBetter: true,
+    },
+    libraries: { // count (higher is better)
+      thresholds: [
+        { max: 0, score: 0, label: 'None' },
+        { max: 1, score: 70, label: 'One' },
+        { max: Infinity, score: 100, label: 'Multiple' },
+      ],
+      unit: 'libraries',
+      higherIsBetter: true,
+    },
 
-    // Amenities (counts, not density - fairer to suburbs)
-    parks: { min: 0, max: 20, higherIsBetter: true }, // capped at 20
-    groceryStores: { min: 0, max: 5, higherIsBetter: true }, // capped at 5
-    recreationFacilities: { min: 0, max: 5, higherIsBetter: true },
-    libraries: { min: 0, max: 2, higherIsBetter: true },
+    // COMMUNITY
+    roadQuality: { // 0-100 score (higher is better)
+      thresholds: [
+        { max: 20, score: 20, label: 'Poor' },
+        { max: 40, score: 40, label: 'Fair' },
+        { max: 60, score: 60, label: 'Moderate' },
+        { max: 80, score: 80, label: 'Good' },
+        { max: 100, score: 100, label: 'Excellent' },
+      ],
+      unit: 'score',
+      higherIsBetter: true,
+    },
+    quietScore: { // 0-100 score (higher is better)
+      thresholds: [
+        { max: 20, score: 20, label: 'Noisy' },
+        { max: 40, score: 40, label: 'Moderate' },
+        { max: 60, score: 60, label: 'Average' },
+        { max: 80, score: 80, label: 'Quiet' },
+        { max: 100, score: 100, label: 'Very Quiet' },
+      ],
+      unit: 'score',
+      higherIsBetter: true,
+    },
+    serviceRequests: { // per 1,000 residents (lower is better)
+      thresholds: [
+        { max: 300, score: 100, label: 'Very Low' },
+        { max: 500, score: 80, label: 'Low' },
+        { max: 700, score: 60, label: 'Moderate' },
+        { max: 900, score: 40, label: 'High' },
+        { max: 1200, score: 20, label: 'Very High' },
+        { max: Infinity, score: 0, label: 'Extreme' },
+      ],
+      unit: 'per 1,000',
+      higherIsBetter: false,
+    },
 
-    // Community quality (based on actual p10-p90 distribution)
-    neiScore: { min: 40, max: 85, higherIsBetter: true }, // NEI equity index
-    roadQuality: { min: 10, max: 90, higherIsBetter: true }, // from 311 data (p10=10, p90=90)
-    quietScore: { min: 10, max: 90, higherIsBetter: true }, // noise complaints inverse (p10=10, p90=90)
-    serviceRequestRate: { min: 300, max: 1000, higherIsBetter: false }, // per 1000 (p10=330, p90=1017)
+    // NATURE
+    trails: { // km of trails (higher is better)
+      thresholds: [
+        { max: 0, score: 0, label: 'None' },
+        { max: 2, score: 30, label: 'Limited' },
+        { max: 5, score: 50, label: 'Some' },
+        { max: 10, score: 70, label: 'Good' },
+        { max: 20, score: 85, label: 'Extensive' },
+        { max: Infinity, score: 100, label: 'Excellent' },
+      ],
+      unit: 'km',
+      higherIsBetter: true,
+    },
+    cycling: { // km of cycling infra (higher is better)
+      thresholds: [
+        { max: 0, score: 0, label: 'None' },
+        { max: 3, score: 30, label: 'Limited' },
+        { max: 8, score: 50, label: 'Some' },
+        { max: 15, score: 70, label: 'Good' },
+        { max: 25, score: 85, label: 'Extensive' },
+        { max: Infinity, score: 100, label: 'Excellent' },
+      ],
+      unit: 'km',
+      higherIsBetter: true,
+    },
 
-    // Nature access
-    trailsKm: { min: 0, max: 15, higherIsBetter: true }, // greenbelt trails km
-    cyclingKm: { min: 0, max: 20, higherIsBetter: true }, // cycling infrastructure km
+    // AFFORDABILITY - Based on Ottawa market data
+    rent: { // monthly rent (lower is better)
+      thresholds: [
+        { max: 1500, score: 100, label: 'Very Affordable' },
+        { max: 1800, score: 80, label: 'Affordable' },
+        { max: 2100, score: 60, label: 'Moderate' },
+        { max: 2400, score: 40, label: 'Expensive' },
+        { max: 2800, score: 20, label: 'Very Expensive' },
+        { max: Infinity, score: 0, label: 'Premium' },
+      ],
+      unit: '$/mo',
+      higherIsBetter: false,
+    },
+    homePrice: { // home price (lower is better)
+      thresholds: [
+        { max: 450000, score: 100, label: 'Very Affordable' },
+        { max: 550000, score: 80, label: 'Affordable' },
+        { max: 700000, score: 60, label: 'Moderate' },
+        { max: 900000, score: 40, label: 'Expensive' },
+        { max: 1200000, score: 20, label: 'Very Expensive' },
+        { max: Infinity, score: 0, label: 'Premium' },
+      ],
+      unit: '$',
+      higherIsBetter: false,
+    },
+    foodCostBurden: { // % of income (lower is better)
+      thresholds: [
+        { max: 10, score: 100, label: 'Very Low' },
+        { max: 14, score: 80, label: 'Low' },
+        { max: 18, score: 60, label: 'Moderate' },
+        { max: 22, score: 40, label: 'High' },
+        { max: 28, score: 20, label: 'Very High' },
+        { max: Infinity, score: 0, label: 'Severe' },
+      ],
+      unit: '%',
+      higherIsBetter: false,
+    },
 
-    // Affordability
-    avgRent: { min: 1400, max: 2600, higherIsBetter: false },
-    avgHomePrice: { min: 400000, max: 1000000, higherIsBetter: false },
-    foodCostBurden: { min: 10, max: 30, higherIsBetter: false }, // % of income on food
-
-    // Walkability (still tracked but lower weight)
-    walkScore: { min: 0, max: 100, higherIsBetter: true },
-    transitScore: { min: 0, max: 100, higherIsBetter: true },
-    bikeScore: { min: 0, max: 100, higherIsBetter: true },
+    // WALKABILITY - Using Walk Score's official thresholds
+    walk: { // Walk Score 0-100
+      thresholds: [
+        { max: 24, score: 20, label: 'Car-Dependent' },
+        { max: 49, score: 40, label: 'Car-Dependent' },
+        { max: 69, score: 60, label: 'Somewhat Walkable' },
+        { max: 89, score: 80, label: 'Very Walkable' },
+        { max: 100, score: 100, label: "Walker's Paradise" },
+      ],
+      unit: 'score',
+      higherIsBetter: true,
+    },
+    transit: { // Transit Score 0-100
+      thresholds: [
+        { max: 24, score: 20, label: 'Minimal Transit' },
+        { max: 49, score: 40, label: 'Some Transit' },
+        { max: 69, score: 60, label: 'Good Transit' },
+        { max: 89, score: 80, label: 'Excellent Transit' },
+        { max: 100, score: 100, label: 'World-Class' },
+      ],
+      unit: 'score',
+      higherIsBetter: true,
+    },
+    bike: { // Bike Score 0-100
+      thresholds: [
+        { max: 49, score: 40, label: 'Bikeable' },
+        { max: 69, score: 60, label: 'Bikeable' },
+        { max: 89, score: 80, label: 'Very Bikeable' },
+        { max: 100, score: 100, label: "Biker's Paradise" },
+      ],
+      unit: 'score',
+      higherIsBetter: true,
+    },
   };
+
+  // Get score using absolute standards
+  function getAbsoluteScore(value, standardKey) {
+    if (value === null || value === undefined) return null;
+    const standard = STANDARDS[standardKey];
+    if (!standard) return null;
+
+    for (const t of standard.thresholds) {
+      if (value <= t.max) {
+        return standard.higherIsBetter ? t.score : t.score;
+      }
+    }
+    return standard.thresholds[standard.thresholds.length - 1].score;
+  }
+
+  // Get label for a value based on absolute standards
+  function getAbsoluteLabel(value, standardKey) {
+    if (value === null || value === undefined) return null;
+    const standard = STANDARDS[standardKey];
+    if (!standard) return null;
+
+    for (const t of standard.thresholds) {
+      if (value <= t.max) {
+        return t.label;
+      }
+    }
+    return standard.thresholds[standard.thresholds.length - 1].label;
+  }
 
   // Calculate scores for each neighbourhood
   for (const neighbourhood of neighbourhoods) {
     const pop = neighbourhood.population || 1;
     const areaKm2 = neighbourhood.details.areaKm2 || 1;
 
-    // Derived metrics
-    const crimePerCapita = pop > 0 ? (neighbourhood.details.crimeTotal / pop) * 1000 : null;
-    const collisionRate = pop > 0 && neighbourhood.details.collisions
-      ? (neighbourhood.details.collisions / pop) * 1000 : null;
+    // Calculate raw metric values (for transparency in UI)
+    const rawValues = {
+      crime: pop > 0 ? Math.round((neighbourhood.details.crimeTotal / pop) * 1000 * 10) / 10 : null,
+      collisions: pop > 0 && neighbourhood.details.collisions
+        ? Math.round((neighbourhood.details.collisions / pop) * 1000 * 10) / 10 : null,
+      overdose: neighbourhood.overdoseRatePer100k,
+      eqao: neighbourhood.details.avgEqaoScore,
+      schoolCount: neighbourhood.details.schools,
+      treeCanopy: neighbourhood.treeCanopy,
+      hospital: neighbourhood.details.distanceToNearestHospital,
+      primaryCare: neighbourhood.primaryCareAccess,
+      foodSafety: neighbourhood.foodInspectionAvgScore,
+      parks: neighbourhood.details.parks,
+      grocery: neighbourhood.details.groceryStores || 0,
+      dining: neighbourhood.details.foodEstablishments || 0,
+      recreation: neighbourhood.details.recreationFacilities || 0,
+      libraries: neighbourhood.details.libraries,
+      roadQuality: neighbourhood.details.roadQualityScore,
+      quietScore: neighbourhood.details.quietScore,
+      serviceRequests: neighbourhood.details.serviceRequestRate,
+      trails: neighbourhood.details.greenbeltTrailsLengthKm || 0,
+      cycling: neighbourhood.details.cyclingTotalKm || 0,
+      rent: neighbourhood.avgRent,
+      homePrice: neighbourhood.avgHomePrice,
+      foodCostBurden: neighbourhood.foodCostBurden,
+      walk: neighbourhood.walkScore,
+      transit: neighbourhood.transitScore,
+      bike: neighbourhood.bikeScore,
+    };
 
-    // Calculate individual metric scores
+    // Calculate scores using ABSOLUTE STANDARDS
     const scores = {
-      // Safety (25%)
-      crime: absoluteScore(crimePerCapita, BENCHMARKS.crimePerCapita.min, BENCHMARKS.crimePerCapita.max, false),
-      collisions: absoluteScore(collisionRate, BENCHMARKS.collisionRate.min, BENCHMARKS.collisionRate.max, false),
-      overdose: absoluteScore(neighbourhood.overdoseRatePer100k, BENCHMARKS.overdoseRate.min, BENCHMARKS.overdoseRate.max, false),
+      // Safety (20%)
+      crime: getAbsoluteScore(rawValues.crime, 'crime'),
+      collisions: getAbsoluteScore(rawValues.collisions, 'collisions'),
+      overdose: getAbsoluteScore(rawValues.overdose, 'overdose'),
 
       // Schools (12%) - EQAO weighted 70%, school count 30%
-      eqao: absoluteScore(neighbourhood.details.avgEqaoScore, BENCHMARKS.avgEqaoScore.min, BENCHMARKS.avgEqaoScore.max, true),
-      schoolCount: logScore(neighbourhood.details.schools, 8), // log scale, ~70 score at 8 schools
+      eqao: getAbsoluteScore(rawValues.eqao, 'eqao'),
+      schoolCount: getAbsoluteScore(rawValues.schoolCount, 'schoolCount'),
 
       // Health & Environment (15%)
-      treeCanopy: absoluteScore(neighbourhood.treeCanopy, BENCHMARKS.treeCanopy.min, BENCHMARKS.treeCanopy.max, true),
-      hospital: absoluteScore(neighbourhood.details.distanceToNearestHospital, BENCHMARKS.hospitalDistance.min, BENCHMARKS.hospitalDistance.max, false),
-      primaryCare: absoluteScore(neighbourhood.primaryCareAccess, BENCHMARKS.primaryCareAccess.min, BENCHMARKS.primaryCareAccess.max, true),
-      foodSafety: absoluteScore(neighbourhood.foodInspectionAvgScore, BENCHMARKS.foodSafetyScore.min, BENCHMARKS.foodSafetyScore.max, true),
+      treeCanopy: getAbsoluteScore(rawValues.treeCanopy, 'treeCanopy'),
+      hospital: getAbsoluteScore(rawValues.hospital, 'hospital'),
+      primaryCare: getAbsoluteScore(rawValues.primaryCare, 'primaryCare'),
+      foodSafety: getAbsoluteScore(rawValues.foodSafety, 'foodSafety'),
 
-      // Amenities (8%) - log scaling for diminishing returns
-      parks: logScore(neighbourhood.details.parks, 15), // ~70 score at 15 parks
-      grocery: logScore(neighbourhood.details.groceryStores || 0, 4), // ~70 score at 4 stores
-      dining: logScore(neighbourhood.details.foodEstablishments || 0, 25), // ~70 score at 25 restaurants/cafes
-      recreation: logScore(neighbourhood.details.recreationFacilities || 0, 4), // ~70 score at 4 facilities
-      libraries: logScore(neighbourhood.details.libraries, 2), // ~70 score at 2 libraries
+      // Amenities (13%)
+      parks: getAbsoluteScore(rawValues.parks, 'parks'),
+      grocery: getAbsoluteScore(rawValues.grocery, 'grocery'),
+      dining: getAbsoluteScore(rawValues.dining, 'dining'),
+      recreation: getAbsoluteScore(rawValues.recreation, 'recreation'),
+      libraries: getAbsoluteScore(rawValues.libraries, 'libraries'),
 
-      // Community (15%)
-      nei: absoluteScore(neighbourhood.neiScore, BENCHMARKS.neiScore.min, BENCHMARKS.neiScore.max, true),
-      roadQuality: absoluteScore(neighbourhood.details.roadQualityScore, BENCHMARKS.roadQuality.min, BENCHMARKS.roadQuality.max, true),
-      quietScore: absoluteScore(neighbourhood.details.quietScore, BENCHMARKS.quietScore.min, BENCHMARKS.quietScore.max, true),
-      serviceRequests: absoluteScore(neighbourhood.details.serviceRequestRate, BENCHMARKS.serviceRequestRate.min, BENCHMARKS.serviceRequestRate.max, false),
+      // Community (15%) - Removed NEI (equity index is demographic, not quality)
+      roadQuality: getAbsoluteScore(rawValues.roadQuality, 'roadQuality'),
+      quietScore: getAbsoluteScore(rawValues.quietScore, 'quietScore'),
+      serviceRequests: getAbsoluteScore(rawValues.serviceRequests, 'serviceRequests'),
 
       // Nature (10%)
-      trails: absoluteScore(neighbourhood.details.greenbeltTrailsLengthKm || 0, BENCHMARKS.trailsKm.min, BENCHMARKS.trailsKm.max, true),
-      cycling: absoluteScore(neighbourhood.details.cyclingTotalKm || 0, BENCHMARKS.cyclingKm.min, BENCHMARKS.cyclingKm.max, true),
+      trails: getAbsoluteScore(rawValues.trails, 'trails'),
+      cycling: getAbsoluteScore(rawValues.cycling, 'cycling'),
 
-      // Affordability (7%)
-      rent: absoluteScore(neighbourhood.avgRent, BENCHMARKS.avgRent.min, BENCHMARKS.avgRent.max, false),
-      homePrice: absoluteScore(neighbourhood.avgHomePrice, BENCHMARKS.avgHomePrice.min, BENCHMARKS.avgHomePrice.max, false),
-      foodCostBurden: absoluteScore(neighbourhood.foodCostBurden, BENCHMARKS.foodCostBurden.min, BENCHMARKS.foodCostBurden.max, false),
+      // Affordability (10%)
+      rent: getAbsoluteScore(rawValues.rent, 'rent'),
+      homePrice: getAbsoluteScore(rawValues.homePrice, 'homePrice'),
+      foodCostBurden: getAbsoluteScore(rawValues.foodCostBurden, 'foodCostBurden'),
 
       // Walkability (5%)
-      walk: absoluteScore(neighbourhood.walkScore, BENCHMARKS.walkScore.min, BENCHMARKS.walkScore.max, true),
-      transit: absoluteScore(neighbourhood.transitScore, BENCHMARKS.transitScore.min, BENCHMARKS.transitScore.max, true),
-      bike: absoluteScore(neighbourhood.bikeScore, BENCHMARKS.bikeScore.min, BENCHMARKS.bikeScore.max, true),
+      walk: getAbsoluteScore(rawValues.walk, 'walk'),
+      transit: getAbsoluteScore(rawValues.transit, 'transit'),
+      bike: getAbsoluteScore(rawValues.bike, 'bike'),
     };
 
     // Calculate category scores
@@ -2144,8 +2453,8 @@ async function main() {
       schools: weightedAvg(scores.eqao, 0.7, scores.schoolCount, 0.3), // EQAO 70%, count 30%
       healthEnvironment: average([scores.treeCanopy, scores.hospital, scores.primaryCare, scores.foodSafety]),
       amenities: average([scores.parks, scores.grocery, scores.dining, scores.recreation, scores.libraries]),
-      community: average([scores.nei, scores.roadQuality, scores.quietScore, scores.serviceRequests]),
-      nature: average([scores.trails, scores.cycling]), // removed parks - no double counting
+      community: average([scores.roadQuality, scores.quietScore, scores.serviceRequests]), // Removed NEI
+      nature: average([scores.trails, scores.cycling]),
       affordability: average([scores.rent, scores.homePrice, scores.foodCostBurden]),
       walkability: average([scores.walk, scores.transit, scores.bike]),
     };
@@ -2197,8 +2506,7 @@ async function main() {
       dining: scores.dining,
       recreation: scores.recreation,
       libraries: scores.libraries,
-      // Community metrics
-      nei: scores.nei,
+      // Community metrics (NEI removed - it's demographic, not quality)
       roadQuality: scores.roadQuality,
       quietScore: scores.quietScore,
       serviceRequests: scores.serviceRequests,
@@ -2214,6 +2522,8 @@ async function main() {
       transit: scores.transit,
       bike: scores.bike,
     };
+    // Store raw values for transparency in UI
+    neighbourhood.rawMetricValues = rawValues;
   }
 
   // Sort neighbourhoods by overall score for summary

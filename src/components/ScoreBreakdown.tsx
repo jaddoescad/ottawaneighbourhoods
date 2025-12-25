@@ -1,53 +1,53 @@
 "use client";
 
 import { useState } from "react";
-import { CategoryScores, ScoreWeights, MetricScores } from "@/data/neighbourhoods";
+import { CategoryScores, ScoreWeights, MetricScores, RawMetricValues } from "@/data/neighbourhoods";
 
 interface ScoreBreakdownProps {
   overallScore: number;
   categoryScores: CategoryScores;
   scoreWeights: ScoreWeights;
   metricScores: MetricScores;
+  rawMetricValues: RawMetricValues;
   rank: number;
   totalNeighbourhoods: number;
 }
 
-// Individual metric definitions with clear labels and explanations
-const METRICS: Record<keyof MetricScores, { label: string; description: string; higherIsBetter: boolean }> = {
+// Individual metric definitions with clear labels, units, and what's good
+const METRICS: Record<keyof MetricScores, { label: string; unit: string; format: (v: number | null) => string; goodDirection: string }> = {
   // Safety
-  crime: { label: "Crime Rate", description: "Lower crime per 1,000 residents", higherIsBetter: true },
-  collisions: { label: "Traffic Safety", description: "Fewer traffic collisions per capita", higherIsBetter: true },
-  overdose: { label: "Overdose Rate", description: "Fewer overdose ED visits per 100K", higherIsBetter: true },
+  crime: { label: "Crime Rate", unit: "per 1,000", format: (v) => v !== null ? v.toFixed(1) : "N/A", goodDirection: "lower" },
+  collisions: { label: "Traffic Safety", unit: "per 1,000", format: (v) => v !== null ? v.toFixed(1) : "N/A", goodDirection: "lower" },
+  overdose: { label: "Overdose Rate", unit: "per 100K", format: (v) => v !== null ? Math.round(v).toString() : "N/A", goodDirection: "lower" },
   // Schools
-  eqao: { label: "EQAO Scores", description: "% students meeting provincial standard", higherIsBetter: true },
-  schoolCount: { label: "School Access", description: "Number of schools available", higherIsBetter: true },
+  eqao: { label: "EQAO Scores", unit: "%", format: (v) => v !== null ? Math.round(v) + "%" : "N/A", goodDirection: "higher" },
+  schoolCount: { label: "Schools", unit: "schools", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "more" },
   // Health & Environment
-  treeCanopy: { label: "Tree Coverage", description: "% of area covered by trees", higherIsBetter: true },
-  hospital: { label: "Hospital Access", description: "Distance to nearest hospital", higherIsBetter: true },
-  primaryCare: { label: "Family Doctor", description: "% with access to primary care", higherIsBetter: true },
-  foodSafety: { label: "Food Safety", description: "Restaurant inspection scores", higherIsBetter: true },
+  treeCanopy: { label: "Tree Coverage", unit: "%", format: (v) => v !== null ? Math.round(v) + "%" : "N/A", goodDirection: "higher" },
+  hospital: { label: "Hospital Distance", unit: "km", format: (v) => v !== null ? v.toFixed(1) + " km" : "N/A", goodDirection: "closer" },
+  primaryCare: { label: "Primary Care Access", unit: "%", format: (v) => v !== null ? Math.round(v) + "%" : "N/A", goodDirection: "higher" },
+  foodSafety: { label: "Food Safety", unit: "score", format: (v) => v !== null ? v.toFixed(1) : "N/A", goodDirection: "higher" },
   // Amenities
-  parks: { label: "Parks", description: "Number of parks available", higherIsBetter: true },
-  grocery: { label: "Grocery Stores", description: "Number of grocery stores", higherIsBetter: true },
-  dining: { label: "Food & Dining", description: "Restaurants, cafes, bakeries, etc.", higherIsBetter: true },
-  recreation: { label: "Recreation", description: "Arenas, pools, community centres", higherIsBetter: true },
-  libraries: { label: "Libraries", description: "Number of libraries", higherIsBetter: true },
+  parks: { label: "Parks", unit: "parks", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "more" },
+  grocery: { label: "Grocery Stores", unit: "stores", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "more" },
+  dining: { label: "Food & Dining", unit: "places", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "more" },
+  recreation: { label: "Recreation", unit: "facilities", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "more" },
+  libraries: { label: "Libraries", unit: "libraries", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "more" },
   // Community
-  nei: { label: "Equity Index", description: "Neighbourhood Equity Index score", higherIsBetter: true },
-  roadQuality: { label: "Road Quality", description: "Fewer road-related complaints", higherIsBetter: true },
-  quietScore: { label: "Noise Level", description: "Fewer noise complaints", higherIsBetter: true },
-  serviceRequests: { label: "311 Requests", description: "Fewer service requests per capita", higherIsBetter: true },
+  roadQuality: { label: "Road Quality", unit: "score", format: (v) => v !== null ? Math.round(v).toString() : "N/A", goodDirection: "higher" },
+  quietScore: { label: "Noise Level", unit: "score", format: (v) => v !== null ? Math.round(v).toString() : "N/A", goodDirection: "higher" },
+  serviceRequests: { label: "311 Requests", unit: "per 1,000", format: (v) => v !== null ? Math.round(v).toString() : "N/A", goodDirection: "lower" },
   // Nature
-  trails: { label: "Trails", description: "Greenbelt trail access (km)", higherIsBetter: true },
-  cycling: { label: "Cycling Infra", description: "Bike lanes and paths (km)", higherIsBetter: true },
+  trails: { label: "Trails", unit: "km", format: (v) => v !== null ? v.toFixed(1) + " km" : "N/A", goodDirection: "more" },
+  cycling: { label: "Cycling Infra", unit: "km", format: (v) => v !== null ? v.toFixed(1) + " km" : "N/A", goodDirection: "more" },
   // Affordability
-  rent: { label: "Rent", description: "Average monthly rent", higherIsBetter: true },
-  homePrice: { label: "Home Price", description: "Average home price", higherIsBetter: true },
-  foodCostBurden: { label: "Food Costs", description: "% of income spent on food", higherIsBetter: true },
+  rent: { label: "Rent", unit: "$/mo", format: (v) => v !== null ? "$" + v.toLocaleString() : "N/A", goodDirection: "lower" },
+  homePrice: { label: "Home Price", unit: "$", format: (v) => v !== null ? "$" + (v / 1000).toFixed(0) + "K" : "N/A", goodDirection: "lower" },
+  foodCostBurden: { label: "Food Cost Burden", unit: "%", format: (v) => v !== null ? v.toFixed(1) + "%" : "N/A", goodDirection: "lower" },
   // Walkability
-  walk: { label: "Walk Score", description: "Walkability to amenities", higherIsBetter: true },
-  transit: { label: "Transit Score", description: "Public transit accessibility", higherIsBetter: true },
-  bike: { label: "Bike Score", description: "Bikeability and infrastructure", higherIsBetter: true },
+  walk: { label: "Walk Score", unit: "score", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "higher" },
+  transit: { label: "Transit Score", unit: "score", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "higher" },
+  bike: { label: "Bike Score", unit: "score", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "higher" },
 };
 
 // Category definitions with their metrics and weights
@@ -84,8 +84,8 @@ const CATEGORIES: {
   {
     key: "community",
     label: "Community",
-    metrics: ["nei", "roadQuality", "quietScore", "serviceRequests"],
-    weights: { nei: 25, roadQuality: 25, quietScore: 25, serviceRequests: 25 },
+    metrics: ["roadQuality", "quietScore", "serviceRequests"],
+    weights: { roadQuality: 33, quietScore: 33, serviceRequests: 34 },
   },
   {
     key: "nature",
@@ -136,6 +136,7 @@ export default function ScoreBreakdown({
   categoryScores,
   scoreWeights,
   metricScores,
+  rawMetricValues,
   rank,
   totalNeighbourhoods,
 }: ScoreBreakdownProps) {
@@ -264,12 +265,13 @@ export default function ScoreBreakdown({
                             const metricScore = metricScores[metricKey];
                             const metricInfo = METRICS[metricKey];
                             const metricWeight = category.weights[metricKey];
+                            const rawValue = rawMetricValues[metricKey];
 
                             return (
                               <div key={metricKey} className="flex items-center gap-3">
                                 {/* Metric Score Circle */}
                                 <div
-                                  className={`w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold ${getScoreColor(metricScore)}`}
+                                  className={`w-10 h-10 rounded-full flex items-center justify-center text-white text-xs font-bold ${getScoreColor(metricScore)}`}
                                 >
                                   {metricScore !== null ? metricScore : "?"}
                                 </div>
@@ -279,10 +281,13 @@ export default function ScoreBreakdown({
                                     <span className="font-medium text-gray-900 text-sm">{metricInfo.label}</span>
                                     <span className="text-xs text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded">{metricWeight}%</span>
                                   </div>
-                                  <p className="text-xs text-gray-500 truncate">{metricInfo.description}</p>
+                                  <div className="flex items-center gap-2 mt-0.5">
+                                    <span className="text-sm font-semibold text-gray-700">{metricInfo.format(rawValue)}</span>
+                                    <span className="text-xs text-gray-400">({metricInfo.goodDirection} is better)</span>
+                                  </div>
                                 </div>
                                 {/* Mini Progress */}
-                                <div className="w-16 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden">
                                   <div
                                     className={`h-full ${getScoreColor(metricScore)}`}
                                     style={{ width: metricScore !== null ? `${metricScore}%` : "0%" }}

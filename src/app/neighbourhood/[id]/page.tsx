@@ -255,7 +255,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
     notFound();
   }
 
-  const { name, area, image, population, populationDensity, households, pop2021, dataYear, dataSource, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, commuteByTransit, nearestOTrainStation, nearestOTrainLine, distanceToOTrain, nearestTransitwayStation, distanceToTransitway, overdoseCumulative, overdoseYearlyAvg, overdoseRatePer100k, overdoseYears, details, overallScore, categoryScores, scoreWeights, metricScores, boundaries } = neighbourhood;
+  const { name, area, image, population, populationDensity, households, pop2021, dataYear, dataSource, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, commuteByTransit, nearestOTrainStation, nearestOTrainLine, distanceToOTrain, nearestTransitwayStation, distanceToTransitway, overdoseCumulative, overdoseYearlyAvg, overdoseRatePer100k, overdoseYears, details, overallScore, categoryScores, scoreWeights, metricScores, rawMetricValues, boundaries } = neighbourhood;
 
   // Get rank for this neighbourhood
   const rank = rankedNeighbourhoods.findIndex(n => n.id === id) + 1;
@@ -316,6 +316,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
                 categoryScores={categoryScores}
                 scoreWeights={scoreWeights}
                 metricScores={metricScores}
+                rawMetricValues={rawMetricValues}
                 rank={rank}
                 totalNeighbourhoods={neighbourhoods.length}
               />

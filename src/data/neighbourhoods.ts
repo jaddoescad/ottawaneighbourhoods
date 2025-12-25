@@ -203,7 +203,6 @@ export interface MetricScores {
   recreation: number | null;
   libraries: number | null;
   // Community metrics
-  nei: number | null;
   roadQuality: number | null;
   quietScore: number | null;
   serviceRequests: number | null;
@@ -215,6 +214,34 @@ export interface MetricScores {
   homePrice: number | null;
   foodCostBurden: number | null;
   // Walkability metrics
+  walk: number | null;
+  transit: number | null;
+  bike: number | null;
+}
+
+export interface RawMetricValues {
+  crime: number | null;
+  collisions: number | null;
+  overdose: number | null;
+  eqao: number | null;
+  schoolCount: number | null;
+  treeCanopy: number | null;
+  hospital: number | null;
+  primaryCare: number | null;
+  foodSafety: number | null;
+  parks: number | null;
+  grocery: number | null;
+  dining: number | null;
+  recreation: number | null;
+  libraries: number | null;
+  roadQuality: number | null;
+  quietScore: number | null;
+  serviceRequests: number | null;
+  trails: number | null;
+  cycling: number | null;
+  rent: number | null;
+  homePrice: number | null;
+  foodCostBurden: number | null;
   walk: number | null;
   transit: number | null;
   bike: number | null;
@@ -416,6 +443,7 @@ export interface Neighbourhood {
   categoryScores: CategoryScores;
   scoreWeights: ScoreWeights;
   metricScores: MetricScores;
+  rawMetricValues: RawMetricValues;
 }
 
 export const neighbourhoods: Neighbourhood[] = data.neighbourhoods as Neighbourhood[];
