@@ -236,10 +236,23 @@ export interface RawMetricValues {
   hospital: number | null;
   primaryCare: number | null;
   foodSafety: number | null;
+  // Amenities - scoring value (density for urban, count for suburban)
   parks: number | null;
   grocery: number | null;
   dining: number | null;
   recreation: number | null;
+  // Amenity counts (absolute numbers)
+  parksCount: number;
+  groceryCount: number;
+  diningCount: number;
+  recreationCount: number;
+  // Amenity densities (per km²)
+  parksDensity: number;
+  groceryDensity: number;
+  diningDensity: number;
+  recreationDensity: number;
+  // Whether this is an urban area (>2000/km²)
+  isUrban: boolean;
   libraries: number | null;
   nei: number | null;
   roadQuality: number | null;

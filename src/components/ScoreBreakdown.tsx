@@ -29,7 +29,7 @@ const METRICS: Record<keyof MetricScores, { label: string; unit: string; format:
   hospital: { label: "Hospital Distance", unit: "km", format: (v) => v !== null ? v.toFixed(1) + " km" : "N/A", goodDirection: "closer" },
   primaryCare: { label: "Primary Care Access", unit: "%", format: (v) => v !== null ? Math.round(v) + "%" : "N/A", goodDirection: "higher" },
   foodSafety: { label: "Food Safety", unit: "score", format: (v) => v !== null ? v.toFixed(1) : "N/A", goodDirection: "higher" },
-  // Amenities
+  // Amenities - dynamic labels/units set in component based on isUrban
   parks: { label: "Parks", unit: "parks", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "more" },
   grocery: { label: "Grocery Stores", unit: "stores", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "more" },
   dining: { label: "Food & Dining", unit: "places", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "more" },
@@ -272,6 +272,28 @@ export default function ScoreBreakdown({
                             const metricWeight = category.weights[metricKey];
                             const rawValue = rawMetricValues[metricKey];
 
+                            // Special formatting for amenity metrics (show count + density context)
+                            const isAmenityMetric = ["parks", "grocery", "dining", "recreation"].includes(metricKey);
+                            const isUrban = rawMetricValues.isUrban;
+
+                            let displayValue = metricInfo.format(rawValue);
+                            let scoringContext = metricInfo.goodDirection + " is better";
+
+                            if (isAmenityMetric) {
+                              const countKey = `${metricKey}Count` as keyof typeof rawMetricValues;
+                              const densityKey = `${metricKey}Density` as keyof typeof rawMetricValues;
+                              const count = rawMetricValues[countKey] as number;
+                              const density = rawMetricValues[densityKey] as number;
+
+                              if (isUrban) {
+                                displayValue = `${count} (${density}/km²)`;
+                                scoringContext = "scored by density";
+                              } else {
+                                displayValue = `${count}`;
+                                scoringContext = "scored by count";
+                              }
+                            }
+
                             return (
                               <div key={metricKey} className="flex items-center gap-3">
                                 {/* Metric Score Circle */}
@@ -287,8 +309,8 @@ export default function ScoreBreakdown({
                                     <span className="text-xs text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded">{metricWeight}%</span>
                                   </div>
                                   <div className="flex items-center gap-2 mt-0.5">
-                                    <span className="text-sm font-semibold text-gray-700">{metricInfo.format(rawValue)}</span>
-                                    <span className="text-xs text-gray-400">({metricInfo.goodDirection} is better)</span>
+                                    <span className="text-sm font-semibold text-gray-700">{displayValue}</span>
+                                    <span className="text-xs text-gray-400">({scoringContext})</span>
                                   </div>
                                 </div>
                                 {/* Mini Progress */}

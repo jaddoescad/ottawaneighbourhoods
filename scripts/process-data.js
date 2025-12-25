@@ -2172,31 +2172,82 @@ async function main() {
       higherIsBetter: true,
     },
 
-    // AMENITIES - Based on walkable neighbourhood standards
-    parks: { // count (higher is better)
+    // AMENITIES - Density-based for urban, count-based for suburban/rural
+    // Urban threshold: >2000 people/km² uses density scoring
+    // Suburban/rural: <2000 people/km² uses count scoring
+
+    // URBAN density thresholds (per km²)
+    parksDensity: { // parks per km² (for urban areas >2000/km²)
       thresholds: [
         { max: 0, score: 0, label: 'None' },
-        { max: 2, score: 30, label: 'Few' },
-        { max: 5, score: 50, label: 'Some' },
-        { max: 10, score: 70, label: 'Good' },
-        { max: 20, score: 85, label: 'Many' },
+        { max: 1, score: 40, label: 'Sparse' },
+        { max: 2, score: 60, label: 'Moderate' },
+        { max: 4, score: 80, label: 'Good' },
+        { max: Infinity, score: 100, label: 'Excellent' },
+      ],
+      unit: 'per km²',
+      higherIsBetter: true,
+    },
+    groceryDensity: { // grocery stores per km² (for urban areas)
+      thresholds: [
+        { max: 0, score: 0, label: 'None' },
+        { max: 0.5, score: 40, label: 'Sparse' },
+        { max: 1, score: 60, label: 'Some' },
+        { max: 2, score: 80, label: 'Good' },
+        { max: Infinity, score: 100, label: 'Excellent' },
+      ],
+      unit: 'per km²',
+      higherIsBetter: true,
+    },
+    diningDensity: { // dining places per km² (for urban areas)
+      thresholds: [
+        { max: 0, score: 0, label: 'None' },
+        { max: 5, score: 30, label: 'Few' },
+        { max: 15, score: 50, label: 'Some' },
+        { max: 30, score: 70, label: 'Good' },
+        { max: 60, score: 85, label: 'Many' },
         { max: Infinity, score: 100, label: 'Abundant' },
+      ],
+      unit: 'per km²',
+      higherIsBetter: true,
+    },
+    recreationDensity: { // recreation facilities per km² (for urban areas)
+      thresholds: [
+        { max: 0, score: 0, label: 'None' },
+        { max: 0.3, score: 40, label: 'Sparse' },
+        { max: 0.6, score: 60, label: 'Some' },
+        { max: 1, score: 80, label: 'Good' },
+        { max: Infinity, score: 100, label: 'Excellent' },
+      ],
+      unit: 'per km²',
+      higherIsBetter: true,
+    },
+
+    // SUBURBAN/RURAL count thresholds (for areas <2000/km²)
+    // These areas have access via car, so absolute count matters more
+    parks: { // count (for suburban/rural areas)
+      thresholds: [
+        { max: 0, score: 0, label: 'None' },
+        { max: 3, score: 40, label: 'Few' },
+        { max: 8, score: 60, label: 'Some' },
+        { max: 15, score: 80, label: 'Good' },
+        { max: Infinity, score: 100, label: 'Many' },
       ],
       unit: 'parks',
       higherIsBetter: true,
     },
-    grocery: { // count (higher is better)
+    grocery: { // count (for suburban/rural areas)
       thresholds: [
         { max: 0, score: 0, label: 'None' },
         { max: 1, score: 50, label: 'Limited' },
-        { max: 2, score: 70, label: 'Some' },
-        { max: 4, score: 85, label: 'Good' },
+        { max: 3, score: 70, label: 'Some' },
+        { max: 6, score: 85, label: 'Good' },
         { max: Infinity, score: 100, label: 'Excellent' },
       ],
       unit: 'stores',
       higherIsBetter: true,
     },
-    dining: { // count (higher is better)
+    dining: { // count (for suburban/rural areas)
       thresholds: [
         { max: 0, score: 0, label: 'None' },
         { max: 5, score: 30, label: 'Few' },
@@ -2208,18 +2259,18 @@ async function main() {
       unit: 'places',
       higherIsBetter: true,
     },
-    recreation: { // count (higher is better)
+    recreation: { // count (for suburban/rural areas)
       thresholds: [
         { max: 0, score: 0, label: 'None' },
         { max: 1, score: 50, label: 'Limited' },
-        { max: 2, score: 70, label: 'Some' },
-        { max: 4, score: 85, label: 'Good' },
+        { max: 3, score: 70, label: 'Some' },
+        { max: 6, score: 85, label: 'Good' },
         { max: Infinity, score: 100, label: 'Excellent' },
       ],
       unit: 'facilities',
       higherIsBetter: true,
     },
-    libraries: { // count (higher is better)
+    libraries: { // count - same for all areas (1 library often serves the whole area)
       thresholds: [
         { max: 0, score: 0, label: 'None' },
         { max: 1, score: 70, label: 'One' },
@@ -2449,6 +2500,21 @@ async function main() {
     // Calculate crime rates per 1,000 residents
     const otherCrimeRate = pop > 0 ? Math.round((otherCrimeCount / pop) * 1000 * 10) / 10 : null;
 
+    // Determine if urban or suburban/rural (threshold: 2000 people/km²)
+    const URBAN_DENSITY_THRESHOLD = 2000;
+    const isUrban = neighbourhood.populationDensity > URBAN_DENSITY_THRESHOLD;
+
+    // Calculate amenity densities (per km²)
+    const parksCount = neighbourhood.details.parks || 0;
+    const groceryCount = neighbourhood.details.groceryStores || 0;
+    const diningCount = neighbourhood.details.foodEstablishments || 0;
+    const recreationCount = neighbourhood.details.recreationFacilities || 0;
+
+    const parksDensity = areaKm2 > 0 ? Math.round((parksCount / areaKm2) * 10) / 10 : 0;
+    const groceryDensity = areaKm2 > 0 ? Math.round((groceryCount / areaKm2) * 10) / 10 : 0;
+    const diningDensity = areaKm2 > 0 ? Math.round((diningCount / areaKm2) * 10) / 10 : 0;
+    const recreationDensity = areaKm2 > 0 ? Math.round((recreationCount / areaKm2) * 10) / 10 : 0;
+
     // Calculate raw metric values (for transparency in UI)
     const rawValues = {
       // Crime metrics for weighted scoring
@@ -2465,10 +2531,21 @@ async function main() {
       hospital: neighbourhood.details.distanceToNearestHospital,
       primaryCare: neighbourhood.primaryCareAccess,
       foodSafety: neighbourhood.foodInspectionAvgScore,
-      parks: neighbourhood.details.parks,
-      grocery: neighbourhood.details.groceryStores || 0,
-      dining: neighbourhood.details.foodEstablishments || 0,
-      recreation: neighbourhood.details.recreationFacilities || 0,
+      // Amenities - use density for urban, count for suburban/rural (stored for UI transparency)
+      parks: isUrban ? parksDensity : parksCount,
+      grocery: isUrban ? groceryDensity : groceryCount,
+      dining: isUrban ? diningDensity : diningCount,
+      recreation: isUrban ? recreationDensity : recreationCount,
+      // Store both for UI display
+      parksCount,
+      groceryCount,
+      diningCount,
+      recreationCount,
+      parksDensity,
+      groceryDensity,
+      diningDensity,
+      recreationDensity,
+      isUrban,
       libraries: neighbourhood.details.libraries,
       nei: neighbourhood.neiScore,
       roadQuality: neighbourhood.details.roadQualityScore,
@@ -2517,11 +2594,19 @@ async function main() {
       primaryCare: getAbsoluteScore(rawValues.primaryCare, 'primaryCare'),
       foodSafety: getAbsoluteScore(rawValues.foodSafety, 'foodSafety'),
 
-      // Amenities (13%)
-      parks: getAbsoluteScore(rawValues.parks, 'parks'),
-      grocery: getAbsoluteScore(rawValues.grocery, 'grocery'),
-      dining: getAbsoluteScore(rawValues.dining, 'dining'),
-      recreation: getAbsoluteScore(rawValues.recreation, 'recreation'),
+      // Amenities (13%) - Use density for urban, count for suburban/rural
+      parks: isUrban
+        ? getAbsoluteScore(rawValues.parksDensity, 'parksDensity')
+        : getAbsoluteScore(rawValues.parksCount, 'parks'),
+      grocery: isUrban
+        ? getAbsoluteScore(rawValues.groceryDensity, 'groceryDensity')
+        : getAbsoluteScore(rawValues.groceryCount, 'grocery'),
+      dining: isUrban
+        ? getAbsoluteScore(rawValues.diningDensity, 'diningDensity')
+        : getAbsoluteScore(rawValues.diningCount, 'dining'),
+      recreation: isUrban
+        ? getAbsoluteScore(rawValues.recreationDensity, 'recreationDensity')
+        : getAbsoluteScore(rawValues.recreationCount, 'recreation'),
       libraries: getAbsoluteScore(rawValues.libraries, 'libraries'),
 
       // Community (15%)
