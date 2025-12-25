@@ -209,6 +209,7 @@ export interface MetricScores {
   roadQuality: number | null;
   quietScore: number | null;
   serviceRequests: number | null;
+  highway: number | null;
   // Nature metrics
   trails: number | null;
   cycling: number | null;
@@ -258,6 +259,7 @@ export interface RawMetricValues {
   roadQuality: number | null;
   quietScore: number | null;
   serviceRequests: number | null;
+  highway: number | null;
   trails: number | null;
   cycling: number | null;
   rent: number | null;
@@ -416,6 +418,9 @@ export interface Neighbourhood {
     nearestHospital: string | null;
     nearestHospitalAddress: string | null;
     distanceToNearestHospital: number | null; // km
+    // Highway proximity
+    nearestHighway: string | null;
+    distanceToHighway: number | null; // km
     // NCC Greenbelt trails
     greenbeltTrails: number;
     greenbeltTrailsLengthKm: number;

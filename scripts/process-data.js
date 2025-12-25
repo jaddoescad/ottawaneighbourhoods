@@ -363,6 +363,13 @@ async function main() {
   const librariesRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'libraries_raw.csv'), 'utf8'));
   const crimeRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'crime_raw.csv'), 'utf8'));
   const hospitalsRaw = parseCSV(fs.readFileSync(path.join(csvDir, 'hospitals_raw.csv'), 'utf8'));
+  const highwaysPath = path.join(csvDir, 'highways_raw.csv');
+  const highwaysRaw = fs.existsSync(highwaysPath)
+    ? parseCSV(fs.readFileSync(highwaysPath, 'utf8'))
+    : [];
+  if (highwaysRaw.length > 0) {
+    console.log(`  - ${highwaysRaw.length} highway points`);
+  }
   const neighbourhoodsInfo = parseCSV(fs.readFileSync(path.join(csvDir, 'neighbourhoods.csv'), 'utf8'));
 
   // Load OPH Food Establishments (categorized data from Ottawa Public Health)
@@ -1361,6 +1368,38 @@ async function main() {
   }
   console.log(`  Calculated proximity for ${Object.keys(hospitalsByNeighbourhood).length} neighbourhoods`);
 
+  // Process highways - calculate nearest highway for each neighbourhood
+  console.log('\nCalculating highway proximity for each neighbourhood...');
+  const highways = highwaysRaw.map(h => ({
+    wayId: h.way_id,
+    name: h.name,
+    ref: h.ref,
+    type: h.type,
+    lat: parseFloat(h.lat),
+    lng: parseFloat(h.lng),
+  })).filter(h => !isNaN(h.lat) && !isNaN(h.lng));
+
+  // For each neighbourhood, find nearest highway point and distance
+  const highwaysByNeighbourhood = {};
+  for (const [neighbourhoodId, centroid] of Object.entries(centroidsByNeighbourhood)) {
+    let nearestHighway = null;
+    let nearestDistance = Infinity;
+
+    for (const hw of highways) {
+      const distance = haversineDistance(centroid.lat, centroid.lng, hw.lat, hw.lng);
+      if (distance < nearestDistance) {
+        nearestDistance = distance;
+        nearestHighway = hw;
+      }
+    }
+
+    highwaysByNeighbourhood[neighbourhoodId] = {
+      nearestHighway: nearestHighway ? (nearestHighway.ref || nearestHighway.name) : null,
+      distanceToHighway: nearestDistance === Infinity ? null : Math.round(nearestDistance * 100) / 100, // km, 2 decimals
+    };
+  }
+  console.log(`  Calculated highway proximity for ${Object.keys(highwaysByNeighbourhood).length} neighbourhoods`);
+
   // Process transit stations - calculate nearest O-Train and Transitway station for each neighbourhood
   console.log('\nCalculating transit station proximity for each neighbourhood...');
   const transitStations = transitStationsRaw.map(s => ({
@@ -1490,6 +1529,10 @@ async function main() {
       nearestHospital: null,
       nearestHospitalAddress: null,
       distanceToNearestHospital: null,
+    };
+    const highwayData = highwaysByNeighbourhood[info.id] || {
+      nearestHighway: null,
+      distanceToHighway: null,
     };
     const areaKm2 = areaKm2ByNeighbourhood[info.id] || 0;
 
@@ -1895,6 +1938,9 @@ async function main() {
         nearestHospital: hospitalData.nearestHospital,
         nearestHospitalAddress: hospitalData.nearestHospitalAddress,
         distanceToNearestHospital: hospitalData.distanceToNearestHospital,
+        // Highway proximity
+        nearestHighway: highwayData.nearestHighway,
+        distanceToHighway: highwayData.distanceToHighway,
         // NCC Greenbelt trails
         greenbeltTrails: greenbeltTrailCount,
         greenbeltTrailsLengthKm: roundTo(greenbeltTotalLengthKm, 1),
@@ -2145,6 +2191,18 @@ async function main() {
         { max: 12, score: 40, label: 'Far' },
         { max: 20, score: 20, label: 'Very Far' },
         { max: Infinity, score: 0, label: 'Remote' },
+      ],
+      unit: 'km',
+      higherIsBetter: false,
+    },
+    highway: { // km to nearest highway (lower is better = easier commute access)
+      thresholds: [
+        { max: 1, score: 100, label: 'Excellent Access' },
+        { max: 2, score: 85, label: 'Very Good' },
+        { max: 4, score: 70, label: 'Good' },
+        { max: 7, score: 50, label: 'Moderate' },
+        { max: 12, score: 30, label: 'Limited' },
+        { max: Infinity, score: 10, label: 'Remote' },
       ],
       unit: 'km',
       higherIsBetter: false,
@@ -2551,6 +2609,7 @@ async function main() {
       roadQuality: neighbourhood.details.roadQualityScore,
       quietScore: neighbourhood.details.quietScore,
       serviceRequests: neighbourhood.details.serviceRequestRate,
+      highway: neighbourhood.details.distanceToHighway,
       trails: neighbourhood.details.greenbeltTrailsLengthKm || 0,
       cycling: neighbourhood.details.cyclingTotalKm || 0,
       rent: neighbourhood.avgRent,
@@ -2609,11 +2668,12 @@ async function main() {
         : getAbsoluteScore(rawValues.recreationCount, 'recreation'),
       libraries: getAbsoluteScore(rawValues.libraries, 'libraries'),
 
-      // Community (15%)
+      // Community (12%)
       nei: getAbsoluteScore(rawValues.nei, 'nei'),
       roadQuality: getAbsoluteScore(rawValues.roadQuality, 'roadQuality'),
       quietScore: getAbsoluteScore(rawValues.quietScore, 'quietScore'),
       serviceRequests: getAbsoluteScore(rawValues.serviceRequests, 'serviceRequests'),
+      highway: getAbsoluteScore(rawValues.highway, 'highway'),
 
       // Nature (10%)
       trails: getAbsoluteScore(rawValues.trails, 'trails'),
@@ -2636,7 +2696,7 @@ async function main() {
       schools: weightedAvg(scores.eqao, 0.7, scores.schoolCount, 0.3), // EQAO 70%, count 30%
       healthEnvironment: average([scores.treeCanopy, scores.hospital, scores.primaryCare, scores.foodSafety]),
       amenities: average([scores.parks, scores.grocery, scores.dining, scores.recreation, scores.libraries]),
-      community: average([scores.nei, scores.roadQuality, scores.quietScore, scores.serviceRequests]),
+      community: average([scores.nei, scores.roadQuality, scores.quietScore, scores.serviceRequests, scores.highway]),
       nature: average([scores.trails, scores.cycling]),
       affordability: average([scores.rent, scores.homePrice, scores.foodCostBurden]),
       walkability: average([scores.walk, scores.transit, scores.bike]),
@@ -2696,6 +2756,7 @@ async function main() {
       roadQuality: scores.roadQuality,
       quietScore: scores.quietScore,
       serviceRequests: scores.serviceRequests,
+      highway: scores.highway,
       // Nature metrics
       trails: scores.trails,
       cycling: scores.cycling,

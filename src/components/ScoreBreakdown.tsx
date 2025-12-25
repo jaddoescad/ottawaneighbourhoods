@@ -40,6 +40,7 @@ const METRICS: Record<keyof MetricScores, { label: string; unit: string; format:
   roadQuality: { label: "Road Quality", unit: "score", format: (v) => v !== null ? Math.round(v).toString() : "N/A", goodDirection: "higher" },
   quietScore: { label: "Noise Level", unit: "score", format: (v) => v !== null ? Math.round(v).toString() : "N/A", goodDirection: "higher" },
   serviceRequests: { label: "311 Requests", unit: "per 1,000", format: (v) => v !== null ? Math.round(v).toString() : "N/A", goodDirection: "lower" },
+  highway: { label: "Highway Access", unit: "km", format: (v) => v !== null ? v.toFixed(1) + " km" : "N/A", goodDirection: "closer" },
   // Nature
   trails: { label: "Trails", unit: "km", format: (v) => v !== null ? v.toFixed(1) + " km" : "N/A", goodDirection: "more" },
   cycling: { label: "Cycling Infra", unit: "km", format: (v) => v !== null ? v.toFixed(1) + " km" : "N/A", goodDirection: "more" },
@@ -89,8 +90,8 @@ const CATEGORIES: {
   {
     key: "community",
     label: "Community",
-    metrics: ["nei", "roadQuality", "quietScore", "serviceRequests"],
-    weights: { nei: 25, roadQuality: 25, quietScore: 25, serviceRequests: 25 },
+    metrics: ["nei", "roadQuality", "quietScore", "serviceRequests", "highway"],
+    weights: { nei: 20, roadQuality: 20, quietScore: 20, serviceRequests: 20, highway: 20 },
   },
   {
     key: "nature",
