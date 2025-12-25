@@ -2040,13 +2040,37 @@ async function main() {
   // ABSOLUTE STANDARDS - Objective thresholds based on urban planning standards & research
   const STANDARDS = {
     // SAFETY - Based on Canadian crime statistics and public health data
-    crime: { // per 1,000 residents (lower is better)
+    crime: { // per 1,000 residents - TOTAL crime (lower is better)
       thresholds: [
         { max: 15, score: 100, label: 'Very Low' },
         { max: 30, score: 80, label: 'Low' },
         { max: 50, score: 60, label: 'Moderate' },
         { max: 80, score: 40, label: 'High' },
         { max: 120, score: 20, label: 'Very High' },
+        { max: Infinity, score: 0, label: 'Extreme' },
+      ],
+      unit: 'per 1,000',
+      higherIsBetter: false,
+    },
+    violentCrime: { // per 1,000 residents - VIOLENT crimes (50% weight)
+      thresholds: [
+        { max: 3, score: 100, label: 'Very Low' },
+        { max: 7, score: 80, label: 'Low' },
+        { max: 12, score: 60, label: 'Moderate' },
+        { max: 20, score: 40, label: 'High' },
+        { max: 30, score: 20, label: 'Very High' },
+        { max: Infinity, score: 0, label: 'Extreme' },
+      ],
+      unit: 'per 1,000',
+      higherIsBetter: false,
+    },
+    propertyCrime: { // per 1,000 residents - PROPERTY crimes (30% weight)
+      thresholds: [
+        { max: 10, score: 100, label: 'Very Low' },
+        { max: 25, score: 80, label: 'Low' },
+        { max: 45, score: 60, label: 'Moderate' },
+        { max: 70, score: 40, label: 'High' },
+        { max: 100, score: 20, label: 'Very High' },
         { max: Infinity, score: 0, label: 'Extreme' },
       ],
       unit: 'per 1,000',
@@ -2379,14 +2403,59 @@ async function main() {
     return standard.thresholds[standard.thresholds.length - 1].label;
   }
 
+  // Crime classification for weighted scoring
+  const VIOLENT_CRIMES = [
+    'Assaults',
+    'Other Violations Involving Violence Or The Threat Of Violence',
+    'Offensive Weapons',
+    'Violations Resulting In The Deprivation Of Freedom',
+    'Robbery',
+    'Sexual Violations',
+    'Homicide',
+  ];
+
+  const PROPERTY_CRIMES = [
+    'Break and Enter',
+    'Theft $5000 and Under',
+    'Theft Over $5000',
+    'Theft - Motor Vehicle',
+    'Possession / Trafficking Stolen Goods',
+    'Mischief',
+    'Arson',
+  ];
+
+  // Helper to calculate crime by type
+  function getCrimeByType(crimeByCategory, types) {
+    if (!crimeByCategory) return 0;
+    let total = 0;
+    for (const [category, count] of Object.entries(crimeByCategory)) {
+      if (types.some(t => category.toLowerCase().includes(t.toLowerCase()))) {
+        total += count || 0;
+      }
+    }
+    return total;
+  }
+
   // Calculate scores for each neighbourhood
   for (const neighbourhood of neighbourhoods) {
     const pop = neighbourhood.population || 1;
     const areaKm2 = neighbourhood.details.areaKm2 || 1;
 
+    // Calculate violent and property crime counts
+    const violentCrimeCount = getCrimeByType(neighbourhood.details.crimeByCategory, VIOLENT_CRIMES);
+    const propertyCrimeCount = getCrimeByType(neighbourhood.details.crimeByCategory, PROPERTY_CRIMES);
+    const otherCrimeCount = neighbourhood.details.crimeTotal - violentCrimeCount - propertyCrimeCount;
+
+    // Calculate crime rates per 1,000 residents
+    const otherCrimeRate = pop > 0 ? Math.round((otherCrimeCount / pop) * 1000 * 10) / 10 : null;
+
     // Calculate raw metric values (for transparency in UI)
     const rawValues = {
-      crime: pop > 0 ? Math.round((neighbourhood.details.crimeTotal / pop) * 1000 * 10) / 10 : null,
+      // Crime metrics for weighted scoring
+      crime: pop > 0 ? Math.round((neighbourhood.details.crimeTotal / pop) * 1000 * 10) / 10 : null, // total crime rate
+      violentCrime: pop > 0 ? Math.round((violentCrimeCount / pop) * 1000 * 10) / 10 : null,
+      propertyCrime: pop > 0 ? Math.round((propertyCrimeCount / pop) * 1000 * 10) / 10 : null,
+      otherCrime: otherCrimeRate,
       collisions: pop > 0 && neighbourhood.details.collisions
         ? Math.round((neighbourhood.details.collisions / pop) * 1000 * 10) / 10 : null,
       overdose: neighbourhood.overdoseRatePer100k,
@@ -2415,10 +2484,26 @@ async function main() {
       bike: neighbourhood.bikeScore,
     };
 
+    // Calculate individual crime type scores
+    const violentScore = getAbsoluteScore(rawValues.violentCrime, 'violentCrime');
+    const propertyScore = getAbsoluteScore(rawValues.propertyCrime, 'propertyCrime');
+    const otherScore = getAbsoluteScore(rawValues.otherCrime, 'crime'); // use generic crime thresholds for other
+
+    // Weighted crime score: Violent 50%, Property 30%, Other 20%
+    let crimeScore = null;
+    if (violentScore !== null && propertyScore !== null && otherScore !== null) {
+      crimeScore = Math.round(violentScore * 0.5 + propertyScore * 0.3 + otherScore * 0.2);
+    } else if (rawValues.crime !== null) {
+      // Fallback to total crime if breakdown not available
+      crimeScore = getAbsoluteScore(rawValues.crime, 'crime');
+    }
+
     // Calculate scores using ABSOLUTE STANDARDS
     const scores = {
-      // Safety (20%)
-      crime: getAbsoluteScore(rawValues.crime, 'crime'),
+      // Safety (20%) - Crime is now weighted: Violent 50%, Property 30%, Other 20%
+      crime: crimeScore,
+      violentCrime: violentScore, // Store individual scores for transparency
+      propertyCrime: propertyScore,
       collisions: getAbsoluteScore(rawValues.collisions, 'collisions'),
       overdose: getAbsoluteScore(rawValues.overdose, 'overdose'),
 
@@ -2501,8 +2586,10 @@ async function main() {
     neighbourhood.scoreWeights = SCORE_WEIGHTS;
     // Store individual metric scores for detailed breakdown
     neighbourhood.metricScores = {
-      // Safety metrics
+      // Safety metrics (crime is weighted: violent 50%, property 30%, other 20%)
       crime: scores.crime,
+      violentCrime: scores.violentCrime,
+      propertyCrime: scores.propertyCrime,
       collisions: scores.collisions,
       overdose: scores.overdose,
       // School metrics

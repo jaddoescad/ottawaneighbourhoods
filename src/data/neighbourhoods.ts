@@ -184,8 +184,10 @@ export interface ScoreWeights {
 }
 
 export interface MetricScores {
-  // Safety metrics
+  // Safety metrics (crime is weighted: violent 50%, property 30%, other 20%)
   crime: number | null;
+  violentCrime: number | null;
+  propertyCrime: number | null;
   collisions: number | null;
   overdose: number | null;
   // School metrics
@@ -221,7 +223,11 @@ export interface MetricScores {
 }
 
 export interface RawMetricValues {
-  crime: number | null;
+  // Crime rates per 1,000 residents
+  crime: number | null; // Total crime rate
+  violentCrime: number | null;
+  propertyCrime: number | null;
+  otherCrime: number | null;
   collisions: number | null;
   overdose: number | null;
   eqao: number | null;

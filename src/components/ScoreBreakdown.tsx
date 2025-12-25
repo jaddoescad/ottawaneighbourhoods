@@ -15,8 +15,10 @@ interface ScoreBreakdownProps {
 
 // Individual metric definitions with clear labels, units, and what's good
 const METRICS: Record<keyof MetricScores, { label: string; unit: string; format: (v: number | null) => string; goodDirection: string }> = {
-  // Safety
-  crime: { label: "Crime Rate", unit: "per 1,000", format: (v) => v !== null ? v.toFixed(1) : "N/A", goodDirection: "lower" },
+  // Safety - Crime is weighted: Violent 50%, Property 30%, Other 20%
+  crime: { label: "Crime Rate (Weighted)", unit: "per 1,000", format: (v) => v !== null ? v.toFixed(1) : "N/A", goodDirection: "lower" },
+  violentCrime: { label: "Violent Crime", unit: "per 1,000", format: (v) => v !== null ? v.toFixed(1) : "N/A", goodDirection: "lower" },
+  propertyCrime: { label: "Property Crime", unit: "per 1,000", format: (v) => v !== null ? v.toFixed(1) : "N/A", goodDirection: "lower" },
   collisions: { label: "Traffic Safety", unit: "per 1,000", format: (v) => v !== null ? v.toFixed(1) : "N/A", goodDirection: "lower" },
   overdose: { label: "Overdose Rate", unit: "per 100K", format: (v) => v !== null ? Math.round(v).toString() : "N/A", goodDirection: "lower" },
   // Schools
@@ -61,8 +63,10 @@ const CATEGORIES: {
   {
     key: "safety",
     label: "Safety",
-    metrics: ["crime", "collisions", "overdose"],
-    weights: { crime: 33, collisions: 33, overdose: 34 },
+    metrics: ["violentCrime", "propertyCrime", "collisions", "overdose"],
+    weights: { violentCrime: 17, propertyCrime: 10, collisions: 33, overdose: 40 },
+    // Note: Crime score is weighted internally: Violent 50%, Property 30%, Other 20%
+    // Overall safety: Crime 33% (shown as violent+property), Collisions 33%, Overdose 34%
   },
   {
     key: "schools",
