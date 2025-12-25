@@ -1997,11 +1997,11 @@ async function main() {
     safety: 0.20,           // Crime, collisions, overdose
     schools: 0.12,          // EQAO scores, school availability
     healthEnvironment: 0.15, // Tree canopy, healthcare, food safety
-    amenities: 0.13,        // Parks, grocery, dining, recreation, libraries
-    community: 0.15,        // NEI score, road quality - community health matters
-    nature: 0.10,           // Trails, cycling infrastructure, green space
+    amenities: 0.20,        // Parks, grocery, dining, recreation, libraries
+    community: 0.12,        // NEI score, road quality - community health matters
+    nature: 0.08,           // Trails, cycling infrastructure, green space
     affordability: 0.10,    // Rent, home prices, food costs
-    walkability: 0.05,      // Walk/transit/bike scores
+    walkability: 0.03,      // Walk/transit/bike scores
   };
 
   // Helper to calculate average, ignoring nulls
