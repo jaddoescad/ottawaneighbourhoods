@@ -254,7 +254,7 @@ export interface RawMetricValues {
   recreationDensity: number;
   // Whether this is an urban area (>2000/km²)
   isUrban: boolean;
-  libraries: number | null;
+  libraries: number | null; // km to nearest library
   nei: number | null;
   roadQuality: number | null;
   quietScore: number | null;
@@ -362,6 +362,8 @@ export interface Neighbourhood {
     libraries: number;
     librariesList: string[];
     librariesData: LibraryData[];
+    nearestLibrary: string | null;
+    distanceToNearestLibrary: number | null; // km
     restaurantsAndCafes: number | null;
     restaurantsAndCafesDensity: number | null; // per km²
     restaurantsList: string[];

@@ -430,6 +430,8 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             librariesData={details.librariesData}
             boundaries={boundaries}
             neighbourhoodName={name}
+            nearestLibrary={details.nearestLibrary}
+            distanceToNearestLibrary={details.distanceToNearestLibrary}
           />
           <TrailsStatRow
             greenbeltTrails={details.greenbeltTrailsData}

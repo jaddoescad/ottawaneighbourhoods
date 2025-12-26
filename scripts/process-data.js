@@ -1377,6 +1377,34 @@ async function main() {
   }
   console.log(`  Calculated proximity for ${Object.keys(hospitalsByNeighbourhood).length} neighbourhoods`);
 
+  // Calculate library proximity for each neighbourhood (like hospital proximity)
+  console.log('\nCalculating library proximity for each neighbourhood...');
+  const allLibraries = librariesRaw.map(l => ({
+    name: l.NAME,
+    lat: parseFloat(l.LATITUDE),
+    lng: parseFloat(l.LONGITUDE),
+  })).filter(l => !isNaN(l.lat) && !isNaN(l.lng));
+
+  const libraryProximityByNeighbourhood = {};
+  for (const [neighbourhoodId, centroid] of Object.entries(centroidsByNeighbourhood)) {
+    let nearestDistance = Infinity;
+    let nearestLibrary = null;
+
+    for (const library of allLibraries) {
+      const distance = haversineDistance(centroid.lat, centroid.lng, library.lat, library.lng);
+      if (distance < nearestDistance) {
+        nearestDistance = distance;
+        nearestLibrary = library;
+      }
+    }
+
+    libraryProximityByNeighbourhood[neighbourhoodId] = {
+      nearestLibrary: nearestLibrary ? nearestLibrary.name : null,
+      distanceToNearestLibrary: nearestDistance === Infinity ? null : Math.round(nearestDistance * 10) / 10,
+    };
+  }
+  console.log(`  Calculated library proximity for ${Object.keys(libraryProximityByNeighbourhood).length} neighbourhoods`);
+
   // Process highways - calculate nearest highway for each neighbourhood
   console.log('\nCalculating highway proximity for each neighbourhood...');
   const highways = highwaysRaw.map(h => ({
@@ -1542,6 +1570,10 @@ async function main() {
     const highwayData = highwaysByNeighbourhood[info.id] || {
       nearestHighway: null,
       distanceToHighway: null,
+    };
+    const libraryProximity = libraryProximityByNeighbourhood[info.id] || {
+      nearestLibrary: null,
+      distanceToNearestLibrary: null,
     };
     const areaKm2 = areaKm2ByNeighbourhood[info.id] || 0;
 
@@ -1891,6 +1923,8 @@ async function main() {
         libraries: libraries.length,
         librariesList: libraries.map(l => l.name),
         librariesData: libraries,
+        nearestLibrary: libraryProximity.nearestLibrary,
+        distanceToNearestLibrary: libraryProximity.distanceToNearestLibrary,
         // Legacy fields for backwards compatibility
         restaurantsAndCafes,
         restaurantsAndCafesDensity,
@@ -2370,14 +2404,17 @@ async function main() {
       unit: 'facilities',
       higherIsBetter: true,
     },
-    libraries: { // count - same for all areas (1 library often serves the whole area)
+    libraries: { // km to nearest library (lower is better) - like hospital proximity
       thresholds: [
-        { max: 0, score: 0, label: 'None' },
-        { max: 1, score: 70, label: 'One' },
-        { max: Infinity, score: 100, label: 'Multiple' },
+        { max: 1, score: 100, label: 'Very Close' },  // Within 1km
+        { max: 2, score: 85, label: 'Close' },        // 1-2km
+        { max: 4, score: 70, label: 'Moderate' },     // 2-4km
+        { max: 7, score: 50, label: 'Far' },          // 4-7km
+        { max: 10, score: 30, label: 'Very Far' },    // 7-10km
+        { max: Infinity, score: 10, label: 'Remote' }, // 10km+
       ],
-      unit: 'libraries',
-      higherIsBetter: true,
+      unit: 'km',
+      higherIsBetter: false,
     },
 
     // COMMUNITY
@@ -2679,7 +2716,7 @@ async function main() {
       diningDensity,
       recreationDensity,
       isUrban,
-      libraries: neighbourhood.details.libraries,
+      libraries: neighbourhood.details.distanceToNearestLibrary, // km to nearest library (like hospital)
       nei: neighbourhood.neiScore,
       roadQuality: neighbourhood.details.roadQualityScore,
       quietScore: neighbourhood.details.quietScore,
