@@ -2065,6 +2065,24 @@ async function main() {
     return (val1 * weight1 + val2 * weight2) / (weight1 + weight2);
   }
 
+  // Helper for weighted average of multiple values with weights
+  // items: array of { value, weight } objects
+  // Ignores null values and redistributes weight proportionally
+  function weightedAverageMultiple(items) {
+    let totalWeight = 0;
+    let weightedSum = 0;
+
+    for (const { value, weight } of items) {
+      if (value !== null && value !== undefined) {
+        weightedSum += value * weight;
+        totalWeight += weight;
+      }
+    }
+
+    if (totalWeight === 0) return null;
+    return weightedSum / totalWeight;
+  }
+
   // ABSOLUTE STANDARDS SCORING
   // Each metric has defined thresholds that map to scores
   // These are objective standards, not comparative to other Ottawa neighbourhoods
@@ -2582,7 +2600,12 @@ async function main() {
       otherCrime: otherCrimeRate,
       collisions: pop > 0 && neighbourhood.details.collisions
         ? Math.round((neighbourhood.details.collisions / pop) * 1000 * 10) / 10 : null,
-      overdose: neighbourhood.overdoseRatePer100k,
+      // Use rate if available, otherwise calculate from cumulative (same logic as UI)
+      overdose: neighbourhood.overdoseRatePer100k !== null
+        ? neighbourhood.overdoseRatePer100k
+        : (neighbourhood.overdoseCumulative && pop > 0
+            ? Math.round((neighbourhood.overdoseCumulative / 5 / pop) * 100000 * 10) / 10
+            : null),
       eqao: neighbourhood.details.avgEqaoScore,
       schoolCount: neighbourhood.details.schools,
       treeCanopy: neighbourhood.treeCanopy,
@@ -2692,7 +2715,14 @@ async function main() {
 
     // Calculate category scores
     const categoryScores = {
-      safety: average([scores.crime, scores.collisions, scores.overdose]),
+      // Safety: Violent crime and collisions are most impactful
+      // Weights: violent 40%, collisions 35%, property 15%, overdose 10%
+      safety: weightedAverageMultiple([
+        { value: scores.violentCrime, weight: 0.40 },
+        { value: scores.collisions, weight: 0.35 },
+        { value: scores.propertyCrime, weight: 0.15 },
+        { value: scores.overdose, weight: 0.10 },
+      ]),
       schools: weightedAvg(scores.eqao, 0.7, scores.schoolCount, 0.3), // EQAO 70%, count 30%
       healthEnvironment: average([scores.treeCanopy, scores.hospital, scores.primaryCare, scores.foodSafety]),
       amenities: average([scores.parks, scores.grocery, scores.dining, scores.recreation, scores.libraries]),

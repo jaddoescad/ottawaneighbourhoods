@@ -64,10 +64,9 @@ const CATEGORIES: {
   {
     key: "safety",
     label: "Safety",
-    metrics: ["violentCrime", "propertyCrime", "collisions", "overdose"],
-    weights: { violentCrime: 17, propertyCrime: 10, collisions: 33, overdose: 40 },
-    // Note: Crime score is weighted internally: Violent 50%, Property 30%, Other 20%
-    // Overall safety: Crime 33% (shown as violent+property), Collisions 33%, Overdose 34%
+    metrics: ["violentCrime", "collisions", "propertyCrime", "overdose"],
+    weights: { violentCrime: 40, collisions: 35, propertyCrime: 15, overdose: 10 },
+    // Violent crime and collisions weighted highest as they impact physical safety most
   },
   {
     key: "schools",
