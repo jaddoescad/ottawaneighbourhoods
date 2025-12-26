@@ -354,7 +354,11 @@ export interface Neighbourhood {
     schoolsList: string[];
     schoolsData: SchoolData[];
     avgEqaoScore: number | null; // Neighbourhood average EQAO score
+    avgEqaoScoreElementary: number | null; // Average EQAO for elementary schools
+    avgEqaoScoreSecondary: number | null; // Average EQAO for high schools
     schoolsWithEqaoScores: number;
+    elementaryWithEqaoScores: number;
+    secondaryWithEqaoScores: number;
     libraries: number;
     librariesList: string[];
     librariesData: LibraryData[];

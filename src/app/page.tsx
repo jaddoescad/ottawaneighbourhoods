@@ -4,6 +4,7 @@ import { useState } from "react";
 import { neighbourhoods } from "@/data/neighbourhoods";
 import NeighbourhoodCard from "@/components/NeighbourhoodCard";
 import CoverageMap from "@/components/CoverageMap";
+import FilterBar from "@/components/FilterBar";
 
 export default function Home() {
   const [showCoverageMap, setShowCoverageMap] = useState(false);
@@ -53,6 +54,9 @@ export default function Home() {
           Top Ottawa Neighborhoods
         </h1>
       </div>
+
+      {/* Filter Buttons */}
+      <FilterBar activeFilter="top-rated" />
 
       {/* Grid */}
       <main className="max-w-7xl mx-auto px-4 py-4">

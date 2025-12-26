@@ -903,15 +903,18 @@ async function main() {
   let assignedSchools = 0;
   let matchedEqaoScores = 0;
 
-  // Build EQAO lookup map
+  // Build EQAO lookup map (stores both score and level)
   const eqaoByName = new Map();
   for (const eqao of eqaoScores) {
     const normalized = normalizeSchoolName(eqao.schoolName);
-    eqaoByName.set(normalized, parseInt(eqao.avgScore, 10));
+    eqaoByName.set(normalized, {
+      score: parseInt(eqao.avgScore, 10),
+      level: eqao.schoolLevel || 'Unknown' // 'Elementary' or 'Secondary'
+    });
   }
 
-  // Helper to find EQAO score for a school
-  function findEqaoScore(schoolName) {
+  // Helper to find EQAO score and level for a school
+  function findEqaoData(schoolName) {
     // Try direct normalized match first
     const normalized = normalizeSchoolName(schoolName);
     if (eqaoByName.has(normalized)) {
@@ -921,7 +924,10 @@ async function main() {
     // Try fuzzy matching
     for (const eqao of eqaoScores) {
       if (matchSchoolNames(schoolName, eqao.schoolName)) {
-        return parseInt(eqao.avgScore, 10);
+        return {
+          score: parseInt(eqao.avgScore, 10),
+          level: eqao.schoolLevel || 'Unknown'
+        };
       }
     }
 
@@ -940,8 +946,10 @@ async function main() {
         schoolsByNeighbourhood[neighbourhoodId] = [];
       }
 
-      // Find EQAO score for this school
-      const eqaoScore = findEqaoScore(school.NAME);
+      // Find EQAO score and level for this school
+      const eqaoData = findEqaoData(school.NAME);
+      const eqaoScore = eqaoData ? eqaoData.score : null;
+      const eqaoLevel = eqaoData ? eqaoData.level : null;
       if (eqaoScore !== null) {
         matchedEqaoScores++;
       }
@@ -956,6 +964,7 @@ async function main() {
         address: school.NUM ? `${school.NUM} ${school.STREET}` : school.STREET,
         phone: school.PHONE,
         eqaoScore, // EQAO score (percentage achieving provincial standard), null if not available
+        eqaoLevel, // 'Elementary' or 'Secondary' from EQAO data
       });
       assignedSchools++;
     }
@@ -1759,10 +1768,21 @@ async function main() {
       }
     }
 
-    // Calculate average EQAO score for the neighbourhood
+    // Calculate average EQAO score for the neighbourhood (overall)
     const schoolsWithScores = schools.filter(s => s.eqaoScore !== null);
     const avgEqaoScore = schoolsWithScores.length > 0
       ? Math.round(schoolsWithScores.reduce((sum, s) => sum + s.eqaoScore, 0) / schoolsWithScores.length)
+      : null;
+
+    // Calculate separate EQAO scores for elementary and secondary schools
+    const elementaryWithScores = schools.filter(s => s.eqaoScore !== null && s.eqaoLevel === 'Elementary');
+    const secondaryWithScores = schools.filter(s => s.eqaoScore !== null && s.eqaoLevel === 'Secondary');
+
+    const avgEqaoScoreElementary = elementaryWithScores.length > 0
+      ? Math.round(elementaryWithScores.reduce((sum, s) => sum + s.eqaoScore, 0) / elementaryWithScores.length)
+      : null;
+    const avgEqaoScoreSecondary = secondaryWithScores.length > 0
+      ? Math.round(secondaryWithScores.reduce((sum, s) => sum + s.eqaoScore, 0) / secondaryWithScores.length)
       : null;
 
     // Count schools by level
@@ -1863,7 +1883,11 @@ async function main() {
         schoolsList: schools.map(s => s.name),
         schoolsData: schools,
         avgEqaoScore, // Average EQAO score for schools in this neighbourhood (% achieving provincial standard)
+        avgEqaoScoreElementary, // Average EQAO score for elementary schools only
+        avgEqaoScoreSecondary, // Average EQAO score for secondary/high schools only
         schoolsWithEqaoScores: schoolsWithScores.length,
+        elementaryWithEqaoScores: elementaryWithScores.length,
+        secondaryWithEqaoScores: secondaryWithScores.length,
         libraries: libraries.length,
         librariesList: libraries.map(l => l.name),
         librariesData: libraries,
@@ -2502,18 +2526,46 @@ async function main() {
     },
   };
 
-  // Get score using absolute standards
+  // Get score using absolute standards with linear interpolation within bins
   function getAbsoluteScore(value, standardKey) {
     if (value === null || value === undefined) return null;
     const standard = STANDARDS[standardKey];
     if (!standard) return null;
 
-    for (const t of standard.thresholds) {
-      if (value <= t.max) {
-        return standard.higherIsBetter ? t.score : t.score;
+    const thresholds = standard.thresholds;
+
+    for (let i = 0; i < thresholds.length; i++) {
+      const current = thresholds[i];
+      if (value <= current.max) {
+        // Get the previous threshold (or use 0 as min for first bin)
+        const prevMax = i > 0 ? thresholds[i - 1].max : 0;
+
+        // For infinite max (last bin), just return the score
+        if (current.max === Infinity) {
+          return current.score;
+        }
+
+        // Handle edge case: if range is 0 (e.g., threshold max: 0), return the score directly
+        const range = current.max - prevMax;
+        if (range === 0) {
+          return current.score;
+        }
+
+        // Get the next bin's score to interpolate toward
+        const nextScore = i < thresholds.length - 1 ? thresholds[i + 1].score : current.score;
+
+        // For "lower is better" metrics: at start of bin get current.score, at end get nextScore
+        // For "higher is better" metrics: same logic applies
+        const position = value - prevMax;
+
+        // Interpolate from current bin's score toward next bin's score
+        const scoreDiff = current.score - nextScore;
+        const interpolatedScore = current.score - (position / range) * scoreDiff;
+
+        return Math.round(interpolatedScore);
       }
     }
-    return standard.thresholds[standard.thresholds.length - 1].score;
+    return thresholds[thresholds.length - 1].score;
   }
 
   // Get label for a value based on absolute standards
@@ -2713,23 +2765,62 @@ async function main() {
       bike: getAbsoluteScore(rawValues.bike, 'bike'),
     };
 
-    // Calculate category scores
+    // Population confidence for statistical reliability
+    // Neighbourhoods under 10K population have less reliable data
+    // Based on research: https://link.springer.com/article/10.1186/s40163-021-00155-8
+    const CONFIDENCE_THRESHOLD = 10000;
+    const populationConfidence = Math.min(1.0, pop / CONFIDENCE_THRESHOLD);
+    const CITY_AVERAGE = 50;
+
+    // ASYMMETRIC population confidence adjustment
+    // - Low pop + GOOD score (above 50): Pull toward average (less impressive)
+    // - Low pop + BAD score (below 50): Keep the bad score (still concerning)
+    function applyAsymmetricConfidence(rawScore) {
+      if (rawScore === null) return null;
+      if (rawScore > CITY_AVERAGE) {
+        // Good scores get discounted for low population (less impressive)
+        return rawScore * populationConfidence + CITY_AVERAGE * (1 - populationConfidence);
+      }
+      // Bad scores keep their full value (still concerning regardless of population)
+      return rawScore;
+    }
+
+    // Calculate raw category scores
+    const rawSafetyScore = weightedAverageMultiple([
+      { value: scores.violentCrime, weight: 0.60 },
+      { value: scores.propertyCrime, weight: 0.40 },
+    ]);
+
+    const rawSchoolsScore = weightedAvg(scores.eqao, 0.7, scores.schoolCount, 0.3);
+
+    const rawHealthScore = average([scores.treeCanopy, scores.hospital, scores.primaryCare, scores.foodSafety, scores.overdose]);
+
+    // Amenities: Also apply walkability discount for rural areas
+    let rawAmenitiesScore = average([scores.parks, scores.grocery, scores.dining, scores.recreation, scores.libraries]);
+    if (rawAmenitiesScore !== null && !isUrban && (neighbourhood.walkScore || 0) < 50) {
+      const accessibilityFactor = 0.5 + ((neighbourhood.walkScore || 0) / 100);
+      rawAmenitiesScore = rawAmenitiesScore * accessibilityFactor;
+    }
+
+    const rawCommunityScore = average([scores.nei, scores.roadQuality, scores.collisions, scores.quietScore, scores.serviceRequests, scores.highway]);
+
+    const rawNatureScore = average([scores.trails, scores.cycling]);
+
+    // Affordability and Walkability don't need confidence adjustment
+    // (rent prices and walk scores are objective measures, not sample-dependent)
+    const affordabilityScore = average([scores.rent, scores.homePrice, scores.foodCostBurden]);
+    const walkabilityScore = average([scores.walk, scores.transit, scores.bike]);
+
+    // Apply asymmetric confidence to sample-dependent scores
     const categoryScores = {
-      // Safety: Violent crime and collisions are most impactful
-      // Weights: violent 40%, collisions 35%, property 15%, overdose 10%
-      safety: weightedAverageMultiple([
-        { value: scores.violentCrime, weight: 0.40 },
-        { value: scores.collisions, weight: 0.35 },
-        { value: scores.propertyCrime, weight: 0.15 },
-        { value: scores.overdose, weight: 0.10 },
-      ]),
-      schools: weightedAvg(scores.eqao, 0.7, scores.schoolCount, 0.3), // EQAO 70%, count 30%
-      healthEnvironment: average([scores.treeCanopy, scores.hospital, scores.primaryCare, scores.foodSafety]),
-      amenities: average([scores.parks, scores.grocery, scores.dining, scores.recreation, scores.libraries]),
-      community: average([scores.nei, scores.roadQuality, scores.quietScore, scores.serviceRequests, scores.highway]),
-      nature: average([scores.trails, scores.cycling]),
-      affordability: average([scores.rent, scores.homePrice, scores.foodCostBurden]),
-      walkability: average([scores.walk, scores.transit, scores.bike]),
+      safety: applyAsymmetricConfidence(rawSafetyScore),
+      schools: applyAsymmetricConfidence(rawSchoolsScore),
+      healthEnvironment: applyAsymmetricConfidence(rawHealthScore),
+      amenities: applyAsymmetricConfidence(rawAmenitiesScore),
+      community: applyAsymmetricConfidence(rawCommunityScore),
+      nature: applyAsymmetricConfidence(rawNatureScore),
+      affordability: affordabilityScore, // No adjustment - objective data
+      walkability: walkabilityScore,     // No adjustment - objective data
     };
 
     // Calculate weighted total score

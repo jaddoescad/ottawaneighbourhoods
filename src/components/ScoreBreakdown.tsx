@@ -16,11 +16,11 @@ interface ScoreBreakdownProps {
 // Individual metric definitions with clear labels, units, and what's good
 const METRICS: Record<keyof MetricScores, { label: string; unit: string; format: (v: number | null) => string; goodDirection: string }> = {
   // Safety - Crime is weighted: Violent 50%, Property 30%, Other 20%
-  crime: { label: "Crime Rate (Weighted)", unit: "per 1,000", format: (v) => v !== null ? v.toFixed(1) : "N/A", goodDirection: "lower" },
-  violentCrime: { label: "Violent Crime", unit: "per 1,000", format: (v) => v !== null ? v.toFixed(1) : "N/A", goodDirection: "lower" },
-  propertyCrime: { label: "Property Crime", unit: "per 1,000", format: (v) => v !== null ? v.toFixed(1) : "N/A", goodDirection: "lower" },
-  collisions: { label: "Traffic Safety", unit: "per 1,000", format: (v) => v !== null ? v.toFixed(1) : "N/A", goodDirection: "lower" },
-  overdose: { label: "Overdose Rate", unit: "per 100K", format: (v) => v !== null ? Math.round(v).toString() : "N/A", goodDirection: "lower" },
+  crime: { label: "Crime Rate (Weighted)", unit: "per 1,000", format: (v) => v !== null ? `${v.toFixed(1)} per 1K residents` : "N/A", goodDirection: "lower" },
+  violentCrime: { label: "Violent Crime", unit: "per 1,000", format: (v) => v !== null ? `${v.toFixed(1)} per 1K residents` : "N/A", goodDirection: "lower" },
+  propertyCrime: { label: "Property Crime", unit: "per 1,000", format: (v) => v !== null ? `${v.toFixed(1)} per 1K residents` : "N/A", goodDirection: "lower" },
+  collisions: { label: "Traffic Collisions", unit: "per 1,000", format: (v) => v !== null ? `${v.toFixed(1)} per 1K residents` : "N/A", goodDirection: "lower" },
+  overdose: { label: "Overdose Rate", unit: "per 100K", format: (v) => v !== null ? `${Math.round(v)} per 100K residents` : "N/A", goodDirection: "lower" },
   // Schools
   eqao: { label: "EQAO Scores", unit: "%", format: (v) => v !== null ? Math.round(v) + "%" : "N/A", goodDirection: "higher" },
   schoolCount: { label: "Schools", unit: "schools", format: (v) => v !== null ? v.toString() : "N/A", goodDirection: "more" },
@@ -64,9 +64,9 @@ const CATEGORIES: {
   {
     key: "safety",
     label: "Safety",
-    metrics: ["violentCrime", "collisions", "propertyCrime", "overdose"],
-    weights: { violentCrime: 40, collisions: 35, propertyCrime: 15, overdose: 10 },
-    // Violent crime and collisions weighted highest as they impact physical safety most
+    metrics: ["violentCrime", "propertyCrime"],
+    weights: { violentCrime: 60, propertyCrime: 40 },
+    // Crime-focused: Violent crime weighted highest
   },
   {
     key: "schools",
@@ -77,8 +77,8 @@ const CATEGORIES: {
   {
     key: "healthEnvironment",
     label: "Health & Environment",
-    metrics: ["treeCanopy", "hospital", "primaryCare", "foodSafety"],
-    weights: { treeCanopy: 25, hospital: 25, primaryCare: 25, foodSafety: 25 },
+    metrics: ["treeCanopy", "hospital", "primaryCare", "foodSafety", "overdose"],
+    weights: { treeCanopy: 20, hospital: 20, primaryCare: 20, foodSafety: 20, overdose: 20 },
   },
   {
     key: "amenities",
@@ -89,8 +89,8 @@ const CATEGORIES: {
   {
     key: "community",
     label: "Community",
-    metrics: ["nei", "roadQuality", "quietScore", "serviceRequests", "highway"],
-    weights: { nei: 20, roadQuality: 20, quietScore: 20, serviceRequests: 20, highway: 20 },
+    metrics: ["nei", "roadQuality", "collisions", "quietScore", "serviceRequests", "highway"],
+    weights: { nei: 17, roadQuality: 17, collisions: 17, quietScore: 17, serviceRequests: 16, highway: 16 },
   },
   {
     key: "nature",

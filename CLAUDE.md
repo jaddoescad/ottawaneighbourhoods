@@ -133,6 +133,61 @@ Edit `scripts/config/neighbourhood-mapping.js`:
 
 **Food Inspection Score** (0-100): Average OPH inspection score. 100 = perfect, city avg ~99.2
 
+## Safety Score Methodology
+
+The Safety Score uses a **population confidence adjustment** to prevent small rural neighbourhoods from dominating rankings simply due to low population.
+
+### Why Population Confidence?
+Per capita crime rates can be misleading when comparing different population sizes. Research shows crime doesn't scale linearly with population - maintaining low crime in a dense area is harder than in a rural area with few people.
+
+Reference: [Crime Science - Scaling Laws of Crime](https://link.springer.com/article/10.1186/s40163-021-00155-8)
+
+### Formula
+```
+Confidence = min(1.0, population / 10,000)
+Adjusted Safety = Raw Safety × Confidence + 50 × (1 - Confidence)
+```
+
+- **10K+ population**: 100% confidence, full score
+- **5K population**: 50% confidence, score pulled halfway to city average (50)
+- **2.5K population**: 25% confidence, score pulled 75% toward average
+
+### Example
+- **Kinburn** (2,660 pop, very low crime) → Raw: 85, Adjusted: 61
+- **Kanata Lakes** (19,945 pop, low crime) → Raw: 69, Adjusted: 69 (full confidence)
+
+Kanata Lakes ranks higher because maintaining low crime with 20K people is more impressive than with 2.7K.
+
+### Safety Score Components
+- **Violent Crime (60%)**: Assaults, Robbery, Sexual Violations, Homicide, etc.
+- **Property Crime (40%)**: Break & Enter, Theft, Motor Vehicle Theft, Mischief, Arson
+
+**Note**: Traffic collisions and overdose rates are NOT part of Safety Score - they're in Community and Health categories respectively.
+
+## Category Score Breakdown
+
+| Category | Weight | Components |
+|----------|--------|------------|
+| Safety | 20% | Violent Crime (60%), Property Crime (40%) - with population confidence |
+| Schools | 12% | EQAO Scores (70%), School Count (30%) |
+| Health & Environment | 12% | Tree Canopy, Hospital Distance, Primary Care, Food Safety, Overdose Rate |
+| Amenities | 12% | Parks, Grocery, Dining, Recreation, Libraries |
+| Community | 12% | Equity Index, Road Quality, Traffic Collisions, Noise, 311 Requests, Highway Access |
+| Nature | 10% | Trails, Cycling Infrastructure |
+| Affordability | 10% | Rent, Home Price, Food Cost Burden |
+| Walkability | 12% | Walk Score, Transit Score, Bike Score |
+
+## EQAO School Scores
+
+Schools are separated by level with distinct EQAO data:
+- **Elementary**: Grades 3 & 6 testing (197 schools with data)
+- **Secondary/High School**: Grade 9 Math & OSSLT (47 schools with data)
+
+Fields in data.json:
+- `avgEqaoScore` - Combined average
+- `avgEqaoScoreElementary` - Elementary only
+- `avgEqaoScoreSecondary` - High school only
+
 ## Updating Rent/Home Prices
 
 1. Edit `src/data/csv/rent_data.csv` or `home_prices.csv` (include sources)
