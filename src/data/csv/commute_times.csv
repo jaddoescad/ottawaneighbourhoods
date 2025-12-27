@@ -1,44 +1,106 @@
-id,name,commuteToDowntown,commuteByTransit,commuteMethod,source,notes
-the-glebe,The Glebe,12,15,mixed,Google Maps estimate,Central location; walking/cycling viable; excellent transit
-old-ottawa-east,Old Ottawa East,10,15,mixed,Google Maps estimate,Near downtown; cycling along canal; good transit
-westboro,Westboro,15,18,mixed,Google Maps estimate,LRT Line 1 access; quick transit to downtown
-byward-market,Byward Market,5,5,mixed,Google Maps estimate,Already downtown; walking distance to Parliament
-centretown,Centretown,8,8,mixed,Google Maps estimate,Downtown core; very walkable to offices
-old-ottawa-south,Old Ottawa South,15,20,mixed,Google Maps estimate,Canal-adjacent; good cycling and transit options
-riverside-park,Riverside Park,18,30,mixed,Google Maps estimate,Near Mooney's Bay; bus routes to downtown
-hintonburg,Hintonburg,12,15,mixed,Google Maps estimate,Tunney's Pasture LRT station; quick connection
-wellington-village,Wellington Village,10,15,mixed,Google Maps estimate,Central location; multiple bus routes
-kanata,Kanata,40,80,mixed,Google Maps estimate,Highway 417 commute; no direct LRT; 1h15m-1h30m by transit
-stittsville,Stittsville,50,95,mixed,Google Maps estimate,Further west than Kanata; highway dependent; very long transit
-alta-vista,Alta Vista,18,30,mixed,Google Maps estimate,Bus routes to downtown; moderate distance
-sandy-hill,Sandy Hill,10,12,mixed,Google Maps estimate,Near uOttawa; walking/transit easy
-orleans,Orleans,35,50,mixed,Google Maps estimate,East end; LRT Line 1 extension helps; still 45-55min transit
-barrhaven,Barrhaven,35,65,mixed,Google Maps estimate,South suburb; no rapid transit currently; long bus rides
-bayshore,Bayshore,25,35,mixed,Google Maps estimate,LRT Line 1 access at Bayshore station
-bells-corners,Bells Corners,30,55,mixed,Google Maps estimate,West end; limited rapid transit; needs bus connections
-carlington,Carlington,15,25,mixed,Google Maps estimate,Relatively central; bus routes available
-hunt-club,Hunt Club,22,40,mixed,Google Maps estimate,South end; Trillium Line access at South Keys
-riverside-south,Riverside South,40,70,mixed,Google Maps estimate,Far south; Trillium Line extension helps but still long
-manotick,Manotick,45,90,mixed,Google Maps estimate,Rural south; very limited transit options
-vars,Vars-Navan,55,120,mixed,Google Maps estimate,Rural east; essentially no viable transit
-carp,Carp,45,100,mixed,Google Maps estimate,Rural west; no transit service
-constance-bay,Constance Bay,55,120,mixed,Google Maps estimate,Far west; no transit service
-richmond,Richmond,45,90,mixed,Google Maps estimate,Rural west; limited transit
-metcalfe,Metcalfe-Osgoode,50,100,mixed,Google Maps estimate,Rural south; very limited transit
-nepean,Nepean,25,40,mixed,Google Maps estimate,Established suburb; Queensway access; bus to LRT
-merivale,Merivale,22,35,mixed,Google Maps estimate,Near Baseline LRT station; needs bus connection
-vanier,Vanier,12,18,mixed,Google Maps estimate,East downtown adjacent; good walkability
-new-edinburgh,New Edinburgh,10,15,mixed,Google Maps estimate,Near Rideau Hall; walking distance to downtown
-cyrville,Cyrville,18,25,mixed,Google Maps estimate,Near Blair LRT station; excellent transit
-findlay-creek,Findlay Creek,35,70,mixed,Google Maps estimate,South suburb; limited bus service
-greely,Greely,45,95,mixed,Google Maps estimate,Rural south; very limited transit
-north-gower,North Gower,50,105,mixed,Google Maps estimate,Rural south; essentially no transit
-dunrobin,Dunrobin,50,110,mixed,Google Maps estimate,Rural west; no transit service
-belair-heights,Bel Air Heights,20,35,mixed,Google Maps estimate,Near Baseline LRT; needs bus connection
-cumberland,Cumberland,45,90,mixed,Google Maps estimate,Rural east; very limited transit; east of Orleans
-kinburn,Kinburn,50,110,mixed,Google Maps estimate,Rural west; no transit service; near Carp
-munster-ashton,Munster-Ashton,50,105,mixed,Google Maps estimate,Rural west; no transit service; near Richmond
-corkery,Corkery,50,110,mixed,Google Maps estimate,Rural west; no transit service; near Carp
-blackburn-hamlet,Blackburn Hamlet,30,55,mixed,Google Maps estimate,East end; bus to Blair LRT station
-gloucester,Gloucester,25,45,mixed,Google Maps estimate,East end; bus routes to Blair LRT
-fitzroy,Fitzroy,55,120,mixed,Google Maps estimate,Rural west; no transit service
+id,name,commuteToDowntown,commuteByTransit,commuteMethod,distanceKm,source,notes
+alta-vista,Alta Vista,17,33,car,5,"Calculated from centroid distance","Transitway access (Pleasant Park)"
+bayshore,Bayshore,30,37,car,11.9,"Calculated from centroid distance","Transitway access (Bayshore)"
+beacon-hill-south-cardinal-heights,Beacon Hill South,24,40,car,8.4,"Calculated from centroid distance","O-Train access (Line 1 Confederation - Blair)"
+beaverbrook,Beaverbrook,32,87,car,19.2,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+bells-corners-east,Bells Corners East,27,73,car,15.1,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+bells-corners-west,Bells Corners West,28,75,car,15.8,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+billings-bridge-heron-park,Billings Bridge,18,27,transit,5.1,"Calculated from centroid distance","O-Train access (Line 2 Trillium - Mooney's Bay)"
+blackburn-hamlet,Blackburn Hamlet,28,58,car,10.8,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+blossom-park-timbermill,Blossom Park,26,52,car,9.3,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+borden-farm-fisher-glen,Borden Farm,23,47,car,8.1,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+braemar-park-bel-air-heights-copeland-park,Braemar Park,23,43,car,7.8,"Calculated from centroid distance","Transitway access (Queensway South)"
+bridlewood-emerald-meadows,Bridlewood,32,87,car,19,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+britannia,Britannia,27,46,car,10.1,"Calculated from centroid distance","Transitway access (Lincoln Fields)"
+cardinal-creek,Cardinal Creek,33,89,car,19.8,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+carleton-heights-courtland-park,Carleton Heights,20,41,car,6.5,"Calculated from centroid distance","O-Train access (Line 2 Trillium - Mooney's Bay)"
+carlington,Carlington,19,38,car,5.7,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+edwards-carlsbad-springs,Carlsbad Springs,28,75,car,15.8,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+carp,Carp,41,108,car,26.1,"Calculated from centroid distance","Highway commute; limited transit options"
+carson-grove-carson-meadows,Carson Grove,20,31,car,6.2,"Calculated from centroid distance","O-Train access (Line 1 Confederation - Blair)"
+centrepointe,Centrepointe,27,38,car,10.3,"Calculated from centroid distance","Transitway access (Baseline)"
+centretown,Centretown,7,12,walk/bike,0.6,"Calculated from centroid distance","Walking/cycling distance to downtown"
+chapel-hill-north,Chapel Hill North,33,67,car,13.4,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+chapel-hill-south,Chapel Hill South,36,72,car,15,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+chapman-mills,Chapman Mills,30,81,car,17.3,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+city-view,City view,25,39,car,9.2,"Calculated from centroid distance","Transitway access (Baseline)"
+civic-hospital,Civic Hospital,16,32,car,4.1,"Calculated from centroid distance","O-Train access (Line 1 Confederation - Tunney's Pasture)"
+constance-bay,Constance Bay,42,120,car,31,"Calculated from centroid distance","Highway commute; limited transit options"
+convent-glen-orleans-woods,Convent Glen,35,38,transit,14.5,"Calculated from centroid distance","O-Train access (O-Train - Place d'Orleans)"
+corkery,Corkery,45,120,car,33.5,"Calculated from centroid distance","Highway commute; limited transit options"
+craig-henry-manordale,Craig Henry,31,62,car,12,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+crestview-tanglewood,Crestview,27,56,car,10.2,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+crystal-bay-lakeview-park,Crystal Bay,34,68,car,13.7,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+cumberland,Cumberland,41,110,car,26.6,"Calculated from centroid distance","Highway commute; limited transit options"
+dunrobin,Dunrobin,38,102,car,24,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+elmvale-canterbury,Elmvale Acres,19,38,car,5.8,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+fallingbrook,Fallingbrook,31,84,car,18.3,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+findlay-creek,Findlay Creek,27,74,car,15.4,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+fisher-heights,Fisher Heights,22,45,car,7.4,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+fitzroy,Fitzroy,51,120,car,39.6,"Calculated from centroid distance","Highway commute; limited transit options"
+glebe-dows-lake,Glebe - Dows Lake,12,38,walk/bike,2.7,"Calculated from centroid distance","Walking/cycling distance to downtown"
+glen-cairn,Glen Cairn,34,93,car,21,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+greely,Greely,28,77,car,16.2,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+greenboro-east,Greenboro East,24,48,car,8.3,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+greenboro-west,Greenboro West,24,42,car,8.4,"Calculated from centroid distance","O-Train access (Line 2 Trillium - Greenboro)"
+stonebridge-half-moon-bay,Half Moon Bay,32,86,car,18.9,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+ledbury-heron-gate-ridgemont,Heron Gate,21,36,car,6.8,"Calculated from centroid distance","O-Train access (Line 2 Trillium - Greenboro)"
+hintonburg-mechanicsville,Hintonburg,12,38,walk/bike,2.7,"Calculated from centroid distance","Walking/cycling distance to downtown"
+hunt-club-park,Hunt Club Park,25,51,car,8.9,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+iris,Iris,27,40,car,10.1,"Calculated from centroid distance","Transitway access (Iris)"
+kanata-lakes,Kanata Lakes,35,94,car,21.4,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+katimavik-hazeldean,Katimavik,34,93,car,21,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+kinburn,Kinburn,50,120,car,38.7,"Calculated from centroid distance","Highway commute; limited transit options"
+laurentian,Laurentian,21,40,car,6.7,"Calculated from centroid distance","O-Train access (Line 1 Confederation - Westboro)"
+leslie-park-bruce-farm,Leslie Park,31,51,car,12.5,"Calculated from centroid distance","Transitway access (Bayshore)"
+lowertown-east,Lowertown East,10,27,walk/bike,1.8,"Calculated from centroid distance","Walking/cycling distance to downtown"
+lowertown-west,Lowertown West,8,19,walk/bike,1.2,"Calculated from centroid distance","Walking/cycling distance to downtown"
+manor-park,Manor Park,18,35,car,4.9,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+manotick,Manotick,35,96,car,21.9,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+merivale-gardens-grenfell-glen-pineglen-country-place,Merivale Gardens,30,62,car,11.9,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+metcalfe,Metcalfe,44,120,car,33.1,"Calculated from centroid distance","Highway commute; limited transit options"
+riverside-park-mooney-s-bay,Mooney's Bay,18,20,transit,5.3,"Calculated from centroid distance","O-Train access (Line 2 Trillium - Mooney's Bay)"
+brookside-briarbrook-morgan-s-grant,Morgan's Grant,33,89,car,19.8,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+munster-ashton,Munster - Ashton,49,120,car,37.9,"Calculated from centroid distance","Highway commute; limited transit options"
+navan-sarsfield,Navan - Sarsfield,41,109,car,26.3,"Calculated from centroid distance","Highway commute; limited transit options"
+new-edinburgh,New Edinburgh,12,37,walk/bike,2.6,"Calculated from centroid distance","Walking/cycling distance to downtown"
+north-gower-kars,North Gower - Kars,42,120,car,31.4,"Calculated from centroid distance","Highway commute; limited transit options"
+old-barrhaven-east,Old Barrhaven East,28,76,car,16.1,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+old-barrhaven-west,Old Barrhaven West,30,82,car,17.6,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+old-hunt-club,Old Hunt Club,24,50,car,8.7,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+old-ottawa-east,Old Ottawa East,11,33,walk/bike,2.3,"Calculated from centroid distance","Walking/cycling distance to downtown"
+old-ottawa-south,Old Ottawa South,15,27,mixed,3.7,"Calculated from centroid distance","O-Train access (Line 2 Trillium - Carleton)"
+orleans-village-chateauneuf,Orléans Village,28,75,car,15.8,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+osgoode-vernon,Osgoode - Vernon,45,120,car,34.1,"Calculated from centroid distance","Highway commute; limited transit options"
+overbrook,Overbrook,16,38,mixed,4,"Calculated from centroid distance","O-Train access (Line 1 Confederation - Cyrville)"
+parkwood-hills,Parkwood Hills,22,46,car,7.7,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+pineview,Pineview,21,30,transit,7,"Calculated from centroid distance","O-Train access (Line 1 Confederation - Blair)"
+playfair-park-guildwood-estates,Playfair Park,19,38,car,5.7,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+portobello-south,Portobello South,30,82,car,17.7,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+qualicum-redwood,Qualicum - Redwood,31,45,car,12.1,"Calculated from centroid distance","Transitway access (Bayshore)"
+queensway-terrace-north,Queensway Terrace North,26,36,car,9.4,"Calculated from centroid distance","Transitway access (Lincoln Fields)"
+queenswood-chatelaine,Queenswood,31,84,car,18.2,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+queenswood-heights,Queenswood Heights,27,46,car,15.5,"Calculated from centroid distance","O-Train access (O-Train - Place d'Orleans)"
+richmond,Richmond,40,106,car,25.2,"Calculated from centroid distance","Highway commute; limited transit options"
+rideau-crest-davidson-heights,Rideau Crest,36,72,car,14.9,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+riverside-park-south-revelstoke,Riverside Park South,22,41,car,7.5,"Calculated from centroid distance","O-Train access (Line 2 Trillium - Greenboro)"
+riverside-south-leitrim,Riverside South,29,80,car,17,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+riverview,Riverview,17,32,mixed,4.4,"Calculated from centroid distance","O-Train access (Line 1 Confederation - Hurdman)"
+rockcliffe-park,Rockcliffe Park,14,28,car,3.2,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+rothwell-heights-beacon-hill-north,Rothwell Heights,24,49,car,8.6,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+sandy-hill,Sandy Hill,10,27,walk/bike,1.9,"Calculated from centroid distance","Walking/cycling distance to downtown"
+emerald-woods-sawmill-creek,Sawmill Creek,26,46,car,9.7,"Calculated from centroid distance","Transitway access (South Keys)"
+hawthorne-meadows-sheffield-glen,Sheffield Glen,22,44,car,7.2,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+south-keys,South Keys,23,27,transit,8.3,"Calculated from centroid distance","O-Train access (Line 2 Trillium - Greenboro)"
+stittsville,Stittsville,40,107,car,25.6,"Calculated from centroid distance","Highway commute; limited transit options"
+stittsville-east,Stittsville East,35,95,car,21.8,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+stittsville-north,Stittsville North,39,104,car,24.8,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+trend-arlington,Trend-Arlington,32,66,car,13,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+vanier-north,Vanier North,13,41,walk/bike,3,"Calculated from centroid distance","Walking/cycling distance to downtown"
+vanier-south,Vanier South,14,28,mixed,3.4,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+vars,Vars,43,120,car,32,"Calculated from centroid distance","Highway commute; limited transit options"
+wateridge-village,Wateridge Village,19,39,car,6,"Calculated from centroid distance","Bus routes to downtown; moderate distance"
+island-park-wellington-village,Wellington Village,16,23,transit,4.2,"Calculated from centroid distance","O-Train access (Line 1 Confederation - Tunney's Pasture)"
+west-centretown,West Centretown,11,31,walk/bike,2.2,"Calculated from centroid distance","Walking/cycling distance to downtown"
+westboro,Westboro,18,18,transit,5.3,"Calculated from centroid distance","O-Train access (Line 1 Confederation - Westboro)"
+whitehaven-woodpark-glabar-park,Whitehaven,24,37,car,8.3,"Calculated from centroid distance","Transitway access (Lincoln Fields)"
