@@ -173,7 +173,7 @@ export default function NeighbourhoodCard({
         };
       case "elementary-schools":
         const elemScore = neighbourhood.details.avgEqaoScoreElementary || 0;
-        const elemLabel = elemScore >= 80 ? "Top Elementary" : elemScore >= 70 ? "Great Elementary" : elemScore >= 60 ? "Good Elementary" : "Some Elementary";
+        const elemLabel = elemScore >= 80 ? "Top" : elemScore >= 70 ? "Great" : elemScore >= 60 ? "Good" : "Okay";
         return {
           icon: "🎒",
           label: elemLabel,
@@ -182,7 +182,7 @@ export default function NeighbourhoodCard({
         };
       case "high-schools":
         const highScore = neighbourhood.details.avgEqaoScoreSecondary || 0;
-        const highLabel = highScore >= 80 ? "Top High Schools" : highScore >= 70 ? "Great High Schools" : highScore >= 60 ? "Good High Schools" : "Some High Schools";
+        const highLabel = highScore >= 80 ? "Top" : highScore >= 70 ? "Great" : highScore >= 60 ? "Good" : "Okay";
         return {
           icon: "🎓",
           label: highLabel,
