@@ -2806,17 +2806,24 @@ async function main() {
     // Neighbourhoods under 10K population have less reliable data
     // Based on research: https://link.springer.com/article/10.1186/s40163-021-00155-8
     const CONFIDENCE_THRESHOLD = 10000;
-    const populationConfidence = Math.min(1.0, pop / CONFIDENCE_THRESHOLD);
     const CITY_AVERAGE = 50;
+    const MAX_PENALTY = 10; // Maximum points a good score can be reduced
+
+    // Calculate base confidence from population
+    const populationConfidence = Math.min(1.0, pop / CONFIDENCE_THRESHOLD);
 
     // ASYMMETRIC population confidence adjustment
     // - Low pop + GOOD score (above 50): Pull toward average (less impressive)
     // - Low pop + BAD score (below 50): Keep the bad score (still concerning)
+    // Uses cube root curve for gentler penalty + caps max penalty at 10 points
     function applyAsymmetricConfidence(rawScore) {
       if (rawScore === null) return null;
       if (rawScore > CITY_AVERAGE) {
-        // Good scores get discounted for low population (less impressive)
-        return rawScore * populationConfidence + CITY_AVERAGE * (1 - populationConfidence);
+        // Use cube root for gentler curve (0.3 confidence -> 0.67 effective)
+        const effectiveConfidence = Math.cbrt(populationConfidence);
+        const adjustedScore = rawScore * effectiveConfidence + CITY_AVERAGE * (1 - effectiveConfidence);
+        // Cap the penalty - don't reduce by more than MAX_PENALTY points
+        return Math.max(adjustedScore, rawScore - MAX_PENALTY);
       }
       // Bad scores keep their full value (still concerning regardless of population)
       return rawScore;
