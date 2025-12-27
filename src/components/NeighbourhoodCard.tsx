@@ -442,11 +442,11 @@ export default function NeighbourhoodCard({
 
           {/* Metric Badge - Under name */}
           {metricBadge && (
-            <div className={`flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full ${metricBadge.color} shadow-lg mt-2 sm:mt-3`}>
-              <span className="text-xs sm:text-sm">{metricBadge.icon}</span>
-              <span className="text-white font-semibold text-xs sm:text-sm">{metricBadge.label}</span>
-              <span className="text-white/60 text-xs hidden sm:inline">•</span>
-              <span className="text-white/90 text-xs hidden sm:inline">{metricBadge.value}</span>
+            <div className={`flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full ${metricBadge.color} shadow-lg mt-2 sm:mt-3`}>
+              <span className="text-sm sm:text-base">{metricBadge.icon}</span>
+              <span className="text-white font-semibold text-sm sm:text-base">{metricBadge.label}</span>
+              <span className="text-white/60 text-sm hidden sm:inline">•</span>
+              <span className="text-white/90 text-sm hidden sm:inline">{metricBadge.value}</span>
             </div>
           )}
         </div>
