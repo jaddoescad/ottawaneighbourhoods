@@ -451,12 +451,14 @@ export default function NeighbourhoodCard({
           )}
         </div>
 
-        {/* Score Badge - Bottom Right */}
-        <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3">
-          <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${getScoreColor(overallScore)} ring-2 ${getScoreRingColor(overallScore)} ring-offset-2 ring-offset-black/50 flex items-center justify-center shadow-lg`}>
-            <span className="text-white font-bold text-xs sm:text-sm">{overallScore}</span>
+        {/* Score Badge - Bottom Right - Only show when no metric filter is applied */}
+        {!metric && (
+          <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3">
+            <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${getScoreColor(overallScore)} ring-2 ${getScoreRingColor(overallScore)} ring-offset-2 ring-offset-black/50 flex items-center justify-center shadow-lg`}>
+              <span className="text-white font-bold text-xs sm:text-sm">{overallScore}</span>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </Link>
   );
