@@ -9,6 +9,8 @@ export type MetricType =
   | "safety"
   | "rent"
   | "schools"
+  | "elementary-schools"
+  | "high-schools"
   | "transit"
   | "walk"
   | "bike"
@@ -168,6 +170,24 @@ export default function NeighbourhoodCard({
           label: schoolLabel,
           value: `${Math.round(schoolScore)}/100`,
           color: getMetricScoreColor(schoolScore),
+        };
+      case "elementary-schools":
+        const elemScore = neighbourhood.details.avgEqaoScoreElementary || 0;
+        const elemLabel = elemScore >= 80 ? "Top Elementary" : elemScore >= 70 ? "Great Elementary" : elemScore >= 60 ? "Good Elementary" : "Some Elementary";
+        return {
+          icon: "🎒",
+          label: elemLabel,
+          value: `${Math.round(elemScore)}% EQAO`,
+          color: getMetricScoreColor(elemScore),
+        };
+      case "high-schools":
+        const highScore = neighbourhood.details.avgEqaoScoreSecondary || 0;
+        const highLabel = highScore >= 80 ? "Top High Schools" : highScore >= 70 ? "Great High Schools" : highScore >= 60 ? "Good High Schools" : "Some High Schools";
+        return {
+          icon: "🎓",
+          label: highLabel,
+          value: `${Math.round(highScore)}% EQAO`,
+          color: getMetricScoreColor(highScore),
         };
       case "transit":
         const transitLabel = neighbourhood.transitScore >= 80 ? "Excellent Transit" : neighbourhood.transitScore >= 60 ? "Great Transit" : neighbourhood.transitScore >= 40 ? "Some Transit" : "Car Dependent";

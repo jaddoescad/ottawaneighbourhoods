@@ -50,7 +50,7 @@ export default function BestHighSchools() {
       <main className="max-w-7xl mx-auto px-4 py-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
           {sorted.map((neighbourhood, index) => (
-            <NeighbourhoodCard key={neighbourhood.id} neighbourhood={neighbourhood} rank={index + 1} metric="schools" />
+            <NeighbourhoodCard key={neighbourhood.id} neighbourhood={neighbourhood} rank={index + 1} metric="high-schools" />
           ))}
         </div>
       </main>
