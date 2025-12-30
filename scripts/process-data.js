@@ -2099,12 +2099,12 @@ async function main() {
 
   const SCORE_WEIGHTS = {
     safety: 0.20,           // Crime, collisions, overdose
-    schools: 0.12,          // EQAO scores, school availability
+    schools: 0.15,          // EQAO scores, school availability
     healthEnvironment: 0.08, // Tree canopy, healthcare, food safety
     amenities: 0.12,        // Parks, grocery, dining, recreation, libraries
-    community: 0.08,        // NEI score, road quality
+    community: 0.10,        // NEI score, road quality
     nature: 0.05,           // Trails, cycling infrastructure, green space
-    affordability: 0.15,    // Rent, home prices, food costs
+    affordability: 0.10,    // Rent, home prices, food costs
     walkability: 0.20,      // Walk/transit/bike scores
   };
 
