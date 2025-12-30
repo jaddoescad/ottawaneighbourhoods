@@ -34,7 +34,7 @@ export default function MostImmigrants() {
 
       <CoverageMap isOpen={showCoverageMap} onClose={() => setShowCoverageMap(false)} />
 
-      <div className="max-w-7xl mx-auto px-4 pt-4 text-center">
+      <div className="max-w-7xl mx-auto px-4 pt-8 text-center">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
           Neighbourhoods with Most Immigrants in Ottawa
         </h1>
