@@ -2098,14 +2098,14 @@ async function main() {
   //   - Walkability (5%): Walk/transit/bike scores - still counts but doesn't dominate
 
   const SCORE_WEIGHTS = {
-    safety: 0.20,           // Crime, collisions, overdose
+    safety: 0.18,           // Crime, collisions, overdose
     schools: 0.12,          // EQAO scores, school availability
-    healthEnvironment: 0.15, // Tree canopy, healthcare, food safety
-    amenities: 0.20,        // Parks, grocery, dining, recreation, libraries
-    community: 0.12,        // NEI score, road quality - community health matters
-    nature: 0.08,           // Trails, cycling infrastructure, green space
-    affordability: 0.10,    // Rent, home prices, food costs
-    walkability: 0.03,      // Walk/transit/bike scores
+    healthEnvironment: 0.10, // Tree canopy, healthcare, food safety
+    amenities: 0.12,        // Parks, grocery, dining, recreation, libraries
+    community: 0.10,        // NEI score, road quality - community health matters
+    nature: 0.05,           // Trails, cycling infrastructure, green space
+    affordability: 0.13,    // Rent, home prices, food costs
+    walkability: 0.20,      // Walk/transit/bike scores
   };
 
   // Helper to calculate average, ignoring nulls
@@ -2879,7 +2879,17 @@ async function main() {
       }
     }
 
-    const finalScore = totalWeight > 0 ? Math.round(totalScore / totalWeight) : 0;
+    let finalScore = totalWeight > 0 ? Math.round(totalScore / totalWeight) : 0;
+
+    // Penalty for car-dependent neighbourhoods (walkScore or transitScore below 50)
+    const walkScore = neighbourhood.walkScore || 0;
+    const transitScore = neighbourhood.transitScore || 0;
+    if (walkScore < 50 && transitScore < 50) {
+      // Apply penalty: reduce score by up to 8 points based on how car-dependent
+      const avgMobility = (walkScore + transitScore) / 2;
+      const penalty = Math.round((50 - avgMobility) * 0.16); // Max ~8 point penalty
+      finalScore = Math.max(0, finalScore - penalty);
+    }
 
     // Add scores to neighbourhood object
     neighbourhood.overallScore = finalScore;
