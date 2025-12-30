@@ -2098,14 +2098,14 @@ async function main() {
   //   - Walkability (5%): Walk/transit/bike scores - still counts but doesn't dominate
 
   const SCORE_WEIGHTS = {
-    safety: 0.18,           // Crime, collisions, overdose
-    schools: 0.14,          // EQAO scores, school availability
-    healthEnvironment: 0.10, // Tree canopy, healthcare, food safety
-    amenities: 0.14,        // Parks, grocery, dining, recreation, libraries
-    community: 0.12,        // NEI score, road quality - community health matters
+    safety: 0.20,           // Crime, collisions, overdose
+    schools: 0.12,          // EQAO scores, school availability
+    healthEnvironment: 0.08, // Tree canopy, healthcare, food safety
+    amenities: 0.12,        // Parks, grocery, dining, recreation, libraries
+    community: 0.08,        // NEI score, road quality
     nature: 0.05,           // Trails, cycling infrastructure, green space
-    affordability: 0.12,    // Rent, home prices, food costs
-    walkability: 0.15,      // Walk/transit/bike scores
+    affordability: 0.15,    // Rent, home prices, food costs
+    walkability: 0.20,      // Walk/transit/bike scores
   };
 
   // Helper to calculate average, ignoring nulls
@@ -2766,9 +2766,10 @@ async function main() {
       foodSafety: getAbsoluteScore(rawValues.foodSafety, 'foodSafety'),
 
       // Amenities (13%) - Use density for urban, count for suburban/rural
-      parks: isUrban
+      // Cap parks score at 80 to prevent large suburban areas with many parks from dominating
+      parks: Math.min(80, isUrban
         ? getAbsoluteScore(rawValues.parksDensity, 'parksDensity')
-        : getAbsoluteScore(rawValues.parksCount, 'parks'),
+        : getAbsoluteScore(rawValues.parksCount, 'parks')),
       grocery: isUrban
         ? getAbsoluteScore(rawValues.groceryDensity, 'groceryDensity')
         : getAbsoluteScore(rawValues.groceryCount, 'grocery'),
@@ -2830,9 +2831,10 @@ async function main() {
     }
 
     // Calculate raw category scores
+    // Weight violent crime higher - property crime in commercial areas shouldn't tank safety
     const rawSafetyScore = weightedAverageMultiple([
-      { value: scores.violentCrime, weight: 0.60 },
-      { value: scores.propertyCrime, weight: 0.40 },
+      { value: scores.violentCrime, weight: 0.70 },
+      { value: scores.propertyCrime, weight: 0.30 },
     ]);
 
     const rawSchoolsScore = weightedAvg(scores.eqao, 0.7, scores.schoolCount, 0.3);
@@ -2880,16 +2882,6 @@ async function main() {
     }
 
     let finalScore = totalWeight > 0 ? Math.round(totalScore / totalWeight) : 0;
-
-    // Penalty for very car-dependent neighbourhoods (both walkScore AND transitScore below 40)
-    const walkScore = neighbourhood.walkScore || 0;
-    const transitScore = neighbourhood.transitScore || 0;
-    if (walkScore < 40 && transitScore < 40) {
-      // Apply smaller penalty: reduce score by up to 4 points for truly car-dependent areas
-      const avgMobility = (walkScore + transitScore) / 2;
-      const penalty = Math.round((40 - avgMobility) * 0.10); // Max ~4 point penalty
-      finalScore = Math.max(0, finalScore - penalty);
-    }
 
     // Add scores to neighbourhood object
     neighbourhood.overallScore = finalScore;
