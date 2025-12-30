@@ -20,6 +20,9 @@ export const filters = [
   { label: "Lowest Density", href: "/lowest-density", icon: "🏡", id: "low-density" },
   { label: "Best Tree Canopy", href: "/best-tree-canopy", icon: "🌲", id: "trees" },
   { label: "Best for Nature", href: "/best-for-nature", icon: "🦆", id: "nature" },
+  { label: "Richest", href: "/richest-neighbourhoods", icon: "💵", id: "richest" },
+  { label: "Most Immigrants", href: "/most-immigrants", icon: "🌍", id: "immigrants" },
+  { label: "Most Visible Minorities", href: "/most-visible-minorities", icon: "👥", id: "visible-minorities" },
 ];
 
 interface FilterBarProps {

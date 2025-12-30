@@ -21,6 +21,9 @@ export type MetricType =
   | "trees"
   | "food"
   | "nature"
+  | "income"
+  | "immigrants"
+  | "visible-minorities"
   | null;
 
 interface NeighbourhoodCardProps {
@@ -274,6 +277,33 @@ export default function NeighbourhoodCard({
           label: natureLabel,
           value: `${Math.round(natureScore)}/100`,
           color: getMetricScoreColor(natureScore),
+        };
+      case "income":
+        const income = neighbourhood.medianIncome || 0;
+        const incomeLabel = income >= 150000 ? "Wealthy" : income >= 120000 ? "High Income" : income >= 90000 ? "Above Average" : "Average";
+        return {
+          icon: "💵",
+          label: incomeLabel,
+          value: `$${(income / 1000).toFixed(0)}K`,
+          color: income >= 150000 ? "bg-green-500" : income >= 120000 ? "bg-green-400" : income >= 90000 ? "bg-yellow-400" : "bg-orange-500",
+        };
+      case "immigrants":
+        const immigrantPct = neighbourhood.pctImmigrants || 0;
+        const immigrantLabel = immigrantPct >= 40 ? "Very Diverse" : immigrantPct >= 30 ? "Diverse" : immigrantPct >= 20 ? "Mixed" : "Less Diverse";
+        return {
+          icon: "🌍",
+          label: immigrantLabel,
+          value: `${immigrantPct.toFixed(0)}%`,
+          color: immigrantPct >= 40 ? "bg-green-500" : immigrantPct >= 30 ? "bg-green-400" : immigrantPct >= 20 ? "bg-yellow-400" : "bg-gray-400",
+        };
+      case "visible-minorities":
+        const racializedPct = neighbourhood.pctRacialized || 0;
+        const racializedLabel = racializedPct >= 50 ? "Very Diverse" : racializedPct >= 35 ? "Diverse" : racializedPct >= 20 ? "Mixed" : "Less Diverse";
+        return {
+          icon: "👥",
+          label: racializedLabel,
+          value: `${racializedPct.toFixed(0)}%`,
+          color: racializedPct >= 50 ? "bg-green-500" : racializedPct >= 35 ? "bg-green-400" : racializedPct >= 20 ? "bg-yellow-400" : "bg-gray-400",
         };
       default:
         return null;
