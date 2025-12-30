@@ -114,17 +114,17 @@ const CATEGORIES: {
 
 function getScoreColor(score: number | null): string {
   if (score === null) return "bg-gray-300";
-  if (score >= 70) return "bg-green-500";
-  if (score >= 50) return "bg-yellow-500";
-  if (score >= 30) return "bg-orange-500";
+  if (score >= 60) return "bg-green-500";
+  if (score >= 40) return "bg-yellow-500";
+  if (score >= 20) return "bg-orange-500";
   return "bg-red-500";
 }
 
 function getScoreTextColor(score: number | null): string {
   if (score === null) return "text-gray-400";
-  if (score >= 70) return "text-green-600";
-  if (score >= 50) return "text-yellow-600";
-  if (score >= 30) return "text-orange-600";
+  if (score >= 60) return "text-green-600";
+  if (score >= 40) return "text-yellow-600";
+  if (score >= 20) return "text-orange-600";
   return "text-red-600";
 }
 
