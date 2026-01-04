@@ -1,8 +1,8 @@
 NAME,SECTOR,LENGTH_KM,DIFFICULTY,TYPE,PARKING,LATITUDE,LONGITUDE,NEIGHBOURHOODS,NOTES,SOURCE
-Shoreline Trail,Shirleys Bay,0.1,Easy,Trail,P1,45.36,-75.87,bayshore;bells-corners,,NCC
-Trail 10,Shirleys Bay,4.2,Easy,Trail,P1/P2,45.36,-75.87,bayshore;bells-corners,,NCC
-Trail 12,Shirleys Bay,2.7,Easy,Trail,P3,45.36,-75.87,bayshore;bells-corners,,NCC
-Shirley's Bay Loop,Shirleys Bay,4.2,Easy,Loop,P1-P3,45.35292,-75.87292,bayshore;bells-corners,,NCC
+Shoreline Trail,Shirleys Bay,0.1,Easy,Trail,P1,45.36,-75.87,bayshore;bells-corners;crystal-bay-lakeview-park,,NCC
+Trail 10,Shirleys Bay,4.2,Easy,Trail,P1/P2,45.36,-75.87,bayshore;bells-corners;crystal-bay-lakeview-park,,NCC
+Trail 12,Shirleys Bay,2.7,Easy,Trail,P3,45.36,-75.87,bayshore;bells-corners;crystal-bay-lakeview-park,,NCC
+Shirley's Bay Loop,Shirleys Bay,4.2,Easy,Loop,P1-P3,45.35292,-75.87292,bayshore;bells-corners;crystal-bay-lakeview-park,,NCC
 Trail 20,Stony Swamp,3.2,Easy,Trail,P3,45.3,-75.83,bells-corners;nepean;bayshore,,NCC
 Trail 21,Stony Swamp,4.5,Easy,Trail,P4,45.3,-75.83,bells-corners;nepean;bayshore,,NCC
 Old Quarry Trail,Stony Swamp,3.1,Moderate,Trail,P5,45.3,-75.83,bells-corners;nepean;bayshore,,NCC
