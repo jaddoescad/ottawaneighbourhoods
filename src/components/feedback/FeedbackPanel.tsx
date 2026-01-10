@@ -50,26 +50,60 @@ export default function FeedbackPanel() {
   const [userVotes, setUserVotes] = useState<Record<string, 'up' | 'down' | null>>({})
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
-  async function handleVote(feedbackId: string, vote: 'up' | 'down') {
-    try {
-      const res = await fetch(`/api/feedback/${feedbackId}/vote`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ vote }),
-      })
-      if (res.ok) {
-        const data = await res.json()
-        // Update local state
-        setFeedback(prev => prev.map(f =>
-          f.id === feedbackId
-            ? { ...f, upvotes: data.upvotes, downvotes: data.downvotes }
-            : f
-        ))
-        setUserVotes(prev => ({ ...prev, [feedbackId]: data.userVote }))
+  function handleVote(feedbackId: string, vote: 'up' | 'down') {
+    const currentVote = userVotes[feedbackId]
+    const item = feedback.find(f => f.id === feedbackId)
+    if (!item) return
+
+    // Calculate new values optimistically
+    let newUpvotes = item.upvotes || 0
+    let newDownvotes = item.downvotes || 0
+    let newUserVote: 'up' | 'down' | null
+
+    if (currentVote === vote) {
+      // Toggle off
+      newUserVote = null
+      if (vote === 'up') newUpvotes--
+      else newDownvotes--
+    } else if (currentVote) {
+      // Switch vote
+      newUserVote = vote
+      if (vote === 'up') {
+        newUpvotes++
+        newDownvotes--
+      } else {
+        newDownvotes++
+        newUpvotes--
       }
-    } catch (err) {
-      console.error('Vote failed:', err)
+    } else {
+      // New vote
+      newUserVote = vote
+      if (vote === 'up') newUpvotes++
+      else newDownvotes++
     }
+
+    // Update UI immediately
+    setFeedback(prev => prev.map(f =>
+      f.id === feedbackId
+        ? { ...f, upvotes: newUpvotes, downvotes: newDownvotes }
+        : f
+    ))
+    setUserVotes(prev => ({ ...prev, [feedbackId]: newUserVote }))
+
+    // Sync with server in background
+    fetch(`/api/feedback/${feedbackId}/vote`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ vote }),
+    }).catch(() => {
+      // Revert on error
+      setFeedback(prev => prev.map(f =>
+        f.id === feedbackId
+          ? { ...f, upvotes: item.upvotes, downvotes: item.downvotes }
+          : f
+      ))
+      setUserVotes(prev => ({ ...prev, [feedbackId]: currentVote }))
+    })
   }
 
   useEffect(() => {
