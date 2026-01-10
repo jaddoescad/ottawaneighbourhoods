@@ -40,6 +40,7 @@ import FoodInspectionStatRow from "@/components/FoodInspectionStatRow";
 import FoodCostBurdenStatRow from "@/components/FoodCostBurdenStatRow";
 import CoverageButton from "@/components/CoverageButton";
 import ScoreBreakdown from "@/components/ScoreBreakdown";
+import FeedbackPanel from "@/components/feedback/FeedbackPanel";
 
 const BASE_URL = "https://ottawahoods.com";
 
@@ -659,7 +660,11 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             labelSet="homePrice"
           />
         </div>
+
       </div>
+
+      {/* Feedback Chat Panel */}
+      <FeedbackPanel />
     </div>
   );
 }

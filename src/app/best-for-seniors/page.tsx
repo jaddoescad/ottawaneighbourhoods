@@ -6,6 +6,7 @@ import { neighbourhoods } from "@/data/neighbourhoods";
 import NeighbourhoodCard from "@/components/NeighbourhoodCard";
 import CoverageMap from "@/components/CoverageMap";
 import FilterBar from "@/components/FilterBar";
+import FeedbackPanel from "@/components/feedback/FeedbackPanel";
 
 export default function BestForSeniors() {
   const [showCoverageMap, setShowCoverageMap] = useState(false);
@@ -65,6 +66,8 @@ export default function BestForSeniors() {
           ))}
         </div>
       </main>
+
+      <FeedbackPanel />
     </div>
   );
 }

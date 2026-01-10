@@ -1,0 +1,79 @@
+import { NextRequest, NextResponse } from 'next/server'
+import { createClient } from '@/lib/supabase/server'
+
+export async function POST(request: NextRequest) {
+  const botToken = process.env.TELEGRAM_BOT_TOKEN
+  if (!botToken) {
+    return NextResponse.json({ error: 'Not configured' }, { status: 500 })
+  }
+
+  try {
+    const body = await request.json()
+    const callback = body.callback_query
+
+    if (!callback) {
+      return NextResponse.json({ ok: true })
+    }
+
+    const [action, feedbackId] = callback.data.split(':')
+    const chatId = callback.message.chat.id
+    const messageId = callback.message.message_id
+
+    if (!feedbackId || !['approve', 'reject'].includes(action)) {
+      return NextResponse.json({ ok: true })
+    }
+
+    // Update feedback in database
+    const supabase = await createClient()
+    const newStatus = action === 'approve' ? 'approved' : 'rejected'
+
+    const { error } = await supabase
+      .from('feedback')
+      .update({
+        status: newStatus,
+        moderated_at: new Date().toISOString(),
+      })
+      .eq('id', feedbackId)
+
+    if (error) {
+      console.error('Failed to update feedback:', error)
+      await answerCallback(botToken, callback.id, '❌ Failed to update')
+      return NextResponse.json({ ok: true })
+    }
+
+    // Update the message to show it's been handled
+    const statusEmoji = action === 'approve' ? '✅' : '❌'
+    const statusText = action === 'approve' ? 'Approved' : 'Rejected'
+    const originalText = callback.message.text
+
+    await fetch(`https://api.telegram.org/bot${botToken}/editMessageText`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        message_id: messageId,
+        text: `${originalText}\n\n${statusEmoji} *${statusText}*`,
+        parse_mode: 'Markdown',
+      }),
+    })
+
+    // Answer the callback to remove loading state
+    await answerCallback(botToken, callback.id, `${statusEmoji} ${statusText}`)
+
+    return NextResponse.json({ ok: true })
+  } catch (err) {
+    console.error('Telegram webhook error:', err)
+    return NextResponse.json({ ok: true })
+  }
+}
+
+async function answerCallback(botToken: string, callbackId: string, text: string) {
+  await fetch(`https://api.telegram.org/bot${botToken}/answerCallbackQuery`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      callback_query_id: callbackId,
+      text,
+    }),
+  })
+}
