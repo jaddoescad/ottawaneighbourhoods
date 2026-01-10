@@ -26,10 +26,12 @@ function getPageLabel(path: string | null): string {
 
 function FeedbackItem({
   item,
-  onAction
+  onAction,
+  onDelete
 }: {
   item: Feedback
   onAction: (id: string, action: 'approve' | 'reject', tag?: ModeratorTag, reply?: string) => void
+  onDelete: (id: string) => void
 }) {
   const [showReply, setShowReply] = useState(false)
   const [reply, setReply] = useState(item.moderator_reply || '')
@@ -123,6 +125,17 @@ function FeedbackItem({
             Update
           </button>
         )}
+
+        <button
+          onClick={() => {
+            if (confirm('Delete this feedback?')) {
+              onDelete(item.id)
+            }
+          }}
+          className="px-3 py-1.5 text-sm font-medium bg-gray-100 text-gray-600 rounded-lg hover:bg-red-100 hover:text-red-600 ml-auto"
+        >
+          🗑
+        </button>
       </div>
 
       {/* Reply Input */}
@@ -193,6 +206,19 @@ export default function AdminFeedbackPage() {
     }
   }
 
+  async function handleDelete(id: string) {
+    try {
+      const res = await fetch(`/api/admin/feedback/${id}`, {
+        method: 'DELETE',
+      })
+      if (res.ok) {
+        fetchFeedback()
+      }
+    } catch (err) {
+      console.error('Failed to delete:', err)
+    }
+  }
+
   const filteredFeedback = feedback.filter(f =>
     filter === 'all' ? true : f.status === filter
   )
@@ -238,7 +264,7 @@ export default function AdminFeedbackPage() {
       ) : (
         <div className="space-y-3">
           {filteredFeedback.map((item) => (
-            <FeedbackItem key={item.id} item={item} onAction={handleAction} />
+            <FeedbackItem key={item.id} item={item} onAction={handleAction} onDelete={handleDelete} />
           ))}
         </div>
       )}

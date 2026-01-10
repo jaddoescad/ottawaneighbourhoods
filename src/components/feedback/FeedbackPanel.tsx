@@ -47,7 +47,30 @@ export default function FeedbackPanel() {
   const [message, setMessage] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [userVotes, setUserVotes] = useState<Record<string, 'up' | 'down' | null>>({})
   const messagesEndRef = useRef<HTMLDivElement>(null)
+
+  async function handleVote(feedbackId: string, vote: 'up' | 'down') {
+    try {
+      const res = await fetch(`/api/feedback/${feedbackId}/vote`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ vote }),
+      })
+      if (res.ok) {
+        const data = await res.json()
+        // Update local state
+        setFeedback(prev => prev.map(f =>
+          f.id === feedbackId
+            ? { ...f, upvotes: data.upvotes, downvotes: data.downvotes }
+            : f
+        ))
+        setUserVotes(prev => ({ ...prev, [feedbackId]: data.userVote }))
+      }
+    } catch (err) {
+      console.error('Vote failed:', err)
+    }
+  }
 
   useEffect(() => {
     if (isOpen) {
@@ -62,13 +85,22 @@ export default function FeedbackPanel() {
   async function fetchFeedback() {
     setIsLoading(true)
     try {
-      const res = await fetch('/api/feedback?limit=100')
-      if (res.ok) {
-        const data = await res.json()
+      const [feedbackRes, votesRes] = await Promise.all([
+        fetch('/api/feedback?limit=100'),
+        fetch('/api/feedback/votes')
+      ])
+
+      if (feedbackRes.ok) {
+        const data = await feedbackRes.json()
         const sorted = data.sort(
           (a: Feedback, b: Feedback) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
         )
         setFeedback(sorted)
+      }
+
+      if (votesRes.ok) {
+        const { votes } = await votesRes.json()
+        setUserVotes(votes)
       }
     } catch {
       console.error('Failed to fetch feedback')
@@ -189,6 +221,32 @@ export default function FeedbackPanel() {
                         {item.moderator_reply}
                       </div>
                     )}
+
+                    {/* Votes */}
+                    <div className="flex items-center gap-3 mt-2 pt-2 border-t border-slate-100">
+                      <button
+                        onClick={() => handleVote(item.id, 'up')}
+                        className={`flex items-center gap-1 text-xs px-2 py-1 rounded transition-colors ${
+                          userVotes[item.id] === 'up'
+                            ? 'bg-green-100 text-green-700'
+                            : 'text-slate-400 hover:bg-slate-100'
+                        }`}
+                      >
+                        <span>▲</span>
+                        <span>{item.upvotes || 0}</span>
+                      </button>
+                      <button
+                        onClick={() => handleVote(item.id, 'down')}
+                        className={`flex items-center gap-1 text-xs px-2 py-1 rounded transition-colors ${
+                          userVotes[item.id] === 'down'
+                            ? 'bg-red-100 text-red-700'
+                            : 'text-slate-400 hover:bg-slate-100'
+                        }`}
+                      >
+                        <span>▼</span>
+                        <span>{item.downvotes || 0}</span>
+                      </button>
+                    </div>
                   </div>
                 ))}
                 <div ref={messagesEndRef} />

@@ -15,6 +15,8 @@ export interface Feedback {
   moderator_tag: ModeratorTag
   moderator_reply: string | null
   moderated_at: string | null
+  upvotes: number
+  downvotes: number
 }
 
 export interface FeedbackSubmission {

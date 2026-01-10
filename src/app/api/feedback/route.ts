@@ -99,6 +99,7 @@ export async function POST(request: NextRequest) {
               inline_keyboard: [[
                 { text: '✓ Approve', callback_data: `approve:${data.id}` },
                 { text: '✕ Reject', callback_data: `reject:${data.id}` },
+                { text: '🗑 Delete', callback_data: `delete:${data.id}` },
               ]],
             },
           }),

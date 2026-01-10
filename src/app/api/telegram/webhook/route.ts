@@ -24,30 +24,51 @@ export async function POST(request: NextRequest) {
     const chatId = callback.message.chat.id
     const messageId = callback.message.message_id
 
-    if (!feedbackId || !['approve', 'reject'].includes(action)) {
+    if (!feedbackId || !['approve', 'reject', 'delete'].includes(action)) {
       return NextResponse.json({ ok: true })
     }
 
-    // Update feedback in database
-    const newStatus = action === 'approve' ? 'approved' : 'rejected'
+    let statusEmoji: string
+    let statusText: string
 
-    const { error } = await supabaseAdmin
-      .from('feedback')
-      .update({
-        status: newStatus,
-        moderated_at: new Date().toISOString(),
-      })
-      .eq('id', feedbackId)
+    if (action === 'delete') {
+      // Delete feedback
+      const { error } = await supabaseAdmin
+        .from('feedback')
+        .delete()
+        .eq('id', feedbackId)
 
-    if (error) {
-      console.error('Failed to update feedback:', error)
-      await answerCallback(botToken, callback.id, '❌ Failed to update')
-      return NextResponse.json({ ok: true })
+      if (error) {
+        console.error('Failed to delete feedback:', error)
+        await answerCallback(botToken, callback.id, '❌ Failed to delete')
+        return NextResponse.json({ ok: true })
+      }
+
+      statusEmoji = '🗑'
+      statusText = 'Deleted'
+    } else {
+      // Update feedback status
+      const newStatus = action === 'approve' ? 'approved' : 'rejected'
+
+      const { error } = await supabaseAdmin
+        .from('feedback')
+        .update({
+          status: newStatus,
+          moderated_at: new Date().toISOString(),
+        })
+        .eq('id', feedbackId)
+
+      if (error) {
+        console.error('Failed to update feedback:', error)
+        await answerCallback(botToken, callback.id, '❌ Failed to update')
+        return NextResponse.json({ ok: true })
+      }
+
+      statusEmoji = action === 'approve' ? '✅' : '❌'
+      statusText = action === 'approve' ? 'Approved' : 'Rejected'
     }
 
     // Update the message to show it's been handled
-    const statusEmoji = action === 'approve' ? '✅' : '❌'
-    const statusText = action === 'approve' ? 'Approved' : 'Rejected'
     const originalText = callback.message.text
 
     await fetch(`https://api.telegram.org/bot${botToken}/editMessageText`, {
