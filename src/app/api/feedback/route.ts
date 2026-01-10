@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
+import { createClient as createAdminClient } from '@supabase/supabase-js'
 import type { FeedbackSubmission } from '@/lib/types/feedback'
+
+const supabaseAdmin = createAdminClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+)
 
 // GET - Fetch approved feedback (public)
 export async function GET(request: NextRequest) {
@@ -54,9 +60,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid feedback type' }, { status: 400 })
     }
 
-    const supabase = await createClient()
-
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
       .from('feedback')
       .insert({
         author_name: body.author_name.trim(),
