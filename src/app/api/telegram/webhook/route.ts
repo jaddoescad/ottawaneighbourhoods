@@ -1,5 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@/lib/supabase/server'
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseAdmin = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+)
 
 export async function POST(request: NextRequest) {
   const botToken = process.env.TELEGRAM_BOT_TOKEN
@@ -24,10 +29,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Update feedback in database
-    const supabase = await createClient()
     const newStatus = action === 'approve' ? 'approved' : 'rejected'
 
-    const { error } = await supabase
+    const { error } = await supabaseAdmin
       .from('feedback')
       .update({
         status: newStatus,
