@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ottawa Neighbourhoods Closest to Hospitals 2025 | Healthcare Access",
+  title: "Ottawa Neighbourhoods Closest to Hospitals 2026 | Healthcare Access",
   description: "Find Ottawa neighbourhoods closest to hospitals. Rankings based on distance to emergency rooms and healthcare facilities.",
   openGraph: {
-    title: "Ottawa Neighbourhoods Closest to Hospitals 2025",
+    title: "Ottawa Neighbourhoods Closest to Hospitals 2026",
     description: "Find Ottawa neighbourhoods closest to hospitals and healthcare.",
     url: "https://ottawahoods.com/closest-hospitals",
     siteName: "OttawaHoods",

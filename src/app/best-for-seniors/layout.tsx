@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best Ottawa Neighbourhoods for Seniors 2025 | Retirement Living",
+  title: "Best Ottawa Neighbourhoods for Seniors 2026 | Retirement Living",
   description: "Find the best neighbourhoods for seniors in Ottawa. Rankings based on hospital proximity, safety, walkability, and transit access for retirees.",
   openGraph: {
-    title: "Best Ottawa Neighbourhoods for Seniors 2025",
+    title: "Best Ottawa Neighbourhoods for Seniors 2026",
     description: "Find the best neighbourhoods for seniors and retirees in Ottawa.",
     url: "https://ottawahoods.com/best-for-seniors",
     siteName: "OttawaHoods",

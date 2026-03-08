@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best Parks in Ottawa by Neighbourhood 2025 | Green Spaces",
+  title: "Best Parks in Ottawa by Neighbourhood 2026 | Green Spaces",
   description: "Find Ottawa neighbourhoods with the most parks and green spaces. Compare park counts and outdoor recreation options across 100+ areas.",
   openGraph: {
-    title: "Best Parks in Ottawa by Neighbourhood 2025",
+    title: "Best Parks in Ottawa by Neighbourhood 2026",
     description: "Find Ottawa neighbourhoods with the most parks and green spaces.",
     url: "https://ottawahoods.com/best-parks",
     siteName: "OttawaHoods",

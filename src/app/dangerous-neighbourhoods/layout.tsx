@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Most Dangerous Neighbourhoods in Ottawa 2025 | Crime Rankings",
+  title: "Most Dangerous Neighbourhoods in Ottawa 2026 | Crime Rankings",
   description: "See which Ottawa neighbourhoods have the highest crime rates. Data-driven rankings based on 2024 police statistics including violent crime, property crime, and more.",
   openGraph: {
-    title: "Most Dangerous Neighbourhoods in Ottawa 2025 | Crime Rankings",
+    title: "Most Dangerous Neighbourhoods in Ottawa 2026 | Crime Rankings",
     description: "See which Ottawa neighbourhoods have the highest crime rates. Data-driven rankings based on 2024 police statistics.",
     url: "https://ottawahoods.com/dangerous-neighbourhoods",
     siteName: "OttawaHoods",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Most Dangerous Neighbourhoods in Ottawa 2025",
+    title: "Most Dangerous Neighbourhoods in Ottawa 2026",
     description: "See which Ottawa neighbourhoods have the highest crime rates based on 2024 police data.",
     images: ["/og-home.jpg"],
   },

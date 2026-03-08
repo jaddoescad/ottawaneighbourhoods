@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best Schools in Ottawa by Neighbourhood 2025 | Top EQAO Scores",
+  title: "Best Schools in Ottawa by Neighbourhood 2026 | Top EQAO Scores",
   description: "Find Ottawa neighbourhoods with the best schools. Rankings based on EQAO test scores and school availability for elementary and secondary education.",
   openGraph: {
-    title: "Best Schools in Ottawa by Neighbourhood 2025",
+    title: "Best Schools in Ottawa by Neighbourhood 2026",
     description: "Find Ottawa neighbourhoods with the best schools based on EQAO scores.",
     url: "https://ottawahoods.com/best-schools",
     siteName: "OttawaHoods",

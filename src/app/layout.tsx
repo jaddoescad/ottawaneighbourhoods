@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 const BASE_URL = "https://ottawahoods.com";
 
 export const metadata: Metadata = {
-  title: "Top Ottawa Neighborhoods to Live In 2025 | OttawaHoods",
+  title: "Top Ottawa Neighborhoods to Live In 2026 | OttawaHoods",
   description: "Compare the top Ottawa neighborhoods using real data. Crime stats, school scores, walk scores, rent prices, and more for 100+ areas. Find your perfect neighbourhood.",
   metadataBase: new URL(BASE_URL),
   openGraph: {

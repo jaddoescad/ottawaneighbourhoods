@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best Transit in Ottawa by Neighbourhood 2025 | O-Train & Bus Access",
+  title: "Best Transit in Ottawa by Neighbourhood 2026 | O-Train & Bus Access",
   description: "Find Ottawa neighbourhoods with the best public transit. Rankings based on O-Train access, bus coverage, and overall Transit Score.",
   openGraph: {
-    title: "Best Transit in Ottawa by Neighbourhood 2025",
+    title: "Best Transit in Ottawa by Neighbourhood 2026",
     description: "Find Ottawa neighbourhoods with the best public transit access.",
     url: "https://ottawahoods.com/best-transit",
     siteName: "OttawaHoods",

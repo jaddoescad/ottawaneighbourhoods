@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Most Expensive Neighbourhoods in Ottawa 2025 | Luxury Areas",
+  title: "Most Expensive Neighbourhoods in Ottawa 2026 | Luxury Areas",
   description: "Find the most expensive neighbourhoods in Ottawa. Rankings based on average rent and home prices for luxury and upscale living.",
   openGraph: {
-    title: "Most Expensive Neighbourhoods in Ottawa 2025",
+    title: "Most Expensive Neighbourhoods in Ottawa 2026",
     description: "Find the most expensive neighbourhoods in Ottawa for luxury living.",
     url: "https://ottawahoods.com/most-expensive",
     siteName: "OttawaHoods",

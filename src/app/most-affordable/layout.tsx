@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Most Affordable Neighbourhoods in Ottawa 2025 | Cheap Rent Areas",
+  title: "Most Affordable Neighbourhoods in Ottawa 2026 | Cheap Rent Areas",
   description: "Find the most affordable neighbourhoods in Ottawa with the lowest rent prices. Compare average rents across 100+ areas to find budget-friendly places to live.",
   openGraph: {
-    title: "Most Affordable Neighbourhoods in Ottawa 2025",
+    title: "Most Affordable Neighbourhoods in Ottawa 2026",
     description: "Find the most affordable neighbourhoods in Ottawa with the lowest rent prices.",
     url: "https://ottawahoods.com/most-affordable",
     siteName: "OttawaHoods",
