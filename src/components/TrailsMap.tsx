@@ -32,12 +32,11 @@ const CircleMarker = dynamic(
 
 interface TrailsMapProps {
   greenbeltTrails: GreenbeltTrailData[];
-  linearParks: ParkData[];
+  localTrailAssets: ParkData[];
   boundaries: NeighbourhoodBoundary[];
-  neighbourhoodName: string;
 }
 
-export default function TrailsMap({ greenbeltTrails, linearParks, boundaries, neighbourhoodName }: TrailsMapProps) {
+export default function TrailsMap({ greenbeltTrails, localTrailAssets, boundaries }: TrailsMapProps) {
   const [mounted, setMounted] = useState(false);
   const [L, setL] = useState<typeof import("leaflet") | null>(null);
 
@@ -75,8 +74,8 @@ export default function TrailsMap({ greenbeltTrails, linearParks, boundaries, ne
       }
     }
 
-    // Include linear park locations
-    for (const park of linearParks) {
+    // Include local trail asset locations
+    for (const park of localTrailAssets) {
       minLat = Math.min(minLat, park.lat);
       maxLat = Math.max(maxLat, park.lat);
       minLng = Math.min(minLng, park.lng);
@@ -84,7 +83,7 @@ export default function TrailsMap({ greenbeltTrails, linearParks, boundaries, ne
     }
 
     return [(minLat + maxLat) / 2, (minLng + maxLng) / 2] as [number, number];
-  }, [boundaries, greenbeltTrails, linearParks]);
+  }, [boundaries, greenbeltTrails, localTrailAssets]);
 
   // Create custom icon for greenbelt trails
   const trailIcon = useMemo(() => {
@@ -180,8 +179,8 @@ export default function TrailsMap({ greenbeltTrails, linearParks, boundaries, ne
             )
           ))}
 
-          {/* Linear park markers (smaller blue circles) */}
-          {linearParks.map((park, index) => (
+          {/* Local trail asset markers (smaller blue circles) */}
+          {localTrailAssets.map((park, index) => (
             <CircleMarker
               key={`park-${index}`}
               center={[park.lat, park.lng]}
@@ -196,7 +195,10 @@ export default function TrailsMap({ greenbeltTrails, linearParks, boundaries, ne
               <Popup>
                 <div className="text-sm">
                   <div className="font-semibold">{park.name}</div>
-                  <div className="text-gray-600">Linear Park / Pathway</div>
+                  <div className="text-gray-600">{park.category}</div>
+                  {park.address && (
+                    <div className="text-xs text-gray-500 mt-1">{park.address}</div>
+                  )}
                 </div>
               </Popup>
             </CircleMarker>
@@ -212,7 +214,7 @@ export default function TrailsMap({ greenbeltTrails, linearParks, boundaries, ne
         </div>
         <div className="flex items-center gap-1">
           <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-          <span>Linear Park</span>
+          <span>Local Trail Asset</span>
         </div>
       </div>
     </div>

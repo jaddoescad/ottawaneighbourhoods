@@ -260,13 +260,8 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
 
   // Get rank for this neighbourhood
   const rank = rankedNeighbourhoods.findIndex(n => n.id === id) + 1;
-
-  // Combine Linear Parks and NCC Greenbelt trails
-  const linearParks = details.parksData
-    .filter((park) => park.category === "Linear Park")
-    .map((park) => park.name);
-  const greenbeltTrails = details.greenbeltTrailsList || [];
-  const allTrails = [...linearParks, ...greenbeltTrails];
+  const statsAreaName = boundaries.length === 1 ? boundaries[0].name : null;
+  const showsStatsAreaNote = Boolean(statsAreaName && statsAreaName !== name);
   const greenbeltLengthKm = details.greenbeltTrailsLengthKm || 0;
 
   // Format numbers
@@ -311,6 +306,11 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-2">{name}</h1>
             <p className="text-white/80 text-sm sm:text-lg">{area}</p>
+            {showsStatsAreaNote && (
+              <p className="mt-1 text-white/70 text-xs sm:text-sm">
+                Statistics currently use the {statsAreaName} ONS area.
+              </p>
+            )}
             <div className="mt-3 sm:mt-4">
               <ScoreBreakdown
                 overallScore={overallScore}
@@ -437,7 +437,8 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
           <TrailsStatRow
             greenbeltTrails={details.greenbeltTrailsData}
             greenbeltLengthKm={greenbeltLengthKm}
-            linearParks={details.parksData.filter(p => p.category === "Linear Park")}
+            localTrailAssets={details.localTrailAssetsData}
+            pathsKm={details.pathsKm || 0}
             boundaries={boundaries}
             neighbourhoodName={name}
           />
