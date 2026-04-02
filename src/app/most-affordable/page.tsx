@@ -7,6 +7,7 @@ import NeighbourhoodCard from "@/components/NeighbourhoodCard";
 import CoverageMap from "@/components/CoverageMap";
 import FilterBar from "@/components/FilterBar";
 import FeedbackPanel from "@/components/feedback/FeedbackPanel";
+import RealEstateCTA from "@/components/leads/RealEstateCTA";
 
 export default function MostAffordable() {
   const [showCoverageMap, setShowCoverageMap] = useState(false);
@@ -58,6 +59,10 @@ export default function MostAffordable() {
           ))}
         </div>
       </main>
+
+      <div className="max-w-7xl mx-auto px-4 pb-4">
+        <RealEstateCTA />
+      </div>
 
       <FeedbackPanel />
     </div>

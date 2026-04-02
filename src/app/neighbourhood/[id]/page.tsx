@@ -41,6 +41,7 @@ import FoodCostBurdenStatRow from "@/components/FoodCostBurdenStatRow";
 import CoverageButton from "@/components/CoverageButton";
 import ScoreBreakdown from "@/components/ScoreBreakdown";
 import FeedbackPanel from "@/components/feedback/FeedbackPanel";
+import RealEstateCTA from "@/components/leads/RealEstateCTA";
 
 const BASE_URL = "https://ottawahoods.com";
 
@@ -662,6 +663,8 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
           />
         </div>
 
+        {/* Real Estate CTA */}
+        <RealEstateCTA neighbourhoodName={name} />
       </div>
 
       {/* Feedback Chat Panel */}
