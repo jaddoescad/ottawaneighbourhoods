@@ -11,7 +11,7 @@ const AgeOnsMap = dynamic(
 
 interface AgeDemographicsRowProps {
   pctChildren: number;
-  pctYoungProfessionals: number;
+  pctYoungProfessionals: number | null;
   pctSeniors: number;
   boundaries?: NeighbourhoodBoundary[];
   neighbourhoodName?: string;
@@ -25,6 +25,7 @@ export default function AgeDemographicsRow({
   neighbourhoodName = "",
 }: AgeDemographicsRowProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const hasYoungProfessionalData = pctYoungProfessionals !== null;
 
   // Calculate weighted average age from boundaries
   const avgAge = boundaries.length > 0
@@ -42,7 +43,9 @@ export default function AgeDemographicsRow({
   // Determine the "character" of the neighbourhood based on demographics
   const getDemographicType = (): { label: string; type: "great" | "good" | "okay" | "bad" } => {
     const childrenRatio = pctChildren / ottawaAverages.children;
-    const youngProRatio = pctYoungProfessionals / ottawaAverages.youngProfessionals;
+    const youngProRatio = hasYoungProfessionalData
+      ? pctYoungProfessionals / ottawaAverages.youngProfessionals
+      : -1;
     const seniorsRatio = pctSeniors / ottawaAverages.seniors;
 
     // Find the dominant demographic
@@ -70,7 +73,7 @@ export default function AgeDemographicsRow({
   // For the main bar, show a composite "diversity" score based on balance
   const getBalancePercent = () => {
     // Higher score = more balanced demographics
-    const total = pctChildren + pctYoungProfessionals + pctSeniors;
+    const total = pctChildren + (pctYoungProfessionals ?? 0) + pctSeniors;
     return Math.min(total, 100);
   };
 
@@ -92,7 +95,11 @@ export default function AgeDemographicsRow({
       sublabel: "Ages 25-44",
       value: pctYoungProfessionals,
       average: ottawaAverages.youngProfessionals,
-      color: pctYoungProfessionals >= ottawaAverages.youngProfessionals ? "bg-blue-400" : "bg-gray-300",
+      color: pctYoungProfessionals === null
+        ? "bg-gray-200"
+        : pctYoungProfessionals >= ottawaAverages.youngProfessionals
+          ? "bg-blue-400"
+          : "bg-gray-300",
     },
     {
       label: "Seniors",
@@ -160,17 +167,22 @@ export default function AgeDemographicsRow({
           <div className="text-xs text-gray-500 mb-3 uppercase tracking-wide">
             Age Distribution
           </div>
+          {!hasYoungProfessionalData && (
+            <div className="mb-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800">
+              Ages 25-44 data is not available for this neighbourhood&apos;s current census mapping.
+            </div>
+          )}
           <div className="space-y-3">
             {demographics.map((demo) => (
               <div key={demo.label}>
                 <div className="flex justify-between text-xs text-gray-600 mb-1">
                   <span className="truncate mr-2">{demo.label} <span className="text-gray-400 hidden sm:inline">({demo.sublabel})</span></span>
-                  <span className="font-medium shrink-0">{demo.value}%</span>
+                  <span className="font-medium shrink-0">{demo.value === null ? "N/A" : `${demo.value}%`}</span>
                 </div>
                 <div className="relative h-5 bg-gray-200 rounded overflow-hidden">
                   <div
                     className={`absolute inset-y-0 left-0 rounded ${demo.color} transition-all duration-300`}
-                    style={{ width: `${Math.min((demo.value / maxPercent) * 100, 100)}%` }}
+                    style={{ width: `${demo.value === null ? 0 : Math.min((demo.value / maxPercent) * 100, 100)}%` }}
                   />
                   {/* Ottawa average marker */}
                   <div

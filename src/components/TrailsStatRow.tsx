@@ -12,7 +12,8 @@ const TrailsMap = dynamic(
 interface TrailsStatRowProps {
   greenbeltTrails: GreenbeltTrailData[];
   greenbeltLengthKm: number;
-  linearParks: ParkData[];
+  localTrailAssets: ParkData[];
+  pathsKm: number;
   boundaries: NeighbourhoodBoundary[];
   neighbourhoodName: string;
 }
@@ -57,15 +58,18 @@ function getTrailTypeIcon(type: string): string {
 export default function TrailsStatRow({
   greenbeltTrails,
   greenbeltLengthKm,
-  linearParks,
+  localTrailAssets,
+  pathsKm,
   boundaries,
   neighbourhoodName,
 }: TrailsStatRowProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const totalTrails = greenbeltTrails.length + linearParks.length;
-  const barWidth = Math.max(10, Math.min((totalTrails / 15) * 100, 100));
-  const hasTrails = totalTrails > 0;
+  const totalTrailAssets = greenbeltTrails.length + localTrailAssets.length;
+  const totalTrailKm = Number((greenbeltLengthKm + pathsKm).toFixed(1));
+  const trailStrength = totalTrailAssets > 0 ? totalTrailAssets : (totalTrailKm > 0 ? 2 : 0);
+  const barWidth = Math.max(10, Math.min((trailStrength / 15) * 100, 100));
+  const hasTrails = totalTrailAssets > 0 || totalTrailKm > 0;
 
   // Group greenbelt trails by sector
   const trailsBySector = greenbeltTrails.reduce((acc, trail) => {
@@ -75,9 +79,11 @@ export default function TrailsStatRow({
     return acc;
   }, {} as Record<string, GreenbeltTrailData[]>);
 
-  const displayValue = greenbeltLengthKm > 0
-    ? `${totalTrails} trails (${greenbeltLengthKm} km)`
-    : `${totalTrails} trails`;
+  const displayValue = totalTrailAssets > 0
+    ? `${totalTrailAssets} assets${totalTrailKm > 0 ? ` (${totalTrailKm} km)` : ""}`
+    : totalTrailKm > 0
+      ? `${totalTrailKm} km`
+      : "0 assets";
 
   return (
     <div className="border-b border-gray-100 last:border-b-0">
@@ -105,11 +111,11 @@ export default function TrailsStatRow({
           </div>
           <div className="w-full sm:flex-1 relative h-7 sm:h-9 bg-gray-100 rounded-lg overflow-hidden">
             <div
-              className={`absolute inset-y-0 left-0 rounded-lg ${getTrailsColor(totalTrails)} transition-all duration-300`}
+              className={`absolute inset-y-0 left-0 rounded-lg ${getTrailsColor(trailStrength)} transition-all duration-300`}
               style={{ width: `${barWidth}%` }}
             />
             <span className="absolute inset-0 flex items-center px-3 sm:px-4 text-gray-800 font-semibold text-xs sm:text-sm">
-              {getTrailsLabel(totalTrails)}
+              {getTrailsLabel(trailStrength)}
             </span>
           </div>
           <span className="hidden sm:block text-gray-900 font-bold w-28 text-right">{displayValue}</span>
@@ -137,12 +143,12 @@ export default function TrailsStatRow({
                   <div className="text-xs text-gray-500 uppercase">Greenbelt</div>
                 </div>
                 <div className="bg-white rounded-lg p-3 border border-gray-200 text-center">
-                  <div className="text-2xl font-bold text-blue-600">{linearParks.length}</div>
-                  <div className="text-xs text-gray-500 uppercase">Linear Parks</div>
+                  <div className="text-2xl font-bold text-blue-600">{localTrailAssets.length}</div>
+                  <div className="text-xs text-gray-500 uppercase">Local Assets</div>
                 </div>
                 <div className="bg-white rounded-lg p-3 border border-gray-200 text-center">
-                  <div className="text-2xl font-bold text-gray-700">{greenbeltLengthKm}</div>
-                  <div className="text-xs text-gray-500 uppercase">Total KM</div>
+                  <div className="text-2xl font-bold text-gray-700">{totalTrailKm}</div>
+                  <div className="text-xs text-gray-500 uppercase">Trail / Path KM</div>
                 </div>
               </div>
 
@@ -153,9 +159,8 @@ export default function TrailsStatRow({
                 </div>
                 <TrailsMap
                   greenbeltTrails={greenbeltTrails}
-                  linearParks={linearParks}
+                  localTrailAssets={localTrailAssets}
                   boundaries={boundaries}
-                  neighbourhoodName={neighbourhoodName}
                 />
               </div>
 
@@ -199,23 +204,32 @@ export default function TrailsStatRow({
                 </div>
               )}
 
-              {/* Linear Parks */}
-              {linearParks.length > 0 && (
+              {/* Local trail assets */}
+              {localTrailAssets.length > 0 && (
                 <div className="mb-4">
                   <div className="text-xs text-gray-500 mb-2 uppercase tracking-wide flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-blue-500"></span>
-                    Linear Parks & Pathways ({linearParks.length})
+                    Local Trail Assets ({localTrailAssets.length})
                   </div>
                   <div className="bg-white rounded-lg border border-gray-200">
                     <div className="divide-y divide-gray-100 max-h-48 overflow-y-auto">
-                      {linearParks.map((park, index) => (
-                        <div key={index} className="px-3 py-2 flex items-center gap-2">
-                          <span>🛤️</span>
-                          <span className="text-sm text-gray-700">{park.name}</span>
+                      {localTrailAssets.map((park, index) => (
+                        <div key={index} className="px-3 py-2 flex items-start justify-between gap-3">
+                          <div className="flex items-center gap-2 min-w-0">
+                            <span>🛤️</span>
+                            <span className="text-sm text-gray-700">{park.name}</span>
+                          </div>
+                          <span className="shrink-0 text-xs text-gray-500">{park.category}</span>
                         </div>
                       ))}
                     </div>
                   </div>
+                </div>
+              )}
+
+              {pathsKm > 0 && (
+                <div className="mb-4 rounded-lg border border-blue-100 bg-blue-50 px-3 py-2 text-sm text-blue-900">
+                  The City&apos;s mapped cycling network includes {pathsKm.toFixed(1)} km of local paths in {neighbourhoodName}.
                 </div>
               )}
 
@@ -240,7 +254,7 @@ export default function TrailsStatRow({
           ) : (
             <div className="text-center py-6">
               <div className="text-4xl mb-2">🚴</div>
-              <div className="text-gray-600 font-medium">No trails in this neighbourhood</div>
+              <div className="text-gray-600 font-medium">No mapped trail assets in this neighbourhood</div>
               <div className="text-sm text-gray-500 mt-1">
                 Check nearby neighbourhoods or visit ncc-ccn.gc.ca for Greenbelt access points
               </div>

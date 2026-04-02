@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 export default function FeedbackPanel() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
+  const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
@@ -20,11 +21,13 @@ export default function FeedbackPanel() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          email: email.trim(),
           content: message.trim(),
           neighbourhood_id: pathname,
         }),
       })
       if (res.ok) {
+        setEmail('')
         setMessage('')
         setSubmitted(true)
         setTimeout(() => setSubmitted(false), 3000)
@@ -101,6 +104,13 @@ export default function FeedbackPanel() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email (optional)"
+                  className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 placeholder:text-slate-400"
+                />
                 <textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}

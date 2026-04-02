@@ -1,16 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+function escapeHtml(value: string) {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+}
+
 // POST - Submit feedback (sends directly to Telegram)
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
+    const email = typeof body.email === 'string' ? body.email.trim() : ''
+    const content = typeof body.content === 'string' ? body.content.trim() : ''
 
     // Validation
-    if (!body.content?.trim()) {
+    if (!content) {
       return NextResponse.json({ error: 'Feedback content is required' }, { status: 400 })
     }
-    if (body.content.length > 2000) {
+    if (content.length > 2000) {
       return NextResponse.json({ error: 'Feedback must be under 2000 characters' }, { status: 400 })
+    }
+    if (email.length > 320) {
+      return NextResponse.json({ error: 'Email must be under 320 characters' }, { status: 400 })
     }
 
     // Send to Telegram
@@ -25,7 +37,16 @@ export async function POST(request: NextRequest) {
     const pageName = body.neighbourhood_id === '/' ? 'Home' :
       body.neighbourhood_id?.replace('/neighbourhood/', '').replace('/', '').split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || 'Unknown'
 
-    const message = `📬 *New Feedback*\n\n📍 *Page:* ${pageName}\n\n💬 ${body.content.slice(0, 500)}`
+    const message = [
+      '<b>New Feedback</b>',
+      '',
+      `<b>Page:</b> ${escapeHtml(pageName)}`,
+      email ? `<b>Email:</b> ${escapeHtml(email)}` : null,
+      '',
+      escapeHtml(content.slice(0, 500)),
+    ]
+      .filter(Boolean)
+      .join('\n')
 
     const telegramResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: 'POST',
@@ -33,7 +54,7 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         chat_id: chatId,
         text: message,
-        parse_mode: 'Markdown',
+        parse_mode: 'HTML',
       }),
     })
 

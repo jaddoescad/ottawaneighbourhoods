@@ -79,6 +79,16 @@ function matchSchoolNames(name1, name2) {
   return false;
 }
 
+function dedupeByName(items) {
+  return [...new Map(items.map((item) => [item.name, item])).values()];
+}
+
+function isLocalTrailAsset(park) {
+  if (!park || !park.name) return false;
+
+  return park.category === 'Linear Park' || /corridor|trail|pathway/i.test(park.name);
+}
+
 // ============================================================================
 // CSV Parsing
 // ============================================================================
@@ -566,9 +576,10 @@ async function main() {
   // Build age demographics lookup by id
   const ageDemographicsById = {};
   for (const entry of ageDemographicsData) {
+    const pctYoungProfessionals = parseFloat(entry.pctYoungProfessionals);
     ageDemographicsById[entry.id] = {
       pctChildren: parseFloat(entry.pctChildren) || 0,
-      pctYoungProfessionals: parseFloat(entry.pctYoungProfessionals) || 0,
+      pctYoungProfessionals: Number.isFinite(pctYoungProfessionals) ? pctYoungProfessionals : null,
       pctSeniors: parseFloat(entry.pctSeniors) || 0,
     };
   }
@@ -902,6 +913,12 @@ async function main() {
   const schoolsByNeighbourhood = {};
   let assignedSchools = 0;
   let matchedEqaoScores = 0;
+  const SCHOOL_CATEGORIES_TO_INCLUDE = new Set([
+    'Elementary',
+    'Secondary',
+    'Intermediate',
+    'Elementary/Secondary',
+  ]);
 
   // Build EQAO lookup map (stores both score and level)
   const eqaoByName = new Map();
@@ -935,6 +952,8 @@ async function main() {
   }
 
   for (const school of schoolsRaw) {
+    if (!SCHOOL_CATEGORIES_TO_INCLUDE.has(school.CATEGORY)) continue;
+
     const lat = parseFloat(school.LATITUDE);
     const lng = parseFloat(school.LONGITUDE);
 
@@ -1676,6 +1695,7 @@ async function main() {
                                   (cyclingData.byType['Segregated Bike Lane'] || 0)) / 1000, 1);
     const pathsKm = roundTo((cyclingData.byType['Path'] || 0) / 1000, 1);
     const pavedShouldersKm = roundTo((cyclingData.byType['Paved Shoulder'] || 0) / 1000, 1);
+    const localTrailAssets = dedupeByName(parks.filter(isLocalTrailAsset));
 
     // Get population data from ONS Census (2021 Census from ons-sqo.ca)
     // Aggregate population from all ONS-SQO areas that make up this neighbourhood
@@ -1755,7 +1775,7 @@ async function main() {
     const walkScores = walkScoresById[info.id] || { walkScore: 0, transitScore: 0, bikeScore: 0 };
 
     // Get age demographics for this neighbourhood
-    const ageDemographics = ageDemographicsById[info.id] || { pctChildren: 0, pctYoungProfessionals: 0, pctSeniors: 0 };
+    const ageDemographics = ageDemographicsById[info.id] || { pctChildren: 0, pctYoungProfessionals: null, pctSeniors: 0 };
 
     // Get commute time for this neighbourhood
     const commuteData = commuteTimesById[info.id] || { commuteToDowntown: 0, commuteByTransit: 0 };
@@ -1828,6 +1848,7 @@ async function main() {
     // Use census data for demographics if available, fall back to age_demographics.csv
     const finalPctChildren = censusPctChildren > 0 ? censusPctChildren : ageDemographics.pctChildren;
     const finalPctSeniors = censusPctSeniors > 0 ? censusPctSeniors : ageDemographics.pctSeniors;
+    const finalPctYoungProfessionals = ageDemographics.pctYoungProfessionals;
     // Census median income can override CSV median income if available
     const finalMedianIncome = censusMedIncome > 0 ? censusMedIncome : (parseInt(info.medianIncome) || 0);
 
@@ -1850,7 +1871,7 @@ async function main() {
       bikeScore: walkScores.bikeScore,
       // Demographics from 2021 Census
       pctChildren: finalPctChildren,
-      pctYoungProfessionals: ageDemographics.pctYoungProfessionals, // not in census data, keep from CSV
+      pctYoungProfessionals: finalPctYoungProfessionals,
       pctSeniors: finalPctSeniors,
       // Additional census demographics
       unemploymentRate: censusUnemployment > 0 ? censusUnemployment : null,
@@ -2004,6 +2025,9 @@ async function main() {
         greenbeltTrailsLengthKm: roundTo(greenbeltTotalLengthKm, 1),
         greenbeltTrailsList: greenbeltTrailsForNeighbourhood.map(t => t.name),
         greenbeltTrailsData: greenbeltTrailsForNeighbourhood,
+        localTrailAssets: localTrailAssets.length,
+        localTrailAssetsList: localTrailAssets.map((park) => park.name),
+        localTrailAssetsData: localTrailAssets,
         // Cycling infrastructure
         cyclingTotalKm,
         bikeLanesKm,
@@ -2722,7 +2746,11 @@ async function main() {
       quietScore: neighbourhood.details.quietScore,
       serviceRequests: neighbourhood.details.serviceRequestRate,
       highway: neighbourhood.details.distanceToHighway,
-      trails: neighbourhood.details.greenbeltTrailsLengthKm || 0,
+      trails: roundTo(
+        (neighbourhood.details.greenbeltTrailsLengthKm || 0) +
+        (neighbourhood.details.pathsKm || 0),
+        1
+      ),
       cycling: neighbourhood.details.cyclingTotalKm || 0,
       rent: neighbourhood.avgRent,
       homePrice: neighbourhood.avgHomePrice,

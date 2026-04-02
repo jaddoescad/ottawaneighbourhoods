@@ -289,7 +289,7 @@ export interface Neighbourhood {
   bikeScore: number;      // 0-100 bikeability score
   // Demographics from 2021 Census
   pctChildren: number;    // % of population aged 0-14 (families with children indicator)
-  pctYoungProfessionals: number; // % of population aged 25-44
+  pctYoungProfessionals: number | null; // % of population aged 25-44
   pctSeniors: number;     // % of population aged 65+
   // Additional census demographics
   unemploymentRate: number | null; // Unemployment rate %
@@ -432,6 +432,9 @@ export interface Neighbourhood {
     greenbeltTrailsLengthKm: number;
     greenbeltTrailsList: string[];
     greenbeltTrailsData: GreenbeltTrailData[];
+    localTrailAssets: number;
+    localTrailAssetsList: string[];
+    localTrailAssetsData: ParkData[];
     // Cycling infrastructure
     cyclingTotalKm: number;
     bikeLanesKm: number;

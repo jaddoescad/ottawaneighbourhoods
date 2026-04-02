@@ -130,6 +130,7 @@ const neighbourhoodMapping = {
   'little-italy': 'Inner Area',        // Near-downtown
   'kanata': 'Kanata-Stittsville',
   'stittsville': 'Kanata-Stittsville',
+  'brookside-briarbrook-morgan-s-grant': 'Kanata-Stittsville',
   'alta-vista': 'Alta Vista',
   'sandy-hill': 'Inner Area',          // Near-downtown
   'orleans': 'Orleans',
@@ -175,6 +176,7 @@ const neighbourhoodNames = {
   'little-italy': 'Little Italy',
   'kanata': 'Kanata',
   'stittsville': 'Stittsville',
+  'brookside-briarbrook-morgan-s-grant': "Morgan's Grant",
   'alta-vista': 'Alta Vista',
   'sandy-hill': 'Sandy Hill',
   'orleans': 'Orleans',
