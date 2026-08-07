@@ -133,42 +133,37 @@ export const SAMPLE_ADS: Ad[] = [
 
 export const TONE_STYLES: Record<
   AdTone,
-  { soft: string; logo: string; text: string; bar: string; gradient: string }
+  { soft: string; border: string; logo: string; text: string }
 > = {
   rose: {
-    soft: "bg-rose-50",
+    soft: "bg-rose-100",
+    border: "border-rose-200",
     logo: "bg-rose-100",
     text: "text-rose-600",
-    bar: "bg-rose-500",
-    gradient: "bg-gradient-to-br from-rose-100 to-rose-50",
   },
   blue: {
-    soft: "bg-blue-50",
+    soft: "bg-blue-100",
+    border: "border-blue-200",
     logo: "bg-blue-100",
     text: "text-blue-600",
-    bar: "bg-blue-500",
-    gradient: "bg-gradient-to-br from-blue-100 to-blue-50",
   },
   amber: {
-    soft: "bg-amber-50",
+    soft: "bg-amber-100",
+    border: "border-amber-200",
     logo: "bg-amber-100",
     text: "text-amber-600",
-    bar: "bg-amber-500",
-    gradient: "bg-gradient-to-br from-amber-100 to-amber-50",
   },
   emerald: {
-    soft: "bg-emerald-50",
+    soft: "bg-emerald-100",
+    border: "border-emerald-200",
     logo: "bg-emerald-100",
     text: "text-emerald-600",
-    bar: "bg-emerald-500",
-    gradient: "bg-gradient-to-br from-emerald-100 to-emerald-50",
   },
   violet: {
-    soft: "bg-violet-50",
+    soft: "bg-violet-100",
+    border: "border-violet-200",
     logo: "bg-violet-100",
     text: "text-violet-600",
-    bar: "bg-violet-500",
-    gradient: "bg-gradient-to-br from-violet-100 to-violet-50",
   },
 };
 

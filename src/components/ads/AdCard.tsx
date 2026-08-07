@@ -36,7 +36,7 @@ function Logo({ ad, height }: { ad: Ad; height: "rail" | "banner" }) {
       // SVG logos are served as-is; the optimizer rejects them
       unoptimized={ad.logo.endsWith(".svg")}
       className={`w-auto shrink-0 rounded-xl object-contain ${
-        isRail ? "h-16 max-w-[180px]" : "h-12 max-w-[140px]"
+        isRail ? "h-14 max-w-[170px]" : "h-12 max-w-[140px]"
       }`}
     />
   );
@@ -52,7 +52,7 @@ export default function AdCard({ format, ad, className = "" }: AdCardProps) {
    * clips the last slot instead of squashing all of them.
    */
   const shell = isRail
-    ? "group flex min-h-[180px] flex-1 flex-col w-full rounded-2xl transition"
+    ? "group flex min-h-[156px] flex-1 flex-col w-full rounded-2xl transition"
     : "group block w-full rounded-2xl transition";
 
   // ---------- empty slot ----------
@@ -62,11 +62,11 @@ export default function AdCard({ format, ad, className = "" }: AdCardProps) {
         className={`${shell}${extra} border border-dashed border-gray-300 bg-white text-left hover:border-rose-300 hover:bg-rose-50/40`}
       >
         {isRail ? (
-          <div className="flex flex-1 flex-col items-center justify-center gap-2 px-4 py-4 text-center">
-            <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gray-100 text-gray-400 group-hover:bg-rose-50 group-hover:text-rose-500">
-              <PlusIcon className="w-7 h-7" />
+          <div className="flex flex-1 flex-col items-center justify-center gap-1.5 px-4 py-3 text-center">
+            <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-100 text-gray-400 group-hover:bg-rose-50 group-hover:text-rose-500">
+              <PlusIcon className="w-6 h-6" />
             </span>
-            <span className="mt-1 text-lg font-semibold leading-tight text-gray-700">
+            <span className="mt-0.5 text-lg font-semibold leading-tight text-gray-700">
               Your ad here
             </span>
             <span className="text-sm leading-5 text-gray-400">
@@ -99,10 +99,10 @@ export default function AdCard({ format, ad, className = "" }: AdCardProps) {
   const tone = TONE_STYLES[ad.tone];
   const body = isRail ? (
     <div
-      className={`flex flex-1 flex-col items-center justify-center gap-2 rounded-2xl ${tone.soft} px-4 py-4 text-center`}
+      className={`flex flex-1 flex-col items-center justify-center gap-1.5 rounded-2xl border ${tone.border} ${tone.soft} px-4 py-3 text-center`}
     >
       <Logo ad={ad} height="rail" />
-      <span className="mt-1 text-lg font-semibold leading-tight text-gray-900">
+      <span className="mt-0.5 text-lg font-semibold leading-tight text-gray-900">
         {ad.name}
       </span>
       <p className="line-clamp-2 text-sm leading-5 text-gray-600">
@@ -110,7 +110,9 @@ export default function AdCard({ format, ad, className = "" }: AdCardProps) {
       </p>
     </div>
   ) : (
-    <div className={`flex items-center gap-3.5 rounded-2xl ${tone.soft} px-4 py-4`}>
+    <div
+      className={`flex items-center gap-3.5 rounded-2xl border ${tone.border} ${tone.soft} px-4 py-4`}
+    >
       <Logo ad={ad} height="banner" />
       <div className="min-w-0">
         <div className="text-lg font-semibold text-gray-900">{ad.name}</div>

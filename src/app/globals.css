@@ -13,18 +13,18 @@
 }
 
 /*
- * Ad rail slots are 180px minimum + 12px gap, between an 80px header offset
+ * Ad rail slots are 156px minimum + 12px gap, between an 80px header offset
  * and an 80px bottom margin that clears the Feedback button, so n slots
- * need 192n + 148 of height. Drop trailing slots on shorter windows so the
+ * need 168n + 148 of height. Drop trailing slots on shorter windows so the
  * rail never clips a card in half.
  */
-@media (max-height: 1299px) {
+@media (max-height: 1155px) {
   .ad-slot-5 { display: none !important; }
 }
-@media (max-height: 1107px) {
+@media (max-height: 987px) {
   .ad-slot-4 { display: none !important; }
 }
-@media (max-height: 915px) {
+@media (max-height: 819px) {
   .ad-slot-3 { display: none !important; }
 }
 
