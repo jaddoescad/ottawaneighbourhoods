@@ -8,6 +8,8 @@ export interface Ad {
   logo: string;
   logoWidth: number;
   logoHeight: number;
+  /** Round mark on a square canvas - crop the corners off */
+  logoCircle?: boolean;
   tone: AdTone;
   href: string;
 }
@@ -19,6 +21,17 @@ export interface Ad {
  * inventing offers or prices for a real business would be a false claim.
  */
 export const SAMPLE_ADS: Ad[] = [
+  {
+    id: "ottawapainters",
+    name: "Ottawa Painters",
+    tagline: "Interior and exterior house painting in Ottawa.",
+    logo: "/ads/ottawapainters.png",
+    logoWidth: 192,
+    logoHeight: 192,
+    logoCircle: true,
+    tone: "amber",
+    href: "https://paintersottawa.com",
+  },
   {
     id: "claridge",
     name: "Claridge Homes",
@@ -169,6 +182,6 @@ export const TONE_STYLES: Record<
 
 /** Left rail is all sponsors; the right rail closes with the empty slot. */
 export const LEFT_RAIL_ADS = SAMPLE_ADS.slice(0, 6);
-export const RIGHT_RAIL_ADS = SAMPLE_ADS.slice(6, 11);
+export const RIGHT_RAIL_ADS = SAMPLE_ADS.slice(6);
 
 export const ADVERTISE_HREF = "/contact";

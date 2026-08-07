@@ -20,7 +20,7 @@ export default function AdSlots({
           key={ad.id}
           ad={ad}
           format="rail"
-          className={slotClass(i, ads.length)}
+          className={slotClass(i, Boolean(showEmptySlot))}
         />
       ))}
       {showEmptySlot && <AdCard format="rail" />}

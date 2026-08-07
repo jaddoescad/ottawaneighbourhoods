@@ -44,10 +44,14 @@ export const bannerMaxWidth = (layout: RailLayout) =>
   LAYOUTS[layout].bannerMaxWidth;
 
 /**
- * The last three slots drop out on shorter windows (thresholds in
- * globals.css) so a rail never clips a card in half. Counting from the end
- * keeps a rail's "Your ad here" slot as the last visible card.
+ * Trailing slots drop out on shorter windows (thresholds in globals.css) so
+ * a rail never clips a card in half.
+ *
+ * `ad-min-N` hides a card unless the rail has room for N slots. An ad is the
+ * (index + 1)th slot, plus one more if the rail closes with a "Your ad here"
+ * slot - which is what keeps that slot last visible as ads drop off.
  */
-export function slotClass(index: number, adCount: number) {
-  return ["ad-slot-5", "ad-slot-4", "ad-slot-3"][adCount - 1 - index] ?? "";
+export function slotClass(index: number, hasEmptySlot: boolean) {
+  const slotsNeeded = index + 1 + (hasEmptySlot ? 1 : 0);
+  return slotsNeeded >= 4 ? `ad-min-${slotsNeeded}` : "";
 }

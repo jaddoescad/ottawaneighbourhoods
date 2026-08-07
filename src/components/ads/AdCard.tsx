@@ -35,9 +35,9 @@ function Logo({ ad, height }: { ad: Ad; height: "rail" | "banner" }) {
       height={ad.logoHeight}
       // SVG logos are served as-is; the optimizer rejects them
       unoptimized={ad.logo.endsWith(".svg")}
-      className={`w-auto shrink-0 rounded-xl object-contain ${
-        isRail ? "h-14 max-w-[170px]" : "h-12 max-w-[140px]"
-      }`}
+      className={`w-auto shrink-0 object-contain ${
+        ad.logoCircle ? "rounded-full" : "rounded-xl"
+      } ${isRail ? "h-14 max-w-[170px]" : "h-12 max-w-[140px]"}`}
     />
   );
 }
