@@ -5,6 +5,29 @@
   --foreground: #111827;
 }
 
+@theme {
+  /* Viewport width needed to fit the ad rails beside the max-w-7xl content */
+  --breakpoint-rail: 1720px;
+  /* ...and beside the narrower max-w-5xl content on neighbourhood pages */
+  --breakpoint-rail-sm: 1470px;
+}
+
+/*
+ * Ad rail slots are 180px minimum + 12px gap, between an 80px header offset
+ * and an 80px bottom margin that clears the Feedback button, so n slots
+ * need 192n + 148 of height. Drop trailing slots on shorter windows so the
+ * rail never clips a card in half.
+ */
+@media (max-height: 1299px) {
+  .ad-slot-5 { display: none !important; }
+}
+@media (max-height: 1107px) {
+  .ad-slot-4 { display: none !important; }
+}
+@media (max-height: 915px) {
+  .ad-slot-3 { display: none !important; }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

@@ -42,6 +42,9 @@ import CoverageButton from "@/components/CoverageButton";
 import ScoreBreakdown from "@/components/ScoreBreakdown";
 import FeedbackPanel from "@/components/feedback/FeedbackPanel";
 import RealEstateCTA from "@/components/leads/RealEstateCTA";
+import AdSideRail from "@/components/ads/AdSideRail";
+import AdBanner from "@/components/ads/AdBanner";
+import { SAMPLE_ADS } from "@/components/ads/adData";
 
 const BASE_URL = "https://ottawahoods.com";
 
@@ -327,8 +330,13 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* Stats Grid - Real Data Only */}
-      <div className="max-w-5xl mx-auto px-2 sm:px-6 py-4 sm:py-8">
+      {/* Top ad banner (narrow screens, where the rails don't fit) */}
+      <AdBanner layout="narrow" ad={SAMPLE_ADS[0]} className="pt-4" />
+
+      {/* Stats Grid - Real Data Only, flanked by the ad rails on wide screens */}
+      <div className="flex justify-center gap-3">
+        <AdSideRail side="left" />
+        <div className="w-full min-w-0 max-w-5xl px-2 sm:px-6 py-4 sm:py-8">
         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
           <WalkScoreRow
             walkScore={walkScore}
@@ -665,7 +673,12 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
 
         {/* Real Estate CTA */}
         <RealEstateCTA neighbourhoodName={name} />
+        </div>
+        <AdSideRail side="right" />
       </div>
+
+      {/* Bottom ad banner (narrow screens, where the rails don't fit) */}
+      <AdBanner layout="narrow" className="pb-6" />
 
       {/* Feedback Chat Panel */}
       <FeedbackPanel />

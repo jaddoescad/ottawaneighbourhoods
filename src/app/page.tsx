@@ -7,6 +7,9 @@ import CoverageMap from "@/components/CoverageMap";
 import FilterBar from "@/components/FilterBar";
 import FeedbackPanel from "@/components/feedback/FeedbackPanel";
 import RealEstateCTA from "@/components/leads/RealEstateCTA";
+import AdRails from "@/components/ads/AdRails";
+import AdBanner from "@/components/ads/AdBanner";
+import { SAMPLE_ADS } from "@/components/ads/adData";
 
 export default function Home() {
   const [showCoverageMap, setShowCoverageMap] = useState(false);
@@ -50,6 +53,12 @@ export default function Home() {
         onClose={() => setShowCoverageMap(false)}
       />
 
+      {/* Side ad rails (wide desktop only) */}
+      <AdRails />
+
+      {/* Top ad banner (narrow screens, where the rails don't fit) */}
+      <AdBanner ad={SAMPLE_ADS[0]} className="pt-4" />
+
       {/* H1 */}
       <div className="max-w-7xl mx-auto px-4 pt-4 text-center">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
@@ -78,6 +87,9 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 pb-4">
         <RealEstateCTA />
       </div>
+
+      {/* Bottom ad banner (narrow screens, where the rails don't fit) */}
+      <AdBanner className="pb-6" />
 
       {/* Feedback Chat Panel */}
       <FeedbackPanel />
