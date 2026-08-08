@@ -14,15 +14,15 @@ const LAYOUTS = {
   wide: {
     content: "80rem",
     rail: "hidden rail:flex",
-    banner: "rail:hidden",
-    bannerMaxWidth: "max-w-7xl",
+    strip: "rail:hidden",
+    stripMaxWidth: "max-w-7xl",
   },
   /** max-w-5xl content (neighbourhood pages). Rails fit from 1470px. */
   narrow: {
     content: "64rem",
     rail: "hidden rail-sm:flex",
-    banner: "rail-sm:hidden",
-    bannerMaxWidth: "max-w-5xl",
+    strip: "rail-sm:hidden",
+    stripMaxWidth: "max-w-5xl",
   },
 } as const;
 
@@ -39,9 +39,9 @@ export function contentEdge(layout: RailLayout) {
 }
 
 export const railVisibility = (layout: RailLayout) => LAYOUTS[layout].rail;
-export const bannerVisibility = (layout: RailLayout) => LAYOUTS[layout].banner;
-export const bannerMaxWidth = (layout: RailLayout) =>
-  LAYOUTS[layout].bannerMaxWidth;
+export const stripVisibility = (layout: RailLayout) => LAYOUTS[layout].strip;
+export const stripMaxWidth = (layout: RailLayout) =>
+  LAYOUTS[layout].stripMaxWidth;
 
 /**
  * Trailing slots drop out on shorter windows (thresholds in globals.css) so

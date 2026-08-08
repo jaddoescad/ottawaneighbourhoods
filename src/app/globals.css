@@ -49,6 +49,15 @@ body {
   scrollbar-color: #d1d5db transparent;
 }
 
+/* The narrow-screen ad strip is swiped, not scrolled with a bar */
+.ad-strip {
+  scrollbar-width: none;
+}
+
+.ad-strip::-webkit-scrollbar {
+  display: none;
+}
+
 *::-webkit-scrollbar {
   width: 8px;
 }

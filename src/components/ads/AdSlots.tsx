@@ -19,11 +19,10 @@ export default function AdSlots({
         <AdCard
           key={ad.id}
           ad={ad}
-          format="rail"
           className={slotClass(i, Boolean(showEmptySlot))}
         />
       ))}
-      {showEmptySlot && <AdCard format="rail" />}
+      {showEmptySlot && <AdCard />}
     </div>
   );
 }

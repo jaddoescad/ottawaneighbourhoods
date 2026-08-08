@@ -8,8 +8,7 @@ import FilterBar from "@/components/FilterBar";
 import FeedbackPanel from "@/components/feedback/FeedbackPanel";
 import RealEstateCTA from "@/components/leads/RealEstateCTA";
 import AdRails from "@/components/ads/AdRails";
-import AdBanner from "@/components/ads/AdBanner";
-import { SAMPLE_ADS } from "@/components/ads/adData";
+import AdStrip from "@/components/ads/AdStrip";
 
 export default function Home() {
   const [showCoverageMap, setShowCoverageMap] = useState(false);
@@ -56,8 +55,8 @@ export default function Home() {
       {/* Side ad rails (wide desktop only) */}
       <AdRails />
 
-      {/* Top ad banner (narrow screens, where the rails don't fit) */}
-      <AdBanner ad={SAMPLE_ADS[0]} className="pt-4" />
+      {/* Scrolling ad strip (narrow screens, where the rails don't fit) */}
+      <AdStrip className="pt-4" />
 
       {/* H1 */}
       <div className="max-w-7xl mx-auto px-4 pt-4 text-center">
@@ -87,9 +86,6 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 pb-4">
         <RealEstateCTA />
       </div>
-
-      {/* Bottom ad banner (narrow screens, where the rails don't fit) */}
-      <AdBanner className="pb-6" />
 
       {/* Feedback Chat Panel */}
       <FeedbackPanel />
