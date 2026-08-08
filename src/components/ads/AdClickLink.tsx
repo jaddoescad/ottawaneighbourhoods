@@ -11,11 +11,13 @@ export default function AdClickLink({
   adId,
   href,
   className,
+  tabIndex,
   children,
 }: {
   adId: string;
   href: string;
   className: string;
+  tabIndex?: number;
   children: ReactNode;
 }) {
   const track = () => {
@@ -46,6 +48,7 @@ export default function AdClickLink({
       rel="sponsored noopener noreferrer"
       onClick={track}
       onAuxClick={track}
+      tabIndex={tabIndex}
       className={className}
     >
       {children}

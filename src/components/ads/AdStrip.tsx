@@ -7,12 +7,13 @@ import { stripMaxWidth, stripVisibility, type RailLayout } from "./railGeometry"
 const CHIP =
   "flex shrink-0 items-center gap-2 rounded-xl border px-3 py-2 transition";
 
-function Chip({ ad }: { ad: Ad }) {
+function Chip({ ad, tabIndex }: { ad: Ad; tabIndex?: number }) {
   const tone = TONE_STYLES[ad.tone];
   return (
     <AdClickLink
       adId={ad.id}
       href={ad.href}
+      tabIndex={tabIndex}
       className={`${CHIP} ${tone.border} ${tone.soft} hover:brightness-[0.98]`}
     >
       <Image
@@ -33,8 +34,37 @@ function Chip({ ad }: { ad: Ad }) {
 }
 
 /**
- * Narrow-screen ad row: small chips that scroll horizontally, logo and name
- * only. Shown above the content on screens too narrow for the side rails.
+ * One pass of the chip row. The marquee renders it twice - the copy is
+ * hidden from screen readers and taken out of the tab order, but still
+ * clickable, since it is on screen half the time.
+ */
+function ChipRow({ copy }: { copy?: boolean }) {
+  return (
+    <div className="flex shrink-0 gap-2 pr-2" aria-hidden={copy || undefined}>
+      {SAMPLE_ADS.map((ad) => (
+        <Chip key={ad.id} ad={ad} tabIndex={copy ? -1 : undefined} />
+      ))}
+      <AdvertiseSlot
+        tabIndex={copy ? -1 : undefined}
+        className={`${CHIP} border-dashed border-gray-300 bg-white hover:border-rose-300`}
+      >
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-gray-100 text-gray-400">
+          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+          </svg>
+        </span>
+        <span className="whitespace-nowrap text-sm font-semibold text-gray-700">
+          Your ad here
+        </span>
+      </AdvertiseSlot>
+    </div>
+  );
+}
+
+/**
+ * Narrow-screen ad row: small chips that scroll horizontally on their own,
+ * logo and name only. Shown above the content on screens too narrow for the
+ * side rails.
  */
 export default function AdStrip({
   layout = "wide",
@@ -50,22 +80,11 @@ export default function AdStrip({
         layout,
       )} ${className}`}
     >
-      <div className="ad-strip flex gap-2 overflow-x-auto px-4 pb-1">
-        {SAMPLE_ADS.map((ad) => (
-          <Chip key={ad.id} ad={ad} />
-        ))}
-        <AdvertiseSlot
-          className={`${CHIP} border-dashed border-gray-300 bg-white hover:border-rose-300`}
-        >
-          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-gray-100 text-gray-400">
-            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-            </svg>
-          </span>
-          <span className="whitespace-nowrap text-sm font-semibold text-gray-700">
-            Your ad here
-          </span>
-        </AdvertiseSlot>
+      <div className="ad-strip px-4 pb-1">
+        <div className="ad-marquee-track flex w-max">
+          <ChipRow />
+          <ChipRow copy />
+        </div>
       </div>
     </div>
   );

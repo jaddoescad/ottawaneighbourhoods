@@ -49,13 +49,44 @@ body {
   scrollbar-color: #d1d5db transparent;
 }
 
-/* The narrow-screen ad strip is swiped, not scrolled with a bar */
+/*
+ * The narrow-screen ad strip scrolls itself. The track holds two identical
+ * copies of the chip row, so translating it by exactly half its width loops
+ * seamlessly. Hovering or focusing a chip pauses it so it can be clicked.
+ */
 .ad-strip {
+  overflow: hidden;
   scrollbar-width: none;
 }
 
 .ad-strip::-webkit-scrollbar {
   display: none;
+}
+
+.ad-marquee-track {
+  animation: ad-marquee 45s linear infinite;
+  will-change: transform;
+}
+
+.ad-strip:hover .ad-marquee-track,
+.ad-strip:focus-within .ad-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes ad-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* No motion: fall back to a strip the reader scrolls themselves */
+@media (prefers-reduced-motion: reduce) {
+  .ad-strip {
+    overflow-x: auto;
+  }
+
+  .ad-marquee-track {
+    animation: none;
+  }
 }
 
 *::-webkit-scrollbar {
