@@ -58,33 +58,36 @@ export default function Home() {
       {/* Scrolling ad strip (narrow screens, where the rails don't fit) */}
       <AdStrip className="pt-4" />
 
-      {/* H1 */}
-      <div className="max-w-7xl mx-auto px-4 pt-4 text-center">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
-          Top Ottawa Neighborhoods
-        </h1>
-      </div>
-
-      {/* Filter Buttons */}
-      <FilterBar activeFilter="top-rated" />
-
-      {/* Grid */}
-      <main className="max-w-7xl mx-auto px-4 py-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
-          {[...neighbourhoods]
-            .sort((a, b) => b.overallScore - a.overallScore)
-            .map((neighbourhood, index) => (
-              <NeighbourhoodCard
-                key={neighbourhood.id}
-                neighbourhood={neighbourhood}
-                rank={index + 1}
-              />
-            ))}
+      <div className="wide-ad-rail-content mx-auto">
+        {/* H1 */}
+        <div className="max-w-7xl mx-auto px-4 pt-4 text-center">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+            Top Ottawa Neighborhoods
+          </h1>
         </div>
-      </main>
 
-      <div className="max-w-7xl mx-auto px-4 pb-4">
-        <RealEstateCTA />
+        {/* Filter Buttons */}
+        <FilterBar activeFilter="top-rated" />
+
+        {/* Grid - columns follow the content width, since the ad rails
+            shrink it well below the viewport width */}
+        <main className="max-w-7xl mx-auto px-4 py-4 @container">
+          <div className="grid grid-cols-2 @min-[720px]:grid-cols-3 @min-[1000px]:grid-cols-4 gap-2 sm:gap-4">
+            {[...neighbourhoods]
+              .sort((a, b) => b.overallScore - a.overallScore)
+              .map((neighbourhood, index) => (
+                <NeighbourhoodCard
+                  key={neighbourhood.id}
+                  neighbourhood={neighbourhood}
+                  rank={index + 1}
+                />
+              ))}
+          </div>
+        </main>
+
+        <div className="max-w-7xl mx-auto px-4 pb-4">
+          <RealEstateCTA />
+        </div>
       </div>
 
       {/* Feedback Chat Panel */}

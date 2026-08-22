@@ -6,28 +6,46 @@
 }
 
 @theme {
-  /* Viewport width needed to fit the ad rails beside the max-w-7xl content */
-  --breakpoint-rail: 1720px;
-  /* ...and beside the narrower max-w-5xl content on neighbourhood pages */
-  --breakpoint-rail-sm: 1470px;
+  /* Side rails replace the scrolling ad strip at desktop/tablet widths. */
+  --breakpoint-rail: 900px;
+  --breakpoint-rail-sm: 900px;
 }
 
 /*
- * Ad rail slots are 156px minimum + 12px gap, between an 80px header offset
+ * Reserve room for the fixed home-page rails once they become visible.
+ * The rail width clamp must match railGeometry.ts's railWidth("wide").
+ */
+@media (min-width: 900px) {
+  .wide-ad-rail-content {
+    --rail-w: clamp(190px, calc((100% - 80rem) / 2 - 2rem), 240px);
+    /* rail + inner gap + outer margin on each side */
+    width: calc(100% - 2 * var(--rail-w) - 4 * 0.75rem);
+    max-width: 80rem;
+  }
+}
+
+/*
+ * Ad rail slots are 140px minimum + 12px gap, between an 80px header offset
  * and an 80px bottom margin that clears the Feedback button, so n slots
- * need 168n + 148 of height. Drop trailing slots on shorter windows so the
+ * need 152n + 148 of height. Drop trailing slots on shorter windows so the
  * rail never clips a card in half.
  */
-@media (max-height: 1323px) {
+@media (max-height: 1515px) {
+  .ad-min-9 { display: none !important; }
+}
+@media (max-height: 1363px) {
+  .ad-min-8 { display: none !important; }
+}
+@media (max-height: 1211px) {
   .ad-min-7 { display: none !important; }
 }
-@media (max-height: 1155px) {
+@media (max-height: 1059px) {
   .ad-min-6 { display: none !important; }
 }
-@media (max-height: 987px) {
+@media (max-height: 907px) {
   .ad-min-5 { display: none !important; }
 }
-@media (max-height: 819px) {
+@media (max-height: 755px) {
   .ad-min-4 { display: none !important; }
 }
 

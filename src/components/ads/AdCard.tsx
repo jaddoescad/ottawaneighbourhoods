@@ -31,7 +31,7 @@ function PlusIcon({ className = "w-4 h-4" }: { className?: string }) {
  * Narrow screens use AdStrip instead.
  */
 const SHELL =
-  "group flex min-h-[156px] flex-1 flex-col w-full rounded-2xl transition";
+  "group flex min-h-[140px] flex-1 flex-col w-full overflow-hidden rounded-2xl transition";
 
 export default function AdCard({ ad, className = "" }: AdCardProps) {
   const extra = className ? ` ${className}` : "";
@@ -42,14 +42,14 @@ export default function AdCard({ ad, className = "" }: AdCardProps) {
       <AdvertiseSlot
         className={`${SHELL}${extra} border border-dashed border-gray-300 bg-white text-left hover:border-rose-300 hover:bg-rose-50/40`}
       >
-        <div className="flex flex-1 flex-col items-center justify-center gap-1.5 px-4 py-3 text-center">
-          <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-100 text-gray-400 group-hover:bg-rose-50 group-hover:text-rose-500">
-            <PlusIcon className="w-6 h-6" />
+        <div className="flex flex-1 flex-col items-center justify-center gap-1 overflow-hidden px-3 py-2.5 text-center">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 text-gray-400 group-hover:bg-rose-50 group-hover:text-rose-500">
+            <PlusIcon className="w-5 h-5" />
           </span>
-          <span className="mt-0.5 text-lg font-semibold leading-tight text-gray-700">
+          <span className="mt-0.5 text-sm font-semibold leading-tight text-gray-700">
             Your ad here
           </span>
-          <span className="text-sm leading-5 text-gray-400">
+          <span className="text-xs leading-4 text-gray-400">
             Reach Ottawa home seekers
           </span>
         </div>
@@ -67,7 +67,7 @@ export default function AdCard({ ad, className = "" }: AdCardProps) {
       className={`${SHELL}${extra} hover:brightness-[0.98]`}
     >
       <div
-        className={`flex flex-1 flex-col items-center justify-center gap-1.5 rounded-2xl border ${tone.border} ${tone.soft} px-4 py-3 text-center`}
+        className={`flex flex-1 flex-col items-center justify-center gap-1 overflow-hidden rounded-2xl border ${tone.border} ${tone.soft} px-3 py-2.5 text-center`}
       >
         <Image
           src={ad.logo}
@@ -76,14 +76,14 @@ export default function AdCard({ ad, className = "" }: AdCardProps) {
           height={ad.logoHeight}
           // SVG logos are served as-is; the optimizer rejects them
           unoptimized={ad.logo.endsWith(".svg")}
-          className={`h-14 w-auto max-w-[170px] shrink-0 object-contain ${
-            ad.logoCircle ? "rounded-full" : "rounded-xl"
+          className={`h-10 w-auto max-w-[120px] shrink-0 object-contain ${
+            ad.logoCircle ? "rounded-full" : "rounded-lg"
           }`}
         />
-        <span className="mt-0.5 text-lg font-semibold leading-tight text-gray-900">
+        <span className="mt-0.5 line-clamp-2 text-sm font-semibold leading-tight text-gray-900">
           {ad.name}
         </span>
-        <p className="line-clamp-2 text-sm leading-5 text-gray-600">
+        <p className="line-clamp-2 text-xs leading-4 text-gray-600">
           {ad.tagline}
         </p>
       </div>

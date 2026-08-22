@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 const BUDGETS = [
   "Not sure yet",
@@ -57,7 +58,10 @@ export default function AdvertiseModal({ onClose }: { onClose: () => void }) {
     }
   };
 
-  return (
+  // Portalled to <body>: the strip's marquee animation puts a transform on
+  // an ancestor, which would otherwise turn `fixed` into "fixed inside the
+  // moving strip" and hide the dialog.
+  return createPortal(
     <div
       className="fixed inset-0 z-[60] flex items-end justify-center bg-gray-900/40 p-0 backdrop-blur-[2px] sm:items-center sm:p-4"
       onClick={onClose}
@@ -183,6 +187,7 @@ export default function AdvertiseModal({ onClose }: { onClose: () => void }) {
           </>
         )}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

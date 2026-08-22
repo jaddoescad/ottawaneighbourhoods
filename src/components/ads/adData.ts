@@ -1,4 +1,18 @@
-export type AdTone = "rose" | "blue" | "amber" | "emerald" | "violet";
+export type AdTone =
+  | "rose"
+  | "blue"
+  | "amber"
+  | "emerald"
+  | "violet"
+  | "sky"
+  | "teal"
+  | "orange"
+  | "red"
+  | "lime"
+  | "indigo"
+  | "yellow"
+  | "fuchsia"
+  | "pink";
 
 export interface Ad {
   id: string;
@@ -22,13 +36,34 @@ export interface Ad {
  */
 export const SAMPLE_ADS: Ad[] = [
   {
+    id: "ottawapainters",
+    name: "Ottawa Painters",
+    tagline: "Interior and exterior house painting in Ottawa.",
+    logo: "/ads/ottawapainters.png",
+    logoWidth: 192,
+    logoHeight: 192,
+    logoCircle: true,
+    tone: "amber",
+    href: "https://paintersottawa.com",
+  },
+  {
+    id: "claridge",
+    name: "Claridge Homes",
+    tagline: "New homes and condos across Ottawa.",
+    logo: "/ads/claridge.png",
+    logoWidth: 192,
+    logoHeight: 192,
+    tone: "blue",
+    href: "https://www.claridgehomes.com",
+  },
+  {
     id: "ottawa-bathroom-renovations",
     name: "Ottawa Bathroom Renovations",
     tagline: "Bathroom design and renovation services in Ottawa.",
     logo: "/ads/ottawa-bathroom-renovations.png",
     logoWidth: 192,
     logoHeight: 78,
-    tone: "amber",
+    tone: "sky",
     href: "https://www.ottawabathroomrenovations.com/",
   },
   {
@@ -38,7 +73,7 @@ export const SAMPLE_ADS: Ad[] = [
     logo: "/ads/dass.png",
     logoWidth: 192,
     logoHeight: 89,
-    tone: "blue",
+    tone: "teal",
     href: "https://www.dasscm.com/",
   },
   {
@@ -68,7 +103,7 @@ export const SAMPLE_ADS: Ad[] = [
     logo: "/ads/bridgehead.png",
     logoWidth: 192,
     logoHeight: 192,
-    tone: "amber",
+    tone: "orange",
     href: "https://www.bridgehead.ca",
   },
   {
@@ -88,7 +123,7 @@ export const SAMPLE_ADS: Ad[] = [
     logo: "/ads/gianttiger.png",
     logoWidth: 192,
     logoHeight: 192,
-    tone: "rose",
+    tone: "red",
     href: "https://www.gianttiger.com",
   },
   {
@@ -98,7 +133,7 @@ export const SAMPLE_ADS: Ad[] = [
     logo: "/ads/leevalley.png",
     logoWidth: 192,
     logoHeight: 192,
-    tone: "emerald",
+    tone: "lime",
     href: "https://www.leevalley.com",
   },
   {
@@ -108,7 +143,7 @@ export const SAMPLE_ADS: Ad[] = [
     logo: "/ads/kunstadt.svg",
     logoWidth: 166,
     logoHeight: 50,
-    tone: "blue",
+    tone: "indigo",
     href: "https://kunstadt.com",
   },
   {
@@ -118,7 +153,7 @@ export const SAMPLE_ADS: Ad[] = [
     logo: "/ads/artisin.png",
     logoWidth: 192,
     logoHeight: 191,
-    tone: "amber",
+    tone: "yellow",
     href: "https://artisinbakery.com",
   },
   {
@@ -128,7 +163,7 @@ export const SAMPLE_ADS: Ad[] = [
     logo: "/ads/suzyq.png",
     logoWidth: 192,
     logoHeight: 192,
-    tone: "violet",
+    tone: "fuchsia",
     href: "https://suzyq.ca",
   },
   {
@@ -138,7 +173,7 @@ export const SAMPLE_ADS: Ad[] = [
     logo: "/ads/stellaluna.png",
     logoWidth: 192,
     logoHeight: 192,
-    tone: "rose",
+    tone: "pink",
     href: "https://stellalunagelato.com",
   },
 ];
@@ -176,6 +211,60 @@ export const TONE_STYLES: Record<
     border: "border-violet-200",
     logo: "bg-violet-100",
     text: "text-violet-600",
+  },
+  sky: {
+    soft: "bg-sky-100",
+    border: "border-sky-200",
+    logo: "bg-sky-100",
+    text: "text-sky-600",
+  },
+  teal: {
+    soft: "bg-teal-100",
+    border: "border-teal-200",
+    logo: "bg-teal-100",
+    text: "text-teal-600",
+  },
+  orange: {
+    soft: "bg-orange-100",
+    border: "border-orange-200",
+    logo: "bg-orange-100",
+    text: "text-orange-600",
+  },
+  red: {
+    soft: "bg-red-100",
+    border: "border-red-200",
+    logo: "bg-red-100",
+    text: "text-red-600",
+  },
+  lime: {
+    soft: "bg-lime-100",
+    border: "border-lime-200",
+    logo: "bg-lime-100",
+    text: "text-lime-600",
+  },
+  indigo: {
+    soft: "bg-indigo-100",
+    border: "border-indigo-200",
+    logo: "bg-indigo-100",
+    text: "text-indigo-600",
+  },
+  yellow: {
+    soft: "bg-yellow-100",
+    border: "border-yellow-200",
+    logo: "bg-yellow-100",
+    text: "text-yellow-600",
+  },
+  fuchsia: {
+    soft: "bg-fuchsia-100",
+    border: "border-fuchsia-200",
+    logo: "bg-fuchsia-100",
+    text: "text-fuchsia-600",
+  },
+  pink: {
+    soft: "bg-pink-100",
+    border: "border-pink-200",
+    logo: "bg-pink-100",
+    text: "text-pink-600",
   },
 };
 

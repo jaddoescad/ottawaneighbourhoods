@@ -10,14 +10,14 @@
 export type RailLayout = "wide" | "narrow";
 
 const LAYOUTS = {
-  /** max-w-7xl content (home page). Rails fit from 1720px. */
+  /** max-w-7xl content (home page). */
   wide: {
     content: "80rem",
     rail: "hidden rail:flex",
     strip: "rail:hidden",
     stripMaxWidth: "max-w-7xl",
   },
-  /** max-w-5xl content (neighbourhood pages). Rails fit from 1470px. */
+  /** max-w-5xl content (neighbourhood pages). */
   narrow: {
     content: "64rem",
     rail: "hidden rail-sm:flex",
@@ -30,12 +30,18 @@ const LAYOUTS = {
 export const RAIL_GAP = "0.75rem";
 
 export function railWidth(layout: RailLayout) {
-  return `clamp(190px, calc((100% - ${LAYOUTS[layout].content}) / 2 - 2rem), 340px)`;
+  return `clamp(190px, calc((100% - ${LAYOUTS[layout].content}) / 2 - 2rem), 240px)`;
 }
 
-/** Distance from the centre line to the outer edge of a rail's gap. */
+/**
+ * Distance from the centre line to the outer edge of a rail's gap, pinned so
+ * the rail keeps a gap-sized margin from the viewport edge when it shows
+ * below the width where it fits beside full-width content.
+ */
 export function contentEdge(layout: RailLayout) {
-  return `calc(50% + ${LAYOUTS[layout].content} / 2 + ${RAIL_GAP})`;
+  return `min(calc(50% + ${LAYOUTS[layout].content} / 2 + ${RAIL_GAP}), calc(100% - ${railWidth(
+    layout,
+  )} - ${RAIL_GAP}))`;
 }
 
 export const railVisibility = (layout: RailLayout) => LAYOUTS[layout].rail;

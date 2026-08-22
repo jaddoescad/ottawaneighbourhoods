@@ -333,7 +333,7 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
       <AdStrip layout="narrow" className="pt-4" />
 
       {/* Stats Grid - Real Data Only, flanked by the ad rails on wide screens */}
-      <div className="flex justify-center gap-3">
+      <div className="flex justify-center gap-3 rail-sm:px-3">
         <AdSideRail side="left" />
         <div className="w-full min-w-0 max-w-5xl px-2 sm:px-6 py-4 sm:py-8">
         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
