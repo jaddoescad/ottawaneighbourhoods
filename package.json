@@ -6,7 +6,10 @@
     "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "vercel:check": "node scripts/verify-vercel-target.mjs",
+    "deploy:preview": "node scripts/safe-vercel-deploy.mjs preview",
+    "deploy:promote": "node scripts/safe-vercel-deploy.mjs promote"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.21",
