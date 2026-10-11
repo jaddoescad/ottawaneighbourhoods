@@ -12,7 +12,7 @@ import RealEstateCTA from "@/components/leads/RealEstateCTA";
 export default function BestForBiking() {
   const [showCoverageMap, setShowCoverageMap] = useState(false);
 
-  const sorted = [...neighbourhoods].sort((a, b) => b.bikeScore - a.bikeScore);
+  const sorted = [...neighbourhoods].sort((a, b) => (b.bikeScore ?? -1) - (a.bikeScore ?? -1));
 
   return (
     <div className="min-h-screen bg-gray-50">

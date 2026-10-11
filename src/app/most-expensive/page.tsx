@@ -12,7 +12,7 @@ import RealEstateCTA from "@/components/leads/RealEstateCTA";
 export default function MostExpensive() {
   const [showCoverageMap, setShowCoverageMap] = useState(false);
 
-  const sorted = [...neighbourhoods].sort((a, b) => b.avgRent - a.avgRent);
+  const sorted = [...neighbourhoods].sort((a, b) => (b.avgRent ?? -Infinity) - (a.avgRent ?? -Infinity) || a.name.localeCompare(b.name));
 
   return (
     <div className="min-h-screen bg-gray-50">

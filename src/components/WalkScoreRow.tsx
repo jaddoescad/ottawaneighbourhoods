@@ -3,7 +3,7 @@
 interface WalkScoreRowProps {
   walkScore: number;
   transitScore: number;
-  bikeScore: number;
+  bikeScore: number | null;
 }
 
 function getScoreLabel(score: number): string {
@@ -66,7 +66,7 @@ export default function WalkScoreRow({ walkScore, transitScore, bikeScore }: Wal
           <path d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z"/>
         </svg>
       ),
-      description: getBikeLabel(bikeScore)
+      description: bikeScore === null ? "Not published for this area" : getBikeLabel(bikeScore)
     },
   ];
 
@@ -92,15 +92,15 @@ export default function WalkScoreRow({ walkScore, transitScore, bikeScore }: Wal
 
               {/* Score display */}
               <div className="flex items-baseline gap-0.5 sm:gap-1 mb-1 sm:mb-2">
-                <span className="text-xl sm:text-3xl font-bold text-gray-900">{item.score}</span>
-                <span className="text-[10px] sm:text-sm text-gray-500">/100</span>
+                <span className="text-xl sm:text-3xl font-bold text-gray-900">{item.score ?? "n/a"}</span>
+                {item.score !== null && <span className="text-[10px] sm:text-sm text-gray-500">/100</span>}
               </div>
 
               {/* Progress bar */}
               <div className="h-1.5 sm:h-2 bg-gray-200 rounded-full overflow-hidden mb-1 sm:mb-2">
                 <div
-                  className={`h-full rounded-full ${getScoreColor(item.score)} transition-all duration-500`}
-                  style={{ width: `${item.score}%` }}
+                  className={`h-full rounded-full ${item.score === null ? "" : getScoreColor(item.score)} transition-all duration-500`}
+                  style={{ width: `${item.score ?? 0}%` }}
                 />
               </div>
 

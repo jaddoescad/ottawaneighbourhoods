@@ -13,7 +13,7 @@ export default function MostAffordable() {
   const [showCoverageMap, setShowCoverageMap] = useState(false);
 
   // Sort by affordability (lowest rent first)
-  const sorted = [...neighbourhoods].sort((a, b) => a.avgRent - b.avgRent);
+  const sorted = [...neighbourhoods].sort((a, b) => (a.avgRent ?? Infinity) - (b.avgRent ?? Infinity) || a.name.localeCompare(b.name));
 
   return (
     <div className="min-h-screen bg-gray-50">

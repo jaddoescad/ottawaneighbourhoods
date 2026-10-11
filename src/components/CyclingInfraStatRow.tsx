@@ -8,7 +8,7 @@ interface CyclingInfraStatRowProps {
   pathsKm: number;
   pavedShouldersKm: number;
   cyclingByType: Record<string, number | undefined>;
-  bikeScore: number;
+  bikeScore: number | null;
   areaKm2: number;
 }
 
@@ -69,7 +69,7 @@ export default function CyclingInfraStatRow({
 }: CyclingInfraStatRowProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const barWidth = Math.max(10, Math.min(bikeScore, 100));
+  const barWidth = bikeScore === null ? 0 : Math.max(10, Math.min(bikeScore, 100));
   const density = areaKm2 > 0 ? (cyclingTotalKm / areaKm2).toFixed(1) : '0';
 
   // Sort infrastructure types by length
@@ -106,11 +106,11 @@ export default function CyclingInfraStatRow({
           </div>
           <div className="w-full sm:flex-1 relative h-7 sm:h-9 bg-gray-100 rounded-lg overflow-hidden">
             <div
-              className={`absolute inset-y-0 left-0 rounded-lg ${getScoreColor(bikeScore)} transition-all duration-300`}
+              className={`absolute inset-y-0 left-0 rounded-lg ${bikeScore === null ? "bg-gray-300" : getScoreColor(bikeScore)} transition-all duration-300`}
               style={{ width: `${barWidth}%` }}
             />
             <span className="absolute inset-0 flex items-center px-3 sm:px-4 text-gray-800 font-semibold text-xs sm:text-sm">
-              {getScoreLabel(bikeScore)} ({bikeScore}/100)
+              {bikeScore === null ? "No Bike Score published" : `${getScoreLabel(bikeScore)} (${bikeScore}/100)`}
             </span>
           </div>
           <span className="hidden sm:block text-gray-900 font-bold w-28 text-right">{displayValue}</span>
