@@ -19,7 +19,7 @@
  *   Major roads     src/data/csv/major_road_points.csv (node scripts/download-roads.js)
  *
  * Output: src/data/csv/residential_grid.csv
- *   id, lat, lng, addresses, nearFreeway, nearArterial
+ *   id, lat, lng, addresses, nearFreeway, nearArterial, nearMajorRoad (either)
  *
  * Usage: node scripts/download-residential-points.js [--refresh]
  */
@@ -88,14 +88,17 @@ async function main() {
     const key = `${hood.id}|${Math.floor(lat / cellLat)}|${Math.floor(lng / cellLng)}`;
     let c = cells.get(key);
     if (!c) {
-      c = { id: hood.id, sumLat: 0, sumLng: 0, addresses: 0, nearFreeway: 0, nearArterial: 0 };
+      c = { id: hood.id, sumLat: 0, sumLng: 0, addresses: 0, nearFreeway: 0, nearArterial: 0, nearMajorRoad: 0 };
       cells.set(key, c);
     }
     c.sumLat += lat;
     c.sumLng += lng;
     c.addresses++;
-    if (freeways.nearest(lat, lng, FREEWAY_KM)) c.nearFreeway++;
-    if (arterials.nearest(lat, lng, ARTERIAL_KM)) c.nearArterial++;
+    const nearFreeway = !!freeways.nearest(lat, lng, FREEWAY_KM);
+    const nearArterial = !!arterials.nearest(lat, lng, ARTERIAL_KM);
+    if (nearFreeway) c.nearFreeway++;
+    if (nearArterial) c.nearArterial++;
+    if (nearFreeway || nearArterial) c.nearMajorRoad++;
   }
 
   const rows = [...cells.values()]
@@ -106,12 +109,13 @@ async function main() {
       addresses: c.addresses,
       nearFreeway: c.nearFreeway,
       nearArterial: c.nearArterial,
+      nearMajorRoad: c.nearMajorRoad,
     }))
     .sort((a, b) => a.id.localeCompare(b.id) || a.lat - b.lat || a.lng - b.lng);
 
   fs.writeFileSync(
     path.join(csvDir, 'residential_grid.csv'),
-    toCSV(rows, ['id', 'lat', 'lng', 'addresses', 'nearFreeway', 'nearArterial'])
+    toCSV(rows, ['id', 'lat', 'lng', 'addresses', 'nearFreeway', 'nearArterial', 'nearMajorRoad'])
   );
 
   const perHood = {};
