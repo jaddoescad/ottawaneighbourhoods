@@ -302,7 +302,7 @@ async function fetchJson(url, options = {}, retries = 4) {
  * Pages through an ArcGIS MapServer layer query, returning every feature.
  * `params` are extra query parameters (outFields, where, maxAllowableOffset...).
  */
-async function arcgisQueryAll(layerUrl, params = {}, { pageSize = 1000, concurrency = 4, log = true } = {}) {
+async function arcgisQueryAll(layerUrl, params = {}, { pageSize = 1000, concurrency = 4, log = true, orderBy = 'OBJECTID' } = {}) {
   const base = { where: '1=1', outFields: '*', returnGeometry: 'true', outSR: '4326', f: 'json', ...params };
   const countUrl = `${layerUrl}/query?${new URLSearchParams({ ...base, returnCountOnly: 'true', returnGeometry: 'false' })}`;
   const { count } = await fetchJson(countUrl);
@@ -318,7 +318,7 @@ async function arcgisQueryAll(layerUrl, params = {}, { pageSize = 1000, concurre
         ...base,
         resultOffset: String(offsets[i]),
         resultRecordCount: String(pageSize),
-        orderByFields: 'OBJECTID',
+        orderByFields: orderBy,
       });
       const json = await fetchJson(`${layerUrl}/query?${qs}`);
       features[i] = json.features || [];
