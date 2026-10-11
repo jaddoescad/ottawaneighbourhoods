@@ -59,6 +59,14 @@ for (const p of config.presets) {
 }
 if (new Set(config.presets.map((p) => p.key)).size !== config.presets.length) fail('Duplicate preset keys');
 
+const labelNames = config.scoreLabels.map((l) => l.label);
+const labelMins = config.scoreLabels.map((l) => l.min);
+if (!labelMins.every((m, i) => i === 0 || m < labelMins[i - 1]) || labelMins.at(-1) !== 0) fail('scoreLabels must be in descending order of min, ending at 0');
+for (const t of config.tiers) {
+  if (!Array.isArray(t.allowedLabels) || !t.allowedLabels.length) fail(`Tier ${t.key}: missing allowedLabels`);
+  else for (const l of t.allowedLabels) if (!labelNames.includes(l)) fail(`Tier ${t.key}: unknown label "${l}"`);
+}
+
 const contextKeys = config.context.map((c) => c.key);
 if (new Set(contextKeys).size !== contextKeys.length) fail('Duplicate context keys');
 
@@ -99,6 +107,11 @@ for (const n of hoods) {
   if (n.bikeScore !== null && !Number.isFinite(n.bikeScore)) fail(`${id}.bikeScore: must be a number or null (${n.bikeScore})`);
   if (!n.tier) fail(`${id}: missing tier`);
   else if (n.tier !== scoring.tierFor(config, n.rank, total)) fail(`${id}: tier ${n.tier} does not match rank ${n.rank}`);
+  else {
+    const tier = config.tiers.find((t) => t.key === n.tier);
+    const label = scoring.scoreLabel(config, n.overallScore);
+    if (!tier.allowedLabels.includes(label)) fail(`${id}: label "${label}" (score ${n.overallScore}) contradicts tier "${tier.label}"`);
+  }
   if (!n.rankRange || n.rank < n.rankRange.best || n.rank > n.rankRange.worst) fail(`${id}: rank ${n.rank} outside range ${JSON.stringify(n.rankRange)}`);
   overallById[id] = n.overallScore;
 }

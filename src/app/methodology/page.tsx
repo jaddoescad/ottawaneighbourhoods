@@ -137,7 +137,9 @@ export default function MethodologyPage() {
               <span key={l.label}>
                 {l.label} ({l.min}+){i < scoringConfig.scoreLabels.length - 1 ? ", " : "."}
               </span>
-            ))}
+            ))}{" "}
+            The thresholds are set so a label never contradicts a neighbourhood&apos;s tier (no &ldquo;Very good&rdquo; in the
+            bottom half).
           </p>
         </section>
 

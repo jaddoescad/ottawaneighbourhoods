@@ -59,7 +59,7 @@ export interface ScoringConfig {
     rankWeightJitter: number;
     rankRangePercentiles: [number, number];
   };
-  tiers: { key: TierKey; label: string; maxPercentile: number }[];
+  tiers: { key: TierKey; label: string; maxPercentile: number; allowedLabels: string[] }[];
   scoreLabels: { min: number; label: string }[];
   presets: PresetConfig[];
 }

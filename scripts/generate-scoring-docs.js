@@ -32,7 +32,7 @@ function renderScoringDocs(config) {
   lines.push('- Overall score: weighted mean of the rounded category scores (renormalized over available categories).');
   lines.push(`- Count-based rates (crime, overdose, collisions) use symmetric shrinkage: \`(count + k × cityRate) / (exposure + k)\`, k = ${p.shrinkagePersonYears} person-years (${p.shrinkageRoadKmYears} road-km-years for collisions).`);
   lines.push(`- Rank: competition ranking on the rounded overall score (ties share a rank). \`rankRange\` = p${Math.round(p.rankRangePercentiles[0] * 100)}–p${Math.round(p.rankRangePercentiles[1] * 100)} rank over ${p.rankSimulations} runs with each category weight × U(${1 - p.rankWeightJitter}, ${1 + p.rankWeightJitter}). \`tier\`: ${config.tiers.map((t) => t.label).join(' / ')}.`);
-  lines.push(`- Score labels: ${config.scoreLabels.map((l) => `${l.label} ${l.min}+`).join(', ')}.`);
+  lines.push(`- Score labels: ${config.scoreLabels.map((l) => `${l.label} ${l.min}+`).join(', ')}. Each tier lists its \`allowedLabels\` (${config.tiers.map((t) => `${t.label}: ${t.allowedLabels.join('/')}`).join('; ')}); \`check-scoring.js\` fails if a label contradicts its tier.`);
   lines.push('- Distances and access shares are measured from residential address points (`src/data/csv/residential_grid.csv`), weighted by population.');
   lines.push('');
   lines.push('| Category | Weight | Metrics (weight within category) |');

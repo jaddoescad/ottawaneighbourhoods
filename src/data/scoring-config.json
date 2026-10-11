@@ -392,16 +392,16 @@
     "rankRangePercentiles": [0.1, 0.9]
   },
   "tiers": [
-    { "key": "top10", "label": "Top 10%", "maxPercentile": 0.1 },
-    { "key": "top25", "label": "Top 25%", "maxPercentile": 0.25 },
-    { "key": "top50", "label": "Top half", "maxPercentile": 0.5 },
-    { "key": "bottom50", "label": "Bottom half", "maxPercentile": 1 }
+    { "key": "top10", "label": "Top 10%", "maxPercentile": 0.1, "allowedLabels": ["Excellent", "Very good"] },
+    { "key": "top25", "label": "Top 25%", "maxPercentile": 0.25, "allowedLabels": ["Excellent", "Very good", "Good"] },
+    { "key": "top50", "label": "Top half", "maxPercentile": 0.5, "allowedLabels": ["Very good", "Good"] },
+    { "key": "bottom50", "label": "Bottom half", "maxPercentile": 1, "allowedLabels": ["Good", "Fair", "Poor"] }
   ],
   "scoreLabels": [
     { "min": 80, "label": "Excellent" },
-    { "min": 65, "label": "Very good" },
-    { "min": 50, "label": "Good" },
-    { "min": 35, "label": "Fair" },
+    { "min": 75, "label": "Very good" },
+    { "min": 65, "label": "Good" },
+    { "min": 55, "label": "Fair" },
     { "min": 0, "label": "Poor" }
   ],
   "presets": [

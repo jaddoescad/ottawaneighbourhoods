@@ -138,7 +138,7 @@ Each metric is converted to a 0-100 score with fixed breakpoints (piecewise-line
 - Overall score: weighted mean of the rounded category scores (renormalized over available categories).
 - Count-based rates (crime, overdose, collisions) use symmetric shrinkage: `(count + k × cityRate) / (exposure + k)`, k = 5000 person-years (30 road-km-years for collisions).
 - Rank: competition ranking on the rounded overall score (ties share a rank). `rankRange` = p10–p90 rank over 500 runs with each category weight × U(0.8, 1.2). `tier`: Top 10% / Top 25% / Top half / Bottom half.
-- Score labels: Excellent 80+, Very good 65+, Good 50+, Fair 35+, Poor 0+.
+- Score labels: Excellent 80+, Very good 75+, Good 65+, Fair 55+, Poor 0+. Each tier lists its `allowedLabels` (Top 10%: Excellent/Very good; Top 25%: Excellent/Very good/Good; Top half: Very good/Good; Bottom half: Good/Fair/Poor); `check-scoring.js` fails if a label contradicts its tier.
 - Distances and access shares are measured from residential address points (`src/data/csv/residential_grid.csv`), weighted by population.
 
 | Category | Weight | Metrics (weight within category) |
