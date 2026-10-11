@@ -30,6 +30,9 @@ interface NeighbourhoodCardProps {
   neighbourhood: Neighbourhood;
   rank?: number;
   metric?: MetricType;
+  /** Overrides the published overall score (e.g. when ranking with custom weights). */
+  score?: number;
+  tierText?: string | null;
 }
 
 // ==============================================
@@ -129,8 +132,11 @@ export default function NeighbourhoodCard({
   neighbourhood,
   rank,
   metric = null,
+  score,
+  tierText = null,
 }: NeighbourhoodCardProps) {
-  const { id, name, area, image, population, populationDensity, avgRent, overallScore } = neighbourhood;
+  const { id, name, area, image, population, populationDensity, avgRent } = neighbourhood;
+  const overallScore = score ?? neighbourhood.overallScore;
 
   // Calculate crime per capita for display
   const crimePerCapita = population > 0 ? (neighbourhood.details.crimeTotal / population) * 1000 : 0;
@@ -158,6 +164,9 @@ export default function NeighbourhoodCard({
           color: getMetricScoreColor(safetyScore),
         };
       case "rent":
+        if (avgRent === null) {
+          return { icon: "💰", label: "Rent", value: "n/a", color: "bg-gray-400" };
+        }
         const rentLabel = avgRent <= 1600 ? "Very Affordable" : avgRent <= 1800 ? "Affordable" : avgRent <= 2100 ? "Moderate" : "Premium";
         return {
           icon: "💰",
@@ -209,12 +218,16 @@ export default function NeighbourhoodCard({
           color: getMetricScoreColor(neighbourhood.walkScore),
         };
       case "bike":
-        const bikeLabel = neighbourhood.bikeScore >= 80 ? "Biker's Paradise" : neighbourhood.bikeScore >= 60 ? "Very Bikeable" : neighbourhood.bikeScore >= 40 ? "Bikeable" : "Minimal Bike Infra";
+        const bike = neighbourhood.bikeScore;
+        if (bike === null) {
+          return { icon: "🚴", label: "No Bike Score", value: "n/a", color: "bg-gray-400" };
+        }
+        const bikeLabel = bike >= 80 ? "Biker's Paradise" : bike >= 60 ? "Very Bikeable" : bike >= 40 ? "Bikeable" : "Minimal Bike Infra";
         return {
           icon: "🚴",
           label: bikeLabel,
-          value: `${neighbourhood.bikeScore}/100`,
-          color: getMetricScoreColor(neighbourhood.bikeScore),
+          value: `${bike}/100`,
+          color: getMetricScoreColor(bike),
         };
       case "parks":
         const parkCount = neighbourhood.details.parks;
@@ -422,7 +435,7 @@ export default function NeighbourhoodCard({
           })()}
 
           {/* Average Rent - matching detail page THRESHOLDS.rent.max = 2500 */}
-          {(() => {
+          {avgRent !== null && (() => {
             const rentType = getRentScoreType(avgRent);
             const rentBarWidth = Math.min((avgRent / 2500) * 100, 100);
             return (
@@ -500,6 +513,14 @@ export default function NeighbourhoodCard({
             </div>
           )}
         </div>
+
+        {!metric && tierText && (
+          <div className="absolute bottom-3 left-2 sm:bottom-4 sm:left-3">
+            <span className="text-[10px] sm:text-xs font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/20 px-2 py-0.5 rounded-full">
+              {tierText}
+            </span>
+          </div>
+        )}
 
         {/* Score Badge - Bottom Right - Only show when no metric filter is applied */}
         {!metric && (
