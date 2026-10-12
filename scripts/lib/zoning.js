@@ -17,9 +17,19 @@ const ZONE_CLASSES = {
   rural: ['RU', 'AG'],
 };
 
+// Zones where one municipal address is normally one dwelling. Elsewhere (R4/R5,
+// main streets, mixed-use centres) one address often stands for a whole
+// apartment building whose units have no address points of their own.
+const HOUSE_ZONES = ['R1', 'R2', 'R3', 'RM', 'RR', 'V1', 'V2', 'V3', 'RU', 'AG'];
+
 function zoneClass(zoneMain) {
   for (const [cls, zones] of Object.entries(ZONE_CLASSES)) if (zones.includes(zoneMain)) return cls;
   return 'nonresidential';
+}
+
+/** 'house' or 'apartment' for a residential-capable zone. */
+function dwellingType(zoneMain) {
+  return HOUSE_ZONES.includes(zoneMain) ? 'house' : 'apartment';
 }
 
 function loadZoningIndex() {
@@ -49,4 +59,4 @@ function locateZone(index, lng, lat) {
   return { zone: null, snappedM: null };
 }
 
-module.exports = { ZONE_CLASSES, zoneClass, loadZoningIndex, locateZone };
+module.exports = { ZONE_CLASSES, HOUSE_ZONES, zoneClass, dwellingType, loadZoningIndex, locateZone };

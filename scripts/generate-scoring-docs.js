@@ -34,6 +34,8 @@ function renderScoringDocs(config) {
   lines.push(`- Rank: competition ranking on the rounded overall score (ties share a rank). \`rankRange\` = p${Math.round(p.rankRangePercentiles[0] * 100)}–p${Math.round(p.rankRangePercentiles[1] * 100)} rank over ${p.rankSimulations} runs with each category weight × U(${1 - p.rankWeightJitter}, ${1 + p.rankWeightJitter}). \`tier\`: ${config.tiers.map((t) => t.label).join(' / ')}.`);
   lines.push(`- Score labels: ${config.scoreLabels.map((l) => `${l.label} ${l.min}+`).join(', ')}. Each tier lists its \`allowedLabels\` (${config.tiers.map((t) => `${t.label}: ${t.allowedLabels.join('/')}`).join('; ')}); \`check-scoring.js\` fails if a label contradicts its tier.`);
   lines.push('- Distances and access shares are measured from residential address points (`src/data/csv/residential_grid.csv`), weighted by population.');
+  lines.push(`- Dwelling weights (\`scripts/lib/population.js\`): house-zone addresses count 1; apartment / mixed-use addresses get a per-neighbourhood weight (max ${p.maxApartmentAddressWeight}) so that addresses existing on Census day (${p.censusDate}) match 2021 Census households. Where addresses exceed households, all are scaled down equally.`);
+  lines.push(`- Population growth: each rate divides by 2021 Census population × (weighted dwellings at the data period's midpoint minus ${p.addressLeadYears} year / weighted dwellings on Census day). Crime uses its own years, overdose its own years, access metrics today's dwellings. Context field \`crimePopulation\` shows the crime denominator.`);
   lines.push('');
   lines.push('| Category | Weight | Metrics (weight within category) |');
   lines.push('|---|---|---|');

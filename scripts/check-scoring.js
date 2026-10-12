@@ -105,6 +105,17 @@ for (const n of hoods) {
     if (typeof n[k] !== 'number' || !Number.isFinite(n[k])) fail(`${id}.${k}: not a number (${n[k]})`);
   }
   if (n.bikeScore !== null && !Number.isFinite(n.bikeScore)) fail(`${id}.bikeScore: must be a number or null (${n.bikeScore})`);
+
+  const cv = n.contextValues || {};
+  if (n.population > 0) {
+    const growth = cv.crimePopulation / n.population;
+    if (!Number.isFinite(growth) || growth < 0.9 || growth > 3) fail(`${id}: crime-period population ${cv.crimePopulation} implausible vs 2021 Census ${n.population}`);
+    if (!(cv.populationEstimate >= cv.crimePopulation * 0.98)) fail(`${id}: current population estimate below crime-period estimate`);
+  }
+  const maxW = config.parameters.maxApartmentAddressWeight;
+  if (cv.apartmentAddressWeight !== null && !(cv.apartmentAddressWeight > 0 && cv.apartmentAddressWeight <= maxW)) {
+    fail(`${id}: apartment address weight ${cv.apartmentAddressWeight} outside (0, ${maxW}]`);
+  }
   if (!n.tier) fail(`${id}: missing tier`);
   else if (n.tier !== scoring.tierFor(config, n.rank, total)) fail(`${id}: tier ${n.tier} does not match rank ${n.rank}`);
   else {

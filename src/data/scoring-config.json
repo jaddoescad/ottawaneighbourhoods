@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-10-11",
-  "summary": "Each metric is converted to a 0-100 score with fixed breakpoints (piecewise-linear, not relative to other neighbourhoods). Metrics are averaged into categories using the weights below, and categories into the overall score. Distances and shares are measured from where residents live (municipal address points on residential zoning), weighted by population.",
+  "summary": "Each metric is converted to a 0-100 score with fixed breakpoints (piecewise-linear, not relative to other neighbourhoods). Metrics are averaged into categories using the weights below, and categories into the overall score. Distances and shares are measured from where residents live (municipal address points on residential zoning, with apartment addresses weighted by their units), weighted by population.",
   "categories": [
     {
       "key": "safety",
@@ -17,7 +17,7 @@
           "format": "rate",
           "direction": "lower",
           "breakpoints": [[2, 100], [4, 80], [7, 60], [11, 40], [16, 20], [25, 0]],
-          "description": "Police-reported violent incidents (2023-24) on residential land, plus half of those on main-street / mixed-use land, per 1,000 residents per year. Small neighbourhoods are shrunk toward the city rate.",
+          "description": "Police-reported violent incidents (2023-24) on residential land, plus half of those on main-street / mixed-use land, per 1,000 residents per year. Residents are the 2021 Census population grown by the homes built since. Small neighbourhoods are shrunk toward the city rate.",
           "source": "Ottawa Police Service Criminal Offences; City of Ottawa Zoning By-law 2008-250"
         },
         {
@@ -28,7 +28,7 @@
           "format": "rate",
           "direction": "lower",
           "breakpoints": [[5, 100], [10, 80], [16, 60], [24, 40], [35, 20], [50, 0]],
-          "description": "Break-ins, theft, vehicle theft, mischief and arson on residential land, plus half of those on mixed-use land, per 1,000 residents per year, shrunk toward the city rate.",
+          "description": "Break-ins, theft, vehicle theft, mischief and arson on residential land, plus half of those on mixed-use land, per 1,000 residents (grown since 2021) per year, shrunk toward the city rate.",
           "source": "Ottawa Police Service Criminal Offences; City of Ottawa Zoning By-law 2008-250"
         },
         {
@@ -308,7 +308,7 @@
           "format": "pct",
           "direction": "lower",
           "breakpoints": [[0, 100], [5, 85], [10, 70], [20, 45], [35, 20], [50, 0]],
-          "description": "Share of residential addresses within 150 m of a freeway or 50 m of an arterial road, a standard proxy for traffic noise and air pollution exposure.",
+          "description": "Share of homes (apartment addresses weighted by their units) within 150 m of a freeway or 50 m of an arterial road, a standard proxy for traffic noise and air pollution exposure.",
           "source": "City of Ottawa Municipal Address Points; Roads - Classification"
         },
         {
@@ -327,6 +327,7 @@
   ],
   "context": [
     { "key": "allCrimeRate", "category": "safety", "label": "All police-reported incidents", "unit": "per 1,000 residents / yr", "format": "rate", "description": "Every incident in the neighbourhood divided by residents. Inflated in areas with many visitors, so it is shown but not scored." },
+    { "key": "crimePopulation", "category": "safety", "label": "Residents used for crime rates", "unit": "people", "format": "number", "description": "2021 Census population grown by the dwellings added since (municipal address points), estimated for the crime data period, so fast-growing suburbs are not divided by an out-of-date population." },
     { "key": "commercialAreaCrime", "category": "safety", "label": "Incidents in commercial / institutional areas", "unit": "per yr", "format": "number", "description": "Incidents on land zoned commercial, industrial, institutional or park. Reflects visitor activity more than risk at home." },
     { "key": "allCollisions", "category": "safety", "label": "All collisions", "unit": "per yr", "format": "number", "description": "Every reported collision, including property-damage-only." },
     { "key": "schoolsInBoundary", "category": "schools", "label": "Schools inside the boundary", "unit": "schools", "format": "number", "description": "Count of schools located inside the neighbourhood polygon. Not scored, since children often attend schools just outside it." },
@@ -342,6 +343,9 @@
   ],
   "parameters": {
     "minCategoryCoverage": 0.7,
+    "censusDate": "2021-05-11",
+    "addressLeadYears": 1,
+    "maxApartmentAddressWeight": 25,
     "shrinkagePersonYears": 5000,
     "shrinkageRoadKmYears": 30,
     "mixedUseIncidentWeight": 0.5,

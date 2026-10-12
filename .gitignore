@@ -49,4 +49,5 @@ src/data/csv/311_*.csv
 scripts/data/zoning.json
 scripts/data/boundaries.json
 scripts/data/address_points.json
+scripts/data/address_points_dated.json
 scripts/data/roads.json

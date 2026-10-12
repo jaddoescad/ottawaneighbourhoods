@@ -25,6 +25,7 @@ const fs = require('fs');
 const path = require('path');
 const neighbourhoodMapping = require('./config/neighbourhood-mapping.js');
 const { computeAccessMetrics } = require('./lib/access');
+const { computePopulation, populationDateForYears } = require('./lib/population');
 const { computeCrimeRates, computeRoadSafety, computeOverdoseRates } = require('./lib/rates');
 const { computeAffordability } = require('./lib/affordability');
 const { scoreAll, competitionRanks, rankRanges, tierFor, defaultWeights } = require('./lib/scoring');
@@ -2082,19 +2083,40 @@ async function main() {
   console.log('\nCalculating neighbourhood scores...');
   const scoringConfig = JSON.parse(fs.readFileSync(path.join(dataDir, 'scoring-config.json'), 'utf8'));
   const scoringParams = scoringConfig.parameters;
-  const populationById = Object.fromEntries(neighbourhoods.map(n => [n.id, n.population || 0]));
   const locateNeighbourhood = (lat, lng) => assignToNeighbourhood(lat, lng, boundariesByNeighbourhood);
+
+  // 2021 Census counts grown with address points, so each rate divides by the
+  // residents who lived there during its data period (scripts/lib/population.js).
+  const population = computePopulation({
+    csvDir,
+    householdsById: Object.fromEntries(neighbourhoods.map(n => [n.id, n.households || 0])),
+    pop2021ById: Object.fromEntries(neighbourhoods.map(n => [n.id, n.population || 0])),
+    params: scoringParams,
+  });
+  const crimeYears = [...new Set(crimeRaw.map(r => r.YEAR).filter(Boolean))].sort();
+  const overdoseYearRange = (neighbourhoods.find(n => n.overdoseYears) || {}).overdoseYears || '';
+  const overdoseYears = overdoseYearRange.split('-').map(Number).filter(Number.isFinite);
+  const crimePopulationDate = populationDateForYears(crimeYears, scoringParams.addressLeadYears);
+  const crimePopulationById = population.populationAt(crimePopulationDate);
+  const overdosePopulationById = overdoseYears.length
+    ? population.populationAt(populationDateForYears(overdoseYears, scoringParams.addressLeadYears))
+    : population.populationAt(Date.parse(scoringParams.censusDate));
+  const currentPopulationById = population.populationAt(null);
+  const sumValues = obj => Object.values(obj).reduce((s, v) => s + v, 0);
+  const pop2021Total = neighbourhoods.reduce((s, n) => s + (n.population || 0), 0);
+  console.log(`  Population: ${pop2021Total.toLocaleString()} (2021 Census) -> ${sumValues(crimePopulationById).toLocaleString()} for crime ${crimeYears.join('-')} (addresses to ${new Date(crimePopulationDate).toISOString().slice(0, 10)}) -> ${sumValues(currentPopulationById).toLocaleString()} today`);
 
   const accessById = computeAccessMetrics({
     csvDir,
     scriptsDataDir: path.join(__dirname, 'data'),
-    populationById,
+    populationById: currentPopulationById,
+    residentRows: population.rows,
     schools: allSchools,
     params: scoringParams,
   });
   console.log(`  Access metrics for ${Object.keys(accessById).length} neighbourhoods (from residential address grid)`);
 
-  const crimeRates = computeCrimeRates({ crimeRaw, csvDir, locate: locateNeighbourhood, populationById, params: scoringParams });
+  const crimeRates = computeCrimeRates({ crimeRaw, csvDir, locate: locateNeighbourhood, populationById: crimePopulationById, params: scoringParams });
   console.log(`  Crime ${crimeRates.years.join('-')}: city violent ${crimeRates.cityRates.violent}, property ${crimeRates.cityRates.property} per 1,000/yr (near homes)`);
 
   const roadSafety = computeRoadSafety({ collisionsRaw, csvDir, locate: locateNeighbourhood, params: scoringParams });
@@ -2108,7 +2130,7 @@ async function main() {
   }
   const overdoseRates = computeOverdoseRates({
     yearlyVisitsById: yearlyOverdoseById,
-    populationById,
+    populationById: overdosePopulationById,
     years: scoringParams.overdoseYears,
     params: scoringParams,
   });
@@ -2187,6 +2209,10 @@ async function main() {
       neiScore: finiteOrNull(n.neiScore),
       serviceRequestRate: finiteOrNull(n.details.serviceRequestRate),
       residentialAddresses: finiteOrNull(a.residentialAddresses),
+      dwellingsEstimate: finiteOrNull(a.dwellingsEstimate),
+      populationEstimate: finiteOrNull(currentPopulationById[n.id]),
+      crimePopulation: finiteOrNull(crimePopulationById[n.id]),
+      apartmentAddressWeight: population.byId[n.id] ? roundTo(population.byId[n.id].weights.apartment, 2) : null,
     };
     contextById[n.id].notes = {
       marketRent: af.marketRentSource ? `${af.marketRentSource}${af.marketRentIsEstimate ? ' (estimate)' : ''}` : null,

@@ -230,6 +230,10 @@ export interface ContextValues {
   neiScore: number | null;
   serviceRequestRate: number | null;
   residentialAddresses: number | null;
+  dwellingsEstimate: number | null;     // address points x dwelling weight (2021 Census-calibrated)
+  populationEstimate: number | null;    // 2021 Census population grown with new dwellings, today
+  crimePopulation: number | null;       // same, at the crime data period (denominator for crime rates)
+  apartmentAddressWeight: number | null; // dwellings per apartment-zone address
   notes: {
     marketRent: string | null;
     marketHomePrice: string | null;

@@ -1,17 +1,22 @@
 #!/usr/bin/env node
 /**
- * Build a population-weighting layer from City of Ottawa municipal address points.
+ * Build the resident-location layer from City of Ottawa municipal address points.
  *
- * Statistics Canada dissemination-block files would be the textbook choice, but
- * municipal address points are finer-grained and include individual units
- * (ADDRTYPE = SUBORD), so they approximate where dwellings are.
+ * Statistics Canada dissemination-block counts would be the textbook choice
+ * (their download site rejects automated requests), so this uses address points:
  *
- * Steps:
- *   1. Download every address point (~400K).
- *   2. Keep points on residential-capable zoning (residential, mixed-use, rural).
+ *   1. Download every address point (~400K) with its creation date.
+ *   2. Keep points on residential-capable zoning (residential, mixed-use, rural)
+ *      and tag each as 'house' (R1-R3, villages, rural) or 'apartment' (R4, R5,
+ *      main streets, mixed-use). Apartment buildings often have one address for
+ *      many units, so process-data.js calibrates a per-neighbourhood weight for
+ *      apartment addresses against 2021 Census household counts
+ *      (scripts/lib/population.js).
  *   3. Assign each to a neighbourhood and a 100 m grid cell.
- *   4. Measure, per address, closeness to freeways (<=150 m) and arterials (<=50 m)
- *      for the noise-exposure metric.
+ *   4. Count addresses that existed on Census day 2021 and those added in each
+ *      later year, so populations can be grown to the period of each data set.
+ *   5. Flag addresses within 150 m of a freeway or 50 m of an arterial
+ *      (noise-exposure metric).
  *
  * Sources:
  *   Address points  https://maps.ottawa.ca/arcgis/rest/services/Municipal_Address/MapServer/0
@@ -19,7 +24,7 @@
  *   Major roads     src/data/csv/major_road_points.csv (node scripts/download-roads.js)
  *
  * Output: src/data/csv/residential_grid.csv
- *   id, lat, lng, addresses, nearFreeway, nearArterial, nearMajorRoad (either)
+ *   id, type, lat, lng, addresses, atCensus, addedByYear ("2022:14 2023:3"), nearMajorRoad
  *
  * Usage: node scripts/download-residential-points.js [--refresh]
  */
@@ -28,10 +33,11 @@ const fs = require('fs');
 const path = require('path');
 const { arcgisQueryAll, readCSV, toCSV, PointIndex, KM_PER_DEG_LAT, KM_PER_DEG_LNG } = require('./lib/geo');
 const { loadBoundaries, neighbourhoodLocator } = require('./lib/boundaries');
-const { loadZoningIndex, locateZone, zoneClass } = require('./lib/zoning');
+const { loadZoningIndex, locateZone, zoneClass, dwellingType } = require('./lib/zoning');
+const { parameters } = require('../src/data/scoring-config.json');
 
 const LAYER = 'https://maps.ottawa.ca/arcgis/rest/services/Municipal_Address/MapServer/0';
-const CACHE = path.join(__dirname, 'data', 'address_points.json');
+const CACHE = path.join(__dirname, 'data', 'address_points_dated.json');
 const csvDir = path.join(__dirname, '..', 'src', 'data', 'csv');
 const CELL_KM = 0.1;
 const FREEWAY_KM = 0.15;
@@ -42,12 +48,14 @@ async function loadAddressPoints(refresh) {
   console.log('Downloading municipal address points...');
   const features = await arcgisQueryAll(
     LAYER,
-    { outFields: 'OBJECTID,ADDRTYPE', geometryPrecision: '6' },
+    { outFields: 'OBJECTID,CREATED_DATE,MODIFIED_DATE', geometryPrecision: '6' },
     { pageSize: 1000, concurrency: 6 }
   );
+  // ~5% of points have no CREATED_DATE; their MODIFIED_DATE is the best available
+  // bound (almost all predate 2021). Points with neither are treated as old.
   const points = features
     .filter((f) => f.geometry && Number.isFinite(f.geometry.x))
-    .map((f) => [f.geometry.x, f.geometry.y]);
+    .map((f) => [f.geometry.x, f.geometry.y, f.attributes.CREATED_DATE ?? f.attributes.MODIFIED_DATE ?? null]);
   fs.mkdirSync(path.dirname(CACHE), { recursive: true });
   fs.writeFileSync(CACHE, JSON.stringify(points));
   return points;
@@ -69,13 +77,14 @@ async function main() {
   const freeways = new PointIndex(roads.filter((r) => r.roadClass === 'freeway'), 0.2);
   const arterials = new PointIndex(roads.filter((r) => r.roadClass === 'arterial'), 0.2);
 
+  const censusMs = Date.parse(parameters.censusDate);
   const cellLat = CELL_KM / KM_PER_DEG_LAT;
   const cellLng = CELL_KM / KM_PER_DEG_LNG;
   const cells = new Map();
   const classCounts = {};
   let outside = 0;
 
-  for (const [lng, lat] of points) {
+  for (const [lng, lat, created] of points) {
     const z = locateZone(zoning, lng, lat);
     const cls = z.zone ? zoneClass(z.zone) : 'unknown';
     classCounts[cls] = (classCounts[cls] || 0) + 1;
@@ -85,37 +94,43 @@ async function main() {
       outside++;
       continue;
     }
-    const key = `${hood.id}|${Math.floor(lat / cellLat)}|${Math.floor(lng / cellLng)}`;
+    const type = dwellingType(z.zone);
+    const key = `${hood.id}|${type}|${Math.floor(lat / cellLat)}|${Math.floor(lng / cellLng)}`;
     let c = cells.get(key);
     if (!c) {
-      c = { id: hood.id, sumLat: 0, sumLng: 0, addresses: 0, nearFreeway: 0, nearArterial: 0, nearMajorRoad: 0 };
+      c = { id: hood.id, type, sumLat: 0, sumLng: 0, addresses: 0, atCensus: 0, added: {}, nearMajorRoad: 0 };
       cells.set(key, c);
     }
     c.sumLat += lat;
     c.sumLng += lng;
     c.addresses++;
-    const nearFreeway = !!freeways.nearest(lat, lng, FREEWAY_KM);
-    const nearArterial = !!arterials.nearest(lat, lng, ARTERIAL_KM);
-    if (nearFreeway) c.nearFreeway++;
-    if (nearArterial) c.nearArterial++;
-    if (nearFreeway || nearArterial) c.nearMajorRoad++;
+    if (created === null || created <= censusMs) c.atCensus++;
+    else {
+      const year = new Date(created).getUTCFullYear();
+      c.added[year] = (c.added[year] || 0) + 1;
+    }
+    if (freeways.nearest(lat, lng, FREEWAY_KM) || arterials.nearest(lat, lng, ARTERIAL_KM)) c.nearMajorRoad++;
   }
 
   const rows = [...cells.values()]
     .map((c) => ({
       id: c.id,
+      type: c.type,
       lat: (c.sumLat / c.addresses).toFixed(5),
       lng: (c.sumLng / c.addresses).toFixed(5),
       addresses: c.addresses,
-      nearFreeway: c.nearFreeway,
-      nearArterial: c.nearArterial,
+      atCensus: c.atCensus,
+      addedByYear: Object.entries(c.added)
+        .sort(([a], [b]) => a - b)
+        .map(([y, n]) => `${y}:${n}`)
+        .join(' '),
       nearMajorRoad: c.nearMajorRoad,
     }))
-    .sort((a, b) => a.id.localeCompare(b.id) || a.lat - b.lat || a.lng - b.lng);
+    .sort((a, b) => a.id.localeCompare(b.id) || a.type.localeCompare(b.type) || a.lat - b.lat || a.lng - b.lng);
 
   fs.writeFileSync(
     path.join(csvDir, 'residential_grid.csv'),
-    toCSV(rows, ['id', 'lat', 'lng', 'addresses', 'nearFreeway', 'nearArterial', 'nearMajorRoad'])
+    toCSV(rows, ['id', 'type', 'lat', 'lng', 'addresses', 'atCensus', 'addedByYear', 'nearMajorRoad'])
   );
 
   const perHood = {};

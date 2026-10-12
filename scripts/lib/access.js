@@ -4,7 +4,7 @@
  * Every neighbourhood is represented by its residential grid cells
  * (src/data/csv/residential_grid.csv, built from municipal address points on
  * residential-capable zoning). Each cell carries a share of the neighbourhood's
- * population proportional to its address count, so "distance to X" and "share of
+ * population proportional to its estimated dwellings (scripts/lib/population.js), so "distance to X" and "share of
  * residents within d of X" are measured from where people actually live rather
  * than from a polygon's centre or its boundary line.
  */
@@ -20,20 +20,20 @@ const num = (v) => {
 
 const round = (v, d = 1) => (v === null || v === undefined || !Number.isFinite(v) ? null : Math.round(v * 10 ** d) / 10 ** d);
 
-function loadCells(csvDir, populationById) {
-  const rows = readCSV(path.join(csvDir, 'residential_grid.csv'));
+function loadCells(residentRows, populationById) {
   const totals = {};
-  for (const r of rows) totals[r.id] = (totals[r.id] || 0) + Number(r.addresses);
-  return rows.map((r) => {
-    const addresses = Number(r.addresses);
+  for (const r of residentRows) totals[r.id] = (totals[r.id] || 0) + r.dwellings;
+  return residentRows.map((r) => {
+    const dwellings = r.dwellings;
     const pop = populationById[r.id] || 0;
     return {
       id: r.id,
-      lat: Number(r.lat),
-      lng: Number(r.lng),
-      addresses,
-      nearMajorRoad: Number(r.nearMajorRoad || 0),
-      pop: totals[r.id] ? (pop * addresses) / totals[r.id] : 0,
+      lat: r.lat,
+      lng: r.lng,
+      addresses: r.addresses,
+      dwellings,
+      dwellingsNearMajorRoad: r.addresses ? (r.nearMajorRoad * dwellings) / r.addresses : 0,
+      pop: totals[r.id] ? (pop * dwellings) / totals[r.id] : 0,
     };
   });
 }
@@ -86,12 +86,13 @@ function cyclingPoints(scriptsDataDir, protectedTypes) {
  * @param {object} opts
  * @param {string} opts.csvDir
  * @param {string} opts.scriptsDataDir
- * @param {Record<string, number>} opts.populationById
+ * @param {Record<string, number>} opts.populationById  current population estimate
+ * @param {Array} opts.residentRows  residential grid rows with a dwelling weight (scripts/lib/population.js)
  * @param {Array} opts.schools  [{ board, category, lat, lng, eqaoScore, eqaoLevel }]
  * @param {object} opts.params  scoring-config parameters
  */
-function computeAccessMetrics({ csvDir, scriptsDataDir, populationById, schools, params }) {
-  const cells = loadCells(csvDir, populationById);
+function computeAccessMetrics({ csvDir, scriptsDataDir, populationById, residentRows, schools, params }) {
+  const cells = loadCells(residentRows, populationById);
   const cellsById = {};
   for (const c of cells) (cellsById[c.id] = cellsById[c.id] || []).push(c);
 
@@ -192,7 +193,8 @@ function computeAccessMetrics({ csvDir, scriptsDataDir, populationById, schools,
   const out = {};
   for (const [id, hoodCells] of Object.entries(cellsById)) {
     const addresses = hoodCells.reduce((s, c) => s + c.addresses, 0);
-    const nearMajor = hoodCells.reduce((s, c) => s + c.nearMajorRoad, 0);
+    const dwellings = hoodCells.reduce((s, c) => s + c.dwellings, 0);
+    const nearMajor = hoodCells.reduce((s, c) => s + c.dwellingsNearMajorRoad, 0);
     const mean = (fn) => weightedMean(hoodCells, fn);
     const pct = (fn) => {
       const v = mean(fn);
@@ -201,6 +203,7 @@ function computeAccessMetrics({ csvDir, scriptsDataDir, populationById, schools,
     out[id] = {
       residentialCells: hoodCells.length,
       residentialAddresses: addresses,
+      dwellingsEstimate: Math.round(dwellings),
       // Schools
       elementaryEqao: round(mean((c) => nearestEqao(eqao.elementary, c)), 1),
       secondaryEqao: round(mean((c) => nearestEqao(eqao.secondary, c)), 1),
@@ -208,7 +211,7 @@ function computeAccessMetrics({ csvDir, scriptsDataDir, populationById, schools,
       // Health & environment
       emergencyKm: round(mean((c) => nearestKm(emergency, c, 100)), 2),
       clinicKm: round(mean((c) => nearestKm(clinics, c, 60)), 2),
-      noisePct: addresses > 0 ? round((nearMajor / addresses) * 100, 1) : null,
+      noisePct: dwellings > 0 ? round((nearMajor / dwellings) * 100, 1) : null,
       // Amenities
       groceryPct: round(pct((c) => within(grocery, c, params.groceryKm)), 1),
       parkPct: round(pct((c) => within(parks, c, params.parkKm)), 1),
