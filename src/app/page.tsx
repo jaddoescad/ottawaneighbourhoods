@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { neighbourhoods } from "@/data/neighbourhoods";
+import { useMemo, useState } from "react";
+import { neighbourhoods, type ScoreWeights } from "@/data/neighbourhoods";
+import { DEFAULT_WEIGHTS, rankWithWeights, tierForRank, tierLabel, weightsEqual } from "@/lib/scoring";
+import WeightsPanel from "@/components/WeightsPanel";
 import NeighbourhoodCard from "@/components/NeighbourhoodCard";
 import CoverageMap from "@/components/CoverageMap";
 import FilterBar from "@/components/FilterBar";
@@ -12,6 +14,19 @@ import AdStrip from "@/components/ads/AdStrip";
 
 export default function Home() {
   const [showCoverageMap, setShowCoverageMap] = useState(false);
+  const [showWeights, setShowWeights] = useState(false);
+  const [weights, setWeights] = useState<ScoreWeights>({ ...DEFAULT_WEIGHTS });
+  const isCustom = !weightsEqual(weights, DEFAULT_WEIGHTS);
+
+  const ranked = useMemo(() => {
+    if (!isCustom) {
+      return [...neighbourhoods]
+        .sort((a, b) => a.rank - b.rank || a.name.localeCompare(b.name))
+        .map((n) => ({ neighbourhood: n, score: n.overallScore, rank: n.rank, tier: n.tier }));
+    }
+    const list = rankWithWeights(neighbourhoods, weights);
+    return list.map((r) => ({ ...r, tier: tierForRank(r.rank, list.length) }));
+  }, [weights, isCustom]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -64,6 +79,22 @@ export default function Home() {
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
             Top Ottawa Neighborhoods
           </h1>
+          <div className="mt-2 flex items-center justify-center gap-2 text-sm">
+            <span className="text-gray-500">
+              {isCustom ? "Ranked with your weights" : "Ranked with balanced weights"}
+            </span>
+            <button
+              onClick={() => setShowWeights((v) => !v)}
+              aria-expanded={showWeights}
+              className="inline-flex items-center gap-1 px-3 py-1 rounded-full border border-gray-300 bg-white text-gray-700 hover:border-rose-400 hover:text-rose-600 transition"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h10M4 18h6" />
+              </svg>
+              {showWeights ? "Hide weights" : "Customize"}
+            </button>
+          </div>
+          {showWeights && <WeightsPanel weights={weights} onChange={setWeights} />}
         </div>
 
         {/* Filter Buttons */}
@@ -73,15 +104,15 @@ export default function Home() {
             shrink it well below the viewport width */}
         <main className="max-w-7xl mx-auto px-4 py-4 @container">
           <div className="grid grid-cols-2 @min-[720px]:grid-cols-3 @min-[1000px]:grid-cols-4 gap-2 sm:gap-4">
-            {[...neighbourhoods]
-              .sort((a, b) => b.overallScore - a.overallScore)
-              .map((neighbourhood, index) => (
-                <NeighbourhoodCard
-                  key={neighbourhood.id}
-                  neighbourhood={neighbourhood}
-                  rank={index + 1}
-                />
-              ))}
+            {ranked.map(({ neighbourhood, score, rank, tier }) => (
+              <NeighbourhoodCard
+                key={neighbourhood.id}
+                neighbourhood={neighbourhood}
+                rank={rank}
+                score={score}
+                tierText={tierLabel(tier)}
+              />
+            ))}
           </div>
         </main>
 

@@ -1,0 +1,241 @@
+OSM_TYPE,OSM_ID,NAME,KIND,LATITUDE,LONGITUDE
+way,1002490112,Novel Health,doctors,45.287617,-75.673571
+node,10040261012,"Simon Chan, MD",clinic,45.400727,-75.732271
+node,10045162185,Dr Garrerr DE Jong,doctors,45.401369,-75.730826
+node,10061834792,Walk-In Medical Clinic,clinic,45.385375,-75.735078
+node,10091145011,West Carleton Family Health Team,doctors,45.345559,-76.031719
+way,1012878719,Panorama Wellness Centre,clinic,45.298930,-75.943832
+node,10942230290,Ascent Medical Center,doctors,45.334745,-75.723225
+node,11197664026,Barrhaven Ideal Clinic,doctors,45.271766,-75.738410
+node,11382662120,De N’Gal Medicial Clinic,clinic,45.331555,-75.723871
+node,11382662131,Merivale Medical Centre,doctors,45.331867,-75.723058
+node,11461055305,Fortress Medical,doctors,45.325049,-75.823597
+node,11776552278,Blackburn Medicine & Esthetics,doctors,45.430942,-75.567307
+node,11777080983,Orléans Pediatric Therapies,doctors,45.480055,-75.509013
+node,12015063851,Stittsville Medical Clinic,clinic,45.268671,-75.928765
+node,12591213701,Good Doctors Ottawa-Rideau,clinic,45.432305,-75.677743
+node,12810393513,Central Park Medical Clinic,doctors,45.368307,-75.733227
+node,12909358406,The Balanced Practice,clinic,45.388319,-75.677841
+node,13084867308,Vital Medical Centre,clinic,45.338853,-75.681682
+node,13341720806,ByWard Family Health Team,doctors,45.428966,-75.684853
+node,13573042182,My Medical Centers,doctors,45.390806,-75.723735
+node,13850514431,Panorama Medical Clinic,doctors,45.298816,-75.943622
+node,13850514432,Panorama Womens Clinic,doctors,45.298813,-75.943643
+node,13850514436,Brightside Medical Clinic,clinic,45.298794,-75.943680
+node,14173929988,Longfields Medical Centre,clinic,45.284820,-75.746074
+way,152495729,Sandy Hill Community Health Centre,clinic,45.429326,-75.683508
+way,167468123,Appletree Medical Centre,doctors,45.417174,-75.704168
+node,1709347056,Appletree,doctors,45.386073,-75.735017
+way,171701683,Advanced Wellness Centre,clinic,45.417946,-75.693474
+way,193249290,Conroy Medical Centre,doctors,45.369635,-75.620691
+node,2031209022,Intensive Care Wing,clinic,45.401944,-75.646362
+node,2141421769,Westboro Medical Clinic,clinic,45.394170,-75.748258
+way,218748899,Rideau Valley Health Centre,clinic,45.274885,-75.747321
+way,223407055,Barrhaven Medical Centre,doctors,45.292067,-75.728854
+way,236476514,Emerging Minds,clinic,45.399004,-75.734245
+way,236994784,Lulla Paw,clinic,45.393308,-75.754232
+way,237101290,Freeworld Tattoo,clinic,45.390696,-75.752645
+way,238876071,Appletree Medical Clinic,doctors,45.341600,-75.787616
+way,239254004,The Westend Family Care Clinic,doctors,45.287024,-75.869171
+way,240807379,Dr. Corazon Cosico-De-Jesus,doctors,45.395521,-75.745578
+way,264546085,Somerset West Community Health Centre,clinic,45.409064,-75.709920
+node,2685175326,Appletree Medical Centre,doctors,45.405501,-75.712214
+way,270214298,UC Baby,doctors,45.363727,-75.733631
+node,2800119813,South Keys Health Centre,doctors,45.354787,-75.649367
+node,2930374490,Wellington Medical Clinic,doctors,45.400069,-75.731464
+way,293507761,Carson Medical Clinic,doctors,45.445779,-75.630098
+way,300546828,Montreal Rd. Medical Centre,doctors,45.438747,-75.653075
+way,305636705,Oaktree Ottawa,clinic,45.418249,-75.694356
+node,3130555239,Towngate Medical Centre,doctors,45.352898,-75.647415
+way,314343988,Carlington Community Health Centre,doctors,45.383308,-75.733419
+way,338409559,Riverview Medical Centre,doctors,45.371966,-75.690171
+node,3645231361,Vanier Medical Centre,doctors,45.437115,-75.658452
+node,3667311985,Ampos Orthopaedic,doctors,45.443066,-75.642156
+node,3782799887,Appletree Medical Clinic,clinic,45.355450,-75.805067
+way,394709223,St Laurent Medical Centre,clinic,45.429756,-75.640834
+node,4066748991,Dr Anthony Lentini,doctors,45.340650,-75.719160
+node,4309700897,Yang Medicine & Associates,doctors,45.382622,-75.628205
+node,4333100647,Centrum Medical Centre,doctors,45.479062,-75.511858
+node,4435076071,Orleans Urgent Care Clinic,doctors,45.476745,-75.520408
+node,4492679758,Sexual Health Centre Walk-in clinic,clinic,45.430520,-75.689988
+way,450841758,Navan Medical Clinic,doctors,45.421274,-75.426610
+way,470293861,Réflexe Santé,clinic,45.490432,-75.445449
+way,471171466,Crystal Medical Centre,clinic,45.256046,-75.918577
+way,473162310,Ottawa Environmental Health Clinic,doctors,45.350934,-75.830562
+node,4743705521,University of Ottawa Health Services,doctor,45.428887,-75.684723
+node,4750969112,Rideau Friel Medical Clinic,clinic,45.430726,-75.681459
+way,478521048,Champlain Health Line,clinic,45.273912,-75.719457
+way,478740488,Advanced Access Medical,doctors,45.275774,-75.716596
+way,478970301,Konson Homes,clinic,45.393387,-75.754319
+way,479048073,Donald Medical Clinic,doctors,45.427691,-75.653492
+way,479399883,Greenbelt Family Health Team,clinic,45.293131,-75.742036
+way,479886021,Somerset West Community Health Centre,clinic,45.401369,-75.726230
+way,480073485,Hunt Club Medical Center,clinic,45.350364,-75.670684
+way,480204769,Axis RMT,clinic,45.431093,-75.661142
+way,481260274,Lebreton Wellness,clinic,45.406185,-75.707363
+way,481782885,Integrate Healthcare Collective,clinic,45.416792,-75.687060
+way,481786821,Holistic Wellness Centre,clinic,45.414772,-75.695057
+way,482248223,Balanced Life Osteopathy,clinic,45.410811,-75.691085
+way,483246590,Right Direction Medical Centre,doctors,45.377088,-75.666305
+way,483734913,Bank Medical Centre,doctors,45.368006,-75.661489
+way,484351699,Eastern Ottawa Community Family Health Team,clinic,45.462113,-75.546954
+way,485194401,Elmvale Medical Centre,clinic,45.399377,-75.624910
+node,4913992320,Asclepios Walk-In Clinic,clinic,45.488830,-75.485269
+way,503661838,Dr. Stephen Whittaker,doctors,45.283108,-75.686362
+way,509296621,Nepean Family Health Organization,clinic,45.285082,-75.756622
+node,5296719918,Ottawa Art Therapy,clinic,45.411716,-75.618487
+node,5487597496,Orleans Family Health Clinic,doctors,45.479170,-75.511751
+node,5526711398,Appletree Medical Clinic,doctors,45.353802,-75.733140
+way,558418654,ActiveCare Medical Clinic,doctors,45.353534,-75.932533
+node,5606923864,Greenstreet Medical Centre,clinic,45.286566,-75.757751
+way,560871086,Care Medics,doctors,45.223052,-75.682234
+way,561087179,Meadowlands Family Health Centre,clinic,45.367050,-75.701923
+way,562762394,Appletree Medical Clinic,clinic,45.378993,-75.668807
+node,5667282241,Sunrise Medical Center,doctors,45.433771,-75.667898
+node,5667458691,Rideau Clinic Pharmacy,clinic,45.432485,-75.676463
+node,5691211915,Active Health Institute,doctors,45.284003,-75.745121
+node,5691211916,Precision Medical Centre,doctors,45.284066,-75.745063
+way,570820752,Cumberland Medical Clinic,doctors,45.481729,-75.473737
+node,5720669288,Back in Balance,clinic,45.389678,-75.757783
+node,5720792407,Ottawa Performance Care,clinic,45.398815,-75.737700
+node,5724408342,Health Treasure Medical Centre,doctors,45.286240,-75.757445
+node,5726053115,Westgate Health Centre,clinic,45.385621,-75.734465
+node,5731353228,Appletree Medical Centre,clinic,45.335000,-75.799693
+node,5731473482,Hazeldean Medical Clinic,doctors,45.300552,-75.883000
+way,573312285,Elysian Wellness Centre,clinic,45.338420,-75.711102
+node,5739418233,CHEO Centre for Healthy Active Living,doctors,45.388153,-75.675322
+node,5741697427,Crossroads Children's Centre,clinic,45.371263,-75.749904
+node,5756769159,OATC,clinic,45.414998,-75.697705
+node,5764137990,Ottawa Birth and Wellness Center,clinic,45.388684,-75.614917
+node,5764321700,Youth Net,clinic,45.384133,-75.617627
+way,578263655,Medical Centre,clinic,45.480017,-75.536707
+node,5799646292,VitalAire,clinic,45.408096,-75.632595
+node,5802745484,Caven Nutrition Group,clinic,45.376229,-75.749924
+node,5804291874,Aphasia Centre of Ottawa,clinic,45.318254,-75.713692
+node,5811470619,Palladium Medical Clinic,doctors,45.300632,-75.909137
+way,581659413,Appletree,clinic,45.319739,-75.837093
+node,5820645501,Appletree Medical Clinic,doctors,45.370509,-75.771244
+node,5833495159,Walkley Medical Centre,clinic,45.369983,-75.663519
+node,5833495167,Chadha Medical,doctors,45.369661,-75.662472
+node,5836628247,Vina Medical Centre,clinic,45.409265,-75.711657
+node,5838318140,Centretown Community Health Centre,clinic,45.415544,-75.697791
+node,5842916929,Centerpointe Medical Centre,doctors,45.348803,-75.767448
+way,584815457,iCare Medical Clinic,doctors,45.465299,-75.542525
+node,5849261803,Bank Respiratory Services,doctors,45.384491,-75.671959
+node,5849261805,Medicalcare Clinic,doctors,45.384453,-75.672033
+node,5861177005,Dr. Lal Medical Clinic,doctors,45.351137,-75.734506
+node,5862310852,Dr. Jeremy Lo,doctors,45.407103,-75.709379
+node,5862395145,Rideau-Rockcliffe Family Medicine,doctors,45.442784,-75.643410
+node,5863779757,Montfort Academic Health Care Team,doctors,45.444776,-75.637203
+node,5864740090,Dr. Viet Tan Tran,doctors,45.453615,-75.584782
+node,5866219385,Connexion Family Health Team,doctors,45.452835,-75.588552
+node,5868722842,Somerset Health & Wellness Centre,clinic,45.417454,-75.690426
+node,5868722846,Donna Anderson Osteopathy,clinic,45.417530,-75.690480
+node,5868793711,Heart of Ottawa Health Centre,doctors,45.417576,-75.690311
+node,5874395885,Dr. Selwyn X. De Souza,doctors,45.353257,-75.759514
+node,5874395886,Dr. A Malik,doctors,45.353285,-75.759549
+node,5874696204,Realign and Flow,clinic,45.391725,-75.755150
+way,587602377,Swift Clinics,clinic,45.431048,-75.564993
+node,5891377792,Stittsville Integrative Medicine Centre,clinic,45.257231,-75.919885
+node,5897281186,Bayshore Home Health,clinic,45.342923,-75.762504
+node,5903073862,Les Ateliers de L'Élan,doctors,45.437780,-75.656273
+node,5903073863,McArthur Family Medical Centre,doctors,45.438729,-75.655755
+node,5912940519,Zoemed Clinic,doctors,45.334716,-75.723293
+node,5912940522,Eshmun Medical Clinic,clinic,45.334780,-75.723060
+node,5931651665,Clinic of Orthopaedic Medicine,clinic,45.471159,-75.525594
+node,5931651666,Dr. Daniel Moreau,doctors,45.471124,-75.525694
+node,5931682456,Dr. E. Cattan,doctors,45.469953,-75.525953
+node,5931809934,Vitalis Family Medicine,doctors,45.437073,-75.658389
+node,5931891871,Ottawa Inner City Health,doctors,45.434019,-75.684224
+node,5931891872,Centre Medical Ste-Anne,clinic,45.434118,-75.684127
+node,5933221584,Bariatric Medical Institute,clinic,45.333532,-75.728245
+node,5940011733,Ontario Centre of Excellence for Child and Youth Mental Health,clinic,45.410419,-75.638428
+node,5950064167,Dr. E.R. Skaff & Dr. K. McFarland,doctors,45.431962,-75.565623
+node,5950393375,C. Alan Shoemaker,doctors,45.324343,-75.779101
+node,5950393380,Dr. M. Deutsch,doctors,45.324265,-75.779321
+node,5961900136,Innes Medical Clinic,doctors,45.458764,-75.496431
+node,5961900144,Ottawa Medical Group,clinic,45.458947,-75.495658
+node,5962107003,Alpha Care Family Health Clinic,doctors,45.461723,-75.485938
+node,5974055766,Dr. L. Robinson,doctors,45.396293,-75.713363
+node,5976659122,Appletree Medical Centre,clinic,45.312203,-75.895481
+node,5996279154,Hampton Carling Family Medicine Associates,clinic,45.386348,-75.739917
+node,5996279156,Ontario Breast Screening Program,clinic,45.386300,-75.740110
+node,6015801778,Akausivik Inuit Family Health Team,clinic,45.432884,-75.663032
+node,6015802202,Vertefeuille Pavilion,clinic,45.432050,-75.655214
+node,6015802205,CareMedics,clinic,45.431862,-75.655225
+node,6018494622,,doctors,45.334732,-75.799468
+node,6018530137,Geriatric Day Hospital,doctors,45.323846,-75.830268
+node,6032500285,Kanata North Medical Centre,doctors,45.356572,-75.933498
+node,6034633379,Natural Balance,clinic,45.420924,-75.697205
+node,6036866487,Stittsville Medical Centre,doctors,45.264457,-75.927214
+way,604059109,Southbank Medical Centre,clinic,45.353412,-75.649370
+node,6040709214,The Kingsway Health Centre,doctors,45.224632,-75.685062
+way,604084506,Dr. Khaled Mahmoud Dahche,doctors,45.342645,-75.668786
+way,604731794,Lancaster Medical Centre,doctors,45.401615,-75.619720
+node,6080195108,Dr. Eleanor M. DeSouza,doctors,45.286349,-75.757543
+node,6080195114,Dr. S. Nagpal,doctors,45.286620,-75.757913
+node,6080195115,Dr.J. Gill & Dr. M. Hashimoto,doctors,45.286667,-75.757879
+node,6080195116,Dr. Boparai,doctors,45.286655,-75.757930
+node,6080313264,LMC Diabetes & Endocrinology,doctors,45.260441,-75.768425
+node,6094106081,Dr. David Jordan,doctors,45.414483,-75.692600
+node,6110092015,Pai Medical Group,clinic,45.412365,-75.692705
+node,6114249004,Sound Care Medical Centre,clinic,45.351820,-75.652547
+node,6117201972,Dr. Julie Rodrigue,doctors,45.454205,-75.583450
+node,6117201982,Canotek Clinic,clinic,45.454909,-75.583455
+node,6135912214,Livewell Family Health Centre,clinic,45.345480,-75.765420
+node,6135912218,Centrepointe Medical Consultants,clinic,45.345268,-75.765272
+node,6141609768,Ottawa South Midwives,doctors,45.316782,-75.622184
+node,6141609770,Dr. Dolly Nahri,doctors,45.317010,-75.622308
+way,614485958,Capital KidZ Medical Centre,doctors,45.301539,-75.913472
+way,614916098,Inspiration Medic,clinic,45.456023,-75.505949
+node,6154404896,La Vie Health,clinic,45.418624,-75.701790
+node,6186714770,Dr. Roger Wray,doctors,45.285208,-75.756608
+node,6200081789,Monarch Centre,clinic,45.329442,-75.727444
+way,620180741,South Ottawa Medical Centre,doctors,45.346503,-75.626671
+node,6266683765,Jeanne d'Arc Medical Centre,clinic,45.463849,-75.544481
+node,6266683781,"Sharon Grainger, MD",doctors,45.461964,-75.547937
+node,6319258017,La Vie Executive Health Centre,doctors,45.348291,-75.918409
+node,6392265068,The Clinic at Walmart,clinic,45.363329,-75.738630
+node,6392347244,The Clinic at Walmart,clinic,45.275147,-75.871598
+node,6403076440,Dr. Emad Abdulkarim,doctors,45.380204,-75.669168
+way,640344337,Ottawa Lifestyle Medicine,doctors,45.347325,-75.923968
+node,6414931389,University of Ottawa Health Services Family Health Team,clinic,45.421750,-75.680296
+node,6414973276,Dignified Veteran Assistance Clinic,clinic,45.412853,-75.696692
+node,6429455550,Swift Clinic,doctors,45.326119,-75.821712
+node,6476526931,Richmond Goulbourn Medical Center,doctors,45.191712,-75.842345
+node,6476526949,Richmond Medical Centre,doctors,45.190284,-75.846172
+way,647958833,Trainyards Medical Centre,clinic,45.414707,-75.645577
+node,6481183083,Ottawa Integrative Health Centre,doctors,45.378131,-75.742318
+node,6501419986,Jockvale Clinic,doctors,45.275716,-75.777643
+node,6515775614,Concept Medical,doctors,45.403026,-75.733487
+node,6591759341,Good Doctors,doctors,45.373610,-75.653474
+node,6591958131,Beechwood Medical Centre,doctors,45.443351,-75.670227
+way,663543726,Riverside Court Medical Clinic,clinic,45.344973,-75.692117
+way,663543728,Rideau Family Health Team,clinic,45.345699,-75.692516
+way,664536856,Bridlewood Medical Centre,doctors,45.291633,-75.857149
+node,6665870095,Osgoode Village Family Health,doctors,45.149146,-75.603624
+node,6666106319,Innomar Clinic,doctors,45.304250,-75.894621
+node,6666106320,Med-Team Clinic,doctors,45.304131,-75.894715
+node,6682365635,Appletree Telemedicine Clinic,doctors,45.461540,-75.483901
+way,671933058,Bells Corners Medical Group,doctors,45.323453,-75.827012
+way,674473782,Chapel Hill Health Centre,doctors,45.461188,-75.525408
+node,6754681492,Algonquin Health Services,clinic,45.347974,-75.757085
+node,6781174049,Canada House Clinics,doctors,45.338878,-75.681125
+way,679914095,Ottawa Anxiety & Trauma Clinic,clinic,45.385500,-75.677939
+way,68609313,Active Care Medical Centre,doctors,45.322589,-75.901157
+way,68657707,Parkdale Clinic (The Ottawa Hospital Civic Campus ),clinic,45.392376,-75.723205
+way,700000729,Clyde Medical Centre & Walking Clinic,doctors,45.361988,-75.740706
+node,7177395921,Good Doctors Clinic,doctors,45.430683,-75.621172
+node,7440274049,Bridle Path Medical Clinic,clinic,45.348394,-75.645799
+node,7610877945,CHEO Clinic,clinic,45.446852,-75.613426
+way,762479345,Greely Family Medicine Centre,clinic,45.264404,-75.555078
+way,764310636,South Nepean Community Health Centre,clinic,45.260568,-75.768001
+node,7678221381,Neupath,clinic,45.370545,-75.751215
+node,809994310,Queensway Medical centre,doctors,45.452884,-75.587791
+way,853278185,Carrefour santé Aline-Chrétien Health Hub,clinic,45.446663,-75.497588
+node,9283130665,stratusMD Dr. James Daniel,doctors,45.399771,-75.708772
+node,9296868309,Recovery Care,clinic,45.428800,-75.685208
+node,9333138694,Recovery Care,clinic,45.433449,-75.668758
+node,9674471792,Waterridge Village Medical Clinic,doctors,45.445608,-75.609788
+node,9690934348,Restore Medical Clinic,clinic,45.400174,-75.699570
+node,9984168909,Appletree,clinic,45.432335,-75.677671

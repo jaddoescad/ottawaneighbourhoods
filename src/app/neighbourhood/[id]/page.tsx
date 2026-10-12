@@ -102,8 +102,8 @@ const DATA_SOURCES = {
     url: "https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/index.cfm",
   },
   walkScore: {
-    name: "Ottawa Open Data & OC Transpo GTFS",
-    url: "https://open.ottawa.ca",
+    name: "Walk Score & Bike Score via ONS-SQO; transit from OC Transpo GTFS",
+    url: "https://www.neighbourhoodstudy.ca",
   },
   busStops: {
     name: "OC Transpo / City of Ottawa",
@@ -115,11 +115,6 @@ const DATA_SOURCES = {
   },
 };
 
-// Pre-compute rankings (sorted by score descending)
-const rankedNeighbourhoods = [...neighbourhoods]
-  .sort((a, b) => b.overallScore - a.overallScore)
-  .map((n, index) => ({ ...n, rank: index + 1 }));
-
 interface PageProps {
   params: Promise<{ id: string }>;
 }
@@ -130,7 +125,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params;
-  const neighbourhood = rankedNeighbourhoods.find((n) => n.id === id);
+  const neighbourhood = neighbourhoods.find((n) => n.id === id);
 
   if (!neighbourhood) {
     return {
@@ -259,10 +254,8 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
     notFound();
   }
 
-  const { name, area, image, population, populationDensity, households, pop2021, dataYear, dataSource, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, commuteByTransit, nearestOTrainStation, nearestOTrainLine, distanceToOTrain, nearestTransitwayStation, distanceToTransitway, overdoseCumulative, overdoseYearlyAvg, overdoseRatePer100k, overdoseYears, details, overallScore, categoryScores, scoreWeights, metricScores, rawMetricValues, boundaries } = neighbourhood;
+  const { name, area, image, population, populationDensity, households, pop2021, dataYear, dataSource, medianIncome, avgRent, avgHomePrice, walkScore, transitScore, bikeScore, pctChildren, pctYoungProfessionals, pctSeniors, commuteToDowntown, commuteByTransit, nearestOTrainStation, nearestOTrainLine, distanceToOTrain, nearestTransitwayStation, distanceToTransitway, overdoseCumulative, overdoseYearlyAvg, overdoseRatePer100k, overdoseYears, details, boundaries } = neighbourhood;
 
-  // Get rank for this neighbourhood
-  const rank = rankedNeighbourhoods.findIndex(n => n.id === id) + 1;
   const statsAreaName = boundaries.length === 1 ? boundaries[0].name : null;
   const showsStatsAreaNote = Boolean(statsAreaName && statsAreaName !== name);
   const greenbeltLengthKm = details.greenbeltTrailsLengthKm || 0;
@@ -270,8 +263,8 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
   // Format numbers
   const formattedPopulation = population.toLocaleString();
   const formattedIncome = medianIncome.toLocaleString();
-  const formattedRent = avgRent.toLocaleString();
-  const formattedHomePrice = avgHomePrice.toLocaleString();
+  const formattedRent = avgRent !== null ? avgRent.toLocaleString() : null;
+  const formattedHomePrice = avgHomePrice !== null ? avgHomePrice.toLocaleString() : null;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -316,12 +309,20 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             )}
             <div className="mt-3 sm:mt-4">
               <ScoreBreakdown
-                overallScore={overallScore}
-                categoryScores={categoryScores}
-                scoreWeights={scoreWeights}
-                metricScores={metricScores}
-                rawMetricValues={rawMetricValues}
-                rank={rank}
+                scores={{
+                  overallScore: neighbourhood.overallScore,
+                  categoryScores: neighbourhood.categoryScores,
+                  categoryCoverage: neighbourhood.categoryCoverage,
+                  scoreWeights: neighbourhood.scoreWeights,
+                  metricScores: neighbourhood.metricScores,
+                  rawMetricValues: neighbourhood.rawMetricValues,
+                  contextValues: neighbourhood.contextValues,
+                  scoreIncomplete: neighbourhood.scoreIncomplete,
+                  missingCategories: neighbourhood.missingCategories,
+                  rank: neighbourhood.rank,
+                  rankRange: neighbourhood.rankRange,
+                  tier: neighbourhood.tier,
+                }}
                 totalNeighbourhoods={neighbourhoods.length}
               />
             </div>
@@ -652,22 +653,26 @@ export default async function NeighbourhoodPage({ params }: PageProps) {
             boundaries={boundaries}
             neighbourhoodName={name}
           />
-          <StatRow
-            icon="🏠"
-            label="Rent"
-            value={`$${formattedRent}/mo`}
-            percent={getPercent(avgRent, "rent")}
-            type={getRentScoreType(avgRent)}
-            labelSet="rent"
-          />
-          <StatRow
-            icon="🏡"
-            label="Home Price"
-            value={`$${formattedHomePrice}`}
-            percent={getPercent(avgHomePrice, "homePrice")}
-            type={getHomePriceScoreType(avgHomePrice)}
-            labelSet="homePrice"
-          />
+          {avgRent !== null && (
+            <StatRow
+              icon="🏠"
+              label="Rent"
+              value={`$${formattedRent}/mo`}
+              percent={getPercent(avgRent, "rent")}
+              type={getRentScoreType(avgRent)}
+              labelSet="rent"
+            />
+          )}
+          {avgHomePrice !== null && (
+            <StatRow
+              icon="🏡"
+              label="Home Price"
+              value={`$${formattedHomePrice}`}
+              percent={getPercent(avgHomePrice, "homePrice")}
+              type={getHomePriceScoreType(avgHomePrice)}
+              labelSet="homePrice"
+            />
+          )}
         </div>
 
         {/* Real Estate CTA */}

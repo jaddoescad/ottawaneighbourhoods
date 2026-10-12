@@ -1,0 +1,443 @@
+{
+  "version": 2,
+  "updated": "2026-10-11",
+  "summary": "Each metric is converted to a 0-100 score with fixed breakpoints (piecewise-linear, not relative to other neighbourhoods). Metrics are averaged into categories using the weights below, and categories into the overall score. Distances and shares are measured from where residents live (municipal address points on residential zoning, with apartment addresses weighted by their units), weighted by population.",
+  "categories": [
+    {
+      "key": "safety",
+      "label": "Safety",
+      "weight": 0.25,
+      "description": "Crime near homes and serious traffic collisions.",
+      "metrics": [
+        {
+          "key": "violentCrime",
+          "label": "Violent crime near homes",
+          "weight": 0.5,
+          "unit": "per 1,000 residents / yr",
+          "format": "rate",
+          "direction": "lower",
+          "breakpoints": [[2, 100], [4, 80], [7, 60], [11, 40], [16, 20], [25, 0]],
+          "description": "Police-reported violent incidents (2023-24) on residential land, plus half of those on main-street / mixed-use land, per 1,000 residents per year. Residents are the 2021 Census population grown by the homes built since. Small neighbourhoods are shrunk toward the city rate.",
+          "source": "Ottawa Police Service Criminal Offences; City of Ottawa Zoning By-law 2008-250"
+        },
+        {
+          "key": "propertyCrime",
+          "label": "Property crime near homes",
+          "weight": 0.3,
+          "unit": "per 1,000 residents / yr",
+          "format": "rate",
+          "direction": "lower",
+          "breakpoints": [[5, 100], [10, 80], [16, 60], [24, 40], [35, 20], [50, 0]],
+          "description": "Break-ins, theft, vehicle theft, mischief and arson on residential land, plus half of those on mixed-use land, per 1,000 residents (grown since 2021) per year, shrunk toward the city rate.",
+          "source": "Ottawa Police Service Criminal Offences; City of Ottawa Zoning By-law 2008-250"
+        },
+        {
+          "key": "roadSafety",
+          "label": "Injury collisions on local roads",
+          "weight": 0.2,
+          "unit": "per 10 km of road / yr",
+          "format": "rate",
+          "direction": "lower",
+          "breakpoints": [[1, 100], [2, 80], [3, 60], [4.5, 40], [7, 20], [12, 0]],
+          "description": "Injury collisions (2022 and 2024; the City has not published 2023) per 10 km of non-freeway road per year. Fatal and major-injury collisions count three times and any collision involving a pedestrian or cyclist counts double. Freeway collisions are excluded. Shrunk toward the city rate for short road networks.",
+          "source": "City of Ottawa Traffic Collision Data; Roads - Classification"
+        }
+      ]
+    },
+    {
+      "key": "schools",
+      "label": "Schools",
+      "weight": 0.15,
+      "description": "Results at the schools residents would most likely attend, and how far away they are.",
+      "metrics": [
+        {
+          "key": "elementaryEqao",
+          "label": "Nearest elementary schools (EQAO)",
+          "weight": 0.45,
+          "unit": "% meeting standard",
+          "format": "pct",
+          "direction": "higher",
+          "breakpoints": [[40, 0], [50, 25], [60, 50], [70, 75], [80, 95], [85, 100]],
+          "description": "For each home, the 3-year EQAO average of the nearest English public (OCDSB) and English Catholic (OCSB) elementary schools, averaged across residents. EQAO results also reflect family income, not only school quality.",
+          "source": "Ontario School Information and Student Demographics (2022-23 to 2024-25); City of Ottawa Schools"
+        },
+        {
+          "key": "secondaryEqao",
+          "label": "Nearest high schools (EQAO / OSSLT)",
+          "weight": 0.2,
+          "unit": "% meeting standard",
+          "format": "pct",
+          "direction": "higher",
+          "breakpoints": [[40, 0], [55, 30], [65, 55], [75, 80], [85, 100]],
+          "description": "For each home, the 3-year average of Grade 9 math and Grade 10 literacy results at the nearest OCDSB and OCSB secondary schools.",
+          "source": "Ontario School Information and Student Demographics (2022-23 to 2024-25)"
+        },
+        {
+          "key": "elementaryDistance",
+          "label": "Distance to an elementary school",
+          "weight": 0.35,
+          "unit": "km",
+          "format": "km",
+          "direction": "lower",
+          "breakpoints": [[0.4, 100], [0.8, 85], [1.5, 60], [3, 30], [6, 0]],
+          "description": "Average straight-line distance from homes to the nearest public elementary school of any board.",
+          "source": "City of Ottawa Schools"
+        }
+      ]
+    },
+    {
+      "key": "amenities",
+      "label": "Amenities",
+      "weight": 0.15,
+      "description": "Share of residents who can reach everyday destinations nearby.",
+      "metrics": [
+        {
+          "key": "groceryAccess",
+          "label": "Grocery store within 1 km",
+          "weight": 0.25,
+          "unit": "% of residents",
+          "format": "pct",
+          "direction": "higher",
+          "breakpoints": [[0, 0], [90, 100]],
+          "description": "Share of residents living within 1 km (straight line) of a grocery store.",
+          "source": "Ottawa Public Health food premises, categorized"
+        },
+        {
+          "key": "parkAccess",
+          "label": "Park within 400 m",
+          "weight": 0.2,
+          "unit": "% of residents",
+          "format": "pct",
+          "direction": "higher",
+          "breakpoints": [[0, 0], [95, 100]],
+          "description": "Share of residents within 400 m of the edge of a City park.",
+          "source": "City of Ottawa Parks and Greenspace"
+        },
+        {
+          "key": "diningAccess",
+          "label": "5+ places to eat within 800 m",
+          "weight": 0.2,
+          "unit": "% of residents",
+          "format": "pct",
+          "direction": "higher",
+          "breakpoints": [[0, 0], [90, 100]],
+          "description": "Share of residents with at least five restaurants, cafes, bakeries or pubs within 800 m.",
+          "source": "Ottawa Public Health food premises, categorized"
+        },
+        {
+          "key": "recreationAccess",
+          "label": "Recreation facility within 1.5 km",
+          "weight": 0.15,
+          "unit": "% of residents",
+          "format": "pct",
+          "direction": "higher",
+          "breakpoints": [[0, 0], [90, 100]],
+          "description": "Share of residents within 1.5 km of a City pool, arena, rink or community centre.",
+          "source": "City of Ottawa recreation facilities"
+        },
+        {
+          "key": "libraryDistance",
+          "label": "Distance to a library",
+          "weight": 0.2,
+          "unit": "km",
+          "format": "km",
+          "direction": "lower",
+          "breakpoints": [[1, 100], [2, 80], [3.5, 60], [6, 35], [10, 10], [15, 0]],
+          "description": "Average distance from homes to the nearest Ottawa Public Library branch.",
+          "source": "Ottawa Public Library"
+        }
+      ]
+    },
+    {
+      "key": "gettingAround",
+      "label": "Getting Around",
+      "weight": 0.15,
+      "description": "Frequent transit, protected bike routes, and how far homes are from downtown jobs and highways.",
+      "metrics": [
+        {
+          "key": "transitFrequency",
+          "label": "Peak transit service near home",
+          "weight": 0.35,
+          "unit": "departures / hour",
+          "format": "perHour",
+          "direction": "higher",
+          "breakpoints": [[0, 0], [4, 25], [10, 50], [20, 75], [40, 100]],
+          "description": "Weekday 7-9 am departures per hour within 400 m (bus) or 800 m (O-Train), counting each route and direction once, averaged across residents.",
+          "source": "OC Transpo GTFS"
+        },
+        {
+          "key": "downtownDistance",
+          "label": "Distance to downtown",
+          "weight": 0.25,
+          "unit": "km",
+          "format": "km",
+          "direction": "lower",
+          "breakpoints": [[3, 100], [6, 85], [10, 65], [15, 45], [25, 20], [40, 0]],
+          "description": "Average straight-line distance from homes to downtown (Parliament Hill), the city's largest employment centre.",
+          "source": "Computed from resident locations"
+        },
+        {
+          "key": "bikewayAccess",
+          "label": "Protected bike route within 400 m",
+          "weight": 0.25,
+          "unit": "% of residents",
+          "format": "pct",
+          "direction": "higher",
+          "breakpoints": [[0, 0], [90, 100]],
+          "description": "Share of residents within 400 m of a multi-use path, cycle track or segregated bike lane. Painted lanes, suggested routes and paved shoulders don't count.",
+          "source": "City of Ottawa Cycling Network"
+        },
+        {
+          "key": "highwayAccess",
+          "label": "Distance to a highway",
+          "weight": 0.15,
+          "unit": "km",
+          "format": "km",
+          "direction": "lower",
+          "breakpoints": [[1, 100], [2, 85], [4, 65], [7, 40], [12, 15], [20, 0]],
+          "description": "Average distance from homes to the nearest freeway or provincial highway.",
+          "source": "City of Ottawa Roads - Classification"
+        }
+      ]
+    },
+    {
+      "key": "nature",
+      "label": "Nature",
+      "weight": 0.1,
+      "description": "Tree cover, nearby large greenspace, and parkland per resident.",
+      "metrics": [
+        {
+          "key": "treeCanopy",
+          "label": "Tree canopy",
+          "weight": 0.35,
+          "unit": "% coverage",
+          "format": "pct",
+          "direction": "higher",
+          "breakpoints": [[0, 0], [10, 20], [20, 45], [30, 70], [40, 90], [50, 100]],
+          "description": "Share of land under tree canopy (2024). Ottawa's urban forest target is 40%.",
+          "source": "ONS-SQO / City of Ottawa tree canopy 2024"
+        },
+        {
+          "key": "greenspaceAccess",
+          "label": "Large greenspace within 1 km",
+          "weight": 0.35,
+          "unit": "% of residents",
+          "format": "pct",
+          "direction": "higher",
+          "breakpoints": [[0, 0], [90, 100]],
+          "description": "Share of residents within 1 km of a park or nature area of 4 ha or more (City or federal/NCC land), or an NCC Greenbelt trail.",
+          "source": "City of Ottawa Parks and Greenspace; OpenStreetMap (for NCC and provincial land); NCC Greenbelt trails"
+        },
+        {
+          "key": "parklandPerResident",
+          "label": "Parkland nearby per 1,000 residents",
+          "weight": 0.3,
+          "unit": "ha / 1,000 residents",
+          "format": "number",
+          "direction": "higher",
+          "breakpoints": [[0, 0], [1, 35], [2, 65], [4, 85], [8, 100]],
+          "description": "Hectares of City parkland within 1 km of each home divided by the residents who share it. The City's planning standard is 2 ha per 1,000 residents.",
+          "source": "City of Ottawa Parks and Greenspace"
+        }
+      ]
+    },
+    {
+      "key": "affordability",
+      "label": "Affordability",
+      "weight": 0.1,
+      "description": "Typical rent and home value, from one consistent source for every neighbourhood.",
+      "minCoverage": 0.5,
+      "metrics": [
+        {
+          "key": "rent",
+          "label": "Typical rent",
+          "weight": 0.5,
+          "unit": "$ / month",
+          "format": "currency",
+          "direction": "lower",
+          "breakpoints": [[1300, 100], [1600, 80], [1900, 60], [2200, 40], [2600, 20], [3200, 0]],
+          "description": "2021 Census median monthly rent, scaled to today's market by one citywide factor (median ratio of sourced 2024-25 listings to 2021 Census rents).",
+          "source": "Statistics Canada 2021 Census via ONS-SQO; Zumper / CMHC / RentCafe listings for the citywide factor"
+        },
+        {
+          "key": "homePrice",
+          "label": "Typical home value",
+          "weight": 0.5,
+          "unit": "$",
+          "format": "currency",
+          "direction": "lower",
+          "breakpoints": [[400000, 100], [550000, 80], [700000, 60], [900000, 40], [1200000, 20], [1600000, 0]],
+          "description": "2021 Census median value of owned dwellings, scaled to today's market by one citywide factor (median ratio of sourced recent sales to 2021 Census values).",
+          "source": "Statistics Canada 2021 Census via ONS-SQO; AgentInOttawa / Zolo sales for the citywide factor"
+        }
+      ]
+    },
+    {
+      "key": "healthEnvironment",
+      "label": "Health & Environment",
+      "weight": 0.1,
+      "description": "Emergency care, primary care, overdose burden and traffic noise.",
+      "metrics": [
+        {
+          "key": "emergencyAccess",
+          "label": "Distance to an emergency department",
+          "weight": 0.4,
+          "unit": "km",
+          "format": "km",
+          "direction": "lower",
+          "breakpoints": [[3, 100], [6, 85], [10, 65], [15, 45], [25, 20], [40, 0]],
+          "description": "Average distance from homes to the nearest 24/7 adult emergency department (Civic, General, Queensway-Carleton, Montfort). Hospitals without an emergency department (Riverside, Royal Ottawa, Bruyère, Saint-Vincent, the Rehabilitation Centre) don't count.",
+          "source": "City of Ottawa Hospitals"
+        },
+        {
+          "key": "overdose",
+          "label": "Overdose ED visits",
+          "weight": 0.25,
+          "unit": "per 100K / yr",
+          "format": "rate",
+          "direction": "lower",
+          "breakpoints": [[20, 100], [40, 85], [70, 65], [120, 40], [200, 15], [300, 0]],
+          "description": "Overdose emergency visits per 100,000 residents per year (2020-24), shrunk toward the city rate for small neighbourhoods.",
+          "source": "Ottawa Public Health"
+        },
+        {
+          "key": "noiseExposure",
+          "label": "Homes next to major roads",
+          "weight": 0.2,
+          "unit": "% of homes",
+          "format": "pct",
+          "direction": "lower",
+          "breakpoints": [[0, 100], [5, 85], [10, 70], [20, 45], [35, 20], [50, 0]],
+          "description": "Share of homes (apartment addresses weighted by their units) within 150 m of a freeway or 50 m of an arterial road, a standard proxy for traffic noise and air pollution exposure.",
+          "source": "City of Ottawa Municipal Address Points; Roads - Classification"
+        },
+        {
+          "key": "primaryCareAccess",
+          "label": "Distance to a family / walk-in clinic",
+          "weight": 0.15,
+          "unit": "km",
+          "format": "km",
+          "direction": "lower",
+          "breakpoints": [[0.5, 100], [1, 85], [2, 65], [5, 35], [10, 10], [15, 0]],
+          "description": "Interim measure: average distance to the nearest family practice or walk-in clinic mapped in OpenStreetMap. OSM coverage is incomplete; this will be replaced by neighbourhood primary-care attachment rates when they are published.",
+          "source": "OpenStreetMap contributors"
+        }
+      ]
+    }
+  ],
+  "context": [
+    { "key": "allCrimeRate", "category": "safety", "label": "All police-reported incidents", "unit": "per 1,000 residents / yr", "format": "rate", "description": "Every incident in the neighbourhood divided by residents. Inflated in areas with many visitors, so it is shown but not scored." },
+    { "key": "crimePopulation", "category": "safety", "label": "Residents used for crime rates", "unit": "people", "format": "number", "description": "2021 Census population grown by the dwellings added since (municipal address points), estimated for the crime data period, so fast-growing suburbs are not divided by an out-of-date population." },
+    { "key": "commercialAreaCrime", "category": "safety", "label": "Incidents in commercial / institutional areas", "unit": "per yr", "format": "number", "description": "Incidents on land zoned commercial, industrial, institutional or park. Reflects visitor activity more than risk at home." },
+    { "key": "allCollisions", "category": "safety", "label": "All collisions", "unit": "per yr", "format": "number", "description": "Every reported collision, including property-damage-only." },
+    { "key": "schoolsInBoundary", "category": "schools", "label": "Schools inside the boundary", "unit": "schools", "format": "number", "description": "Count of schools located inside the neighbourhood polygon. Not scored, since children often attend schools just outside it." },
+    { "key": "walkScore", "category": "amenities", "label": "Walk Score (official)", "unit": "0-100", "format": "number", "description": "Population-weighted mean Walk Score published by ONS-SQO. Shown for reference; the Amenities metrics above measure the same thing directly." },
+    { "key": "bikeScore", "category": "gettingAround", "label": "Bike Score (official)", "unit": "0-100", "format": "number", "description": "Population-weighted mean Bike Score published by ONS-SQO." },
+    { "key": "longCommutePct", "category": "gettingAround", "label": "Workers commuting 60+ min", "unit": "%", "format": "pct", "description": "2021 Census. Collected during the pandemic, so shown for context only." },
+    { "key": "pavementAge", "category": "gettingAround", "label": "Average pavement age", "unit": "years", "format": "number", "description": "Length-weighted average age of road surface. Age is not condition, so it is not scored." },
+    { "key": "foodSafety", "category": "healthEnvironment", "label": "Food inspection average", "unit": "score", "format": "number", "description": "Average Ottawa Public Health inspection score. Nearly every neighbourhood is between 97 and 100, so it is not scored." },
+    { "key": "marketRent", "category": "affordability", "label": "Recent listing rent (sample)", "unit": "$ / month", "format": "currency", "description": "Hand-collected listing average where a source exists; marked estimate otherwise." },
+    { "key": "marketHomePrice", "category": "affordability", "label": "Recent sale price (sample)", "unit": "$", "format": "currency", "description": "Hand-collected sales figure where a source exists; marked estimate otherwise." },
+    { "key": "neiScore", "category": null, "label": "Neighbourhood Equity Index (2019)", "unit": "0-100", "format": "number", "description": "City of Ottawa equity index used to prioritize investment. It measures disadvantage, not liveability, so it is not scored." },
+    { "key": "serviceRequestRate", "category": null, "label": "311 requests", "unit": "per 1,000 residents", "format": "number", "description": "Reflects how often residents call 311 as much as conditions on the ground." }
+  ],
+  "parameters": {
+    "minCategoryCoverage": 0.7,
+    "censusDate": "2021-05-11",
+    "addressLeadYears": 1,
+    "maxApartmentAddressWeight": 25,
+    "shrinkagePersonYears": 5000,
+    "shrinkageRoadKmYears": 30,
+    "mixedUseIncidentWeight": 0.5,
+    "violentCrimeCategories": [
+      "Assaults",
+      "Other Violations Involving Violence Or The Threat Of Violence",
+      "Offensive Weapons",
+      "Violations Resulting In The Deprivation Of Freedom",
+      "Sexual Violations",
+      "Violations Causing Death",
+      "Attempting The Commission Of A Capital Crime"
+    ],
+    "propertyCrimeCategories": [
+      "Break and Enter",
+      "Theft $5000 and Under",
+      "Theft Over $5000",
+      "Theft - Motor Vehicle",
+      "Mischief",
+      "Arson"
+    ],
+    "vulnerableRoadUserWeight": 2,
+    "ksiWeight": 3,
+    "freewayBufferKm": 0.03,
+    "overdoseYears": 5,
+    "emergencyDepartments": [
+      "Ottawa Hospital - Civic Campus",
+      "Ottawa Hospital - General Campus",
+      "Queensway-Carleton Hospital",
+      "Montfort Hospital"
+    ],
+    "downtown": { "lat": 45.4215, "lng": -75.6972 },
+    "groceryKm": 1,
+    "parkKm": 0.4,
+    "diningKm": 0.8,
+    "diningMinPlaces": 5,
+    "recreationKm": 1.5,
+    "greenspaceKm": 1,
+    "largeGreenspaceHa": 4,
+    "parklandRadiusKm": 1,
+    "bikewayKm": 0.4,
+    "protectedCyclingTypes": ["Path", "Cycle Track", "Segregated Bike Lane"],
+    "busWalkKm": 0.4,
+    "railWalkKm": 0.8,
+    "peakHours": 2,
+    "schoolSearchKm": 15,
+    "rankSimulations": 500,
+    "rankWeightJitter": 0.2,
+    "rankRangePercentiles": [0.1, 0.9]
+  },
+  "tiers": [
+    { "key": "top10", "label": "Top 10%", "maxPercentile": 0.1, "allowedLabels": ["Excellent", "Very good"] },
+    { "key": "top25", "label": "Top 25%", "maxPercentile": 0.25, "allowedLabels": ["Excellent", "Very good", "Good"] },
+    { "key": "top50", "label": "Top half", "maxPercentile": 0.5, "allowedLabels": ["Very good", "Good"] },
+    { "key": "bottom50", "label": "Bottom half", "maxPercentile": 1, "allowedLabels": ["Good", "Fair", "Poor"] }
+  ],
+  "scoreLabels": [
+    { "min": 80, "label": "Excellent" },
+    { "min": 75, "label": "Very good" },
+    { "min": 65, "label": "Good" },
+    { "min": 55, "label": "Fair" },
+    { "min": 0, "label": "Poor" }
+  ],
+  "presets": [
+    {
+      "key": "balanced",
+      "label": "Balanced",
+      "description": "The default weights.",
+      "weights": { "safety": 0.25, "schools": 0.15, "amenities": 0.15, "gettingAround": 0.15, "nature": 0.1, "affordability": 0.1, "healthEnvironment": 0.1 }
+    },
+    {
+      "key": "families",
+      "label": "Families",
+      "description": "Schools, safety and parks first.",
+      "weights": { "safety": 0.25, "schools": 0.25, "amenities": 0.1, "gettingAround": 0.05, "nature": 0.15, "affordability": 0.1, "healthEnvironment": 0.1 }
+    },
+    {
+      "key": "carFree",
+      "label": "Car-free",
+      "description": "Transit, walkable amenities and downtown access.",
+      "weights": { "safety": 0.15, "schools": 0.05, "amenities": 0.25, "gettingAround": 0.35, "nature": 0.05, "affordability": 0.1, "healthEnvironment": 0.05 }
+    },
+    {
+      "key": "budget",
+      "label": "On a budget",
+      "description": "Lower rent and home prices weigh most.",
+      "weights": { "safety": 0.2, "schools": 0.1, "amenities": 0.1, "gettingAround": 0.15, "nature": 0.05, "affordability": 0.35, "healthEnvironment": 0.05 }
+    },
+    {
+      "key": "retirees",
+      "label": "Retirees",
+      "description": "Safety, health care and quiet nature.",
+      "weights": { "safety": 0.25, "schools": 0, "amenities": 0.2, "gettingAround": 0.1, "nature": 0.15, "affordability": 0.05, "healthEnvironment": 0.25 }
+    }
+  ]
+}

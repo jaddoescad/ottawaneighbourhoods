@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/most-expensive',
     '/best-food-scene',
     '/best-for-nature',
+    '/methodology',
   ]
 
   const staticEntries: MetadataRoute.Sitemap = staticPages.map((path) => ({

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { neighbourhoods } from "@/data/neighbourhoods";
 
 const topNeighbourhoods = [...neighbourhoods]
-  .sort((a, b) => b.overallScore - a.overallScore)
+  .sort((a, b) => a.rank - b.rank || a.name.localeCompare(b.name))
   .slice(0, 6)
   .map(({ id, name }) => ({ id, name }));
 
@@ -13,6 +13,7 @@ const rankingLinks = [
   { href: "/safest-neighbourhoods", label: "Safest Neighbourhoods" },
   { href: "/best-schools", label: "Best Schools" },
   { href: "/best-transit", label: "Best Transit" },
+  { href: "/methodology", label: "How Scores Work" },
 ];
 
 export default function SiteFooter() {

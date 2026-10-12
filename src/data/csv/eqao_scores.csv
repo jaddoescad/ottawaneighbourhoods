@@ -1,245 +1,249 @@
-schoolName,boardName,schoolLevel,avgScore
-"St. Gabriel Elementary School","Ottawa CSB","Elementary",95
-"Stephen Leacock Public School","Ottawa-Carleton DSB","Elementary",95
-"St. Isabel Catholic Elementary School","Ottawa CSB","Elementary",93
-"École élémentaire catholique George-Étienne-Cartier","CSDC du Centre-Est de l'Ontario","Elementary",92
-"École élémentaire catholique Jean-Robert-Gauthier","CSDC du Centre-Est de l'Ontario","Elementary",92
-"École élémentaire catholique Coeur d'Ottawa","CSDC du Centre-Est de l'Ontario","Elementary",91
-"W. Erskine Johnston Public School","Ottawa-Carleton DSB","Elementary",91
-"École élémentaire catholique d'enseignement personnalisé Édouard-Bond","CSDC du Centre-Est de l'Ontario","Elementary",89
-"École élémentaire publique Séraphin-Marion","CÉP de l'Est de l'Ontario","Elementary",89
-"First Avenue Public School","Ottawa-Carleton DSB","Elementary",89
-"École élémentaire publique Charlotte Lemieux","CÉP de l'Est de l'Ontario","Elementary",88
-"St Luke (Nepean) Elementary School","Ottawa CSB","Elementary",88
-"Elmdale Public School","Ottawa-Carleton DSB","Elementary",88
-"Hopewell Avenue Public School","Ottawa-Carleton DSB","Elementary",88
-"Knoxdale Public School","Ottawa-Carleton DSB","Elementary",88
-"St Anne Elementary School","Ottawa CSB","Elementary",87
-"Colonel By Secondary School","Ottawa-Carleton DSB","Secondary",87
-"École secondaire catholique Paul-Desmarais","CSDC du Centre-Est de l'Ontario","Secondary",86
-"École élémentaire publique Francojeunesse","CÉP de l'Est de l'Ontario","Elementary",86
-"Chapel Hill Catholic Elementary School","Ottawa CSB","Elementary",86
-"St James Elementary School","Ottawa CSB","Elementary",86
-"St. Stephen Catholic Elementary School","Ottawa CSB","Elementary",86
-"Kanata Highlands Public School","Ottawa-Carleton DSB","Elementary",86
-"École élémentaire publique Louise-Arbour","CÉP de l'Est de l'Ontario","Elementary",85
-"Convent Glen Catholic Elementary School","Ottawa CSB","Elementary",85
-"St. Brother Andre Elementary School","Ottawa CSB","Elementary",85
-"St. Gemma Elementary School","Ottawa CSB","Elementary",85
-"Earl of March Secondary School","Ottawa-Carleton DSB","Secondary",85
-"St. Benedict Elementary School","Ottawa CSB","Elementary",84
-"St. Cecilia Catholic School","Ottawa CSB","Elementary",84
-"W.O. Mitchell Elementary School","Ottawa-Carleton DSB","Elementary",84
-"École élémentaire catholique Bernard-Grandmaître","CSDC du Centre-Est de l'Ontario","Elementary",83
-"École élémentaire publique Michel-Dupuis","CÉP de l'Est de l'Ontario","Elementary",83
-"Sacred Heart High School","Ottawa CSB","Secondary",83
-"Agincourt Road Public School","Ottawa-Carleton DSB","Elementary",83
-"Broadview Public School","Ottawa-Carleton DSB","Elementary",83
-"Lakeview Public School","Ottawa-Carleton DSB","Elementary",83
-"Mutchmor Public School","Ottawa-Carleton DSB","Elementary",83
-"Orleans Wood Elementary School","Ottawa-Carleton DSB","Elementary",83
-"École élémentaire catholique Saint-François-d'Assise","CSDC du Centre-Est de l'Ontario","Elementary",82
-"École élémentaire catholique d'enseignement personnalisé Lamoureux","CSDC du Centre-Est de l'Ontario","Elementary",82
-"St Jerome Elementary School","Ottawa CSB","Elementary",82
-"Castor Valley Elementary School","Ottawa-Carleton DSB","Elementary",82
-"Maple Ridge Elementary School","Ottawa-Carleton DSB","Elementary",82
-"Merivale High School","Ottawa-Carleton DSB","Secondary",82
-"Nepean High School","Ottawa-Carleton DSB","Secondary",82
-"Rockcliffe Park Public School","Ottawa-Carleton DSB","Elementary",82
-"Roland Michener Public School","Ottawa-Carleton DSB","Elementary",82
-"St Elizabeth Ann Seton Elementary School","Ottawa CSB","Elementary",81
-"St Emily (Elementary) Separate School","Ottawa CSB","Elementary",81
-"Roch Carrier Elementary School","Ottawa-Carleton DSB","Elementary",81
-"West Carleton Secondary School","Ottawa-Carleton DSB","Secondary",81
-"École secondaire catholique Samuel-Genest","CSDC du Centre-Est de l'Ontario","Secondary",80
-"École élémentaire catholique Montfort","CSDC du Centre-Est de l'Ontario","Elementary",80
-"École élémentaire catholique Terre-des-Jeunes","CSDC du Centre-Est de l'Ontario","Elementary",80
-"All Saints Catholic High School","Ottawa CSB","Secondary",80
-"Guardian Angels Elementary School","Ottawa CSB","Elementary",80
-"Canterbury High School","Ottawa-Carleton DSB","Secondary",80
-"Connaught Public School","Ottawa-Carleton DSB","Elementary",80
-"Lisgar Collegiate Institute","Ottawa-Carleton DSB","Secondary",80
-"Sir Winston Churchill Public School","Ottawa-Carleton DSB","Elementary",80
-"Woodroffe Avenue Public School","Ottawa-Carleton DSB","Elementary",80
-"École secondaire catholique de l’innovation","CSDC du Centre-Est de l'Ontario","Secondary",79
-"École élémentaire catholique Sainte-Kateri","CSDC du Centre-Est de l'Ontario","Elementary",79
-"Holy Spirit Elementary School","Ottawa CSB","Elementary",79
-"St Isidore Elementary School","Ottawa CSB","Elementary",79
-"St. Bernadette Catholic Elementary School","Ottawa CSB","Elementary",79
-"Manotick Public School","Ottawa-Carleton DSB","Elementary",79
-"École élémentaire catholique Notre-Dame-des-Champs","CSDC du Centre-Est de l'Ontario","Elementary",78
-"École secondaire publique De La Salle","CÉP de l'Est de l'Ontario","Secondary",78
-"St George Elementary School","Ottawa CSB","Elementary",78
-"St John the Apostle Elementary School","Ottawa CSB","Elementary",78
-"Glebe Collegiate Institute","Ottawa-Carleton DSB","Secondary",78
-"École secondaire catholique Franco-Cité","CSDC du Centre-Est de l'Ontario","Secondary",77
-"École secondaire publique L'Alternative","CÉP de l'Est de l'Ontario","Secondary",77
-"St Francis of Assisi Elementary School","Ottawa CSB","Elementary",77
-"St Joseph High School","Ottawa CSB","Secondary",77
-"St. Mother Teresa High School","Ottawa CSB","Secondary",77
-"A.Y. Jackson Secondary School","Ottawa-Carleton DSB","Secondary",77
-"St Andrew Elementary School","Ottawa CSB","Elementary",76
-"St. Dominic Catholic Elementary School","Ottawa CSB","Elementary",76
-"Chapman Mills Elementary School","Ottawa-Carleton DSB","Elementary",76
-"Devonshire Community Public School","Ottawa-Carleton DSB","Elementary",76
-"Jack Donohue Public School","Ottawa-Carleton DSB","Elementary",76
-"North Gower/Marlborough Public School","Ottawa-Carleton DSB","Elementary",76
-"Assumption Catholic Elementary School","Ottawa CSB","Elementary",75
-"Corpus Christi Catholic Elementary School","Ottawa CSB","Elementary",75
-"Holy Trinity Catholic High School","Ottawa CSB","Secondary",75
-"St Gregory Elementary School","Ottawa CSB","Elementary",75
-"St Mark High School","Ottawa CSB","Secondary",75
-"St Patrick Elementary School","Ottawa CSB","Elementary",75
-"St. Juan Diego Catholic Elementary School","Ottawa CSB","Elementary",75
-"A. Lorne Cassidy Elementary School","Ottawa-Carleton DSB","Elementary",75
-"Barrhaven Public School","Ottawa-Carleton DSB","Elementary",75
-"Bayview Public School","Ottawa-Carleton DSB","Elementary",75
-"Elgin Street Public School","Ottawa-Carleton DSB","Elementary",75
-"Hilson Avenue Public School","Ottawa-Carleton DSB","Elementary",75
-"Mary Honeywell Elementary School","Ottawa-Carleton DSB","Elementary",75
-"Westwind Public School","Ottawa-Carleton DSB","Elementary",75
-"St Michael (Fitzroy) Elementary School","Ottawa CSB","Elementary",74
-"St. Francis Xavier (9-12) Catholic School","Ottawa CSB","Secondary",74
-"Longfields Davidson Heights Secondary School","Ottawa-Carleton DSB","Secondary",74
-"École élémentaire catholique Sainte-Geneviève","CSDC du Centre-Est de l'Ontario","Elementary",73
-"Holy Cross Elementary School","Ottawa CSB","Elementary",73
-"St Leonard Elementary School","Ottawa CSB","Elementary",73
-"St Marguerite d'Youville Elementary School","Ottawa CSB","Elementary",73
-"St Theresa Elementary School","Ottawa CSB","Elementary",73
-"Berrigan Elementary School","Ottawa-Carleton DSB","Elementary",73
-"John McCrae Secondary School","Ottawa-Carleton DSB","Secondary",73
-"South March Public School","Ottawa-Carleton DSB","Elementary",73
-"Steve MacLean Public School","Ottawa-Carleton DSB","Elementary",73
-"Terry Fox Elementary School","Ottawa-Carleton DSB","Elementary",73
-"Holy Redeemer Elementary School","Ottawa CSB","Elementary",72
-"St Philip Elementary School","Ottawa CSB","Elementary",72
-"Lady Evelyn Alternative School","Ottawa-Carleton DSB","Elementary",72
-"Pleasant Park Public School","Ottawa-Carleton DSB","Elementary",72
-"Richmond Public School","Ottawa-Carleton DSB","Elementary",72
-"Our Lady of Peace Elementary School","Ottawa CSB","Elementary",71
-"St Martin de Porres Elementary School","Ottawa CSB","Elementary",71
-"St Mary (Gloucester) Elementary School","Ottawa CSB","Elementary",71
-"St Matthew High School","Ottawa CSB","Secondary",71
-"St Monica Elementary School","Ottawa CSB","Elementary",71
-"Churchill Alternative School","Ottawa-Carleton DSB","Elementary",71
-"Heritage Public School","Ottawa-Carleton DSB","Elementary",71
-"Kars on the Rideau Public School","Ottawa-Carleton DSB","Elementary",71
-"Monsignor Paul Baxter Elementary School","Ottawa CSB","Elementary",70
-"St Peter High School","Ottawa CSB","Secondary",70
-"Adrienne Clarkson Elementary School","Ottawa-Carleton DSB","Elementary",70
-"Fallingbrook Community Elementary School","Ottawa-Carleton DSB","Elementary",70
-"Half Moon Bay Public School","Ottawa-Carleton DSB","Elementary",70
-"St Pius X High School","Ottawa CSB","Secondary",69
-"St. Kateri Tekakwitha Elementary School","Ottawa CSB","Elementary",69
-"Bridlewood Community Elementary School","Ottawa-Carleton DSB","Elementary",69
-"Glen Ogilvie Public School","Ottawa-Carleton DSB","Elementary",69
-"École élémentaire publique Marie-Curie","CÉP de l'Est de l'Ontario","Elementary",68
-"Georges Vanier Catholic Elementary School","Ottawa CSB","Elementary",68
-"Immaculata High School","Ottawa CSB","Secondary",68
-"Castlefrank Elementary School","Ottawa-Carleton DSB","Elementary",68
-"South Carleton High School","Ottawa-Carleton DSB","Secondary",68
-"Summerside Public School","Ottawa-Carleton DSB","Elementary",68
-"Wazoson Public School","Ottawa-Carleton DSB","Elementary",68
-"École élémentaire catholique Marius-Barbeau","CSDC du Centre-Est de l'Ontario","Elementary",67
-"St Bernard Elementary School","Ottawa CSB","Elementary",67
-"St Thomas More Elementary School","Ottawa CSB","Elementary",67
-"St. John XXIII Elementary School","Ottawa CSB","Elementary",67
-"St. Rose of Lima Elementary School","Ottawa CSB","Elementary",67
-"Alta Vista Public School","Ottawa-Carleton DSB","Elementary",67
-"Farley Mowat Public School","Ottawa-Carleton DSB","Elementary",67
-"Forest Valley Elementary School","Ottawa-Carleton DSB","Elementary",67
-"Severn Avenue Public School","Ottawa-Carleton DSB","Elementary",67
-"Sir Wilfrid Laurier Secondary School","Ottawa-Carleton DSB","Secondary",67
-"Vincent Massey Public School","Ottawa-Carleton DSB","Elementary",67
-"École secondaire publique Omer-Deslauriers","CÉP de l'Est de l'Ontario","Secondary",66
-"St Clare Elementary School","Ottawa CSB","Elementary",66
-"St Paul High School","Ottawa CSB","Secondary",66
-"St Rita Elementary School","Ottawa CSB","Elementary",66
-"Thomas D'Arcy McGee Elementary School","Ottawa CSB","Elementary",66
-"Cairine Wilson Secondary School","Ottawa-Carleton DSB","Secondary",66
-"Goulbourn Middle School","Ottawa-Carleton DSB","Elementary",66
-"Huntley Centennial Public School","Ottawa-Carleton DSB","Elementary",66
-"Osgoode Public School","Ottawa-Carleton DSB","Elementary",66
-"Sir Robert Borden High School","Ottawa-Carleton DSB","Secondary",66
-"Stonecrest Elementary School","Ottawa-Carleton DSB","Elementary",66
-"Viscount Alexander Public School","Ottawa-Carleton DSB","Elementary",66
-"Divine Infant Catholic Elementary School","Ottawa CSB","Elementary",65
-"Briargreen Public School","Ottawa-Carleton DSB","Elementary",65
-"Emily Carr Middle School","Ottawa-Carleton DSB","Elementary",65
-"Fielding Drive Public School","Ottawa-Carleton DSB","Elementary",65
-"Osgoode Township High School","Ottawa-Carleton DSB","Secondary",65
-"St Michael (Corkery) Elementary School","Ottawa CSB","Elementary",64
-"John Young Elementary School","Ottawa-Carleton DSB","Elementary",64
-"Stittsville Public School","Ottawa-Carleton DSB","Elementary",64
-"École élémentaire catholique Sainte-Anne","CSDC du Centre-Est de l'Ontario","Elementary",63
-"Our Lady of Wisdom Elementary School","Ottawa CSB","Elementary",63
-"St Augustine Elementary School","Ottawa CSB","Elementary",63
-"St Catherine Elementary School","Ottawa CSB","Elementary",63
-"St. John Paul II Elementary School","Ottawa CSB","Elementary",63
-"Henry Larsen Elementary School","Ottawa-Carleton DSB","Elementary",63
-"Katimavik Elementary School","Ottawa-Carleton DSB","Elementary",63
-"Robert Hopkins Public School","Ottawa-Carleton DSB","Elementary",63
-"Trillium Elementary School","Ottawa-Carleton DSB","Elementary",63
-"St Elizabeth Elementary School","Ottawa CSB","Elementary",62
-"Le Phare Elementary School","Ottawa-Carleton DSB","Elementary",62
-"Roberta Bondar Public School","Ottawa-Carleton DSB","Elementary",61
-"Vimy Ridge Public School","Ottawa-Carleton DSB","Elementary",61
-"Holy Family Elementary School","Ottawa CSB","Elementary",60
-"Notre Dame High School","Ottawa CSB","Secondary",60
-"Bell High School","Ottawa-Carleton DSB","Secondary",60
-"Greely Elementary School","Ottawa-Carleton DSB","Elementary",60
-"Henry Munro Middle School","Ottawa-Carleton DSB","Elementary",60
-"Hillcrest High School","Ottawa-Carleton DSB","Secondary",60
-"Jockvale Elementary School","Ottawa-Carleton DSB","Elementary",60
-"Shingwàkons Public School","Ottawa-Carleton DSB","Elementary",60
-"Woodroffe High School","Ottawa-Carleton DSB","Secondary",60
-"York Street Public School","Ottawa-Carleton DSB","Elementary",60
-"Dr F J McDonald Catholic Elementary School","Ottawa CSB","Elementary",59
-"Lester B Pearson Catholic High School","Ottawa CSB","Secondary",59
-"St Anthony Elementary School","Ottawa CSB","Elementary",59
-"D. Roy Kennedy Public School","Ottawa-Carleton DSB","Elementary",59
-"W.E. Gowling Public School","Ottawa-Carleton DSB","Elementary",59
-"Avalon Public School","Ottawa-Carleton DSB","Elementary",58
-"St Patrick's High School","Ottawa CSB","Secondary",57
-"General Vanier Public School","Ottawa-Carleton DSB","Elementary",57
-"Manor Park Public School","Ottawa-Carleton DSB","Elementary",57
-"Bells Corners Public School","Ottawa-Carleton DSB","Elementary",56
-"Centennial Public School","Ottawa-Carleton DSB","Elementary",55
-"Dunning-Foubert Elementary School","Ottawa-Carleton DSB","Elementary",55
-"Good Shepherd Elementary School","Ottawa CSB","Elementary",54
-"Our Lady of Fatima Elementary School","Ottawa CSB","Elementary",54
-"St Daniel Elementary School","Ottawa CSB","Elementary",52
-"Sawmill Creek Elementary School","Ottawa-Carleton DSB","Elementary",52
-"Prince of Peace Elementary School","Ottawa CSB","Elementary",50
-"Brookfield High School","Ottawa-Carleton DSB","Secondary",50
-"Cambridge Street Community Public School","Ottawa-Carleton DSB","Elementary",50
-"St Luke (Ottawa) Elementary School","Ottawa CSB","Elementary",49
-"Dunlop Public School","Ottawa-Carleton DSB","Elementary",49
-"Queen Elizabeth Public School","Ottawa-Carleton DSB","Elementary",48
-"St Brigid Elementary School","Ottawa CSB","Elementary",47
-"Manordale Public School","Ottawa-Carleton DSB","Elementary",47
-"Our Lady of Victory Elementary School","Ottawa CSB","Elementary",46
-"Meadowlands Public School","Ottawa-Carleton DSB","Elementary",45
-"Robert Bateman Public School","Ottawa-Carleton DSB","Elementary",45
-"Our Lady of Mount Carmel Elementary School","Ottawa CSB","Elementary",43
-"Bayshore Public School","Ottawa-Carleton DSB","Elementary",43
-"Gloucester High School","Ottawa-Carleton DSB","Secondary",43
-"Pinecrest Public School","Ottawa-Carleton DSB","Elementary",42
-"Regina Street Alternative School","Ottawa-Carleton DSB","Elementary",42
-"Riverview Alternative School","Ottawa-Carleton DSB","Elementary",42
-"Ridgemont High School","Ottawa-Carleton DSB","Secondary",41
-"Featherston Drive Public School","Ottawa-Carleton DSB","Elementary",40
-"Charles H. Hulse Public School","Ottawa-Carleton DSB","Elementary",39
-"St Michael Elementary School","Ottawa CSB","Elementary",37
-"Metcalfe Public School","Ottawa-Carleton DSB","Elementary",36
-"Sir Guy Carleton Secondary School","Ottawa-Carleton DSB","Secondary",35
-"Convent Glen Elementary School","Ottawa-Carleton DSB","Elementary",33
-"Carleton Heights Public School","Ottawa-Carleton DSB","Elementary",32
-"Robert E.  Wilson Public School","Ottawa-Carleton DSB","Elementary",32
-"Arch Street Public School","Ottawa-Carleton DSB","Elementary",31
-"Queen Mary Street Public School","Ottawa-Carleton DSB","Elementary",30
-"Blossom Park Public School","Ottawa-Carleton DSB","Elementary",29
-"Hawthorne Public School","Ottawa-Carleton DSB","Elementary",26
-"Carson Grove Elementary School","Ottawa-Carleton DSB","Elementary",19
-"Ottawa Technical Secondary School","Ottawa-Carleton DSB","Secondary",17
-"Adult High School","Ottawa-Carleton DSB","Secondary",10
+schoolName,boardName,schoolLevel,avgScore,yearsAveraged,years,schoolNumber
+"St. Gabriel Elementary School","Ottawa CSB","Elementary",94,3,"2022-23 2023-24 2024-25","838912"
+"École élémentaire catholique Coeur d'Ottawa","CSDC du Centre-Est de l'Ontario","Elementary",93,3,"2022-23 2023-24 2024-25","866248"
+"St. Isabel Catholic Elementary School","Ottawa CSB","Elementary",93,3,"2022-23 2023-24 2024-25","814241"
+"Stephen Leacock Public School","Ottawa-Carleton DSB","Elementary",93,3,"2022-23 2023-24 2024-25","310646"
+"Elmdale Public School","Ottawa-Carleton DSB","Elementary",91,3,"2022-23 2023-24 2024-25","177008"
+"W. Erskine Johnston Public School","Ottawa-Carleton DSB","Elementary",91,3,"2022-23 2023-24 2024-25","579297"
+"École élémentaire publique Charlotte Lemieux","CÉP de l'Est de l'Ontario","Elementary",90,3,"2022-23 2023-24 2024-25","412597"
+"Hopewell Avenue Public School","Ottawa-Carleton DSB","Elementary",90,3,"2022-23 2023-24 2024-25","264628"
+"St Anne Elementary School","Ottawa CSB","Elementary",89,3,"2022-23 2023-24 2024-25","691232"
+"Colonel By Secondary School","Ottawa-Carleton DSB","Secondary",88,3,"2022-23 2023-24 2024-25","902586"
+"École élémentaire catholique d'enseignement personnalisé Édouard-Bond","CSDC du Centre-Est de l'Ontario","Elementary",88,3,"2022-23 2023-24 2024-25","786634"
+"École élémentaire catholique George-Étienne-Cartier","CSDC du Centre-Est de l'Ontario","Elementary",88,3,"2022-23 2023-24 2024-25","864730"
+"École élémentaire catholique Jean-Robert-Gauthier","CSDC du Centre-Est de l'Ontario","Elementary",88,3,"2022-23 2023-24 2024-25","705136"
+"École secondaire catholique Paul-Desmarais","CSDC du Centre-Est de l'Ontario","Secondary",88,3,"2022-23 2023-24 2024-25","758231"
+"First Avenue Public School","Ottawa-Carleton DSB","Elementary",87,3,"2022-23 2023-24 2024-25","196762"
+"Knoxdale Public School","Ottawa-Carleton DSB","Elementary",87,3,"2022-23 2023-24 2024-25","302759"
+"St James Elementary School","Ottawa CSB","Elementary",87,3,"2022-23 2023-24 2024-25","691186"
+"St Luke (Nepean) Elementary School","Ottawa CSB","Elementary",87,3,"2022-23 2023-24 2024-25","726036"
+"Chapel Hill Catholic Elementary School","Ottawa CSB","Elementary",86,3,"2022-23 2023-24 2024-25","695963"
+"Earl of March Secondary School","Ottawa-Carleton DSB","Secondary",86,3,"2022-23 2023-24 2024-25","906484"
+"Kanata Highlands Public School","Ottawa-Carleton DSB","Elementary",86,3,"2022-23 2023-24 2024-25","579722"
+"St. Benedict Elementary School","Ottawa CSB","Elementary",86,3,"2022-23 2023-24 2024-25","849407"
+"St. Cecilia Catholic School","Ottawa CSB","Elementary",86,3,"2022-23 2023-24 2024-25","700227"
+"Convent Glen Catholic Elementary School","Ottawa CSB","Elementary",85,3,"2022-23 2023-24 2024-25","699241"
+"École élémentaire publique Séraphin-Marion","CÉP de l'Est de l'Ontario","Elementary",85,3,"2022-23 2023-24 2024-25","195774"
+"St Elizabeth Ann Seton Elementary School","Ottawa CSB","Elementary",85,3,"2022-23 2023-24 2024-25","688738"
+"Woodroffe Avenue Public School","Ottawa-Carleton DSB","Elementary",85,3,"2022-23 2023-24 2024-25","619523"
+"Agincourt Road Public School","Ottawa-Carleton DSB","Elementary",84,3,"2022-23 2023-24 2024-25","004626"
+"École élémentaire publique Louise-Arbour","CÉP de l'Est de l'Ontario","Elementary",84,3,"2022-23 2023-24 2024-25","242420"
+"Holy Spirit Elementary School","Ottawa CSB","Elementary",84,3,"2022-23 2023-24 2024-25","718408"
+"Mutchmor Public School","Ottawa-Carleton DSB","Elementary",84,3,"2022-23 2023-24 2024-25","382272"
+"St Jerome Elementary School","Ottawa CSB","Elementary",84,3,"2022-23 2023-24 2024-25","753246"
+"St. Bernadette Catholic Elementary School","Ottawa CSB","Elementary",84,2,"2023-24 2024-25","827609"
+"St. Gemma Elementary School","Ottawa CSB","Elementary",84,3,"2022-23 2023-24 2024-25","731374"
+"Devonshire Community Public School","Ottawa-Carleton DSB","Elementary",83,3,"2022-23 2023-24 2024-25","139432"
+"École élémentaire publique Francojeunesse","CÉP de l'Est de l'Ontario","Elementary",83,3,"2022-23 2023-24 2024-25","419796"
+"Guardian Angels Elementary School","Ottawa CSB","Elementary",83,3,"2022-23 2023-24 2024-25","760013"
+"Merivale High School","Ottawa-Carleton DSB","Secondary",83,3,"2022-23 2023-24 2024-25","925691"
+"Nepean High School","Ottawa-Carleton DSB","Secondary",83,3,"2022-23 2023-24 2024-25","928291"
+"St George Elementary School","Ottawa CSB","Elementary",83,3,"2022-23 2023-24 2024-25","794406"
+"West Carleton Secondary School","Ottawa-Carleton DSB","Secondary",83,3,"2022-23 2023-24 2024-25","951366"
+"All Saints Catholic High School","Ottawa CSB","Secondary",82,3,"2022-23 2023-24 2024-25","724777"
+"Broadview Public School","Ottawa-Carleton DSB","Elementary",82,3,"2022-23 2023-24 2024-25","063908"
+"École élémentaire catholique d'enseignement personnalisé Lamoureux","CSDC du Centre-Est de l'Ontario","Elementary",82,3,"2022-23 2023-24 2024-25","725633"
+"St Emily (Elementary) Separate School","Ottawa CSB","Elementary",82,3,"2022-23 2023-24 2024-25","754832"
+"St. Stephen Catholic Elementary School","Ottawa CSB","Elementary",82,3,"2022-23 2023-24 2024-25","744065"
+"Canterbury High School","Ottawa-Carleton DSB","Secondary",81,3,"2022-23 2023-24 2024-25","898317"
+"École élémentaire catholique Bernard-Grandmaître","CSDC du Centre-Est de l'Ontario","Elementary",81,3,"2022-23 2023-24 2024-25","769765"
+"École secondaire catholique Samuel-Genest","CSDC du Centre-Est de l'Ontario","Secondary",81,3,"2022-23 2023-24 2024-25","695955"
+"Elgin Street Public School","Ottawa-Carleton DSB","Elementary",81,3,"2022-23 2023-24 2024-25","170763"
+"Lakeview Public School","Ottawa-Carleton DSB","Elementary",81,3,"2022-23 2023-24 2024-25","305057"
+"Sacred Heart High School","Ottawa CSB","Secondary",81,3,"2022-23 2023-24 2024-25","759970"
+"Sir Winston Churchill Public School","Ottawa-Carleton DSB","Elementary",81,3,"2022-23 2023-24 2024-25","516694"
+"W.O. Mitchell Elementary School","Ottawa-Carleton DSB","Elementary",81,3,"2022-23 2023-24 2024-25","061972"
+"Castor Valley Elementary School","Ottawa-Carleton DSB","Elementary",80,3,"2022-23 2023-24 2024-25","086452"
+"Connaught Public School","Ottawa-Carleton DSB","Elementary",80,3,"2022-23 2023-24 2024-25","121886"
+"École secondaire publique De La Salle","CÉP de l'Est de l'Ontario","Secondary",80,3,"2022-23 2023-24 2024-25","907430"
+"Glebe Collegiate Institute","Ottawa-Carleton DSB","Secondary",80,3,"2022-23 2023-24 2024-25","912697"
+"Lisgar Collegiate Institute","Ottawa-Carleton DSB","Secondary",80,3,"2022-23 2023-24 2024-25","922960"
+"Roch Carrier Elementary School","Ottawa-Carleton DSB","Elementary",80,3,"2022-23 2023-24 2024-25","060925"
+"St Leonard Elementary School","Ottawa CSB","Elementary",80,3,"2022-23 2023-24 2024-25","708470"
+"St Michael (Fitzroy) Elementary School","Ottawa CSB","Elementary",80,3,"2022-23 2023-24 2024-25","707694"
+"École élémentaire catholique Saint-François-d'Assise","CSDC du Centre-Est de l'Ontario","Elementary",79,3,"2022-23 2023-24 2024-25","793027"
+"École élémentaire publique Michel-Dupuis","CÉP de l'Est de l'Ontario","Elementary",79,3,"2022-23 2023-24 2024-25","530457"
+"Monsignor Paul Baxter Elementary School","Ottawa CSB","Elementary",79,3,"2022-23 2023-24 2024-25","759538"
+"Rockcliffe Park Public School","Ottawa-Carleton DSB","Elementary",79,3,"2022-23 2023-24 2024-25","488356"
+"St. Dominic Catholic Elementary School","Ottawa CSB","Elementary",79,3,"2022-23 2023-24 2024-25","702385"
+"St. Gianna Catholic Elementary School","Ottawa CSB","Elementary",79,1,"2024-25","778776"
+"A. Lorne Cassidy Elementary School","Ottawa-Carleton DSB","Elementary",78,3,"2022-23 2023-24 2024-25","000566"
+"Adrienne Clarkson Elementary School","Ottawa-Carleton DSB","Elementary",78,3,"2022-23 2023-24 2024-25","320510"
+"École élémentaire catholique Sainte-Geneviève","CSDC du Centre-Est de l'Ontario","Elementary",78,3,"2022-23 2023-24 2024-25","861871"
+"École élémentaire catholique Sainte-Kateri","CSDC du Centre-Est de l'Ontario","Elementary",78,3,"2022-23 2023-24 2024-25","733402"
+"Hilson Avenue Public School","Ottawa-Carleton DSB","Elementary",78,3,"2022-23 2023-24 2024-25","259810"
+"Maple Ridge Elementary School","Ottawa-Carleton DSB","Elementary",78,3,"2022-23 2023-24 2024-25","129690"
+"St Joseph High School","Ottawa CSB","Secondary",78,3,"2022-23 2023-24 2024-25","764914"
+"École élémentaire catholique Montfort","CSDC du Centre-Est de l'Ontario","Elementary",77,3,"2022-23 2023-24 2024-25","732397"
+"École élémentaire catholique Notre-Dame-des-Champs","CSDC du Centre-Est de l'Ontario","Elementary",77,3,"2022-23 2023-24 2024-25","735920"
+"École élémentaire catholique Terre-des-Jeunes","CSDC du Centre-Est de l'Ontario","Elementary",77,3,"2022-23 2023-24 2024-25","861480"
+"Holy Trinity Catholic High School","Ottawa CSB","Secondary",77,3,"2022-23 2023-24 2024-25","724742"
+"Roland Michener Public School","Ottawa-Carleton DSB","Elementary",77,3,"2022-23 2023-24 2024-25","489360"
+"St Andrew Elementary School","Ottawa CSB","Elementary",77,3,"2022-23 2023-24 2024-25","701599"
+"St Patrick Elementary School","Ottawa CSB","Elementary",77,3,"2022-23 2023-24 2024-25","688878"
+"St. Brother Andre Elementary School","Ottawa CSB","Elementary",77,3,"2022-23 2023-24 2024-25","689173"
+"Westwind Public School","Ottawa-Carleton DSB","Elementary",77,3,"2022-23 2023-24 2024-25","624500"
+"Chapman Mills Elementary School","Ottawa-Carleton DSB","Elementary",76,3,"2022-23 2023-24 2024-25","282953"
+"École secondaire catholique Franco-Cité","CSDC du Centre-Est de l'Ontario","Secondary",76,3,"2022-23 2023-24 2024-25","705233"
+"Fallingbrook Community Elementary School","Ottawa-Carleton DSB","Elementary",76,3,"2022-23 2023-24 2024-25","129674"
+"Jack Donohue Public School","Ottawa-Carleton DSB","Elementary",76,3,"2022-23 2023-24 2024-25","287202"
+"Orleans Wood Elementary School","Ottawa-Carleton DSB","Elementary",76,3,"2022-23 2023-24 2024-25","419389"
+"St Clare Elementary School","Ottawa CSB","Elementary",76,3,"2022-23 2023-24 2024-25","784451"
+"St Isidore Elementary School","Ottawa CSB","Elementary",76,3,"2022-23 2023-24 2024-25","729795"
+"St Mark High School","Ottawa CSB","Secondary",76,3,"2022-23 2023-24 2024-25","864331"
+"St. Juan Diego Catholic Elementary School","Ottawa CSB","Elementary",76,2,"2023-24 2024-25","734002"
+"St. Mother Teresa High School","Ottawa CSB","Secondary",76,3,"2022-23 2023-24 2024-25","733288"
+"Steve MacLean Public School","Ottawa-Carleton DSB","Elementary",76,3,"2022-23 2023-24 2024-25","565750"
+"A.Y. Jackson Secondary School","Ottawa-Carleton DSB","Secondary",75,3,"2022-23 2023-24 2024-25","890243"
+"Castlefrank Elementary School","Ottawa-Carleton DSB","Elementary",75,3,"2022-23 2023-24 2024-25","086487"
+"Divine Infant Catholic Elementary School","Ottawa CSB","Elementary",75,3,"2022-23 2023-24 2024-25","700193"
+"Huntley Centennial Public School","Ottawa-Carleton DSB","Elementary",75,3,"2022-23 2023-24 2024-25","273333"
+"John McCrae Secondary School","Ottawa-Carleton DSB","Secondary",75,3,"2022-23 2023-24 2024-25","918954"
+"Severn Avenue Public School","Ottawa-Carleton DSB","Elementary",75,3,"2022-23 2023-24 2024-25","506168"
+"St Gregory Elementary School","Ottawa CSB","Elementary",75,3,"2022-23 2023-24 2024-25","796093"
+"St John the Apostle Elementary School","Ottawa CSB","Elementary",75,3,"2022-23 2023-24 2024-25","804126"
+"St Monica Elementary School","Ottawa CSB","Elementary",75,3,"2022-23 2023-24 2024-25","835617"
+"St Philip Elementary School","Ottawa CSB","Elementary",75,3,"2022-23 2023-24 2024-25","845620"
+"St Theresa Elementary School","Ottawa CSB","Elementary",75,3,"2022-23 2023-24 2024-25","702250"
+"Longfields Davidson Heights Secondary School","Ottawa-Carleton DSB","Secondary",74,3,"2022-23 2023-24 2024-25","900494"
+"Manotick Public School","Ottawa-Carleton DSB","Elementary",74,3,"2022-23 2023-24 2024-25","332615"
+"Pleasant Park Public School","Ottawa-Carleton DSB","Elementary",74,3,"2022-23 2023-24 2024-25","448834"
+"St Augustine Elementary School","Ottawa CSB","Elementary",74,3,"2022-23 2023-24 2024-25","775290"
+"St. Francis Xavier (9-12) Catholic School","Ottawa CSB","Secondary",74,3,"2022-23 2023-24 2024-25","843510"
+"Terry Fox Elementary School","Ottawa-Carleton DSB","Elementary",74,3,"2022-23 2023-24 2024-25","554910"
+"Berrigan Elementary School","Ottawa-Carleton DSB","Elementary",73,3,"2022-23 2023-24 2024-25","040665"
+"Bridlewood Community Elementary School","Ottawa-Carleton DSB","Elementary",73,3,"2022-23 2023-24 2024-25","034452"
+"Georges Vanier Catholic Elementary School","Ottawa CSB","Elementary",73,3,"2022-23 2023-24 2024-25","724530"
+"Mary Honeywell Elementary School","Ottawa-Carleton DSB","Elementary",73,3,"2022-23 2023-24 2024-25","345903"
+"Our Lady of Wisdom Elementary School","Ottawa CSB","Elementary",73,3,"2022-23 2023-24 2024-25","752193"
+"South March Public School","Ottawa-Carleton DSB","Elementary",73,3,"2022-23 2023-24 2024-25","204901"
+"St Francis of Assisi Elementary School","Ottawa CSB","Elementary",73,3,"2022-23 2023-24 2024-25","702749"
+"St Marguerite d'Youville Elementary School","Ottawa CSB","Elementary",73,3,"2022-23 2023-24 2024-25","821195"
+"St Mary (Gloucester) Elementary School","Ottawa CSB","Elementary",73,3,"2022-23 2023-24 2024-25","708739"
+"St Michael (Corkery) Elementary School","Ottawa CSB","Elementary",73,3,"2022-23 2023-24 2024-25","720569"
+"St Thomas More Elementary School","Ottawa CSB","Elementary",73,3,"2022-23 2023-24 2024-25","856118"
+"Churchill Alternative School","Ottawa-Carleton DSB","Elementary",72,3,"2022-23 2023-24 2024-25","107778"
+"Corpus Christi Catholic Elementary School","Ottawa CSB","Elementary",72,3,"2022-23 2023-24 2024-25","699896"
+"École secondaire catholique de l’innovation","CSDC du Centre-Est de l'Ontario","Secondary",72,3,"2022-23 2023-24 2024-25","705373"
+"St Anthony Elementary School","Ottawa CSB","Elementary",72,3,"2022-23 2023-24 2024-25","773085"
+"St Catherine Elementary School","Ottawa CSB","Elementary",72,3,"2022-23 2023-24 2024-25","740586"
+"St Martin de Porres Elementary School","Ottawa CSB","Elementary",72,3,"2022-23 2023-24 2024-25","708267"
+"St Matthew High School","Ottawa CSB","Secondary",72,3,"2022-23 2023-24 2024-25","704873"
+"Barrhaven Public School","Ottawa-Carleton DSB","Elementary",71,3,"2022-23 2023-24 2024-25","032271"
+"Sir Robert Borden High School","Ottawa-Carleton DSB","Secondary",71,3,"2022-23 2023-24 2024-25","942014"
+"St Paul High School","Ottawa CSB","Secondary",71,3,"2022-23 2023-24 2024-25","689203"
+"St Rita Elementary School","Ottawa CSB","Elementary",71,3,"2022-23 2023-24 2024-25","849260"
+"St. Kateri Tekakwitha Elementary School","Ottawa CSB","Elementary",71,3,"2022-23 2023-24 2024-25","741680"
+"St. Veronica Catholic Elementary School","Ottawa CSB","Elementary",71,1,"2024-25","795930"
+"Summerside Public School","Ottawa-Carleton DSB","Elementary",71,3,"2022-23 2023-24 2024-25","330043"
+"Alta Vista Public School","Ottawa-Carleton DSB","Elementary",70,3,"2022-23 2023-24 2024-25","013986"
+"École élémentaire catholique Sainte-Anne","CSDC du Centre-Est de l'Ontario","Elementary",70,3,"2022-23 2023-24 2024-25","860573"
+"Forest Valley Elementary School","Ottawa-Carleton DSB","Elementary",70,3,"2022-23 2023-24 2024-25","088560"
+"Glen Ogilvie Public School","Ottawa-Carleton DSB","Elementary",70,3,"2022-23 2023-24 2024-25","392197"
+"Holy Cross Elementary School","Ottawa CSB","Elementary",70,3,"2022-23 2023-24 2024-25","864609"
+"Holy Redeemer Elementary School","Ottawa CSB","Elementary",70,3,"2022-23 2023-24 2024-25","711497"
+"Sir Wilfrid Laurier Secondary School","Ottawa-Carleton DSB","Secondary",70,3,"2022-23 2023-24 2024-25","942332"
+"South Carleton High School","Ottawa-Carleton DSB","Secondary",70,3,"2022-23 2023-24 2024-25","942855"
+"St Pius X High School","Ottawa CSB","Secondary",70,3,"2022-23 2023-24 2024-25","847313"
+"St. Rose of Lima Elementary School","Ottawa CSB","Elementary",70,3,"2022-23 2023-24 2024-25","689130"
+"Thomas D'Arcy McGee Elementary School","Ottawa CSB","Elementary",70,3,"2022-23 2023-24 2024-25","864510"
+"Vincent Massey Public School","Ottawa-Carleton DSB","Elementary",70,3,"2022-23 2023-24 2024-25","577405"
+"Bayview Public School","Ottawa-Carleton DSB","Elementary",69,3,"2022-23 2023-24 2024-25","036862"
+"Farley Mowat Public School","Ottawa-Carleton DSB","Elementary",69,3,"2022-23 2023-24 2024-25","083456"
+"Half Moon Bay Public School","Ottawa-Carleton DSB","Elementary",69,3,"2022-23 2023-24 2024-25","062050"
+"St Bernard Elementary School","Ottawa CSB","Elementary",69,3,"2022-23 2023-24 2024-25","779326"
+"St Peter High School","Ottawa CSB","Secondary",69,3,"2022-23 2023-24 2024-25","843296"
+"Stittsville Public School","Ottawa-Carleton DSB","Elementary",69,3,"2022-23 2023-24 2024-25","537624"
+"Wazoson Public School","Ottawa-Carleton DSB","Elementary",69,2,"2023-24 2024-25","473973"
+"Emily Carr Middle School","Ottawa-Carleton DSB","Elementary",68,3,"2022-23 2023-24 2024-25","050261"
+"Heritage Public School","Ottawa-Carleton DSB","Elementary",68,3,"2022-23 2023-24 2024-25","356980"
+"Immaculata High School","Ottawa CSB","Secondary",68,3,"2022-23 2023-24 2024-25","721085"
+"Osgoode Township High School","Ottawa-Carleton DSB","Secondary",68,3,"2022-23 2023-24 2024-25","932710"
+"Assumption Catholic Elementary School","Ottawa CSB","Elementary",67,3,"2022-23 2023-24 2024-25","688193"
+"Cairine Wilson Secondary School","Ottawa-Carleton DSB","Secondary",67,3,"2022-23 2023-24 2024-25","906514"
+"École secondaire publique L'Alternative","CÉP de l'Est de l'Ontario","Secondary",67,2,"2022-23 2023-24","920550"
+"John Young Elementary School","Ottawa-Carleton DSB","Elementary",67,3,"2022-23 2023-24 2024-25","285455"
+"Le Phare Elementary School","Ottawa-Carleton DSB","Elementary",67,3,"2022-23 2023-24 2024-25","037699"
+"Maplewood Secondary School","Ottawa-Carleton DSB","Secondary",67,1,"2024-25","906059"
+"Osgoode Public School","Ottawa-Carleton DSB","Elementary",67,3,"2022-23 2023-24 2024-25","424650"
+"Our Lady of Peace Elementary School","Ottawa CSB","Elementary",67,3,"2022-23 2023-24 2024-25","734349"
+"Richmond Public School","Ottawa-Carleton DSB","Elementary",67,3,"2022-23 2023-24 2024-25","483150"
+"Robert Hopkins Public School","Ottawa-Carleton DSB","Elementary",67,3,"2022-23 2023-24 2024-25","487384"
+"St Daniel Elementary School","Ottawa CSB","Elementary",67,3,"2022-23 2023-24 2024-25","785822"
+"Stonecrest Elementary School","Ottawa-Carleton DSB","Elementary",67,3,"2022-23 2023-24 2024-25","595012"
+"École élémentaire catholique Marius-Barbeau","CSDC du Centre-Est de l'Ontario","Elementary",66,3,"2022-23 2023-24 2024-25","753157"
+"Fielding Drive Public School","Ottawa-Carleton DSB","Elementary",66,3,"2022-23 2023-24 2024-25","196266"
+"Kars on the Rideau Public School","Ottawa-Carleton DSB","Elementary",66,3,"2022-23 2023-24 2024-25","287563"
+"Vimy Ridge Public School","Ottawa-Carleton DSB","Elementary",66,3,"2022-23 2023-24 2024-25","396902"
+"Briargreen Public School","Ottawa-Carleton DSB","Elementary",65,3,"2022-23 2023-24 2024-25","061077"
+"École élémentaire publique Marie-Curie","CÉP de l'Est de l'Ontario","Elementary",65,3,"2022-23 2023-24 2024-25","164852"
+"Goulbourn Middle School","Ottawa-Carleton DSB","Elementary",65,3,"2022-23 2023-24 2024-25","223930"
+"Henry Larsen Elementary School","Ottawa-Carleton DSB","Elementary",65,3,"2022-23 2023-24 2024-25","419222"
+"St. John XXIII Elementary School","Ottawa CSB","Elementary",65,3,"2022-23 2023-24 2024-25","751375"
+"Viscount Alexander Public School","Ottawa-Carleton DSB","Elementary",65,3,"2022-23 2023-24 2024-25","578576"
+"Good Shepherd Elementary School","Ottawa CSB","Elementary",64,3,"2022-23 2023-24 2024-25","689971"
+"Greely Elementary School","Ottawa-Carleton DSB","Elementary",64,3,"2022-23 2023-24 2024-25","424919"
+"Lady Evelyn Alternative School","Ottawa-Carleton DSB","Elementary",64,3,"2022-23 2023-24 2024-25","452440"
+"Shingwàkons Public School","Ottawa-Carleton DSB","Elementary",64,3,"2022-23 2023-24 2024-25","035887"
+"Trillium Elementary School","Ottawa-Carleton DSB","Elementary",64,3,"2022-23 2023-24 2024-25","383260"
+"École secondaire publique Omer-Deslauriers","CÉP de l'Est de l'Ontario","Secondary",63,3,"2022-23 2023-24 2024-25","907421"
+"Katimavik Elementary School","Ottawa-Carleton DSB","Elementary",63,3,"2022-23 2023-24 2024-25","287156"
+"North Gower/Marlborough Public School","Ottawa-Carleton DSB","Elementary",63,3,"2022-23 2023-24 2024-25","407232"
+"Notre Dame High School","Ottawa CSB","Secondary",63,3,"2022-23 2023-24 2024-25","809020"
+"Bell High School","Ottawa-Carleton DSB","Secondary",62,3,"2022-23 2023-24 2024-25","894362"
+"Hillcrest High School","Ottawa-Carleton DSB","Secondary",62,3,"2022-23 2023-24 2024-25","916854"
+"Our Lady of Fatima Elementary School","Ottawa CSB","Elementary",62,3,"2022-23 2023-24 2024-25","753823"
+"Woodroffe High School","Ottawa-Carleton DSB","Secondary",62,3,"2022-23 2023-24 2024-25","954420"
+"Avalon Public School","Ottawa-Carleton DSB","Elementary",61,3,"2022-23 2023-24 2024-25","119207"
+"Dunning-Foubert Elementary School","Ottawa-Carleton DSB","Elementary",61,3,"2022-23 2023-24 2024-25","151416"
+"Henry Munro Middle School","Ottawa-Carleton DSB","Elementary",61,3,"2022-23 2023-24 2024-25","252875"
+"Holy Family Elementary School","Ottawa CSB","Elementary",61,3,"2022-23 2023-24 2024-25","741485"
+"Mino Mikan Elementary School","Ottawa-Carleton DSB","Elementary",61,1,"2024-25","200369"
+"Manor Park Public School","Ottawa-Carleton DSB","Elementary",60,3,"2022-23 2023-24 2024-25","332356"
+"Our Lady of Victory Elementary School","Ottawa CSB","Elementary",60,3,"2022-23 2023-24 2024-25","749168"
+"D. Roy Kennedy Public School","Ottawa-Carleton DSB","Elementary",59,3,"2022-23 2023-24 2024-25","131504"
+"Dr F J McDonald Catholic Elementary School","Ottawa CSB","Elementary",58,3,"2022-23 2023-24 2024-25","691100"
+"Jockvale Elementary School","Ottawa-Carleton DSB","Elementary",58,3,"2022-23 2023-24 2024-25","286168"
+"Lester B Pearson Catholic High School","Ottawa CSB","Secondary",57,3,"2022-23 2023-24 2024-25","689181"
+"Our Lady of Mount Carmel Elementary School","Ottawa CSB","Elementary",57,3,"2022-23 2023-24 2024-25","707821"
+"Roberta Bondar Public School","Ottawa-Carleton DSB","Elementary",57,3,"2022-23 2023-24 2024-25","319937"
+"St Brigid Elementary School","Ottawa CSB","Elementary",57,3,"2022-23 2023-24 2024-25","780774"
+"St Elizabeth Elementary School","Ottawa CSB","Elementary",57,3,"2022-23 2023-24 2024-25","789070"
+"St Patrick's High School","Ottawa CSB","Secondary",57,3,"2022-23 2023-24 2024-25","816132"
+"St. John Paul II Elementary School","Ottawa CSB","Elementary",56,3,"2022-23 2023-24 2024-25","750271"
+"York Street Public School","Ottawa-Carleton DSB","Elementary",56,3,"2022-23 2023-24 2024-25","624330"
+"Bells Corners Public School","Ottawa-Carleton DSB","Elementary",55,3,"2022-23 2023-24 2024-25","041670"
+"General Vanier Public School","Ottawa-Carleton DSB","Elementary",55,3,"2022-23 2023-24 2024-25","211583"
+"Centennial Public School","Ottawa-Carleton DSB","Elementary",54,3,"2022-23 2023-24 2024-25","090182"
+"Regina Street Alternative School","Ottawa-Carleton DSB","Elementary",54,3,"2022-23 2023-24 2024-25","480428"
+"Bayshore Public School","Ottawa-Carleton DSB","Elementary",53,3,"2022-23 2023-24 2024-25","036340"
+"Brookfield High School","Ottawa-Carleton DSB","Secondary",53,3,"2022-23 2023-24 2024-25","896705"
+"Robert Bateman Public School","Ottawa-Carleton DSB","Elementary",53,3,"2022-23 2023-24 2024-25","121690"
+"St Luke (Ottawa) Elementary School","Ottawa CSB","Elementary",53,3,"2022-23 2023-24 2024-25","820792"
+"W.E. Gowling Public School","Ottawa-Carleton DSB","Elementary",53,3,"2022-23 2023-24 2024-25","579351"
+"Queen Elizabeth Public School","Ottawa-Carleton DSB","Elementary",52,3,"2022-23 2023-24 2024-25","463523"
+"Manordale Public School","Ottawa-Carleton DSB","Elementary",51,3,"2022-23 2023-24 2024-25","332488"
+"Meadowlands Public School","Ottawa-Carleton DSB","Elementary",51,3,"2022-23 2023-24 2024-25","356409"
+"Sawmill Creek Elementary School","Ottawa-Carleton DSB","Elementary",51,3,"2022-23 2023-24 2024-25","474444"
+"Convent Glen Elementary School","Ottawa-Carleton DSB","Elementary",50,3,"2022-23 2023-24 2024-25","121940"
+"Dunlop Public School","Ottawa-Carleton DSB","Elementary",50,3,"2022-23 2023-24 2024-25","153508"
+"Prince of Peace Elementary School","Ottawa CSB","Elementary",49,3,"2022-23 2023-24 2024-25","711721"
+"Featherston Drive Public School","Ottawa-Carleton DSB","Elementary",46,3,"2022-23 2023-24 2024-25","193640"
+"Robert E.  Wilson Public School","Ottawa-Carleton DSB","Elementary",46,3,"2022-23 2023-24 2024-25","487317"
+"St Michael Elementary School","Ottawa CSB","Elementary",46,3,"2022-23 2023-24 2024-25","833010"
+"Cambridge Street Community Public School","Ottawa-Carleton DSB","Elementary",44,3,"2022-23 2023-24 2024-25","076511"
+"Gloucester High School","Ottawa-Carleton DSB","Secondary",44,3,"2022-23 2023-24 2024-25","913472"
+"Metcalfe Public School","Ottawa-Carleton DSB","Elementary",44,3,"2022-23 2023-24 2024-25","423874"
+"Arch Street Public School","Ottawa-Carleton DSB","Elementary",43,3,"2022-23 2023-24 2024-25","020354"
+"Ridgemont High School","Ottawa-Carleton DSB","Secondary",42,3,"2022-23 2023-24 2024-25","938564"
+"Charles H. Hulse Public School","Ottawa-Carleton DSB","Elementary",41,3,"2022-23 2023-24 2024-25","101869"
+"Pinecrest Public School","Ottawa-Carleton DSB","Elementary",40,3,"2022-23 2023-24 2024-25","444936"
+"Riverview Alternative School","Ottawa-Carleton DSB","Elementary",40,3,"2022-23 2023-24 2024-25","487180"
+"Carleton Heights Public School","Ottawa-Carleton DSB","Elementary",35,3,"2022-23 2023-24 2024-25","084832"
+"Queen Mary Street Public School","Ottawa-Carleton DSB","Elementary",34,3,"2022-23 2023-24 2024-25","465089"
+"Sir Guy Carleton Secondary School","Ottawa-Carleton DSB","Secondary",34,3,"2022-23 2023-24 2024-25","942952"
+"Blossom Park Public School","Ottawa-Carleton DSB","Elementary",28,3,"2022-23 2023-24 2024-25","055069"
+"Carson Grove Elementary School","Ottawa-Carleton DSB","Elementary",24,3,"2022-23 2023-24 2024-25","086240"
+"Hawthorne Public School","Ottawa-Carleton DSB","Elementary",23,3,"2022-23 2023-24 2024-25","250848"
+"Ottawa Technical Secondary School","Ottawa-Carleton DSB","Secondary",22,3,"2022-23 2023-24 2024-25","925403"
+"Adult High School","Ottawa-Carleton DSB","Secondary",13,3,"2022-23 2023-24 2024-25","947210"

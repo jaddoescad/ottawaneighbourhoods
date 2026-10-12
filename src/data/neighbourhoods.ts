@@ -161,113 +161,91 @@ export interface NeighbourhoodBoundary {
   sourceUrl: string; // URL for citation
 }
 
-export interface CategoryScores {
-  safety: number | null;          // Crime, collisions, overdose (25%)
-  schools: number | null;         // EQAO, school availability (15%)
-  healthEnvironment: number | null; // Tree canopy, healthcare, food safety (15%)
-  amenities: number | null;       // Parks, grocery, recreation, libraries (10%)
-  community: number | null;       // NEI score, road quality (10%)
-  nature: number | null;          // Trails, cycling, green space (10%)
-  affordability: number | null;   // Rent, home prices (10%)
-  walkability: number | null;     // Walk/transit/bike scores (5%)
-}
+export type CategoryKey =
+  | 'safety'
+  | 'schools'
+  | 'amenities'
+  | 'gettingAround'
+  | 'nature'
+  | 'affordability'
+  | 'healthEnvironment';
 
-export interface ScoreWeights {
-  safety: number;           // 30%
-  schools: number;          // 12%
-  healthEnvironment: number; // 15%
-  amenities: number;        // 8%
-  community: number;        // 15%
-  nature: number;           // 10%
-  affordability: number;    // 7%
-  walkability: number;      // 3%
-}
+/** 0-100 per category; null when too little data (see categoryCoverage). */
+export type CategoryScores = Record<CategoryKey, number | null>;
 
-export interface MetricScores {
-  // Safety metrics (crime is weighted: violent 50%, property 30%, other 20%)
-  crime: number | null;
-  violentCrime: number | null;
-  propertyCrime: number | null;
-  collisions: number | null;
-  overdose: number | null;
-  // School metrics
-  eqao: number | null;
-  schoolCount: number | null;
-  // Health & Environment metrics
-  treeCanopy: number | null;
-  hospital: number | null;
-  primaryCare: number | null;
+/** Category weights, summing to 1. Defined in src/data/scoring-config.json. */
+export type ScoreWeights = Record<CategoryKey, number>;
+
+/** Share (0-1) of a category's metric weight that had data. */
+export type CategoryCoverage = Record<CategoryKey, number>;
+
+export type MetricKey =
+  | 'violentCrime'
+  | 'propertyCrime'
+  | 'roadSafety'
+  | 'elementaryEqao'
+  | 'secondaryEqao'
+  | 'elementaryDistance'
+  | 'groceryAccess'
+  | 'parkAccess'
+  | 'diningAccess'
+  | 'recreationAccess'
+  | 'libraryDistance'
+  | 'transitFrequency'
+  | 'downtownDistance'
+  | 'bikewayAccess'
+  | 'highwayAccess'
+  | 'treeCanopy'
+  | 'greenspaceAccess'
+  | 'parklandPerResident'
+  | 'rent'
+  | 'homePrice'
+  | 'emergencyAccess'
+  | 'overdose'
+  | 'noiseExposure'
+  | 'primaryCareAccess';
+
+export type MetricScores = Record<MetricKey, number | null>;
+export type RawMetricValues = Record<MetricKey, number | null>;
+
+export interface ContextValues {
+  allCrimeRate: number | null;
+  commercialAreaCrime: number | null;
+  violentCrimeUnadjusted: number | null;
+  propertyCrimeUnadjusted: number | null;
+  allCollisions: number | null;
+  seriousCollisions: number | null;
+  roadSafetyUnadjusted: number | null;
+  overdoseUnadjusted: number | null;
+  schoolsInBoundary: number | null;
+  walkScore: number | null;
+  bikeScore: number | null;
+  longCommutePct: number | null;
+  pavementAge: number | null;
   foodSafety: number | null;
-  // Amenity metrics
-  parks: number | null;
-  grocery: number | null;
-  dining: number | null;
-  recreation: number | null;
-  libraries: number | null;
-  // Community metrics
-  nei: number | null;
-  roadQuality: number | null;
-  quietScore: number | null;
-  serviceRequests: number | null;
-  highway: number | null;
-  // Nature metrics
-  trails: number | null;
-  cycling: number | null;
-  // Affordability metrics
-  rent: number | null;
-  homePrice: number | null;
-  foodCostBurden: number | null;
-  // Walkability metrics
-  walk: number | null;
-  transit: number | null;
-  bike: number | null;
+  marketRent: number | null;
+  marketHomePrice: number | null;
+  censusRent2021: number | null;
+  censusHomeValue2021: number | null;
+  neiScore: number | null;
+  serviceRequestRate: number | null;
+  residentialAddresses: number | null;
+  dwellingsEstimate: number | null;     // address points x dwelling weight (2021 Census-calibrated)
+  populationEstimate: number | null;    // 2021 Census population grown with new dwellings, today
+  crimePopulation: number | null;       // same, at the crime data period (denominator for crime rates)
+  apartmentAddressWeight: number | null; // dwellings per apartment-zone address
+  notes: {
+    marketRent: string | null;
+    marketHomePrice: string | null;
+  };
 }
 
-export interface RawMetricValues {
-  // Crime rates per 1,000 residents
-  crime: number | null; // Total crime rate
-  violentCrime: number | null;
-  propertyCrime: number | null;
-  otherCrime: number | null;
-  collisions: number | null;
-  overdose: number | null;
-  eqao: number | null;
-  schoolCount: number | null;
-  treeCanopy: number | null;
-  hospital: number | null;
-  primaryCare: number | null;
-  foodSafety: number | null;
-  // Amenities - scoring value (density for urban, count for suburban)
-  parks: number | null;
-  grocery: number | null;
-  dining: number | null;
-  recreation: number | null;
-  // Amenity counts (absolute numbers)
-  parksCount: number;
-  groceryCount: number;
-  diningCount: number;
-  recreationCount: number;
-  // Amenity densities (per km²)
-  parksDensity: number;
-  groceryDensity: number;
-  diningDensity: number;
-  recreationDensity: number;
-  // Whether this is an urban area (>2000/km²)
-  isUrban: boolean;
-  libraries: number | null; // km to nearest library
-  nei: number | null;
-  roadQuality: number | null;
-  quietScore: number | null;
-  serviceRequests: number | null;
-  highway: number | null;
-  trails: number | null;
-  cycling: number | null;
-  rent: number | null;
-  homePrice: number | null;
-  foodCostBurden: number | null;
-  walk: number | null;
-  transit: number | null;
-  bike: number | null;
+export type TierKey = 'top10' | 'top25' | 'top50' | 'bottom50';
+
+export interface RankRange {
+  best: number;
+  worst: number;
+  median: number;
 }
 
 export interface Neighbourhood {
@@ -282,11 +260,11 @@ export interface Neighbourhood {
   dataYear: number; // Year of census data (2021)
   dataSource: string; // "Statistics Canada 2021 Census via ONS-SQO" or "City of Ottawa POPEST"
   medianIncome: number;
-  avgRent: number;
-  avgHomePrice: number;
-  walkScore: number;      // 0-100 walkability score
-  transitScore: number;   // 0-100 transit accessibility score
-  bikeScore: number;      // 0-100 bikeability score
+  avgRent: number | null;      // 2021 Census median rent x citywide market factor
+  avgHomePrice: number | null; // 2021 Census median value x citywide market factor
+  walkScore: number;    // Official Walk Score (ONS-SQO population-weighted mean)
+  transitScore: number; // Peak transit frequency metric score (OC Transpo GTFS)
+  bikeScore: number | null; // Official Bike Score (ONS-SQO population-weighted mean); null where ONS publishes none
   // Demographics from 2021 Census
   pctChildren: number;    // % of population aged 0-14 (families with children indicator)
   pctYoungProfessionals: number | null; // % of population aged 25-44
@@ -476,9 +454,16 @@ export interface Neighbourhood {
   boundaries: NeighbourhoodBoundary[];
   overallScore: number;
   categoryScores: CategoryScores;
+  categoryCoverage: CategoryCoverage;
   scoreWeights: ScoreWeights;
   metricScores: MetricScores;
   rawMetricValues: RawMetricValues;
+  contextValues: ContextValues;
+  scoreIncomplete: boolean;
+  missingCategories: CategoryKey[];
+  rank: number;
+  rankRange: RankRange;
+  tier: TierKey;
 }
 
 export const neighbourhoods: Neighbourhood[] = data.neighbourhoods as Neighbourhood[];
