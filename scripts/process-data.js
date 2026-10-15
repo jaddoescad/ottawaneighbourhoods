@@ -743,6 +743,7 @@ async function main() {
       avgRent: parseInt(entry.census_general_average_monthly_shelter_costs_for_rented_dwellings) || 0,
       medianHomeValue: parseInt(entry.census_general_median_value_of_owned_dwellings) || 0,
       medianRent: parseInt(entry.census_general_median_monthly_shelter_costs_for_rented_dwellings) || null,
+      pctTenantsSubsidized: entry.census_general_percent_of_tenant_households_in_subsidized_housing === '' ? null : parseFloat(entry.census_general_percent_of_tenant_households_in_subsidized_housing),
       longCommutePct: parseFloat(entry.census_general_percent_of_workers_who_commute_for_60_minutes_and_over),
       pctCoreHousingNeed: parseFloat(entry.census_general_percent_of_households_living_in_core_housing_need) || 0,
       // Diversity
@@ -2139,10 +2140,15 @@ async function main() {
   for (const n of neighbourhoods) {
     const ids = (neighbourhoodMapping[n.id] && neighbourhoodMapping[n.id].onsSqoIds) || [];
     const census = ids.map(id => onsCensusBySqoId[id]).find(Boolean);
-    censusHousingById[n.id] = { rent: census ? census.medianRent : null, value: census ? census.medianHomeValue || null : null };
+    censusHousingById[n.id] = {
+      rent: census ? census.medianRent : null,
+      value: census ? census.medianHomeValue || null : null,
+      subsidized: census && Number.isFinite(census.pctTenantsSubsidized) ? census.pctTenantsSubsidized : null,
+    };
   }
   const affordability = computeAffordability({ csvDir, censusById: censusHousingById });
   console.log(`  Affordability factors: rent x${affordability.rentFactor} (${affordability.rentSamples} sourced), home value x${affordability.valueFactor} (${affordability.valueSamples} sourced)`);
+  console.log(`  Subsidized housing: census rent +$${affordability.subsidySlope} per point of tenants in subsidized housing`);
 
   const roadStatsPath = path.join(csvDir, 'road_stats_by_neighbourhood.csv');
   const roadStatsById = fs.existsSync(roadStatsPath)

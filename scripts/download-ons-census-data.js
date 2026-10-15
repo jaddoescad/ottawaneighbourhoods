@@ -49,6 +49,7 @@ const KEY_INDICATORS = [
   'census_general_percent_of_owner_households',
   'census_general_average_monthly_shelter_costs_for_rented_dwellings',
   'census_general_median_monthly_shelter_costs_for_rented_dwellings',
+  'census_general_percent_of_tenant_households_in_subsidized_housing',
   'census_general_average_monthly_shelter_costs_for_owned_dwellings',
   'census_general_median_value_of_owned_dwellings',
   'census_general_average_value_of_owned_dwellings',

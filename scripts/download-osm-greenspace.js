@@ -10,6 +10,9 @@
  * Source: Overpass API (OpenStreetMap contributors, ODbL)
  * Output: src/data/csv/osm_greenspace_edge_points.csv (osmId, name, kind, areaHa, lat, lng)
  *         boundary points every 50 m for areas >= 4 ha
+ *
+ * Note: `out geom;` (not `out geom tags;`): the "tags" verbosity drops relation members,
+ * which silently dropped every park mapped as a multipolygon relation.
  */
 
 const fs = require('fs');
@@ -32,7 +35,7 @@ area["name"="Ottawa"]["admin_level"="6"]->.a;
   way["leisure"~"^(park|nature_reserve)$"](area.a);
   relation["leisure"~"^(park|nature_reserve)$"](area.a);
 );
-out geom tags;`;
+out geom;`;
 
 async function fetchOverpass() {
   for (const url of MIRRORS) {

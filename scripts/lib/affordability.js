@@ -3,6 +3,10 @@
  * scaled to today's market with one citywide factor per measure:
  *   factor = median over neighbourhoods of (sourced recent figure / census figure)
  * Hand-collected figures marked as estimates are never used for the factor.
+ *
+ * Subsidized units pull a census median rent below what someone moving in would pay,
+ * so census rent first adds back the citywide effect of the share of tenants in
+ * subsidized housing (the slope of median rent on that share across neighbourhoods).
  */
 
 const path = require('path');
@@ -22,7 +26,29 @@ function median(values) {
  * @param {string} opts.csvDir
  * @param {Record<string, {rent: number|null, value: number|null}>} opts.censusById  population-weighted census medians
  */
-function computeAffordability({ csvDir, censusById }) {
+/** Slope of census median rent on % of tenants in subsidized housing (<= 0), across neighbourhoods. */
+function subsidySlope(censusById) {
+  const rows = Object.values(censusById).filter((c) => Number.isFinite(c.rent) && Number.isFinite(c.subsidized));
+  if (rows.length < 10) return 0;
+  const mx = rows.reduce((s, c) => s + c.subsidized, 0) / rows.length;
+  const my = rows.reduce((s, c) => s + c.rent, 0) / rows.length;
+  let sxy = 0;
+  let sxx = 0;
+  for (const c of rows) {
+    sxy += (c.subsidized - mx) * (c.rent - my);
+    sxx += (c.subsidized - mx) ** 2;
+  }
+  return sxx > 0 ? Math.min(0, sxy / sxx) : 0;
+}
+
+function computeAffordability({ csvDir, censusById: rawCensusById }) {
+  const slope = subsidySlope(rawCensusById);
+  const censusById = Object.fromEntries(
+    Object.entries(rawCensusById).map(([id, c]) => [
+      id,
+      { ...c, rawRent: c.rent, rent: c.rent ? Math.round(c.rent - slope * (c.subsidized || 0)) : c.rent },
+    ])
+  );
   const rentRows = Object.fromEntries(readCSV(path.join(csvDir, 'rent_data.csv')).map((r) => [r.id, r]));
   const priceRows = Object.fromEntries(readCSV(path.join(csvDir, 'home_prices.csv')).map((r) => [r.id, r]));
 
@@ -44,7 +70,7 @@ function computeAffordability({ csvDir, censusById }) {
     out[id] = {
       rent: census.rent && rentFactor ? Math.round((census.rent * rentFactor) / 10) * 10 : null,
       homePrice: census.value && valueFactor ? Math.round((census.value * valueFactor) / 1000) * 1000 : null,
-      censusRent2021: census.rent || null,
+      censusRent2021: census.rawRent || null,
       censusHomeValue2021: census.value || null,
       marketRent: r ? Number(r.avgRent) || null : null,
       marketRentSource: r ? r.rentSource : null,
@@ -59,6 +85,7 @@ function computeAffordability({ csvDir, censusById }) {
     rentFactor: rentFactor && Math.round(rentFactor * 1000) / 1000,
     valueFactor: valueFactor && Math.round(valueFactor * 1000) / 1000,
     rentSamples: rentRatios.length,
+    subsidySlope: Math.round(-slope * 100) / 100,
     valueSamples: valueRatios.length,
   };
 }
