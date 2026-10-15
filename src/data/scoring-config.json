@@ -256,7 +256,7 @@
           "format": "currency",
           "direction": "lower",
           "breakpoints": [[1300, 100], [1600, 80], [1900, 60], [2200, 40], [2600, 20], [3200, 0]],
-          "description": "2021 Census median monthly rent, scaled to today's market by one citywide factor (median ratio of sourced 2024-25 listings to 2021 Census rents).",
+          "description": "2021 Census median monthly rent, adjusted for the share of tenants in subsidized housing (which pulls a census median below what someone moving in would pay), then scaled to today's market by one citywide factor (median ratio of sourced 2024-25 listings to 2021 Census rents).",
           "source": "Statistics Canada 2021 Census via ONS-SQO; Zumper / CMHC / RentCafe listings for the citywide factor"
         },
         {
